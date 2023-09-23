@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/home.css">
+    <title>Admin Dashboard</title>
+
+</head>
+<body>
+    <div id="navbar-container"></div>
+<script>
+        fetch('navBar.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('navbar-container').innerHTML = html;
+            })
+            .catch(error => console.error('Error fetching navbar:', error));
+    </script>
+    <div class="container">
+        <h1 class="heading">Options</h1>
+
+        <div class="box-container">
+            <div class="box">
+                <h2>Employee</h2>
+                <a href="#" class="btn">Enter</a>
+            </div>
+            <div class="box">
+                <h2>Tickets</h2>
+                <a href="#" class="btn">Enter</a>
+            </div>
+            <div class="box">
+                <h2>Request</h2>
+                <a href="#" class="btn">Enter</a>
+            </div>
+            <div class="box">
+                <h2>Halls</h2>
+                <a href="#" class="btn">Enter</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

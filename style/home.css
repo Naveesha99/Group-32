@@ -15,23 +15,23 @@
     z-index: 100;
 }
 
-.btn{
-    height: 35px;
-    background: #7B0303;
-    border: 0;
-    border-radius: 5px;
-    color: #fff;
-    font-size: 15px;
-    cursor: pointer;
-    transition: all .3s;
-    margin-top: 10px;
-    padding: 0px 10px;
-}
-main{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 60px;
+.container{
+    padding: 15px 9%;
+    padding-bottom: 100px;
 }
 
+.container .heading{
+    text-align: center;
+    padding-bottom: 15px;
+    color: black;
+}
 
+.container .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 15px;
+}
+
+.container .box-container .box{
+    box-shadow: 0 5px 10px gray;
+}
