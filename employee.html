@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee</title>
+</head>
+<body>
+    <div id="navbar-container"></div>
+<script>
+        fetch('navBar.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('navbar-container').innerHTML = html;
+            })
+            .catch(error => console.error('Error fetching navbar:', error));
+    </script>
+
+    <form action="" method="post">
+        <h1>Create Employee</h1>
+        <div class="field input">
+            <label for="name">Name :</label>
+            <input type="text" name="name" id="name" required>
+        </div>
+        <div class="field input">
+            <label for="email">Email :</label>
+            <input type="text" name="email" id="email" required>
+        </div>
+        <div class="field input">
+            <label for="nic">NIC No :</label>
+            <input type="text" name="nic" id="nic" required>
+        </div>
+        <div class="field input">
+            <label for="contact">Contact Number :</label>
+            <input type="text" name="contact" id="contact" >
+        </div>
+        <div class="field input">
+            <label for="roll">Employee Roll :</label>
+            <input type="text" name="roll" id="roll" >
+        </div>
+        <div class="field input">
+            <label for="birthday">Contact Number :</label>
+            <input type="date" name="birthday" id="birthday" >
+        </div>
+        <div class="field">
+            <input type="submit" class="btn" name="submit" value="CREATE" required>
+        </div>
+    </form>
+</body>
+</html>

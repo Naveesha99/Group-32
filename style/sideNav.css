@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css?family=Barlow');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Barlow', sans-serif;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    position: fixed;
+    width: 270px;
+    height: 100%;
+    min-height: 350px;
+    color: white;
+    background: rgba(0, 0, 0, 0.8);
+    transition: ease-in 0.3s;
+    z-index: 100;
+}
+
+nav span{
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 17px;
+    font-weight: 600;
+    overflow: hidden;
+}
+
+.sidebar-menu{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 70%;
+    width: 100%;
+    list-style: none;
+    overflow: hidden;
+}
+
+.sidebar-menu li {
+   text-align: center;
+   width: 100%; 
+}
+
+.sidebar-menu li a {
+    display: inline-flex;
+    align-items: center;
+    width: 95%;
+    padding: 5px 15px;
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    transition: ease-in 0.2s;
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-radius: 5px;
+}
+
+.sidebar-menu li a:hover {
+    color: #7B0303;
+    border: 1px solid white;
+}
+
+.sidebar-menu li a i{
+    margin: 0 18px;
+    width: 20px;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: absolute;
+    top: 0;
+    left: 270px;
+    height: 100vh;
+    width: calc(100% - 270px);
+    padding: 30px;
+    transition: ease-in0.3s;
+}
+
+.toggle-btn {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 18px;
+    right: -39px;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    background: rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+    border: none;
+    color: white;
+    transition: linear 0.2s;
+}
+
+.toggle-btn:hover {
+    
+}

@@ -34,9 +34,10 @@ nav ul li{
 nav ul li a{
     color: black;
     font-size: 17px;
+    font-weight: 500;
     text-transform: uppercase;
 }
 
 a.active,a:hover{
-    color: blue;
+    color: #7B0303;
 }
