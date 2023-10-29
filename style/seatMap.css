@@ -27,6 +27,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 15px;
 }
 
 .row {
@@ -38,7 +39,7 @@
 .seat {
     width: 30px;
     height: 30px;
-    background-color: #B4B4B4;
+    background-color: #2bff00;
     border: 1px solid #999;
     margin: 5px;
     cursor: pointer;
@@ -51,5 +52,15 @@
 
 .unavailable {
     background-color: #ccc;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #999;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
     cursor: not-allowed;
 }
