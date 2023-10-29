@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css?family=Barlow');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Barlow', sans-serif;
+}
+
+.sidebar {
+    position: absolute;
+    left: 0;
+    width: 60px;
+    height: 100vh;
+    background: #D9D9D9;
+    overflow: hidden;
+    position: 0.5s; 
+}
+
+.sidebar:hover{
+    width: 300px;
+}
+
+.sidebar header {
+    font-size: 22px;
+    color: white;
+    text-align: center;
+    line-height: 70px;
+    background: #7B0303;
+    user-select: none;
+}
+
+.sidebar ul li a {
+    position: relative;
+    display: flex;
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+ul li:hover a {
+    padding-left: 30px;
+}
+
+.sidebar ul li a .icon{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 60px;
+    height: 60px;
+    font-size: 20px;
+    color: #333;
+}
+
+.sidebar ul li a .text {
+    position: relative;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
