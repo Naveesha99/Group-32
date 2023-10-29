@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style/reports.css">
+
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="navbar-container"></div>
+    <script>
+            fetch('navBar.html')
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById('navbar-container').innerHTML = html;
+                })
+                .catch(error => console.error('Error fetching navbar:', error));
+        </script>
+
+    <div id="sidebar-container"></div>
+    <script>
+        fetch('sideBar.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('sidebar-container').innerHTML = html;
+            })
+            .catch(error => console.error('Error fetching sidebar:', error));
+    </script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <div class="container">
+        <div class="row">
+            <div class="tile1" onclick="window.location.href = 'dramaReport.html';">
+                <h2>Drama Report</h2>
+            </div>
+            <div class="tile2" onclick="window.location.href = 'theaterReport.html';">
+                <h2>Theater Report</h2>
+            </div>
+            <div class="tile3" onclick="window.location.href = 'employeeReport.html';">
+                <h2>Employee Report</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="tile4" onclick="window.location.href = 'incomeReport.html';">
+                <h2>Income Report</h2>
+            </div>
+            <div class="tile5" onclick="window.location.href = 'feedbackReport.html';">
+                <h2>User Feedbacks</h2>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
