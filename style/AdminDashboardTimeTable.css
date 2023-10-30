@@ -1,0 +1,113 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 20px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.container {
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* gap: 20px; /*added*/
+}
+
+.tile1 {
+    text-align: center;
+    width: 350px;
+    height: 370px;
+    padding: 20px;
+    background-color: #8473B5;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.tile2 {
+    text-align: center;
+    width: 350px;
+    height: 370px;
+    padding: 20px;
+    background-color: #469BA7;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.tile1 img,
+.tile2 img {
+
+    width: 300px;
+    height: 250px;
+}
+
+.tile1 p,
+.tile2 p{
+    font-weight: bold;
+    font-family: 'Barlow', sans-serif;
+}
+
+/* .tile1:hover {
+    background-color: #f0f0f0;
+} */
+.tile1:hover {
+    background-color: #BBA0D5;
+}
+.tile2:hover {
+    background-color: #5DB4BF;
+}
+
+.tile1, .tile2 {
+    flex: 0 0 calc(50% - 25%); /* Two tiles in a row with a 5% gap */
+}
+
+/* Media queries for responsive design */
+
+
+@media (max-width: 768px) {
+    body {
+        background-color: #f0f0f0;  /* Adjust body styles for smaller screens if necessary */
+    }
+
+    .container {
+        flex-direction: column; /* Stack tiles vertically */
+        align-items: center; /* Center-align tiles vertically on smaller screens */
+    }
+
+    .tile1,
+    .tile2 {
+        width: 80%; /* Adjust the width of the tiles as needed */
+        margin: 10px 0; /* Add some space between the stacked tiles */
+    }
+
+    .tile1 img,
+    .tile2 img {
+        max-width: 100%; /* Make the images responsive to the container width */
+        height: auto;  /* Maintain aspect ratio */
+    }
+
+    .tile1 p,
+    .tile2 p {
+        font-size: 16px; /* Adjust the font size for smaller screens */
+    }
+}
+
+
