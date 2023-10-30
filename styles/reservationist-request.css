@@ -1,0 +1,133 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+}
+
+header {
+    background-color: #fff;
+    text-align: center;
+}
+
+nav {
+    background-color: #fff;
+    text-align: right;
+    padding: 10px 0; /* Increase the padding to make the navigation bar taller */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav li {
+    display: inline;
+    margin: 10px;
+    color: brown; /* Set the text color to brown */
+    font-weight: bold; /* Make the text bold */
+    text-decoration: none; /* Remove underlines */
+}
+
+h2 {
+    margin: 20px auto;
+    text-align: center;
+}
+
+h4 {
+    margin: 10px 0;
+    text-align: left;
+}
+
+.container {
+    background-color: #F5D3D3;
+    padding: 70px;
+    margin: 120px;
+    border-radius: 5px;
+}
+
+form {
+    margin: 0px 0;
+    align-items: start;
+    border-radius: 5px;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.input-group {
+    display: flex;
+    justify-content: flex-start;
+    flex-flow: row wrap;
+    margin-bottom: 10px;
+    flex-direction: row;
+    border-radius: 10px;
+
+}
+
+.input-group input {
+    width: 70%;
+
+}
+
+.input-group-label {
+    text-align: left;
+    margin: 8px;
+    width: 25%;
+    justify-items: center;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+input, select, textarea {
+    padding: 20px;
+    margin-bottom: 10px;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+}
+
+textarea {
+    height: 150px;
+}
+
+
+.input-contact {
+    width: 200px;
+    align-items: end;
+    align-items: start;
+    margin-right: 20% ;
+}
+
+.myDiv {
+    text-align: end;
+    
+}
+
+.myDiv button {
+    background-color:#7B0303; /* Set the background color to your desired color (e.g., orange) */
+    color: #FFF; /* Set the text color to white or any other color you prefer */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    text-align: end;
+}
