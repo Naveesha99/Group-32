@@ -38,7 +38,6 @@
 
 body {
 	margin: 0;
-	@extend: %flex;
 	justify-content: center;
 	flex-direction: column;
 	overflow: auto;
@@ -86,7 +85,6 @@ button {
 
 
 .item {
-	@extend %flex;
 	color: var(--main-color);
 	margin-bottom: 14px;
 	font-weight: 500;
@@ -144,7 +142,6 @@ button {
 
 .top-part {
 	padding: 30px;
-	@extend %flex;
 	align-self: flex-end;
 
 	svg {
@@ -161,7 +158,6 @@ button {
 		height: 24px;
 		background-color: #623ce8;
 		color: #fff;
-		@extend %flex;
 		justify-content: center;
 	}
 }
