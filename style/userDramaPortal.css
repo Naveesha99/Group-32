@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css?family=Barlow');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box; 
+    font-family: 'Barlow', sans-serif;
+}
+.articl{
+    width: auto;
+}
+
+h2 {
+    text-align: center;
+    color:#000000;
+    margin: 50px;
+    font-size: 40px;
+    
+}
+
+.image{
+    display: block;
+    text-align: center; 
+    margin: auto;
+    width: 50%;
+}
+.paragraph{
+    align-items: flex-start;
+    margin: 40px;
+    font-size: 20px;
+
+}
