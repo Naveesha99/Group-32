@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style/home.css">
+    <link rel="stylesheet" href="/style/home.css">
     <title>Admin Dashboard</title>
 
 </head>
@@ -17,28 +17,18 @@
             })
             .catch(error => console.error('Error fetching sidebar:', error));
     </script>
-    <div class="container">
-        <h1 class="heading">Options</h1>
+    
+    <div class="background">
+        <img src="/pics/image3.jpg" class="custom-image">
+        <h2>Now Showing</h2>
 
-        <div class="box-container">
-            <div class="box">
-                <h2>Employee</h2>
-                <a href="employee.html" class="btn">Enter</a>
-            </div>
-            <div class="box">
-                <h2>Tickets</h2>
-                <a href="#" class="btn">Enter</a>
-            </div>
-            <div class="box">
-                <h2>Request</h2>
-                <a href="#" class="btn">Enter</a>
-            </div>
-            <div class="box">
-                <h2>Halls</h2>
-                <a href="#" class="btn">Enter</a>
-            </div>
+        <div class="image-container">
+            <img src="/pics/sinhabahu.jpeg" alt="Image 1">
+            <img src="/pics/maname.jpg" alt="Image 2">
+            <img src="/pics/kuweni.jpg" alt="Image 3">
         </div>
     </div>
+
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>

@@ -8,13 +8,15 @@
 }
 
 .sidebar {
+    position: relative;
     position: absolute;
     left: 0;
     width: 60px;
-    height: 100vh;
-    background: #D9D9D9;
+    height: 100%;
+    background: #7B0303;
     overflow: hidden;
-    position: 0.5s; 
+    position: 0.5s;
+    z-index: 1; 
 }
 
 .sidebar:hover{
@@ -49,7 +51,7 @@ ul li:hover a {
     min-width: 60px;
     height: 60px;
     font-size: 20px;
-    color: #333;
+    color: #fff;
 }
 
 .sidebar ul li a .text {
@@ -58,7 +60,7 @@ ul li:hover a {
     display: flex;
     align-items: center;
     font-size: 15px;
-    color: #333;
+    color: #fff;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
