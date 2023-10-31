@@ -1,0 +1,95 @@
+.container {
+    width: 99%; /* Adjust as needed */
+    margin: 0 auto; /* Centers the container */
+    overflow-x: auto; /* Adds horizontal scrolling if the table overflows */
+}
+
+table {
+    width: 100%; /* Table takes full width of its parent container */
+    border-collapse: collapse;
+    table-layout: auto;
+}
+
+th, td {
+    text-align: left;
+    padding: 1%;
+    border: 0.5px solid rgb(0, 0, 0);
+}
+
+th {
+    background-color: #f2f2f2;
+}
+.viewButton{
+background-color: #7B0303;
+color: white;
+}
+.viewButton:hover{
+    background-color: #FF5733;
+}
+
+
+
+
+
+
+
+
+/* Your existing CSS styles for the table can be placed here */
+/* For the modal and its styles, add the following CSS */
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+    background-color: #D9D9D9;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #070707;
+    width: 80%;
+}
+
+.detailsContainer{
+    color: #992828;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 0 5px;
+    border: none;
+    cursor: pointer;
+    background-color: #7B0303;
+    color: white;
+}
+
+button:hover {
+    background-color: #FF5733;
+}
