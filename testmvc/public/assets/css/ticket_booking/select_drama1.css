@@ -1,0 +1,30 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.slideshow-container {
+    max-width: 800px;
+    position: relative;
+    margin: auto;
+    overflow: hidden;
+    height: 500px; /* Set the height of the container to the height of your images */
+}
+
+.mySlides {
+    display: block;
+    opacity: 0;
+    position: absolute;
+    animation: moveTopToBottom 15s linear infinite;
+    border-radius: 50px;
+}
+
+@keyframes moveTopToBottom {
+    0% {
+        opacity: 60%;
+        transform: translateY(-100%);
+    }
+    100% {
+        opacity: 60%;
+        transform: translateY(100%);
+    }
+}
