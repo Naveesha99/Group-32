@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/public/assets/css/admin_employee.css">
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/adminEmployee.css">
     <title>Admin Employee</title>
 </head>
 
@@ -26,13 +26,13 @@
         <h1>Brand</h1>
     </div>
     <ul>
-        <a href="admin_dashboard.html"><li><img src="" alt="">&nbsp; <span>Dashboard</span> </li></a>
-        <a href="admin_drama.html"><li><img src="" alt="">&nbsp; <span>Drama</span> </li></a>
-        <a href="admin_employee.html"><li><img src="" alt="">&nbsp; <span>Employee</span> </li></a>
-        <a href="admin_theater.html"><li><img src="" alt="">&nbsp; <span>Theater</span> </li></a>
-        <a href="admin_requests.html"><li><img src="" alt="">&nbsp; <span>Requests</span> </li></a>
-        <a href="admin_reports.html"><li><img src="" alt="">&nbsp; <span>Reports</span> </li></a>
-        <a href="admin_settings.html"><li><img src="" alt="">&nbsp; <span>Settings</span> </li></a>
+            <a href="<?=ROOT?>/admindashboard"><li><img src="" alt="">&nbsp; <span>Dashboard</span> </li></a>
+            <a href="<?=ROOT?>/admindrama"><li><img src="" alt="">&nbsp; <span>Drama</span> </li></a>
+            <a href="<?=ROOT?>/adminemployee"><li><img src="" alt="">&nbsp; <span>Employee</span> </li></a>
+            <a href="<?=ROOT?>/admindrama"><li><img src="" alt="">&nbsp; <span>Theater</span> </li></a>
+            <a href="<?=ROOT?>/adminrequests"><li><img src="" alt="">&nbsp; <span>Requests</span> </li></a>
+            <a href="<?=ROOT?>/adminreports"><li><img src="" alt="">&nbsp; <span>Reports</span> </li></a>
+            <a href="<?=ROOT?>/adminsettings"><li><img src="" alt="">&nbsp; <span>Settings</span> </li></a>
     </ul>
 </div>
 
