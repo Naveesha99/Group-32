@@ -40,14 +40,14 @@
     <div class="container">
         <div class="content">
             <div class="cards">
-                <a href="addEmployee.html">
+                <a href="<?=ROOT?>/addemployee">
                     <div class="card">
                         <div class="box">
                             <h1>Add Employee</h1>
                         </div>
                     </div>
                 </a>
-                <a href="createTask.html">
+                <a href="<?=ROOT?>/createtask">
                     <div class="card">
                         <div class="box">
                             <h1>Create Tasks</h1>
