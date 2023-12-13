@@ -68,18 +68,6 @@
                     <li class="menu-list-item"><a href="<?=ROOT?>/signup">Sign Up</a></li>
                 </ul>    
             </div>
-            <!-- <div class="profile-container">
-                <img class="profile-picture" src="img/MH Miyazi.png" alt="MH Miyazi">
-                <div class="profile-text-container">
-                    <span class="profile-text">Profile</span>
-                    <i class="fas fa-caret-down"></i>
-                </div>
-                <div class="toggle">
-                    <i class="fas fa-moon toggle-icon"></i>
-                    <i class="fas fa-sun toggle-icon"></i>
-                    <div class="toggle-ball"></div>
-                </div>
-            </div> -->
         </div>
     </div>
     <div class="sidebar">
@@ -104,55 +92,63 @@
                 <h1 class="movie-list-title">NEW RELEASES</h1>
                 <div class="movie-list-wrapper">
                     <div class="movie-list">
+
+                    <form action="select_drama" method="get">
                         <div class="movie-list-item">
                             <img class="movie-list-item-img" src="<?=ROOT?>/assets/images/home/i1.jpg" alt="">
                             <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
-                            <button class="movie-list-item-button">Watch</button>
+                            <button type="submit" class="movie-list-item-button">Watch</button>
                         </div>
+                    </form>
+
+                    <form action="select_drama" method="get">
                         <div class="movie-list-item">
                             <img class="movie-list-item-img" src="<?=ROOT?>/assets/images/home/i2.jpg" alt="">
                             <span class="movie-list-item-title">Star Wars</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
                             <button class="movie-list-item-button">Watch</button>
                         </div>
+                        </form>
+
+                    <form action="select_drama" method="get">
                         <div class="movie-list-item">
                             <img class="movie-list-item-img" src="<?=ROOT?>/assets/images/home/i3.jpg" alt="">
                             <span class="movie-list-item-title">Storm</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
                             <button class="movie-list-item-button">Watch</button>
                         </div>
+                        </form>
+
+                    <form action="select_drama" method="get">
                         <div class="movie-list-item">
                             <img class="movie-list-item-img" src="<?=ROOT?>/assets/images/home/i4.jpg" alt="">
                             <span class="movie-list-item-title">1917</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
                             <button class="movie-list-item-button">Watch</button>
                         </div>
+                        </form>
+                        
+                    <form action="select_drama" method="get">
                         <div class="movie-list-item">
                             <img class="movie-list-item-img" src="<?=ROOT?>/assets/images/home/i5.jpeg" alt="">
                             <span class="movie-list-item-title">Avengers</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
                             <button class="movie-list-item-button">Watch</button>
                         </div>
+                        </form>
+
+                    <form action="select_drama" method="get">
                         <div class="movie-list-item">
                             <img class="movie-list-item-img" src="<?=ROOT?>/assets/images/home/i6.jpg" alt="">
                             <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
                             <button class="movie-list-item-button">Watch</button>
                         </div>
+                        </form>
+
+                    <form action="select_drama" method="get">
                         <div class="movie-list-item">
                             <img class="movie-list-item-img" src="<?=ROOT?>/assets/images/home/i7.jpg" alt="">
                             <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
                             <button class="movie-list-item-button">Watch</button>
                         </div>
+                        </form>
+
                     </div>
                     <i class="fas fa-chevron-right arrow"></i>
                 </div>
@@ -161,55 +157,61 @@
                 <h1 class="movie-list-title">NEW RELEASES</h1>
                 <div class="movie-list-wrapper">
                     <div class="movie-list">
+                    <form action="select_drama" method="get">
                         <div class="movie-list-item">
                             <img class="movie-list-item-img" src="<?=ROOT?>/assets/images/home/i8.jpeg" alt="">
                             <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
                             <button class="movie-list-item-button">Watch</button>
                         </div>
+
+                    <form action="select_drama" method="get">
                         <div class="movie-list-item">
                             <img class="movie-list-item-img" src="<?=ROOT?>/assets/images/home/i9.jpeg" alt="">
                             <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
                             <button class="movie-list-item-button">Watch</button>
                         </div>
+                        </form>
+
+                    <form action="select_drama" method="get">
                         <div class="movie-list-item">
                             <img class="movie-list-item-img" src="<?=ROOT?>/assets/images/home/i10.jpeg" alt="">
                             <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
                             <button class="movie-list-item-button">Watch</button>
                         </div>
+                        </form>
+
+                    <form action="select_drama" method="get">
                         <div class="movie-list-item">
                             <img class="movie-list-item-img" src="<?=ROOT?>/assets/images/home/i1.jpg" alt="">
                             <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
                             <button class="movie-list-item-button">Watch</button>
                         </div>
+                        </form>
+
+                    <form action="select_drama" method="get">
                         <div class="movie-list-item">
                             <img class="movie-list-item-img" src="<?=ROOT?>/assets/images/home/i2.jpg" alt="">
                             <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
                             <button class="movie-list-item-button">Watch</button>
                         </div>
+                        </form>
+
+                    <form action="select_drama" method="get">
                         <div class="movie-list-item">
                             <img class="movie-list-item-img" src="<?=ROOT?>/assets/images/home/i5.jpeg" alt="">
                             <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
                             <button class="movie-list-item-button">Watch</button>
                         </div>
+                        </form>
+
+                    <form action="select_drama" method="get">
                         <div class="movie-list-item">
                             <img class="movie-list-item-img" src="<?=ROOT?>/assets/images/home/i4.jpg" alt="">
                             <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
                             <button class="movie-list-item-button">Watch</button>
                         </div>
+                        </form>
+
                     </div>
                     <i class="fas fa-chevron-right arrow"></i>
                 </div>
@@ -217,120 +219,133 @@
             <div class="featured-content"
                 style="background: linear-gradient(to bottom, rgba(0,0,0,0), #151515), url('<?=ROOT?>/assets/images/home/i11.jpg');">
                 <img class="featured-title" src="img/i11.jpg" alt="">
-                <p class="featured-desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto illo dolor
-                    deserunt nam assumenda ipsa eligendi dolore, ipsum id fugiat quo enim impedit, laboriosam omnis
-                    minima voluptatibus incidunt. Accusamus, provident.</p>
                 <button class="featured-button">WATCH</button>
             </div>
             <div class="movie-list-container">
                 <h1 class="movie-list-title">NEW RELEASES</h1>
                 <div class="movie-list-wrapper">
                     <div class="movie-list">
+
+                    <form action="select_drama" method="get">
                         <div class="movie-list-item">
                             <img class="movie-list-item-img" src="<?=ROOT?>/assets/images/home/i1.jpg" alt="">
                             <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
                             <button class="movie-list-item-button">Watch</button>
                         </div>
+                        </form>
+
+                    <form action="select_drama" method="get">
                         <div class="movie-list-item">
                             <img class="movie-list-item-img" src="<?=ROOT?>/assets/images/home/i10.jpeg" alt="">
                             <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
                             <button class="movie-list-item-button">Watch</button>
                         </div>
+                        </form>
+
+                    <form action="select_drama" method="get">
                         <div class="movie-list-item">
                             <img class="movie-list-item-img" src="<?=ROOT?>/assets/images/home/i8.jpeg" alt="">
                             <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
                             <button class="movie-list-item-button">Watch</button>
                         </div>
+                        </form>
+
+                    <form action="select_drama" method="get">
                         <div class="movie-list-item">
                             <img class="movie-list-item-img" src="<?=ROOT?>/assets/images/home/i3.jpg" alt="">
                             <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
                             <button class="movie-list-item-button">Watch</button>
                         </div>
+                        </form>
+
+                    <form action="select_drama" method="get">
                         <div class="movie-list-item">
                             <img class="movie-list-item-img" src="<?=ROOT?>/assets/images/home/i7.jpg" alt="">
                             <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
                             <button class="movie-list-item-button">Watch</button>
                         </div>
+                        </form>
+
+                    <form action="select_drama" method="get">
                         <div class="movie-list-item">
                             <img class="movie-list-item-img" src="<?=ROOT?>/assets/images/home/i5.jpeg" alt="">
                             <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
                             <button class="movie-list-item-button">Watch</button>
                         </div>
+                        </form>
+
+                    <form action="select_drama" method="get">
                         <div class="movie-list-item">
                             <img class="movie-list-item-img" src="<?=ROOT?>/assets/images/home/i9.jpeg" alt="">
                             <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
                             <button class="movie-list-item-button">Watch</button>
                         </div>
+                        </form>
+
                     </div>
                     <i class="fas fa-chevron-right arrow"></i>
                 </div>
             </div>
             <div class="movie-list-container">
-                <h1 class="movie-list-title">NEW RELEASES</h1>
+                <h1 class="movie-list-title">UP COMING</h1>
                 <div class="movie-list-wrapper">
                     <div class="movie-list">
+
+                    <form action="select_drama" method="get">
                         <div class="movie-list-item">
                             <img class="movie-list-item-img" src="<?=ROOT?>/assets/images/home/i10.jpeg" alt="">
                             <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
                             <button class="movie-list-item-button">Watch</button>
                         </div>
+                        </form>
+
+                    <form action="select_drama" method="get">
                         <div class="movie-list-item">
                             <img class="movie-list-item-img" src="<?=ROOT?>/assets/images/home/i6.jpg" alt="">
                             <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
                             <button class="movie-list-item-button">Watch</button>
                         </div>
+                        </form>
+
+                        <form action="select_drama" method="get">
                         <div class="movie-list-item">
                             <img class="movie-list-item-img" src="<?=ROOT?>/assets/images/home/i1.jpg" alt="">
                             <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
                             <button class="movie-list-item-button">Watch</button>
                         </div>
+                        </form>
+
+                        <form action="select_drama" method="get">
                         <div class="movie-list-item">
                             <img class="movie-list-item-img" src="<?=ROOT?>/assets/images/home/i8.jpg" alt="">
                             <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
                             <button class="movie-list-item-button">Watch</button>
                         </div>
+                        </form>
+
+                        <form action="select_drama" method="get">
                         <div class="movie-list-item">
                             <img class="movie-list-item-img" src="<?=ROOT?>/assets/images/home/i3.jpg" alt="">
                             <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
                             <button class="movie-list-item-button">Watch</button>
                         </div>
+                        </form>
+
+                        <form action="select_drama" method="get">
                         <div class="movie-list-item">
                             <img class="movie-list-item-img" src="<?=ROOT?>/assets/images/home/i7.jpg" alt="">
                             <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At hic fugit similique accusantium.</p>
                             <button class="movie-list-item-button">Watch</button>
                         </div>
+                        </form>
+
+                        <form action="select_drama" method="get">
                         <div class="movie-list-item">
                             <img class="movie-list-item-img" src="<?=ROOT?>/assets/images/home/i2.jpg" alt="">
                             <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
                             <button class="movie-list-item-button">Watch</button>
                         </div>
+                        </form>
                     </div>
                     <i class="fas fa-chevron-right arrow"></i>
                 </div>
