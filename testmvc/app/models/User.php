@@ -12,6 +12,7 @@ class User
 	protected $table = 'users';
 
 	protected $allowedColumns = [
+		'id',
 		'fullname',
 		'username',
 		'email',
