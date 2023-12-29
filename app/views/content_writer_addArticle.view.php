@@ -5,19 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Educational Portal Article Submission </title>
-    <link rel="stylesheet" href="/public/assets/css/content_writer_addArticle.css">
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/content_writer_addArticle.css">
 </head>
 
-<!-- <div class="side-menu">
+ <!-- <div class="side-menu">
     <div class="brand-name">
         <h1>Brand</h1>
     </div>
     <ul>
-        <a href="admin_dashboard.html"><li><img src="" alt="">&nbsp; <span>Dashboard</span> </li></a>
-        <a href="admin_drama.html"><li><img src="" alt="">&nbsp; <span>Drama</span> </li></a>
-        <a href="admin_employee.html"><li><img src="" alt="">&nbsp; <span>Employee</span> </li></a>
-        <a href="admin_theater.html"><li><img src="" alt="">&nbsp; <span>Theater</span> </li></a>
-        <a href="admin_requests.html"><li><img src="" alt="">&nbsp; <span>Requests</span> </li></a>
+        <a href="admin_dashboard.html"><li><img src="" alt="">&nbsp; <span>Profile</span> </li></a>
+        <a href="content_writer_addArticle.html"><li><img src="" alt="">&nbsp; <span> New Article</span> </li></a>
+        <a href="CWAllArticle.html"><li><img src="" alt="">&nbsp; <span>All Articles</span> </li></a>
+        <a href="admin_theater.html"><li><img src="" alt="">&nbsp; <span>Draft</span> </li></a>
+         <a href="admin_requests.html"><li><img src="" alt="">&nbsp; <span>Requests</span> </li></a>
         <a href="admin_reports.html"><li><img src="" alt="">&nbsp; <span>Reports</span> </li></a>
         <a href="admin_settings.html"><li><img src="" alt="">&nbsp; <span>Settings</span> </li></a>
     </ul>
