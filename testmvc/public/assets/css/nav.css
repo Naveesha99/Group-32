@@ -55,3 +55,18 @@
     background: white;
     color: rgba(195, 98, 1, 0.973);
 } */
+
+@media screen and (max-width:536px){
+
+    .brand-name h1{
+        font-size: 16px;
+    }
+    
+    .side-menu li img{
+        width: 30px;
+        height: 30px;
+    }
+    .header{
+        display: none;
+    }
+}
