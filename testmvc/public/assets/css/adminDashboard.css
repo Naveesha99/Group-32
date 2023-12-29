@@ -134,7 +134,7 @@ td {
 }
 
 select {
-    width: 150px; /* Set the width of the dropdown */
+    width: 150px; 
     padding: 5px;
     font-size: 16px;
     border: 1px solid #ccc;
@@ -142,12 +142,11 @@ select {
     box-sizing: border-box;
 }
 
-/* Style for the dropdown options */
 option {
     font-size: 14px;
 }
   
-/* Optional: Style for the label */
+
 label {
     display: block;
     margin-bottom: 8px;
@@ -155,6 +154,7 @@ label {
 
 
 @media screen and (max-width:536px) {
+
     .container .content .cards {
         justify-content: center;
     }
