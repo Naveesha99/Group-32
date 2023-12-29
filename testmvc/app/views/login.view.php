@@ -12,7 +12,7 @@
 			<div class="left">
 				<!-- <div class="top_link"><a href="#"><img src="/public/styles/images/login.jpg" alt="">Return home</a></div> -->
 				<div class="contact">
-					<form action="">
+					<form method="POST">
 						<h3 class="log">LOG IN</h3>
 						<input type="text" name="username" placeholder="USERNAME">
 						<input type="password" name="password" placeholder="PASSWORD">
