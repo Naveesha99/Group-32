@@ -52,6 +52,7 @@ td {
 }
 
 .navbar {
+    /* position: absolute; */
     background-color: #333;
     overflow: hidden;
 }
@@ -102,7 +103,7 @@ td {
     background: #f1f1f1;
 }
 
-.container .add-employee {
+.container .create-task {
     margin-top: 100px;
     max-width: 600px;
     height: 100%;
@@ -111,14 +112,14 @@ td {
     background-color: #d7cec7;
   }
   
-.container .add-employee label {
+.container .create-task label {
     display: block;
     margin-bottom: 8px;
     margin-left: 20px;
     font-weight: bold;
   }
   
-.container .add-employee input {
+.container .create-task input {
     width: 80%;
     padding: 8px;
     margin-bottom: 16px;
