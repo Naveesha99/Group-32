@@ -25,11 +25,11 @@
     <div class="header">
         <div class="nav">
           <div class="navbar">
-            <a href="#home">About</a>
-            <a href="#about">Theater</a>
-            <a href="#services">Drama</a>
-            <a href="#contact">Drama Portal</a>
-            <a href="#contact">Home</a>
+            <a href="#about">About</a>
+            <a href="#theater">Theater</a>
+            <a href="#drama">Drama</a>
+            <a href="#dramaportal">Drama Portal</a>
+            <a href="#home">Home</a>
         </div>
         </div>
       </div>
