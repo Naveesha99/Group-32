@@ -9,32 +9,7 @@
     <title>Admin Employee</title>
 </head>
 
-<div class="header">
-    <div class="nav">
-      <div class="navbar">
-        <a href="#home">About</a>
-        <a href="#about">Theater</a>
-        <a href="#services">Drama</a>
-        <a href="#contact">Drama Portal</a>
-        <a href="#contact">Home</a>
-    </div>
-    </div>
-  </div>
-  
-<div class="side-menu">
-    <div class="brand-name">
-        <h1>Brand</h1>
-    </div>
-    <ul>
-            <a href="<?=ROOT?>/admindashboard"><li><img src="" alt="">&nbsp; <span>Dashboard</span> </li></a>
-            <a href="<?=ROOT?>/admindrama"><li><img src="" alt="">&nbsp; <span>Drama</span> </li></a>
-            <a href="<?=ROOT?>/adminemployee"><li><img src="" alt="">&nbsp; <span>Employee</span> </li></a>
-            <a href="<?=ROOT?>/admindrama"><li><img src="" alt="">&nbsp; <span>Theater</span> </li></a>
-            <a href="<?=ROOT?>/adminrequests"><li><img src="" alt="">&nbsp; <span>Requests</span> </li></a>
-            <a href="<?=ROOT?>/adminreports"><li><img src="" alt="">&nbsp; <span>Reports</span> </li></a>
-            <a href="<?=ROOT?>/adminsettings"><li><img src="" alt="">&nbsp; <span>Settings</span> </li></a>
-    </ul>
-</div>
+<?php require_once 'nav.php' ?>
 
 <body class="drama">
     <div class="container">

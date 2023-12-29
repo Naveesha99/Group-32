@@ -8,29 +8,8 @@
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/addEmployee.css">
     <title>Admin Employee</title>
 </head>
-<div class="side-menu">
-    <ul>
-        <a href="admin_dashboard.html"><li><img src="" alt="">&nbsp; <span>Dashboard</span> </li></a>
-        <a href="admin_drama.html"><li><img src="" alt="">&nbsp; <span>Drama</span> </li></a>
-        <a href="admin_employee.html"><li><img src="" alt="">&nbsp; <span>Employee</span> </li></a>
-        <a href="admin_theater.html"><li><img src="" alt="">&nbsp; <span>Theater</span> </li></a>
-        <a href="admin_requests.html"><li><img src="" alt="">&nbsp; <span>Requests</span> </li></a>
-        <a href="admin_reports.html"><li><img src="" alt="">&nbsp; <span>Reports</span> </li></a>
-        <a href="admin_settings.html"><li><img src="" alt="">&nbsp; <span>Settings</span> </li></a>
-    </ul>
-</div>
 
-<div class="header">
-  <div class="nav">
-    <div class="navbar">
-      <a href="#home">About</a>
-      <a href="#about">Theater</a>
-      <a href="#services">Drama</a>
-      <a href="#contact">Drama Portal</a>
-      <a href="#contact">Home</a>
-  </div>
-  </div>
-</div>
+<?php require_once 'nav.php' ?>
 
 <body>
     <div class="container">
