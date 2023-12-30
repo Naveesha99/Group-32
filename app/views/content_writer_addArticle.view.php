@@ -44,8 +44,8 @@
             </select><br><br>
         
 
-            <label for="articleContent">Article Content:</label>
-            <textarea name="articleContent" id="articleContent" cols="30" rows="10" required></textarea>
+            <label for="article_content">Article Content:</label>
+            <textarea name="article_content" id="article_content" cols="30" rows="10" required></textarea>
 
             <label for="image">Image:</label><br>
             <input type="file" id="image" name="image" accept="image/*">
