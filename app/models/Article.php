@@ -10,7 +10,7 @@ class Article
     protected $table = 'articles';
 
     protected $allowedColumns = [
-
+        'id',
         'article_name',
         'category',
         'article_content',
