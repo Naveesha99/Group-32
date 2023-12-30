@@ -29,8 +29,8 @@
         <form method="POST" id="articleForm">
 
 
-            <label for="articleName">Article Name:</label>
-            <input type="text" id="articleName" name="articleName" required>
+            <label for="article_name">Article Name:</label>
+            <input type="text" id="article_name" name="article_name" required>
                
 
             <label for="category">Category:</label><br>
