@@ -5,40 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/public/assets/css/admin_dashboard.css">
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/adminDashboard.css">
+    
     <title>Admin Panel</title>
 </head>
-    <div class="side-menu">
-        <div class="brand-name">
-            <h1>Brand</h1>
-        </div>
-        <ul>
-            <a href="admin_dashboard.html"><li><img src="" alt="">&nbsp; <span>Dashboard</span> </li></a>
-            <a href="admin_drama.html"><li><img src="" alt="">&nbsp; <span>Drama</span> </li></a>
-            <a href="admin_employee.html"><li><img src="" alt="">&nbsp; <span>Employee</span> </li></a>
-            <a href="admin_theater.html"><li><img src="" alt="">&nbsp; <span>Theater</span> </li></a>
-            <a href="admin_requests.html"><li><img src="" alt="">&nbsp; <span>Requests</span> </li></a>
-            <a href="admin_reports.html"><li><img src="" alt="">&nbsp; <span>Reports</span> </li></a>
-            <a href="admin_settings.html"><li><img src="" alt="">&nbsp; <span>Settings</span> </li></a>
-        </ul>
-    </div>
+
+<?php require_once 'nav.php' ?>
+
 <body class="dashboard">
     <div class="container">
-        <div class="header">
-            <div class="nav">
-                <div class="search">
-                    <input type="text" placeholder="Search..">
-                    <button type="submit"><img src="search.png" alt=""></button>
-                </div>
-                <div class="user">
-                    <a href="#" class="btn">Add New</a>
-                    <img src="notifications.png" alt="">
-                    <div class="img-case">
-                        <img src="user.png" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="content">
             <div class="cards">
                 <div class="card">
@@ -165,7 +140,7 @@
                         </tr>
                     </table>
                 </div>
-                <div class="new-students">
+                <div class="new-dramas">
                     <div class="title">
                         <h2>New Dramas</h2>
                         <a href="#" class="btn">View All</a>
