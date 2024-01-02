@@ -148,5 +148,15 @@ td {
     cursor: pointer;
   }
   
+  @media screen and (max-width:536px) {
+
+    .container .content .form {
+        justify-content: center;
+    }
+    .container .content .content-2 .tasks table th:nth-child(2),
+    .container .content .content-2 .tasks table td:nth-child(2) {
+        display: none;
+    }
+}
 
   

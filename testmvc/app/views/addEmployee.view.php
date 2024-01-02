@@ -17,7 +17,7 @@
             <form action="" class="add-employee">
                 <h1>Employee Registration Form</h1>
                 <label for="empname">Employee Name</label>
-                <input type="text" name="empname">
+                <input type="text" name="empName">
                 <label for="empEmail">E-mail</label>
                 <input type="email" name="empEmail">
                 <label for="empNIC">NIC</label>
