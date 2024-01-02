@@ -49,15 +49,21 @@
                             <th>Name</th>
                             <th>NIC</th>
                             <th>Employee type</th>
-                            <td><a href="#" class="btn">View</a></td>
+                            <!-- <td><a href="#" class="btn">View</a></td> -->
                         </tr>
-                        <tr>
-                            <td>001</td>
-                            <td>Sanath Nishantha</td>
-                            <td>782500789v</td>
-                            <td>Cleaner</td>
-                            <td><a href="#" class="btn">View</a></td>
-                        </tr>
+                        <?php
+                        foreach ($data as $row) {
+                            echo '<tr>
+                                    <td>' . $row->id . '</td>
+                                    <td>' . $row->empName . '</td>
+                                    <td>' . $row->empNIC . '</td>
+                                    <td>' . $row->empRoll . '</td>
+                                    <td><a href="#" class="btn">View</a></td>
+                                  </tr>';
+                        }
+
+                        ?>
+
                     </table>
                 </div>
                 <div class="new-employee">

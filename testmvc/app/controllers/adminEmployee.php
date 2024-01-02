@@ -10,9 +10,12 @@ class adminEmployee
 	public function index()
 	{
 
-		// $data['username'] = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->email;
+		$employee = new employee;
+		$result = $employee->findAll();
 
-		$this->view('adminemployee',);
+		$data = $result;
+
+		$this->view('adminemployee',$data);
 	}
 
 }
