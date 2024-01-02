@@ -14,9 +14,9 @@
 <body>
     <div class="container">
         <div class="content">
-            <form action="" class="add-employee">
+            <form method="POST" class="add-employee">
                 <h1>Employee Registration Form</h1>
-                <label for="empname">Employee Name</label>
+                <label for="empName">Employee Name</label>
                 <input type="text" name="empName">
                 <label for="empEmail">E-mail</label>
                 <input type="email" name="empEmail">
@@ -32,16 +32,16 @@
                 <input type="text" name="empRoll">
                 <!-- <label for="empname">Employee Name</label>
                 <input type="text" name="empty" placeholder="Empty">                 -->
-                <button class="btn" type="submit">Submit</button>
+                <button class="btn">Submit</button>
             </form>
 
-            <div id="popup">
+            <!-- <div id="popup">
                 <p>Employee added successfully!</p>
                 <button onclick="addAnotherEmployee()">Add Another Employee</button>
                 <button onclick="viewEmployees()">View Employees</button>
-              </div>
+              </div> -->
             
-              <script>
+              <!-- <script>
                 function showPopup() {
                   // Display the popup
                   document.getElementById('popup').style.display = 'block';
@@ -58,7 +58,7 @@
                   alert('Viewing employees...');
                   // You can redirect to the page where you display employees or perform other actions
                 }
-              </script>
+              </script> -->
         </div>
     </div>
 </body>

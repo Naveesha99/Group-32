@@ -28,7 +28,12 @@ class Employee
 
 		if(empty($data['empName']))
 		{
-			$this->errors['fullname'] = "Employee name is required";
+			$this->errors['empName'] = "Employee name is required";
+		}
+
+        if(empty($data['empEmail']))
+		{
+			$this->errors['empEmail'] = "Email is required";
 		}
 
         if(!filter_var($data['empEmail'],FILTER_VALIDATE_EMAIL))

@@ -21,7 +21,7 @@ class addEmployee
 				redirect('employeetable');
 			}
 
-			$data['errors'] = $user->errors;			
+			$data['errors'] = $employee->errors;			
 		}
 
 		// $data['username'] = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->email;
