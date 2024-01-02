@@ -58,8 +58,6 @@ class User
 		{
 			$this->errors['password'] = "Password is required";
 		}
-		
-		
 
 		if(empty($this->errors))
 		{
