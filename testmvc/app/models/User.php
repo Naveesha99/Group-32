@@ -49,14 +49,19 @@ class User
 			$this->errors['nic'] = "NIC is required";
 		}
 
-		if(empty($data['dob']))
-		{
-			$this->errors['dob'] = "Date of Birth is required";
-		}
+		// if(empty($data['dob']))
+		// {
+		// 	$this->errors['dob'] = "Date of Birth is required";
+		// }
 		
 		if(empty($data['password']))
 		{
 			$this->errors['password'] = "Password is required";
+		}
+
+		if($data['Repassword'] != $data['password'])
+		{
+			$this->errors['Repassword'] = "Check the Re-Entered password";
 		}
 
 		if(empty($this->errors))
