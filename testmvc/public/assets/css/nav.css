@@ -8,7 +8,7 @@
 }
 
 .navbar {
-    background-color: #333;
+    background-color: #FFFFFF;
     overflow: hidden;
 }
 
@@ -28,7 +28,7 @@
 
 .side-menu {
     position: fixed;
-    background: #565656;
+    /* background: #565656; */
     width: 20vw;
     min-height: 100vh;
     display: flex;
@@ -51,10 +51,10 @@
     background: white;
     color: #565656;
 }
-/* body.dashboard .side-menu {
+body.dashboard .side-menu {
     background: white;
     color: rgba(195, 98, 1, 0.973);
-} */
+}
 
 @media screen and (max-width: 1050px) {
     .side-menu li {
