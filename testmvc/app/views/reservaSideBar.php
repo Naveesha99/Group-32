@@ -19,10 +19,10 @@
     </div>
     <ul>
         <a href="reserva_dashboard.html">
-            <li><img src="<?= ROOT ?>/assets/images/rese4rvaDashboard.png" alt="">&nbsp; <span>Dashboard</span> </li>
+            <li><img src="<?= ROOT ?>/assets/images/reservaDashboard.png" alt="">&nbsp; <span>Dashboard</span> </li>
         </a>
         <a href="reservaHall">
-            <li><img src="<?= ROOT ?>/assets/images/rservaHall.png" alt="">&nbsp; <span>Hall Request</span> </li>
+            <li><img src="<?= ROOT ?>/assets/images/reservaHall.png" alt="">&nbsp; <span>Hall Request</span> </li>
         </a>
         <a href="reservaSentRequests.html">
             <li><img src="<?= ROOT ?>/assets/images/reservaRequest.png" alt="">&nbsp; <span>Sent Requests</span> </li>
