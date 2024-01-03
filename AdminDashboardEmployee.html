@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard Employee</title>
+    <link rel="stylesheet" href="style/AdminDashboardEmployee.css">
+</head>
+<body>
+    <div id="navbar-container"></div>
+    <script>
+        fetch('navBar.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('navbar-container').innerHTML = html;
+            })
+            .catch(error => console.error('Error fetching navbar:', error));
+    </script>
+
+    <div class="container">
+        <div class="tile1" onclick="location.href='AdminAddEmployee.html';">
+            <img src="pics/AddEmployee.png" alt="Add Employee">
+            <p>Add Employee</p>
+        </div>
+        <div class="tile2" onclick="location.href='AdminTaskTable.html';">
+            <img src="pics/TaskTable.png" alt="Task Table">
+            <p>Task Table</p>
+        </div>
+        <div class="tile3" onclick="location.href='AdminWorkAssign.html';">
+            <img src="pics/WorkAssign.png" alt="Work Assign">
+            <p>Work Assign</p>
+        </div>
+    </div>
+</body>
+</html>
