@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Catamaran:400,700');
 
 * {
-    padding: 0;
+    /* padding: 0;
     margin: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; */
     font-family: 'Catamaran', sans-serif;
 
 }
@@ -12,15 +12,24 @@
 body{
     
     background: #FFEAD7;
+
 }
 
 .container{
-    max-width: 600px;
+    position: absolute;
+    right: 0;
+    width: 83vw;
+    /* width: 80%; */
+    height: 100vh;
+    /* background: #f1f1f1; */
+    background-color: #FFEAD7;
+    /* background-color: #7B0303; */
+    /* max-width: 600px;
     margin: 100px auto;
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
 
     /* position: absolute;
     right: 0;
@@ -84,6 +93,15 @@ button[type="submit"]:hover, button[type="button"]:hover {
     background-color: #888;
 }
 
+@media screen and (max-width: 1000px) {
+
+    .container .form {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+}
 
 
 

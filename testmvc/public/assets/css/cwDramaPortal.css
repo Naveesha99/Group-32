@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css?family=Catamaran:400,700');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Catamaran', sans-serif;
+}
+
+body{
+    background-color: #FFEAD7;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+}
+
+.card{
+    background: white;
+    width: 300px;
+    /* height: 400px; */
+    margin: 10px;
+    gap: 90px;
+    border-radius: 15px;
+
+}
+
+.card-image{
+    height: 170px;
+    margin-bottom: 15px;
+    background-size: cover;
+    border-radius: 15px 15px 0 0;
+
+}
+
+.image-1{
+    background-image: url(/public/assets/images/kuweni.jpeg);
+}
+
+.image-2{
+    background-image: url(/public/assets/images/kuweni.jpeg);
+}
+
+.image-3{
+    background-image: url(/public/assets/images/kuweni.jpeg);
+}
+
+.image-4{
+    background-image: url(/public/assets/images/kuweni.jpeg);
+}
+
+.image-5{
+    background-image: url(/public/assets/images/kuweni.jpeg);
+}
+
+.image-6{
+    background-image: url(/public/assets/images/kuweni.jpeg);
+}
+
+.card h2{
+    padding: 10px;
+}
+
+.card p{
+    padding: 10px;
+}
+
+.card a{
+    background-color: black;
+    color: white;
+}
+
