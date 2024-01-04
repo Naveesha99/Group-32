@@ -121,17 +121,12 @@
                 <div class="btns">
                     <button type="button" onclick="popup(this)">Send Request</button>
                     <button type="button" onclick="window.location.href='reservaHall1.html'">Cancel</button>
-
                 </div>
                 <!-- <div>
                 <span class="fa fa-phone"></span>001 1023 567
                 <span class="fa fa-envelope-o"></span> contact@company.com
                 </div>  -->
-
-
-
             </form>
-
         </div>
     </div>
 
@@ -146,8 +141,6 @@
                 <p>A confirmation email will be dispatched to you within 24 hours.</p>
                 <p>You have 12 hours to make any necessary adjustments to your request.</p>
                 <p>If you have inquiries, please contact us at <span class="contact-number">0111111111</span>.</p>
-
-
                 <div class="button-container">
                     <button onclick="viewRequest()">View Request</button>
                     <button onclick="closeConfirmation()">OK</button>
@@ -164,7 +157,6 @@
         function getQueryParam(name) {
             const urlParams = new URLSearchParams(window.location.search);
             return urlParams.get(name);
-
         }
 
 
@@ -199,14 +191,8 @@
             if (selectedDate) {
                 DateInput.value = selectedDate;
             }
-
-
-
             generateAndSetRequestId();
         }
-
-
-
         function generateAndSetRequestId() {
         // Assuming you have a function to generate a unique ID, you can use it here
         const requestId = generateUniqueId();
