@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css?family=Catamaran:400,700');
+
+ * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Catamaran', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+} 
+
+.nav{
+    margin: 0;
+
+}
+
+.nav .img{
+    height: 100%;
+    width: 100%;
+}
+
+.nav ul {
+    float: right;
+    margin-right: 10px;
+}
+
+.nav li {
+    display: inline-block;
+}
+
+.nav li a {
+    flex-shrink: 0;
+    color: #000000;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+    text-transform: uppercase;
+    margin: 5px;
+    text-decoration: none !important; /* Remove underline */
+}
+.nav li a:hover {
+    color: #7B0303;
+}
+
+.nav .active {
+    color: #7B0303;;
+}
+
+.nav .signup-button {
+    background-color: #FA7436;
+    color: #ffffff;
+    padding: 5px 8px;
+    border-radius: 4px;
+}
+
+.nav .signup-button:hover {
+    background-color: #7B0303;
+    color: #ffffff;
+}
+
+
