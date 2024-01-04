@@ -3,7 +3,7 @@
 if($_SERVER['SERVER_NAME'] == 'localhost')
 {
 	/** database config **/
-	define('DBNAME', 'my_db');
+	define('DBNAME', 'group_32');
 	define('DBHOST', 'localhost:3307');
 	define('DBUSER', 'root');
 	define('DBPASS', 'abc');
@@ -14,7 +14,7 @@ if($_SERVER['SERVER_NAME'] == 'localhost')
 }else
 {
 	/** database config **/
-	define('DBNAME', 'my_db');
+	define('DBNAME', 'group_32');
 	define('DBHOST', 'localhost:3307');
 	define('DBUSER', 'root');
 	define('DBPASS', 'abc');
