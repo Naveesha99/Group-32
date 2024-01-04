@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="<?=ROOT?>/assets/css/reservaReq.css" rel="stylesheet">
 
-    <script src="/js/reservaReqModal.js"></script>
+    <script src="<?= ROOT ?>/assets/js/reservaReqModal.js" defer></script>
     <title>Admin Panel</title>
 
 </head>
