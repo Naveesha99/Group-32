@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css?family=Catamaran:400,700');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Catamaran', sans-serif;
+}
+body {
+    min-height: 100vh;
+}
+a {
+    text-decoration: none;
+}
+li {
+    list-style: none;
+}
+h1,
+h2 {
+    color: #444;
+}
+h3 {
+    color: #999;
+}
+.btn {
+    background: rgba(195, 98, 1, 0.973);
+    color: white;
+    padding: 3px 10px;
+    text-align: center;
+    border-radius: 5px;
+}
+.btn:hover {
+    color: rgba(195, 98, 1, 0.973);
+    background: white;
+    padding: 3px 8px;
+    border: 2px solid rgba(195, 98, 1, 0.973);
+}
+
+.container {
+    position: absolute;
+    right: 0;
+    width: 80vw;
+    height: 100vh;
+    background: #f1f1f1;
+}
+
+.container .content {
+    position: relative;
+    margin-top: 10vh;
+    min-height: 90vh;
+    background: #f1f1f1;
+}
+
+.table {
+    padding: 10px;
+}
+
+

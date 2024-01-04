@@ -50,35 +50,6 @@ td {
     text-align: left;
     padding: 8px;
 }
-.side-menu {
-    position: fixed;
-    background: rgba(195, 98, 1, 0.973);
-    width: 20vw;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-.side-menu .brand-name {
-    height: 10vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.side-menu li {
-    font-size: 24px;
-    padding: 10px 40px;
-    color: white;
-    display: flex;
-    align-items: center;
-}
-.side-menu li:hover {
-    background: white;
-    color: rgba(195, 98, 1, 0.973);
-}
-/* body.dashboard .side-menu {
-    background: white;
-    color: rgba(195, 98, 1, 0.973);
-} */
 .container {
     position: absolute;
     right: 0;

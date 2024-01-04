@@ -22,16 +22,12 @@
             <a href="<?=ROOT?>/adminsettings"><li><img src="" alt="">&nbsp; <span>Settings</span> </li></a>
         </ul>
     </div>
-    <div class="header">
-        <div class="nav">
-          <div class="navbar">
-            <a href="#about">About</a>
-            <a href="#theater">Theater</a>
-            <a href="#drama">Drama</a>
-            <a href="#dramaportal">Drama Portal</a>
-            <a href="#home">Home</a>
-        </div>
-        </div>
-      </div>
+    <div class="navbar">
+        <a href="#about">About</a>
+        <a href="#theater">Theater</a>
+        <a href="#drama">Drama</a>
+        <a href="#dramaportal">Drama Portal</a>
+        <a href="#home">Home</a>
+    </div>
 </body>
 </html>

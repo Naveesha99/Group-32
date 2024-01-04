@@ -8,21 +8,24 @@
 }
 
 .navbar {
-    background-color: #333;
+    background-color: #ebdddd;
     overflow: hidden;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
 }
 
 .navbar a {
     float: right;
     display: block;
-    color: #f2f2f2;
+    color: #923131;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
 }
 
 .navbar a:hover {
-    background-color: #ddd;
+    background-color: #1b1010;
     color: black;
 }
 
