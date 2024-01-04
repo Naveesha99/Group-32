@@ -30,7 +30,7 @@
         <a href="resrvaNoti.html">
             <li><img src="<?= ROOT ?>/assets/images/reservaNotification.png" alt="">&nbsp; <span>Notifications</span> </li>
         </a>
-        <a href="reservaSettings.html">
+        <a href="reservaSettings">
             <li><img src="<?= ROOT ?>/assets/images/reservaSettings.png" alt="">&nbsp; <span>Settings</span> </li>
         </a>
     </ul>
