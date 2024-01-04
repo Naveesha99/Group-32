@@ -29,29 +29,29 @@
                 <div class="form_f">
                     <label for="requestId">Request ID:</label>
                     <!-- Add a readonly input field for Request ID -->
-                    <input type="text" id="requestId" name="requestId" readonly>
+                    <input type="text" id="requestId" name="requestId" readonly required>
                 </div>
 
                 <div class="form_f">
                     <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" placeholder="Write your name here..">
+                    <input type="text" id="name" name="name" placeholder="Write your name here.." required>
                 </div>
                 <div class="form_f">
 
                     <label for="date">Date:</label>
-                    <input type="text" id="date" name="date" readonly>
+                    <input type="text" id="date" name="date" readonly required>
                 </div>
 
                 <div class="form-inside">
                     <div class="form_f">
 
                         <label for="startTime">Starting Time:</label>
-                        <input type="text" id="startTime" name="startTime" readonly>
+                        <input type="text" id="startTime" name="startTime" readonly required>
                     </div>
                     <div class="form_f">
 
                         <label for="hours">Hours:</label>
-                        <input type="number" id="hours" name="hours" placeholder="No of Hours"
+                        <input type="number" id="hours" name="hours" placeholder="No of Hours" required
                             oninput="validateHours(this)">
                     </div>
                     <script>
@@ -70,7 +70,7 @@
                 <div class="form_f">
 
                     <label for="hcount">Head Count:</label>
-                    <input type="number" id="hcount" name="hcount" placeholder="Head Count"
+                    <input type="number" id="hcount" name="hcount" placeholder="Head Count" required
                         oninput="validateHcount(this)">
                 </div>
                 <script>
@@ -94,19 +94,19 @@
                     <div class="form_f">
 
                         <label for="sounds">Sounds:</label>
-                        <input type="text" id="sounds" name="sounds" list="yesOrNo">
+                        <input type="text" id="sounds" name="sounds" list="yesOrNo" required>
                     </div>
                     <div class="form_f">
 
                         <label for="standings">Standings:</label>
-                        <input type="text" id="standings" name="standings" list="yesOrNo">
+                        <input type="text" id="standings" name="standings" list="yesOrNo" required>
                     </div>
                 </div>
 
                 <div class="form_f">
 
                     <label for="message">Message:</label>
-                    <input type="text" id="message" name="message" placeholder="What would you like to tell us..">
+                    <input type="text" id="message" name="message" placeholder="What would you like to tell us.." required>
                 </div>
                 <div class="form-inside2">
                     <div class="form_f1">
@@ -119,14 +119,20 @@
                     </div>
                 </div>
                 <div class="btns">
-                    <button type="button" onclick="popup(this)">Send Request</button>
+                    <!-- <button type="button" onclick="popup(this)">Send Request</button> -->
+                    <button type="submit" onclick="popup(this)">Send Request</button>
                     <button type="button" onclick="window.location.href='reservaHall1.html'">Cancel</button>
+
                 </div>
                 <!-- <div>
                 <span class="fa fa-phone"></span>001 1023 567
                 <span class="fa fa-envelope-o"></span> contact@company.com
                 </div>  -->
+
+
+
             </form>
+
         </div>
     </div>
 
@@ -141,6 +147,8 @@
                 <p>A confirmation email will be dispatched to you within 24 hours.</p>
                 <p>You have 12 hours to make any necessary adjustments to your request.</p>
                 <p>If you have inquiries, please contact us at <span class="contact-number">0111111111</span>.</p>
+
+
                 <div class="button-container">
                     <button onclick="viewRequest()">View Request</button>
                     <button onclick="closeConfirmation()">OK</button>
@@ -157,6 +165,7 @@
         function getQueryParam(name) {
             const urlParams = new URLSearchParams(window.location.search);
             return urlParams.get(name);
+
         }
 
 
@@ -191,8 +200,14 @@
             if (selectedDate) {
                 DateInput.value = selectedDate;
             }
+
+
+
             generateAndSetRequestId();
         }
+
+
+
         function generateAndSetRequestId() {
         // Assuming you have a function to generate a unique ID, you can use it here
         const requestId = generateUniqueId();
@@ -207,7 +222,6 @@
         // to generate a unique ID, such as UUIDs or server-generated IDs.
         return 'R' + Date.now();
     }
-
 
 
 
