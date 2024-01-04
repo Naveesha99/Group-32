@@ -16,26 +16,12 @@ body{
 }
 
 .container{
-    position: absolute;
-    right: 0;
-    width: 83vw;
-    /* width: 80%; */
-    height: 100vh;
-    /* background: #f1f1f1; */
-    background-color: #FFEAD7;
-    /* background-color: #7B0303; */
-    /* max-width: 600px;
-    margin: 100px auto;
+    max-width: 600px;
+    margin: 50px auto;
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
-
-    /* position: absolute;
-    right: 0;
-    width: 80vw;
-    height: 100vh;
-    background: #f1f1f1; */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 

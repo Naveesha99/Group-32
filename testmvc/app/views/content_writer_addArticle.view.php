@@ -7,7 +7,6 @@
     <title>Educational Portal Article Submission </title>
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/content_writer_addArticle.css">
 </head>
-<?php require_once 'contentWriterSidebar.php' ?>
 <body>
     
     <div class ="container">

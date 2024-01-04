@@ -7,67 +7,125 @@
     font-family: 'Catamaran', sans-serif;
 }
 
-body{
+body {
     background-color: #FFEAD7;
+    margin: 0;
 }
 
-.container{
+.container {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 80px;
+    margin-left: 150px;
+}
+.category{
+    max-width: 1000px;
+    margin-top: 10px;
+    color:#cea5a5;
+  }
+
+
+.sidebar {
+    /* Define your sidebar styles here */
+    width: 20%;
+    background-color: #333;
+    color: white;
+    padding: 20px;
 }
 
-.card{
+.card {
     background: white;
-    width: 300px;
-    /* height: 400px; */
-    margin: 10px;
-    gap: 90px;
+    width: 300px; /* Adjust this width according to your requirement */
+    margin: 30px;
     border-radius: 15px;
-
+    max-width: 800px;
+    height: 100%;
+    transition: all 1s ease;
 }
 
-.card-image{
+.card-image {
     height: 170px;
     margin-bottom: 15px;
     background-size: cover;
     border-radius: 15px 15px 0 0;
-
 }
 
-.image-1{
-    background-image: url(/public/assets/images/kuweni.jpeg);
-}
-
-.image-2{
-    background-image: url(/public/assets/images/kuweni.jpeg);
-}
-
-.image-3{
-    background-image: url(/public/assets/images/kuweni.jpeg);
-}
-
-.image-4{
-    background-image: url(/public/assets/images/kuweni.jpeg);
-}
-
-.image-5{
-    background-image: url(/public/assets/images/kuweni.jpeg);
-}
-
-.image-6{
-    background-image: url(/public/assets/images/kuweni.jpeg);
-}
-
-.card h2{
+.card h2,
+.card p {
     padding: 10px;
 }
 
-.card p{
-    padding: 10px;
-}
-
-.card a{
+.card a {
     background-color: black;
     color: white;
+    padding: 15px 20px;
+    display: block;
+    text-align: center;
+    margin: 15px 15px; /* Center the button horizontally */
+    text-decoration: none;
 }
+
+.card:hover {
+    background-color: rgb(62, 62, 62);
+    color: white;
+    cursor: pointer;
+    transform: scale(1.03);
+}
+
+.image-1 {
+    background-image: url(/public/assets/images/kuweni.jpeg);
+}
+
+.image-2 {
+    background-image: url(/public/assets/images/kuweni.jpeg);
+}
+
+.image-3 {
+    background-image: url(/public/assets/images/kuweni.jpeg);
+}
+
+.image-4 {
+    background-image: url(/public/assets/images/kuweni.jpeg);
+}
+
+.image-5 {
+    background-image: url(/public/assets/images/kuweni.jpeg);
+}
+
+.image-6 {
+    background-image: url(/public/assets/images/kuweni.jpeg);
+}
+.button-group{
+    /* margin-top: 140px; */
+    margin-left: 85%;
+}
+
+button[type="button"] {
+    background-color: #7B0303;
+    color: #FFFFFF; 
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 85%;
+    margin-bottom: 50px;
+    text-align: right;
+    margin-top: 60px;
+  }
+  
+  button[type="button"]:hover {
+      background-color: #888;
+  }
+  
+
+@media (max-width: 1200px) {
+    .container {
+        justify-content: center;
+    }
+    .sidebar {
+        display: none;
+    }
+}
+
 
