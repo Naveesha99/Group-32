@@ -58,13 +58,15 @@
   margin-left: auto;
   margin-right: auto;
   /* margin: calc(50vh - 220px) auto; */
-  padding: 20px 30px;
+  padding: 5px 30px;
   /* padding-top: auto; */
   max-width: calc(100vw - 40px);
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
   position: relative;
   overflow-x:auto;
+
+  overflow-y:auto;
 
 }
 
