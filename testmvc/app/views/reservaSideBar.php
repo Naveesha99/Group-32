@@ -27,7 +27,7 @@
         <a href="reservaSentReq">
             <li><img src="<?= ROOT ?>/assets/images/reservaRequest.png" alt="">&nbsp; <span>Sent Requests</span> </li>
         </a>
-        <a href="resrvaNoti.html">
+        <a href="reservaNotifications">
             <li><img src="<?= ROOT ?>/assets/images/reservaNotification.png" alt="">&nbsp; <span>Notifications</span> </li>
         </a>
         <a href="reservaSettings">
