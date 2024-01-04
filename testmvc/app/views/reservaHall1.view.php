@@ -8,7 +8,7 @@
     <link href="<?= ROOT ?>/assets/css/reservaHall1.css" rel="stylesheet">
     <script src="<?= ROOT ?>/assets/js/cl.js" defer></script>
     <!-- <script src="/js/ReservaHall1.js"></script> -->
-    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/cl_1.css">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/cl.css">
     <title>Admin Panel</title>
 
     <style>
