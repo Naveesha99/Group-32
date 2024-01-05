@@ -14,7 +14,7 @@ class Login
 		if($_SERVER['REQUEST_METHOD'] == "POST")
 		{
 			$user = new User;
-			$arr['email'] = $_POST['email'];
+			$arr['username'] = $_POST['username'];
 
 			$row = $user->first($arr);
 			
@@ -23,11 +23,11 @@ class Login
 				if($row->password === $_POST['password'])
 				{
 					$_SESSION['USER'] = $row;
-					redirect('home');
+					redirect('admindashboard');
 				}
 			}
 
-			$user->errors['email'] = "Wrong email or password";
+			$user->errors['username'] = "Wrong username or password";
 
 			$data['errors'] = $user->errors;
 		}

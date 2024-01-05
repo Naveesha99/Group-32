@@ -3,21 +3,21 @@
 if($_SERVER['SERVER_NAME'] == 'localhost')
 {
 	/** database config **/
-	define('DBNAME', 'group_32');
-	define('DBHOST', 'localhost');
+	define('DBNAME', 'my_db');
+	define('DBHOST', 'localhost:3307');
 	define('DBUSER', 'root');
-	define('DBPASS', '');
+	define('DBPASS', 'abc');
 	define('DBDRIVER', '');
 	
-	define('ROOT', 'http://localhost/testmvc/public');
+	define('ROOT', 'http://localhost/Group-32/testmvc/public');
 
 }else
 {
 	/** database config **/
-	define('DBNAME', 'group_32');
-	define('DBHOST', 'localhost');
+	define('DBNAME', 'my_db');
+	define('DBHOST', 'localhost:3307');
 	define('DBUSER', 'root');
-	define('DBPASS', '');
+	define('DBPASS', 'abc');
 	define('DBDRIVER', '');
 
 	define('ROOT', 'https://www.yourwebsite.com');

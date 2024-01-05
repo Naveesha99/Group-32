@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css?family=Catamaran:400,700');
+
+ * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Catamaran', sans-serif;
+}
+body {
+    min-height: 100vh;
+}  
+a {
+    text-decoration: none;
+    font-family: 'Catamaran', sans-serif;
+}
+
+.side-menu {
+    font-family: 'Catamaran', sans-serif !important;
+    position: fixed;
+    /* background: rgba(195, 98, 1, 0.973); */
+    background-color:#ffffff;
+    width: 17vw;
+    /* width: 10%; */
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.side-menu .brand-name {
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.side-menu .brand-name #logo{
+    /* position: absolute; */
+    height: 40px;
+    width: auto;
+    width: 60px;
+}
+.side-menu li {
+    /* font-size: 24px; */
+    font-size: 15px;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 4px 20px;
+    /* color: white; */
+    color: #000000;
+    display: flex;
+    align-items: center;
+    padding: 10px 10px;
+}
+
+.side-menu li img{
+    width: 25px;
+    height: 20px;
+    margin: 10px;
+}
+
+.side-menu li:hover {
+    background: white;
+    color: rgba(195, 98, 1, 0.973);
+}
+
+
+@media screen and (max-width: 1050px) {
+    .side-menu li {
+        font-size: 16px;
+    }
+}
+@media screen and (max-width: 1000px) {
+    .side-menu li span {
+        display: none;
+    }
+    .side-menu {
+        align-items: center;
+    }
+    .side-menu li img {
+        width: 30px;
+        height: 30px;
+    }
+    .side-menu li:hover {
+        background: rgba(195, 98, 1, 0.973);
+        padding: 8px 38px;
+        border: 2px solid white;
+    }
+
+}
+@media screen and (max-width: 940px) {
+    .side-menu li span {
+        display: none;
+    }
+    .side-menu {
+        align-items: center;
+    }
+    .side-menu li img {
+        width: 30px;
+        height: 30px;
+    }
+    .side-menu li:hover {
+        background: rgba(195, 98, 1, 0.973);
+        padding: 8px 38px;
+        border: 2px solid white;
+    }
+
+}

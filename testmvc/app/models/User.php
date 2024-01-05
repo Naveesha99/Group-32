@@ -12,6 +12,7 @@ class User
 	protected $table = 'users';
 
 	protected $allowedColumns = [
+		'id',
 		'fullname',
 		'username',
 		'email',
@@ -24,6 +25,16 @@ class User
 	{
 		$this->errors = [];
 
+		if(empty($data['fullname']))
+		{
+			$this->errors['fullname'] = "Full name is required";
+		}
+
+		if(empty($data['username']))
+		{
+			$this->errors['username'] = "Username is required";
+		}
+
 		if(empty($data['email']))
 		{
 			$this->errors['email'] = "Email is required";
@@ -32,15 +43,20 @@ class User
 		{
 			$this->errors['email'] = "Email is not valid";
 		}
+
+		if(empty($data['nic']))
+		{
+			$this->errors['nic'] = "NIC is required";
+		}
+
+		if(empty($data['dob']))
+		{
+			$this->errors['dob'] = "Date of Birth is required";
+		}
 		
 		if(empty($data['password']))
 		{
 			$this->errors['password'] = "Password is required";
-		}
-		
-		if(empty($data['terms']))
-		{
-			$this->errors['terms'] = "Please accept the terms and conditions";
 		}
 
 		if(empty($this->errors))

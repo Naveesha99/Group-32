@@ -5,36 +5,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/public/assets/css/admin_drama.css">
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/adminEmployee.css">
     <title>Admin Employee</title>
 </head>
-<div class="side-menu">
-    <div class="brand-name">
-        <h1>Brand</h1>
-    </div>
-    <ul>
-        <a href="admin_dashboard.html"><li><img src="" alt="">&nbsp; <span>Dashboard</span> </li></a>
-        <a href="admin_drama.html"><li><img src="" alt="">&nbsp; <span>Drama</span> </li></a>
-        <a href="admin_employee.html"><li><img src="" alt="">&nbsp; <span>Employee</span> </li></a>
-        <a href="admin_theater.html"><li><img src="" alt="">&nbsp; <span>Theater</span> </li></a>
-        <a href="admin_requests.html"><li><img src="" alt="">&nbsp; <span>Requests</span> </li></a>
-        <a href="admin_reports.html"><li><img src="" alt="">&nbsp; <span>Reports</span> </li></a>
-        <a href="admin_settings.html"><li><img src="" alt="">&nbsp; <span>Settings</span> </li></a>
-    </ul>
-</div>
+
+<?php require_once 'nav.php' ?>
 
 <body class="drama">
     <div class="container">
         <div class="content">
             <div class="cards">
-                <a href="addEmployee.html">
+                <a href="<?=ROOT?>/addemployee">
                     <div class="card">
                         <div class="box">
                             <h1>Add Employee</h1>
                         </div>
                     </div>
                 </a>
-                <a href="createTask.html">
+                <a href="<?=ROOT?>/createtask">
                     <div class="card">
                         <div class="box">
                             <h1>Create Tasks</h1>
