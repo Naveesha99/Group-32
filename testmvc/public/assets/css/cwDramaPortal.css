@@ -13,11 +13,16 @@ body {
 }
 
 .container {
-    display: flex;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 10px;
+
+    gap: 10px;
     justify-content: center;
     flex-wrap: wrap;
     margin-top: 80px;
-    margin-left: 150px;
+    /* margin-left: 150px; */
+    width: 100%;
 }
 .pararaph{
     margin-left: 10px;
@@ -101,10 +106,11 @@ body {
 .image-6 {
     background-image: url(/public/assets/images/kuweni.jpeg);
 }
-.button-group{
-    margin-left: 75%;
+/* .button-group{
+    /* margin-left: 50%; */
     
-}
+    
+ */
 
 
 button[type="button"] {
@@ -128,6 +134,15 @@ button[type="button"] {
   
 
 @media (max-width: 1200px) {
+    .container {
+        justify-content: center;
+    }
+    .sidebar {
+        display: none;
+    }
+}
+
+@media (min-width: 400px) {
     .container {
         justify-content: center;
     }
