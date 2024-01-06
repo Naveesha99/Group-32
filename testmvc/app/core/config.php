@@ -6,7 +6,7 @@ if($_SERVER['SERVER_NAME'] == 'localhost')
 	define('DBNAME', 'my_db');
 	define('DBHOST', 'localhost');
 	define('DBUSER', 'root');
-	define('DBPASS', '');
+	define('DBPASS', 'abc');
 	define('DBDRIVER', '');
 	
 	define('ROOT', 'http://localhost/Group-32/testmvc/public');
@@ -17,7 +17,7 @@ if($_SERVER['SERVER_NAME'] == 'localhost')
 	define('DBNAME', 'my_db');
 	define('DBHOST', 'localhost');
 	define('DBUSER', 'root');
-	define('DBPASS', '');
+	define('DBPASS', 'abc');
 	define('DBDRIVER', '');
 
 	define('ROOT', 'https://www.yourwebsite.com');

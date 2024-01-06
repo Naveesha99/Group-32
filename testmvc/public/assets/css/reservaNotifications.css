@@ -1,0 +1,197 @@
+@import url("https://fonts.googleapis.com/css?family=Catamaran:400,700");
+
+
+
+
+
+.container {
+  position: absolute;
+  right: 0;
+  width: 83vw;
+  /* width: 80%; */
+  height: 100vh;
+  /* background: #f1f1f1; */
+  background-color: #ffead7;
+  /* background-color: #7B0303; */
+}
+.container .header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 83vw;
+  height: 9vh;
+  /* height: 10vh; */
+  /* width: 100%; */
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: center;
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
+  z-index: 1;
+  padding: 1px;
+  margin-left: 0px;
+}
+
+
+.container .content {
+  position: relative;
+  margin-top: 10vh;
+  min-height: 90vh;
+  /* background: #f1f1f1; */
+  background-color: #ffead7;
+}
+.container .content h1 {
+  /* text-align: center; */
+  font-size: 30px;
+  /* color: #fff; */
+  color: #5a5a5a;
+  /* font-weight:800; */
+  text-transform: uppercase;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 15px;
+}
+.container .content .cards {
+  padding: 0px 15px;
+  /* display: flex;
+    align-items: center;
+    justify-content: space-between; */
+  flex-wrap: wrap;
+}
+.container .content .cards .card {
+  width: 98%;
+  height: auto;
+  background: white;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  /* margin: 20px 10px; */
+  border-radius: 8px;
+  /* padding: 5px; */
+  /* display: flex;
+    align-items: center;
+    justify-content: space-around; */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.container .content .cards .card .boxAcc {
+    padding: 5px;
+    border-radius: 8px;
+    background: rgba(0, 255, 97, 0.4);
+}
+.container .content .cards .card .boxRej {
+    padding: 5px;
+    border-radius: 8px;
+    background: rgba(139, 69, 19, 0.4);
+}
+.container .content .cards .card .boxIn24 {
+    padding: 5px;
+    border-radius: 8px;
+    background: rgba(0, 97, 254, 0.4);
+}
+.container .content .cards .card .boxIn12 {
+    padding: 5px;
+    border-radius: 8px;
+    background: rgba(128, 0, 128, 0.4);
+}
+.container .content .cards .card .boxIn1{
+    padding: 5px;
+    border-radius: 8px;
+    background: rgba(245, 24, 24, 0.603);
+}
+.container .content .cards .card .boxF7d {
+    padding: 5px;
+    border-radius: 8px;
+    background: rgba(0, 97, 254, 0.08);
+}
+.container .content .cards .card .boxF24 {
+    padding: 5px;
+    border-radius: 8px;
+    background: rgba(128, 0, 128, 0.08);
+}
+.container .content .cards .card .boxF12 {
+    padding: 5px;
+    border-radius: 8px;
+    background: rgba(128, 0, 128, 0.08);
+}
+.container .content .cards .card .boxF1 {
+    padding: 5px;
+    border-radius: 8px;
+    background: rgba(255, 0, 0, 0.08);
+}
+.card button{
+    /* background-color: antiquewhite; */
+    background-color:#323231;
+    color: #ffffff;
+    /* border: #ffffff; */
+    /* border: #ffead7; */
+    border-radius: 8px;
+    padding:4px;
+    margin-left: 20px;
+    cursor: pointer;
+    font-size:smaller;
+    font-weight: 700;
+
+}
+
+.p1 {
+  font-size: 13px;
+  /* color: #FFF; */
+  /* font-family: Inter; */
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px; /* 153.846% */
+}
+.p2 {
+  /* color: #FFF; */
+
+  /* font-family: Inter; */
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 153.846% */
+}
+
+.p3 {
+  color: #666c7e;
+
+  font-family: Inter;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 181.818% */
+}
+
+
+select {
+  width: 150px; /* Set the width of the dropdown */
+  padding: 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Style for the dropdown options */
+option {
+  font-size: 14px;
+}
+
+/* Optional: Style for the label */
+label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+@media screen and (max-width: 536px) {
+
+  .container .content .cards {
+    justify-content: center;
+  }
+
+  .container .content .content-2 .tasks table th:nth-child(2),
+  .container .content .content-2 .tasks table td:nth-child(2) {
+    display: none;
+  }
+}

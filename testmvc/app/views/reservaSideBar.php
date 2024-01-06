@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?=ROOT?>/assets/css/reservaSideBar.css">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/reservaSideBar.css">
 
 
 
@@ -24,13 +24,13 @@
         <a href="reservaHall">
             <li><img src="<?= ROOT ?>/assets/images/reservaHall.png" alt="">&nbsp; <span>Hall Request</span> </li>
         </a>
-        <a href="reservaSentRequests.html">
+        <a href="reservaSentReq">
             <li><img src="<?= ROOT ?>/assets/images/reservaRequest.png" alt="">&nbsp; <span>Sent Requests</span> </li>
         </a>
-        <a href="resrvaNoti.html">
+        <a href="reservaNotifications">
             <li><img src="<?= ROOT ?>/assets/images/reservaNotification.png" alt="">&nbsp; <span>Notifications</span> </li>
         </a>
-        <a href="reservaSettings.html">
+        <a href="reservaSettings">
             <li><img src="<?= ROOT ?>/assets/images/reservaSettings.png" alt="">&nbsp; <span>Settings</span> </li>
         </a>
     </ul>

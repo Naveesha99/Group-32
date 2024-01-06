@@ -64,12 +64,6 @@ a {
     color: rgba(195, 98, 1, 0.973);
 }
 
-/* 
-.viewButton:hover {
-    background-color: #FF5733;
-}
- */
-
 
 @media screen and (max-width: 1050px) {
     .side-menu li {
