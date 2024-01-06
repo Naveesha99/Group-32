@@ -10,7 +10,7 @@
     <title>Admin Panel</title>
 </head>
 
-<?php require_once 'navBar.php' ?>
+<?php require_once 'nav.php' ?>
 
 <body class="dashboard">
     <div class="container">
