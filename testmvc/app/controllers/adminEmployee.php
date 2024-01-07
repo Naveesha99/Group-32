@@ -10,7 +10,7 @@ class adminEmployee
 	public function index()
 	{
 
-		$employee = new employee;
+		$employee = new Employee;
 		$result = $employee->findAll();
 
 		$data = $result;

@@ -9,7 +9,9 @@
     <title>Admin Employee</title>
 </head>
 
-<?php require_once 'nav.php' ?>
+<?php require_once 'reservaSideBar.php' ?>
+<?php require_once 'navBar.php' ?>
+
 
 <body>
     <div class="container">
@@ -29,7 +31,15 @@
                 <label for="empContact">Contact</label>
                 <input type="text" name="empContact">
                 <label for="empRoll">Employee Roll</label>
-                <input type="text" name="empRoll">
+                <select name="empRoll">
+                <?php
+                foreach ($data['jobs'] as $row) {
+                    echo "<option value='" . $row->jobTitle . "'>" . $row->jobTitle . "</option>";
+                }
+                  ?>
+                </select>
+
+                <br>
                 <!-- <label for="empname">Employee Name</label>
                 <input type="text" name="empty" placeholder="Empty">                 -->
                 <button class="btn">Submit</button>

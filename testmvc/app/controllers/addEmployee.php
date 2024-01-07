@@ -24,9 +24,18 @@ class addEmployee
 			$data['errors'] = $employee->errors;			
 		}
 
+		$jobs = new Jobs;
+
 		// $data['username'] = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->email;
 
-		$this->view('addemployee');
+		$this->view('addemployee',$data);
 	}
+
+	private function showJobs($jobs) {
+		$result = $jobs->findAll();
+		$data['jobs'] = $result;
+		$this->view('addemployee', $data);
+	}
+	
 
 }

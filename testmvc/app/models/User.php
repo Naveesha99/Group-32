@@ -44,15 +44,30 @@ class User
 			$this->errors['email'] = "Email is not valid";
 		}
 
-		if(empty($data['nic']))
-		{
+		if (empty($data['nic'])) {
 			$this->errors['nic'] = "NIC is required";
+		} elseif (!preg_match('/^\d{12}$|^\d{9}[xXvV]$/', $data['nic'])) {
+			$this->errors['nic'] = "NIC must be either 12 digits or 9 digits with 'x' or 'v'";
 		}
 
-		// if(empty($data['dob']))
-		// {
-		// 	$this->errors['dob'] = "Date of Birth is required";
-		// }
+		if (empty($data['dob'])) {
+			$this->errors['dob'] = "Date of Birth is required";
+		} else {
+			$dobTimestamp = strtotime($data['dob']);
+			if (!$dobTimestamp) {
+				$this->errors['dob'] = "Invalid Date of Birth format";
+			} else {
+				$currentTimestamp = time();
+				if ($dobTimestamp > $currentTimestamp) {
+					$this->errors['dob'] = "Date of Birth must be in the past";
+				}
+	
+				$eighteenYearsAgo = strtotime('-18 years', $currentTimestamp);
+				if ($dobTimestamp > $eighteenYearsAgo) {
+					$this->errors['dob'] = "You must be 18 years or older";
+				}
+			}
+		}
 		
 		if (empty($data['password'])) {
 			$this->errors['password'] = "Password is required";
