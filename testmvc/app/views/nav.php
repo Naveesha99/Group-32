@@ -9,9 +9,6 @@
 </head>
 <body>
 <div class="side-menu">
-        <div class="brand-name">
-            <h1>Brand</h1>
-        </div>
         <ul>
             <a href="<?=ROOT?>/admindashboard"><li><img src="" alt="">&nbsp; <span>Dashboard</span> </li></a>
             <a href="<?=ROOT?>/admindrama"><li><img src="" alt="">&nbsp; <span>Drama</span> </li></a>

@@ -8,7 +8,8 @@
     <title>admin drama</title>
 </head>
 
-<?php require_once 'nav.php' ?>
+<?php include 'adminSidebar.php' ?>
+<?php include 'navBar.php' ?>
 
 <body>
 

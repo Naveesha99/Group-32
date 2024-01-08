@@ -9,8 +9,8 @@
     <title>Admin Employee</title>
 </head>
 
-<?php require_once 'reservaSideBar.php' ?>
-<?php require_once 'navBar.php' ?>
+<?php include 'adminSidebar.php' ?>
+<?php include 'navBar.php' ?>
 
 
 <body>
@@ -33,7 +33,7 @@
                 <label for="empRoll">Employee Roll</label>
                 <select name="empRoll">
                 <?php
-                foreach ($data['jobs'] as $row) {
+                foreach ($data['role'] as $row) {
                     echo "<option value='" . $row->jobTitle . "'>" . $row->jobTitle . "</option>";
                 }
                   ?>
