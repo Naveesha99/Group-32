@@ -63,7 +63,7 @@ td {
     height: 100%;
 }
 
-.container .content .add-employee{
+.container .content .add-job{
     padding: 30px 0px 0px;
     margin-top: 150px;
     max-width: 600px;
@@ -73,14 +73,14 @@ td {
     background-color: #d7cec7;
   }
   
-.container .add-employee label {
+.container .add-job label {
     display: block;
     margin-bottom: 8px;
     margin-left: 20px;
     font-weight: bold;
   }
   
-.container .add-employee input {
+.container .add-job input {
     width: 80%;
     padding: 8px;
     margin-bottom: 16px;
@@ -90,7 +90,21 @@ td {
     border-radius: 4px;
   }
 
-.container .add-employee .select {
+  .container .add-job .work-hours input[type="time"] {
+    width: 35%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.container .add-job .work-hours .separator {
+    margin: 8px;
+}
+
+
+.container .add-job .select {
     width: 80%;
     padding: 8px;
     border-radius: 4px;

@@ -15,7 +15,8 @@ class Jobs
 		'id',
 		'jobTitle',
 		'jobSummary',
-		'time',
+		'startTime',
+		'endTime',
 		'salary',
 	];
 

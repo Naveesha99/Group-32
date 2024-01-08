@@ -45,7 +45,8 @@ class addEmployee
 		$result = $jobs->findAll();
 		foreach ($result as $key ) {
 
-			unset($key->time);
+			unset($key->startTime);
+			unset($key->endTime);
 			unset($key->salary);
 			unset($key->id);
 			unset($key->jobSummary);

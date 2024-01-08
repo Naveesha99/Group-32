@@ -31,7 +31,7 @@
                 <label for="empContact">Contact</label>
                 <input type="text" name="empContact">
                 <label for="empRoll">Employee Roll</label>
-                <select name="empRoll">
+                <select class="select" name="empRoll">
                 <?php
                 foreach ($data['role'] as $row) {
                     echo "<option value='" . $row->jobTitle . "'>" . $row->jobTitle . "</option>";
@@ -42,7 +42,7 @@
                 <br>
                 <!-- <label for="empname">Employee Name</label>
                 <input type="text" name="empty" placeholder="Empty">                 -->
-                <button class="btn">Submit</button>
+                <button class="btn-1">Submit</button>
             </form>
 
             <!-- <div id="popup">
