@@ -5,13 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Drama Portal</title>
-    <link rel="stylesheet" href="/public/assets/css/cwDramaPortal.css">
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/cwDramaPortal.css">
 
 </head>
+<?php require_once 'reservaSideBar.php' ?>
 <body>
 
     <div class="button-group">
-        <a href="content_writer_addArticle.view.php">
+        <a href="content_writer_addArticle">
             <button type="button" onclick="addNew()">ADD NEW</button>
         </a>
     </div>
@@ -34,13 +35,15 @@
        
         
         <div class="card">
-            <div class="card-image image-1" ></div>
+            <div class="card-image image-1 " >
+                <img src="<?=ROOT?>/assets/images/kuweni.jpeg" alt="kuweni" >
+            </div>
             <h2>Maname</h2>
             <p>A drama by the celebrated dramatist, 
                 Prof Ediriweera Sarachchandra, that utilises the traditions of nadagama 
                 (a type of rural folk theatre in Sri Lanka). 
             </p>
-            <a href="cwViewOwnArticle.view.php">READ MORE</a>
+            <a href="cwViewOwnArticle">READ MORE</a>
         </div>
 
         <div class="card">
@@ -50,7 +53,7 @@
                 Prof Ediriweera Sarachchandra, that utilises the traditions of nadagama 
                 (a type of rural folk theatre in Sri Lanka). 
             </p>
-            <a href="cwViewOwnArticle.view.php">READ MORE</a>
+            <a href="cwViewOwnArticle">READ MORE</a>
             
         </div>
 
@@ -61,7 +64,7 @@
                 Prof Ediriweera Sarachchandra, that utilises the traditions of nadagama 
                 (a type of rural folk theatre in Sri Lanka). 
             </p>
-            <a href="cwViewOwnArticle.view.php">READ MORE</a>
+            <a href="cwViewOwnArticle">READ MORE</a>
 
             
         </div>
@@ -73,7 +76,7 @@
                 Prof Ediriweera Sarachchandra, that utilises the traditions of nadagama 
                 (a type of rural folk theatre in Sri Lanka). 
             </p>
-            <a href="cwViewOwnArticle.view.php">READ MORE</a>
+            <a href="cwViewOwnArticle">READ MORE</a>
         </div>
 
         <div class="card">
@@ -83,7 +86,7 @@
                 Prof Ediriweera Sarachchandra, that utilises the traditions of nadagama 
                 (a type of rural folk theatre in Sri Lanka). 
             </p>
-            <a href="cwViewOwnArticle.view.php">READ MORE</a>
+            <a href="cwViewOwnArticle">READ MORE</a>
         </div>
 
         <div class="card">
@@ -93,7 +96,7 @@
                 Prof Ediriweera Sarachchandra, that utilises the traditions of nadagama 
                 (a type of rural folk theatre in Sri Lanka). 
             </p>
-            <a href="cwViewOwnArticle.view.php">READ MORE</a>
+            <a href="cwViewOwnArticle">READ MORE</a>
         </div>
 
         <!-- <div class="card">

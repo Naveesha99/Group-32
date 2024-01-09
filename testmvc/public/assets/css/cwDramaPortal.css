@@ -15,14 +15,16 @@ body {
 .container {
     display: grid;
     grid-template-columns: auto auto auto;
-    padding: 10px;
+    padding: 40px;
 
     gap: 10px;
     justify-content: center;
     flex-wrap: wrap;
     margin-top: 80px;
-    /* margin-left: 150px; */
+    /* margin-left: 250px; */
     width: 100%;
+    /* width: 83vh; */
+    
 }
 .pararaph{
     margin-left: 10px;
@@ -59,6 +61,7 @@ body {
     margin-bottom: 15px;
     background-size: cover;
     border-radius: 15px 15px 0 0;
+    width: 300px;
 }
 
 .card h2,
@@ -83,8 +86,8 @@ body {
     transform: scale(1.03);
 }
 
-.image-1 {
-    background-image: url(/public/assets/images/kuweni.jpeg);
+/* .image-1 {
+    background-image: url("<?=ROOT?>/assets/images/kuweni.jpeg");
 }
 
 .image-2 {
@@ -105,7 +108,7 @@ body {
 
 .image-6 {
     background-image: url(/public/assets/images/kuweni.jpeg);
-}
+} */
 /* .button-group{
     /* margin-left: 50%; */
     
@@ -137,12 +140,15 @@ button[type="button"] {
     .container {
         justify-content: center;
     }
+    .container .content .card {
+        justify-content: center;
+    }
     .sidebar {
         display: none;
     }
 }
 
-@media (min-width: 400px) {
+@media (min-width: 600px) {
     .container {
         justify-content: center;
     }

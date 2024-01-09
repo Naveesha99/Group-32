@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Article</title>
-    <link rel="stylesheet" href="/public/assets/css/cwDrafts.css">
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/cwDrafts.css">
 </head>
 <body>
     <div class="container">
         <div class="drama-card">
-            <img src="/public/assets/images/kuweni.jpeg" alt="Drama 1">
+            <img src="<?=ROOT?>/assets/images/kuweni.jpeg" alt="Drama 1">
             <div class="drama-details">
                 <h2>Drama Title 1</h2>
                 <p>Genre: Romance</p>
@@ -25,7 +25,7 @@
         </div>
 
         <div class="drama-card">
-            <img src="/public/assets/images/sinhabahu.jpeg" alt="Drama 2">
+            <img src="<?=ROOT?>/assets/images/sinhabahu.jpeg" alt="Drama 2">
             <div class="drama-details">
                 <h2>Drama Title 2</h2>
                 <p>Genre: Mystery</p>
@@ -40,7 +40,7 @@
         </div>
 
         <div class="drama-card">
-            <img src="/public/assets/images/sinhabahu.jpeg" alt="Drama 2">
+            <img src="<?=ROOT?>/assets/images/sinhabahu.jpeg"  alt="Drama 2">
             <div class="drama-details">
                 <h2>Drama Title 2</h2>
                 <p>Genre: Mystery</p>
@@ -55,7 +55,7 @@
         </div>
 
         <div class="drama-card">
-            <img src="/public/assets/images/sinhabahu.jpeg" alt="Drama 2">
+            <img src="<?=ROOT?>/assets/images/sinhabahu.jpeg" alt="Drama 2">
             <div class="drama-details">
                 <h2>Drama Title 2</h2>
                 <p>Genre: Mystery</p>
