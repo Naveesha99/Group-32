@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/cwDramaPortal.css">
 
 </head>
-<?php require_once 'reservaSideBar.php' ?>
+<!-- <?php require_once 'reservaSideBar.php' ?> -->
 <body>
 
     <div class="button-group">

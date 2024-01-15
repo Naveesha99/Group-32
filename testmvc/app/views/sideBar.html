@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="/public/assets/css/sideBar.css">
     <script src="https://kit.fontawesome.com/8bff7d7f97.js" crossorigin="anonymous"></script>
    <!-- <link rel="stylesheet" href="/public/assets/js/sideBar.js"> -->
+   <script src="/public/assets/js/sideBar.js"></script>
     <title>Side bar</title>
 </head>
 <body>
@@ -79,12 +80,108 @@
 
         <div class="main">
             <div class="topbar">
-                <div class="toggle"></div>
-                <div class=" search"></div>
+                <div class="toggle">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+                <div class=" search">
+                    <label>
+                        <input type="text" placeholder="search here">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </label>
+                    
+                </div>
+                <div class="user">
+                    <img src="/public/assets/images/customer.jpeg" alt="">
+                </div>
 
+            </div>
+
+            <div class="cardBox">
+                <div class=" card">
+                    <div>
+                        <div class="numbers">1,504</div>
+                        <div class="cardName">Daily Views</div>
+                    </div>
+                </div>
+
+                <div class=" card">
+                    <div>
+                        <div class="numbers">1,504</div>
+                        <div class="cardName">Daily Views</div>
+                    </div>
+                </div>
+
+                <div class=" card">
+                    <div>
+                        <div class="numbers">1,504</div>
+                        <div class="cardName">Daily Views</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="details">
+                <div class="recentOrders">
+                    <div class="cardHeader">
+                        <h2> Recent Orders </h2>
+                        <a href="#" class="btn">View All</a>
+                    </div>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>Name</td>
+                                <td>Price</td>
+                                <td>Payment</td>
+                                <td>Status</td>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>Star Refrigerator</td>
+                                <td>$1200</td>
+                                <td>Paid</td>
+                                <td><span class="status delivered">Delivered</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>Star Refrigerator</td>
+                                <td>$1200</td>
+                                <td>Paid</td>
+                                <td><span class="status pending">Pending</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>Star Refrigerator</td>
+                                <td>$1200</td>
+                                <td>Paid</td>
+                                <td><span class="status return">Return</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>Star Refrigerator</td>
+                                <td>$1200</td>
+                                <td>Paid</td>
+                                <td><span class="status inProgress">In progress</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>Star Refrigerator</td>
+                                <td>$1200</td>
+                                <td>Paid</td>
+                                <td><span class="status delivered">Delivered</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+                </div>
             </div>
         </div>
 
+        
+
     </div>
+    
 </body>
 </html>
