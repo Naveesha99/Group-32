@@ -60,7 +60,7 @@
                             <!-- <td><a href="#" class="btn">View</a></td> -->
                         </tr>
                         <?php
-                        foreach ($data as $row) {
+                        foreach ($data['employee'] as $row) {
                             echo '<tr>
                                     <td>' . $row->id . '</td>
                                     <td>' . $row->empName . '</td>
@@ -76,30 +76,24 @@
                 </div>
                 <div class="new-employee">
                     <div class="title">
-                        <h2>New Employees</h2>
+                        <h2>Job Roles</h2>
                         <a href="#" class="btn">View All</a>
                     </div>
                     <table>
                         <tr>
-                            <th>Drama</th>
+                            <th>Job Title</th>
                             <th>option</th>
                         </tr>
-                        <tr>
-                            <td>Sinhabahu</td>
-                            <td><a href="#" class="btn">View</a></td>
-                        </tr>
-                        <tr>
-                            <td>John Steve Doe</td>
-                            <td><a href="#" class="btn">View</a></td>
-                        </tr>
-                        <tr>
-                            <td>John Steve Doe</td>
-                            <td><a href="#" class="btn">View</a></td>
-                        </tr>
-                        <tr>
-                            <td>John Steve Doe</td>
-                            <td><a href="#" class="btn">View</a></td>
-                        </tr>
+                        
+                        <?php
+                        foreach ($data['role'] as $row) {
+                            echo '<tr>
+                                    <td>' . $row->jobTitle . '</td>
+                                    <td><a href="#" class="btn">View</a></td>
+                                  </tr>';
+                        }
+
+                        ?>
 
                     </table>
                 </div>
