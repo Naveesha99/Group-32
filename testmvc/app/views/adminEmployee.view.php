@@ -49,7 +49,7 @@
                 <div class="employees">
                     <div class="title">
                         <h2>Employees</h2>
-                        <a href="#" class="btn">View All</a>
+                        <a href="<?=ROOT?>/employees" class="btn">View All</a>
                     </div>
                     <table>
                         <tr>
