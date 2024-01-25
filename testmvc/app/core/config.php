@@ -3,10 +3,10 @@
 if($_SERVER['SERVER_NAME'] == 'localhost')
 {
 	/** database config **/
-	define('DBNAME', 'my_db');
-	define('DBHOST', 'localhost:3307');
+	define('DBNAME', 'group_32');
+	define('DBHOST', 'localhost');
 	define('DBUSER', 'root');
-	define('DBPASS', 'abc');
+	define('DBPASS', '');
 	define('DBDRIVER', '');
 	
 	define('ROOT', 'http://localhost/Group-32/testmvc/public');
@@ -14,10 +14,10 @@ if($_SERVER['SERVER_NAME'] == 'localhost')
 }else
 {
 	/** database config **/
-	define('DBNAME', 'my_db');
-	define('DBHOST', 'localhost:3307');
+	define('DBNAME', 'group_32');
+	define('DBHOST', 'localhost');
 	define('DBUSER', 'root');
-	define('DBPASS', 'abc');
+	define('DBPASS', '');
 	define('DBDRIVER', '');
 
 	define('ROOT', 'https://www.yourwebsite.com');
