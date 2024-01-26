@@ -13,9 +13,10 @@ nav{
     background: #97704F;
     height: 80px;
     width: 100%;
+    position: fixed;
 }
 
-label.logo{
+nav label.logo{
     color: white;
     font-size: 35px;
     line-height: 80px;
@@ -31,7 +32,7 @@ nav ul{
 nav ul li{
     display: inline-block;
     line-height: 80px;
-    margin: 0 5px;
+    margin: 0 10px;
 }
 
 nav ul li a{
@@ -42,12 +43,12 @@ nav ul li a{
     text-transform: uppercase;
 }
 
-a.acive, a:hover{
+nav ul li a:hover{
     background: #59300e;
     transition: 0.5s;
 }
 
-.checkbtn{
+/* .checkbtn{
     font-size: 30px;
     color: white;
     float: right;
@@ -59,9 +60,40 @@ a.acive, a:hover{
 
 #check{
     display: none;
+} */ */
+
+.sidebar{
+    position: fixed;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background: #97704F;
+    margin-top: 80px;
 }
 
-@media(max-width:952px){
+.sidebar a{
+    display: block;
+    height: 100%;
+    width: 100%;
+    line-height: 65px;
+    font-size: 20px;
+    color: white;
+    padding-left: 40px;
+    box-sizing: border-box;
+    border-top: 1px solid rgba(255, 255, 255, .1);
+    border-bottom: 1px ;
+    transition: 0.4s;
+}
+
+ul li:hover a{
+    padding-left: 50px;
+}
+
+.sidebar ul a i{
+    margin-right: 16px;
+}
+
+/* @media(max-width:952px){
     label.logo{
         font-size: 30px;
         padding-left: 50px;
@@ -84,13 +116,13 @@ a.acive, a:hover{
         background: #382618;
         top: 80px;
         left: -100%;
-        /* left: 0; */
-        text-align: center;
+        left: 0; */
+        /* text-align: center;
         transition: all 0.5s;
 
-    }
+    } */
 
-    nav ul li{
+    /* nav ul li{
         display: block;
         margin: 50px 0;
         line-height: 30px;
@@ -114,4 +146,4 @@ a.acive, a:hover{
         background-size: cover;
         height: calc(100vh-80px) ;
     }
-}
+} */

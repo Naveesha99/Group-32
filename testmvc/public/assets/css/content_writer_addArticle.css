@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Catamaran:400,700');
 
 * {
-    /* padding: 0;
+    padding: 0;
     margin: 0;
-    box-sizing: border-box; */
+    box-sizing: border-box;
     font-family: 'Catamaran', sans-serif;
 
 }
