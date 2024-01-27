@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css?family=Catamaran:400,700');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Catamaran', sans-serif;
+
+}
+
+
+/* body{
+    
+    background: #FFEAD7;
+
+} */
+
+.container{
+    position: absolute;
+    width: calc(100% - 250px);
+    left: 250px;
+    min-height: 100vh;
+    background-color:  #FFEAD7;
+    transition: 0.5s;
+    margin-top: 80px;
+    padding: 20px;
+
+}
+.container.active{
+    width: calc(100% - 80px);
+    left: 80px;
+}
+
+h1 {
+    text-align: center;
+    color: #000000;
+    margin-top: 10px;
+    font-size: 30px;
+    margin-bottom: 50px;
+
+}
+
+.container form.addArticle{
+    display: grid;
+    gap: 10px;
+    align-items: center;
+    width: 600px;
+    /* color: white;  */
+    background-color: white;
+    align-content: center;
+        /* justify-content: center; */
+    
+}
+
+.container form.addArticle.label {
+    font-weight: bold;
+    color: black;
+}
+
+input, select, textarea {
+    width: 90%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    border-radius: 4px;
+    margin: 5px;
+
+}
+
+.button-group{
+    margin-left: 60%;
+    margin-top: 20px;
+
+
+}
+button[type="submit"], button[type="button"] {
+  
+  background-color: #7B0303;
+  color: #FFFFFF; /* Optionally, you can change the text color */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-bottom: 50px;
+  text-align: center;
+  /* margin-top: 5px; */
+}
+
+button[type="submit"]:hover, button[type="button"]:hover {
+    background-color: #888;
+}
+
+@media (max-width: 850px) {
+
+    .container .form {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-left: 100px;
+    }
+
+}
+

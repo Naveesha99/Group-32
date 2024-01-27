@@ -14,20 +14,21 @@ body{
 
 }
 
-.data{
+/* .data{
     height: 100vh;
     margin-left: 250px;
     background-size: cover;
     background-repeat: no-repeat;
-}
+} */
 
 nav{
     background: #97704F;
     line-height: 80px;
     width: 100%;
     position: fixed;
+    z-index: 1;
 }
-label{
+/* nav .label{
     color: white;
     font-size: 30px;
     line-height: 80px;
@@ -35,7 +36,7 @@ label{
     font-weight: bold;
     cursor: pointer;
     margin-left: 50px;
-}
+} */
 
 .nav .img{
     height: 100%;
@@ -147,15 +148,15 @@ nav ul li a{
         margin-left: 0;
         font-size: 35px;
     }
-    .data{
+    /* .data{
         margin-left: 100px;
-    }
+    } */
 }
 
 @media(max-width:650px){
-    .data {
+    /* .data {
         display: none;
-    }
+    } */
 
     nav ul{
         display: none;

@@ -12,7 +12,7 @@
 
     <input type="checkbox" id="menu">
     <nav>
-        <label>Logo</label>
+        <!-- <label>Logo</label> -->
 
         <ul>
             <li><a class="active" href="#">Home</a></li>
@@ -34,7 +34,7 @@
         <a href="#"> <i class="fa-solid fa-gear"></i> <span>Settings</span></a>
     </div>
 
-    <div class="data"></div>
+    <!-- <div class="data"></div> -->
     
 </body>
 </html>
