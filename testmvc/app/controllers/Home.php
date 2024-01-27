@@ -10,9 +10,25 @@ class Home
 	public function index()
 	{
 
-		$data['username'] = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->email;
+		$row = $this->get_drama_img();
 
-		$this->view('home',$data);
+		$data['data']= $row;
+       
+        $this->view('home', $data);
 	}
 
+	private function get_drama_img()
+	{
+		$home = new Homes();
+		$row = $home->findAll();
+		foreach ($row as $key)
+		{			
+			// unset($key->title);
+			unset($key->description);
+		}
+		// show($row);
+
+		return $row;
+	}
 }
+
