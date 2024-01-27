@@ -14,11 +14,9 @@
         </div>
         <ul>
             <a href="<?=ROOT?>/admindashboard"><li><img src="" alt="">&nbsp; <span>Dashboard</span> </li></a>
-            <a href="<?=ROOT?>/admindrama"><li><img src="" alt="">&nbsp; <span>Drama</span> </li></a>
-            <a href="<?=ROOT?>/adminemployee"><li><img src="" alt="">&nbsp; <span>Employee</span> </li></a>
-            <a href="<?=ROOT?>/admindrama"><li><img src="" alt="">&nbsp; <span>Theater</span> </li></a>
-            <a href="<?=ROOT?>/adminrequests"><li><img src="" alt="">&nbsp; <span>Requests</span> </li></a>
-            <a href="<?=ROOT?>/adminreports"><li><img src="" alt="">&nbsp; <span>Reports</span> </li></a>
+            <a href="<?=ROOT?>/content_writer_addArticle"><li><img src="" alt="">&nbsp; <span>New Article</span> </li></a>
+            <a href="<?=ROOT?>/adminemployee"><li><img src="" alt="">&nbsp; <span>All Articles</span> </li></a>
+            <a href="<?=ROOT?>/admindrama"><li><img src="" alt="">&nbsp; <span>Drafts</span> </li></a>
             <a href="<?=ROOT?>/adminsettings"><li><img src="" alt="">&nbsp; <span>Settings</span> </li></a>
         </ul>
     </div>
