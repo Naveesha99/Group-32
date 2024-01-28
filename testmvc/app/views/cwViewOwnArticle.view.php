@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/cwViewOwnArticle.css">
     <title>Article Details</title>
 </head>
-<!-- <?php require_once 'nav.php' ?> -->
+<?php require_once 'cwNaviBar.php' ?>
 
 <body>
 

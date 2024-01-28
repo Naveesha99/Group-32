@@ -3,7 +3,7 @@
 /**
  *  view own article class
  */
-class CWDrafts
+class CWDraft
 {
 	use Controller;
 
@@ -12,7 +12,7 @@ class CWDrafts
 
 		// $data['username'] = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->email;
 
-		$this->view('cwDrafts');
+		$this->view('cwDraft');
 	}
 
 }

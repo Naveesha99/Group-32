@@ -163,9 +163,9 @@ nav ul li a{
     }
 
     .sidebar{
-        width: 50%;
+        width:30px;
         text-align: center;
-        left: 50%;
+        /* left: 50%; */
         background-color: #59300e;
         transition: all 0.5s;
     }
@@ -179,7 +179,7 @@ nav ul li a{
     } */
 
     nav .menu-bar{
-        display: block;
+        display:  none;
     }
 }
 

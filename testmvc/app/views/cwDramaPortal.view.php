@@ -8,14 +8,12 @@
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/cwDramaPortal.css">
 
 </head>
-<?php require_once 'cwNavBar.php' ?>
 
 
 <body>
-    <?php require_once 'cwSideBar.php' ?>
 
     <div class="button-group">
-        <a href="content_writer_addArticle">
+        <a href="<?=ROOT?>/cwAddArticle">
             <button type="button" onclick="addNew()">ADD NEW</button>
         </a>
     </div>
