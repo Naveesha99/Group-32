@@ -51,7 +51,8 @@ body {
     -moz-transition: background 0.2s ease;
     -ms-transition: background 0.2s ease;
     -o-transition: background 0.2s ease;
-    overflow-x: hidden;
+    overflow-x: hidden  !important;
+    overflow: hidden;
 }
 
 body::before {
@@ -285,6 +286,7 @@ h1 {
 
                 
                 <h1 class="opacity">SIGNUP</h1>
+                <!-- <form method="post" onsubmit="return validateForm()"> -->
                 <form method="post" onsubmit="return validateForm()">
 
                 <!-- <//?php if(!empty($errors)):?>
@@ -296,7 +298,7 @@ h1 {
                     <input type="text" placeholder="FULLNAME" name = "fullname" id="fullname" class="fullname"  required>
                     <input type="text" placeholder="USERNAME" name = "username" id="username" class="username"  required>
                     <input type="email" placeholder="EMAIL" name = "email" id="email" class="email" required>
-                    <input type="tel" placeholder="CONTACTNUMBER" name = "number" id="number" class="number" required pattern="[0-9]{10}">
+                    <input type="tel" placeholder="CONTACTNUMBER" name = "contactNumber" id="contactNumber" class="contactNumber" required pattern="[0-9]{10}">
                     <input type="text" placeholder="NIC" name = "nic" id="nic" class="nic" required>
 
                     <!-- <input type="password" placeholder="PASSWORD" /> -->
@@ -335,7 +337,7 @@ h1 {
         errorMessage.innerHTML = "Passwords do not match";
 
         // Prevent the form from being submitted
-        // return false;
+        return false;
     }
 
     // If passwords match, continue with the form submission

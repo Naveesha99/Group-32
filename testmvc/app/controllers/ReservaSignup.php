@@ -16,8 +16,10 @@ class ReservaSignup
 			$reservationists = new Reservationists;
 			// $user->insert($_POST);
 			// redirect('login');
+			//echo '<script>console.log("Before inside if (POST request)");</script>';
 			if($reservationists->validate($_POST))
 			{
+				echo '<script>console.log("Before inside if (POST request)");</script>';
 				$reservationists->insert($_POST);
 				redirect('reservaLogin');
 			}

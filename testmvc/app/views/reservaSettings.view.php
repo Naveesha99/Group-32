@@ -28,7 +28,7 @@
                     <!-- <h1>Settings Page</h1> -->
                 </header>
 
-                <form onsubmit="return validateForm()">
+                <form onsubmit="return validateFormSettings()">
 
                     <input type="file" id="photo" name="photo" accept="image/*" onchange="previewImage(this)">
                     <!-- <img id="preview" src="/images/profilePic.png" alt="Preview"> -->
@@ -74,7 +74,7 @@
             }
         }
 
-        function validateForm() {
+        function validateFormSettings() {
             var contactInput = document.getElementById('contact');
             var contactError = document.getElementById('contact-error');
 

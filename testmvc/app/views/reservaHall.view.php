@@ -42,7 +42,7 @@
         </div> -->
     </div>
 </section>
-<div class="bottom">
+<div class="bottom" >
 
     <div class="container-bottom">
 
@@ -57,7 +57,7 @@
 
             <div class="control">
 
-                <button class="btn">
+                <button class="btn" onclick="redirectToReservaHall1('HALL01');">
                     <!-- <span class="price">$250</span> -->
                     <!-- <span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span> -->
                     <span class="buy">Book now</span>
@@ -102,7 +102,7 @@
 
             <div class="control">
 
-                <button class="btn">
+                <button class="btn" onclick="redirectToReservaHall1('HALL02');">
                     <!-- <span class="price">$250</span>
                     <span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span> -->
                     <span class="buy">Get now</span>
@@ -146,7 +146,7 @@
 
     <div class="control">
 
-        <button class="btn">
+        <button class="btn" onclick="redirectToReservaHall1('HALL03');">
             <!-- <span class="price">$250</span>
             <span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span> -->
             <span class="buy">Get now</span>
@@ -191,6 +191,20 @@
             document.getElementById('login-btn').style.display='none';
         }
         
+        }
+
+
+        function redirectToReservaHall1(hallNumber) {
+            event.preventDefault();
+
+
+            
+
+    //   window.location.href = 'reservaSentReq?loggedin=true';
+
+            window.location.href = `reservaHall1?hallno=${hallNumber}&loggedin=true`;
+                    // window.location.href = `reservaReq?time=${selectedTime}&date=${document.getElementById('selectedDate').innerHTML}`;
+
         }
 </script>
 </html>

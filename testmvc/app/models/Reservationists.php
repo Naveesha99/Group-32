@@ -51,7 +51,8 @@ class Reservationists
         if(empty($data['contactNumber']))
 		{
 			$this->errors['contactNumber'] = "contactNumber is required";
-		}else
+		}
+		else
 		if(!filter_var($data['contactNumber'],FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => "/^[0-9]{10}$/"))))
 		{
 			$this->errors['contactNumber'] = "contactNumber is not valid";
@@ -62,11 +63,6 @@ class Reservationists
 		{
 			$this->errors['nic'] = "NIC is required";
 		}
-
-		// if(empty($data['dob']))
-		// {
-		// 	$this->errors['dob'] = "Date of Birth is required";
-		// }
 		
 		if(empty($data['password']))
 		{
@@ -90,5 +86,6 @@ class Reservationists
 		}
 
 		return false;
+		// return true;
 	}
 }
