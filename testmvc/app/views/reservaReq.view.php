@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="<?=ROOT?>/assets/css/reservaReq.css" rel="stylesheet">
-
     <script src="<?= ROOT ?>/assets/js/reservaReqModal.js" defer></script>
     <title>Admin Panel</title>
 
@@ -18,8 +17,6 @@
 <body class="dashboard">
     <div class="container">
         <div class="header">
-
-
             <?php require_once 'navBar.php' ?>
         </div>
 
