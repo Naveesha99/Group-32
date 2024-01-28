@@ -10,6 +10,9 @@
 <?php require_once 'cwNaviBar.php' ?>
 <body>
 <div class="container">
+        <!-- <div class="heading">
+            <h1>DRAMA PORTAL</h1>
+        </div> -->
         <div class="card">
             <div class="imgBX">
                 <img src="<?=ROOT ?>/assets/images/home/i3.jpg" alt="image" >
