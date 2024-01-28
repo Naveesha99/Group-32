@@ -163,20 +163,20 @@ nav ul li a{
     }
 
     .sidebar{
-        width: 100%;
+        width: 50%;
         text-align: center;
-        left: 100%;
+        left: 50%;
         background-color: #59300e;
         transition: all 0.5s;
     }
 
     .sidebar a i{
-        display: none;
-    }
-
-    .sidebar a span{
         display: block;
     }
+
+    /* .sidebar a span{
+        display: block;
+    } */
 
     nav .menu-bar{
         display: block;

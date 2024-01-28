@@ -27,10 +27,10 @@
 
     <div class="sidebar">
         
-        <a href="#"> <i class="fa-solid fa-house"></i> <span>Dashboard</span></a>
-        <a href="#"> <i class="fa-solid fa-newspaper"></i><span> New Article</span></a>
+        <a href="<?=ROOT?>/adminDashboard"> <i class="fa-solid fa-house"></i> <span>Dashboard</span></a>
+        <a href="<?=ROOT?>cwAddArticle"> <i class="fa-solid fa-newspaper"></i><span> New Article</span></a>
         <a href="#"> <i class="fa-regular fa-newspaper"></i> <span>All Articles</span></a>
-        <a href="#"> <i class="fa-regular fa-hard-drive"></i> <span>Drafts</span></a>
+        <a href="<?=ROOT?>/cwDrafts"> <i class="fa-regular fa-hard-drive"></i> <span>Drafts</span></a>
         <a href="#"> <i class="fa-solid fa-gear"></i> <span>Settings</span></a>
     </div>
 

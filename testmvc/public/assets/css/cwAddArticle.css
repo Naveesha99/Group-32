@@ -26,17 +26,17 @@
     padding: 20px;
 
 }
-.container.active{
+/* .container.active{
     width: calc(100% - 80px);
     left: 80px;
-}
+} */
 
 h1 {
     text-align: center;
     color: #000000;
     margin-top: 10px;
     font-size: 30px;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 
 }
 
@@ -49,21 +49,23 @@ h1 {
     background-color: white;
     align-content: center;
         /* justify-content: center; */
+    margin-left: 25%;
     
 }
-
-.container form.addArticle.label {
+label {
     font-weight: bold;
     color: black;
+    padding: 10px;
 }
 
 input, select, textarea {
-    width: 90%;
+    width: 95%;
     padding: 10px;
     box-sizing: border-box;
     border: 3px solid #ccc;
     border-radius: 4px;
     margin: 5px;
+    align-items: center;
 
 }
 
@@ -92,12 +94,26 @@ button[type="submit"]:hover, button[type="button"]:hover {
 
 @media (max-width: 850px) {
 
-    .container .form {
+    .container .form.addArticle {
         flex-direction: column;
         justify-content: center;
         align-items: center;
         margin-left: 100px;
+        /* width: 400px; */
     }
 
 }
+
+@media (max-width: 650px) {
+    .container .form.addArticle {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-left: 50px;
+        /* width: 200px; */
+    }
+
+
+}
+
 
