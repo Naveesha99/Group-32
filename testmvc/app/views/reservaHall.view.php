@@ -89,37 +89,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <div class="container-bottom">
 
         <div class="product-details">
@@ -203,28 +172,25 @@
         </ul>
     </div>
 </div>
-
+</div>
 </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
-
+<script>
+    window.onload = function () {
+        const urlSearchParams = new URLSearchParams(window.location.search);
+        var session=urlSearchParams.get('loggedin');
+        document.getElementById('img-profile').style.display = 'none';
+        if(session == 'false'){
+            document.getElementById('img-profile').style.display = 'none';
+            // document.getElementById('login-btn').style.display='none';
+        }
+        if(session == 'true'){
+            // document.getElementById('img-profile').style.display = 'none';
+            document.getElementById('img-profile').style.display = 'block';
+            document.getElementById('login-btn').style.display='none';
+        }
+        
+        }
+</script>
 </html>

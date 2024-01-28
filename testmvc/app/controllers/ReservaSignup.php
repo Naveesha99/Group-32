@@ -13,16 +13,16 @@ class ReservaSignup
 		
 		if($_SERVER['REQUEST_METHOD'] == "POST")
 		{
-			$user = new User;
+			$reservationists = new Reservationists;
 			// $user->insert($_POST);
 			// redirect('login');
-			if($user->validate($_POST))
+			if($reservationists->validate($_POST))
 			{
-				$user->insert($_POST);
-				redirect('login');
+				$reservationists->insert($_POST);
+				redirect('reservaLogin');
 			}
 
-			$data['errors'] = $user->errors;			
+			$data['errors'] = $reservationists->errors;			
 		}
 
 
