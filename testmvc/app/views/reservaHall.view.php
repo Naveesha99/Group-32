@@ -42,7 +42,7 @@
         </div> -->
     </div>
 </section>
-<div class="bottom">
+<div class="bottom" >
 
     <div class="container-bottom">
 
@@ -57,7 +57,7 @@
 
             <div class="control">
 
-                <button class="btn">
+                <button class="btn" onclick="redirectToReservaHall1('HALL01');">
                     <!-- <span class="price">$250</span> -->
                     <!-- <span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span> -->
                     <span class="buy">Book now</span>
@@ -89,37 +89,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <div class="container-bottom">
 
         <div class="product-details">
@@ -133,7 +102,7 @@
 
             <div class="control">
 
-                <button class="btn">
+                <button class="btn" onclick="redirectToReservaHall1('HALL02');">
                     <!-- <span class="price">$250</span>
                     <span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span> -->
                     <span class="buy">Get now</span>
@@ -177,7 +146,7 @@
 
     <div class="control">
 
-        <button class="btn">
+        <button class="btn" onclick="redirectToReservaHall1('HALL03');">
             <!-- <span class="price">$250</span>
             <span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span> -->
             <span class="buy">Get now</span>
@@ -203,28 +172,39 @@
         </ul>
     </div>
 </div>
-
+</div>
 </div>
 
 
+<script>
+    window.onload = function () {
+        const urlSearchParams = new URLSearchParams(window.location.search);
+        var session=urlSearchParams.get('loggedin');
+        document.getElementById('img-profile').style.display = 'none';
+        if(session == 'false'){
+            document.getElementById('img-profile').style.display = 'none';
+            // document.getElementById('login-btn').style.display='none';
+        }
+        if(session == 'true'){
+            // document.getElementById('img-profile').style.display = 'none';
+            document.getElementById('img-profile').style.display = 'block';
+            document.getElementById('login-btn').style.display='none';
+        }
+        
+        }
 
 
+        function redirectToReservaHall1(hallNumber) {
+            event.preventDefault();
 
 
+            
 
+    //   window.location.href = 'reservaSentReq?loggedin=true';
 
+            window.location.href = `reservaHall1?hallno=${hallNumber}&loggedin=true`;
+                    // window.location.href = `reservaReq?time=${selectedTime}&date=${document.getElementById('selectedDate').innerHTML}`;
 
-
-
-
-
-
-
-
-
-
-
-
-</div>
-
+        }
+</script>
 </html>
