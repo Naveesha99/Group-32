@@ -60,6 +60,7 @@ nav ul li a{
     padding: 7px 13px;
     border-radius: 3px;
     text-transform: uppercase;
+    display: inline-block;
 }
 
 .nav ul li a:hover{
