@@ -37,6 +37,13 @@
                                     <td>' . $row->empContact . '</td>
                                     <td>' . $row->empRoll . '</td>
                                     <td><a href="#" class="btn">View</a></td>
+                                    <td><a href="#" class="btn-update">Update</a></td>
+                                    <td>
+                                    <form method="POST">
+                                    <input type="hidden" name="employee_id" value="' . $row->id . '">
+                                    <button type="submit" name="Delete" class="btn-delete">Delete</button>
+                                    </form>
+                            </td>
                                   </tr>';
                         }
 

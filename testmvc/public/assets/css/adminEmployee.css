@@ -17,7 +17,7 @@ li {
 }
 h1,
 h2 {
-    color: #444;
+    color: #b1b1b1;
 }
 h3 {
     color: #999;
@@ -74,10 +74,10 @@ td {
 .container .content .cards .card {
     width: 250px;
     height: 150px;
-    background: white;
+    background: #2424ff;
     margin: 20px 10px;
     display: flex;
-    border-radius: 5px;
+    border-radius: 40px;
     align-items: center;
     justify-content: space-around;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);

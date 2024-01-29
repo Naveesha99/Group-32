@@ -5,17 +5,27 @@
  */
 class employees
 {
-	use Controller;
+    use Controller;
 
-	public function index()
-	{
+    public function index()
+    {
+        $employee = new employee;
+        $result = $employee->findAll();
+        $data = $result;
 
-		$employee = new employee;
-		$result = $employee->findAll();
+        $this->view('employees', $data);
 
-		$data = $result;
+        if (isset($_POST['employee_id'])) {
+            $empId = $_POST['employee_id'];
+            $this->employeeDelete($empId, $employee);
+        }
+		// $show($_POST);
+    }
 
-		$this->view('employees',$data);
-	}
-
+    private function employeeDelete($data, $employee)
+    {
+        // Use $data instead of $id
+        $employee->delete($data, 'id');
+        redirect("employees");
+    }
 }
