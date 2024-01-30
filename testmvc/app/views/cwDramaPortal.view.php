@@ -22,7 +22,7 @@
             <h2>EDIPAS RAJA</h2>
                 <p>Category:Tragedy</p>
                 <p>Oedipus Rex by Sophocles is a Greek tragedy about a man who unknowingly fulfills a prophecy by killing his father and marrying his mother. It explores themes of fate, free will, and the consequences of unchecked pride.</p>
-                <a href="#">READ MORE</a>
+                <a href="cwViewOwnArticle">READ MORE</a>
 
             </div>
         </div>
