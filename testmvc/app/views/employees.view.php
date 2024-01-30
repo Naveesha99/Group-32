@@ -11,6 +11,13 @@
 <?php include 'adminSidebar.php' ?>
 <?php include 'navBar.php' ?>
 
+
+<script>
+        function showAlert() {
+            alert("View button clicked!");
+            // You can customize the alert message as needed
+        }
+    </script>
 <body>
     <div class="container">
         <div class="content">
@@ -39,7 +46,7 @@
                                 <td>' . $row->empAddress . '</td>
                                 <td>' . $row->empContact . '</td>
                                 <td>' . $row->empRoll . '</td>
-                                <td><a href="#" class="btn">View</a></td>
+                                <td><a href="javascript:void(0)" class="btn" onclick="showAlert()">View</a></td>
                                 <td><a href="#" class="btn-update">Update</a></td>
                                 <td>
                                     <form method="POST">

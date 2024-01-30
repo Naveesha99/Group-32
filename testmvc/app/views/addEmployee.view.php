@@ -40,35 +40,8 @@
                 </select>
 
                 <br>
-                <!-- <label for="empname">Employee Name</label>
-                <input type="text" name="empty" placeholder="Empty">                 -->
                 <button class="btn-1">Submit</button>
             </form>
-
-            <!-- <div id="popup">
-                <p>Employee added successfully!</p>
-                <button onclick="addAnotherEmployee()">Add Another Employee</button>
-                <button onclick="viewEmployees()">View Employees</button>
-              </div> -->
-            
-              <!-- <script>
-                function showPopup() {
-                  // Display the popup
-                  document.getElementById('popup').style.display = 'block';
-                }
-            
-                function addAnotherEmployee() {
-                  // Add logic to handle "Add Another Employee" option
-                  alert('Adding another employee...');
-                  // You can redirect to another page or perform other actions
-                }
-            
-                function viewEmployees() {
-                  // Add logic to handle "View Employees" option
-                  alert('Viewing employees...');
-                  // You can redirect to the page where you display employees or perform other actions
-                }
-              </script> -->
         </div>
     </div>
 </body>
