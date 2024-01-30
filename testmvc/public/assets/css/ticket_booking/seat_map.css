@@ -1,0 +1,206 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+
+/* @import url("https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"); */
+
+body {
+	font-family: "Montserrat", sans-serif;
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+  color:chartreuse;
+  margin: 0;
+
+  background-image: url('/pics/background1.jpeg'); /* Replace 'path/to/your/image.jpg' with the actual path to your image */
+  background-size: cover; /* This property ensures that the background image covers the entire background */
+  background-position: center; /* This property centers the background image */
+  background-repeat: no-repeat; 
+  background-attachment: fixed;
+}
+
+* {
+	font-family: "Montserrat", sans-serif !important;
+  box-sizing: border-box;
+}
+
+.movie-container {
+  margin: 20px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.movie-container select {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  border: 0;
+  padding: 5px 15px;
+  margin-bottom: 40px;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+.container {
+  perspective: 1000px;
+  margin: 10px 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content:first baseline;
+  align-items: center;
+}
+
+.seat {
+  background-color:antiquewhite;
+  height: 50px;
+  width: 55px;
+  margin: 3px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.selected {
+  background-color: #0081cb;
+}
+
+.occupied {
+  background-color:red;
+}
+
+.seat:nth-of-type(2) {
+  margin-right: 18px;
+}
+
+.seat:nth-last-of-type(2) {
+  margin-left: 18px;
+}
+
+.seat:not(.occupied):hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+.showcase .seat:not(.occupied):hover {
+  cursor: default;
+  transform: scale(1);
+}
+
+.showcase {
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+  background: rgba(0,0,0,0.1);
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #777;
+}
+
+.showcase li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px;
+}
+
+.showcase li small {
+  margin-left: 2px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.screen {
+  background: #fff;
+  height: 70px;
+  width: 70%;
+  margin: 15px 0;
+  transform: rotateX(-45deg);
+  box-shadow: 0 3px 10px rgba(255,255,255,0.7);
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align items to the start (left) of the container */
+}
+
+p.text {
+  margin: 40px 0;
+  text-decoration: aliceblue;
+  color:hwb(234 3% 11%);
+  align-items:last baseline;
+  font-size: 30px;
+  font-weight: bold;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+p.text span {
+  color:#ed1313;
+  font-weight:bold;
+  box-sizing: content-box;
+  font-size:x-large;
+}
+#count {
+  color: red;
+}
+
+
+.credits a {
+  color: #fff;
+}
+
+.submit {
+  margin-top: 100%;
+  margin-left: 50px;
+  background-color:brown;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  font-weight: bold;
+}
+
+.submit:hover {
+  background-color:brown;
+  transform: scale(1.1); /* Scale the button to 110% of its size */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add a subtle shadow on hover */
+}
+
+
+button#showPopup {
+  background-color: brown;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+label[for="movie"] {
+  /* Your styling properties go here */
+  font-weight: bold;
+  color:aliceblue;
+  font-size: xx-large;
+  /* Add any other styles you want */
+}
+
+#movie {
+  /* Styles for the select element */
+  width: 150px; /* Set the width as needed */
+  padding: 6px;
+  font-size: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+  background-color:cornsilk;
+}
+

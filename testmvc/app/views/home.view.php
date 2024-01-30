@@ -1,67 +1,133 @@
-<!doctype html>
-<html lang="en" class="h-100">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="generator" content="Hugo 0.88.1">
-    <title>Cover Template · Bootstrap v5.1</title>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/home.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <title>Punchi theatre</title>
+</head>
 
-    
+<body>
+    <script src="scripts1.js"></script>
 
-    <!-- Bootstrap core CSS -->
-<link href="<?=ROOT?>/assets/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Messenger Chat Plugin Code -->
+    <div id="fb-root"></div>
 
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
-
-    
-    <!-- Custom styles for this template -->
-    <link href="<?=ROOT?>/assets/css/cover.css" rel="stylesheet">
-  </head>
-  <body class="d-flex h-100 text-center text-white bg-dark">
-    
-<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-  <header class="mb-auto">
-    <div>
-      <h3 class="float-md-start mb-0">Cover</h3>
-      <nav class="nav nav-masthead justify-content-center float-md-end">
-        <a class="nav-link active" aria-current="page" href="<?=ROOT?>">Home</a>
-        <a class="nav-link" href="<?=ROOT?>/login">Login</a>
-        <a class="nav-link" href="<?=ROOT?>/logout">Logout</a>
-      </nav>
+    <!-- Your Chat Plugin code -->
+    <div id="fb-customer-chat" class="fb-customerchat">
     </div>
-  </header>
 
-  <main class="px-3">
-    <h4>Hi, <?=$username?></h4>
-    <h1>Cover your page.</h1>
-    <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
-    <p class="lead">
-      <a href="#" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Learn more</a>
-    </p>
-  </main>
+    <script>
+        var chatbox = document.getElementById('fb-customer-chat');
+        chatbox.setAttribute("page_id", "1003601506490347");
+        chatbox.setAttribute("attribution", "biz_inbox");
+    </script>
 
-  <footer class="mt-auto text-white-50">
-    <p>Cover template for <a href="https://getbootstrap.com/" class="text-white">Bootstrap</a>, by <a href="https://twitter.com/mdo" class="text-white">@mdo</a>.</p>
-  </footer>
-</div>
+    <!-- Your SDK code -->
+    <!-- <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                xfbml: true,
+                version: 'v12.0'
+            });
+        };
+
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script> -->
 
 
-    
-  </body>
+    <div class="navbar">
+        <div class="navbar-container">
+            <div class="logo-container">
+                <img class="logo" src="<?= ROOT ?>/assets/images/home/Logo.png" alt="PUNCHI THEATRE">
+            </div>
+            <div class="menu-container">
+                <ul class="menu-list">
+                    <li class="menu-list-item active">Home</li>
+                    <li class="menu-list-item"><a href="#">Dramas</a></li>
+                    <li class="menu-list-item"><a href="#">Popular</a></li>
+                </ul>
+            </div>
+
+            <div class="menu-container">
+                <ul class="menu-listSL">
+                    <li class="menu-list-item"><a href="<?= ROOT ?>/login">Login</a></li>
+                    <li class="menu-list-item"><a href="<?= ROOT ?>/signup">Sign Up</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar">
+        <a href="#"><i class="left-menu-icon fas fa-search"></a></i>
+    </div>
+
+    <div class="container">
+        <div class="content-container">
+            <div class="featured-content" style="background: linear-gradient(to bottom, rgba(0,0,0,0), #151515), url('<?= ROOT ?>/assets/images/home/p-2.jpg');">
+                <!-- <img class="featured-title" src="img/#" alt=""> -->
+                <p class="featured-desc"></p>
+                <!-- <button class="featured-button">WATCH</button> -->
+            </div>
+            <div class="movie-list-container">
+                <h1 class="movie-list-title">NEW RELEASES</h1>
+
+                <div class="movie-list-wrapper">
+                    <?php
+                    if (isset($data) && is_array($data)) 
+                    {
+                        $itemCount = count($data);
+                        $itemsPerRow = 4;
+
+                        // Loop through the data and group items by 7
+                        for ($i = 0; $i < $itemCount; $i += $itemsPerRow) 
+                        {
+                            echo '<div class="movie-list-row">';
+                            
+                            // Display up to 7 items in the current row
+                            for ($j = 0; $j < $itemsPerRow && ($i + $j) < $itemCount; $j++) 
+                            {
+                                $x = $data[$i + $j];
+                    ?>
+                                <form action="select_drama" method="POST">
+                                    <div class="movie-list-item">
+                                        <img class="movie-list-item-img" src="<?= ROOT ?>/assets/images/drama_img/<?= $x->image ?>">
+                                        <span class="movie-list-item-title"><?= $x->title ?></span>
+                                        <input type="hidden" name="id" value="<?= $x->id ?>">
+                                        <button type="submit" class="movie-list-item-button">BOOK</button>
+                                    </div>
+                                </form>
+                    <?php
+                            }
+
+                            echo '</div>';
+                        }
+                    } 
+                    else 
+                    {
+                    ?>
+                        <h1>Next release coming soon</h1>
+                    <?php
+                    }
+                    ?>
+                    <!-- <i class="fas fa-chevron-right arrow"></i> -->
+                </div>
+            </div>
+
+       
+        </div>
+    </div>
+        
+        <script src="<?= ROOT ?>/assets/js/home.js"></script>
+</body>
+
 </html>

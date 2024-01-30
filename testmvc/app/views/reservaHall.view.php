@@ -11,48 +11,200 @@
 
 </head>
 
-<?php require_once 'reservaSideBar.php' ?>
+<?php require_once 'reservaNavBar.php' ?>
 
 
-<body class="dashboard">
-    <div class="container">
-        <div class="header">
 
 
-            <?php require_once 'navBar.php' ?>
+<section class="container">
+    <div class="content__container">
+        <h1>
+            Reserve Your Hall<br />
+            <span class="heading__1">Now !</span><br />
+            <span class="heading__2">MASTERFUL EVENTS STARTS HERE.</span>
+        </h1>
+        <p>
+            Elevate our events in our top noth conference halls or stage drama theatres.Unleash your unforgettable experiences - reserve your space!
+        </p>
+        <!-- <form>
+          <input type="text" placeholder="What do you want to learn" />
+          <button type="submit">Search Course</button>
+        </form> -->
+    </div>
+    <div class="image__container">
+        <img src="<?= ROOT ?>/assets/images/hallBookingimg1.png" alt="header" />
+        <img src="<?= ROOT ?>/assets/images/hallBookingimg2.png" alt="header" />
+        <!-- <div class="image__content">
+          <ul>
+            <li>Get 30% off on every 1st month</li>
+            <li>Expert teachers</li>
+          </ul>
+        </div> -->
+    </div>
+</section>
+<div class="bottom" >
+
+    <div class="container-bottom">
+
+        <div class="product-details">
+
+            <h1>HALL 1</h1>
+            
+
+            <p class="information">" Let's spread the joy , here is Christmas , the most awaited day of the year.Christmas Tree is what one need the most. Here is the correct tree which will enhance your Christmas.</p>
+
+
+
+            <div class="control">
+
+                <button class="btn" onclick="redirectToReservaHall1('HALL01');">
+                    <!-- <span class="price">$250</span> -->
+                    <!-- <span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span> -->
+                    <span class="buy">Book now</span>
+                </button>
+
+            </div>
+
         </div>
 
+        <div class="product-image">
 
-        <div class="content">
+            <img src="<?= ROOT ?>/assets/images/Hall1Photo1.jpg" alt="">
 
-            <div class="tile">
-                <h2>Hall 1</h2>
-                <img src="<?= ROOT ?>/assets/images/Hall1Photo1.jpg" alt="Hall 1">
-                <div class="description">
-                    <p>Description for Hall 1 goes here...</p>
-                    <!-- <button class="viewButton" onclick="location.href='ReservaHall1.html';">View More</button> -->
-                    <button class="viewButton" onclick="location.href='reservaHall1';">View More</button>
-                </div>
-            </div>
-            <div class="tile">
-                <h2>Hall 2</h2>
-                <img src="<?= ROOT ?>/assets/images/Hall2Photo1.jpg" alt="Hall 2">
-                <div class="description">
 
-                    <p>Description for Hall 2 goes here...</p>
-                    <button class="viewButton" onclick="location.href='reservaHall1';">View More</button>
-                </div>
-            </div>
-            <div class="tile">
-                <h2>Theatre</h2>
-                <img src="<?= ROOT ?>/assets/images/Hall3Photo1.jpg" alt="Theatre">
-                <div class="description">
+            <div class="info">
+                <h2> Description</h2>
+                <ul>
+                    <li><strong>Head Count : </strong>5 Ft </li>
+                    <li><strong>Price(1hr) : </strong>Olive green</li>
+                    <!-- <li><strong>Decoration: </strong>balls and bells</li>
+                    <li><strong>Material: </strong>Eco-Friendly</li> -->
 
-                    <p>Description for Theatre goes here...</p>
-                    <button class="viewButton" onclick="location.href='reservaHall1';">View More</button>
-                </div>
+                </ul>
             </div>
         </div>
+
     </div>
 
+
+
+
+    <div class="container-bottom">
+
+        <div class="product-details">
+
+            <h1>HALL 2</h1>
+            
+
+            <p class="information">" Let's spread the joy , here is Christmas , the most awaited day of the year.Christmas Tree is what one need the most. Here is the correct tree which will enhance your Christmas.</p>
+
+
+
+            <div class="control">
+
+                <button class="btn" onclick="redirectToReservaHall1('HALL02');">
+                    <!-- <span class="price">$250</span>
+                    <span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span> -->
+                    <span class="buy">Get now</span>
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="product-image">
+
+            <img src="<?= ROOT ?>/assets/images/Hall2Photo1.jpg" alt="">
+
+
+            <div class="info">
+                <h2> Description</h2>
+                <ul>
+                    <li><strong>Height : </strong>5 Ft </li>
+                    <li><strong>Shade : </strong>Olive green</li>
+                    <!-- <li><strong>Decoration: </strong>balls and bells</li>
+                    <li><strong>Material: </strong>Eco-Friendly</li> -->
+
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <div class="container-bottom">
+
+<div class="product-details">
+
+    <h1>THEATRE</h1>
+    
+
+    <p class="information">" Let's spread the joy , here is Christmas , the most awaited day of the year.Christmas Tree is what one need the most. Here is the correct tree which will enhance your Christmas.</p>
+
+
+
+    <div class="control">
+
+        <button class="btn" onclick="redirectToReservaHall1('HALL03');">
+            <!-- <span class="price">$250</span>
+            <span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span> -->
+            <span class="buy">Get now</span>
+        </button>
+
+    </div>
+
+</div>
+
+<div class="product-image">
+
+    <img src="<?= ROOT ?>/assets/images/Hall3Photo1.jpg" alt="">
+
+
+    <div class="info">
+        <h2> Description</h2>
+        <ul>
+            <li><strong>Height : </strong>5 Ft </li>
+            <li><strong>Shade : </strong>Olive green</li>
+            <li><strong>Decoration: </strong>balls and bells</li>
+            <li><strong>Material: </strong>Eco-Friendly</li>
+
+        </ul>
+    </div>
+</div>
+</div>
+</div>
+
+
+<script>
+    window.onload = function () {
+        const urlSearchParams = new URLSearchParams(window.location.search);
+        var session=urlSearchParams.get('loggedin');
+        document.getElementById('img-profile').style.display = 'none';
+        if(session == 'false'){
+            document.getElementById('img-profile').style.display = 'none';
+            // document.getElementById('login-btn').style.display='none';
+        }
+        if(session == 'true'){
+            // document.getElementById('img-profile').style.display = 'none';
+            document.getElementById('img-profile').style.display = 'block';
+            document.getElementById('login-btn').style.display='none';
+        }
+        
+        }
+
+
+        function redirectToReservaHall1(hallNumber) {
+            event.preventDefault();
+
+
+            
+
+    //   window.location.href = 'reservaSentReq?loggedin=true';
+
+            window.location.href = `reservaHall1?hallno=${hallNumber}&loggedin=true`;
+                    // window.location.href = `reservaReq?time=${selectedTime}&date=${document.getElementById('selectedDate').innerHTML}`;
+
+        }
+</script>
 </html>

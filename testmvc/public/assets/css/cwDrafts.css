@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css?family=Catamaran:400,700');
+body {
+    font-family: 'Catamaran', sans-seri;
+    margin: 0;
+    padding: 0;
+    background-color:#FFEAD7;
+}
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1em 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+
+.drama-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.drama-card img {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ddd;
+}
+
+.drama-details {
+    padding: 15px;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+p {
+    margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+    .drama-card {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+    }
+
+    .drama-card img {
+        border-bottom: none;
+        border-right: 1px solid #ddd;
+    }
+
+    .drama-details {
+        padding: 20px;
+    }
+}

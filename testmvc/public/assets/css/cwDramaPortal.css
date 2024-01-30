@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css?family=Catamaran:400,700');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Catamaran', sans-serif;
+}
+
+body {
+    background-color: #FFEAD7;
+    margin: 0;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 10px;
+
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 80px;
+    /* margin-left: 150px; */
+    width: 100%;
+}
+.pararaph{
+    margin-left: 10px;
+
+}
+.category{
+    margin-left: 100px;
+    max-width: 1000px;
+    margin-top: 10px;
+    color:#cea5a5;
+  }
+
+
+.sidebar {
+    /* Define your sidebar styles here */
+    width: 20%;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    width: 300px; /* Adjust this width according to your requirement */
+    margin: 30px;
+    border-radius: 15px;
+    max-width: 800px;
+    height: 100%;
+    transition: all 1s ease;
+}
+
+.card-image {
+    height: 170px;
+    margin-bottom: 15px;
+    background-size: cover;
+    border-radius: 15px 15px 0 0;
+}
+
+.card h2,
+.card p {
+    padding: 10px;
+}
+
+.card a {
+    background-color: black;
+    color: white;
+    padding: 15px 20px;
+    display: block;
+    text-align: center;
+    margin: 15px 15px; /* Center the button horizontally */
+    text-decoration: none;
+}
+
+.card:hover {
+    background-color: rgb(62, 62, 62);
+    color: white;
+    cursor: pointer;
+    transform: scale(1.03);
+}
+
+.image-1 {
+    background-image: url(/public/assets/images/kuweni.jpeg);
+}
+
+.image-2 {
+    background-image: url(/public/assets/images/kuweni.jpeg);
+}
+
+.image-3 {
+    background-image: url(/public/assets/images/kuweni.jpeg);
+}
+
+.image-4 {
+    background-image: url(/public/assets/images/kuweni.jpeg);
+}
+
+.image-5 {
+    background-image: url(/public/assets/images/kuweni.jpeg);
+}
+
+.image-6 {
+    background-image: url(/public/assets/images/kuweni.jpeg);
+}
+/* .button-group{
+    /* margin-left: 50%; */
+    
+    
+ */
+
+
+button[type="button"] {
+    background-color: #7B0303;
+    color: #FFFFFF; 
+    padding: 8px 50px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 75%;
+    margin-bottom: 40px;
+    text-align: center;
+    margin-top: 60px;
+    margin-right: 50px;
+    white-space: nowrap;
+  }
+  
+  button[type="button"]:hover {
+      background-color: #888;
+  }
+  
+
+@media (max-width: 1200px) {
+    .container {
+        justify-content: center;
+    }
+    .sidebar {
+        display: none;
+    }
+}
+
+@media (min-width: 400px) {
+    .container {
+        justify-content: center;
+    }
+    .sidebar {
+        display: none;
+    }
+}
+
+
