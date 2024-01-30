@@ -9,9 +9,6 @@
 </head>
 <body>
 <div class="side-menu">
-        <div class="brand-name">
-            <h1>Brand</h1>
-        </div>
         <ul>
             <a href="<?=ROOT?>/admindashboard"><li><img src="" alt="">&nbsp; <span>Dashboard</span> </li></a>
             <a href="<?=ROOT?>/content_writer_addArticle"><li><img src="" alt="">&nbsp; <span>New Article</span> </li></a>
@@ -20,16 +17,12 @@
             <a href="<?=ROOT?>/adminsettings"><li><img src="" alt="">&nbsp; <span>Settings</span> </li></a>
         </ul>
     </div>
-    <div class="header">
-        <div class="nav">
-          <div class="navbar">
-            <a href="#about">About</a>
-            <a href="#theater">Theater</a>
-            <a href="#drama">Drama</a>
-            <a href="#dramaportal">Drama Portal</a>
-            <a href="#home">Home</a>
-        </div>
-        </div>
-      </div>
+    <div class="navbar">
+        <a href="#about">About</a>
+        <a href="#theater">Theater</a>
+        <a href="#drama">Drama</a>
+        <a href="#dramaportal">Drama Portal</a>
+        <a href="#home">Home</a>
+    </div>
 </body>
 </html>
