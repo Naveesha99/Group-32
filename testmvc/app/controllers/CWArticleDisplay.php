@@ -11,29 +11,22 @@ class CWArticleDisplay
 
 		// $data['username'] = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->email;
 
-		$this->view('cwArticleDisplay');
+		// $this->view('cwArticleDisplay');
+		$article = new article;
+		$result = $article->findAll();
+		$data = $result;
+
+		$this->view('cwArticleDisplay',$data);
+
+		if(isset($_POST['id'])){
+			$articleId = $_POST['id'];
+			$this->articleDelete($articleId,$article);
+		}
+		// $show($_POST);
+	}
+
+	private function articleDelete($data,$article){
+		$article ->delete($data, 'id');
+		redirect("cwArticleDisplay");
 	}
 }
-
-//     public function index()
-//     {
-//         $employee = new Article;
-//         $result = $employee->findAll();
-//         $data = $result;
-
-//         $this->view('employees', $data);
-
-//         if (isset($_POST['employee_id'])) {
-//             $empId = $_POST['employee_id'];
-//             $this->employeeDelete($empId, $employee);
-//         }
-// 		// $show($_POST);
-//     }
-
-//     private function employeeDelete($data, $employee)
-//     {
-//         // Use $data instead of $id
-//         $employee->delete($data, 'id');
-//         redirect("employees");
-//     }
-// }

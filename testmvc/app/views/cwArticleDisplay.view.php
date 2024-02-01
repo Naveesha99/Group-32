@@ -22,7 +22,32 @@
                         <th>Action</th>
                     </tr>
                 </thead>
-                <tbody>
+
+                <?php
+                // Check if $data is not false and is an array or object
+                if ($data && (is_array($data) || is_object($data))) {
+                    foreach ($data as $row) {
+                        echo '<tr>
+                                <td>' . $row->id . '</td>
+                                <td>' . $row->article_name . '</td>
+                                <td>' . $row->category . '</td>
+                                <td>' . $row->article_content . '</td>
+                                <td>' . $row->image . '</td>
+                                <td><a href="javascript:void(0)" class="btn" onclick="showAlert()">View</a></td>
+                                <td><a href="#" class="btn-update">Update</a></td>
+                                <td>
+                                    <form method="POST">
+                                        <input type="hidden" name="employee_id" value="' . $row->id . '">
+                                        <button type="submit" name="Delete" class="btn-delete">Delete</button>
+                                    </form>
+                                </td>
+                              </tr>';
+                    }
+                } else {
+                    echo '<tr><td colspan="9">No data available</td></tr>';
+                }
+                ?>
+                <!-- <tbody>
                     <tr>
                         <td>01</td>
                         <td>Maname</td>
@@ -67,7 +92,7 @@
                             </span>
                         </td>
                     </tr>
-                </tbody>
+                </tbody> -->
             </table>
         </div>
         

@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css?family=Catamaran:400,700');
+*{
+    
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+
+}
+
+body{
+    font-family: 'Catamaran', sans-seri;
+    height: 100vh;
+}
+.container{
+    position: absolute;
+    width: calc(100% - 250px);
+    left: 250px;
+    min-height: 100vh;
+    background-color:  #FFEAD7;
+    transition: 0.5s;
+    margin-top: 80px;
+    padding: 100px 50px;
+}
+
+.container .cardBox{
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 30px;
+
+}
+
+.container .cardBox .card{
+    position: relative;
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+
+}
+
+.container .cardBox .card .numbers{
+    position: relative;
+    font-weight: 500;
+    font-size: 2.5rem;
+    color: blue;
+}
+
+.container .cardBox .card .cardName{
+    color: black;
+    font-size: 1.1rem;
+    margin-top: 5px;
+}
+
+.container .cardBox .card .iconBox{
+    font-size: 3.5rem;
+    color: black;
+}
+
+.container .cardBox .card:hover{
+    background: rgb(3, 3, 37);
+}
+
+.cardBox .card:hover .numbers,
+.cardBox .card:hover .cardName,
+.cardBox .card:hover .iconBox{
+    color: white;
+}
