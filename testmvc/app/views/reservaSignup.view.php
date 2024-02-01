@@ -51,7 +51,8 @@ body {
     -moz-transition: background 0.2s ease;
     -ms-transition: background 0.2s ease;
     -o-transition: background 0.2s ease;
-    overflow-x: hidden;
+    overflow-x: hidden  !important;
+    overflow: hidden;
 }
 
 body::before {
@@ -285,22 +286,32 @@ h1 {
 
                 
                 <h1 class="opacity">SIGNUP</h1>
-                <form>
+                <!-- <form method="post" onsubmit="return validateForm()"> -->
+                <form method="post" onsubmit="return validateForm()">
+
+                <!-- <//?php if(!empty($errors)):?>
+                    <div class="alert-danger">
+                        <//?= implode("<br>",$errors)?>
+                    </div>
+                <//?php endif;?> -->
                     <!-- <input type="text" placeholder="USERNAME" /> -->
-                    <input type="name" placeholder="USERNAME" name = "username" id="username" class="username"  required>
+                    <input type="text" placeholder="FULLNAME" name = "fullname" id="fullname" class="fullname"  required>
+                    <input type="text" placeholder="USERNAME" name = "username" id="username" class="username"  required>
                     <input type="email" placeholder="EMAIL" name = "email" id="email" class="email" required>
-                    <input type="tel" placeholder="CONTACTNUMBER" name = "number" id="number" class="number" required>
+                    <input type="tel" placeholder="CONTACTNUMBER" name = "contactNumber" id="contactNumber" class="contactNumber" required pattern="[0-9]{10}">
+                    <input type="text" placeholder="NIC" name = "nic" id="nic" class="nic" required>
 
                     <!-- <input type="password" placeholder="PASSWORD" /> -->
                     <input type="password" placeholder="PASSWORD" name = "password" id="password" required >
-                    <input type="password" placeholder="CONFIRMPASSWORD" name = "confirm_password" id="password" required >
+                    <input type="password" placeholder="CONFIRMPASSWORD" name = "confirmPassword" id="confirmPassword" required >
+                    <div id="error-message" style="color: white;"></div>
 
 
                     <button type="submit" class="opacity">Register</button>
                 </form>
                 <div class="register-forget opacity">
                 <a> Already registered?</a>
-                    <a href="">LOGIN</a>
+                    <a href="<?=ROOT?>/reservalogin">LOGIN</a>
                     <!-- <a href="">FORGOT PASSWORD</a> -->
                 </div>
             </div>
@@ -308,10 +319,30 @@ h1 {
         </div>
         <div class="theme-btn-container"></div>
     </section>
-</body>
-<!-- partial -->
-  <script  src="./script.js"></script>
 
 </body>
+<!-- partial -->
+  <!-- <script  src="./script.js"></script> -->
+
+</body>
+
+    <script>
+    function validateForm() {
+    var password = document.getElementById("password").value;
+    var confirmPassword = document.getElementById("confirmPassword").value;
+
+    if (password !== confirmPassword) {
+        // Display an error message in your modal or any other element
+        var errorMessage = document.getElementById("error-message");
+        errorMessage.innerHTML = "Passwords do not match";
+
+        // Prevent the form from being submitted
+        return false;
+    }
+
+    // If passwords match, continue with the form submission
+    // return true;
+}
+</script>
 
 </html>

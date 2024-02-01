@@ -19,8 +19,10 @@
 						<input type="text" name="username" placeholder="USERNAME">
 						<input type="email" name="email" placeholder="EMAIL">
 						<input type="text" name="nic" placeholder="NIC">
-						<input type="date" name="dob" placeholder="DATE OF BIRTH">
+						<!-- <input type="date" name="dob" placeholder="DATE OF BIRTH"> -->
 						<input type="password" name="password" placeholder="PASSWORD">
+						<input type="password" name="Repassword" placeholder="Re-Enter PASSWORD">
+
 
                         <!-- <div class="remember-me">
                             <input type="checkbox" id="remember-me">

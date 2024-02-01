@@ -50,17 +50,22 @@ td {
     text-align: left;
     padding: 8px;
 }
-
 .container {
+    /* margin-top: 100px; */
     position: absolute;
     right: 0;
     width: 80vw;
-    height: 100vh;
+    height: 100%;
     background: #f1f1f1;
 }
 
-.container .create-task {
-    margin-top: 100px;
+.container .content {
+    height: 100%;
+}
+
+.container .content .add-job{
+    padding: 30px 0px 0px;
+    margin-top: 150px;
     max-width: 600px;
     height: 100%;
     margin: 40px auto;
@@ -68,14 +73,14 @@ td {
     background-color: #d7cec7;
   }
   
-.container .create-task label {
+.container .add-job label {
     display: block;
     margin-bottom: 8px;
     margin-left: 20px;
     font-weight: bold;
   }
   
-.container .create-task input {
+.container .add-job input {
     width: 80%;
     padding: 8px;
     margin-bottom: 16px;
@@ -84,6 +89,46 @@ td {
     border: 1px solid #ccc;
     border-radius: 4px;
   }
+
+  .container .add-job .work-hours input[type="time"] {
+    width: 35%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.container .add-job .work-hours .separator {
+    margin: 8px;
+}
+
+
+.container .add-job .select {
+    width: 80%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-left: 20px;
+    margin-bottom: 16px;
+}
+
+.btn-1 {
+    background: rgba(195, 98, 1, 0.973);
+    color: white;
+    padding: 3px 10px;
+    text-align: center;
+    border-radius: 5px;
+    border: 2px solid rgba(195, 98, 1, 0.973);
+    margin-left: 30px;
+}
+.btn-1:hover {
+    color: rgba(195, 98, 1, 0.973);
+    background: white;
+    padding: 3px 10px;
+    border: 2px solid rgba(195, 98, 1, 0.973);
+    margin-left: 30px;
+}
 
   #popup {
     display: none;
@@ -105,5 +150,15 @@ td {
     cursor: pointer;
   }
   
+  @media screen and (max-width:536px) {
+
+    .container .content .form {
+        justify-content: center;
+    }
+    .container .content .content-2 .tasks table th:nth-child(2),
+    .container .content .content-2 .tasks table td:nth-child(2) {
+        display: none;
+    }
+}
 
   

@@ -281,27 +281,45 @@ h1 {
             <div class="form-container">
                 <!-- <img src="https://raw.githubusercontent.com/hicodersofficial/glassmorphism-login-form/master/assets/illustration.png" alt="illustration" class="illustration" /> -->
                 <img src="<?= ROOT ?>/assets/images/mask.png" alt="illustration" class="illustration" />
-
-                
                 <h1 class="opacity">LOGIN</h1>
-                <form>
-                    <input type="text" placeholder="USERNAME" />
+
+                <form method="post" onsubmit="return loginButtonClick(event)">
+                    <input type="text" id="username" placeholder="USERNAME" />
                     <input type="password" placeholder="PASSWORD" />
-                    <button class="opacity">LOGIN</button>
+                    <button class="opacity" id="opacitybtn1" type="submit">LOGIN</button>
                 </form>
+
                 <div class="register-forget opacity">
-                    <a href="">SIGNUP</a>
+                    <!-- <a href="">SIGNUP</a> -->
+                    <a href="<?=ROOT?>/reservasignup">SIGNUP</a>
                     <a href="">FORGOT PASSWORD</a>
                 </div>
+                
             </div>
             <div class="circle circle-two"></div>
         </div>
         <div class="theme-btn-container"></div>
     </section>
+
+    <script>
+        function loginButtonClick(event) {
+            // Prevent the default form submission
+            event.preventDefault();
+
+            // Get the value from the input field with id 'username'
+            const usernameValue = document.getElementById('username').value;
+
+            // Redirect to the page with the username as a query parameter
+            window.location.href = `reservaHall?loggedin=true`;
+        }
+    </script>
 </body>
+
 <!-- partial -->
-  <script  src="./script.js"></script>
+  <!-- <script  src="./script.js"></script> -->
 
 </body>
+
+
 
 </html>
