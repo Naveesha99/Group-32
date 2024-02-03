@@ -4,7 +4,7 @@
  * add article class
  */
 
-class Content_writer_addArticle
+class CWAddArticle
 {
     use Controller;
 
@@ -21,7 +21,6 @@ class Content_writer_addArticle
 
         $data['errors'] = $article->errors;
         // show($_POST);
-        $this->view('content_writer_addArticle',$data);
+        $this->view('CWAddArticle',$data);
     }
 }
-
