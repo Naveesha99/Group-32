@@ -198,8 +198,6 @@
             event.preventDefault();
 
 
-            
-
     //   window.location.href = 'reservaSentReq?loggedin=true';
 
             window.location.href = `reservaHall1?hallno=${hallNumber}&loggedin=true`;

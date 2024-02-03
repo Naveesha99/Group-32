@@ -118,7 +118,7 @@
                 <div class="btns">
                     <!-- <button type="button" onclick="popup(this)">Send Request</button> -->
                     <button type="submit" onclick="popup(this)">Send Request</button>
-                    <button type="button" onclick="window.location.href='reservaHall1.html'">Cancel</button>
+                    <!-- <button type="button" onclick="window.location.href='reservaHall1.html'">Cancel</button> -->
 
                 </div>
                 <!-- <div>

@@ -2,7 +2,7 @@
 
 /**
  * add article class
- */
+ */ 
 
 class Content_writer_addArticle
 {

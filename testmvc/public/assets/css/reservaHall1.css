@@ -144,6 +144,16 @@ body {
     transform: scale(1.02);
 
 }
+.time-slot .available::before{
+    /*background: #7B0303;*/
+      /* background : #8D090D */
+      background-color: #ffd6cc;
+  }
+
+  .time-slot :not(.active):hover::before{
+    background: #f2f2f2;
+      
+  }
 
 .time-slot.unavailable {
     background-color: #ffd6cc; /* Light red for unavailable slots */

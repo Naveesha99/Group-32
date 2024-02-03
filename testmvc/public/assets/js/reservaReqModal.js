@@ -4,12 +4,14 @@
 
 function popup(id) {
     // Prevent the default form submission
-    event.preventDefault();
-
+    // event.preventDefault();
+    document.getElementById('Form').submit();
     // Check if all required fields are filled
     if (checkRequiredFields()) {
         // All required fields are filled, proceed with your logic
         document.getElementById('modal').style.display = 'block';
+        // document.getElementById('Form').submit();
+
         // Add your code here for further actions
     } else {
         // Some required fields are not filled, display an error or take other actions
@@ -38,8 +40,25 @@ function checkRequiredFields() {
 
 
 function closeConfirmation() {
+    console.log("INSIDE CLOSE CONFIRMATION D+FUN")
     // Add logic to handle "OK" button click
     // For now, let's just close the confirmation popup
     document.querySelector('.modal').style.display = 'none';
-    window.location.href = 'reservaHall1.html';
+    // window.location.href = 'reservaHall';
+    // redirect('reservaHall');
+
+    // window.location.href = `reservaHall`;
+
+}
+
+function viewRequest(){
+    console.log("INSIDE VIEW RE D+FUN")
+
+    document.querySelector('.modal').style.display = 'none';
+    // window.location.href = 'reservaSentReq';
+    // redirect('reservaSentReq');
+
+    // window.location.href = `reservaSentReq`;
+
+
 }

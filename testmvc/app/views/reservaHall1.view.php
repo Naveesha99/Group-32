@@ -9,7 +9,7 @@
     <script src="<?= ROOT ?>/assets/js/cl.js" defer></script>
     <!-- <script src="/js/ReservaHall1.js"></script> -->
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/cl.css">
-    <script src="<?= ROOT ?>/assets/js/reservaReqModal.js" defer></script>
+    <!-- <script src="<?= ROOT ?>/assets/js/reservaReqModal.js" defer></script> -->
 
     <title>Admin Panel</title>
 
@@ -62,18 +62,18 @@
                         <!-- <p>No Bookings</p> -->
                         <div class="time-slots">
                             <div class="notice"></div>
-                            <div class="time-slot available" onclick="bookSlot('8:00AM')" id="1">8:00AM-9:00AM</div>
-                            <div class="time-slot available" onclick="bookSlot('9:00AM')" id="1">9:00AM-10:00AM</div>
-                            <div class="time-slot available" onclick="bookSlot('10:00AM')" id="1">10:00AM-11:00AM</div>
-                            <div class="time-slot available" onclick="bookSlot('11:00AM')" id="1">11:00AM-12:00PM</div>
-                            <div class="time-slot available" onclick="bookSlot('12:00AM')" id="1">12:00PM-1:00PM</div>
-                            <div class="time-slot available" onclick="bookSlot('1:00PM')" id="1">1:00PM-2:00PM</div>
-                            <div class="time-slot available" onclick="bookSlot('2:00PM')" id="1">2:00PM-3:00PM</div>
-                            <div class="time-slot available" onclick="bookSlot('3:00PM')" id="1">3:00PM-4:00PM</div>
-                            <div class="time-slot available" onclick="bookSlot('4:00PM')" id="1">4:00PM-5:00PM</div>
-                            <div class="time-slot available" onclick="bookSlot('5:00PM')" id="1">5:00PM-6:00PM</div>
-                            <div class="time-slot unavailable" onclick="bookSlot('6:00PM')" id="1">6:00PM-7:00PM</div>
-                            <div class="time-slot available" onclick="bookSlot('7:00PM')" id="1">7:00PM-8:00PM</div>
+                            <div class="time-slot available" onclick="bookSlot('08:00:00')" id="1">8:00AM-9:00AM</div>
+                            <div class="time-slot available" onclick="bookSlot('09:00:00')" id="1">9:00AM-10:00AM</div>
+                            <div class="time-slot available" onclick="bookSlot('10:00:00')" id="1">10:00AM-11:00AM</div>
+                            <div class="time-slot available" onclick="bookSlot('11:00:00')" id="1">11:00AM-12:00PM</div>
+                            <div class="time-slot available" onclick="bookSlot('12:00:00')" id="1">12:00PM-1:00PM</div>
+                            <div class="time-slot available" onclick="bookSlot('13:00:00')" id="1">1:00PM-2:00PM</div>
+                            <div class="time-slot available" onclick="bookSlot('14:00:00')" id="1">2:00PM-3:00PM</div>
+                            <div class="time-slot available" onclick="bookSlot('15:00:00')" id="1">3:00PM-4:00PM</div>
+                            <div class="time-slot available" onclick="bookSlot('16:00:00')" id="1">4:00PM-5:00PM</div>
+                            <div class="time-slot available" onclick="bookSlot('17:00:00')" id="1">5:00PM-6:00PM</div>
+                            <div class="time-slot unavailable" onclick="bookSlot('18:00:00')" id="1">6:00PM-7:00PM</div>
+                            <div class="time-slot available" onclick="bookSlot('19:00:00')" id="1">7:00PM-8:00PM</div>
                         </div>
 
                         <!-- <button class="ReqButton">Request</button> -->
@@ -87,8 +87,9 @@
 
 
 
-            <form class="form">
-                <h2> <span class="hallno" id="hallno">HALL 01</span> <BR> BOOKING REQUEST  <br><span class="spn1">ID: <label class="spn2" id="requestId1" name="requestId1"> </label></span></h2>
+            <form  method="POST" class="form" id="Form" onsubmit="return validateForm()">
+
+                <h2> <span class="hallno" id="hallno">HALL 01</span> <BR> BOOKING REQUEST  <br><span class="spn1">ID: <label class="spn2" id="requestId" name="requestId"> </label></span></h2>
                 <!-- <div class="form_f">
                     <label for="requestId">Request ID:</label>
                     <input type="text" id="requestId" name="requestId" readonly required>
@@ -101,20 +102,35 @@
                 <div class="form_f">
 
                     <label for="date">Date:</label>
-                    <input type="text" id="date" name="date" readonly required>
+                    <input type="text" id="date" name="date" placeholder="Select the date from the calendar" readonly required>
                 </div>
 
                 <div class="form-inside">
                     <div class="form_f">
 
                         <label for="startTime">Starting Time:</label>
-                        <input type="text" id="startTime" name="startTime" readonly required>
+                        <input type="text" id="startTime" name="startTime" placeholder="Select a starting time slot from the available time slots" readonly required>
                     </div>
+
+                <datalist id="endSlots">
+                    <option value="09:00:00">
+                    <option value="10:00:00">
+                    <option value="11:00:00">
+                    <option value="12:00:00">
+                    <option value="13:00:00">
+                    <option value="14:00:00">
+                    <option value="15:00:00">
+                    <option value="16:00:00">
+                    <option value="17:00:00">
+                    <option value="18:00:00">
+                    <option value="19:00:00">
+                    <option value="20:00:00">
+
+                </datalist>
                     <div class="form_f">
 
-                        <label for="hours">Hours:</label>
-                        <input type="number" id="hours" name="hours" placeholder="No of Hours" required
-                            oninput="validateHours(this)">
+                        <label for="endTime">END TIME:</label>
+                        <input type="text" id="endTime" name="endTime" list="endSlots" placeholder="endTime" onblur="validateListInput(this, 'endSlots')" required >
                     </div>
                     <script>
                         function validateHours(input) {
@@ -130,10 +146,13 @@
                     </script>
                 </div>
                 <div class="form_f">
+                    <label for="hours">HOURS:</label>
+                    <input type="text" id="hours" name="hours" placeholder="hours.."  readonly required>
+                </div>
+                <div class="form_f">
 
-                    <label for="hcount">Head Count:</label>
-                    <input type="number" id="hcount" name="hcount" placeholder="Head Count" required
-                        oninput="validateHcount(this)">
+                    <label for="headCount">Head Count:</label>
+                    <input type="number" id="headCount" name="headCount" placeholder="Head Count" required  >
                 </div>
                 <script>
                     function validateHCount(input) {
@@ -156,14 +175,32 @@
                     <div class="form_f">
 
                         <label for="sounds">Sounds:</label>
-                        <input type="text" id="sounds" name="sounds" list="yesOrNo" required>
+                        <input type="text" id="sounds" name="sounds" list="yesOrNo" onblur="validateListInput(this, 'yesOrNo')" required>
                     </div>
                     <div class="form_f">
 
                         <label for="standings">Standings:</label>
-                        <input type="text" id="standings" name="standings" list="yesOrNo" required>
+                        <input type="text" id="standings" name="standings" list="yesOrNo" onblur="validateListInput(this, 'yesOrNo')" required>
                     </div>
                 </div>
+
+                <script>
+    function validateListInput(inputField, listId) {
+        var enteredValue = inputField.value.trim().toLowerCase();
+        var dataList = document.getElementById(listId);
+        var options = Array.from(dataList.options).map(option => option.value.toLowerCase());
+
+        if (!options.includes(enteredValue)) {
+            // alert("Invalid input. Please select a value from the list.");
+            inputField.value = ""; // Clear the input field
+
+            return false;
+        }
+
+        return true;
+    }
+</script>
+
 
                 <div class="form_f">
 
@@ -183,26 +220,17 @@
                 <div class="btns">
                     <!-- <button type="button" onclick="popup(this)">Send Request</button> -->
                     <button type="submit" onclick="popup(this)">Send Request</button>
-                    <button type="button" onclick="window.location.href='reservaHall1'">Cancel</button>
+                    <!-- <button type="submit">Send Request</button> -->
+
+                    <!-- <button type="button" onclick="window.location.href=`reservaHall1`">Cancel</button> -->
 
                 </div>
 
             </form>
 
-
-
-
-
-
-
-
-
-
         </div>
 
     </div>
-
-
 
 
 
@@ -229,19 +257,37 @@
 
 <script>
 
-    // Function to format the date as "Month YYYY, D"
     function formatDate(date) {
+        console.log("in format dae func")
+        // const options = {
+        //     month: 'long',
+        //     year: 'numeric',
+        //     day: 'numeric'
+        // };
+        // return new Date(date).toLocaleDateString(undefined, options);
         const options = {
-            month: 'long',
-            year: 'numeric',
-            day: 'numeric'
-        };
-        return new Date(date).toLocaleDateString(undefined, options);
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+    };
+    // return new Date(date).toLocaleDateString('en-US', options).replace(/\//g, '-');
+    // return new Date(date).toLocaleDateString(undefined, options);
+
+
+    // var today = new Date(); 
+        var formattedDate = date.getFullYear() + '-' + String(date.getMonth()).padStart(2, '0') + '-' + String(date.getDate()).padStart(2, '0');
+        return formattedDate;
+
+
     }
 
     function updateSelectedDate() {
-        const today = new Date();
-        const formattedDate = formatDate(today);
+        var today = new Date();
+        var formattedDate = date.getFullYear() + '-' + String(date.getMonth()).padStart(2, '0') + '-' + String(date.getDate()).padStart(2, '0');
+
+        // const formattedDate = formatDate(today);
+        console.log("formatted date  -  ");
+        console.log(formattedDate);
         document.getElementById('selectedDate').textContent = formattedDate;
         console.log(formattedDate);
 
@@ -302,7 +348,7 @@
     function generateAndSetRequestId() {
         const requestId = generateUniqueId();
         // document.getElementById('requestId').value = requestId;
-        document.getElementById('requestId1').textContent = requestId;
+        document.getElementById('requestId').textContent = requestId;
 
     }
 
@@ -314,8 +360,138 @@
     function bookSlot(selectedTime) {
         // window.location.href = `reservaReq?time=${selectedTime}&date=${document.getElementById('selectedDate').innerHTML}`;
         document.getElementById('startTime').value = selectedTime;
-        document.getElementById('date').value=document.getElementById('selectedDate').innerHTML;
+        // document.getElementById('date').value=document.getElementById('selectedDate').innerHTML;
+        var sdate=document.getElementById('selectedDate').innerHTML;
+        var sdate2= date.getFullYear() + '-' + String(date.getMonth()).padStart(2, '0') + '-' + String(date.getDate()).padStart(2, '0');
+
+        document.getElementById('date').value=sdate2;
+
     }
+
+
+
+
+
+
+
+
+// function popup(id){
+//     document.getElementById('modal').style.display='block';
+// }
+
+function popup(id) {
+    
+    event.preventDefault();
+    console.log("inside popup function");
+    // Prevent the default form submission
+    // event.preventDefault();
+    // document.getElementById('Form').submit();
+    // Check if all required fields are filled
+    if (checkRequiredFields()) {
+        // All required fields are filled, proceed with your logic
+        document.getElementById('modal').style.display = 'block';
+        // document.getElementById('Form').submit();
+
+        // Add your code here for further actions
+    } else {
+        // Some required fields are not filled, display an error or take other actions
+        alert("Please fill in all required fields.");
+    }
+
+}
+
+
+
+
+function checkRequiredFields() {
+    // Get all required fields
+    const requiredFields = document.querySelectorAll('[required]');
+
+    // Check if all required fields are filled
+    for (const field of requiredFields) {
+        if (!field.value.trim()) {
+            // Field is empty, return false
+            return false;
+        }
+    }
+
+    // All required fields are filled, return true
+    return true;
+}
+
+
+function closeConfirmation() {
+    console.log("INSIDE CLOSE CONFIRMATION FUN")
+    // Add logic to handle "OK" button click
+    // For now, let's just close the confirmation popup
+    document.querySelector('.modal').style.display = 'none';
+    // window.location.href = 'reservaHall';
+    window.location.href = `reservaHall`;
+        document.getElementById('Form').submit();
+
+
+}
+
+function viewRequest(){
+    console.log("INSIDE VIEW RE D+FUN")
+
+    document.querySelector('.modal').style.display = 'none';
+    // window.location.href = 'reservaSentReq';
+    window.location.href = `reservaSentReq`;
+        document.getElementById('Form').submit();
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Add an event listener to the end time input field
+document.getElementById('endTime').addEventListener('input', function() {
+    // Get the start time and end time values
+    const startTime = document.getElementById('startTime').value;
+    const endTime = this.value; // 'this' refers to the element that triggered the event
+
+    // Calculate the hours difference
+    const hoursDifference = calculateHoursDifference(startTime, endTime);
+
+    // Update the value of the 'hours' input field
+    document.getElementById('hours').value = hoursDifference;
+});
+
+// Function to calculate the hours difference between two time strings
+function calculateHoursDifference(startTime, endTime) {
+    // Convert times to Date objects
+    const startDate = new Date(`1970-01-01T${startTime}`);
+    const endDate = new Date(`1970-01-01T${endTime}`);
+
+    // Calculate the difference in milliseconds
+    const differenceInMilliseconds = endDate - startDate;
+
+    // Convert the difference to hours
+    const hoursDifference = differenceInMilliseconds / (60 * 60 * 1000);
+
+    // Return the result as an integer
+    return Math.floor(hoursDifference);
+}
+
 
 
 </script>
