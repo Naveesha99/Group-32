@@ -23,6 +23,12 @@ class CWArticleDisplay
 			$this->articleDelete($articleId, $article);
 		}
 		// $show($_POST);
+
+		if(isset($_GET['id'])){
+			$articleId =$_GET['id'];
+			$this->cwViewOwnArticle($articleId);
+			
+		}
 	}
 
 	private function articleDelete($data, $article)
@@ -30,4 +36,14 @@ class CWArticleDisplay
 		$article->delete($data, 'id');
 		redirect("cwArticleDisplay");
 	}
+
+	private function cwViewOwnArticle($articleId){
+		$article =new article;
+		$articleData = $article->where($articleId);
+		$this->view('cwViewOwnArticle',$articleData);
+	}
+
+	
+
+	
 }

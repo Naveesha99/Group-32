@@ -8,13 +8,28 @@
     <title>content writer dashboard</title>
 </head>
 <?php require_once 'cwNaviBar.php' ?>
+
+<?php
+function limitWords($text, $limit) {
+    $words = explode(" ", $text);
+    $limitedWords = array_slice($words, 0, $limit);
+    $result = implode(" ", $limitedWords);
+
+    if (count($words) > $limit) {
+        $result .= '...';
+    }
+
+    return $result;
+}
+?>
+
 <body>
     <div class="container">
         <div class="cardBox">
             <div class=" card">
                 <div>
                     <div class="numbers">1,504</div>
-                    <div class="cardName">Daily Views</div>
+                    <div class="cardName">Total Articles</div>
                 </div>
             </div>
 
@@ -47,7 +62,7 @@
                                 <td>' . $row->id . '</td>
                                 <td>' . $row->article_name . '</td>
                                 <td>' . $row->category . '</td>
-                                <td>' . $row->article_content . '</td>
+                                <td>' . limitWords($row->article_content, 5) .'</td>
                                 <td>' . $row->image . '</td>
                                 <td>
                                     <span class="action_btn">
