@@ -174,3 +174,67 @@ body{
 .container .table-responsive table>tbody>tr:hover{
     filter: drop-shadow(0 3px 7px #0002);
 }
+
+@media screen and (max-width: 1200px) {
+    .container {
+        padding: 100px 30px;
+    }
+
+    .container .cardBox {
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 30px;
+    }
+
+    .container .table-responsive {
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .container .cardBox {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .container .cardBox {
+        grid-template-columns: 1fr;
+    }
+
+    .container .table-responsive {
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .container {
+        padding: 100px 20px;
+    }
+
+    .container .cardBox {
+        grid-gap: 20px;
+    }
+
+    .container .table-responsive table th,
+    .container .table-responsive table td {
+        padding: 3px 5px;
+    }
+
+    .container .table-responsive table>thead th {
+        padding: 10px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .container .cardBox {
+        grid-gap: 15px;
+    }
+
+    .container .table-responsive table>thead th {
+        font-size: 12px;
+    }
+
+    .action_btn>a {
+        padding: 7px 12px;
+    }
+}
