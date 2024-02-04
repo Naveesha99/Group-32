@@ -64,6 +64,7 @@ class Reservationists
 			$this->errors['nic'] = "NIC is required";
 		}
 		
+		
 		if(empty($data['password']))
 		{
 			$this->errors['password'] = "Password is required";
