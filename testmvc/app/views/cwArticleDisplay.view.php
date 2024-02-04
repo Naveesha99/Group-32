@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?=ROOT?>/assets/css/cwArticleDisplay.css">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/cwArticleDisplay.css">
     <title>Display Article</title>
 </head>
 <?php require_once 'cwNaviBar.php' ?>
+
 <body>
     <div class="container">
         <div class="table-responsive">
@@ -33,13 +35,12 @@
                                 <td>' . $row->category . '</td>
                                 <td>' . $row->article_content . '</td>
                                 <td>' . $row->image . '</td>
-                                <td><a href="javascript:void(0)" class="btn" onclick="showAlert()">View</a></td>
-                                <td><a href="#" class="btn-update">Update</a></td>
                                 <td>
-                                    <form method="POST">
-                                        <input type="hidden" name="employee_id" value="' . $row->id . '">
-                                        <button type="submit" name="Delete" class="btn-delete">Delete</button>
-                                    </form>
+                                    <span class="action_btn">
+                                        <a href="<?=ROOT?>/cwArticleDisplay">View</a>
+                                        <a href="#">Edit</a>
+                                        <a href="#" >Delete</a>
+                                    </span>
                                 </td>
                               </tr>';
                     }
@@ -53,7 +54,7 @@
                         <td>Maname</td>
                         <td>Tragedy</td>
                         <td>Set in the fictional Arabian city of Agrabah, ...</td>
-                        <td><img src="<?=ROOT?>/assets/images/kuweni.jpeg" alt="" srcset=""></td>
+                        <td><img src="<?= ROOT ?>/assets/images/kuweni.jpeg" alt="" srcset=""></td>
                         <td>
                             <span class="action_btn">
                                 <a href="#">Edit</a>
@@ -68,7 +69,7 @@
                         <td>Maname</td>
                         <td>Tragedy</td>
                         <td>Set in the fictional Arabian city of Agrabah, ...</td>
-                        <td><img src="<?=ROOT?>/assets/images/kuweni.jpeg" alt="" srcset=""></td>
+                        <td><img src="<?= ROOT ?>/assets/images/kuweni.jpeg" alt="" srcset=""></td>
                         <td>
                             <span class="action_btn">
                                 <a href="#">Edit</a>
@@ -83,7 +84,7 @@
                         <td>Maname</td>
                         <td>Tragedy</td>
                         <td>Set in the fictional Arabian city of Agrabah, ...</td>
-                        <td><img src="<?=ROOT?>/assets/images/kuweni.jpeg" alt="" srcset=""></td>
+                        <td><img src="<?= ROOT ?>/assets/images/kuweni.jpeg" alt="" srcset=""></td>
                         <td>
                             <span class="action_btn">
                                 <a href="#">Edit</a>
@@ -95,9 +96,10 @@
                 </tbody> -->
             </table>
         </div>
-        
-        
+
+
     </div>
-    
+
 </body>
+
 </html>

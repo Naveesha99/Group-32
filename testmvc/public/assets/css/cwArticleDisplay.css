@@ -91,11 +91,15 @@ body{
 }
 
 .action_btn>a:nth-child(1){
+    border-color: blue;
+    background-color: blue;
+}
+.action_btn>a:nth-child(2){
     border-color: green;
     background-color: green;
 }
 
-.action_btn>a:nth-child(2){
+.action_btn>a:nth-child(3){
     border-color: red;
     background-color: red;
 }
