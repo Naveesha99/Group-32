@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css?family=Catamaran:400,700');
+
+ * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Catamaran', sans-serif;
+}
+body {
+    min-height: 100vh;
+}  
+a {
+    text-decoration: none;
+    font-family: 'Catamaran', sans-serif;
+}
+
+.profile-container {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-header {
+    text-align: center;
+}
+
+.profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.user-name {
+    font-size: 24px;
+    margin: 0;
+    color: #333;
+}
+
+.user-email {
+    margin: 5px 0;
+    color: #666;
+}
+
+.profile-details {
+    margin-top: 20px;
+}
+
+h2 {
+    color: #333;
+}
+
+p {
+    line-height: 1.6;
+    color: #666;
+}

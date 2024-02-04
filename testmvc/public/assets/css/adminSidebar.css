@@ -28,7 +28,7 @@ a {
 }
 
 .side-menu .brand-name {
-    height: 100vh;
+    height: 10vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -36,16 +36,17 @@ a {
 
 .side-menu .brand-name #logo{
     /* position: absolute; */
-    height: 80px;
+    height: 40px;
     width: auto;
     width: 60px;
 }
 .side-menu li {
     /* font-size: 24px; */
-    font-size: 15px;
+    font-size: 18px;
     text-transform: uppercase;
     font-weight: 700;
-    padding: 4px 20px;
+    padding: 20px 20px;
+    margin-top: 10px;
     /* color: white; */
     color: #000000;
     display: flex;
@@ -63,12 +64,6 @@ a {
     background: white;
     color: rgba(195, 98, 1, 0.973);
 }
-
-/* 
-.viewButton:hover {
-    background-color: #FF5733;
-}
- */
 
 
 @media screen and (max-width: 1050px) {

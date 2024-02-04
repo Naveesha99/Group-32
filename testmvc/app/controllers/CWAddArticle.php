@@ -2,7 +2,8 @@
 
 /**
  * add article class
- */ 
+
+ */
 
 class CWAddArticle
 {

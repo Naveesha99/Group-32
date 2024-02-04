@@ -33,13 +33,6 @@ body{
     gap: 100px 50px;
 
 }
-/* .container heading{
-    margin-top: 20px;
-    justify-content: center;
-    font-size: 1.5em;
-    font-weight: 900;
-    color: rgb(101, 21, 21);
-} */
 
 .container .card{
     position: relative;
@@ -52,7 +45,6 @@ body{
     border-radius: 20px;
     box-shadow: 0 35px 80px rgba(0, 0, 0,0.15);
     transition: 0.5s;
-    margin-top: 10px;
 }
 
 .container .card:hover{
@@ -118,74 +110,14 @@ body{
 
 }
 
-.container .card .Content a{
+.container .card .Content button[type="submit"]{
     position: relative;
     top: 15px;
     display: inline-block;
     padding: 12px 25px;
-    background: rgb(25, 38, 25);
+    background: rgb(13, 91, 13);
     color: #fff;
     font-weight: 50px;
     text-decoration: none;
     border-radius: 8px;
-}
-
-@media screen and (max-width: 1200px) {
-    .container {
-        width: calc(100% - 200px);
-        left: 200px;
-        padding: 80px 40px;
-    }
-
-    .container .card {
-        width: 300px;
-    }
-
-    .container .card .imgBX {
-        width: 250px;
-    }
-
-    .container .card .Content {
-        padding: 0 20px;
-    }
-}
-
-@media screen and (max-width: 992px) {
-    .container {
-        width: calc(100% - 150px);
-        left: 150px;
-        padding: 80px 30px;
-    }
-
-    .container .card {
-        width: 250px;
-    }
-
-    .container .card .imgBX {
-        width: 200px;
-    }
-
-    .container .card .Content {
-        padding: 0 15px;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .container {
-        width: 100%;
-        left: 0;
-        padding: 80px 20px;
-    }
-
-    .container .card {
-        width: 100%;
-    }
-
-    .container .card .imgBX {
-        width: 100%;
-    }
-
-    .container .card .Content {
-        padding: 0 10px;
-    }
 }

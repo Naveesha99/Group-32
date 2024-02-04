@@ -10,10 +10,13 @@
     <title>Admin Panel</title>
 </head>
 
-<?php require_once 'nav.php' ?>
+<?php include 'adminSidebar.php' ?>
+<?php include 'navBar.php' ?>
 
 <body class="dashboard">
     <div class="container">
+
+
         <div class="content">
             <div class="cards">
                 <div class="card">

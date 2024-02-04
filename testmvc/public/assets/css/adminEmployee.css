@@ -17,7 +17,7 @@ li {
 }
 h1,
 h2 {
-    color: #444;
+    color: #b1b1b1;
 }
 h3 {
     color: #999;
@@ -50,35 +50,6 @@ td {
     text-align: left;
     padding: 8px;
 }
-.side-menu {
-    position: fixed;
-    background: #565656;
-    width: 20vw;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-.side-menu .brand-name {
-    height: 10vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.side-menu li {
-    font-size: 24px;
-    padding: 10px 40px;
-    color: white;
-    display: flex;
-    align-items: center;
-}
-.side-menu li:hover {
-    background: white;
-    color: #565656;
-}
-/* body.dashboard .side-menu {
-    background: white;
-    color: rgba(195, 98, 1, 0.973);
-} */
 .container {
     position: absolute;
     right: 0;
@@ -86,24 +57,7 @@ td {
     height: 100vh;
     background: #f1f1f1;
 }
-.navbar {
-    background-color: #333;
-    overflow: hidden;
-}
 
-.navbar a {
-    float: right;
-    display: block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-.navbar a:hover {
-    background-color: #ddd;
-    color: black;
-}
 .container .content {
     position: relative;
     margin-top: 10vh;
@@ -120,9 +74,10 @@ td {
 .container .content .cards .card {
     width: 250px;
     height: 150px;
-    background: white;
+    background: #2424ff;
     margin: 20px 10px;
     display: flex;
+    border-radius: 40px;
     align-items: center;
     justify-content: space-around;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
