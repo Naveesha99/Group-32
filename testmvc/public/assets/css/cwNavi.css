@@ -22,7 +22,8 @@ body{
 } */
 
 nav{
-    background: #97704F;
+    /* background: #97704F; */
+    background:   #4b0606;
     line-height: 80px;
     width: 100%;
     position: fixed;
@@ -63,8 +64,8 @@ nav ul li a{
     display: inline-block;
 }
 
-.nav ul li a:hover{
-    background: #59300e;
+nav ul li a:hover{
+    background: gray;
     transition: 0.5s;
 }
 
@@ -73,7 +74,8 @@ nav ul li a{
     left: 0;
     width: 250px;
     height: 100%;
-    background: #97704F;
+    /* background: #97704F; */
+    background: #4b0606;
     margin-top: 80px;
 }
 
@@ -103,7 +105,7 @@ nav ul li a{
 
 .sidebar a:hover {
     padding-left: 20px;
-    background: #59300e;
+    background: gray;
 }
 
 .sidebar a i{
@@ -164,15 +166,20 @@ nav ul li a{
     }
 
     .sidebar{
-        width:30px;
+        width:75px;
         text-align: center;
         /* left: 50%; */
-        background-color: #59300e;
+        background-color: #4b0606;
         transition: all 0.5s;
     }
 
     .sidebar a i{
         display: block;
+        line-height: 80px;
+        text-align: center;
+        margin-left: 0;
+        font-size: 20px
+
     }
 
     /* .sidebar a span{
@@ -180,7 +187,7 @@ nav ul li a{
     } */
 
     nav .menu-bar{
-        display:  none;
+        display:  block;
     }
 }
 

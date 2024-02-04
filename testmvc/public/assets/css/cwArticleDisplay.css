@@ -116,3 +116,51 @@ body{
 .container .table-responsive table>tbody>tr:hover{
     filter: drop-shadow(0 3px 7px #0002);
 }
+
+@media (max-width: 1200px) {
+    .container {
+        width: calc(100% - 200px);
+        left: 200px;
+    }
+
+    .container .table-responsive {
+        max-width: 80%;
+    }
+}
+
+@media (max-width: 992px) {
+    .container {
+        width: calc(100% - 150px);
+        left: 150px;
+    }
+
+    .container .table-responsive {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        left: 0;
+        padding: 20px;
+    }
+
+    .container .table-responsive {
+        max-width: 100%;
+    }
+
+    .container .table-responsive table th,
+    .container .table-responsive table td {
+        font-size: 12px;
+        padding: 8px 5px;
+    }
+
+    .container .table-responsive table>thead th {
+        padding: 10px;
+    }
+
+    .action_btn>a {
+        padding: 5px 10px;
+    }
+}

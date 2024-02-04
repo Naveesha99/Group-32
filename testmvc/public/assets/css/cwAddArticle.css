@@ -20,7 +20,7 @@
     width: calc(100% - 250px);
     left: 250px;
     min-height: 100vh;
-    background-color:  #FFEAD7;
+    background-color:   #FFEAD7;
     transition: 0.5s;
     margin-top: 80px;
     padding: 20px;
@@ -92,7 +92,10 @@ button[type="submit"]:hover, button[type="button"]:hover {
     background-color: #888;
 }
 
-@media (max-width: 850px) {
+/* @media (max-width: 850px) {
+    .container{
+        width: calc(100%-100px);
+    }
 
     .container .form.addArticle {
         flex-direction: column;
@@ -100,20 +103,76 @@ button[type="submit"]:hover, button[type="button"]:hover {
         align-items: center;
         margin-left: 100px;
         /* width: 400px; */
+    /* }
+
+} */
+
+/* @media (max-width: 650px) {
+    .container{
+        width: calc(100%-50px);
     }
-
-}
-
-@media (max-width: 650px) {
     .container .form.addArticle {
         flex-direction: column;
         justify-content: center;
         align-items: center;
         margin-left: 50px;
         /* width: 200px; */
+    /* }
+
+
+} 
+ */
+
+ @media (max-width: 1200px) {
+    .container {
+        width: calc(100% - 200px);
+        left: 200px;
+        padding: 20px;
     }
 
+    .container form.addArticle {
+        width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
+    .button-group {
+        margin-left: 30%;
+    }
 }
 
+@media (max-width: 992px) {
+    .container {
+        width: calc(100% - 150px);
+        left: 150px;
+        padding: 20px;
+    }
 
+    .container form.addArticle {
+        width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .button-group {
+        margin-left: 20%;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        left: 0;
+        padding: 20px;
+    }
+
+    .container form.addArticle {
+        width: 250px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .button-group {
+        margin-left: 10%;
+    }
+}
