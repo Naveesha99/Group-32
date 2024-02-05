@@ -20,7 +20,7 @@ class Reservationrequests
 		'startTime',
         // 'hours',
         'endTime',
-		
+		'hours',
 		'headCount',
         'sounds',
         'standings',
@@ -64,6 +64,10 @@ class Reservationrequests
         if(empty($data['endTime']))
 		{
 			$this->errors['endTime'] = "endTime is required";
+		}
+        if(empty($data['hours']))
+		{
+			$this->errors['hours'] = "hours is required";
 		}
     
         
