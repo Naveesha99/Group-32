@@ -11,7 +11,8 @@
 <?php require_once 'cwNaviBar.php' ?>
 
 <?php
-function limitWords($text, $limit) {
+function limitWords($text, $limit)
+{
     $words = explode(" ", $text);
     $limitedWords = array_slice($words, 0, $limit);
     $result = implode(" ", $limitedWords);
@@ -53,7 +54,7 @@ function limitWords($text, $limit) {
                                 <td>' . $row->image . '</td>
                                 <td>
                                     <span class="action_btn">
-                                        <a href="<?=ROOT?>/cwViewOwnArticle?id=' . $row->id . '">View</a>
+                                        <a href="<?=ROOT?>/cwArticleDisplay/cwViewOwnArticle?id=' . $row->id . '">View</a>
                                         <a href="#">Edit</a>
                                         <a href="#" >Delete</a>
                                     </span>
