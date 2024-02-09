@@ -2,6 +2,7 @@
 
 /**
  * add article class
+
  */
 
 class CWAddArticle
@@ -25,3 +26,4 @@ class CWAddArticle
         $this->view('CWAddArticle',$data);
     }
 }
+
