@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css?family=Catamaran:400,700');
+body {
+    font-family: 'Catamaran', sans-seri;
+    margin: 0;
+    padding: 0;
+    background-color:#FFEAD7;
+}
+
+
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1{
+    text-align: center;
+    color: #000000;
+    margin-top: 10px;
+    font-size: 50px;
+    margin-bottom: 50px;
+}
+
+.image{
+    text-align: center;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+
+}
+
+
+h2 {
+    margin-bottom: 10px;
+}
+
+.paragraph{
+    align-items: flex-start;
+    margin: 40px;
+    font-size: 15px;
+
+}
+
+.button-group{
+    margin-left: 55%;
+    
+}
+
+
+button[type="button"] {
+    /* background-color: #7B0303; */
+    color: #000000; /* Optionally, you can change the text color */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 25px;
+    margin-bottom: 50px;
+    text-align: right;
+  }
+  
+  button[type="button"]:hover {
+      background-color: #888;
+  }

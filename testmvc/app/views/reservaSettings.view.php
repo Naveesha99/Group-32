@@ -10,16 +10,16 @@
     <title>Admin Panel</title>
 
 </head>
-<?php require_once 'reservaSideBar.php' ?>
+<?php require_once 'reservaNavBar.php' ?>
 
 
 <body class="dashboard">
     <div class="container">
-        <div class="header">
+        <!-- <div class="header">
 
 
-            <?php require_once 'navBar.php' ?>
-        </div>
+            <?php //require_once 'navBar.php' ?>
+        </div> -->
 
 
         <div class="content">
@@ -28,7 +28,7 @@
                     <!-- <h1>Settings Page</h1> -->
                 </header>
 
-                <form onsubmit="return validateForm()">
+                <form onsubmit="return validateFormSettings()">
 
                     <input type="file" id="photo" name="photo" accept="image/*" onchange="previewImage(this)">
                     <!-- <img id="preview" src="/images/profilePic.png" alt="Preview"> -->
@@ -74,7 +74,7 @@
             }
         }
 
-        function validateForm() {
+        function validateFormSettings() {
             var contactInput = document.getElementById('contact');
             var contactError = document.getElementById('contact-error');
 
@@ -88,6 +88,23 @@
                 contactError.textContent = '';
                 return true;
             }
+        }
+
+
+        window.onload = function () {
+        const urlSearchParams = new URLSearchParams(window.location.search);
+        var session=urlSearchParams.get('loggedin');
+        document.getElementById('img-profile').style.display = 'none';
+        if(session == 'false'){
+            document.getElementById('img-profile').style.display = 'none';
+            // document.getElementById('login-btn').style.display='none';
+        }
+        if(session == 'true'){
+            // document.getElementById('img-profile').style.display = 'none';
+            document.getElementById('img-profile').style.display = 'block';
+            document.getElementById('login-btn').style.display='none';
+        }
+        
         }
     </script>
 </body>
