@@ -17,7 +17,6 @@ class Content_writers
         'password',
         'contactNumber',
 		'nic',
-		'Created_at',
 
     ];
 
