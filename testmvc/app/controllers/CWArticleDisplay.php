@@ -37,7 +37,7 @@ class CWArticleDisplay
 		redirect("cwArticleDisplay");
 	}
 
-	private function cwViewOwnArticle($articleId){
+	public function cwViewOwnArticle($articleId){
 		$article =new article;
 		$articleData = $article->where($articleId);
 		$this->view('cwViewOwnArticle',$articleData);

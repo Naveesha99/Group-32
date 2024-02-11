@@ -136,9 +136,6 @@ Trait Model
 
 	}
 
-	// public function findUserByEmail($email){
-	// 	$query =  "select * from $this->table where email = :email";
-	// }
-
+	
 	
 }
