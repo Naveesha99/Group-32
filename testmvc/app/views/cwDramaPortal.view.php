@@ -9,25 +9,49 @@
 </head>
 <?php require_once 'cwNaviBar.php' ?>
 <body>
+
+<?php
+function limitWords($text, $limit)
+{
+    $words = explode(" ", $text);
+    $limitedWords = array_slice($words, 0, $limit);
+    $result = implode(" ", $limitedWords);
+
+    if (count($words) > $limit) {
+        $result .= '...';
+    }
+
+    return $result;
+}
+?>
 <div class="container">
         <!-- <div class="heading">
             <h1>DRAMA PORTAL</h1>
         </div> -->
-        <div class="card">
-            <div class="imgBX">
-                <img src="<?=ROOT ?>/assets/images/home/i3.jpg" alt="image" >
-            </div>
+        <?php 
+        if($data && (is_array($data)|| is_object($data))){
+            foreach($data as $row){
+                echo  '<div class="card">
+                        <div class="imgBX">
+                            <img src="' . ROOT . '/assets/images/drama_portal/' . $row->image . '" alt="image" >
+                        </div>
+    
+                        <div class="Content">
+                            <h2>' . $row->article_name . '</h2>
+                            <p>Category:' . $row->category . '</p>
+                            <p>' . limitWords($row->article_content, 20) . '</p>
+                            <a href="cwViewOwnArticle">READ MORE</a>
+    
+                        </div>
+                        </div>';
+            }
+        }
+        else{
+            echo '<p>No data available</p>';
+        }
+        ?>
 
-            <div class="Content">
-            <h2>EDIPAS RAJA</h2>
-                <p>Category:Tragedy</p>
-                <p>Oedipus Rex by Sophocles is a Greek tragedy about a man who unknowingly fulfills a prophecy by killing his father and marrying his mother. It explores themes of fate, free will, and the consequences of unchecked pride.</p>
-                <a href="cwViewOwnArticle">READ MORE</a>
-
-            </div>
-        </div>
-
-        <div class="card">
+        <!-- <div class="card">
             <div class="imgBX">
                 <img src="<?=ROOT ?>/assets/images/home/i10.jpeg" alt="" >
             </div>
@@ -49,9 +73,9 @@
                 <p>Set in the fictional Arabian city of Agrabah, the story follows the familiar tale of a poor young man who is granted three wishes by a genie in a lamp, which he uses to woo a princess and to thwart the sultan's evil Grand Vizier.</p>
                 <a href="#">READ MORE</a>
             </div>
-        </div>
+        </div> -->
 
-        <div class="card">
+        <!-- <div class="card">
             <div class="imgBX">
                 <img src="<?=ROOT ?>/assets/images/article.png" alt="">
             </div>
@@ -75,9 +99,9 @@
                 <p>Set in the fictional Arabian city of Agrabah, the story follows the familiar tale of a poor young man who is granted three wishes by a genie in a lamp, which he uses to woo a princess and to thwart the sultan's evil Grand Vizier.</p>
                 <a href="#">READ MORE</a>
             </div>
-        </div>
+        </div> -->
 
-        <div class="card">
+        <!-- <div class="card">
             <div class="imgBX">
                 <img src="<?=ROOT ?>/assets/images/kuweni.jpeg" alt="">
             </div>
@@ -99,9 +123,9 @@
                 <p>Set in the fictional Arabian city of Agrabah, the story follows the familiar tale of a poor young man who is granted three wishes by a genie in a lamp, which he uses to woo a princess and to thwart the sultan's evil Grand Vizier.</p>
                 <a href="#">READ MORE</a>
             </div>
-        </div>
+        </div> -->
 
-        <div class="card">
+        <!-- <div class="card">
             <div class="imgBX">
                 <img src="<?=ROOT ?>/assets/images/home/i5.jpeg" alt="">
             </div>
@@ -111,7 +135,7 @@
                 <p>Set in the fictional Arabian city of Agrabah, the story follows the familiar tale of a poor young man who is granted three wishes by a genie in a lamp, which he uses to woo a princess and to thwart the sultan's evil Grand Vizier.</p>
                 <a href="#">READ MORE</a>
             </div>
-        </div>
+        </div> -->
     </div>
     
 </body>
