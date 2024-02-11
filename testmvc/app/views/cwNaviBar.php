@@ -21,7 +21,7 @@
             <li><a href="#">Drama </a></li>
             <li><a href="#">Theatre</a></li>
         </ul>
-        <label for="menu" class="menu-bar"> <i class=" fa fa-bars"></i></label>
+        <!-- <label for="menu" class="menu-bar"> <i class=" fa fa-bars"></i></label> -->
 
     </nav>
 
