@@ -12,7 +12,7 @@ class createTask
 
 		// $data['username'] = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->email;
 
-		$this->view('createtask');
+		$this->view('admin/createtask');
 	}
 
 }

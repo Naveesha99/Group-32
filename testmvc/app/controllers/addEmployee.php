@@ -32,7 +32,7 @@ class addEmployee
 
 		$data['role'] = $result;
 		// show($data);
-		$this->view('addemployee',$data);
+		$this->view('admin/addEmployee',$data);
 	}
 
 	// private function showJobs($jobs) {

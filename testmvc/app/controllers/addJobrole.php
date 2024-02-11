@@ -18,7 +18,7 @@ class addJobrole
 			if($jobs->validate($_POST))
 			{
 				$jobs->insert($_POST);
-				redirect('adminemployee');
+				redirect('admin/adminemployee');
 			}
 
 			$data['errors'] = $jobs->errors;			
@@ -26,7 +26,7 @@ class addJobrole
 
 		// $data['username'] = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->email;
 
-		$this->view('addjobrole');
+		$this->view('admin/addjobrole');
 	}
 
 }

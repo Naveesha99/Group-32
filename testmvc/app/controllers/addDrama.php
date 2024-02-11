@@ -3,7 +3,7 @@
 /**
  * home class
  */
-class adminDashboard
+class addDrama
 {
 	use Controller;
 
@@ -12,7 +12,7 @@ class adminDashboard
 
 		// $data['username'] = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->email;
 
-		$this->view('admin/admindashboard');
+		$this->view('admin/adddrama');
 	}
 
 }
