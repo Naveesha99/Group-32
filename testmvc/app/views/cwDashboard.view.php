@@ -8,24 +8,40 @@
     <title>content writer dashboard</title>
 </head>
 <?php require_once 'cwNaviBar.php' ?>
+
+<?php
+function limitWords($text, $limit) {
+    $words = explode(" ", $text);
+    $limitedWords = array_slice($words, 0, $limit);
+    $result = implode(" ", $limitedWords);
+
+    if (count($words) > $limit) {
+        $result .= '...';
+    }
+
+    return $result;
+}
+?>
+
 <body>
-    <div class="cardBox">
-        <div class=" card">
-            <div>
-                <div class="numbers">1,504</div>
-                <div class="cardName">Daily Views</div>
+    <div class="container">
+        <div class="cardBox">
+            <div class=" card">
+                <div>
+                    <div class="numbers">1,504</div>
+                    <div class="cardName">Total Articles</div>
+                </div>
+            </div>
+
+            <div class=" card">
+                <div>
+                    <div class="numbers">1,504</div>
+                    <div class="cardName">Total Views</div>
+                </div>
             </div>
         </div>
 
-        <div class=" card">
-            <div>
-                <div class="numbers">1,504</div>
-                <div class="cardName">Total Views</div>
-            </div>
-        </div>
-    </div>
-
-    <div class="table-responsive">
+        <div class="table-responsive">
             <table>
                 <thead>
                     <tr>
@@ -37,22 +53,34 @@
                         <th>Action</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>01</td>
-                        <td>Maname</td>
-                        <td>Tragedy</td>
-                        <td>Set in the fictional Arabian city of Agrabah, ...</td>
-                        <td><img src="<?=ROOT?>/assets/images/kuweni.jpeg" alt="" srcset=""></td>
-                        <td>
-                            <span class="action_btn">
-                                <a href="#">View</a>
 
-                            </span>
-                        </td>
-                    </tr>
-                </tbody>
+                <?php
+                // Check if $data is not false and is an array or object
+                if ($data && (is_array($data) || is_object($data))) {
+                    foreach ($data as $row) {
+                        echo '<tr>
+                                <td>' . $row->id . '</td>
+                                <td>' . $row->article_name . '</td>
+                                <td>' . $row->category . '</td>
+                                <td>' . limitWords($row->article_content, 5) .'</td>
+                                <td>' . $row->image . '</td>
+                                <td>
+                                    <span class="action_btn">
+                                        <a href="<?=ROOT?>/cwArticleDisplay">View</a>
+                                        <a href="#">Edit</a>
+                                        <a href="#" >Delete</a>
+                                    </span>
+                                </td>
+                              </tr>';
+                    }
+                } else {
+                    echo '<tr><td colspan="9">No data available</td></tr>';
+                }
+                ?>
+
             </table>
+        </div>
+
     </div>
 
     

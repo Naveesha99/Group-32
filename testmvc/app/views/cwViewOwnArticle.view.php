@@ -23,6 +23,10 @@
 
                 <button class="card-btn" onclick="edit()" style="background-color: #00FF1A;">Edit</button>
                 <button class="card-btn" onclick="" style="background-color: #FF0000;">Delete</button>
+
+                
+
+                
             </div>
         </div>
     </div>
