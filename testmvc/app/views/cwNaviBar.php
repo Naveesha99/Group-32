@@ -11,8 +11,8 @@
 <body>
 
     <input type="checkbox" id="menu">
-    <nav>
-        <!-- <label>Logo</label> -->
+    <!-- <nav>
+
 
         <ul>
             <li><a class="active" href="#">Home</a></li>
@@ -21,9 +21,9 @@
             <li><a href="#">Drama </a></li>
             <li><a href="#">Theatre</a></li>
         </ul>
-        <!-- <label for="menu" class="menu-bar"> <i class=" fa fa-bars"></i></label> -->
 
-    </nav>
+
+    </nav> -->
 
     <div class="sidebar">
         

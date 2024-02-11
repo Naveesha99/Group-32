@@ -11,8 +11,18 @@
     <title>Document</title>
 </head>
 
+<div class="sidebar">
+        
+        <a href="<?=ROOT?>/adminDashboard"> <i class="fa-solid fa-house"></i> <span>Dashboard</span></a>
+        <a href="<?=ROOT?>/adminDrama"> <i class="fa-solid fa-masks-theater"></i><span> Drama</span></a>
+        <a href="<?=ROOT?>/adminEmployee"> <i class="fa-solid fa-user"></i> <span>Employee</span></a>
+        <a href="<?=ROOT?>/adminTheater"> <i class="fa-solid fa-panorama"></i> <span>Theater</span></a>
+        <a href="<?=ROOT?>/adminRequest"> <i class="fa-solid fa-hand"></i> <span>Request</span></a>
+        <a href="<?=ROOT?>/adminReport"> <i class="fa-solid fa-flag"></i> <span>Report</span></a>
+    </div>
 
-<div class="side-menu">
+
+<!-- <div class="side-menu">
     <div class="brand-name">
         <img src="<?= ROOT ?>/assets/images/Logo.png" id="logo">
 
@@ -37,6 +47,6 @@
             <li><i class="fa-solid fa-flag"></i>&nbsp; <span>Reports</span> </li>
         </a>
     </ul>
-</div>
+</div> -->
 
 </html>
