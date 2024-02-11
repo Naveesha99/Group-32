@@ -40,7 +40,7 @@ class CWArticleDisplay
 	public function cwViewOwnArticle($articleId){
 		$article =new article;
 		$articleData = $article->where($articleId);
-		$this->view('cwViewOwnArticle',$articleData);
+		$this->view('contentwriter/cwViewOwnArticle',$articleData);
 	}
 
 	

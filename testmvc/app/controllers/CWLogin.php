@@ -32,7 +32,7 @@ class CWLogin
 			$data['errors'] = $cw->errors;
 		}
 
-		$this->view('cwLogin',$data);
+		$this->view('contentwriter/cwLogin',$data);
 	}
 
 }

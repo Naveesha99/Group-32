@@ -15,7 +15,7 @@ class CWDashboard
 		$result = $article->findAll();
 		$data = $result;
 
-		$this->view('cwDashboard',$data);
+		$this->view('contentwriter/cwDashboard',$data);
 	}
 
 }
