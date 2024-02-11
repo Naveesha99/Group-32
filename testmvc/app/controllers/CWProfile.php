@@ -12,6 +12,6 @@ class CWProfile
 
 		// $data['username'] = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->email;
 
-		$this->view('cwProfile');
+		$this->view('contentwriter/cwProfile');
 	}
 }

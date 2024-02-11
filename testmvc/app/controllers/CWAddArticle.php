@@ -23,7 +23,7 @@ class CWAddArticle
 
         $data['errors'] = $article->errors;
         // show($_POST);
-        $this->view('CWAddArticle',$data);
+        $this->view('contentwriter/CWAddArticle',$data);
     }
 }
 

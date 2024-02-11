@@ -12,7 +12,7 @@ class CWViewOwnArticle
 
 		// $data['username'] = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->email;
 
-		$this->view('cwViewOwnArticle');
+		$this->view('contentwriter/cwViewOwnArticle');
 	}
 
 }
