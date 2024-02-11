@@ -1,0 +1,15 @@
+CREATE TABLE Content_writers(
+    id INT AUTO_INCREMENT,
+    name VARCHAR(255),
+    email VARCHAR(255),
+    password VARCHAR(255),
+    contactNumber VARCHAR(50),
+    nic VARCHAR(50),
+    Created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY(id)
+);
+
+ALTER TABLE articles
+ADD cw_id INT,
+ADD Created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+ADD FOREIGN KEY(cw_id) REFERENCES Content_writers(id) ON DELETE CASCADE

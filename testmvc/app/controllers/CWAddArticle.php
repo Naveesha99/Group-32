@@ -17,6 +17,7 @@ class CWAddArticle
         if($article->validate($_POST))
         {
             $article->insert($_POST);
+            redirect('cwArticleDisplay');
 
         }
 
