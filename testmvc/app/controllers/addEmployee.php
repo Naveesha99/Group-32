@@ -18,7 +18,7 @@ class addEmployee
 			if($employee->validate($_POST))
 			{
 				$employee->insert($_POST);
-				redirect('admin/adminemployee');
+				redirect('adminemployee');
 			}
 
 			$data['errors'] = $employee->errors;			
