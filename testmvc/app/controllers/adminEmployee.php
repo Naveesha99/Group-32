@@ -10,6 +10,20 @@ class adminEmployee
 	public function index()
 	{
 
+		$data = [];
+		
+		if($_SERVER['REQUEST_METHOD'] == "POST")
+		{
+			$employee = new Employee;
+			if($employee->validate($_POST))
+			{
+				$employee->insert($_POST);
+				// redirect('adminemployee');
+			}
+
+			$data['errors'] = $employee->errors;			
+		}
+
 		//pass employee details to FE
 		$employee = new Employee;
 		$result['employee'] = $employee->findAll();

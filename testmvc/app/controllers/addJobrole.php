@@ -18,7 +18,7 @@ class addJobrole
 			if($jobs->validate($_POST))
 			{
 				$jobs->insert($_POST);
-				redirect('admin/adminemployee');
+				redirect('adminemployee');
 			}
 
 			$data['errors'] = $jobs->errors;			
