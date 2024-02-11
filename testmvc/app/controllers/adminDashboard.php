@@ -12,7 +12,7 @@ class adminDashboard
 
 		// $data['username'] = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->email;
 
-		$this->view('admindashboard');
+		$this->view('admin/admindashboard');
 	}
 
 }

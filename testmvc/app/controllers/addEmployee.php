@@ -18,7 +18,7 @@ class addEmployee
 			if($employee->validate($_POST))
 			{
 				$employee->insert($_POST);
-				redirect('adminemployee');
+				redirect('admin/adminemployee');
 			}
 
 			$data['errors'] = $employee->errors;			
@@ -32,7 +32,7 @@ class addEmployee
 
 		$data['role'] = $result;
 		// show($data);
-		$this->view('addemployee',$data);
+		$this->view('admin/addEmployee',$data);
 	}
 
 	// private function showJobs($jobs) {

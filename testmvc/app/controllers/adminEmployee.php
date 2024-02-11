@@ -20,7 +20,7 @@ class adminEmployee
 		$result['role'] = $jobs->findall();
 		$data['role'] = $result['role'];
 
-		$this->view('adminemployee',$data);
+		$this->view('admin/adminemployee',$data);
 	}
 
 	// private function jobRole($jobs) {

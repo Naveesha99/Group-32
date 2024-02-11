@@ -12,7 +12,7 @@ class addDrama
 
 		// $data['username'] = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->email;
 
-		$this->view('adddrama');
+		$this->view('admin/adddrama');
 	}
 
 }
