@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?=ROOT?>/assets/css/adminEmployee.css">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/adminEmployee.css">
     <title>Admin Employee</title>
 </head>
 
@@ -16,7 +16,7 @@
     <div class="container">
         <div class="content">
             <div class="cards">
-                <!-- <a href="<?=ROOT?>/addemployee">
+                <!-- <a href="<?= ROOT ?>/addemployee">
                     <div class="card">
                         <div class="box">
                             <h1>Add Employee</h1>
@@ -24,14 +24,14 @@
                     </div>
                 </a> -->
                 <div class="card" id="openPopup">
-                <div class="box">
-                            <h1>Add Employee</h1>
-                        </div>
+                    <div class="box">
+                        <h1>Add Employee</h1>
+                    </div>
                 </div>
 
-                <div id = "overlay"></div>
-                <div id = "popupForm">
-                <form method="POST" class="add-employee" id = "addemployee">
+                <div id="overlay"></div>
+                <div id="popupForm">
+                    <form method="POST" class="add-employee" id="addemployee">
                         <h1>Employee Registration Form</h1>
                         <label for="empName">Employee Name</label>
                         <input type="text" name="empName">
@@ -47,22 +47,22 @@
                         <input type="text" name="empContact">
                         <label for="empRoll">Employee Roll</label>
                         <select class="select" name="empRoll">
-                        <?php
-                        foreach ($data['role'] as $row) {
-                            echo "<option value='" . $row->jobTitle . "'>" . $row->jobTitle . "</option>";
-                        }
-                        ?>
+                            <?php
+                            foreach ($data['role'] as $row) {
+                                echo "<option value='" . $row->jobTitle . "'>" . $row->jobTitle . "</option>";
+                            }
+                            ?>
                         </select>
 
                         <br>
                         <button class="btn-1">Submit</button>
                         <button id="closePopup" class="close-btn">close</button>
-                </form>
+                    </form>
                 </div>
 
-                <script src="<?=ROOT?>/assets/js/popup.js"></script>
+                <script src="<?= ROOT ?>/assets/js/popup.js"></script>
 
-                <a href="<?=ROOT?>/createtask">
+                <a href="<?= ROOT ?>/createtask">
                     <div class="card">
                         <div class="box">
                             <h1>Create Tasks</h1>
@@ -76,7 +76,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="<?=ROOT?>/addjobrole">
+                <a href="<?= ROOT ?>/addjobrole">
                     <div class="card">
                         <div class="box">
                             <h1>Add Job</h1>
@@ -88,7 +88,7 @@
                 <div class="employees">
                     <div class="title">
                         <h2>Employees</h2>
-                        <a href="<?=ROOT?>/employees" class="btn">View All</a>
+                        <a href="<?= ROOT ?>/employees" class="btn">View All</a>
                     </div>
                     <table>
                         <tr>
@@ -123,7 +123,7 @@
                             <th>Job Title</th>
                             <th>option</th>
                         </tr>
-                        
+
                         <?php
                         foreach ($data['role'] as $row) {
                             echo '<tr>

@@ -93,6 +93,7 @@ td {
     border-radius: 5px;
     border: 2px solid rgba(195, 98, 1, 0.973);
     margin-left: 30px;
+    margin-bottom: 10px;
 }
 .btn-1:hover {
     color: rgba(195, 98, 1, 0.973);
@@ -121,17 +122,20 @@ td {
   
 .container .add-employee input {
     width: 90%;
-    padding: 8px;
-    margin-bottom: 16px;
+    height: 30px;
+    padding: 5px;
+    margin-bottom: 12px;
     margin-left: 20px;
     box-sizing: border-box;
     border: 1px solid #ccc;
     border-radius: 4px;
+    font-size: 15px;
   }
 
 .container .add-employee .select {
-    width: 80%;
-    padding: 8px;
+    width: 90%;
+    height: 35px;
+    /* padding: 8px; */
     border-radius: 4px;
     border: 1px solid #ccc;
     margin-left: 20px;
@@ -140,15 +144,17 @@ td {
 
 #overlay {
     position: fixed;
+    z-index: 10;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent black overlay */
+    background-color: rgba(162, 158, 158, 0.9); /* Semi-transparent black overlay */
     display: none;
   }
   
   #popupForm {
+    z-index: 11;
     position: fixed;
     top: 50%;
     left: 50%;
