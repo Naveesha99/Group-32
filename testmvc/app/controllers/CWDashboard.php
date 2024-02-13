@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /**
  * content writer dashboard class
@@ -15,7 +15,6 @@ class CWDashboard
 		$result = $article->findAll();
 		$data = $result;
 
-		$this->view('contentwriter/cwDashboard',$data);
+		$this->view('contentwriter/cwDashboard', $data);
 	}
-
 }

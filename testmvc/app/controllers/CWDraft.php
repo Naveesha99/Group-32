@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /**
  *  view own article class
@@ -14,5 +14,4 @@ class CWDraft
 
 		$this->view('contentwriter/cwDraft');
 	}
-
 }

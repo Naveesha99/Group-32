@@ -9,6 +9,7 @@
       <title>Profile</title>
 </head>
 <?php require_once 'cwNaviBar.php' ?>
+<?php include 'navBar.php' ?>
 
 <body>
       <!-- Content -->
