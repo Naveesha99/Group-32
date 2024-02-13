@@ -16,7 +16,7 @@ class CWArticleDisplay
 		$result = $article->findAll();
 		$data = $result;
 
-		$this->view('cwArticleDisplay', $data);
+		$this->view('contentwriter/cwArticleDisplay', $data);
 
 		if (isset($_POST['id'])) {
 			$articleId = $_POST['id'];
