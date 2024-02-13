@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /**
  * home class
@@ -10,6 +10,18 @@ class adminEmployee
 	public function index()
 	{
 
+		$data = [];
+
+		if ($_SERVER['REQUEST_METHOD'] == "POST") {
+			$employee = new Employee;
+			if ($employee->validate($_POST)) {
+				$employee->insert($_POST);
+				// redirect('adminemployee');
+			}
+
+			$data['errors'] = $employee->errors;
+		}
+
 		//pass employee details to FE
 		$employee = new Employee;
 		$result['employee'] = $employee->findAll();
@@ -20,7 +32,7 @@ class adminEmployee
 		$result['role'] = $jobs->findall();
 		$data['role'] = $result['role'];
 
-		$this->view('admin/adminemployee',$data);
+		$this->view('admin/adminemployee', $data);
 	}
 
 	// private function jobRole($jobs) {
@@ -39,6 +51,6 @@ class adminEmployee
 	// 	// $data['jobs'] = $result;
 	// 	// $this->view('addemployee', $data);
 	// }
-	
+
 
 }

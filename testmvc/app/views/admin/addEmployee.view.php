@@ -5,13 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?=ROOT?>/assets/css/addEmployee.css">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/addEmployee.css">
     <title>Admin Employee</title>
 </head>
 
 <?php include 'adminSidebar.php' ?>
 <?php include 'navBar.php' ?>
-
 
 <body>
     <div class="container">
@@ -32,11 +31,11 @@
                 <input type="text" name="empContact">
                 <label for="empRoll">Employee Roll</label>
                 <select class="select" name="empRoll">
-                <?php
-                foreach ($data['role'] as $row) {
-                    echo "<option value='" . $row->jobTitle . "'>" . $row->jobTitle . "</option>";
-                }
-                  ?>
+                    <?php
+                    foreach ($data['role'] as $row) {
+                        echo "<option value='" . $row->jobTitle . "'>" . $row->jobTitle . "</option>";
+                    }
+                    ?>
                 </select>
 
                 <br>

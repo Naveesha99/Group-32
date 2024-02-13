@@ -1,13 +1,13 @@
-<?php 
+<?php
 
 class Homes
 {
-    use Model;
+  use Model;
 
-    protected $table = 'homes';
-    
-    public function getMovieById($id)
-    {
-      return $this->first(['id' => $id]);
-    }
+  protected $table = 'homes';
+
+  public function getMovieById($id)
+  {
+    return $this->first(['id' => $id]);
+  }
 }

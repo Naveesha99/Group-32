@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?=ROOT?>/assets/css/addDrama.css">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/addDrama.css">
 
     <title>Add Drama</title>
 </head>
@@ -11,7 +12,7 @@
 <?php include 'navBar.php' ?>
 
 <body>
-<div class="container">
+    <div class="container">
         <div class="content">
             <form method="POST" class="add-drama">
                 <h1>Add New Drama</h1>
@@ -33,7 +34,7 @@
                 // foreach ($data['role'] as $row) {
                 //     echo "<option value='" . $row->jobTitle . "'>" . $row->jobTitle . "</option>";
                 // }
-                  ?>
+                ?>
                 </select>
 
                 <br>
@@ -42,4 +43,5 @@
         </div>
     </div>
 </body>
+
 </html>
