@@ -24,10 +24,9 @@ class CWArticleDisplay
 		}
 		// $show($_POST);
 
-		if(isset($_GET['id'])){
-			$articleId =$_GET['id'];
+		if (isset($_GET['id'])) {
+			$articleId = $_GET['id'];
 			$this->cwViewOwnArticle($articleId);
-			
 		}
 	}
 
@@ -37,13 +36,10 @@ class CWArticleDisplay
 		redirect("cwArticleDisplay");
 	}
 
-	public function cwViewOwnArticle($articleId){
-		$article =new article;
+	public function cwViewOwnArticle($articleId)
+	{
+		$article = new article;
 		$articleData = $article->where($articleId);
-		$this->view('contentwriter/cwViewOwnArticle',$articleData);
+		$this->view('contentwriter/cwViewOwnArticle', $articleData);
 	}
-
-	
-
-	
 }

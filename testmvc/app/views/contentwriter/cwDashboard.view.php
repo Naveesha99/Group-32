@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?=ROOT?>/assets/css/cwDashboard.css">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/cwDashboard.css">
     <title>content writer dashboard</title>
 </head>
 <?php require_once 'cwNaviBar.php' ?>
 
 <?php
-function limitWords($text, $limit) {
+function limitWords($text, $limit)
+{
     $words = explode(" ", $text);
     $limitedWords = array_slice($words, 0, $limit);
     $result = implode(" ", $limitedWords);
@@ -62,7 +64,7 @@ function limitWords($text, $limit) {
                                 <td>' . $row->id . '</td>
                                 <td>' . $row->article_name . '</td>
                                 <td>' . $row->category . '</td>
-                                <td>' . limitWords($row->article_content, 5) .'</td>
+                                <td>' . limitWords($row->article_content, 5) . '</td>
                                 <td>' . $row->image . '</td>
                                 <td>
                                     <span class="action_btn">
@@ -83,6 +85,7 @@ function limitWords($text, $limit) {
 
     </div>
 
-    
+
 </body>
+
 </html>

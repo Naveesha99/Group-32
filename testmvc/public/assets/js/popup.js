@@ -8,7 +8,7 @@ document.getElementById('closePopup').addEventListener('click', function () {
     document.getElementById('popupForm').style.display = 'none';
 });
 
-document.getElementById('myForm').addEventListener('submit', function (event) {
+document.getElementById('addemployee').addEventListener('submit', function (event) {
     event.preventDefault(); // Prevent form submission
     
     // Get form data

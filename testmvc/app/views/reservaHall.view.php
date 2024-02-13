@@ -42,14 +42,14 @@
         </div> -->
     </div>
 </section>
-<div class="bottom" >
+<div class="bottom">
 
     <div class="container-bottom">
 
         <div class="product-details">
 
             <h1>HALL 1</h1>
-            
+
 
             <p class="information">" Let's spread the joy , here is Christmas , the most awaited day of the year.Christmas Tree is what one need the most. Here is the correct tree which will enhance your Christmas.</p>
 
@@ -94,7 +94,7 @@
         <div class="product-details">
 
             <h1>HALL 2</h1>
-            
+
 
             <p class="information">" Let's spread the joy , here is Christmas , the most awaited day of the year.Christmas Tree is what one need the most. Here is the correct tree which will enhance your Christmas.</p>
 
@@ -135,74 +135,75 @@
 
     <div class="container-bottom">
 
-<div class="product-details">
+        <div class="product-details">
 
-    <h1>THEATRE</h1>
-    
-
-    <p class="information">" Let's spread the joy , here is Christmas , the most awaited day of the year.Christmas Tree is what one need the most. Here is the correct tree which will enhance your Christmas.</p>
+            <h1>THEATRE</h1>
 
 
+            <p class="information">" Let's spread the joy , here is Christmas , the most awaited day of the year.Christmas Tree is what one need the most. Here is the correct tree which will enhance your Christmas.</p>
 
-    <div class="control">
 
-        <button class="btn" onclick="redirectToReservaHall1('HALL03');">
-            <!-- <span class="price">$250</span>
+
+            <div class="control">
+
+                <button class="btn" onclick="redirectToReservaHall1('HALL03');">
+                    <!-- <span class="price">$250</span>
             <span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span> -->
-            <span class="buy">Get now</span>
-        </button>
+                    <span class="buy">Get now</span>
+                </button>
 
+            </div>
+
+        </div>
+
+        <div class="product-image">
+
+            <img src="<?= ROOT ?>/assets/images/Hall3Photo1.jpg" alt="">
+
+
+            <div class="info">
+                <h2> Description</h2>
+                <ul>
+                    <li><strong>Height : </strong>5 Ft </li>
+                    <li><strong>Shade : </strong>Olive green</li>
+                    <li><strong>Decoration: </strong>balls and bells</li>
+                    <li><strong>Material: </strong>Eco-Friendly</li>
+
+                </ul>
+            </div>
+        </div>
     </div>
-
-</div>
-
-<div class="product-image">
-
-    <img src="<?= ROOT ?>/assets/images/Hall3Photo1.jpg" alt="">
-
-
-    <div class="info">
-        <h2> Description</h2>
-        <ul>
-            <li><strong>Height : </strong>5 Ft </li>
-            <li><strong>Shade : </strong>Olive green</li>
-            <li><strong>Decoration: </strong>balls and bells</li>
-            <li><strong>Material: </strong>Eco-Friendly</li>
-
-        </ul>
-    </div>
-</div>
-</div>
 </div>
 
 
 <script>
-    window.onload = function () {
+    window.onload = function() {
         const urlSearchParams = new URLSearchParams(window.location.search);
-        var session=urlSearchParams.get('loggedin');
+        var session = urlSearchParams.get('loggedin');
         document.getElementById('img-profile').style.display = 'none';
-        if(session == 'false'){
+        if (session == 'false') {
             document.getElementById('img-profile').style.display = 'none';
             // document.getElementById('login-btn').style.display='none';
         }
-        if(session == 'true'){
+        if (session == 'true') {
             // document.getElementById('img-profile').style.display = 'none';
             document.getElementById('img-profile').style.display = 'block';
-            document.getElementById('login-btn').style.display='none';
-        }
-        
+            document.getElementById('login-btn').style.display = 'none';
         }
 
-
-        function redirectToReservaHall1(hallNumber) {
-            event.preventDefault();
+    }
 
 
-    //   window.location.href = 'reservaSentReq?loggedin=true';
+    function redirectToReservaHall1(hallNumber) {
+        event.preventDefault();
 
-            window.location.href = `reservaHall1?hallno=${hallNumber}&loggedin=true`;
-                    // window.location.href = `reservaReq?time=${selectedTime}&date=${document.getElementById('selectedDate').innerHTML}`;
 
-        }
+        //   window.location.href = 'reservaSentReq?loggedin=true';
+
+        window.location.href = `reservaHall1?hallno=${hallNumber}&loggedin=true`;
+        // window.location.href = `reservaReq?time=${selectedTime}&date=${document.getElementById('selectedDate').innerHTML}`;
+
+    }
 </script>
+
 </html>
