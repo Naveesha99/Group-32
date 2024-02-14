@@ -8,6 +8,7 @@
     <title>Article Details</title>
 </head>
 <?php require_once 'cwNaviBar.php' ?>
+<?php include 'navBar.php' ?>
 
 <body>
     <div class="container">

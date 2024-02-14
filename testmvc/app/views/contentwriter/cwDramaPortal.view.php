@@ -11,6 +11,7 @@
     <title>Drama Portal</title>
 </head>
 <?php require_once 'cwNaviBar.php' ?>
+<?php include 'navBar.php' ?>
 
 <body>
 

@@ -9,6 +9,7 @@
     <title>content writer dashboard</title>
 </head>
 <?php require_once 'cwNaviBar.php' ?>
+<?php include 'navBar.php' ?>
 
 <?php
 function limitWords($text, $limit)
