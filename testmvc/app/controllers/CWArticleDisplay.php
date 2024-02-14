@@ -17,58 +17,56 @@ class CWArticleDisplay
 		$data = $result;
 
 		$this->view('contentwriter/cwArticleDisplay', $data);
-	}
 
-	public function cwViewOwnArticle($articleId)
-	{
-		$article = new article;
-		$articleData = $article->where(['id' => $articleId]); // Assuming 'id' is the primary key column
-		$this->view('contentwriter/cwViewOwnArticle', $articleData);
-	}
+		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+			if (isset($_POST['delete_article'])) {
+				$articleId = $_POST['delete_article'];
+				$this->articleDelete($articleId, $article);
+			}
 
-	public function delete()
-	{
-		if (isset($_POST['id'])) {
-			$articleId = $_POST['id'];
-			$article = new article;
-			$article->delete($articleId);
-			redirect("cwArticleDisplay");
+			if (isset($_POST['update_article'])) {
+				unset($_POST['update_article']);
+				$this->articleUpdate($_POST, $article);
+			}
+
+			if (isset($_POST['view_article'])) {
+				$articleId = $_POST['view_article'];
+				$this->articleView($articleId, $article);
+			}
 		}
 	}
 
-
-	// 	$article = new article;
-	// 	$result = $article->findAll();
-	// 	$data = $result;
-
-	// 	$this->view('cwArticleDisplay', $data);
-
-	// 	if (isset($_POST['id'])) {
-	// 		$articleId = $_POST['id'];
-	// 		$this->articleDelete($articleId, $article);
-	// 	}
-	// 	// $show($_POST);
-
-	// 	if(isset($_GET['id'])){
-	// 		$articleId =$_GET['id'];
-	// 		$this->cwViewOwnArticle($articleId);
-
-	// 	}
-	// }
-
-	// private function articleDelete($data, $article)
+	// public function cwViewOwnArticle($articleId)
 	// {
-	// 	$article->delete($data, 'id');
-	// 	redirect("cwArticleDisplay");
+	// 	$article = new article;
+	// 	$articleData = $article->where(['id' => $articleId]); // Assuming 'id' is the primary key column
+	// 	$this->view('contentwriter/cwViewOwnArticle', $articleData);
 	// }
 
-	// public function cwViewOwnArticle($articleId){
-	// 	$article =new article;
-	// 	$articleData = $article->where($articleId);
-	// 	$this->view('cwViewOwnArticle',$articleData);
-	// }
+	private function articleView($data, $article)
+	{
+		$articleData = $article->where(['id' => $data]);
+		if ($articleData) {
+			$this->view('contentwriter/cwViewOwnArticle', $articleData);
+		} else {
+			// Handle case where article with given ID is not found
+			// For example, you can redirect to an error page or display a message
+			echo "Article not found!";
+		}
+	}
 
+	private function articleDelete($data, $article)
+	{
+		$article->delete($data, 'id');
+		redirect("contentwriter/cwArticleDisplay");
+	}
 
-
-
+	private function articleUpdate($data, $article)
+	{
+		if (isset($data['id'])) {
+			$id = $data['id'];
+			unset($data['id']);
+			$article->update($id, $data, 'id');
+		}
+	}
 }

@@ -55,9 +55,20 @@ function limitWords($text, $limit)
                                 <td>' . $row->image . '</td>
                                 <td>
                                     <span class="action_btn">
-                                        <a href=" method ="GET" ' . ROOT . '/cwArticleDisplay/cwViewOwnArticle?id=' . $row->id . '">View</a>
-                                        <a href="#">Edit</a>
-                                        <a href="#" >Delete</a>
+                                        <form method="POST">
+                                            <input type="hidden" name="view_article" value="' . $row->id . '">
+                                            <button type="submit" name="View"  class="btn-view">View</button>
+                                        </form>
+
+                                        <form method="POST">
+                                            <input type="hidden" name="update_article" value="' . $row->id . '">
+                                            <button type="submit" name="Update"  class="btn-update">Edit</button>
+                                        </form>
+
+                                        <form method="POST">
+                                            <input type="hidden" name="delete_article" value="' . $row->id . '">
+                                            <button type="submit" name="Delete" class="btn-delete">Delete</button>
+                                        </form>
                                     </span>
                                 </td>
                               </tr>';
