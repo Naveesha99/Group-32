@@ -203,7 +203,7 @@
     <ul>
       <li> <a href="#"> HOME </a></li>
       <li> <a href="#"> TICKETS </a></li>
-      <li> <a href="#"> HALLS </a></li>
+      <li> <a href="<?=ROOT?>/reservaHall"> HALLS </a></li>
       <li> <a href="#"> BLOGS </a></li>
     </ul>
     <button class="login-btn" id="login-btn" onclick="redirectToLoginPage()">LOGIN</button>

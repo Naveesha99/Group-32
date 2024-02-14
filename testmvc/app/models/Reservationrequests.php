@@ -8,6 +8,43 @@ class Reservationrequests
 {
 
 	use Model;
+	// Method to fetch hall details
+	public function getHallDetails($hallno)
+	{
+		$hallModel = new Hall;
+		// $tableName = 'hall'; // Replace this with the actual table name in your database
+    	// $query = "SELECT hallId FROM $hallModel WHERE hallno = :hallno";
+
+        // Assuming you have a method in your Hall model to fetch details by hallId
+        // $hallDetails = $hallModel->findAll($hallno);
+		// show($hallDetails);
+		// $query = "SELECT hallno,amountOneHour, amountSounds,amountStandings FROM $tableName WHERE hallno = '$hallno'";
+		// show($query);
+        // return $query;
+		// $result = $kdbConnection->query($query);
+
+	}
+
+	public function getAvailableTimeSlots($selectedDate)
+    {
+        // Implement your logic to fetch available time slots from the database
+        // Example:
+		// $query = "SELECT startTime, endTime FROM $this->table WHERE date = $selectedDate";
+		// show($query);
+
+    }
+
+// Inside Reservationrequests model
+
+// public function getBookedTimeSlots($date)
+// {
+// 	echo '<script>console.log(" in getbooktimeslots");</script>';
+//     $query = "SELECT startTime, endTime FROM $this->table WHERE date = :date";
+//     $data = ['date' => $date];
+
+//     return $this->query($query, $data);
+// }
+
 
 	// protected $table = 'reservationrequests';
 	protected $table = 'reservationrequests ';
@@ -15,6 +52,7 @@ class Reservationrequests
 
 	protected $allowedColumns = [
 		'requestId',
+		'hallno',
 		'name',
 		'date',
 		'startTime',
@@ -26,7 +64,7 @@ class Reservationrequests
 		'standings',
 		'message',
 		// 'amount',
-		// 'status',
+		'status',
 		// 'reservationistId',
 
 	];
@@ -42,6 +80,11 @@ class Reservationrequests
 		// $this->errors['requestId'] = "reqId is required";
 		// }
 
+		if(empty($data['hallno']))
+		{
+
+		$this->errors['hallno'] = "hallno is required";
+		}
 
 		if (empty($data['name'])) {
 
@@ -118,6 +161,11 @@ class Reservationrequests
 
 		if (empty($data['message'])) {
 			$this->errors['message'] = "message is required";
+		}
+
+		if(empty($data['status']))
+		{
+			$data['status'] = 'status is required';
 		}
 
 		// if(empty($data['email']))
