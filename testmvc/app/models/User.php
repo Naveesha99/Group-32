@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 
 /**
@@ -6,7 +6,7 @@
  */
 class User
 {
-	
+
 	use Model;
 
 	protected $table = 'users';
@@ -25,22 +25,18 @@ class User
 	{
 		$this->errors = [];
 
-		if(empty($data['fullname']))
-		{
+		if (empty($data['fullname'])) {
 			$this->errors['fullname'] = "Full name is required";
 		}
 
-		if(empty($data['username']))
-		{
+		if (empty($data['username'])) {
 			$this->errors['username'] = "Username is required";
 		}
 
-		if(empty($data['email']))
-		{
+		if (empty($data['email'])) {
 			$this->errors['email'] = "Email is required";
-		}else
-		if(!filter_var($data['email'],FILTER_VALIDATE_EMAIL))
-		{
+		} else
+		if (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
 			$this->errors['email'] = "Email is not valid";
 		}
 
@@ -61,27 +57,25 @@ class User
 		// 		if ($dobTimestamp > $currentTimestamp) {
 		// 			$this->errors['dob'] = "Date of Birth must be in the past";
 		// 		}
-	
+
 		// 		$eighteenYearsAgo = strtotime('-18 years', $currentTimestamp);
 		// 		if ($dobTimestamp > $eighteenYearsAgo) {
 		// 			$this->errors['dob'] = "You must be 18 years or older";
 		// 		}
 		// 	}
 		// }
-		
+
 		if (empty($data['password'])) {
 			$this->errors['password'] = "Password is required";
 		} elseif (!preg_match('/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/', $data['password'])) {
 			$this->errors['password'] = "Password must be 8 or more characters, and include at least one uppercase letter, one lowercase letter, one number, and one symbol";
 		}
 
-		if($data['Repassword'] != $data['password'])
-		{
+		if ($data['Repassword'] != $data['password']) {
 			$this->errors['Repassword'] = "Check the Re-Entered password";
 		}
 
-		if(empty($this->errors))
-		{
+		if (empty($this->errors)) {
 			return true;
 		}
 

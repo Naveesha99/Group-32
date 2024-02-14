@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 
 /**
@@ -6,7 +6,7 @@
  */
 class Reservationrequests
 {
-	
+
 	use Model;
 
 	// protected $table = 'reservationrequests';
@@ -18,114 +18,105 @@ class Reservationrequests
 		'name',
 		'date',
 		'startTime',
-        // 'hours',
-        'endTime',
+		// 'hours',
+		'endTime',
 		'hours',
 		'headCount',
-        'sounds',
-        'standings',
+		'sounds',
+		'standings',
 		'message',
 		// 'amount',
 		// 'status',
 		// 'reservationistId',
-        
+
 	];
 
 	public function validate($data)
 	{
-        // echo "inside validate function";
+		// echo "inside validate function";
 		$this->errors = [];
 
-        // if(empty($data['requestId']))
+		// if(empty($data['requestId']))
 		// {
 
 		// $this->errors['requestId'] = "reqId is required";
 		// }
 
 
-		if(empty($data['name']))
-		{
+		if (empty($data['name'])) {
 
-		$this->errors['name'] = "Full name is required";
+			$this->errors['name'] = "Full name is required";
 		}
 
 
-		if(empty($data['date']))
-		{
+		if (empty($data['date'])) {
 			$this->errors['date'] = "Date is required";
 		}
 
-        if(empty($data['startTime']))
-		{
+		if (empty($data['startTime'])) {
 			$this->errors['startTime'] = "startTime is required";
 		}
-    
 
-        if(empty($data['endTime']))
-		{
+
+		if (empty($data['endTime'])) {
 			$this->errors['endTime'] = "endTime is required";
 		}
-        if(empty($data['hours']))
-		{
+		if (empty($data['hours'])) {
 			$this->errors['hours'] = "hours is required";
 		}
-    
-        
-
-        // $data['hours'] = calculateTimeDifference($data['startTime'],$data['endTime']);
 
 
 
-        // function calculateTimeDifference($startTime, $endTime)
-        // {
-        //     $startTimeInSeconds = strtotime($startTime);
-        //     $endTimeInSeconds = strtotime($endTime);
-        
-        //     $differenceInSeconds = $endTimeInSeconds - $startTimeInSeconds;
-        
-        //     $hours = floor($differenceInSeconds / 3600);
-        //     $minutes = floor(($differenceInSeconds % 3600) / 60);
-        //     $seconds = $differenceInSeconds % 60;
-        
-        //     $result = sprintf('%02d:%02d:%02d', $hours, $minutes, $seconds);
-        
-        //     return $result;
-        // }
+		// $data['hours'] = calculateTimeDifference($data['startTime'],$data['endTime']);
 
 
 
-
-        // if(empty($data['endTime']))
+		// function calculateTimeDifference($startTime, $endTime)
 		// {
-			// $this->errors['endTime'] = "endTime is required";
-            // $data['endTime']=$data['startTime']+$data['hours']:00:00;
+		//     $startTimeInSeconds = strtotime($startTime);
+		//     $endTimeInSeconds = strtotime($endTime);
+
+		//     $differenceInSeconds = $endTimeInSeconds - $startTimeInSeconds;
+
+		//     $hours = floor($differenceInSeconds / 3600);
+		//     $minutes = floor(($differenceInSeconds % 3600) / 60);
+		//     $seconds = $differenceInSeconds % 60;
+
+		//     $result = sprintf('%02d:%02d:%02d', $hours, $minutes, $seconds);
+
+		//     return $result;
 		// }
 
 
-        if(empty($data['headCount']))
-		{
+
+
+		// if(empty($data['endTime']))
+		// {
+		// $this->errors['endTime'] = "endTime is required";
+		// $data['endTime']=$data['startTime']+$data['hours']:00:00;
+		// }
+
+
+		if (empty($data['headCount'])) {
 			$this->errors['headCount'] = "headCount is required";
 		}
-        
-        
-        
-        if(empty($data['sounds']))
-		{
+
+
+
+		if (empty($data['sounds'])) {
 			$this->errors['sounds'] = "sounds is required";
 		}
-        // else if($data['sounds']=="YES")
+		// else if($data['sounds']=="YES")
 		// {
 		// 	$data['sounds'] = 1;
 		// }
 
 
-        if(empty($data['standings']))
-		{
+		if (empty($data['standings'])) {
 			$this->errors['standings'] = "standings is required";
 		}
 
-        if(empty($data['message']))
-		{
+		if (empty($data['message'])) {
 			$this->errors['message'] = "message is required";
 		}
 
@@ -139,7 +130,7 @@ class Reservationrequests
 		// }
 
 
-        // if(empty($data['contactNumber']))
+		// if(empty($data['contactNumber']))
 		// {
 		// 	$this->errors['contactNumber'] = "contactNumber is required";
 		// }
@@ -154,26 +145,25 @@ class Reservationrequests
 		// {
 		// 	$this->errors['nic'] = "NIC is required";
 		// }
-		
+
 		// if(empty($data['password']))
 		// {
 		// 	$this->errors['password'] = "Password is required";
 		// }
 
 
-        // if(empty($data['confirmPassword']))
+		// if(empty($data['confirmPassword']))
 		// {
 		// 	$this->errors['confirmPassword'] = "Password is required";
 		// }else
-        // if($data['confirmPassword'] !== $data['password']){
-        //     show('abc');
+		// if($data['confirmPassword'] !== $data['password']){
+		//     show('abc');
 		// 	$this->errors['confirmPassword'] = "Passwords do not match";
-        // }
+		// }
 
 
-		if(empty($this->errors))
-		{
-		return true;
+		if (empty($this->errors)) {
+			return true;
 		}
 
 		return false;

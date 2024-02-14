@@ -17,8 +17,8 @@
                 <h1 class="card-title">EDIPAS RAJA</h1>
                 <p class="card-sub-title">Category : Tragedy</p>
                 <p class="card-info">Oedipus Rex by Sophocles is a Greek tragedy about a man who unknowingly fulfills a prophecy by killing his father and marrying his mother. It explores themes of fate, free will, and the consequences of unchecked pride.
-                    The story of Oedipus is the subject of Sophocles' tragedy Oedipus Rex, which is followed in the narrative sequence by Oedipus at Colonus and then Antigone. Together, these plays make up Sophocles' three Theban plays.
-                    Oedipus represents two enduring themes of Greek myth and drama: the flawed nature of humanity and an individual's role in the course of destiny in a harsh universe.
+                The story of Oedipus is the subject of Sophocles' tragedy Oedipus Rex, which is followed in the narrative sequence by Oedipus at Colonus and then Antigone. Together, these plays make up Sophocles' three Theban plays.
+                 Oedipus represents two enduring themes of Greek myth and drama: the flawed nature of humanity and an individual's role in the course of destiny in a harsh universe.
                 </p>
 
                 <div class="button_group">

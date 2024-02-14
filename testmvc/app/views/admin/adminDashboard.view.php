@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?=ROOT?>/assets/css/adminDashboard.css">
-    
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/adminDashboard.css">
+
     <title>Admin Panel</title>
 </head>
 
@@ -74,9 +74,9 @@
                             <td>
                                 <label for="dropdown"></label>
                                 <select id="dropdown" name="dropdown">
-                                <option value="option1">To do</option>
-                                <option value="option2">In progress</option>
-                                <option value="option3">Done</option>
+                                    <option value="option1">To do</option>
+                                    <option value="option2">In progress</option>
+                                    <option value="option3">Done</option>
                                 </select>
                             </td>
                             <td><a href="#" class="btn">View</a></td>
@@ -86,11 +86,11 @@
                             <td>
                                 <label for="dropdown"></label>
                                 <select id="dropdown" name="dropdown">
-                                <option value="option1">To do</option>
-                                <option value="option2">In progress</option>
-                                <option value="option3">Done</option>
+                                    <option value="option1">To do</option>
+                                    <option value="option2">In progress</option>
+                                    <option value="option3">Done</option>
                                 </select>
-                            </td>                            
+                            </td>
                             <td><a href="#" class="btn">View</a></td>
                         </tr>
                         <tr>
@@ -98,11 +98,11 @@
                             <td>
                                 <label for="dropdown"></label>
                                 <select id="dropdown" name="dropdown">
-                                <option value="option1">To do</option>
-                                <option value="option2">In progress</option>
-                                <option value="option3">Done</option>
+                                    <option value="option1">To do</option>
+                                    <option value="option2">In progress</option>
+                                    <option value="option3">Done</option>
                                 </select>
-                            </td>                            
+                            </td>
                             <td><a href="#" class="btn">View</a></td>
                         </tr>
                         <tr>
@@ -110,11 +110,11 @@
                             <td>
                                 <label for="dropdown"></label>
                                 <select id="dropdown" name="dropdown">
-                                <option value="option1">To do</option>
-                                <option value="option2">In progress</option>
-                                <option value="option3">Done</option>
+                                    <option value="option1">To do</option>
+                                    <option value="option2">In progress</option>
+                                    <option value="option3">Done</option>
                                 </select>
-                            </td>                            
+                            </td>
                             <td><a href="#" class="btn">View</a></td>
                         </tr>
                         <tr>
@@ -122,11 +122,11 @@
                             <td>
                                 <label for="dropdown"></label>
                                 <select id="dropdown" name="dropdown">
-                                <option value="option1">To do</option>
-                                <option value="option2">In progress</option>
-                                <option value="option3">Done</option>
+                                    <option value="option1">To do</option>
+                                    <option value="option2">In progress</option>
+                                    <option value="option3">Done</option>
                                 </select>
-                            </td>                            
+                            </td>
                             <td><a href="#" class="btn">View</a></td>
                         </tr>
                         <tr>
@@ -134,11 +134,11 @@
                             <td>
                                 <label for="dropdown"></label>
                                 <select id="dropdown" name="dropdown">
-                                <option value="option1">To do</option>
-                                <option value="option2">In progress</option>
-                                <option value="option3">Done</option>
+                                    <option value="option1">To do</option>
+                                    <option value="option2">In progress</option>
+                                    <option value="option3">Done</option>
                                 </select>
-                            </td>                            
+                            </td>
                             <td><a href="#" class="btn">View</a></td>
                         </tr>
                     </table>

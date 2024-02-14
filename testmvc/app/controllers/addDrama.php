@@ -3,7 +3,7 @@
 /**
  * home class
  */
-class createTask
+class addDrama
 {
 	use Controller;
 
@@ -12,7 +12,7 @@ class createTask
 
 		// $data['username'] = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->email;
 
-		$this->view('admin/createtask');
+		$this->view('admin/adddrama');
 	}
 
 }

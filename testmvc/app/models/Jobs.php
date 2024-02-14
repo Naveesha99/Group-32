@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 
 /**
@@ -6,7 +6,7 @@
  */
 class Jobs
 {
-	
+
 	use Model;
 
 	protected $table = 'jobs';
@@ -24,13 +24,11 @@ class Jobs
 	{
 		$this->errors = [];
 
-		if(empty($data['jobTitle']))
-		{
+		if (empty($data['jobTitle'])) {
 			$this->errors['jobTitle'] = "Employee Title is required";
 		}
 
-		if(empty($this->errors))
-		{
+		if (empty($this->errors)) {
 			return true;
 		}
 
