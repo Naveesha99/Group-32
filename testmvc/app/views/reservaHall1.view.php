@@ -74,6 +74,26 @@
                             <div class="time-slot available" onclick="bookSlot('17:00:00')" id="1">5:00PM-6:00PM</div>
                             <div class="time-slot unavailable" onclick="bookSlot('18:00:00')" id="1">6:00PM-7:00PM</div>
                             <div class="time-slot available" onclick="bookSlot('19:00:00')" id="1">7:00PM-8:00PM</div>
+
+                            <?php
+                            // Check if $bookedTimeSlots is an array or an object before looping
+                            // if (is_array($bookedTimeSlots) || is_object($bookedTimeSlots)) {
+                                // foreach ($bookedTimeSlots as $bookedSlot):
+                                    // $startTime = $bookedSlot['startTime'];
+                                    // $endTime = $bookedSlot['endTime'];
+                            ?>
+                            <!-- <div class="time-slot unavailable" id="1"> -->
+                            <!-- <?php //echo "$startTime - $endTime"; ?> -->
+                            <!-- </div> -->
+                            <?php
+                                // endforeach;
+                            // } else {
+                                // echo "No booked time slots available.";
+                            // }
+                            ?>
+
+
+
                         </div>
 
                         <!-- <button class="ReqButton">Request</button> -->
@@ -87,13 +107,25 @@
 
 
 
+   
             <form  method="POST" class="form" id="Form" onsubmit="return validateForm()">
 
-                <h2> <span class="hallno" id="hallno">HALL 01</span> <BR> BOOKING REQUEST  <br><span class="spn1">ID: <label class="spn2" id="requestId" name="requestId"> </label></span></h2>
+                <h2> <span class="hallNo" id="hallNo">Hall No</span> <BR> BOOKING REQUEST  <br><span class="spn1">ID: <label class="spn2" id="requestId" name="requestId"> </label></span></h2>
                 <!-- <div class="form_f">
                     <label for="requestId">Request ID:</label>
                     <input type="text" id="requestId" name="requestId" readonly required>
                 </div>  -->
+
+                <input type="hidden" id="hallno" name="hallno" >
+
+                <input type="hidden" id="status" name="status" value="pending" >
+                <!-- <script>
+                    var hallnoText = document.getElementById('hallno').textContent;
+                    console.log(hallnoText);
+                    document.getElementById('hallId').value = hallnoText;
+                    console.log("hall No function");
+                    console.log(hallnoText);
+                </script> -->
 
                 <div class="form_f">
                     <label for="name">Name:</label>
@@ -199,7 +231,7 @@
 
         return true;
     }
-</script>
+                </script>
 
 
                 <div class="form_f">
@@ -257,22 +289,115 @@
 
 <script>
 
+
+
+
+
+
+// document.addEventListener('DOMContentLoaded', function() {
+//     console.log("DOM content loaded");
+//         // Add an event listener to the start time input field
+//         document.getElementById('startTime').addEventListener('input', function() {
+//         console.log("in fuction updateEndTimeOptions         0");
+
+//     // Call a function to update end time options
+//         updateEndTimeOptions(this.value);
+//     });
+//     // If the start time is auto-filled, trigger the input event explicitly
+//     const startTimeInput = document.getElementById('startTime');
+//     if (startTimeInput.value) {
+//         // Trigger the input event manually
+//         const event = new Event('input');
+//         startTimeInput.dispatchEvent(event);
+//     }
+// });
+
+// Function to update end time options based on the selected start time
+function updateEndTimeOptions(selectedStartTime) {
+    console.log("in fuction updateEndTimeOptions");
+
+    // Get the end time datalist element
+    const endTimeDatalist = document.getElementById('endSlots');
+    // Remove all existing options from the datalist
+    endTimeDatalist.innerHTML = '';
+    // Available time slots for end time
+    const availableEndTimes = [
+        "09:00:00", "10:00:00", "11:00:00", "12:00:00", "13:00:00",
+        "14:00:00", "15:00:00", "16:00:00", "17:00:00", "18:00:00",
+        "19:00:00", "20:00:00"
+    ];
+
+    const unavailableEndTimes = [
+        // Add your logic to get the unavailable slots
+    ];
+
+
+    // Find the index of the selected start time in the available times
+    // const startIndex = availableEndTimes.indexOf(selectedStartTime);
+    const startIndex = availableEndTimes.findIndex(time => time === selectedStartTime);
+    console.log("startIndex");
+    console.log(startIndex);
+
+// If a valid start time is selected, update end time options
+    if (startIndex !== -1) {
+        // Create options for end time starting from the selected start time
+        for (let i = startIndex +1; i < availableEndTimes.length; i++) {
+            // console.log(option);
+            const option = document.createElement('option');
+            option.value = availableEndTimes[i];
+            endTimeDatalist.appendChild(option);
+        }
+    }
+
+    else if(startIndex == -1) {
+        // Create options for end time starting from the selected start time
+        for (let i = 0; i < availableEndTimes.length; i++) {
+            // console.log(option);
+            const option = document.createElement('option');
+            option.value = availableEndTimes[i];
+            endTimeDatalist.appendChild(option);
+        }
+    }
+
+        // for (const unavailableTime of unavailableEndTimes) {
+        // const option = document.createElement('option');
+        // option.style.display = 'none'; 
+        // option.value = unavailableTime;
+        // option.style.display = 'none'; 
+        // options.disabled=true;
+        // console.log("disable line runs");
+        // endTimeDatalist.appendChild(option);
+
+        // }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     function formatDate(date) {
         console.log("in format dae func")
-        // const options = {
-        //     month: 'long',
-        //     year: 'numeric',
-        //     day: 'numeric'
-        // };
         // return new Date(date).toLocaleDateString(undefined, options);
         const options = {
         year: 'numeric',
         month: '2-digit',
         day: '2-digit',
     };
-    // return new Date(date).toLocaleDateString('en-US', options).replace(/\//g, '-');
-    // return new Date(date).toLocaleDateString(undefined, options);
-
+    
 
     // var today = new Date(); 
         var formattedDate = date.getFullYear() + '-' + String(date.getMonth()).padStart(2, '0') + '-' + String(date.getDate()).padStart(2, '0');
@@ -314,8 +439,10 @@
 
             
             const hallnumber = getQueryParam('hallno');
-            document.getElementById('hallno').textContent=hallnumber;
-            console.log(hallno);
+            document.getElementById('hallNo').textContent=hallnumber;
+            document.getElementById('hallno').value = hallnumber;
+            hallnuberforinputfield=document.getElementById('hallno')
+            console.log(hallnuberforinputfield );
 
 
 
@@ -362,22 +489,17 @@
         document.getElementById('startTime').value = selectedTime;
         // document.getElementById('date').value=document.getElementById('selectedDate').innerHTML;
         var sdate=document.getElementById('selectedDate').innerHTML;
-        var sdate2= date.getFullYear() + '-' + String(date.getMonth()).padStart(2, '0') + '-' + String(date.getDate()).padStart(2, '0');
-
+        var sdate1 = new Date(sdate);
+        // $timestamp = strtotime($selectedDate);
+        var sdate2= sdate1.getFullYear() + '-' + String(sdate1.getMonth()+1).padStart(2, '0') + '-' + String(sdate1.getDate()).padStart(2, '0');
+        console.log("selected date");
+        console.log(sdate2);
         document.getElementById('date').value=sdate2;
+        updateEndTimeOptions(selectedTime);
 
     }
 
 
-
-
-
-
-
-
-// function popup(id){
-//     document.getElementById('modal').style.display='block';
-// }
 
 function popup(id) {
     
@@ -465,6 +587,7 @@ function viewRequest(){
 
 // Add an event listener to the end time input field
 document.getElementById('endTime').addEventListener('input', function() {
+    console.log("event listener for endtime");
     // Get the start time and end time values
     const startTime = document.getElementById('startTime').value;
     const endTime = this.value; // 'this' refers to the element that triggered the event
