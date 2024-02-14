@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /**
  *  view own article class
@@ -12,7 +12,6 @@ class CWDraft
 
 		// $data['username'] = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->email;
 
-		$this->view('cwDraft');
+		$this->view('contentwriter/cwDraft');
 	}
-
 }

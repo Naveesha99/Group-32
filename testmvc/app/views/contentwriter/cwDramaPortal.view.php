@@ -1,36 +1,38 @@
 <!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?=ROOT?>/assets/css/cwDramaPortal.css">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/cwDramaPortal.css">
     <title>Drama Portal</title>
 </head>
 <?php require_once 'cwNaviBar.php' ?>
+
 <body>
 
-<?php
-function limitWords($text, $limit)
-{
-    $words = explode(" ", $text);
-    $limitedWords = array_slice($words, 0, $limit);
-    $result = implode(" ", $limitedWords);
+    <?php
+    function limitWords($text, $limit)
+    {
+        $words = explode(" ", $text);
+        $limitedWords = array_slice($words, 0, $limit);
+        $result = implode(" ", $limitedWords);
 
-    if (count($words) > $limit) {
-        $result .= '...';
+        if (count($words) > $limit) {
+            $result .= '...';
+        }
+
+        return $result;
     }
-
-    return $result;
-}
-?>
-<div class="container">
+    ?>
+    <div class="container">
         <!-- <div class="heading">
             <h1>DRAMA PORTAL</h1>
         </div> -->
-        <?php 
-        if($data && (is_array($data)|| is_object($data))){
-            foreach($data as $row){
+        <?php
+        if ($data && (is_array($data) || is_object($data))) {
+            foreach ($data as $row) {
                 echo  '<div class="card">
                         <div class="imgBX">
                             <img src="' . ROOT . '/assets/images/drama_portal/' . $row->image . '" alt="image" >
@@ -45,15 +47,14 @@ function limitWords($text, $limit)
                         </div>
                         </div>';
             }
-        }
-        else{
+        } else {
             echo '<p>No data available</p>';
         }
         ?>
 
         <!-- <div class="card">
             <div class="imgBX">
-                <img src="<?=ROOT ?>/assets/images/home/i10.jpeg" alt="" >
+                <img src="<?= ROOT ?>/assets/images/home/i10.jpeg" alt="" >
             </div>
             <div class="Content">
             <h2>RAWANA</h2>
@@ -65,7 +66,7 @@ function limitWords($text, $limit)
 
         <div class="card">
             <div class="imgBX">
-                <img src="<?=ROOT ?>/assets/images/home/i7.jpg" alt="">
+                <img src="<?= ROOT ?>/assets/images/home/i7.jpg" alt="">
             </div>
             <div class="Content">
             <h2>ALADIN SAHA PUDUMA PAHANA</h2>
@@ -77,7 +78,7 @@ function limitWords($text, $limit)
 
         <!-- <div class="card">
             <div class="imgBX">
-                <img src="<?=ROOT ?>/assets/images/article.png" alt="">
+                <img src="<?= ROOT ?>/assets/images/article.png" alt="">
             </div>
             <div class="Content">
             <h2>MANAME</h2>
@@ -91,7 +92,7 @@ function limitWords($text, $limit)
 
         <div class="card">
             <div class="imgBX">
-                <img src="<?=ROOT ?>/assets/images/sinhabahu.jpeg" alt="">
+                <img src="<?= ROOT ?>/assets/images/sinhabahu.jpeg" alt="">
             </div>
             <div class="Content">
             <h2>SINHABAHU</h2>
@@ -103,7 +104,7 @@ function limitWords($text, $limit)
 
         <!-- <div class="card">
             <div class="imgBX">
-                <img src="<?=ROOT ?>/assets/images/kuweni.jpeg" alt="">
+                <img src="<?= ROOT ?>/assets/images/kuweni.jpeg" alt="">
             </div>
             <div class="Content">
             <h2>KUWENI</h2>
@@ -115,7 +116,7 @@ function limitWords($text, $limit)
 
         <div class="card">
             <div class="imgBX">
-                <img src="<?=ROOT ?>/assets/images/sokari.jpeg" alt="">
+                <img src="<?= ROOT ?>/assets/images/sokari.jpeg" alt="">
             </div>
             <div class="Content">
             <h2>SOKARI</h2>
@@ -127,7 +128,7 @@ function limitWords($text, $limit)
 
         <!-- <div class="card">
             <div class="imgBX">
-                <img src="<?=ROOT ?>/assets/images/home/i5.jpeg" alt="">
+                <img src="<?= ROOT ?>/assets/images/home/i5.jpeg" alt="">
             </div>
             <div class="Content">
             <h2>HITHUMATHE ADARE</h2>
@@ -137,6 +138,7 @@ function limitWords($text, $limit)
             </div>
         </div> -->
     </div>
-    
+
 </body>
+
 </html>

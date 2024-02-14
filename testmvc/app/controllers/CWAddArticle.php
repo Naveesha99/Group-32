@@ -14,16 +14,13 @@ class CWAddArticle
         $data = [];
 
         $article = new Article;
-        if($article->validate($_POST))
-        {
+        if ($article->validate($_POST)) {
             $article->insert($_POST);
-            redirect('cwArticleDisplay');
-
+            redirect('contentwriter/cwArticleDisplay');
         }
 
         $data['errors'] = $article->errors;
         // show($_POST);
-        $this->view('CWAddArticle',$data);
+        $this->view('contentwriter/CWAddArticle', $data);
     }
 }
-

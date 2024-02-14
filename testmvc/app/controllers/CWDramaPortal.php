@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /**
  *  cw drama portal
@@ -13,11 +13,10 @@ class CWDramaPortal
 		// $data['username'] = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->email;
 
 		$article = new article;
-        $result = $article->findAll();
-        $data = $result;
+		$result = $article->findAll();
+		$data = $result;
 
 
-		$this->view('cwDramaPortal', $data);
+		$this->view('contentwriter/cwDramaPortal', $data);
 	}
-
 }

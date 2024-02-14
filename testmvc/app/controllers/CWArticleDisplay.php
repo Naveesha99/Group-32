@@ -13,28 +13,27 @@ class CWArticleDisplay
 
 		// $this->view('cwArticleDisplay');
 		$article = new article;
-        $result = $article->findAll();
-        $data = $result;
+		$result = $article->findAll();
+		$data = $result;
 
-        $this->view('cwArticleDisplay', $data);
-
+		$this->view('contentwriter/cwArticleDisplay', $data);
 	}
 
 	public function cwViewOwnArticle($articleId)
-    {
-        $article = new article;
-        $articleData = $article->where(['id' => $articleId]); // Assuming 'id' is the primary key column
-        $this->view('cwViewOwnArticle', $articleData);
-    }
+	{
+		$article = new article;
+		$articleData = $article->where(['id' => $articleId]); // Assuming 'id' is the primary key column
+		$this->view('contentwriter/cwViewOwnArticle', $articleData);
+	}
 
-    public function delete()
-    {
-        if (isset($_POST['id'])) {
-            $articleId = $_POST['id'];
-            $article = new article;
-            $article->delete($articleId);
-            redirect("cwArticleDisplay");
-        }
+	public function delete()
+	{
+		if (isset($_POST['id'])) {
+			$articleId = $_POST['id'];
+			$article = new article;
+			$article->delete($articleId);
+			redirect("contentwriter/cwArticleDisplay");
+		}
 	}
 
 
@@ -53,7 +52,7 @@ class CWArticleDisplay
 	// 	if(isset($_GET['id'])){
 	// 		$articleId =$_GET['id'];
 	// 		$this->cwViewOwnArticle($articleId);
-			
+
 	// 	}
 	// }
 
@@ -69,7 +68,7 @@ class CWArticleDisplay
 	// 	$this->view('cwViewOwnArticle',$articleData);
 	// }
 
-	
 
-	
+
+
 }

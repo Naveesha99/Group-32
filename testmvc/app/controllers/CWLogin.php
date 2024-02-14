@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /**
  * cw login class
@@ -10,20 +10,17 @@ class CWLogin
 	public function index()
 	{
 		$data = [];
-		
-		if($_SERVER['REQUEST_METHOD'] == "POST")
-		{
+
+		if ($_SERVER['REQUEST_METHOD'] == "POST") {
 			$cw = new Content_writers;
 			$arr['username'] = $_POST['username'];
 
 			$row = $cw->first($arr);
-			
-			if($row)
-			{
-				if($row->password == $_POST['password'])
-				{
+
+			if ($row) {
+				if ($row->password == $_POST['password']) {
 					$_SESSION['USER'] = $row;
-					redirect('cwDashboard');
+					redirect('contentwriter/cwDashboard');
 				}
 			}
 
@@ -32,7 +29,6 @@ class CWLogin
 			$data['errors'] = $cw->errors;
 		}
 
-		$this->view('cwLogin',$data);
+		$this->view('contentwriter/cwLogin', $data);
 	}
-
 }
