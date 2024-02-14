@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 
 /**
@@ -6,7 +6,7 @@
  */
 class Employee
 {
-	
+
 	use Model;
 
 	protected $table = 'employee';
@@ -19,25 +19,22 @@ class Employee
 		'empDOB',
 		'empAddress',
 		'empContact',
-        'empRoll',
+		'empRoll',
 	];
 
 	public function validate($data)
 	{
 		$this->errors = [];
 
-		if(empty($data['empName']))
-		{
+		if (empty($data['empName'])) {
 			$this->errors['empName'] = "Employee name is required";
 		}
 
-        if(empty($data['empEmail']))
-		{
+		if (empty($data['empEmail'])) {
 			$this->errors['empEmail'] = "Email is required";
 		}
 
-        if(!filter_var($data['empEmail'],FILTER_VALIDATE_EMAIL))
-		{
+		if (!filter_var($data['empEmail'], FILTER_VALIDATE_EMAIL)) {
 			$this->errors['empEmail'] = "Email is not valid";
 		}
 
@@ -52,25 +49,23 @@ class Employee
 		} else {
 			$currentDate = new DateTime();
 			$inputDate = new DateTime($data['empDOB']);
-	
+
 			if ($inputDate > $currentDate) {
 				$this->errors['empDOB'] = "Date of Birth must be in the past";
 			}
-	
+
 			$age = $currentDate->diff($inputDate)->y;
 			if ($age < 18) {
 				$this->errors['empDOB'] = "Employee must be at least 18 years old";
 			}
 		}
-		
-        if(empty($data['empRoll']))
-		{
+
+		if (empty($data['empRoll'])) {
 			$this->errors['empRoll'] = "Employee Roll is required";
 		}
 
 
-		if(empty($this->errors))
-		{
+		if (empty($this->errors)) {
 			return true;
 		}
 

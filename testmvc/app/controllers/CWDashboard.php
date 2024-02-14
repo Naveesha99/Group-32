@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /**
  * content writer dashboard class
@@ -11,8 +11,10 @@ class CWDashboard
 	{
 
 		// $data['username'] = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->email;
+		$article = new article;
+		$result = $article->findAll();
+		$data = $result;
 
-		$this->view('cwDashboard');
+		$this->view('contentwriter/cwDashboard', $data);
 	}
-
 }

@@ -7,9 +7,9 @@ Trait Model
 {
 	use Database;
 
-	protected $limit 		= 10;
+	protected $limit 		= 500;
 	protected $offset 		= 0;
-	protected $order_type 	= "desc";
+	protected $order_type 	= "asc";
 	protected $order_column = "id";
 	public $errors 		= [];
 
@@ -136,5 +136,6 @@ Trait Model
 
 	}
 
+	
 	
 }

@@ -23,12 +23,6 @@
 						<input type="password" name="password" placeholder="PASSWORD">
 						<input type="password" name="Repassword" placeholder="Re-Enter PASSWORD">
 
-
-                        <!-- <div class="remember-me">
-                            <input type="checkbox" id="remember-me">
-                            <label for="remember-me">Remember Me</label>
-                        </div> -->
-
 						<button class="submit">SIGNUP</button>
                         <h3 class="heading">Already have an account? <a href="<?=ROOT?>/login">Login</a>
                         

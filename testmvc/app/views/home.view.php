@@ -83,19 +83,16 @@
 
                 <div class="movie-list-wrapper">
                     <?php
-                    if (isset($data) && is_array($data)) 
-                    {
+                    if (isset($data) && is_array($data)) {
                         $itemCount = count($data);
                         $itemsPerRow = 4;
 
                         // Loop through the data and group items by 7
-                        for ($i = 0; $i < $itemCount; $i += $itemsPerRow) 
-                        {
+                        for ($i = 0; $i < $itemCount; $i += $itemsPerRow) {
                             echo '<div class="movie-list-row">';
-                            
+
                             // Display up to 7 items in the current row
-                            for ($j = 0; $j < $itemsPerRow && ($i + $j) < $itemCount; $j++) 
-                            {
+                            for ($j = 0; $j < $itemsPerRow && ($i + $j) < $itemCount; $j++) {
                                 $x = $data[$i + $j];
                     ?>
                                 <form action="select_drama" method="POST">
@@ -106,15 +103,13 @@
                                         <button type="submit" class="movie-list-item-button">BOOK</button>
                                     </div>
                                 </form>
-                    <?php
+                        <?php
                             }
 
                             echo '</div>';
                         }
-                    } 
-                    else 
-                    {
-                    ?>
+                    } else {
+                        ?>
                         <h1>Next release coming soon</h1>
                     <?php
                     }
@@ -123,11 +118,11 @@
                 </div>
             </div>
 
-       
+
         </div>
     </div>
-        
-        <script src="<?= ROOT ?>/assets/js/home.js"></script>
+
+    <script src="<?= ROOT ?>/assets/js/home.js"></script>
 </body>
 
 </html>

@@ -9,6 +9,24 @@
     <title>Display Article</title>
 </head>
 <?php require_once 'cwNaviBar.php' ?>
+<?php include 'navBar.php' ?>
+
+<?php
+function limitWords($text, $limit)
+{
+    $words = explode(" ", $text);
+    $limitedWords = array_slice($words, 0, $limit);
+    $result = implode(" ", $limitedWords);
+
+    if (count($words) > $limit) {
+        $result .= '...';
+    }
+
+    return $result;
+}
+?>
+
+
 
 <body>
     <div class="container">
@@ -33,11 +51,11 @@
                                 <td>' . $row->id . '</td>
                                 <td>' . $row->article_name . '</td>
                                 <td>' . $row->category . '</td>
-                                <td>' . $row->article_content . '</td>
+                                <td>' . limitWords($row->article_content, 5) . '</td>
                                 <td>' . $row->image . '</td>
                                 <td>
                                     <span class="action_btn">
-                                        <a href="<?=ROOT?>/cwArticleDisplay">View</a>
+                                        <a href=" method ="GET" ' . ROOT . '/cwArticleDisplay/cwViewOwnArticle?id=' . $row->id . '">View</a>
                                         <a href="#">Edit</a>
                                         <a href="#" >Delete</a>
                                     </span>

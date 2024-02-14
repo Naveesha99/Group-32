@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /**
  * login class
@@ -10,18 +10,15 @@ class Login
 	public function index()
 	{
 		$data = [];
-		
-		if($_SERVER['REQUEST_METHOD'] == "POST")
-		{
+
+		if ($_SERVER['REQUEST_METHOD'] == "POST") {
 			$user = new User;
 			$arr['username'] = $_POST['username'];
 
 			$row = $user->first($arr);
-			
-			if($row)
-			{
-				if($row->password === $_POST['password'])
-				{
+
+			if ($row) {
+				if ($row->password === $_POST['password']) {
 					$_SESSION['USER'] = $row;
 					redirect('admindashboard');
 				}
@@ -32,7 +29,6 @@ class Login
 			$data['errors'] = $user->errors;
 		}
 
-		$this->view('login',$data);
+		$this->view('login', $data);
 	}
-
 }

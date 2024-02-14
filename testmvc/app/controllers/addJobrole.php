@@ -26,7 +26,7 @@ class addJobrole
 
 		// $data['username'] = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->email;
 
-		$this->view('addjobrole');
+		$this->view('admin/addjobrole');
 	}
 
 }

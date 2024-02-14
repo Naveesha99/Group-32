@@ -28,7 +28,7 @@ body{
 }
 
 .container .table-responsive{
-    max-width: 900px;
+    max-width: 1000px;
     border: 2px solid brown ;
     background-color: #efefef33;
     padding: 15px;

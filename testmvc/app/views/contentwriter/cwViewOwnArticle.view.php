@@ -8,11 +8,12 @@
     <title>Article Details</title>
 </head>
 <?php require_once 'cwNaviBar.php' ?>
+<?php include 'navBar.php' ?>
 
 <body>
     <div class="container">
         <div class="card">
-            <img src="<?=ROOT?>/assets/images/home/i3.jpg" alt="" class="card-img">
+            <img src="<?= ROOT ?>/assets/images/drama_portal/i3.jpg" alt="" class="card-img">
             <div class="card-body">
                 <h1 class="card-title">EDIPAS RAJA</h1>
                 <p class="card-sub-title">Category : Tragedy</p>
@@ -21,8 +22,11 @@
                  Oedipus represents two enduring themes of Greek myth and drama: the flawed nature of humanity and an individual's role in the course of destiny in a harsh universe.
                 </p>
 
-                <button class="card-btn" onclick="edit()" style="background-color: #00FF1A;">Edit</button>
-                <button class="card-btn" onclick="" style="background-color: #FF0000;">Delete</button>
+                <div class="button_group">
+                    <button class="card-btn" onclick="edit()" style="background-color: #00FF1A;">Edit</button>
+                    <button class="card-btn" onclick="" style="background-color: #FF0000;">Delete</button>
+
+                </div>
             </div>
         </div>
     </div>
@@ -31,7 +35,7 @@
     <!-- <div class="container">
         <h1 id="articleName" span>MANAME</h1>
         <div class="image">
-            <img id="articleImage" src="<?=ROOT?>/assets/images/kuweni.jpeg" alt="Article Image">
+            <img id="articleImage" src="<?= ROOT ?>/assets/images/kuweni.jpeg" alt="Article Image">
         </div>
 
         <div class="paragraph" id="articleContent">
