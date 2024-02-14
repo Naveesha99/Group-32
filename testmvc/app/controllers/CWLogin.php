@@ -20,7 +20,7 @@ class CWLogin
 			if ($row) {
 				if ($row->password == $_POST['password']) {
 					$_SESSION['USER'] = $row;
-					redirect('contentwriter/cwDashboard');
+					redirect('cwDashboard');
 				}
 			}
 

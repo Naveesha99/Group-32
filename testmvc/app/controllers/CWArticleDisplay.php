@@ -32,7 +32,7 @@ class CWArticleDisplay
 			$articleId = $_POST['id'];
 			$article = new article;
 			$article->delete($articleId);
-			redirect("contentwriter/cwArticleDisplay");
+			redirect("cwArticleDisplay");
 		}
 	}
 

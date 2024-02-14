@@ -16,7 +16,7 @@ class CWAddArticle
         $article = new Article;
         if ($article->validate($_POST)) {
             $article->insert($_POST);
-            redirect('contentwriter/cwArticleDisplay');
+            redirect('cwArticleDisplay');
         }
 
         $data['errors'] = $article->errors;
