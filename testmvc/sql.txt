@@ -13,3 +13,15 @@ ALTER TABLE articles
 ADD cw_id INT,
 ADD Created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 ADD FOREIGN KEY(cw_id) REFERENCES Content_writers(id) ON DELETE CASCADE
+
+CREATE TABLE drafts(
+    draft_id INT AUTO_INCREMENT,
+    article_name VARCHAR(255),
+    category VARCHAR(255),
+    article_content TEXT,
+    image BLOB,
+    cw_id INT,
+    ADD FOREIGN KEY(cw_id) REFERENCES Content_writers(id) ON DELETE CASCADE,
+    Created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY(draft_id)
+);
