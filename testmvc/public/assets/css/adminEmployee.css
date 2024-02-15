@@ -23,17 +23,17 @@ h3 {
     color: #999;
 }
 .btn {
-    background: rgba(195, 98, 1, 0.973);
+    background: rgba(73, 26, 114, 0.973);
     color: white;
     padding: 3px 10px;
     text-align: center;
-    border-radius: 5px;
+    border-radius: 15px;
 }
 .btn:hover {
-    color: rgba(195, 98, 1, 0.973);
+    color: rgba(73, 26, 114, 0.973);
     background: white;
     padding: 3px 8px;
-    border: 2px solid rgba(195, 98, 1, 0.973);
+    border: 2px solid rgba(73, 26, 114, 0.973);
 }
 .title {
     display: flex;
@@ -86,20 +86,20 @@ td {
 }
 
 .btn-1 {
-    background: rgba(195, 98, 1, 0.973);
+    background: rgba(73, 26, 114, 0.973);
     color: white;
     padding: 3px 10px;
     text-align: center;
     border-radius: 5px;
-    border: 2px solid rgba(195, 98, 1, 0.973);
+    border: 2px solid rgba(73, 26, 114, 0.973);
     margin-left: 30px;
     margin-bottom: 10px;
 }
 .btn-1:hover {
-    color: rgba(195, 98, 1, 0.973);
+    color: rgba(73, 26, 114, 0.973);
     background: white;
     padding: 3px 10px;
-    border: 2px solid rgba(195, 98, 1, 0.973);
+    border: 2px solid rgba(73, 26, 114, 0.973);
     margin-left: 30px;
 }
 
@@ -110,7 +110,7 @@ td {
     height: 60%;
     margin: 40px auto;
     border-radius: 5px;
-    background-color: #ffffff;
+    background-color: #ff00fb;
   }
   
 .container .add-employee label {
