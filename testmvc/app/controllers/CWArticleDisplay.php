@@ -43,8 +43,16 @@ class CWArticleDisplay
 	// 	$this->view('contentwriter/cwViewOwnArticle', $articleData);
 	// }
 
-	private function articleView($data, $article){
-		
+	private function articleView($data, $article)
+	{
+		$articleData = $article->where(['id' => $data]);
+		if ($articleData) {
+			$this->view('contentwriter/cwViewOwnArticle', $articleData);
+		} else {
+			// Handle case where article with given ID is not found
+			// For example, you can redirect to an error page or display a message
+			echo "Article not found!";
+		}
 	}
 
 	private function articleDelete($data, $article)
