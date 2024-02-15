@@ -43,8 +43,8 @@
             <input type="file" id="image" name="image" accept="image/*">
 
             <div class="button-group">
-                <button type="button" onclick="saveDraft()">Save as Draft</button>
-                <button type="submit" onclick="submitForm()">SUBMIT</button>
+                <button type="submit" name="save_draft" >Save as Draft</button>
+                <button type="submit"  name = "submit" >SUBMIT</button>
 
             </div>
 
@@ -53,6 +53,12 @@
 
 
     </div>
+
+    <script>
+        function submitForm() {
+            document.getElementById("articleForm").submit();
+        }
+    </script>
 
 </body>
 
