@@ -37,7 +37,7 @@
                 <?php
                 // Check if $data is not false and is an array or object
                 if ($data && (is_array($data) || is_object($data))) {
-                    foreach ($data as $row) {
+                    foreach ($data['employees'] as $row) {
                         echo '<tr>
                                 <td>' . $row->id . '</td>
                                 <td>' . $row->empName . '</td>
@@ -49,16 +49,12 @@
                                 <td>' . $row->empRoll . '</td>
 
                                 <td>
-                                    <form method="POST">
-                                        <input type="hidden" name="view_employee" value="' . $row->id . '">
                                         <button type="submit" name="View" id = "openProfile" class="btn">View</button>
-                                    </form>
                                 </td>
 
                                 <td>
-                                    <form method="POST">
-                                        <input type="hidden" name="update_employee" value="' . $row->id . '">
-                                        <button type="submit" name="Update" id = "openPopup" class="btn-update">Update</button>
+                                    <form method="POST" class="updateForm" data-empid="' . $row->id . '">
+                                        <button type="button" class="btn-update" id = "openPopup">Update</button>
                                     </form>
                                 </td>
                                 
@@ -79,50 +75,54 @@
 
             <div id="overlay"></div>
             <div id="popupForm">
-                <form method="POST" class="add-employee" id="addemployee">
-                    <h1>Employee Registration Form</h1>
-                    <label for="empName">Employee Name</label>
-                    <input type="text" name="empName">
-                    <label for="empEmail">E-mail</label>
-                    <input type="email" name="empEmail">
-                    <label for="empNIC">NIC</label>
-                    <input type="text" name="empNIC">
-                    <label for="empDOB">Date of Birth</label>
-                    <input type="date" name="empDOB">
-                    <label for="empAddress">Address</label>
-                    <input type="text" name="empAddress">
-                    <label for="empContact">Contact</label>
-                    <input type="text" name="empContact">
-                    <label for="empRoll">Employee Roll</label>
-                    <select class="select" name="empRoll">
-                        <?php
-                        foreach ($data['role'] as $row) {
-                            echo "<option value='" . $row->jobTitle . "'>" . $row->jobTitle . "</option>";
-                        }
-                        ?>
-                    </select>
+            
+            <form method="POST" id="addemployee">
+            <h1>Employee Update Form</h1>
+            <label for="empName">Employee Name</label>
+            <input type="text" name="empName">
+            <label for="empEmail">E-mail</label>
+            <input type="email" name="empEmail">
+            <label for="empNIC">NIC</label>
+            <input type="text" name="empNIC">
+            <label for="empDOB">Date of Birth</label>
+            <input type="date" name="empDOB">
+            <label for="empAddress">Address</label>
+            <input type="text" name="empAddress">
+            <label for="empContact">Contact</label>
+            <input type="text" name="empContact">
+            <label for="empRoll">Employee Roll</label>
+            <select class="select" name="empRoll">';
+                <?php
+                foreach ($data['role'] as $row) {
+                    echo "<option value='" . $row->jobTitle . "'>" . $row->jobTitle . "</option>";
+                }
+                ?>
+                </select>
 
-                    <br>
-                    <button class="btn-1">Submit</button>
-                    <button id="closePopup" class="close-btn">close</button>
-                </form>
+            <br>
+            <button class="btn-1">Submit</button>
+            <button id="closePopup" class="close-btn">close</button>
+        </form>;
             </div>
+
             <script src="<?= ROOT ?>/assets/js/popup.js"></script>
 
 
             <!-- user profile -->
+            <!-- user profile -->
             <div id="popupProfile">
-                <div id="profile">
-                    <?php
-                    if ($data['view'] && (is_array($data['view']) || is_object($data['view']))){
-                        echo '<div class="image"></div> ;
-                    <h2>Name:' .$row->id. '</h2>
-                    <p>20-year-old part time photograpger who enjoys binge-watching boxed sets, watching sport and hockey. She is intelligent and careful, but can also be a bit grumpy.</p>
-                    <button id="closePopup" class="close-btn">close</button>';
-                    }
-                    ?>
-                </div>
+                <?php
+                foreach ($data as $row) {
+                    echo '<div id="profile' . $row['id'] . '" class="profile-popup">
+                <div class="image"></div>
+                <h2>Name: ' . $row['empName'] . '</h2>
+                <p>20-year-old part-time photographer who enjoys binge-watching boxed sets, watching sports, and hockey. She is intelligent and careful but can also be a bit grumpy.</p>
+                <button class="close-btn" onclick="closeProfile(\'profile' . $row['id'] . '\')">close</button>
+            </div>';
+                }
+                ?>
             </div>
+
             <script src="<?= ROOT ?>/assets/js/profile.js"></script>
 
         </div>
