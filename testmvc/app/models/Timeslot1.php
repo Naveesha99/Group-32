@@ -1,0 +1,44 @@
+<?php 
+
+class Timeslot1
+{
+    use Model;
+
+    protected $table = 'time1';
+    
+    // protected $allowedColumns = [
+    //     'username',
+    //     'email',
+    //     'phone'
+    // ];
+
+    // public function validate($data)
+    // {
+    //     $this->errors = [];
+
+    //     if(empty($data['username']))
+    //     {
+    //         $this->errors['username'] = "Plaease enter your name";
+    //     }
+    //     if(empty($data['email']))
+    //     {
+    //         $this->errors['email'] = "Enter your working email";
+    //     }
+    //     elseif(!filter_var($data['email'],FILTER_VALIDATE_EMAIL))
+    //     {
+    //         $this->errors['email'] = "Email is not valid";
+    //     }
+
+    //     if(empty($data['phone']))
+    //     {
+    //         $this->errors['phone']="Enter your Phone number";
+    //     }
+
+    //     if(empty($this->errors))
+	// 	{
+	// 		return true;
+	// 	}
+
+	// 	return false;
+    // }
+}
