@@ -34,7 +34,7 @@ class adminEmployee
 
 		$this->view('admin/adminemployee', $data);
 	}
-
+	
 	// private function jobRole($jobs) {
 	// 	$result['role'] = $jobs->findAll();
 	// 	foreach ($result['role'] as $key ) {
