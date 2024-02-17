@@ -12,13 +12,13 @@
 </head>
 
 
-<?php require_once 'reservaSideBar.php' ?>
+<?php require_once 'reservaNavBar.php' ?>
 
 <body class="dashboard">
     <div class="container">
-        <div class="header">
-            <?php require_once 'navBar.php' ?>
-        </div>
+        <!-- <div class="header">
+            </?php require_once 'navBar.php' ?>
+        </div> -->
 
         <div class="content">
             <form class="form">
@@ -118,7 +118,7 @@
                 <div class="btns">
                     <!-- <button type="button" onclick="popup(this)">Send Request</button> -->
                     <button type="submit" onclick="popup(this)">Send Request</button>
-                    <button type="button" onclick="window.location.href='reservaHall1.html'">Cancel</button>
+                    <!-- <button type="button" onclick="window.location.href='reservaHall1.html'">Cancel</button> -->
 
                 </div>
                 <!-- <div>
@@ -220,6 +220,24 @@
         return 'R' + Date.now();
     }
 
+
+
+
+    window.onload = function () {
+        const urlSearchParams = new URLSearchParams(window.location.search);
+        var session=urlSearchParams.get('loggedin');
+        document.getElementById('img-profile').style.display = 'none';
+        if(session == 'false'){
+            document.getElementById('img-profile').style.display = 'none';
+            // document.getElementById('login-btn').style.display='none';
+        }
+        if(session == 'true'){
+            // document.getElementById('img-profile').style.display = 'none';
+            document.getElementById('img-profile').style.display = 'block';
+            document.getElementById('login-btn').style.display='none';
+        }
+        
+        }
 
 
     </script>

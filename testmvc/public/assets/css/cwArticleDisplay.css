@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css?family=Catamaran:400,700');
+*{
+    
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+
+}
+
+body{
+    font-family: 'Catamaran', sans-seri;
+    height: 100vh;
+}
+
+.container{
+    position: absolute;
+    width: calc(100% - 250px);
+    left: 250px;
+    min-height: 100vh;
+    background-color:  #FFEAD7;
+    transition: 0.5s;
+    margin-top: 80px;
+    padding: 100px 50px;
+    align-items: center;
+    justify-content: center;
+}
+
+.container .table-responsive{
+    max-width: 1000px;
+    border: 2px solid brown ;
+    background-color: #efefef33;
+    padding: 15px;
+    overflow: auto;
+    margin: auto;
+    border-radius: 4px;
+    
+}
+
+.container .table-responsive table{
+    width: 100%;
+    font-size: 14px;
+    color: #444;
+    white-space: nowrap;
+    border-collapse: collapse;
+}
+
+.container .table-responsive table>thead{
+    background-color: brown;
+    color: whitesmoke;
+}
+
+.container .table-responsive table>thead th{
+    padding: 15px;
+
+}
+
+.container .table-responsive table th, table td{
+    border: 1px solid rgb(24, 23, 23);
+    padding: 4px 7px;
+}
+
+.container .table-responsive table>tbody>tr>td>img{
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid whitesmoke;
+    box-shadow: 0 2px 6px #0003;
+}
+
+.action_btn{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.action_btn>a{
+    text-decoration: none;
+    color: white;
+    /* background: whitesmoke; */
+    border: 1px solid black;
+    display: inline-block;
+    padding: 7px 17px;
+    font-weight: bold;
+    border-radius: 13px;
+    transition: 0.3s ease-in-out;
+
+}
+
+.action_btn .btn-view{
+    border-color: blue;
+    background-color: blue;
+    text-decoration: none;
+    color: white;
+    /* background: whitesmoke; */
+    border: 1px solid black;
+    display: inline-block;
+    padding: 7px 17px;
+    font-weight: bold;
+    border-radius: 13px;
+    transition: 0.3s ease-in-out;
+}
+.action_btn .btn-update{
+    border-color: green;
+    background-color: green;
+    text-decoration: none;
+    color: white;
+    /* background: whitesmoke; */
+    border: 1px solid black;
+    display: inline-block;
+    padding: 7px 17px;
+    font-weight: bold;
+    border-radius: 13px;
+    transition: 0.3s ease-in-out;
+}
+
+.action_btn .btn-delete{
+    text-decoration: none;
+    color: white;
+    /* background: whitesmoke; */
+    border: 1px solid black;
+    display: inline-block;
+    padding: 7px 17px;
+    font-weight: bold;
+    border-radius: 13px;
+    transition: 0.3s ease-in-out;
+    border-color: red;
+    background-color: red;
+}
+
+.action_btn .btn-delete,.btn-update, .btn-view:hover{
+    box-shadow: 0 2px 8px gray ;
+}
+
+.container .table-responsive table>tbody>tr{
+    background-color: whitesmoke;
+    transition: 0.3s ease-in-out;
+}
+
+.container .table-responsive table>tbody>tr:nth-child(even){
+    background-color: wheat;
+}
+
+.container .table-responsive table>tbody>tr:hover{
+    filter: drop-shadow(0 3px 7px #0002);
+}
+
+@media (max-width: 1200px) {
+    .container {
+        width: calc(100% - 200px);
+        left: 200px;
+    }
+
+    .container .table-responsive {
+        max-width: 80%;
+    }
+}
+
+@media (max-width: 992px) {
+    .container {
+        width: calc(100% - 150px);
+        left: 150px;
+    }
+
+    .container .table-responsive {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        left: 0;
+        padding: 20px;
+    }
+
+    .container .table-responsive {
+        max-width: 100%;
+    }
+
+    .container .table-responsive table th,
+    .container .table-responsive table td {
+        font-size: 12px;
+        padding: 8px 5px;
+    }
+
+    .container .table-responsive table>thead th {
+        padding: 10px;
+    }
+
+    .action_btn .btn-delete,.btn-update,.btn-view {
+        padding: 5px 10px;
+    }
+}

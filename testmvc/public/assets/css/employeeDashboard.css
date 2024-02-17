@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css?family=Catamaran:400,700');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Catamaran', sans-serif;
+}
+body {
+    min-height: 100vh;
+}
+a {
+    text-decoration: none;
+}
+li {
+    list-style: none;
+}
+h1,
+h2 {
+    color: #ffffff;
+}
+h3 {
+    color: #ffffff;
+}
+.btn {
+    background: #76323F;
+    color: white;
+    padding: 3px 10px;
+    text-align: center;
+    border-radius: 5px;
+}
+.btn:hover {
+    color: #76323F;
+    background: white;
+    padding: 3px 8px;
+    border: 2px solid #76323F;
+}
+
+.container {
+    position: absolute;
+    right: 0;
+    width: 80vw;
+    height: 100vh;
+    background:  #ffffff;
+}
+
+.container .content {
+    position: relative;
+    margin-top: 10vh;
+    min-height: 90vh;
+    background:  #ffffff;
+}
+
+.container .content .cards {
+    padding: 20px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.container .content .cards .box {
+    width: 250px;
+    height: 150px;
+    background: #062dc7;
+    margin: 50px 150px;
+    display: flex;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.container .content .cards .box .h1 {
+    font-weight: bold;
+}

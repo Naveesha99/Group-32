@@ -9,30 +9,30 @@ class ReservaLogin
 
 	public function index()
 	{
-		// $data = [];
+		$data = [];
 		
-		// if($_SERVER['REQUEST_METHOD'] == "POST")
-		// {
-		// 	$user = new User;
-		// 	$arr['username'] = $_POST['username'];
+		if($_SERVER['REQUEST_METHOD'] == "POST")
+		{
+			$reservationists = new Reservationists;
+			$arr['username'] = $_POST['username'];
 
-		// 	$row = $user->first($arr);
+			$row = $reservationists->first($arr);
 			
-		// 	if($row)
-		// 	{
-		// 		if($row->password === $_POST['password'])
-		// 		{
-		// 			$_SESSION['USER'] = $row;
-		// 			redirect('home');
-		// 		}
-		// 	}
+			if($row)
+			{
+				if($row->password === $_POST['password'])
+				{
+					$_SESSION['USER'] = $row;
+					redirect('reservaHall');
+				}
+			}
 
-		// 	$user->errors['username'] = "Wrong username or password";
+			$reservationists->errors['username'] = "Wrong username or password";
 
-		// 	$data['errors'] = $user->errors;
-		// }
+			$data['errors'] = $reservationists->errors;
+		}
 
-		$this->view('reservaLogin');
+		$this->view('reservaLogin',$data);
 	}
 
 }

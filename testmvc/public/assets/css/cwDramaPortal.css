@@ -1,154 +1,191 @@
 @import url('https://fonts.googleapis.com/css?family=Catamaran:400,700');
-
-* {
+*{
+    
+    margin: 0;
     padding: 0;
-    margin: 0;
     box-sizing: border-box;
-    font-family: 'Catamaran', sans-serif;
+    text-decoration: none;
+    list-style: none;
+
 }
 
-body {
-    background-color: #FFEAD7;
-    margin: 0;
+body{
+    font-family: 'Catamaran', sans-seri;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+
+
 }
 
-.container {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    padding: 10px;
-
-    gap: 10px;
+.container{
+    position: absolute;
+    width: calc(100% - 250px);
+    left: 250px;
+    min-height: 100vh;
+    background-color:  #FFEAD7;
+    transition: 0.5s;
+    margin-top: 80px;
+    padding: 100px 50px;
+    display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: 80px;
-    /* margin-left: 150px; */
-    width: 100%;
-}
-.pararaph{
-    margin-left: 10px;
+    gap: 100px 50px;
 
 }
-.category{
-    margin-left: 100px;
-    max-width: 1000px;
+/* .container heading{
+    margin-top: 20px;
+    justify-content: center;
+    font-size: 1.5em;
+    font-weight: 900;
+    color: rgb(101, 21, 21);
+} */
+
+.container .card{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width:350px ;
+    height: 300px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 35px 80px rgba(0, 0, 0,0.15);
+    transition: 0.5s;
     margin-top: 10px;
-    color:#cea5a5;
-  }
-
-
-.sidebar {
-    /* Define your sidebar styles here */
-    width: 20%;
-    background-color: #333;
-    color: white;
-    padding: 20px;
 }
 
-.card {
-    background: white;
-    width: 300px; /* Adjust this width according to your requirement */
-    margin: 30px;
-    border-radius: 15px;
-    max-width: 800px;
+.container .card:hover{
+    height: 400px;
+
+}
+.container .card .imgBX{
+    position: absolute;
+    top: 20px;
+    width: 300px;
+    height: 220px;
+    background: #333;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: 0.5s;
+
+}
+
+.container .card:hover .imgBX{
+    top: -100px;
+    scale: 0.75;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+
+}
+
+.container .card .imgBX img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 100%;
-    transition: all 1s ease;
+    object-fit: cover;
+
 }
 
-.card-image {
-    height: 170px;
-    margin-bottom: 15px;
-    background-size: cover;
-    border-radius: 15px 15px 0 0;
-}
-
-.card h2,
-.card p {
-    padding: 10px;
-}
-
-.card a {
-    background-color: black;
-    color: white;
-    padding: 15px 20px;
-    display: block;
+.container .card .Content{
+    position: absolute;
+    top: 252px;
+    width: 100%;
+    padding: 0 30px;
+    height: 35px;
+    overflow: hidden;
     text-align: center;
-    margin: 15px 15px; /* Center the button horizontally */
+    transition: 0.5s;
+
+}
+
+.container .card:hover .Content{
+    top: 90px;
+    height: 250px
+}
+
+.container .card .Content h2{
+    font-size: 1.5em;
+    font-weight: 700;
+    color: rgb(105, 11, 11);
+
+}
+
+.container .card .Content p{
+    color: #333;
+    font-size:small;
+
+}
+
+.container .card .Content a{
+    position: relative;
+    top: 15px;
+    display: inline-block;
+    padding: 12px 25px;
+    background: rgb(64, 106, 64);
+    color: #fff;
+    font-weight: 50px;
     text-decoration: none;
+    border-radius: 8px;
 }
 
-.card:hover {
-    background-color: rgb(62, 62, 62);
-    color: white;
-    cursor: pointer;
-    transform: scale(1.03);
-}
-
-.image-1 {
-    background-image: url(/public/assets/images/kuweni.jpeg);
-}
-
-.image-2 {
-    background-image: url(/public/assets/images/kuweni.jpeg);
-}
-
-.image-3 {
-    background-image: url(/public/assets/images/kuweni.jpeg);
-}
-
-.image-4 {
-    background-image: url(/public/assets/images/kuweni.jpeg);
-}
-
-.image-5 {
-    background-image: url(/public/assets/images/kuweni.jpeg);
-}
-
-.image-6 {
-    background-image: url(/public/assets/images/kuweni.jpeg);
-}
-/* .button-group{
-    /* margin-left: 50%; */
-    
-    
- */
-
-
-button[type="button"] {
-    background-color: #7B0303;
-    color: #FFFFFF; 
-    padding: 8px 50px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-left: 75%;
-    margin-bottom: 40px;
-    text-align: center;
-    margin-top: 60px;
-    margin-right: 50px;
-    white-space: nowrap;
-  }
-  
-  button[type="button"]:hover {
-      background-color: #888;
-  }
-  
-
-@media (max-width: 1200px) {
+@media screen and (max-width: 1200px) {
     .container {
-        justify-content: center;
+        width: calc(100% - 200px);
+        left: 200px;
+        padding: 80px 40px;
     }
-    .sidebar {
-        display: none;
+
+    .container .card {
+        width: 300px;
+    }
+
+    .container .card .imgBX {
+        width: 250px;
+    }
+
+    .container .card .Content {
+        padding: 0 20px;
     }
 }
 
-@media (min-width: 400px) {
+@media screen and (max-width: 992px) {
     .container {
-        justify-content: center;
+        width: calc(100% - 150px);
+        left: 150px;
+        padding: 80px 30px;
     }
-    .sidebar {
-        display: none;
+
+    .container .card {
+        width: 250px;
+    }
+
+    .container .card .imgBX {
+        width: 200px;
+    }
+
+    .container .card .Content {
+        padding: 0 15px;
     }
 }
 
+@media screen and (max-width: 768px) {
+    .container {
+        width: 100%;
+        left: 0;
+        padding: 80px 20px;
+    }
 
+    .container .card {
+        width: 100%;
+    }
+
+    .container .card .imgBX {
+        width: 100%;
+    }
+
+    .container .card .Content {
+        padding: 0 10px;
+    }
+}

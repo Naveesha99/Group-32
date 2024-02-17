@@ -7,7 +7,7 @@
     font-family: 'Catamaran', sans-serif;
 }
 body {
-    min-height: 100vh;
+    max-height: 100vh;
 }  
 a {
     text-decoration: none;
@@ -42,10 +42,10 @@ a {
 }
 .side-menu li {
     /* font-size: 24px; */
-    font-size: 15px;
+    font-size: 25px;
     text-transform: uppercase;
     font-weight: 700;
-    padding: 4px 20px;
+    padding: 10px 20px;
     /* color: white; */
     color: #000000;
     display: flex;

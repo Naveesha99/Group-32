@@ -10,32 +10,32 @@
   <style>
     @import url('https://fonts.googleapis.com/css?family=Catamaran:400,700');
 
-  :root {
-  --primary-color: #5c48ee;
-  --primary-color-dark: #0f1e6a;
-  --secondary-color: #f9fafe;
-  --text-color: #333333;
-  --white: #ffffff;
-  --max-width: 1200px;
-}
+    :root {
+      --primary-color: #5c48ee;
+      --primary-color-dark: #0f1e6a;
+      --secondary-color: #f9fafe;
+      --text-color: #333333;
+      --white: #ffffff;
+      --max-width: 1200px;
+    }
 
-body {
-  overflow-x: hidden;
-  /* font-family: "Poppins", sans-serif; */
-  /* background-color: var(--secondary-color); */
+    body {
+      overflow-x: hidden;
+      /* font-family: "Poppins", sans-serif; */
+      /* background-color: var(--secondary-color); */
 
-  /* background: #dfc2f2; */
-  background-image: linear-gradient(to right, #ffffb3, #ffe6e6);
-  background-attachment: fixed;
-  background-size: cover;
-}
+      /* background: #dfc2f2; */
+      background-image: linear-gradient(to right, #ffffb3, #ffe6e6);
+      background-attachment: fixed;
+      background-size: cover;
+    }
 
 
     * {
       margin: 0;
       padding: 0;
       font-family: catamaran;
-      box-sizing: border-box;    
+      box-sizing: border-box;
     }
 
     /*.hero {
@@ -54,7 +54,7 @@ body {
       justify-content: space-between;
       /* height: 50px; */
       /* position: relative; */
-      top:0;
+      top: 0;
       position: fixed;
       z-index: 1000;
       /* background: rgba(0, 0, 0, 0.2); Black see-through */
@@ -177,6 +177,19 @@ body {
     .sub-menu-link:hover p {
       font-weight: 600;
     }
+
+    #login-btn {
+      background-color: #FA7436;
+      color: #ffffff;
+      padding: 5px 8px;
+      border-radius: 4px;
+      border: none;
+    }
+
+    #login-btn:hover {
+      background-color: #7B0303;
+      color: #ffffff;
+    }
   </style>
 </head>
 
@@ -184,64 +197,78 @@ body {
 
 
   <!-- <div class="hero"> -->
-    <nav>
-      <!-- <h2 class="logo">Coding Pakistan</h2> -->
-      <img src="<?= ROOT ?>/assets/images/Logo.png" class="logo">
-      <ul>
-        <li> <a href="#"> HOME </a></li>
-        <li> <a href="#"> TICKETS </a></li>
-        <li> <a href="#"> HALLS </a></li>
-        <li> <a href="#"> BLOGS </a></li>
-      </ul>
-      <img src="<?= ROOT ?>/assets/images/profilePic.png" class="user-pic" onclick="toggleMenu()">
+  <nav>
+    <!-- <h2 class="logo">Coding Pakistan</h2> -->
+    <img src="<?= ROOT ?>/assets/images/Logo.png" class="logo">
+    <ul>
+      <li> <a href="#"> HOME </a></li>
+      <li> <a href="#"> TICKETS </a></li>
+      <li> <a href="<?=ROOT?>/reservaHall"> HALLS </a></li>
+      <li> <a href="#"> BLOGS </a></li>
+    </ul>
+    <button class="login-btn" id="login-btn" onclick="redirectToLoginPage()">LOGIN</button>
+    <img src="<?= ROOT ?>/assets/images/profilePic.png" class="user-pic" onclick="toggleMenu()" id="img-profile">
 
-      <div class="sub-menu-wrap" id="subMenu">
-        <div class="sub-menu">
-          <div class="user-info">
-            <img src="<?= ROOT ?>/assets/images/profilePic.png">
-            <h3> Ahmed Khan </h3>
-          </div>
-          <hr>
+    <div class="sub-menu-wrap" id="subMenu">
+      <div class="sub-menu">
+        <div class="user-info">
+          <img src="<?= ROOT ?>/assets/images/profilePic.png">
+          <h3> Ahmed Khan </h3>
+        </div>
+        <hr>
 
-          <a href="reservaHall_1" class="sub-menu-link">
+        <!-- <a href="reservaHall_1" class="sub-menu-link">
             <img src="<?= ROOT ?>/assets/images/theatre.png">
             <p>Hall Request</p>
             <span> > </span>
-          </a>
+          </a> -->
 
-          <a href="reservaSentReq" class="sub-menu-link">
-            <img src="<?= ROOT ?>/assets/images/request.png">
-            <p>Sent Request</p>
-            <span> > </span>
-          </a>
+        <a href="reservaSentReq" class="sub-menu-link">
+          <img src="<?= ROOT ?>/assets/images/request.png">
+          <p onclick="reservaSentreqPg()">Sent Request</p>
+          <span> > </span>
+        </a>
 
-          <a href="reservaNotifications" class="sub-menu-link">
-            <img src="<?= ROOT ?>/assets/images/notifications.png">
-            <p>Notifications</p>
-            <span> > </span>
-          </a>
+        <a href="reservaNotifications" class="sub-menu-link">
+          <img src="<?= ROOT ?>/assets/images/notifications.png">
+          <p onclick="reservaNotificationPg()">Notifications</p>
+          <span> > </span>
+        </a>
 
-          <a href="reservaSettings" class="sub-menu-link">
-            <img src="<?= ROOT ?>/assets/images/setting.png">
-            <p>Settings</p>
-            <span> > </span>
-          </a>
+        <a href="reservaSettings" class="sub-menu-link">
+          <img src="<?= ROOT ?>/assets/images/setting.png">
+          <p onclick="reservaSettingsPg()">Settings</p>
+          <span> > </span>
+        </a>
 
 
-          <a href="#" class="sub-menu-link">
-            <img src="<?= ROOT ?>/assets/images/logout.png">
-            <p>Logout</p>
-            <span> > </span>
-          </a>
+        <a href="#" class="sub-menu-link">
+          <img src="<?= ROOT ?>/assets/images/logout.png">
+          <p>Logout</p>
+          <span> > </span>
+        </a>
 
-        </div>
       </div>
+    </div>
 
-    </nav>
+  </nav>
   <!-- </div> -->
 
   <script>
     let subMenu = document.getElementById("subMenu");
+
+    window.onload = function() {
+      const urlSearchParams = new URLSearchParams(window.location.search);
+      var session = urlSearchParams.get('loggedin');
+
+      if(session==null){
+        document.getElementById('img-profile').style.display = 'none';
+        document.getElementById('login-btn').style.display='block';
+
+      }
+      // alert('fromnavbar' + session);
+
+    }
 
     function toggleMenu() {
       subMenu.classList.toggle("open-menu");
@@ -265,6 +292,31 @@ body {
         hideSubMenu();
       }
     });
+
+    function redirectToLoginPage() {
+      // Redirect to the reservalogin page
+      window.location.href = 'reservaLogin';
+    }
+
+    function reservaSentreqPg() {
+      event.preventDefault();
+
+      window.location.href = 'reservaSentReq?loggedin=true';
+    }
+
+    function reservaNotificationPg() {
+      event.preventDefault();
+
+      window.location.href = 'reservaNotifications?loggedin=true';
+
+    }
+
+    function reservaSettingsPg() {
+      event.preventDefault();
+
+      // window.location.href = 'reservaSettings?loggedin=true';
+      window.location.href = 'reservaSettings?loggedin=true';
+    }
   </script>
 </body>
 

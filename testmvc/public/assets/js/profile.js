@@ -1,0 +1,22 @@
+document.getElementById('openProfile').addEventListener('click', function () {
+    document.getElementById('overlay').style.display = 'block';
+    document.getElementById('popupProfile').style.display = 'block';
+});
+
+document.getElementById('closePopup').addEventListener('click', function () {
+    document.getElementById('overlay').style.display = 'none';
+    document.getElementById('popupProfile').style.display = 'none';
+});
+
+document.getElementById('profile').addEventListener('submit', function (event) {
+    event.preventDefault(); // Prevent form submission
+    
+    // Get form data
+    var formData = new FormData(this);
+    
+    // Perform AJAX request or other actions with form data
+    
+    // Close the popup
+    document.getElementById('overlay').style.display = 'none';
+    document.getElementById('popupProfile').style.display = 'none';
+});

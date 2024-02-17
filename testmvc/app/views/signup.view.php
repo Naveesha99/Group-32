@@ -19,13 +19,9 @@
 						<input type="text" name="username" placeholder="USERNAME">
 						<input type="email" name="email" placeholder="EMAIL">
 						<input type="text" name="nic" placeholder="NIC">
-						<input type="date" name="dob" placeholder="DATE OF BIRTH">
+						<!-- <input type="date" name="dob" placeholder="DATE OF BIRTH"> -->
 						<input type="password" name="password" placeholder="PASSWORD">
-
-                        <!-- <div class="remember-me">
-                            <input type="checkbox" id="remember-me">
-                            <label for="remember-me">Remember Me</label>
-                        </div> -->
+						<input type="password" name="Repassword" placeholder="Re-Enter PASSWORD">
 
 						<button class="submit">SIGNUP</button>
                         <h3 class="heading">Already have an account? <a href="<?=ROOT?>/login">Login</a>
