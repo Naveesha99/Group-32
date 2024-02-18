@@ -25,9 +25,14 @@ class employees
                 unset($_POST['update_employee']);
                 $this->employeeUpdate($_POST, $employee);
             }
+
+            if (isset($_POST['view_employee'])){
+                $empId = $_POST['view_employee'];
+                $this->employeeView($_POST, $employee);
+            }
         }
         
-        // $show($_POST);1
+        // $show($_POST);
     }
 
     private function employeeDelete($data, $employee)
@@ -44,5 +49,11 @@ class employees
             unset($data['id']);
             $employee->update($id, $data, 'id');
         }
+    }
+
+    private function employeeView($data, $employee)
+    {
+        $result['view'] = $employee->where($data, 'id');
+        $data['view'] = $result['view'];
     }
 }
