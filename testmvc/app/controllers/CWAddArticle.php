@@ -23,7 +23,7 @@ class CWAddArticle
             }
         }
 
-        if (isset($_POST['save_draft'])){
+        if (isset($_POST['submit_article'])){
             $_POST['status'] =1;
             if ($article->validate($_POST)) {
                 $article->insert($_POST);
