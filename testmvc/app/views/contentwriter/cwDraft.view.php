@@ -27,7 +27,7 @@
             </div>
         </div>
 
-        <div class="card">
+        <!-- <div class="card">
             <div class="imgBX">
                 <img src="<?= ROOT ?>/assets/images/home/i10.jpeg" alt="">
             </div>
@@ -49,9 +49,9 @@
                 <p>Set in the fictional Arabian city of Agrabah, the story follows the familiar tale of a poor young man who is granted three wishes by a genie in a lamp, which he uses to woo a princess and to thwart the sultan's evil Grand Vizier.</p>
                 <button type="submit" onclick="publish()">Publish Article</button>
             </div>
-        </div>
+        </div> -->
 
-        <div class="card">
+        <!-- <div class="card">
             <div class="imgBX">
                 <img src="<?= ROOT ?>/assets/images/article.png" alt="">
             </div>
@@ -75,7 +75,7 @@
                 <p>Set in the fictional Arabian city of Agrabah, the story follows the familiar tale of a poor young man who is granted three wishes by a genie in a lamp, which he uses to woo a princess and to thwart the sultan's evil Grand Vizier.</p>
                 <button type="submit" onclick="publish()">Publish Article</button>
             </div>
-        </div>
+        </div> -->
 
 
     </div>
