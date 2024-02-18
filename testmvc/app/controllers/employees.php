@@ -10,8 +10,12 @@ class employees
     public function index()
     {
         $employee = new employee;
-        $result = $employee->findAll();
-        $data = $result;
+        $result['employees'] = $employee->findAll();
+        $data['employees'] = $result['employees'];
+        // show($data['employees']);
+        $jobs = new Jobs;
+        $result['role'] = $jobs->findall();
+        $data['role'] = $result['role'];
 
         $this->view('admin/employees', $data);
 
@@ -20,19 +24,20 @@ class employees
                 $empId = $_POST['delete_employee'];
                 $this->employeeDelete($empId, $employee);
             }
-        
-            if (isset($_POST['update_employee'])) {
-                unset($_POST['update_employee']);
+
+            if (isset($_POST)) {
+                unset($_POST);
                 $this->employeeUpdate($_POST, $employee);
             }
 
-            if (isset($_POST['view_employee'])){
+            if (isset($_POST['view_employee'])) {
                 $empId = $_POST['view_employee'];
-                $this->employeeView($_POST, $employee);
+                $this->employeeView($empId, $employee);
             }
+            
         }
+
         
-        // $show($_POST);
     }
 
     private function employeeDelete($data, $employee)
@@ -48,6 +53,7 @@ class employees
             $id = $data['id'];
             unset($data['id']);
             $employee->update($id, $data, 'id');
+            show($_POST);
         }
     }
 
