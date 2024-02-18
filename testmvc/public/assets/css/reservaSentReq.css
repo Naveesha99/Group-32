@@ -53,7 +53,7 @@ h1{
   .tbl-content{
     /* background-color: #ffca9a; */
     background-color: #fffff6;
-    height:300px;
+    height:520px;
     /* height: auto; */
     overflow-x:auto;
     margin-top: 0px;
@@ -68,12 +68,15 @@ h1{
     text-transform: uppercase;
     font-weight: bolder;
   }
+  .tbl-id{
+    width: 60px;
+  }
   td{
     padding: 15px;
     text-align: left;
     vertical-align:middle;
     font-weight: 300;
-    font-size: 12px;
+    font-size: 15px;
     /* color: #fff; */
     color: #5a5a5a;
     border-bottom: solid 1px rgba(255,255,255,0.1);
@@ -96,7 +99,7 @@ td .allowed{
 .action_btn{
   display: flex;
   justify-content: center;
-  gap: 5px;
+  gap: 3px;
 }
 
 .action_btn>a{
@@ -105,8 +108,8 @@ td .allowed{
   /* background: whitesmoke; */
   border: 1px solid black;
   display: inline-block;
-  padding: 5px 5px;
-  font-weight: bold;
+  padding: 3px 3px;
+  font-weight:200;
   border-radius: 8px;
   transition: 0.3s ease-in-out;
 
@@ -175,11 +178,13 @@ label {
   font-family: 'Roboto', sans-serif;
 } */
 section{
-  margin: 50px;
+  margin: 10px;
 }
 
 
-
+.hidden-cell {
+  display: none;
+}
 
 /* for custom scrollbar for webkit browser*/
 
@@ -291,4 +296,8 @@ background-color: #fffff6;
 .modal-content p {
   margin: 1px 0;
   color: #5a5a5a;
+}
+
+.modal td{
+  padding: 5px;
 }
