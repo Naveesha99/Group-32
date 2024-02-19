@@ -79,7 +79,7 @@
             <form method="POST" id="addemployee">
             <h1>Employee Update Form</h1>
             <label for="empName">Employee Name</label>
-            <input type="text" name="empName">
+            <input type="text" name="NewempName">
             <label for="empEmail">E-mail</label>
             <input type="email" name="empEmail">
             <label for="empNIC">NIC</label>
@@ -89,9 +89,9 @@
             <label for="empAddress">Address</label>
             <input type="text" name="empAddress">
             <label for="empContact">Contact</label>
-            <input type="text" name="empContact">
+            <input type="text" name="NewempContact">
             <label for="empRoll">Employee Roll</label>
-            <select class="select" name="empRoll">';
+            <select class="select" name="NewempRoll">';
                 <?php
                 foreach ($data['role'] as $row) {
                     echo "<option value='" . $row->jobTitle . "'>" . $row->jobTitle . "</option>";
@@ -100,7 +100,7 @@
                 </select>
 
             <br>
-            <button class="btn-1">Submit</button>
+            <button class="btn-1" name = "update">Submit</button>
             <button id="closePopup" class="close-btn">close</button>
         </form>;
             </div>
