@@ -63,7 +63,7 @@ class Reservationrequests
 		'sounds',
 		'standings',
 		'message',
-		// 'amount',
+		'amount',
 		'status',
 		// 'reservationistId',
 
