@@ -189,14 +189,11 @@
                     <input type="text" id="message" name="message" placeholder="What would you like to tell us.." required>
                 </div>
                 <div class="form-inside2">
-                    <div class="form_f1">
-                        <label for="Advanced Payment ">Advanced Payment:</label>
-                        <input type="A payment" placeholder="A payment">
+                <div class="form_f1">
+                        <label for="Amount to be paid ">Amount to be paid:</label>
+                        <input type="text" placeholder="A payment" id="amount" name="amount" readonly>
                     </div>
-                    <div class="form_f1">
-                        <label for="Full Payment ">Advanced Payment:</label>
-                        <input type="F payment" placeholder="F payment">
-                    </div>
+                    
                 </div>
                 <div class="btns">
                     <!-- <button type="button" onclick="popup(this)">Send Request</button> -->
@@ -302,6 +299,7 @@
                 document.querySelector('.form_f input[name="standings"]').value = reservationId.standings;
                 document.getElementById('standings1').value = reservationId.standings; 
                 document.querySelector('.form_f input[name="message"]').value = reservationId.message; 
+                document.querySelector('.form_f1 input[name="amount"]').value = reservationId.amount;
 
             }
         }

@@ -262,13 +262,13 @@
                 </div>
                 <div class="form-inside2">
                     <div class="form_f1">
-                        <label for="Advanced Payment ">Advanced Payment:</label>
-                        <input type="A payment" placeholder="A payment">
+                        <label for="Amount to be paid ">Amount to be paid:</label>
+                        <input type="A payment" placeholder="A payment" id="amount" name="amount" readonly>
                     </div>
-                    <div class="form_f1">
+                    <!-- <div class="form_f1">
                         <label for="Full Payment ">Advanced Payment:</label>
                         <input type="F payment" placeholder="F payment">
-                    </div>
+                    </div> -->
                 </div>
                 <div class="btns">
                     <!-- <button type="button" onclick="popup(this)">Send Request</button> -->
@@ -314,7 +314,42 @@
 
     <script>
 
-const reservaReqs = <?php echo json_encode($acceptedReservations);?>
+const reservaReqs = <?php echo json_encode($acceptedReservations);?>;
+const amount = <?php echo json_encode($hall); ?>;
+
+function calculateAmountToBePaid(hours,standing,sound,amountPerHour,amountStandings,amountSounds){
+    var amountToBePaid = 0;
+    if(standing == 'yes'){
+        amountToBePaid += amountStandings;
+    }
+    if(sound == 'yes'){
+        amountToBePaid += amountSounds;
+    }
+    amountToBePaid += hours * amountPerHour;
+    return amountToBePaid;
+    
+}
+
+
+
+document.getElementById('endTime').addEventListener('input',function(){
+    console.log("in end time input event listener");
+    const startTime = document.getElementById('startTime').value;
+    const endTime = this.value;
+    const hoursDifference = calculateHoursDifference(startTime, endTime);
+    const standing = document.getElementById('standings').value;
+    const sound = document.getElementById('sounds').value;
+
+    const amountPerHour = amount[0].amountOneHour;
+    console.log("amount per hour");
+    console.log(amountPerHour);
+    const amountStandings = amount[0].amountStandings;
+    const amountSounds = amount[0].amountSounds;
+    const amountToBePaid = calculateAmountToBePaid(hoursDifference,standing,sound,amountPerHour,amountStandings,amountSounds);
+    document.getElementById('amount').value = amountToBePaid;
+});
+
+
 
 
 // Function to update end time options based on the selected start time
@@ -489,6 +524,8 @@ function updateEndTimeOptions(selectedStartTime) {
 
 
         function bookSlot(selectedTime) {
+            document.getElementById('endTime').value = '';
+            document.getElementById('hours').value = '';
             // window.location.href = `reservaReq?time=${selectedTime}&date=${document.getElementById('selectedDate').innerHTML}`;
             document.getElementById('startTime').value = selectedTime;
             // document.getElementById('date').value=document.getElementById('selectedDate').innerHTML;
