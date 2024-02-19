@@ -12,7 +12,7 @@ class Hall
 	protected $table = 'hall';
 
 	protected $allowedColumns = [
-		'hallId',
+		'id',
 		'hallno',
 		'amountOneHour',
 		'amountSounds',
