@@ -14,7 +14,6 @@
 
 <body>
     <div class="container">
-        <div class="content">
             <form method="POST" class="add-employee">
                 <h1>Employee Registration Form</h1>
                 <label for="empName">Employee Name</label>
@@ -41,6 +40,5 @@
                 <br>
                 <button class="btn-1">Submit</button>
             </form>
-        </div>
     </div>
 </body>

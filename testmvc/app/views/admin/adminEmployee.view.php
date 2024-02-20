@@ -16,14 +16,14 @@
     <div class="container">
         <div class="content">
             <div class="cards">
-                <!-- <a href="<?= ROOT ?>/addemployee">
+                <a href="<?= ROOT ?>/addemployee">
                     <div class="card">
                         <div class="box">
                             <h1>Add Employee</h1>
                         </div>
                     </div>
-                </a> -->
-                <div class="card" id="openPopup">
+                </a>
+                <!-- <div class="card" id="openPopup">
                     <div class="box">
                         <h1>Add Employee</h1>
                     </div>
@@ -48,9 +48,9 @@
                         <label for="empRoll">Employee Roll</label>
                         <select class="select" name="empRoll">
                             <?php
-                            foreach ($data['role'] as $row) {
-                                echo "<option value='" . $row->jobTitle . "'>" . $row->jobTitle . "</option>";
-                            }
+                            // foreach ($data['role'] as $row) {
+                            //     echo "<option value='" . $row->jobTitle . "'>" . $row->jobTitle . "</option>";
+                            // }
                             ?>
                         </select>
 
@@ -60,7 +60,7 @@
                     </form>
                 </div>
 
-                <script src="<?= ROOT ?>/assets/js/popup.js"></script>
+                <script src="<?= ROOT ?>/assets/js/popup.js"></script> -->
 
                 <a href="<?= ROOT ?>/createtask">
                     <div class="card">
