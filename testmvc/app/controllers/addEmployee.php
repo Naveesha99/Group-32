@@ -36,7 +36,7 @@ class addEmployee
 		// $data['username'] = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->email;
 
 		$data['role'] = $result;
-		// show($data);
+		//show($data);
 		$this->view('admin/addEmployee', $data);
 	}
 
