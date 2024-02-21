@@ -1,0 +1,92 @@
+* {box-sizing: border-box}
+
+body {
+  background-color: #ffffff;
+}
+/* Add padding to containers */
+.container {
+  padding: 16px;
+  size: 70px;
+  margin-left: 30px;
+
+}
+
+/* Full-width input fields */
+input[type=text], input[type=number], input[type=email] {
+  width: 50%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border-radius: 5px;
+  display: inline-block;
+  border:black;
+  background: #f1f1f1;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+input[type=text]:focus, input[type=number]:focus {
+  background-color: #ddd;
+  outline: black;
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for the submit/register button */
+.registerbtn {
+  background-color: #aa0404f6;
+  color: white;
+  padding: 16px 20px;
+  margin-left: 2px;
+  /* margin: 5px 0 22px 0; */
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  width: 50%;
+  opacity: 0.9;
+}
+
+
+.registerbtn1 {
+  display: inline-block;
+  text-shadow: 1px 1px 0 #ffffff;
+  border-color: #d83526;
+  margin-left: 2px;
+  padding: 10px 25px;
+  box-shadow: inset 0 1px 0 0 #f7c4c0;
+  background: linear-gradient(0deg,#fc8d83 0,#e4685d);
+  width: 50%;
+  /* background-color: #882d2d; */
+  /* color: white; */
+  /* border: none; */
+  cursor: pointer;
+}
+
+.registerbtn:disabled {
+  background-color: grey; /* Color when disabled */
+  cursor: not-allowed; /* Change cursor when disabled */
+}
+
+.registerbtn:hover {
+  opacity:1;
+}
+
+/* Add a blue text color to links */
+a {
+  color: dodgerblue;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+.timer{
+  text-align: center;
+  font-size: large;
+  font-weight: bold;
+  color: red;
+}
