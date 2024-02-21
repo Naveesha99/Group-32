@@ -29,8 +29,8 @@ class CWArticleDisplay
 				$this->articleUpdate($_POST, $article);
 			}
 
-			if (isset($_POST['view_article'])) {
-				$articleId = $_POST['view_article'];
+			if (isset($_POST['view'])) {
+				$articleId = $_POST['view'];
 				$this->articleView($articleId, $article);
 			}
 		}
@@ -39,7 +39,8 @@ class CWArticleDisplay
 
 	private function articleView($data, $article)
 	{
-		$articleData = $article->where(['id' => $data]);
+		$articleData = $article ->findArtcleById($data);
+
 		if ($articleData) {
 			$this->view('contentwriter/cwViewOwnArticle', $articleData);
 		} else {

@@ -58,4 +58,10 @@ class Article
         $query = "SELECT * FROM $this->table WHERE status =1 ";
         return $this->query($query);
     }
+
+    public function findArticleById($articleId){
+        $query = "SELECT * FROM $this->table WHERE id=:id";
+        $params = array(':id'=> $articleId);
+        return $this ->query($query, $params);
+    }
 }

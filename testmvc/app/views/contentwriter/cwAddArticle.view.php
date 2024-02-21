@@ -56,9 +56,14 @@
 
     <script>
         function submitForm() {
-            document.getElementById("articleForm").submit();
+            console.log("submitForm function caled");
+            windows.alert("Article added successfully!");
+            return false;
+            // document.getElementById("articleForm").submit();
         }
     </script>
+
+
 
 </body>
 
