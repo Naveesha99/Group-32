@@ -53,10 +53,10 @@
                                 </td>
 
                                 <td>
-                                    <form method="POST" class="updateForm" data-empid="' . $row->id . '">
-                                        <button type="button" class="btn-update" id = "openPopup">Update</button>
-                                    </form>
-                                </td>
+                                <span class="action_btn">
+                                    <a href="editEmployee?id='. $row->id . '">Edit</a>
+                                </span>
+                            </td>
                                 
                                 <td>
                                     <form method="POST">
@@ -72,45 +72,9 @@
                 ?>
 
             </table>
-
-            <div id="overlay"></div>
-            <div id="popupForm">
-            
-            <form method="POST" id="addemployee">
-            <h1>Employee Update Form</h1>
-            <label for="empName">Employee Name</label>
-            <input type="text" name="empName">
-            <label for="empEmail">E-mail</label>
-            <input type="email" name="empEmail">
-            <label for="empNIC">NIC</label>
-            <input type="text" name="empNIC">
-            <label for="empDOB">Date of Birth</label>
-            <input type="date" name="empDOB">
-            <label for="empAddress">Address</label>
-            <input type="text" name="empAddress">
-            <label for="empContact">Contact</label>
-            <input type="text" name="empContact">
-            <label for="empRoll">Employee Roll</label>
-            <select class="select" name="empRoll">';
-                <?php
-                foreach ($data['role'] as $row) {
-                    echo "<option value='" . $row->jobTitle . "'>" . $row->jobTitle . "</option>";
-                }
-                ?>
-                </select>
-
-            <br>
-            <button class="btn-1">Submit</button>
-            <button id="closePopup" class="close-btn">close</button>
-        </form>;
-            </div>
-
-            <script src="<?= ROOT ?>/assets/js/popup.js"></script>
-
-
             <!-- user profile -->
             <!-- user profile -->
-            <div id="popupProfile">
+            <div id="openProfile">
                 <?php
                 foreach ($data as $row) {
                     echo '<div id="profile' . $row['id'] . '" class="profile-popup">

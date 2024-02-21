@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 function show($stuff)
 {
@@ -14,6 +14,6 @@ function esc($str)
 
 function redirect($path)
 {
-	header("Location: " . ROOT."/".$path);
+	header("Location: " . ROOT . "/" . $path);
 	die;
 }

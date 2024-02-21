@@ -9,6 +9,14 @@ class employees
 
     public function index()
     {
+
+        if (empty($_SESSION['USER'])) {
+			// Redirect or handle the case when the user is not logged in
+			// For example, you might want to redirect them to the login page
+			redirect('login');
+			exit();
+		}
+        
         $employee = new employee;
         $result['employees'] = $employee->findAll();
         $data['employees'] = $result['employees'];
@@ -25,9 +33,8 @@ class employees
                 $this->employeeDelete($empId, $employee);
             }
 
-            if (isset($_POST)) {
-                unset($_POST);
-                $this->employeeUpdate($_POST, $employee);
+            if (isset($_POST['update'])) {
+                $this->employeeUpdate($_POST['update'], $employee);
             }
 
             if (isset($_POST['view_employee'])) {
@@ -52,6 +59,9 @@ class employees
         if (isset($data['id'])) {
             $id = $data['id'];
             unset($data['id']);
+            show($data);
+
+            $data['empName'] = $_POST['NewempName'];
             $employee->update($id, $data, 'id');
             show($_POST);
         }

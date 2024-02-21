@@ -36,7 +36,7 @@
                         <p class="current-date"></p>
                         <div class="icons">
                             <span id="prev" class="material-symbols-rounded">
-                                << /span>
+                                <</span>
                                     <span id="next" class="material-symbols-rounded">></span>
                         </div>
                     </header>
@@ -58,8 +58,51 @@
                     <h2 id="selectedDate"> </h2>
                     <div class="description">
 
-                        <!-- <p>No Bookings</p> -->
+                    <?php
+                        // Define an array for time slots
+                        $timeSlots = array(
+                            "08:00:00" => "8:00AM-9:00AM",
+                            "09:00:00" => "9:00AM-10:00AM",
+                            "10:00:00" => "10:00AM-11:00AM",
+                            "11:00:00" => "11:00AM-12:00PM",
+                            "12:00:00" => "12:00PM-1:00PM",
+                            "13:00:00" => "1:00PM-2:00PM",
+                            "14:00:00" => "2:00PM-3:00PM",
+                            "15:00:00" => "3:00PM-4:00PM",
+                            "16:00:00" => "4:00PM-5:00PM",
+                            "17:00:00" => "5:00PM-6:00PM",
+                            "18:00:00" => "6:00PM-7:00PM",
+                            "19:00:00" => "7:00PM-8:00PM"
+                        );
+                        ?>
+                    <?php
+                    // Assume you have already passed the reservation data as an array named $reservations
+
+                    // Create an array to store reserved time slots
+                    // $reservedTimeSlots = array();
+                    // foreach ($acceptedReservations as $reservation) {
+                    //     $startTime = $reservation->startTime;
+                    //     $hours = $reservation->hours;
+                    //     $endTime = date('H:i:s', strtotime("$startTime +$hours hour"));
+                    //     // Store reserved time slots
+                    //     $reservedTimeSlots[] = array('start' => $startTime, 'end' => $endTime);
+                    // }
+                    // show($reservedTimeSlots);
+                    ?>
+
                         <div class="time-slots">
+                            <div class="notice"></div>
+                            <?php 
+                            $counter = 8;
+                            foreach ($timeSlots as $time => $slot): ?>
+                                <div class="time-slot available" onclick="bookSlot('<?php echo $time; ?>')" id="<?php echo $counter; ?>"><?php echo $slot; ?></div>
+                            <?php 
+                            $counter++;
+                            endforeach; ?>
+                        </div>
+
+                        <!-- <p>No Bookings</p> -->
+                        <!-- <div class="time-slots">
                             <div class="notice"></div>
                             <div class="time-slot available" onclick="bookSlot('08:00:00')" id="1">8:00AM-9:00AM</div>
                             <div class="time-slot available" onclick="bookSlot('09:00:00')" id="1">9:00AM-10:00AM</div>
@@ -73,33 +116,11 @@
                             <div class="time-slot available" onclick="bookSlot('17:00:00')" id="1">5:00PM-6:00PM</div>
                             <div class="time-slot unavailable" onclick="bookSlot('18:00:00')" id="1">6:00PM-7:00PM</div>
                             <div class="time-slot available" onclick="bookSlot('19:00:00')" id="1">7:00PM-8:00PM</div>
-
-                            <?php
-                            // Check if $bookedTimeSlots is an array or an object before looping
-                            // if (is_array($bookedTimeSlots) || is_object($bookedTimeSlots)) {
-                                // foreach ($bookedTimeSlots as $bookedSlot):
-                                    // $startTime = $bookedSlot['startTime'];
-                                    // $endTime = $bookedSlot['endTime'];
-                            ?>
-                            <!-- <div class="time-slot unavailable" id="1"> -->
-                            <!-- <?php //echo "$startTime - $endTime"; ?> -->
-                            <!-- </div> -->
-                            <?php
-                                // endforeach;
-                            // } else {
-                                // echo "No booked time slots available.";
-                            // }
-                            ?>
-
-
-
-                        </div>
-
+                        </div> -->
                         <!-- <button class="ReqButton">Request</button> -->
                     </div>
                 </div>
             </div>
-
 
 
 
@@ -241,13 +262,13 @@
                 </div>
                 <div class="form-inside2">
                     <div class="form_f1">
-                        <label for="Advanced Payment ">Advanced Payment:</label>
-                        <input type="A payment" placeholder="A payment">
+                        <label for="Amount to be paid ">Amount to be paid:</label>
+                        <input type="A payment" placeholder="A payment" id="amount" name="amount" readonly>
                     </div>
-                    <div class="form_f1">
+                    <!-- <div class="form_f1">
                         <label for="Full Payment ">Advanced Payment:</label>
                         <input type="F payment" placeholder="F payment">
-                    </div>
+                    </div> -->
                 </div>
                 <div class="btns">
                     <!-- <button type="button" onclick="popup(this)">Send Request</button> -->
@@ -291,26 +312,45 @@
 
 
 
+    <script>
+
+const reservaReqs = <?php echo json_encode($acceptedReservations);?>;
+const amount = <?php echo json_encode($hall); ?>;
+
+function calculateAmountToBePaid(hours,standing,sound,amountPerHour,amountStandings,amountSounds){
+    var amountToBePaid = 0;
+    if(standing == 'yes'){
+        amountToBePaid += amountStandings;
+    }
+    if(sound == 'yes'){
+        amountToBePaid += amountSounds;
+    }
+    amountToBePaid += hours * amountPerHour;
+    return amountToBePaid;
+    
+}
 
 
 
-// document.addEventListener('DOMContentLoaded', function() {
-//     console.log("DOM content loaded");
-//         // Add an event listener to the start time input field
-//         document.getElementById('startTime').addEventListener('input', function() {
-//         console.log("in fuction updateEndTimeOptions         0");
+document.getElementById('endTime').addEventListener('input',function(){
+    console.log("in end time input event listener");
+    const startTime = document.getElementById('startTime').value;
+    const endTime = this.value;
+    const hoursDifference = calculateHoursDifference(startTime, endTime);
+    const standing = document.getElementById('standings').value;
+    const sound = document.getElementById('sounds').value;
 
-//     // Call a function to update end time options
-//         updateEndTimeOptions(this.value);
-//     });
-//     // If the start time is auto-filled, trigger the input event explicitly
-//     const startTimeInput = document.getElementById('startTime');
-//     if (startTimeInput.value) {
-//         // Trigger the input event manually
-//         const event = new Event('input');
-//         startTimeInput.dispatchEvent(event);
-//     }
-// });
+    const amountPerHour = amount[0].amountOneHour;
+    console.log("amount per hour");
+    console.log(amountPerHour);
+    const amountStandings = amount[0].amountStandings;
+    const amountSounds = amount[0].amountSounds;
+    const amountToBePaid = calculateAmountToBePaid(hoursDifference,standing,sound,amountPerHour,amountStandings,amountSounds);
+    document.getElementById('amount').value = amountToBePaid;
+});
+
+
+
 
 // Function to update end time options based on the selected start time
 function updateEndTimeOptions(selectedStartTime) {
@@ -338,10 +378,17 @@ function updateEndTimeOptions(selectedStartTime) {
     console.log("startIndex");
     console.log(startIndex);
 
-// If a valid start time is selected, update end time options
+    // If a valid start time is selected, update end time options
     if (startIndex !== -1) {
+        
         // Create options for end time starting from the selected start time
         for (let i = startIndex +1; i < availableEndTimes.length; i++) {
+            var j=i+8;
+            var element = document.getElementById(j);
+            if (element.classList.contains('unavailable')) {
+                // The element has the class 'yourClassName'
+                break;            
+            }
             // console.log(option);
             const option = document.createElement('option');
             option.value = availableEndTimes[i];
@@ -352,6 +399,14 @@ function updateEndTimeOptions(selectedStartTime) {
     else if(startIndex == -1) {
         // Create options for end time starting from the selected start time
         for (let i = 0; i < availableEndTimes.length; i++) {
+
+            var j=i+8;
+            var element = document.getElementById(j);
+            if (element.classList.contains('unavailable')) {
+                // The element has the class 'yourClassName'
+                break;            
+            }
+
             // console.log(option);
             const option = document.createElement('option');
             option.value = availableEndTimes[i];
@@ -375,36 +430,20 @@ function updateEndTimeOptions(selectedStartTime) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    function formatDate(date) {
+    function formatDate(date) 
+    {
         console.log("in format dae func")
         // return new Date(date).toLocaleDateString(undefined, options);
         const options = {
         year: 'numeric',
         month: '2-digit',
         day: '2-digit',
-    };
-    
+        };
 
-    // var today = new Date(); 
+        // var today = new Date(); 
         var formattedDate = date.getFullYear() + '-' + String(date.getMonth()).padStart(2, '0') + '-' + String(date.getDate()).padStart(2, '0');
         return formattedDate;
-
-
-        }
+    }
 
         function updateSelectedDate() {
             var today = new Date();
@@ -485,6 +524,8 @@ function updateEndTimeOptions(selectedStartTime) {
 
 
         function bookSlot(selectedTime) {
+            document.getElementById('endTime').value = '';
+            document.getElementById('hours').value = '';
             // window.location.href = `reservaReq?time=${selectedTime}&date=${document.getElementById('selectedDate').innerHTML}`;
             document.getElementById('startTime').value = selectedTime;
             // document.getElementById('date').value=document.getElementById('selectedDate').innerHTML;

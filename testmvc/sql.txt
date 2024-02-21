@@ -25,3 +25,6 @@ CREATE TABLE drafts(
     Created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(draft_id)
 );
+
+ALTER TABLE articles
+ADD status INT

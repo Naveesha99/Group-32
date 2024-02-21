@@ -16,6 +16,7 @@ class Article
         'category',
         'article_content',
         'image',
+        'status',
 
     ];
 
@@ -46,5 +47,21 @@ class Article
         }
 
         return false;
+    }
+
+    public function getDraftArticles(){
+        $query= "SELECT * FROM $this->table WHERE status =0";
+        return $this->query($query);
+    }
+
+    public function findPublishArticles(){
+        $query = "SELECT * FROM $this->table WHERE status =1 ";
+        return $this->query($query);
+    }
+
+    public function findArticleById($articleId){
+        $query = "SELECT * FROM $this->table WHERE id=:id";
+        $params = array(':id'=> $articleId);
+        return $this ->query($query, $params);
     }
 }

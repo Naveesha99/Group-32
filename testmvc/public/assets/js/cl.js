@@ -55,6 +55,15 @@ const renderCalendar = () => {
 
     dayElements.forEach(day => {
         day.addEventListener("click", function () {
+            for (let i = 8; i < 20; i++) {
+                // Select the element corresponding to the time slot
+                const slotElement = document.getElementById(i);
+
+                // If the slot element exists, add the unavailable class
+                if (slotElement) {
+                slotElement.classList.remove('unavailable');
+                }
+                }
             if ((!this.classList.contains("inactive")) && (!this.classList.contains("inactive2"))) {
                 const selectedDate = new Date(currYear, currMonth, parseInt(this.textContent));
 
@@ -105,6 +114,70 @@ const renderCalendar = () => {
                 const formattedDate = `${months[currMonth]} ${currYear}, ${this.textContent}`;
                 selectedDateHeader.textContent = formattedDate;
                 // console.log(document.getElementById('selectedDate').innerHTML );
+
+            // 1. Extract the date from the selected date element
+        // var selectedDate = document.getElementById('selectedDate').innerHTML;
+        var sdate_1 = new Date(selectedDate);
+            // $timestamp = strtotime($selectedDate);
+            var sdate_2= sdate_1.getFullYear() + '-' + String(sdate_1.getMonth()+1).padStart(2, '0') + '-' + String(sdate_1.getDate()).padStart(2, '0');
+        console.log("selected dateeeeeeeeeeeeeeeeeeee");
+        console.log(sdate_2);
+        // Now you can access the acceptedReservations array
+        console.log(reservaReqs);
+
+
+        // 2. Loop through the acceptedReservations array to find reservations on the selected date
+        var bookedSlots = [];
+        for (var i = 0; i < reservaReqs.length; i++) {
+            var reservation = reservaReqs[i];
+            var sdate_s = new Date(reservation.date);
+            var sdate_s2=sdate_s.getFullYear() + '-' + String(sdate_s.getMonth()+1).padStart(2, '0') + '-' + String(sdate_s.getDate()).padStart(2, '0');
+            console.log(sdate_s2);
+
+            // 3. Check if the reservation date matches the selected date
+            if (sdate_s2 === sdate_2) {
+                console.log("fgdgh");
+                // 4. Extract the start time and hours
+                var startTime = reservation.startTime;
+                var hours = reservation.hours;
+                var endTime=reservation.endTime;
+                var start = startTime.split(':');
+                var end = endTime.split(':');
+                var shour = parseInt(start[0], 10);
+                var ehour = parseInt(end[0], 10);
+
+                // 5. Calculate the end time based on the start time and hours
+                // var endTime = calculateEndTime(startTime, hours);
+                for (let i = shour; i < ehour; i++) {
+                // Select the element corresponding to the time slot
+                const slotElement = document.getElementById(i);
+
+                // If the slot element exists, add the unavailable class
+                if (slotElement) {
+                slotElement.classList.add('unavailable');
+                }
+                }
+                // Store the booked slot (start time and end time) in the bookedSlots array
+                bookedSlots.push({ start: startTime, end: endTime });
+            }
+        }
+
+        // // Function to calculate the end time based on the start time and hours
+        // function calculateEndTime(startTime, hours) {
+        //     // Convert start time to milliseconds
+        //     var startTimeMs = Date.parse('01/01/2000 ' + startTime);
+
+        //     // Add hours to start time in milliseconds
+        //     var endTimeMs = startTimeMs + (hours * 60 * 60 * 1000);
+
+        //     // Convert end time from milliseconds to formatted time
+        //     var endTime = new Date(endTimeMs).toLocaleTimeString('en-US', { hour12: false });
+
+        //     return endTime;
+        // }
+
+        // Now the bookedSlots array contains the booked slots for the selected date
+        console.log(bookedSlots);
 
             }
         });

@@ -14,16 +14,15 @@
 
 <body>
     <div class="container">
-
-
+        <!-- <?php show($data['article']); ?> -->
         <form method="post" id="articleForm" class="addArticle">
-            <h1>Add New Article</h1>
+            <h1>Edit Article</h1>
 
             <label for="article_name">Article Name :</label>
-            <input type="text" name="article_name" id="article_name" required>
+            <input type="text" name="article_name" id="article_name" value="<?= $data['article'][0]->article_name ?>" required>
 
             <label for="category">Category:</label><br>
-            <input type="text" name="category" id="category" list="category" autofocus required>
+            <input type="text" name="category" id="category" list="category" autofocus required value="<?= $data['article'][0]->category ?>">
             <datalist id="category">
                 <option value="Comedy"></option>
                 <option value="Farce"></option>
@@ -36,15 +35,17 @@
 
             <label for="article_content">Article Content:</label>
 
-            <textarea name="article_content" id="article_content" cols="30" rows="10" required></textarea>
+            <textarea name="article_content"  id="article_content" cols="30" rows="10" required>
+                <?= htmlspecialchars($data['article'][0]->article_content) ?>
+            </textarea>
 
 
             <label for="image">Image:</label><br>
-            <input type="file" id="image" name="image" accept="image/*">
+            <input type="file" id="image" name="image" accept="image/*" value="<?= $data['article'][0]->image ?>">
 
             <div class="button-group">
-                <button type="submit" name="save_draft" >Save as Draft</button>
-                <button type="submit"  name = "submit_article" >SUBMIT</button>
+                <button type="submit" name="save_draft">Save as Draft</button>
+                <button type="submit" name="submit_article">SUBMIT</button>
 
             </div>
 

@@ -1,26 +1,19 @@
 <?php 
 
 
-class ReservaSentReq
+class viewRequest
 {
 	use Controller;
 
 	public function index()
 	{
 
-		if (empty($_SESSION['USER'])) {
-			// Redirect or handle the case when the user is not logged in
-			// For example, you might want to redirect them to the login page
-			redirect('reservalogin');
-			exit();
-		}
-
 		// $data = [];
 		$sentReq=new ReservationRequests;
 		$result=$sentReq->findAll();
 		$data=$result;
 		// show($data);
-		$this->view('reservaSentReq',$data);
+		$this->view('admin/viewRequest',$data);
 
 		// if (isset($_POST['id'])) {
 		// 	$articleId = $_POST['id'];
