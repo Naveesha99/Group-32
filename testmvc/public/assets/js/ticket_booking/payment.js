@@ -1,29 +1,16 @@
 // __________________PAYMENTGETWAY____________________________
-
 function pay2(id)
 {
-  var x = new XMLHttpRequest();
-  x.onreadystatechange = function(){
-      if(x.readyState == 4)
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = ()=>{
+      if(xhttp.readyState == 4 && xhttp.status == 200)
       {
-          // alert(x.responseText);
-          var text = x.responseText;
-        if(text == "2")
-        {
-          alert("Invalid booking");
-        }
-        else if(text == "3")
-        {
-          window.location = "<?=ROOT?>/ticket_booking/seat_map";
-        }
-        else
-        {
-          alert(text);
-          var j = JSON.parse(text);
-        
+          alert(xhttp.responseText);
+          var obj = JSON.parse(xhttp.responseText);
+          // Payment completed. It can be a successful failure.
           payhere.onCompleted = function onCompleted(orderId) 
           {
-            alert("Payment completed");
+            console.log("Payment completed. OrderID:" + orderId);
          // Note: validate the payment and show success or failure page to the customer
           };
 
@@ -31,14 +18,14 @@ function pay2(id)
             payhere.onDismissed = function onDismissed() 
             {
                 // Note: Prompt user to pay again or show an error page
-                alert("Payment dismissed");
+                console.log("Payment dismissed");
             };
 
             // Error occurred
             payhere.onError = function onError(error) 
             {
                 // Note: show an error page
-                alert("Error:");
+                console.log("Error:"  + error);
             };
 
             // Put the payment variables here
@@ -48,15 +35,15 @@ function pay2(id)
       "return_url": "http://localhost/testmvc1/public/payment",     // Important
       "cancel_url": "http://localhost/testmvc1/public/payment",     // Important
       "notify_url": "http://sample.com/notify",
-      "order_id":"ItemNo12345",
-      "items": "ITEM",
-      "amount": j.amount,
-      "currency":j.currency,
-      "hash": j.hash, // *Replace with generated hash retrieved from backend
-      "first_name": j.name,
-      "last_name": "lastname",
-      "email": j.email,
-      "phone": j.phone,
+      "order_id": obj["order_id"],
+      "items": obj["item"],
+      "amount": obj["amount"],
+      "currency": obj["currency"],
+      "hash": obj["hash"], // *Replace with generated hash retrieved from backend
+      "first_name": obj["name"],
+      "last_name": obj["last_name"],
+      "email": obj["email"],
+      "phone": obj["phone"],
       "address": "No.1, Galle Road",
       "city": "Colombo",
       "country": "Sri Lanka",
@@ -67,13 +54,10 @@ function pay2(id)
       "custom_2": ""
   };
 
- 
-    payhere.startPayment(payment);
-  }
-}
-  
+       payhere.startPayment(payment);
+      }
   };
-  x.open("GET","pay2?id=" + id, true);
-  x.send();
+  xhttp.open("GET","pay2?id=" + id,true);
+  xhttp.send();
 }
 // _________________________________________________________________
