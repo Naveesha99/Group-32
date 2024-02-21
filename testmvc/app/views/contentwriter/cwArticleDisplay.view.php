@@ -56,12 +56,11 @@ function limitWords($text, $limit)
                                 <td>
                                     <span class="action_btn">
                                         
-                                        <a href = "cwViewOwnArticle?id='.$row->id.'" class = "btn-view">View</a>
+                                        <a href = "cwViewOwnArticle?id=' . $row->id . '" class = "btn-view">View</a>
 
-                                        <form method="POST">
-                                            <input type="hidden" name="update_article" value="' . $row->id . '">
-                                            <button type="submit" name="Update"  class="btn-update">Edit</button>
-                                        </form>
+                                        
+                                        <a href = "cwEditArticle?id=' . $row->id . '" class = "btn-update">Edit </a>
+            
 
                                         <form method="POST">
                                             <input type="hidden" name="delete_article" value="' . $row->id . '">

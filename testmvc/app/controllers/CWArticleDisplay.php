@@ -39,12 +39,12 @@ class CWArticleDisplay
 
 	private function articleView($data, $article)
 	{
-		$articleData = $article ->findArtcleById($data);
+		$articleData = $article->findArtcleById($data);
 
 		if ($articleData) {
 			$this->view('contentwriter/cwViewOwnArticle', $articleData);
 		} else {
-			
+
 			echo "Article not found!";
 		}
 	}
