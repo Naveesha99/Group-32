@@ -35,7 +35,9 @@
 
             <label for="article_content">Article Content:</label>
 
-            <textarea name="article_content" value="<?= $data['article'][0]->article_content ?>" id="article_content" cols="30" rows="10" required></textarea>
+            <textarea name="article_content"  id="article_content" cols="30" rows="10" required>
+                <?= htmlspecialchars($data['article'][0]->article_content) ?>
+            </textarea>
 
 
             <label for="image">Image:</label><br>
