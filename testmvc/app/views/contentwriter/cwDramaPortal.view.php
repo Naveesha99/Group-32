@@ -33,6 +33,10 @@
         <!-- <div class="heading">
             <h1>DRAMA PORTAL</h1>
         </div> -->
+        <div class="addNew" >
+            <a href="<?=ROOT?>/cwAddArticle">ADD NEW</a>
+        </div>
+        
         <?php
         if ($data && (is_array($data) || is_object($data))) {
             foreach ($data as $row) {

@@ -33,6 +33,31 @@ body{
     gap: 100px 50px;
 
 }
+.container .addNew{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px ;
+    border: none;
+    /* border-radius: 5px; */
+    cursor: pointer;
+}
+.container .addNew a{
+    color: white;
+    /* background: whitesmoke; */
+    border: 1px solid black;
+    display: inline-block;
+    padding: 7px 17px;
+    font-weight: bold;
+    border-radius: 13px;
+    transition: 0.3s ease-in-out;
+    border-color: brown;
+    background-color: brown;
+}
+.container .addNew a:hover{
+    box-shadow: 0 2px 8px gray ;
+}
+
 /* .container heading{
     margin-top: 20px;
     justify-content: center;
@@ -44,6 +69,7 @@ body{
 .container .card{
     position: relative;
     display: flex;
+    top: 40px;
     justify-content: center;
     align-items: flex-start;
     width:350px ;

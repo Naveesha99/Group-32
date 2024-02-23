@@ -291,9 +291,9 @@
                 <img src="<?= ROOT ?>/assets/images/mask.png" alt="illustration" class="illustration" />
                 <h1 class="opacity">LOGIN</h1>
 
-                <form method="post" onsubmit="return loginButtonClick(event)">
-                    <input type="text" id="username" placeholder="USERNAME" />
-                    <input type="password" placeholder="PASSWORD" />
+                <form method="POST" >
+                    <input type="text" name="username" id="username" placeholder="USERNAME" />
+                    <input type="password" name="password" placeholder="PASSWORD" />
                     <button class="opacity" id="opacitybtn1" type="submit">LOGIN</button>
                 </form>
 
@@ -309,7 +309,7 @@
         <div class="theme-btn-container"></div>
     </section>
 
-    <script>
+    <!-- <script>
         function loginButtonClick(event) {
             // Prevent the default form submission
             event.preventDefault();
@@ -320,7 +320,7 @@
             // Redirect to the page with the username as a query parameter
             window.location.href = `cwDashboard?loggedin=true`;
         }
-    </script>
+    </script> -->
 </body>
 
 </body>

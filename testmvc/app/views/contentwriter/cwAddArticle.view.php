@@ -56,9 +56,8 @@
 
     <script>
         function submitForm() {
-            console.log("submitForm function caled");
-            windows.alert("Article added successfully!");
-            return false;
+            alert("Article added successfully!");
+            return true;
             // document.getElementById("articleForm").submit();
         }
     </script>
