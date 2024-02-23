@@ -40,21 +40,35 @@ class Payment
             $counts = count($releaseData);
         
 
-            $data2['username']=$_POST['username'];
-            $data2['email']=$_POST['email'];
-            $data2['phone']=$_POST['phone'];
+            $data['username']=$_POST['username'];
+            $data['email']=$_POST['email'];
+            $data['phone']=$_POST['phone'];
+            $data['price']=$releaseData[1];
            
             if($releaseData[0]=='table1')
             {
                 $timeslot1 = new Timeslot1;
 
-                for($i=2; $i<$counts; $i++)
+                if($timeslot1->validate($data))
                 {
-                    $dta = $releaseData[$i]['id'];
-                    $timeslot1->update($dta, $data2);
+                    for($i=2; $i<$counts; $i++)
+                    {
+                        $dta = $releaseData[$i]['id'];
+                        echo 'skdjfbf';
+
+                        $timeslot1->update($dta, $data);
+                    }
+                    
                 }
+                else
+                {
+                    // $data['errors'] = $timeslot1->errors;
+                    // print_r($timeslot1->errors);
+                    echo 'ljsdf';
+                }
+                
             }
-            $this->view('/ticket_booking/payment');
+            $this->view('/ticket_booking/payment',$data);
         }
 
     }

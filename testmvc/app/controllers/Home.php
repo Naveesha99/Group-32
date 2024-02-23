@@ -10,9 +10,38 @@ class Home
 	public function index()
 	{
 
-		$row = $this->get_drama_img();
+		$booking = new Booking;
 
-		$data['data']= $row;
+		$row= $this->get_drama_img();
+
+		$i=0;
+		foreach($row as $key)
+		{			
+			
+			$arr['drama_id'] = $key->id;
+			
+
+			// show($arr['id']);
+			$row2 = $booking->where($arr);
+			// show($row2);
+			if ($row2 !== false && is_array($row2))
+			{
+
+				foreach($row2 as $k)
+				{
+					$data['data2'][$i] = $k;
+					$i=$i+1;
+				}
+			}
+				// $data['data2'][$i] = $row2;
+							
+		}
+		// show($data['data2']);
+
+		// $row1 = $this->get_drama_time_date($row);
+
+
+		$data['data1']= $row;
        
         $this->view('home', $data);
 	}
@@ -20,15 +49,27 @@ class Home
 	private function get_drama_img()
 	{
 		$home = new Homes();
+
 		$row = $home->findAll();
-		foreach ($row as $key)
-		{			
-			// unset($key->title);
-			unset($key->description);
-		}
-		// show($row);
+		// $datax[0]=$row;
+
+		
+		// foreach ($row as $key)
+		// {			
+		// 	$datax[$i] = $booking->where($key->id);
+		// 	show($datax[$i]);
+		// 	$i++;
+		// 	// unset($key->title);
+		// 	// unset($key->description);
+		// }
 
 		return $row;
 	}
+
+	// private function get_drama_time_date($row)
+	// {
+
+	// }
+
 }
 
