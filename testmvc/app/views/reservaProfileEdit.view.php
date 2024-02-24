@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,11 +16,6 @@
 
 <body class="dashboard">
     <div class="container">
-        <!-- <div class="header">
-
-
-            <?php //require_once 'navBar.php' ?>
-        </div> -->
 
 
         <div class="content">
@@ -54,7 +50,7 @@
 
                     <div class="btn2">
                         <!-- <button type="submit">Save Settings</button> -->
-                        <button id="edit-profile" class="btn btn-primary">Edit Profile</button>
+                        <button id="edit-profile" class="btn btn-primary">SAVE</button>
                     </div>
                 </form>
             </div>
