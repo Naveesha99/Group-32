@@ -32,15 +32,6 @@ class employees
                 $empId = $_POST['delete_employee'];
                 $this->employeeDelete($empId, $employee);
             }
-
-            if (isset($_POST['update'])) {
-                $this->employeeUpdate($_POST['update'], $employee);
-            }
-
-            if (isset($_POST['view_employee'])) {
-                $empId = $_POST['view_employee'];
-                $this->employeeView($empId, $employee);
-            }
             
         }
 
@@ -54,22 +45,22 @@ class employees
         redirect("employees");
     }
 
-    private function employeeUpdate($data, $employee)
-    {
-        if (isset($data['id'])) {
-            $id = $data['id'];
-            unset($data['id']);
-            show($data);
+    // private function employeeUpdate($data, $employee)
+    // {
+    //     if (isset($data['id'])) {
+    //         $id = $data['id'];
+    //         unset($data['id']);
+    //         // show($data);
 
-            $data['empName'] = $_POST['NewempName'];
-            $employee->update($id, $data, 'id');
-            show($_POST);
-        }
-    }
+    //         $data['empName'] = $_POST['NewempName'];
+    //         $employee->update($id, $data, 'id');
+    //         show($_POST);
+    //     }
+    // }
 
-    private function employeeView($data, $employee)
-    {
-        $result['view'] = $employee->where($data, 'id');
-        $data['view'] = $result['view'];
-    }
+    // private function employeeView($data, $employee)
+    // {
+    //     $result['view'] = $employee->where($data, 'id');
+    //     $data['view'] = $result['view'];
+    // }
 }

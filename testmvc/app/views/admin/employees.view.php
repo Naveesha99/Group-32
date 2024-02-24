@@ -22,23 +22,24 @@
 <body>
     <div class="container">
         <div class="content">
-            <table>
-                <tr>
-                    <th>Emp.No</th>
-                    <th>Employee Name</th>
-                    <th>E-mail</th>
-                    <th>NIC</th>
-                    <th>Date of Birth</th>
-                    <th>Address</th>
-                    <th>Contact</th>
-                    <th>Employee type</th>
-                    <!-- <td><a href="#" class="btn">View</a></td> -->
-                </tr>
-                <?php
-                // Check if $data is not false and is an array or object
-                if ($data && (is_array($data) || is_object($data))) {
-                    foreach ($data['employees'] as $row) {
-                        echo '<tr>
+            <div class="employees">
+                <table>
+                    <tr class="tr-1">
+                        <th>Emp.No</th>
+                        <th>Employee Name</th>
+                        <th>E-mail</th>
+                        <th>NIC</th>
+                        <th>Date of Birth</th>
+                        <th>Address</th>
+                        <th>Contact</th>
+                        <th>Employee type</th>
+                        <!-- <td><a href="#" class="btn">View</a></td> -->
+                    </tr>
+                    <?php
+                    // Check if $data is not false and is an array or object
+                    if ($data && (is_array($data) || is_object($data))) {
+                        foreach ($data['employees'] as $row) {
+                            echo '<tr class = "tr-2">
                                 <td>' . $row->id . '</td>
                                 <td>' . $row->empName . '</td>
                                 <td>' . $row->empEmail . '</td>
@@ -47,16 +48,18 @@
                                 <td>' . $row->empAddress . '</td>
                                 <td>' . $row->empContact . '</td>
                                 <td>' . $row->empRoll . '</td>
-
+                                
                                 <td>
-                                        <button type="submit" name="View" id = "openProfile" class="btn">View</button>
+                                <span class="action_btn">
+                                    <a class = "btn" href="viewEmployee?id=' . $row->id . '">View</a>
+                                </span>
                                 </td>
 
                                 <td>
                                 <span class="action_btn">
-                                    <a href="editEmployee?id='. $row->id . '">Edit</a>
+                                    <a class = "btn-update" href="editEmployee?id=' . $row->id . '">Edit</a>
                                 </span>
-                            </td>
+                                </td>
                                 
                                 <td>
                                     <form method="POST">
@@ -65,30 +68,16 @@
                                     </form>
                                 </td>
                               </tr>';
+                        }
+                    } else {
+                        echo '<tr><td colspan="9">No data available</td></tr>';
                     }
-                } else {
-                    echo '<tr><td colspan="9">No data available</td></tr>';
-                }
-                ?>
+                    ?>
 
-            </table>
-            <!-- user profile -->
-            <!-- user profile -->
-            <div id="openProfile">
-                <?php
-                foreach ($data as $row) {
-                    echo '<div id="profile' . $row['id'] . '" class="profile-popup">
-                <div class="image"></div>
-                <h2>Name: ' . $row['empName'] . '</h2>
-                <p>20-year-old part-time photographer who enjoys binge-watching boxed sets, watching sports, and hockey. She is intelligent and careful but can also be a bit grumpy.</p>
-                <button class="close-btn" onclick="closeProfile(\'profile' . $row['id'] . '\')">close</button>
-            </div>';
-                }
-                ?>
+                </table>
             </div>
-
-            <script src="<?= ROOT ?>/assets/js/profile.js"></script>
-
+            <!-- user profile -->
+            <!-- user profile -->
         </div>
     </div>
 </body>

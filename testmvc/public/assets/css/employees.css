@@ -142,41 +142,6 @@ h3 {
     font-size: 15px;
 }
 
-#addemployee .select {
-    width: 90%;
-    height: 35px;
-    /* padding: 8px; */
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    margin-left: 20px;
-    margin-bottom: 16px;
-}
-
-#overlay {
-    position: fixed;
-    z-index: 10;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(162, 158, 158, 0.9);
-    /* Semi-transparent black overlay */
-    display: none;
-}
-
-#popupForm {
-    z-index: 11;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    /* background-color: white; */
-    width: 50%;
-    padding: 20px;
-    border-radius: 5px;
-    display: none;
-}
-
 
 .btn-delete {
     background: rgba(255, 0, 0, 0.97);
@@ -199,16 +164,50 @@ h3 {
     right: 0;
     width: 80vw;
     height: 100vh;
-    background: #f1f1f1;
+    background: white;
 }
 
 .container .content {
     position: relative;
     margin-top: 10vh;
     min-height: 90vh;
-    background: #f1f1f1;
+    background: white;
 }
 
-.table {
-    padding: 10px;
+.container .content .employees {
+    height: 100%;
+    min-height: 50vh;
+    flex: 5;
+    background: white;
+    margin-top: 150px;
+    margin-left: 20px;
+    margin-right: 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    overflow: hidden; /* Add overflow: hidden to clip borders */
 }
+
+.container .content .employees table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.container .content .employees th,
+.container .content .employees td {
+    border: 1px solid black;
+    padding: 8px;
+}
+
+.container .content .employees .tr-1 {
+    height: 50px;
+    background-color: white; /* Change the background color of .tr-1 */
+    color: black; /* Change the text color of .tr-1 */
+    border: none; /* Remove borders for .tr-1 */
+}
+
+.container .content .employees .tr-2:nth-child(even) {
+    background-color: #808080; /* Add gray color to even rows */
+}
+
