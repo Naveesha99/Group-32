@@ -96,7 +96,7 @@
                             // Display up to 7 items in the current row
                             for ($j = 0; $j < $itemsPerRow && ($i + $j) < $itemCount; $j++) 
                             {
-                                $x = $data[$i + $j];
+                                $x = $data['data1'][$i + $j];  //before ->  $x = $data[$i + $j];
                     ?>
                                 <form action="select_drama" method="POST">
                                     <div class="movie-list-item">
