@@ -34,7 +34,7 @@ class CWEditArticle
 
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $article->update($articleId, $_POST, 'id');
-            redirect('contentwriter/cwAddArticle');
+            redirect('cwArticleDisplay');
         }
 
         $this->view('contentwriter/cwEditArticle', $data);

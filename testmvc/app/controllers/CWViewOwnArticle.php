@@ -1,5 +1,5 @@
 <?php
-
+// defined('ROOTPATH') OR exit('Access Denied!');
 /**
  *  view own article class
  */
@@ -13,26 +13,47 @@ class CWViewOwnArticle
 
 		$articleId = isset($_GET['id']) ? $_GET['id'] : null;
 
-		echo $articleId;
+		// echo $articleId;
 
-		if($articleId){
+		if ($articleId) {
 			$article = new Article;
 			$arr1['id'] = $articleId;
 
 			$articleData = $article->where($arr1);
 
-			if($articleData){
+			if ($articleData) {
 				$data['article'] = $articleData;
 				//show($data);
-			}else{
+			} else {
 				echo "article not found";
 				exit();
 			}
-
 		}
 
 		// $data['username'] = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->email;
 
 		$this->view('contentwriter/cwViewOwnArticle', $data);
+	}
+
+	public function editArticle()
+	{
+		header("Location:" . ROOT . "/cwEditArticle?id=" . $_GET['id']);
+		exit();
+	}
+
+	public function deleteArticle()
+	{
+		$articleId = isset($_GET['id']) ? $_GET['id'] : null;
+		if ($articleId) {
+			$article = new Article;
+			$result = $article->delete($articleId, 'id');
+			if ($result) {
+				header("Location :" . ROOT . "/contentwriter/cwArticleDisplay");
+				exit();
+			} else {
+				echo "Failed to delete the article";
+				exit();
+			}
+		}
 	}
 }

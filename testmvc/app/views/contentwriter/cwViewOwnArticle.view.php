@@ -25,10 +25,10 @@
                     <p class="card-info"><?= $data['article'][0]->article_content ?></p>
 
                     <div class="button_group">
-                        <button class="card-btn" onclick="edit()" style="background-color: #00FF1A;">Edit</button>
-                        <button class="card-btn" onclick="" style="background-color: #FF0000;">Delete</button>
-
+                        <a href="<?= ROOT ?>/cwViewOwnArticle/editArticle?id=<?= $data['article'][0]->id ?>" class="card-btn" style="background-color: #00FF1A;">Edit</a>
+                        <a href="<?= ROOT ?>/cwViewOwnArticle/deleteArticle?id=<?= $data['article'][0]->id ?>" class="card-btn" style="background-color: #FF0000;">Delete</a>
                     </div>
+
                 </div>
             </div>
         <?php else : ?>
