@@ -1,29 +1,44 @@
-<?php 
+<?php
 
 
 class viewRequest
 {
-	use Controller;
+    use Controller;
 
-	public function index()
-	{
+    public function index()
+    {
 
-		// $data = [];
-		$sentReq=new ReservationRequests;
-		$result=$sentReq->findAll();
-		$data=$result;
-		// show($data);
-		$this->view('admin/viewRequest',$data);
+        $data = [];
 
-		// if (isset($_POST['id'])) {
-		// 	$articleId = $_POST['id'];
-		// 	$this->requestDelete($articleId, $article);
-		// }
-	}
+        $requestID = isset($_GET['id']) ? $_GET['id'] : null;
+        $request = new Reservationrequests;
 
-	// private function articleDelete($data, $article)
-	// {
-	// 	$article->delete($data, 'id');
-	// 	redirect("cwArticleDisplay");
-	// }
+        if($requestID){
+            $arr['id'] = $requestID;
+
+            $requestData = $request->where($arr);
+
+            if($requestData){
+                $data['request'] = $requestData;
+
+            }else {
+                echo "request not found";
+                exit();
+            }
+        }
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if (isset($_POST['accept_request'])) {
+                $reqId = $_POST['accept_request'];
+                $this->acceptReq($reqId, $request);
+            }
+            
+        }
+    //  show($data['request']);
+
+        $this->view('admin/viewrequest', $data);
+    }
+
+    private function acceptReq($data, $request){
+    }
 }

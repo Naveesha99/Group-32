@@ -7,11 +7,7 @@ class ReservaHall
 
 	public function index()
 	{
-
-
-
-
-
+		show($_SESSION['USER']);
 		// if (isset($_SESSION['USER'])) {
 		// 	$loggedInUsername = $_SESSION['reservationists']->username;
 		

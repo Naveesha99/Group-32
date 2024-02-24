@@ -22,7 +22,7 @@ h2 {
     color: black;
 }
 h3 {
-    color: #ffffff;
+    color: #999;
 }
 .btn {
     background: #e6cc00;
@@ -47,12 +47,9 @@ h3 {
 }
 table {
     padding: 10px;
+    border-radius: 15px;
 }
-th,
-td {
-    text-align: left;
-    padding: 8px;
-}
+
 .container {
     position: absolute;
     right: 0;
@@ -73,6 +70,7 @@ td {
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
+    transition: all 0.3s ease-in-out;
 }
 .container .content .cards .card {
     width: 250px;
@@ -86,61 +84,19 @@ td {
     transition: all 0.3s ease-in-out;
 }
 
-.container .content .content-2 {
-    min-height: 60vh;
+.container .content .cards .card:hover {
+    width: 250px;
+    height: 150px;
+    background: white;
+    margin: 20px 10px;
     display: flex;
+    border-radius: 40px;
+    align-items: center;
     justify-content: space-around;
-    align-items: flex-start;
-    flex-wrap: wrap;
-}
-.container .content .content-2 .tasks {
-    min-height: 50vh;
-    flex: 5;
-    background: white;
-    margin: 0 25px 25px 25px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    display: flex;
-    flex-direction: column;
-    border-radius: 15px;
-}
-.container .content .content-2 .new-dramas {
-    flex: 2;
-    background: white;
-    min-height: 50vh;
-    margin: 0 25px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    display: flex;
-    flex-direction: column;
-    border-radius: 15px;
+    border: 3px solid #2424ff;
+    transition: all 0.3s ease-in-out;
 }
 
-select {
-    width: 150px; 
-    padding: 5px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-option {
-    font-size: 14px;
-}
-  
-
-label {
-    display: block;
-    margin-bottom: 8px;
-}
-
-
-@media screen and (max-width:536px) {
-
-    .container .content .cards {
-        justify-content: center;
-    }
-    .container .content .content-2 .tasks table th:nth-child(2),
-    .container .content .content-2 .tasks table td:nth-child(2) {
-        display: none;
-    }
+.container .content .cards .card:hover h1 {
+    color: #2424ff;
 }
