@@ -55,15 +55,12 @@ function limitWords($text, $limit)
                                 <td>' . $row->image . '</td>
                                 <td>
                                     <span class="action_btn">
-                                        <form method="POST">
-                                            <input type="hidden" name="view_article" value="' . $row->id . '">
-                                            <button type="submit" name="View"  class="btn-view">View</button>
-                                        </form>
+                                        
+                                        <a href = "cwViewOwnArticle?id=' . $row->id . '" class = "btn-view">View</a>
 
-                                        <form method="POST">
-                                            <input type="hidden" name="update_article" value="' . $row->id . '">
-                                            <button type="submit" name="Update"  class="btn-update">Edit</button>
-                                        </form>
+                                        
+                                        <a href = "cwEditArticle?id=' . $row->id . '" class = "btn-update">Edit </a>
+            
 
                                         <form method="POST">
                                             <input type="hidden" name="delete_article" value="' . $row->id . '">
@@ -77,52 +74,7 @@ function limitWords($text, $limit)
                     echo '<tr><td colspan="9">No data available</td></tr>';
                 }
                 ?>
-                <!-- <tbody>
-                    <tr>
-                        <td>01</td>
-                        <td>Maname</td>
-                        <td>Tragedy</td>
-                        <td>Set in the fictional Arabian city of Agrabah, ...</td>
-                        <td><img src="<?= ROOT ?>/assets/images/kuweni.jpeg" alt="" srcset=""></td>
-                        <td>
-                            <span class="action_btn">
-                                <a href="#">Edit</a>
-                                <a href="#" >Delete</a>
 
-                            </span>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>01</td>
-                        <td>Maname</td>
-                        <td>Tragedy</td>
-                        <td>Set in the fictional Arabian city of Agrabah, ...</td>
-                        <td><img src="<?= ROOT ?>/assets/images/kuweni.jpeg" alt="" srcset=""></td>
-                        <td>
-                            <span class="action_btn">
-                                <a href="#">Edit</a>
-                                <a href="#" >Delete</a>
-
-                            </span>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>01</td>
-                        <td>Maname</td>
-                        <td>Tragedy</td>
-                        <td>Set in the fictional Arabian city of Agrabah, ...</td>
-                        <td><img src="<?= ROOT ?>/assets/images/kuweni.jpeg" alt="" srcset=""></td>
-                        <td>
-                            <span class="action_btn">
-                                <a href="#">Edit</a>
-                                <a href="#" >Delete</a>
-
-                            </span>
-                        </td>
-                    </tr>
-                </tbody> -->
             </table>
         </div>
 

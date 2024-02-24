@@ -144,19 +144,47 @@ body{
 
 }
 
-.action_btn>a:nth-child(1){
+.action_btn .btn-view{
     border-color: blue;
     background-color: blue;
+    text-decoration: none;
+    color: white;
+    /* background: whitesmoke; */
+    border: 1px solid black;
+    display: inline-block;
+    padding: 7px 17px;
+    font-weight: bold;
+    border-radius: 13px;
+    transition: 0.3s ease-in-out;
 }
-.action_btn>a:nth-child(2){
+.action_btn .btn-update{
     border-color: green;
     background-color: green;
+    text-decoration: none;
+    color: white;
+    /* background: whitesmoke; */
+    border: 1px solid black;
+    display: inline-block;
+    padding: 7px 17px;
+    font-weight: bold;
+    border-radius: 13px;
+    transition: 0.3s ease-in-out;
 }
 
-.action_btn>a:nth-child(3){
+.action_btn .btn-delete{
+    text-decoration: none;
+    color: white;
+    /* background: whitesmoke; */
+    border: 1px solid black;
+    display: inline-block;
+    padding: 7px 17px;
+    font-weight: bold;
+    border-radius: 13px;
+    transition: 0.3s ease-in-out;
     border-color: red;
     background-color: red;
 }
+
 
 .action_btn>a:hover{
     box-shadow: 0 2px 8px gray ;

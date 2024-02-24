@@ -9,8 +9,39 @@ class ReservaHall1
 
 	public function index()
 	{
+		// session_start(); // Start the session
+
+		// if (empty($_SESSION['RESERVATIONISTS'])) {
+		// 	// Redirect or handle the case when the user is not logged in
+		// 	// For example, you might want to redirect them to the login page
+		// 	redirect('reservalogin');
+		// 	exit();
+		// }
+
+		if(empty($_SESSION['USER'])){
+			redirect('reservalogin');
+			exit();
+		}
+
+		
+
+		
+
+
+        // if (isset($_SESSION['USER'])) {
+        // if (isset($_SESSION['RESERVATIONISTS'])) {
+
+		// 	echo $_SESSION['RESERVATIONISTS']->username; 
+        //     }
+        //         else{show('No session');
+		// 	}
+            
+
+
+
+
 		$hallId = isset($_GET['hallno']) ? $_GET['hallno'] : '';
-		show($hallId);
+		// show($hallId);
 		$reservationequests_1 = new Reservationrequests;
 
 		// Fetch available time slots for the selected date
@@ -36,7 +67,7 @@ class ReservaHall1
 				'acceptedReservations'=>$acceptedReservations1,
 				'hall'=>$detailsofhall,
 			];
-		show($data);
+		// show($data);
 		// echo '<script>console.log("Before inside if (POST request)");</script>';
 
 		if($_SERVER['REQUEST_METHOD'] == "POST"){

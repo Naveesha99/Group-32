@@ -13,7 +13,7 @@ class CWArticleDisplay
 
 		// $this->view('cwArticleDisplay');
 		$article = new article;
-		$result = $article->findAll();
+		$result = $article->findPublishArticles();
 		$data = $result;
 
 		$this->view('contentwriter/cwArticleDisplay', $data);
@@ -29,28 +29,22 @@ class CWArticleDisplay
 				$this->articleUpdate($_POST, $article);
 			}
 
-			if (isset($_POST['view_article'])) {
-				$articleId = $_POST['view_article'];
+			if (isset($_POST['view'])) {
+				$articleId = $_POST['view'];
 				$this->articleView($articleId, $article);
 			}
 		}
 	}
 
-	// public function cwViewOwnArticle($articleId)
-	// {
-	// 	$article = new article;
-	// 	$articleData = $article->where(['id' => $articleId]); // Assuming 'id' is the primary key column
-	// 	$this->view('contentwriter/cwViewOwnArticle', $articleData);
-	// }
 
 	private function articleView($data, $article)
 	{
-		$articleData = $article->where(['id' => $data]);
+		$articleData = $article->findArtcleById($data);
+
 		if ($articleData) {
 			$this->view('contentwriter/cwViewOwnArticle', $articleData);
 		} else {
-			// Handle case where article with given ID is not found
-			// For example, you can redirect to an error page or display a message
+
 			echo "Article not found!";
 		}
 	}

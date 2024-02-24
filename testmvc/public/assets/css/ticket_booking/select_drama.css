@@ -3,22 +3,38 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    background-image: url('/pics/background1.jpeg');
+    background-image: url('/images/ticket_booking/theatre.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed; /* Add this line */
+    height: 100%;
+    background-color: #df9983;
 }
 
 
+input[type="date"] {
+    width: 200px; /* Set the desired width */
+    font-size: 16px; /* Set the desired font size */
+    text-align: right; /* Align text to the right */
+    color: #3a03ee; /* Text color */
+    font-family: Arial, sans-serif; /* Font family */
+    padding: 5px; /* Padding */
+    border: 1px solid #ccc; /* Border color */
+    border-radius: 5px; /* Border radius */
+    /* Add any other styles you want to modify */
+  }
+  
+  
 
 .image-container {
     text-align: left;
     margin-top: 20px;
 }
 img{
-    width: 120%;
-    margin-left: 5%;
+    width: 560px;
+    height: 330px;
+    margin-left: 8%;
     margin-top:0%;
     border-radius: 10px;
 }
@@ -46,9 +62,9 @@ img{
 
 
 .calendar-body table {
-    width: 250%;
+    width: 210%;
     border-collapse: collapse;
-    margin-left: -9%;
+    margin-left: 9%;
 }
 
 .calendar-body table th,
@@ -99,15 +115,16 @@ img{
 
 .b2{
     background-color:bro;
-    width: 50px;
+    width: 70px;
     padding: 10px;
     margin-left: auto;
     color:brown;
     font-weight: bold;
-    border-radius: 30%;
+    border-radius: 10%;
     border-color: brown;
     align-items: center;
     height: 50px;
+    font-weight: bold;
 }
 
 .b2:hover {
@@ -141,26 +158,29 @@ table, td, th {
     justify-content: space-around;
     text-align: left;
     margin-top: 20px;
+    height: 600px;
 }
 .form1 {
     justify-content: space-around;
     margin-right: 10%;
+    margin-left: -10%;
 }
 
 .form2 {
     padding: 1px;
     border-radius: 0.25%;  
-    width: 60%; /* Adjust the width as needed */
-    padding-bottom: 40%;
-    height: 25px;
-    margin-top: 8.6%;
-    margin-right: 5%; 
+    width: 20%; /* Adjust the width as needed */
+    padding-bottom: 10%;
+    height: 20px;
+    margin-top: 5%;
+    /* margin-right: 5%;  */
 }
 
 .topic {
     font-family: Arial;
     font-size: x-large;
     margin-top: -3%;
+    font-weight: bold;
 
 }
 
@@ -196,7 +216,7 @@ button#showPopup {
 }
 
 h1{
-    color: aliceblue;
+    color:blue;
     margin-left: 20%;
     align-items: center;
     text-align: center;
@@ -205,13 +225,113 @@ h1{
 
 .topic p {
     font-size: 18px; /* Example font size */
-    color: white; 
+    color: blue; 
     font-size: large;
     text-align: center;
 }
 
 .switch {
     display: flex;
-    align-items: center;
-    margin-left: 30%;
+    align-items:center;
+    margin-left: 60%;
+    margin-bottom: 40%;
+}
+
+
+#main-time-box{
+
+    width: 50px;
+    background-color: #3a03ee;
+
+}
+
+.container {
+    width: max-content;
+    display: flex;
+    margin-left: 50px;
+    flex-direction: row;
+}
+
+.component {
+    display: flex;
+    box-sizing: border-box;
+    border: 2px solid #333;
+    border-radius: 5px;
+    padding: 5px;
+    text-align: center;
+    margin: 5px;
+    pointer-events:all;
+    cursor: pointer;
+    background-color: rgb(193, 39, 39);
+    border: none;
+    flex: 1;
+    z-index: 10;
+    color: #cdc6c6;
+    font-weight: bold;
+}
+
+.component:hover{
+    /* text-decoration:rgb(0, 0, 0); */
+    transform: translateY(-1px);
+    transition: opacity 0.5s, box-shadow 0.5s;
+}
+.component_left, .component_right {
+    cursor: pointer;
+    flex: 1;
+    border: 2px solid #333;
+    padding: 5px;
+    text-align: center;
+    margin: 5px;
+    color: #8f3232;
+    box-sizing: content-box;
+    display: flex;
+    flex-direction: column; /* Add this line for bidirectional layout */
+    z-index: 50;
+    background-color: #666;
+}
+
+.special{
+    background-color:#890505;
+    border-radius: 5px;
+    border-color: #000000;
+    border-width: 10px;
+}
+
+.carousel {
+    display: flex;
+    /* overflow: hidden; */
+    width: 400px;
+    border-radius: 5px;
+    border-color: #ccc;
+    
+}
+/* ===== */
+
+.formpost {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn {
+    font-size: 18px; /* Adjust the font size as needed */
+    padding: 10px 20px; /* Adjust the padding as needed */
+}
+
+#btn {
+    font-size: 20px; /* Adjust the font size as needed */
+    padding: 20px 40px; /* Adjust the padding as needed */
+    float: right; /* Move the button to the right side */
+}
+.date_class{
+    background-color:hsl(0, 0%, 100%);
+    border-radius: 7px;
+    width: 55px;
+    height:40px;
+    margin-top: 8px;
+    cursor: pointer;
+
+}
+.date_class:hover{
+    transform: translateY(-1px);
+    transition: opacity 0.5s, box-shadow 0.5s;
 }

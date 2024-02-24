@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 11, 2024 at 03:56 AM
+-- Generation Time: Feb 21, 2024 at 07:05 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -39,8 +39,17 @@ CREATE TABLE `b_time` (
 --
 
 INSERT INTO `b_time` (`id`, `drama_id`, `date`, `time`) VALUES
-(1, 10, '2024-02-14', '09:00:00'),
-(2, 10, '2024-02-14', '11:00:00');
+(1, 10, '2024-02-21', '09:00:00'),
+(3, 11, '2024-02-28', '09:00:00'),
+(4, 11, '2024-02-28', '11:00:00'),
+(5, 11, '2024-02-28', '04:00:00'),
+(6, 11, '2024-02-29', '09:00:00'),
+(7, 12, '2024-02-28', '09:00:00'),
+(8, 13, '2024-02-19', '11:00:00'),
+(9, 13, '2024-03-01', '04:00:00'),
+(10, 15, '2024-02-25', '11:00:00'),
+(11, 13, '2024-03-01', '04:00:00'),
+(12, 15, '2024-02-25', '11:00:00');
 
 --
 -- Indexes for dumped tables
@@ -61,7 +70,7 @@ ALTER TABLE `b_time`
 -- AUTO_INCREMENT for table `b_time`
 --
 ALTER TABLE `b_time`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Constraints for dumped tables

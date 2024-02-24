@@ -16,6 +16,7 @@ class ReservaHall
 		// 	echo "User is not logged in.";
 		// }
 
+		// show($_SESSION['USER']);
 		$data = [];
 		$this->view('reservaHall',$data);
 	}

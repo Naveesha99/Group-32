@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Theatre Reservation Form</title>
         <link rel="stylesheet" href="<?= ROOT ?>/assets/css/ticket_booking/select_drama.css">
-        <link rel="stylesheet" href="<?= ROOT ?>/assets/css/ticket_booking/select_drama1.css">
+        <!-- <link rel="stylesheet" href="<?= ROOT ?>/assets/css/ticket_booking/select_drama1.css"> -->
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
         <script src= "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
