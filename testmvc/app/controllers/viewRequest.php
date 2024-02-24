@@ -29,16 +29,22 @@ class viewRequest
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (isset($_POST['accept_request'])) {
-                $reqId = $_POST['accept_request'];
-                $this->acceptReq($reqId, $request);
+                $id = $data['request'][0]->id;
+                $arr1['status'] = 'accepted';
+                $request->update($id, $arr1);
+                redirect('request');
+            }
+
+            if (isset($_POST['reject_request'])) {
+                $id = $data['request'][0]->id;
+                $arr1['status'] = 'rejected';
+                $request->update($id, $arr1);
+                redirect('request');
             }
             
         }
     //  show($data['request']);
 
         $this->view('admin/viewrequest', $data);
-    }
-
-    private function acceptReq($data, $request){
     }
 }

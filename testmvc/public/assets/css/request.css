@@ -68,7 +68,7 @@ h1{
 }
 
 .container .requests .tr-2:nth-child(even) {
-    background-color: #808080; /* Add gray color to even rows */
+    background-color: #9e9e9e; /* Add gray color to even rows */
 }
 
 

@@ -9,7 +9,7 @@
 </head>
 
 <?php include 'adminSidebar.php' ?>
-<?php include 'navBar.php'?>
+<?php include 'navBar.php' ?>
 
 <body>
     <!-- end of styling are -->
@@ -20,7 +20,8 @@
 
     <div class="container">
 
-        <h1 align="center">User Profile</h1>
+</h1><h1 align="center">Request ID <?= $data['request'][0]->id ?></h1>
+
 
         <hr>
         <div class="form-right">
@@ -64,10 +65,16 @@
 
             <label for="hired_date">Reservationist ID:
                 <input type="text" id="hired_date" value="<?= $data['request'][0]->reservationistId ?>" disabled /></label>
-            <form method="POST">
-                <input type="hidden" name="accept_request" value="<?= $data['request'][0]->id ?>">
-                <button type="submit" name="Accept" class="btn-accept">Accept</button>
-            </form>
+            <div class="btn-container">
+                <form method="POST">
+                    <input type="hidden" name="accept_request" value="<?= $data['request'][0]->id ?>">
+                    <button type="submit" name="Accept" class="btn-accept">Accept</button>
+                </form>
+                <form method="POST">
+                    <input type="hidden" name="reject_request" value="<?= $data['request'][0]->id ?>">
+                    <button type="submit" name="Reject" class="btn-reject">Reject</button>
+                </form>
+            </div>
         </div>
 
     </div>
