@@ -11,7 +11,8 @@
 
 </head>
 
-<?php require_once 'reservaNavBar.php' ?>
+ <!-- <?php //require_once 'reservaNavBar.php' ?>  -->
+<?php if (isset($_SESSION['USER'])) {require_once 'reservaNavBarAfter.php';} else {require_once 'reservaNavBar.php';} ?>
 
 
 
@@ -179,19 +180,19 @@
 <script>
     window.onload = function() {
         const urlSearchParams = new URLSearchParams(window.location.search);
-        var session = urlSearchParams.get('loggedin');
-        document.getElementById('img-profile').style.display = 'none';
-        if (session == 'false') {
-            document.getElementById('img-profile').style.display = 'none';
+        // var session = urlSearchParams.get('loggedin');
+        // document.getElementById('img-profile').style.display = 'none';
+        // if (session == 'false') {
+            // document.getElementById('img-profile').style.display = 'none';
             // document.getElementById('login-btn').style.display='none';
         }
-        if (session == 'true') {
+        // if (session == 'true') {
             // document.getElementById('img-profile').style.display = 'none';
-            document.getElementById('img-profile').style.display = 'block';
-            document.getElementById('login-btn').style.display = 'none';
-        }
+            // document.getElementById('img-profile').style.display = 'block';
+            // document.getElementById('login-btn').style.display = 'none';
+        // }
 
-    }
+    // }
 
 
     function redirectToReservaHall1(hallNumber) {
