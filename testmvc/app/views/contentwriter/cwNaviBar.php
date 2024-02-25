@@ -12,7 +12,7 @@
 
 <body>
 
-    <input type="checkbox" id="menu">
+    <!-- <input type="checkbox" id="menu"> -->
     <!-- <nav>
 
 

@@ -23,7 +23,8 @@ body{
     width: calc(100% - 250px);
     left: 250px;
     min-height: 100vh;
-    background-color:  #FFEAD7;
+    /* background-color:  #FFEAD7; */
+    background-color: #d0c2c1;
     transition: 0.5s;
     margin-top: 80px;
     padding: 100px 50px;

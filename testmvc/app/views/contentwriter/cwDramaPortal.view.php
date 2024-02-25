@@ -14,6 +14,7 @@
 <body>
     <?php require_once 'cwNaviBar.php' ?>
     <?php include 'navBar.php' ?>
+    <!-- <?php include 'adminSidebar.php' ?> -->
 
     <?php
     function limitWords($text, $limit)
