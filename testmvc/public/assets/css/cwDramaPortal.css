@@ -35,6 +35,100 @@ body{
 }
 
 .container .search-bar{
+    display: flex;
+    align-items: center;
+    min-width: 800px ;
+    background-color: #fff;
+    border-radius: 50px;
+    height: fit-content;
+    top: 10px;
+    left: 20px;
+    
+
+
+}
+
+.container .search-bar .dropdown{
+    position: relative;
+    width: 200px;
+    background-color: brown;
+    border-radius: 50px;
+    border: 1px solid white;
+    box-shadow: gray;
+    cursor: pointer;
+}
+
+.container .search-bar .dropdown .dropdown-text{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1rem;
+    font-weight: 500;
+    color: white;
+    padding: 1rem 1.5rem ;
+
+}
+
+.container .search-bar .dropdown .dropdown-list{
+   position: absolute;
+   top: 4rem;
+   left: 0;
+   width: 100%;
+   border-radius: 15px;
+   max-height: 0;
+   overflow: hidden;
+   background-color: white;
+   transition: max-height 0.5s;
+
+}
+
+#list.show{
+    max-height: 300px;
+}
+
+.dropdown-list-item{
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 1rem 0 1rem 1.5rem;
+    cursor: pointer;
+    transition: margin-left 0.2s ease, color 0.2s ease;
+}
+
+.dropdown-list-item:hover{
+    margin-left: 0.5rem;
+    color: brown;
+}
+
+.search-box{
+    display: flex;
+    align-items: center;
+    padding-right: 1rem;
+    width: 100%;
+    color: brown;
+}
+
+.search-box input{
+    padding: 1rem;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: 500;
+    color: brown;
+    border: 0;
+    outline: 0;
+}
+
+.search-box i{
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+.search-box input::placeholder{
+    font-size: 1rem;
+    font-weight: 500;
+    color: brown;
+}
+
+/* .container .search-bar{
     background: #fff;
     width: 90%;
     max-width: 800px;
@@ -90,7 +184,7 @@ body{
 
 #select ul .open{
     max-height: 300px;
-}
+} */
 
 .container .addNew{
     position: absolute;
@@ -100,6 +194,7 @@ body{
     border: none;
     /* border-radius: 5px; */
     cursor: pointer;
+    
 }
 .container .addNew a{
     color: white;
@@ -128,7 +223,7 @@ body{
 .container .card{
     position: relative;
     display: flex;
-    top: 40px;
+    top: 30px;
     justify-content: center;
     align-items: flex-start;
     width:350px ;

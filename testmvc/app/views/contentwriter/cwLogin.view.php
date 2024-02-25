@@ -291,7 +291,7 @@
                 <img src="<?= ROOT ?>/assets/images/mask.png" alt="illustration" class="illustration" />
                 <h1 class="opacity">LOGIN</h1>
 
-                <form method="POST" >
+                <form method="POST">
                     <input type="text" name="username" id="username" placeholder="USERNAME" />
                     <input type="password" name="password" placeholder="PASSWORD" />
                     <button class="opacity" id="opacitybtn1" type="submit">LOGIN</button>

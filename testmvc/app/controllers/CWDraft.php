@@ -11,9 +11,9 @@ class CWDraft
 	{
 
 		// $data['username'] = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->email;
-		$data =[];
+		$data = [];
 		$article = new Article;
-		$data['draft_articles'] = $article ->getDraftArticles();
+		$data['draft_articles'] = $article->getDraftArticles();
 
 		$this->view('contentwriter/cwDraft', $data);
 	}
