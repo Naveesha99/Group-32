@@ -13,13 +13,16 @@
 </head>
 
 <body>
+  <div class="logo">
+    <img src="<?= ROOT ?>/assets/images/Logo.png" alt="">
+  </div>
   <div class="nav">
     <ul>
-      <li><a href="#">Home</a></li>
+      <li><a href="<?= ROOT ?>/home">Home</a></li>
       <li><a href="#">Drama Portal</a></li>
       <li><a href="#">Drama</a></li>
       <li><a href="#">Theater</a></li>
-      <li><a href="#" class="signup-button">Sign Up</a></li>
+      <li><a href="<?= ROOT ?>/logout" class="signup-button">Log Out</a></li>
     </ul>
   </div>
 </body>

@@ -23,7 +23,8 @@ body{
     width: calc(100% - 250px);
     left: 250px;
     min-height: 100vh;
-    background-color:  #FFEAD7;
+    /* background-color:  #FFEAD7; */
+    background-color: #d0c2c1;
     transition: 0.5s;
     margin-top: 80px;
     padding: 100px 50px;
@@ -56,6 +57,7 @@ body{
     border: 1px solid white;
     box-shadow: gray;
     cursor: pointer;
+    /* z-index: 100; */
 }
 
 .container .search-bar .dropdown .dropdown-text{
@@ -79,6 +81,7 @@ body{
    overflow: hidden;
    background-color: white;
    transition: max-height 0.5s;
+   z-index: 200;
 
 }
 
