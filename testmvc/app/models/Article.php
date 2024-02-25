@@ -67,4 +67,18 @@ class Article
         $params = array(':id' => $articleId);
         return $this->query($query, $params);
     }
+
+    public function findPublishArticlesByCategory($category)
+    {
+        $query = "SELECT * FROM $this->table WHERE status = 1 AND category = :category";
+        $params = array(':category' => $category);
+        return $this->query($query, $params);
+    }
+
+    public function findPublishArticlesByCategoryAndSearch($category, $searchQuery)
+    {
+        $query = "SELECT * FROM $this->table WHERE status = 1 AND category = :category AND (article_name LIKE :searchQuery OR article_content LIKE :searchQuery)";
+        $params = array(':category' => $category, ':searchQuery' => "%$searchQuery%");
+        return $this->query($query, $params);
+    }
 }

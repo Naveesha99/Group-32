@@ -57,6 +57,7 @@ body{
     border: 1px solid white;
     box-shadow: gray;
     cursor: pointer;
+    /* z-index: 100; */
 }
 
 .container .search-bar .dropdown .dropdown-text{
@@ -80,6 +81,7 @@ body{
    overflow: hidden;
    background-color: white;
    transition: max-height 0.5s;
+   z-index: 200;
 
 }
 

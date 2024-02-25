@@ -51,24 +51,10 @@
 
 
             <div class="search-box">
-                <input type="text" id="search-input" placeholder="search category..">
+                <input type="text" id="search-input" placeholder="search category.." oninput="handleSearch()">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </div>
         </div>
-        <!-- <div class="search-bar">
-            <div id="select">
-                <p id="selectText">All categories</p>
-                <i class="fa-solid fa-caret-down"></i>
-                <ul id="list">
-                    <li class="options">All categories</li>
-                    <li class="options">Comedy</li>
-                    <li class="options">Tragedy</li>
-                    <li class="options">Musical</li>
-                    <li class="options">Melodrama</li>
-                </ul>
-            </div>
-            <input type="text" placeholder="Search In All Categories">
-        </div> -->
 
         <div class="addNew">
             <a href="<?= ROOT ?>/cwAddArticle">ADD NEW</a>
@@ -97,86 +83,104 @@
     </div>
 
     <script>
+        let searchTimer;
         let dropdownBtn = document.getElementById("drop-text");
         let list = document.getElementById("list");
         let icon = document.getElementById("icon");
         let span = document.getElementById("span");
         let input = document.getElementById("search-input");
         let listItems = document.querySelectorAll(".dropdown-list-item");
+        let selectedCategory = "All categories";
 
-        //show dropdown list on click on dropdown btn
+        // Function to handle search based on category
+        function handleSearch() {
+            // Clear previous search timer
+            clearTimeout(searchTimer);
+
+            // Set a new timer to delay the search by 500 milliseconds
+            searchTimer = setTimeout(() => {
+                // Get the search query directly from the input field
+                let searchQuery = input.value.trim().toLowerCase();
+
+                // Get the selected category
+                let selectedCategory = span.innerText.trim();
+
+                // Redirect to the same page with selected category and search query as URL parameters
+                window.location.href = window.location.pathname + '?category=' + encodeURIComponent(selectedCategory) + '&search=' + encodeURIComponent(searchQuery);
+            }, 500);
+        }
+
+
+
+        // Show dropdown list on click on dropdown btn
         dropdownBtn.onclick = function() {
             list.classList.toggle('show');
 
-            // rotate arrow icon
+            // Rotate arrow icon
             if (list.classList.contains('show')) {
                 icon.style.rotate = "0deg";
-
             } else {
                 icon.style.rotate = "-180deg";
-
             }
-
-            // list.classList.toggle('show');
-
         };
 
-        //hide dropdown list when clicked outside dropdown btn
+        // Hide dropdown list when clicked outside dropdown btn
         window.onclick = function(e) {
             if (e.target.id !== "drop-text" &&
                 e.target.id !== "span" &&
                 e.target.id !== "icon") {
-
-                list.classList.remove('show');
+                list.classList.remove('show')
                 icon.style.rotate = "0deg";
-
             }
-
         };
 
         for (item of listItems) {
+            item.onclick = handleItemClick;
+        }
+
+        // Handle click on list items
+        function handleItemClick(e) {
             item.onclick = function(e) {
-                //change dropdown btn text on click on selected list item
+                // Change dropdown btn text on click on selected list item
                 span.innerHTML = e.target.innerText;
 
-                //change input placeholder text on selected list item
+                // Change input placeholder text on selected list item
                 if (e.target.innerText == "All categories") {
                     input.placeholder = "Search in all categories...";
-
                 } else {
                     input.placeholder = "Search in " + e.target.innerText + "...";
-
                 }
 
-
+                // Handle search when category is selected
+                handleSearch();
             };
-
         }
+
+        // Handle search when user presses Enter key in the search input field
+        input.addEventListener("keyup", function(event) {
+            if (event.keyCode === 13) {
+                event.preventDefault();
+                handleSearch();
+            }
+        });
+
+        // Add an event listener to the search input field
+        input.addEventListener("input", function() {
+            // Change dropdown btn text to the default "All categories" when typing in the search bar
+            span.innerHTML = "All categories";
+
+            // Change input placeholder text when typing in the search bar
+            input.placeholder = "Search in all categories...";
+
+            handleSearch();
+        });
+
+        // Handle search when user clicks on the search icon
+        // document.querySelector(".fa-magnifying-glass").addEventListener("click", function() {
+        //     handleSearch();
+        // });
     </script>
 
-    <!-- <script>
-        console.log("Script is running");
-
-        $(document).ready(function() {
-            var select = $("#select");
-            var list = $("#list");
-            var selectText = $("#selectText");
-            var options = $(".options");
-            console.log("Select element:", select);
-                console.log("List element:", list);
-                console.log("SelectText element:", selectText);
-                console.log("Options elements:", options);
-
-
-            select.click(function() {
-                list.toggleClass("open");
-            });
-
-            options.click(function() {
-                selectText.html($(this).html());
-            });
-        });
-    </script> -->
 
     <!-- <script src="search_category.js"></script> -->
 
