@@ -50,10 +50,10 @@
 
 
 
-                <div class="search-box">
+                <!-- <div class="search-box">
                     <input type="text" id="search-input" placeholder="search category.." onkeyup="search()">
                     <i class="fa-solid fa-magnifying-glass"></i>
-                </div>
+                </div> -->
             </div>
 
         </form>

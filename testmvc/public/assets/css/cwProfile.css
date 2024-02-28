@@ -1,107 +1,140 @@
 @import url('https://fonts.googleapis.com/css?family=Catamaran:400,700');
-*{
-    
-    margin: 0;
+
+* {
     padding: 0;
+    margin: 0;
     box-sizing: border-box;
-    text-decoration: none;
-    list-style: none;
-
+    font-family: 'Catamaran', sans-serif;
 }
 
-body{
-    font-family: 'Catamaran', sans-seri;
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--background-color);
+    border-radius: 10px;
+    box-shadow: 0 0 10px var(--shadow);
+}
+
+.button-container {
     display: flex;
-    justify-content: center;
-    min-height: 100vh;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-
-
-
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px;
 }
 
-.container{
-    position: absolute;
-    width: calc(100% - 250px);
-    left: 250px;
-    min-height: 100vh;
-    background-color:  #FFEAD7;
-    transition: 0.5s;
-    margin-top: 80px;
-    align-items: center;
-    padding: 100px 50px;
+.form-left,
+.form-right {
+    width: 50%;
+    float: left;
+    box-sizing: border-box;
+    padding: 20px;
 }
 
-.container .carddiv{
-    display: flex;
-    /* justify-items: center; */
-    align-items: center;
-    /* background: #A7D8D7; */
-    justify-content: center;
-    height: 100%;
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="password"],
+select,
+textarea {
     width: 100%;
-
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    outline: none;
 }
 
-.container .card{
-    display: flex;
-    align-items: center;
-    /* justify-items: center; */
-    width: 75vw;
-    height: 60vh;
-    max-width: 800px;
-    padding: 50px 30px 50px 30px;
-    background: rgba(55, 2, 2, 0.956);
-    border-radius: 24px;
-    box-shadow: 4px 4px 4px 4px rgba(105, 9, 9, 0.25);
-    transition: 0.5s;
+.clear {
+    clear: both;
 }
 
-.container h2{
-    color: white;
-    font-weight: 500px;
-    font-size: 70px;
+.form-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
 }
 
-.container .card img{
-    max-width: 280px;
-    width: 28vw;
-    height: 300px;
-    object-fit: cover;
-    margin-left: -80px;
-    margin-right: 50px;
-    border-radius: inherit;
-    box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.25);
+.button {
+    padding: 10px 20px;
+    /* Adjust the padding for your desired button size */
+    margin-right: 10px;
+    /* Add some spacing between buttons */
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 0 10px var(--shadow);
 }
 
-.container .details {
-    padding: 0px 0px 0px 30px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: flex-start;
-    justify-content: center;
-    flex-shrink: 0;
-    position: relative;
-    color: white;
+.add-button {
+    background-color: var(--add-color);
+    color: var(--text-color);
 }
 
+.update-button {
+    background-color: var(--update-color);
+    color: var(--text-color);
+}
 
-@media(width<=740px){
-    .card{
-          flex-direction: column;
-          align-items: center;
-          margin: 0 40px;
-          padding-left: 50px;
-          padding-right: 50px;
-          width: 100%;
-          height: 75vh;
-    }
+.delete-button {
+    background-color: var(--delete-color);
+    color: var(--text-color);
+}
 
-    .card img{
-          margin: -100px 0 30px 0;
-          width: 100%;
-          max-width: 1000px;
-    }
+.clear-details {
+    background-color: var(--clear-color);
+    color: var(--text-color);
+}
+
+.invalid-feedback {
+    color: var(--invalid-color);
+    /* Red text color for error messages */
+    font-size: 16px;
+    /* Adjust the font size as needed */
+    margin-top: 0px;
+    /* Add some spacing between the input and the error message */
+    padding-bottom: 10px !important;
+}
+
+.valid-feedback {
+    color: var(--valid-color);
+    /* Red text color for error messages */
+    font-size: 16px;
+    /* Adjust the font size as needed */
+    margin-top: 0px;
+    /* Add some spacing between the input and the error message */
+    padding-bottom: 10px !important;
+}
+
+.is-invalid {
+    border: 1px solid var(--invalid-color) !important;
+    /* Red border for the input field */
+    margin-bottom: 0px !important;
+}
+
+.is-valid {
+    border: 1px solid var(--valid-color) !important;
+    /* Green border for the input field */
+    margin-bottom: 0px !important;
+}
+
+fieldset {
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+legend {
+    font-weight: bold;
 }
