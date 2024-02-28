@@ -13,6 +13,7 @@ body{
     font-family: 'Catamaran', sans-seri;
     height: 100vh;
 }
+
 .container{
     position: absolute;
     width: calc(100% - 250px);
@@ -22,75 +23,19 @@ body{
     transition: 0.5s;
     margin-top: 80px;
     padding: 100px 50px;
-}
-
-.container .cardBox{
-    position: relative;
-    width: 100%;
-    padding: 5px;
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-    grid-gap: 50px;
-
-
-}
-
-.container .cardBox .card{
-    position: relative;
-    background: blue;
-    padding: 30px;
-    border-radius: 20px;
-    display: flex;
-    justify-content: space-between;
-    cursor: pointer;
-    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
-
-}
-
-.container .cardBox .card .numbers{
-    position: relative;
-    font-weight: 500;
-    font-size: 2.5rem;
-    color: white;
-}
-
-.container .cardBox .card .cardName{
-    color: white;
-    font-size: 1.1rem;
-    margin-top: 5px;
-}
-
-.container .cardBox .card .iconBox{
-    font-size: 3.5rem;
-    color: white;
-}
-
-.container .cardBox .card:hover{
-    background: white;
-    border: 3px solid #2424ff;
-}
-
-.cardBox .card:hover .numbers,
-.cardBox .card:hover .cardName,
-.cardBox .card:hover .iconBox{
-    color: blue;
+    align-items: center;
+    justify-content: center;
 }
 
 .container .table-responsive{
-    max-width: 1500px;
-    border: 2px  ;
+    max-width: 1100px;
+    /* border: 2px solid black ; */
     background-color: #efefef33;
     padding: 15px;
     overflow: auto;
-    /* margin: auto; */
+    margin: auto;
     border-radius: 4px;
-    display: grid;
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Box shadow added */
-    
     
 }
 
@@ -103,7 +48,7 @@ body{
 }
 
 .container .table-responsive table>thead{
-    background-color: rgba(0, 0, 0, 0.61);
+    background-color: rgba(0, 0, 0, 0.508);
     color: whitesmoke;
 }
 
@@ -187,8 +132,7 @@ body{
     background-color: red;
 }
 
-
-.action_btn>a:hover{
+.action_btn .btn-delete,.btn-update, .btn-view:hover{
     box-shadow: 0 2px 8px gray ;
 }
 
@@ -205,66 +149,50 @@ body{
     filter: drop-shadow(0 3px 7px #0002);
 }
 
-@media screen and (max-width: 1200px) {
+@media (max-width: 1200px) {
     .container {
-        padding: 100px 30px;
+        width: calc(100% - 200px);
+        left: 200px;
     }
 
-    .container .cardBox {
-        grid-template-columns: repeat(3, 1fr);
-        grid-gap: 30px;
+    .container .table-responsive {
+        max-width: 80%;
+    }
+}
+
+@media (max-width: 992px) {
+    .container {
+        width: calc(100% - 150px);
+        left: 150px;
+    }
+
+    .container .table-responsive {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        left: 0;
+        padding: 20px;
     }
 
     .container .table-responsive {
         max-width: 100%;
-    }
-}
-
-@media screen and (max-width: 1000px) {
-    .container .cardBox {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media screen and (max-width: 800px) {
-    .container .cardBox {
-        grid-template-columns: 1fr;
-    }
-
-    .container .table-responsive {
-        max-width: 100%;
-    }
-}
-
-@media screen and (max-width: 650px) {
-    .container {
-        padding: 100px 20px;
-    }
-
-    .container .cardBox {
-        grid-gap: 20px;
     }
 
     .container .table-responsive table th,
     .container .table-responsive table td {
-        padding: 3px 5px;
+        font-size: 12px;
+        padding: 8px 5px;
     }
 
     .container .table-responsive table>thead th {
         padding: 10px;
     }
-}
 
-@media screen and (max-width: 550px) {
-    .container .cardBox {
-        grid-gap: 15px;
-    }
-
-    .container .table-responsive table>thead th {
-        font-size: 12px;
-    }
-
-    .action_btn>a {
-        padding: 7px 12px;
+    .action_btn .btn-delete,.btn-update,.btn-view {
+        padding: 5px 10px;
     }
 }

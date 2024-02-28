@@ -17,6 +17,7 @@ class Article
         'article_content',
         'image',
         'status',
+        'progress',
 
     ];
 
@@ -57,14 +58,28 @@ class Article
 
     public function findPublishArticles()
     {
-        $query = "SELECT * FROM $this->table WHERE status =1 ";
+        $query = "SELECT * FROM $this->table WHERE status =1 AND progress = 'accepted'";
         return $this->query($query);
+    }
+
+    public function publishDraftArticle($articleId)
+    {
+        $query = "UPDATE $this->table SET status = 1 WHERE id = :id AND status = 0";
+        $params = array(':id' => $articleId);
+        return $this->execute($query, $params);
     }
 
     public function findArticleById($articleId)
     {
         $query = "SELECT * FROM $this->table WHERE id=:id";
         $params = array(':id' => $articleId);
+        return $this->query($query, $params);
+    }
+
+    public function findArticlesByStatus($status)
+    {
+        $query = "SELECT * FROM $this->table WHERE status = :status";
+        $params = array(':status' => $status);
         return $this->query($query, $params);
     }
 
