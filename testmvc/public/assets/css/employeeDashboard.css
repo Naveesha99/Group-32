@@ -1,76 +1,145 @@
 @import url('https://fonts.googleapis.com/css?family=Catamaran:400,700');
-
-* {
-    padding: 0;
+*{
+    
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    font-family: 'Catamaran', sans-serif;
+    text-decoration: none;
+    list-style: none;
+
 }
-body {
+
+body{
+    font-family: 'Catamaran', sans-seri;
+    height: 100vh;
+}
+.container{
+    position: absolute;
+    width: calc(100% - 250px);
+    left: 250px;
     min-height: 100vh;
+    background-color:  white;
+    transition: 0.5s;
+    margin-top: 80px;
+    padding: 100px 50px;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
 }
+
+.container .cardBox{
+    position: relative;
+    width: 100%;
+    padding: 5px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 30px;
+    top: -30px;
+    margin-left: 15px;
+
+
+}
+
+.container .cardBox .card{
+    position: relative;
+    background: blue;
+    padding: 30px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+
+}
+
+.container .cardBox .card .numbers{
+    position: relative;
+    font-weight: 500;
+    font-size: 2.0rem;
+    color: white;
+}
+
+.container .cardBox .card .cardName{
+    color: white;
+    font-size: 1.1rem;
+    margin-top: 5px;
+}
+
+.container .cardBox .card .iconBox{
+    font-size: 3.5rem;
+    color: white;
+}
+
+.container .cardBox .card:hover{
+    background: white;
+    border: 3px solid #2424ff;
+}
+
+.cardBox .card:hover .numbers,
+.cardBox .card:hover .cardName,
+.cardBox .card:hover .iconBox{
+    color: blue;
+}
+
+.container  .content-2 {
+    min-height: 60vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+.container  .content-2 .tasks {
+    min-height: 50vh;
+    flex: 5;
+    background: white;
+    margin: 0 25px 25px 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+}
+
 a {
     text-decoration: none;
 }
 li {
     list-style: none;
 }
-h1,
+h1{
+    color: white;
+}
 h2 {
-    color: #ffffff;
+    color: black;
 }
 h3 {
     color: #ffffff;
 }
 .btn {
-    background: #76323F;
-    color: white;
+    background: #e6cc00;
+    color: black;
     padding: 3px 10px;
     text-align: center;
-    border-radius: 5px;
+    border-radius: 15px;
 }
 .btn:hover {
-    color: #76323F;
-    background: white;
+    color: #e6cc00;
+    background:black;
+    /* opacity: 0.6; */
     padding: 3px 8px;
-    border: 2px solid #76323F;
+    /* border: 2px solid #e6cc00; */
 }
-
-.container {
-    position: absolute;
-    right: 0;
-    width: 80vw;
-    height: 100vh;
-    background:  #ffffff;
-}
-
-.container .content {
-    position: relative;
-    margin-top: 10vh;
-    min-height: 90vh;
-    background:  #ffffff;
-}
-
-.container .content .cards {
-    padding: 20px 15px;
+.title {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-.container .content .cards .box {
-    width: 250px;
-    height: 150px;
-    background: #062dc7;
-    margin: 50px 150px;
-    display: flex;
-    border-radius: 5px;
     align-items: center;
     justify-content: space-around;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 15px 10px;
+    border-bottom: 2px solid #999;
 }
-
-.container .content .cards .box .h1 {
-    font-weight: bold;
+table {
+    padding: 10px;
+}
+th,
+td {
+    text-align: left;
+    padding: 8px;
 }

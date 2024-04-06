@@ -46,30 +46,7 @@
 
             <hr>
 
-            <div class="form-left">
-
-                  <!-- <div align="center">
-    <div style="font-size: 24px; margin-bottom: 10px;"><b>
-            <?php echo $data['user']->first_name . ' ' . $data['user']->last_name; ?>
-        </b></div>
-    <div style="font-size: 18px; margin-bottom: 10px;">
-        <?php echo $data['user']->identification_code; ?>
-    </div>
-    <div style="font-size: 18px; margin-bottom: 10px;">
-        <?php echo $data['user']->role_name; ?>
-    </div>
-
-    <div class="profile-box">
-        <div id="profilePhotoContainer">
-            <?php
-            // Creating profile photo name
-            $profile_photo_name = str_replace("/", "-", $data['user']->identification_code);
-            ?>
-            <img src="<?php echo ROOT; ?>/img/profile_pictures/<?php echo $profile_photo_name; ?>.jpg"
-                alt="">
-        </div>
-        <input type="file" id="profilePhotoInput" onchange="displayProfilePhoto(event)">
-    </div>
+            <!-- <div class="form-left">
 
 </div> -->
 

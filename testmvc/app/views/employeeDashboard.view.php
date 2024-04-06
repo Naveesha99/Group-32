@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -8,11 +8,9 @@
     <title>Employee dashboard</title>
 </head>
 
-<?php include 'adminSidebar.php' ?>
-<?php include 'navBar.php' ?>
 
 
-<body>
+<!-- <body>
     <div class="container">
         <div class="content">
             <div class="cards">
@@ -26,7 +24,7 @@
                     <div class="box">
                         <h1>Empty</h1>
                     </div>
-                </a>
+                </a> -->
 
                 <!-- <a href="#">
                 <div class="box">
@@ -34,8 +32,8 @@
                 </div>
                 </a> -->
 
-            </div>
-        </div>
+            <!-- </div> -->
+        <!-- </div>
         <div class="content-2">
             <h1>Daily Tasks</h1>
             <a href="#" class="btn">View All</a>
@@ -43,11 +41,11 @@
             <table>
                 <tr>
                     <th>Task</th>
-                    <th>Status</th>
+                    <th>Status</th> -->
                     <!-- <th>Amount</th>
                             <th>Option</th> -->
-                </tr>
-                <tr>
+                <!-- </tr> -->
+                <!-- <tr>
                     <td>Check reservation request</td>
                     <td>
                         <label for="dropdown"></label>
@@ -63,4 +61,4 @@
     </div>
 </body>
 
-</html>
+</html> --> 
