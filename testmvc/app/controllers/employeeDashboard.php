@@ -12,7 +12,7 @@ class employeeDashboard
 
 		// $data['username'] = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->email;
 
-		$this->view('employeedashboard');
+		$this->view('employee/employeedashboard');
 	}
 
 }

@@ -28,3 +28,7 @@ CREATE TABLE drafts(
 
 ALTER TABLE articles
 ADD status INT
+
+ALTER TABLE employee_requests
+ADD employee_name VARCHAR(255),
+ADD 

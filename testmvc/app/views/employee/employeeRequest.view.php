@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/employeeRequests.css">
-    <title>Employee Requests Form</title>
+    <title>Employee Requests</title>
 </head>
 
 <?php require_once 'employeeSideBar.php' ?>
@@ -13,18 +13,17 @@
 
 <body>
     <div class="container">
-        <div class="carBox">
+        <div class="cardBox">
             <div class="card">
+            <a href="<?= ROOT ?>/EmployeeRequestForm">
                 <div>
-                    <div class="cardName">Request Leave</div>
+                    <div class="cardName">Request to Leave</div>
                 </div>
             </div>
-        </div>
 
-        <div class="carBox">
             <div class="card">
                 <div>
-                    <div class="cardName">Total leaves</div>
+                    <div class="cardName">Total Leaves</div>
                     <div class="numbers">10</div>
                 </div>
             </div>
@@ -39,6 +38,7 @@
                         <th>End Date</th>
                         <th>Reason</th>
                         <th>State</th>
+                        <th>Option</th>
                     </tr>
                 </thead>
             </table>

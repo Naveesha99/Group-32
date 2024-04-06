@@ -18,6 +18,21 @@ class EmployeeRequestForm
 
 		// $data['username'] = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->email;
 
+		$data =[];
+		$emp_req = new EmployeeRequest;
+
+		if (isset($_POST['submit'])){
+			$_POST['status'] ='pending';
+			if($emp_req->validate($_POST)){
+				$emp_req->insert($_POST);
+				redirect('employeeRequest');
+			}
+		}
+
+		$data['errors'] = $emp_req->errors;
+        show($_POST);
+
+
 		$this->view('employee/employeeRequestForm');
 	}
 }

@@ -18,6 +18,7 @@ class EmployeeRequest
 
 		// $data['username'] = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->email;
 
+		
 		$this->view('employee/employeeRequest');
 	}
 }

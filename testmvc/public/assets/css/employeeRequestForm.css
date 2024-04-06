@@ -1,23 +1,36 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+@import url('https://fonts.googleapis.com/css?family=Catamaran:400,700');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Catamaran', sans-serif;
+
 }
 
 .container {
-    width: 50%;
+    width: 45%;
     margin: 0 auto;
     padding: 20px;
-    background-color: #fff;
+    background-color: white;
+    transition: 0.5s;
+    margin-top: 60px;
+    padding: 20px;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
 }
 
-h2 {
+h1 {
     text-align: center;
+    color: #000000;
+    margin-top: 10px;
+    font-size: 30px;
+    margin-bottom: 40px;
 }
 
 form {
-    margin-top: 20px;
+    margin-top: 40px;
+    
 }
 
 label {
@@ -37,15 +50,20 @@ textarea {
 }
 
 button {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
+    width: 25%;
+    padding: 10px 20px;
+    background-color: #7B0303;
     color: #fff;
     border: none;
-    border-radius: 3px;
+    border-radius: 15px;
     cursor: pointer;
+    margin-bottom: 50px;
+    margin-top: 30px;
+    /* margin-left: 75%; */
+    text-align: center;
+    
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #888;
 }
