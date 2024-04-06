@@ -22,6 +22,20 @@
 <body>
     <div class="container">
         <div class="content">
+            <div class="filter">
+                <select name="select" onchange="redirectToEmployee(this.value)">
+                    <?php
+                    foreach ($data['role'] as $row) {
+                        echo "<option value='" . $row->jobTitle . "'>" . $row->jobTitle . "</option>";
+                    }
+                    ?>
+                </select>
+                <script>
+                    function redirectToEmployee(role) {
+                        window.location.href = 'employees?role=' + role;
+                    }
+                </script>
+            </div>
             <div class="employees">
                 <table>
                     <tr class="tr-1">

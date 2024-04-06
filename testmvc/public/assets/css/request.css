@@ -5,7 +5,7 @@
     right: 0;
     width: 80vw;
     /* width: 80%; */
-    height: 100vh;
+    /* height: 100%; */
     /* background: #f1f1f1; */
     /* background-color: #FFEAD7; */
     /* background-color: #7B0303; */
@@ -52,12 +52,14 @@ h1{
 .container .requests table {
     border-collapse: collapse;
     width: 100%;
+    height: 100%;
 }
 
 .container .requests th,
 .container .requests td {
     border: 1px solid black;
     padding: 8px;
+    height: 100%;
 }
 
 .container .requests .tr-1 {

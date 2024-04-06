@@ -21,6 +21,7 @@ class addEmployee
 
 		if ($_SERVER['REQUEST_METHOD'] == "POST") {
 			$employee = new Employee;
+			show($_POST);
 			if ($employee->validate($_POST)) {
 				$employee->insert($_POST);
 				redirect('adminemployee');

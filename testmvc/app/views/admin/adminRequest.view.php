@@ -10,19 +10,25 @@
 </head>
 
 <?php include 'adminSidebar.php' ?>
-<?php include 'navBar.php' ?>
+<?php include 'navBar.php'?>
 
 <body>
     <div class="container">
         <div class="content">
             <div class="cards">
-                <a href="<?= ROOT ?>/request">
-                    <div class="card">
-                        <div class="box">
+                <div class="box">
+                    <a href="<?= ROOT ?>/request">
+                        <div class="card">
                             <h1>All Requests</h1>
                         </div>
+                    </a>
+
+                    <div class="details">
+                        <p>Pending : <?= $data['pending']?> </p>
+                        <p>Accepted : <?= $data['accepted']?> </p>
+                        <p>Rejected : <?= $data['rejected']?></p>
                     </div>
-                </a>
+                </div>
             </div>
         </div>
     </div>
