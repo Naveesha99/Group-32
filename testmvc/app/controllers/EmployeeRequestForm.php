@@ -30,9 +30,9 @@ class EmployeeRequestForm
 		}
 
 		$data['errors'] = $emp_req->errors;
-        show($_POST);
+        // show($_POST);
 
 
-		$this->view('employee/employeeRequestForm');
+		$this->view('employee/employeeRequestForm',$data);
 	}
 }

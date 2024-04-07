@@ -1,23 +1,24 @@
 <?php
 
 /**
- * request class
+ * User class
  */
 
 class EmployeeRequest
 {
-    use model;
-
+    use Model;
     protected $table = 'employee_requests';
 
     protected $allowedColumns = [
+
         'id',
         'employee_name',
         'leave_type',
         'start_date',
         'end_date',
         'reason',
-        'state',
+        'status',
+
 
     ];
 
@@ -34,17 +35,20 @@ class EmployeeRequest
         }
 
         if (empty($data['start_date'])) {
-            $this->errors['start_date'] = "Start date is required";
+            $this->errors['start_date'] = "Start Date is required";
         }
 
         if (empty($data['end_date'])) {
-            $this->errors['end_date'] = "End Date is required";
+            $this->errors['end_date'] = "end date is required";
         }
 
         if (empty($data['reason'])) {
             $this->errors['reason'] = "reason is required";
         }
-        
+
+
+
+
         if (empty($this->errors)) {
             return true;
         }

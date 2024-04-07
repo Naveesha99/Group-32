@@ -34,7 +34,7 @@
             <label for="reason">Reason:</label>
             <textarea id="reason" name="reason" rows="4" required></textarea>
 
-            <button type="submit">Submit</button>
+            <button type="submit" name="submit">SUBMIT</button>
         </form>
     </div>
 
