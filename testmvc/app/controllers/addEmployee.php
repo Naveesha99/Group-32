@@ -21,8 +21,14 @@ class addEmployee
 
 		if ($_SERVER['REQUEST_METHOD'] == "POST") {
 			$employee = new Employee;
-			show($_POST);
+			// show($_POST);
 			if ($employee->validate($_POST)) {
+				$_POST['password'] = $_POST['empNIC'];
+				// show($_POST);
+				$email = $_POST['empEmail'];
+				$name = $_POST['empName'];
+				$sendMail = new SendMail;
+				$sendMail->sendEmployeeEmail($email, $name);
 				$employee->insert($_POST);
 				redirect('adminemployee');
 			}
