@@ -31,4 +31,15 @@ ADD status INT
 
 ALTER TABLE employee_requests
 ADD employee_name VARCHAR(255),
-ADD 
+ADD
+
+CREATE TABLE empTasks(
+    task_id INT AUTO_INCREMENT,
+    task VARCHAR(255),
+    place VARCHAR(255),
+
+    date DATE,
+    time TIME,
+    status VARCHAR(100),
+    Created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+);

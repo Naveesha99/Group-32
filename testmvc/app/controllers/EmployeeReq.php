@@ -26,9 +26,19 @@
 
         $this->view('employee/employeeReq',$data);
 
-        // if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){
+            if(isset($_POST['delete_request'])){
+                $reqId = $_POST['delete_request'];
+                $this->requestDelete($reqId, $emp_req);
+            }
 
-        // }
 
+        }
+
+    }
+
+    private function requestDelete($data, $emp_req){
+        $emp_req->delete($data, 'id');
+        redirect('employeeReq');
     }
  }

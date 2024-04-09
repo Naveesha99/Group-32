@@ -40,29 +40,22 @@
                         <th>Option</th>
                     </tr>
 
-                    <tr>
-                        <td>Cleaning the hall</td>
-                        <td>Hall 01</td>
-                        <td>8.30 A.M</td>
-                        <td>to do</td>
-                        <td><a href="#" class="btn">View</a></td>
-                    </tr>
+                    <?php
+                    if($data &&(is_array($data))){
+                        foreach($data as $row){
+                            echo '<tr>
+                            <td>' . $row->task . ' </td>
+                            <td>' . $row->place . ' </td>
+                            <td>' . $row->relavant_time . ' </td>
+                            <td>' . $row->status . '</td>
+                            <td> <a href = "cwViewOwnArticle?id=' . $row->id . '" class = "btn">View</a>
+                            </tr>';
+                        }
+                    } else {
+                        echo '<tr><td colspan="9">No data available</td></tr>';
+                    }
+                    ?>
 
-                    <tr>
-                        <td>Cleaning the theatre</td>
-                        <td>Theatre</td>
-                        <td>9.30 A.M</td>
-                        <td>completed</td>
-                        <td><a href="#" class="btn">View</a></td>
-                    </tr>
-
-                    <tr>
-                        <td>Cleaning the hall</td>
-                        <td>Hall 02</td>
-                        <td>11.30 A.M</td>
-                        <td>to do</td>
-                        <td><a href="#" class="btn">View</a></td>
-                    </tr>
                 </table>
             </div>
 

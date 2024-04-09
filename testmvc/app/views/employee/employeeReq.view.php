@@ -77,8 +77,8 @@ function limitWords($text, $limit)
             
 
                                     <form method="POST">
-                                        <input type="hidden" name="delete_article" value="' . $row->id . '">
-                                         <button type="submit" name="Delete" class="btn-delete">Delete</button>
+                                        <input type="hidden" name="delete_request" value="' . $row->id . '">
+                                        <button type="submit" name="Delete" class="btn-delete">Delete</button>
                                     </form>';
                                 } else{
                                     echo '<a href = "employeeReqView?id=' . $row->id . '" class = "btn-view">View</a>
