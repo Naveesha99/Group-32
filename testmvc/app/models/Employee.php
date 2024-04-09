@@ -20,8 +20,8 @@ class Employee
 		'empAddress',
 		'empContact',
 		'empRoll',
+		'password',
 	];
-
 	public function validate($data)
 	{
 		$this->errors = [];

@@ -22,7 +22,7 @@
                             <h1>Add Employee</h1>
                         </div>
                     </div>
-                </a>                
+                </a>
 
                 <a href="<?= ROOT ?>/createtask">
                     <div class="card">

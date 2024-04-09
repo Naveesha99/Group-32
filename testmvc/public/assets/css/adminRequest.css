@@ -72,6 +72,20 @@ table {
     flex-wrap: wrap;
     transition: all 0.3s ease-in-out;
 }
+
+.container .content .cards .box{
+    background-color: antiquewhite;
+    width: 270px;
+    height: 300px;
+    border-radius: 20px;
+    /* padding: 10px; */
+}
+
+.container .content .cards .box .details{
+    font-size: 15px;
+    padding: 10px;
+    font-weight: 700;
+}
 .container .content .cards .card {
     width: 250px;
     height: 150px;

@@ -41,3 +41,41 @@
     display: inline-block;
 }
 
+.btn-container {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px; /* Adjust the gap between buttons as needed */
+}
+
+.btn-accept,
+.btn-reject {
+    width: 80px;
+    font-size: 15px;
+    padding: 3px 8px;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.btn-accept {
+    background: rgb(43 195 1 / 97%);
+    border: 2px solid rgb(43 195 1 / 97%);
+    color: white;
+}
+
+.btn-accept:hover {
+    color: rgb(43 195 1 / 97%);
+    background: white;
+    border: 2px solid rgb(43 195 1 / 97%);
+}
+
+.btn-reject {
+    background: rgba(255, 0, 0, 0.97);
+    border: 2px solid rgba(255, 0, 0, 0.97);
+    color: rgb(255, 255, 255);
+}
+
+.btn-reject:hover {
+    color: rgba(255, 0, 0, 0.97);
+    background: white;
+    border: 2px solid rgba(255, 0, 0, 0.97);
+}
