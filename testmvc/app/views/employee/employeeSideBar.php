@@ -14,8 +14,8 @@
     <div class="sidebar">
 
         <a href="<?= ROOT ?>/employeeDashboard"> <i class="fa-solid fa-house"></i> <span>Dashboard</span></a>
-        <a href="<?= ROOT ?>/tasks"> <i class="fa-solid fa-list-check"></i><span> Tasks</span></a>
-        <a href="<?= ROOT ?>/employeeRequest"> <i class="fa-solid fa-hand"></i> <span>Request</span></a>
+        <a href="<?= ROOT ?>/empTask"> <i class="fa-solid fa-list-check"></i><span> Tasks</span></a>
+        <a href="<?= ROOT ?>/employeeReq"> <i class="fa-solid fa-hand"></i> <span>Request</span></a>
         <a href="<?= ROOT ?>/notification"> <i class="fa-solid fa-bell"></i> <span>Notification</span></a>
         <a href="<?= ROOT ?>/cwProfile"> <i class="fa-solid fa-gear"></i> <span>Settings</span></a>
     </div>

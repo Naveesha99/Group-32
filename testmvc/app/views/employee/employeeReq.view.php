@@ -69,7 +69,7 @@ function limitWords($text, $limit)
                         <td>
                                 <span class="action_btn">
                                         
-                                    <a href = "cwViewOwnArticle?id=' . $row->id . '" class = "btn-view">View</a>
+                                    <a href = "employeeReqView?id=' . $row->id . '" class = "btn-view">View</a>
 
                                         
                                     <a href = "cwEditArticle?id=' . $row->id . '" class = "btn-update">Edit </a>
