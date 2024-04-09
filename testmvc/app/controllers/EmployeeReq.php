@@ -26,5 +26,9 @@
 
         $this->view('employee/employeeReq',$data);
 
+        // if($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+        // }
+
     }
  }

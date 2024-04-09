@@ -67,19 +67,27 @@ function limitWords($text, $limit)
                         <td>' . limitWords($row->reason,5) . ' </td>
                         <td>' . $row->state . '</td>
                         <td>
-                                <span class="action_btn">
-                                        
-                                    <a href = "employeeReqView?id=' . $row->id . '" class = "btn-view">View</a>
+                                <span class="action_btn">';
+
+                                if($row->state === 'pending'){
+                                    echo '<a href = "employeeReqView?id=' . $row->id . '" class = "btn-view">View</a>
 
                                         
-                                    <a href = "cwEditArticle?id=' . $row->id . '" class = "btn-update">Edit </a>
+                                    <a href = "empEditRequest?id=' . $row->id . '" class = "btn-update">Edit </a>
             
 
                                     <form method="POST">
                                         <input type="hidden" name="delete_article" value="' . $row->id . '">
                                          <button type="submit" name="Delete" class="btn-delete">Delete</button>
-                                    </form>
-                                </span>
+                                    </form>';
+                                } else{
+                                    echo '<a href = "employeeReqView?id=' . $row->id . '" class = "btn-view">View</a>
+                                    <button class ="btn-update" disabled>Edit</button>
+                                    <button class ="btn-delete" disabled>Delete</button>';
+                                }
+                                        
+                                    
+                                echo '</span>
                         </td>
                         </tr>';
                     }

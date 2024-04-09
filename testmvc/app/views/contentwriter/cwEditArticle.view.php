@@ -48,8 +48,6 @@
                 <button type="submit" name="submit_article">SUBMIT</button>
 
             </div>
-
-
         </form>
 
 
