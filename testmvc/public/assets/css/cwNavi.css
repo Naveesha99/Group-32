@@ -11,6 +11,7 @@
 
 body{
     font-family: 'Catamaran', sans-seri;
+    min-height: 100vh;
 
 }
 
@@ -75,8 +76,9 @@ nav ul li a:hover{
     width: 250px;
     height: 100%;
     /* background: #97704F; */
-    background: #4b0606;
+    background: white;
     margin-top: 80px;
+    border-right: 2px solid black;
 }
 
 /* .sidebar header{
@@ -104,8 +106,10 @@ nav ul li a:hover{
 }
 
 .sidebar a:hover {
+    padding-left: 30px;
     padding-left: 20px;
-    background: gray;
+    background: #e6cc00;
+    border-radius: 25px;
 }
 
 .sidebar a i{
@@ -115,13 +119,13 @@ nav ul li a:hover{
 .sidebar span{
     font-size: 20px;
     margin-left: 10px;
-    color: white;
+    color: black;
 }
 
 .sidebar i{
     font-size: 20px;
     margin-left: 20px;
-    color: white;
+    color: black;
 }
 
 .nav .menu-bar{

@@ -15,25 +15,28 @@ a {
 li {
     list-style: none;
 }
-h1,
+h1{
+    color: white;
+}
 h2 {
-    color: #444;
+    color: black;
 }
 h3 {
     color: #999;
 }
 .btn {
-    background: rgba(195, 98, 1, 0.973);
-    color: white;
+    background: #e6cc00;
+    color: black;
     padding: 3px 10px;
     text-align: center;
-    border-radius: 5px;
+    border-radius: 15px;
 }
 .btn:hover {
-    color: rgba(195, 98, 1, 0.973);
-    background: white;
+    color: #e6cc00;
+    background:black;
+    /* opacity: 0.6; */
     padding: 3px 8px;
-    border: 2px solid rgba(195, 98, 1, 0.973);
+    /* border: 2px solid #e6cc00; */
 }
 .title {
     display: flex;
@@ -55,14 +58,14 @@ td {
     right: 0;
     width: 80vw;
     height: 100vh;
-    background: #f1f1f1;
+    background: white;
 }
 
 .container .content {
     position: relative;
     margin-top: 10vh;
     min-height: 90vh;
-    background: #f1f1f1;
+    background: white;
 }
 .container .content .cards {
     padding: 20px 15px;
@@ -71,17 +74,36 @@ td {
     justify-content: space-between;
     flex-wrap: wrap;
 }
+
 .container .content .cards .card {
+    width: 250px;
+    height: 150px;
+    background: #2424ff;
+    margin: 20px 10px;
+    display: flex;
+    border-radius: 40px;
+    align-items: center;
+    justify-content: space-around;
+    transition: all 0.3s ease-in-out;
+}
+
+.container .content .cards .card:hover {
     width: 250px;
     height: 150px;
     background: white;
     margin: 20px 10px;
     display: flex;
-    border-radius: 5px;
+    border-radius: 40px;
     align-items: center;
     justify-content: space-around;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border: 3px solid #2424ff;
+    transition: all 0.3s ease-in-out;
 }
+
+.container .content .cards .card:hover h1 {
+    color: #2424ff;
+}
+
 .container .content .content-2 {
     min-height: 60vh;
     display: flex;

@@ -23,17 +23,18 @@ h3 {
     color: #999;
 }
 .btn {
-    background: rgba(195, 98, 1, 0.973);
-    color: white;
+    background: #e6cc00;
+    color: black;
     padding: 3px 10px;
     text-align: center;
-    border-radius: 5px;
+    border-radius: 15px;
 }
 .btn:hover {
-    color: rgba(195, 98, 1, 0.973);
-    background: white;
+    color: #e6cc00;
+    background:black;
+    /* opacity: 0.6; */
     padding: 3px 8px;
-    border: 2px solid rgba(195, 98, 1, 0.973);
+    /* border: 2px solid #e6cc00; */
 }
 .title {
     display: flex;
@@ -50,60 +51,77 @@ td {
     text-align: left;
     padding: 8px;
 }
-
 .container {
+    /* display: flex; */
+    margin-top: 80px;
     position: absolute;
     right: 0;
     width: 80vw;
-    height: 100vh;
-    background: #f1f1f1;
+    /* height: 100%;/ */
+    /* background: #f1f1f1; */
 }
 
 .container .create-task {
-    margin-top: 100px;
-    max-width: 600px;
     height: 100%;
-    margin: 40px auto;
-    border-radius: 5px;
-    background-color: #d7cec7;
-  }
+    width: 80;
+}
+
   
 .container .create-task label {
-    display: block;
+    display: inline-block;
+    width: 20%; /* Adjust the width as needed */
     margin-bottom: 8px;
     margin-left: 20px;
     font-weight: bold;
-  }
-  
+}
+
 .container .create-task input {
-    width: 80%;
+    display: inline-block;
+    width: 70%; /* Adjust the width as needed */
     padding: 8px;
     margin-bottom: 16px;
-    margin-left: 20px;
     box-sizing: border-box;
     border: 1px solid #ccc;
     border-radius: 4px;
-  }
+}
 
-  #popup {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 20px;
-    background-color: #fff;
+
+.container .create-task .select {
+    width: 80%;
+    padding: 8px;
+    border-radius: 4px;
     border: 1px solid #ccc;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-  }
+    margin-left: 20px;
+    margin-bottom: 16px;
+}
 
-  /* Button styles for the popup options */
-  #popup button {
-    margin: 0 10px;
-    padding: 10px 15px;
-    cursor: pointer;
-  }
+.btn-1 {
+    background: rgba(195, 98, 1, 0.973);
+    color: white;
+    padding: 3px 10px;
+    text-align: center;
+    border-radius: 5px;
+    border: 2px solid rgba(195, 98, 1, 0.973);
+    margin-left: 30px;
+}
+.btn-1:hover {
+    color: rgba(195, 98, 1, 0.973);
+    background: white;
+    padding: 3px 10px;
+    border: 2px solid rgba(195, 98, 1, 0.973);
+    margin-left: 30px;
+}
+
   
+  @media screen and (max-width:536px) {
+
+    .container .content .form {
+        justify-content: center;
+    }
+    .container .content .content-2 .tasks table th:nth-child(2),
+    .container .content .content-2 .tasks table td:nth-child(2) {
+        display: none;
+    }
+}
 
   

@@ -23,6 +23,7 @@ class adminDashboard
 
 		// $data['username'] = empty($user) ? 'User' : $user->email;
 
+		//show($_SESSION['USER']);
 		$this->view('admin/admindashboard');
 	}
 }

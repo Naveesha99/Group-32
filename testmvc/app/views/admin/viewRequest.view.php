@@ -4,84 +4,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="<?= ROOT ?>/assets/css/viewRequest.css" rel="stylesheet">
-
-    <title>Admin Request</title>
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/viewRequest.css">
+    <title>Employee View</title>
 </head>
 
 <?php include 'adminSidebar.php' ?>
 <?php include 'navBar.php' ?>
 
 <body>
+    <!-- end of styling are -->
+
+    <!-- Page content -->
+
+    <hr>
+
     <div class="container">
-        <!--for demo wrap-->
-        <h1>Sent Request</h1>
-        <div class="table">
-            <table cellpadding="0" cellspacing="0" border="0">
-                <thead>
-                    <tr>
-                        <th class="tbl-id">ID</th>
-                        <th>HallNo</th>
-                        <th>Date</th>
-                        <th>Start</th>
-                        <th>End</th>
-                        <!-- <th>Request Sent Date</th> -->
-                        <!-- <th>Initial Payment</th> -->
-                        <!-- <th>Remaining Hours for Initial Payment</th> -->
-                        <!-- <th>Full Payment</th> -->
-                        <!-- <th>Remaining Days for Full Payment</th> -->
-                        <th>Amount</th>
-                        <th>Status</th>
-                        <th>Options</th> <!-- <th>View</th> -->
-                        <!-- <th>Edit</th> -->
+
+</h1><h1 align="center">Request ID <?= $data['request'][0]->id ?></h1>
 
 
-                    </tr>
-                </thead>
+        <hr>
+        <div class="form-right">
 
+            <!-- Personal Email -->
+            <label for="hallno">Hall No:
+                <input type="text" id="hallno" value="<?= $data['request'][0]->hallno ?>" disabled /></label>
+            <!-- NIC -->
+            <label for="name">Name:
+                <input type="text" id="name" value="<?= $data['request'][0]->name ?>" disabled /></label>
+            <!-- DOB -->
+            <label for="full_name">Date:
+                <input type="text" id="date" value="<?= $data['request'][0]->date ?>" disabled /></label>
 
+            <!-- Address -->
+            <label for="startTime">Start Time:
+                <input type="text" id="startTime" value="<?= $data['request'][0]->startTime ?>" disabled /></label>
 
-            </table>
+            <!-- Contact No -->
+            <label for="endTime">End Time:
+                <input type="text" id="endTime" value="<?= $data['request'][0]->endTime ?>" disabled /></label>
 
-            <table cellpadding="0" cellspacing="0" border="0">
-                <tbody>
+            <!-- Hired Date -->
+            <label for="headCount">Head Count:
+                <input type="text" id="headCount" value="<?= $data['request'][0]->headCount ?>" disabled /></label>
 
-                    <?php
-                    if ($data && (is_array($data) || is_object($data))) {
-                        foreach ($data as $row) {
-                            echo '<tr>
-                    <td class="tbl-id">' . $row->id . '</td>
-                    <td>' . $row->hallno . '</td>
-                    <td class="hidden-cell">' . $row->name . '</td> <!-- Hidden cell -->
-                    <td>' . $row->date . '</td>
-                    <td>' . $row->startTime . '</td>
-                    <td>' . $row->endTime . '</td>
-                    <td class="hidden-cell">' . $row->hours . '</td> <!-- Hidden cell -->
-                    <td class="hidden-cell">' . $row->headCount . '</td> <!-- Hidden cell -->
-                    <td class="hidden-cell">' . $row->sounds . '</td> <!-- Hidden cell -->
-                    <td class="hidden-cell">' . $row->standings . '</td> <!-- Hidden cell -->
-                    <td class="hidden-cell">' . $row->message . '</td> <!-- Hidden cell -->
-                    <td>' . $row->amount . '</td>
-                    <td>' . $row->status . '</td>
-                    <td>
-                                    <button type="submit" name="View" id = "openProfile" class="btn">View</button>
+            <label for="sounds">Sounds:
+                <input type="text" id="sounds" value="<?= $data['request'][0]->sounds ?>" disabled /></label>
 
-                                    <form method="POST">
-                                        <input type="hidden" name="accept_request" value="' . $row->id . '">
-                                        <button type="submit" name="Delete" class="btn-accept">Accept</button>
-                                    </form>
-                                    <form method="POST">
-                                        <input type="hidden" name="reject_request" value="' . $row->id . '">
-                                        <button type="submit" name="Delete" class="btn-reject">Reject</button>
-                                    </form>
-                                </td>
-              </tr>';
-                        }
-                    } else {
-                        echo '<tr><td colspan="9">No data available</td></tr>';
-                    }
-                    ?>
+            <label for="standings">Standing:
+                <input type="text" id="standings" value="<?= $data['request'][0]->standings ?>" disabled /></label>
+
+            <label for="message">Message:
+                <input type="text1" id="message" value="<?= $data['request'][0]->message ?>" disabled /></label>
+
+            <label for="amount">Amount:
+                <input type="text" id="amount" value="<?= $data['request'][0]->amount ?>" disabled /></label>
+
+            <label for="status">Status:
+                <input type="text" id="status" value="<?= $data['request'][0]->status ?>" disabled /></label>
+
+            <label for="reservationistId">Reservationist ID:
+                <input type="text" id="reservationistId" value="<?= $data['request'][0]->reservationistId ?>" disabled /></label>
+            <div class="btn-container">
+                <form method="POST">
+                    <input type="hidden" name="accept_request" value="<?= $data['request'][0]->id ?>">
+                    <button type="submit" name="Accept" class="btn-accept">Accept</button>
+                </form>
+                <form method="POST">
+                    <input type="hidden" name="reject_request" value="<?= $data['request'][0]->id ?>">
+                    <button type="submit" name="Reject" class="btn-reject">Reject</button>
+                </form>
+            </div>
         </div>
+
     </div>
 </body>
 

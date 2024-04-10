@@ -20,7 +20,7 @@
     width: calc(100% - 250px);
     left: 250px;
     min-height: 100vh;
-    background-color:   #FFEAD7;
+    background-color:   white;
     transition: 0.5s;
     margin-top: 80px;
     padding: 20px;
@@ -46,10 +46,11 @@ h1 {
     align-items: center;
     width: 600px;
     /* color: white;  */
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.066);
     align-content: center;
         /* justify-content: center; */
     margin-left: 25%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
     
 }
 label {

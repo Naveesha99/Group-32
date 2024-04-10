@@ -15,25 +15,28 @@ a {
 li {
     list-style: none;
 }
-h1,
+h1{
+    color: white;
+}
 h2 {
-    color: #ffffff;
+    color: black;
 }
 h3 {
     color: #ffffff;
 }
 .btn {
-    background: #76323F;
-    color: white;
+    background: #e6cc00;
+    color: black;
     padding: 3px 10px;
     text-align: center;
-    border-radius: 5px;
+    border-radius: 15px;
 }
 .btn:hover {
-    color: #76323F;
-    background: white;
+    color: #e6cc00;
+    background:black;
+    /* opacity: 0.6; */
     padding: 3px 8px;
-    border: 2px solid #76323F;
+    /* border: 2px solid #e6cc00; */
 }
 .title {
     display: flex;
@@ -53,15 +56,16 @@ td {
 .container {
     position: absolute;
     right: 0;
-    width: 83vw;
+    width: 80vw;
     height: 100vh;
-    background:  #d7cec7;
+    background: white;
 }
+
 .container .content {
     position: relative;
     margin-top: 10vh;
     min-height: 90vh;
-    background:  #d7cec7;
+    background: white;
 }
 .container .content .cards {
     padding: 20px 15px;
@@ -73,14 +77,15 @@ td {
 .container .content .cards .card {
     width: 250px;
     height: 150px;
-    background: #c09f80;
+    background: #2424ff;
     margin: 20px 10px;
     display: flex;
-    border-radius: 5px;
+    border-radius: 40px;
     align-items: center;
     justify-content: space-around;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: all 0.3s ease-in-out;
 }
+
 .container .content .content-2 {
     min-height: 60vh;
     display: flex;
@@ -96,6 +101,7 @@ td {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     display: flex;
     flex-direction: column;
+    border-radius: 15px;
 }
 .container .content .content-2 .new-dramas {
     flex: 2;
@@ -105,10 +111,7 @@ td {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     display: flex;
     flex-direction: column;
-}
-.container .content .content-2 .new-dramas table td:nth-child(1) img {
-    height: 40px;
-    width: 40px;
+    border-radius: 15px;
 }
 
 select {

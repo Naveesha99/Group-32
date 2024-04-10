@@ -6,14 +6,87 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="stylesheet" href="<?= ROOT ?>/assets/css/cwProfile.css">
-      <title>Profile</title>
+      <title>Content Writer Profile</title>
 </head>
 <?php require_once 'cwNaviBar.php' ?>
 <?php include 'navBar.php' ?>
 
 <body>
-      <!-- Content -->
+
+      <style>
+            .profile-box {
+                  position: relative;
+                  width: 300px;
+                  height: 400px;
+                  overflow: hidden;
+                  align-items: center;
+            }
+
+            #profilePhotoContainer {
+                  width: 100%;
+                  height: 100%;
+            }
+
+            #profilePhotoContainer img {
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+            }
+      </style>
+      <!-- end of styling are -->
+
+      Page content
+
+      <hr>
+
+
       <div class="container">
+
+            <h1 align="center">User Profile</h1>
+
+            <hr>
+
+            <!-- <div class="form-left">
+
+</div> -->
+
+            </div>
+            <div class="form-right">
+
+                  <!-- Personal Email -->
+                  <label for="full_name">Employee Name:</label>
+                  <input type="text" id="full_name" value="<?= $data['content_writer'][0]->empName ?>" disabled />
+
+                  <!-- NIC -->
+                  <label for="nic">Email:</label>
+                  <input type="text" id="nic" value="<?= $data['employee'][0]->empEmail ?>" disabled />
+
+                  <!-- DOB -->
+                  <label for="full_name">NIC:</label>
+                  <input type="text" id="full_name" value="<?= $data['employee'][0]->empNIC ?>" disabled />
+
+                  <!-- Address -->
+                  <label for="address">Date of Birth:</label>
+                  <input type="text" id="address" value="<?= $data['employee'][0]->empDOB ?>" disabled />
+
+                  <!-- Contact No -->
+                  <label for="contact_no">Address:</label>
+                  <input type="text" id="contact_no" value="<?= $data['employee'][0]->empAddress ?>" disabled />
+
+                  <!-- Hired Date -->
+                  <label for="hired_date">Contact:</label>
+                  <input type="text" id="hired_date" value="<?= $data['employee'][0]->empContact ?>" disabled />
+
+                  <label for="hired_date">Employee Roll:</label>
+                  <input type="text" id="hired_date" value="<?= $data['employee'][0]->empRoll ?>" disabled />
+
+            </div>
+
+      </div>
+
+
+      <!-- Content -->
+      <!-- <div class="container">
             <div class="carddiv">
                   <div class="card">
                         <img src="<?= ROOT ?>/assets/images/customer.jpeg" />
@@ -22,15 +95,11 @@
                               <div class="details">
                                     <div class="infor"><b>Email</b> :nivo@gmail.com</div>
                                     <div class="infor"><b>Mobile Number</b> : 075-8963240</div>
-                                    <!-- <div class="infor"><b>Experience</b> : <?php echo $coach[0]->experience; ?> year experience in coaching</div>
-                                    <div class="infor"><b>Specialities</b> : <?php echo $coach[0]->specialty; ?></div>
-                                    <div class="infor"><b>Certificate</b> : <?php echo $coach[0]->certificate; ?> cricket coach</div>
-                                    <div class="infor"><b>Achivements</b> : <?php echo $coach[0]->achivements; ?></div> -->
-                              </div>
+                                    
                         </div>
                   </div>
             </div>
-      </div>
+      </div> -->
 
 
 </body>
