@@ -24,25 +24,25 @@
       <h3>Enter your correct details</h3>
                      
       <label for="name"><b>Name</b></label><br>
-      <input type="text" placeholder="Enter Name" name="username" id="name">
+      <input type="text" placeholder="Enter Name" name="username" id="name"><br>
 
       <label for="email"><b>Email</b></label><br>
-      <input type="email" placeholder="Enter working Email" name="email" id="email">
+      <input type="email" placeholder="Enter working Email" name="email" id="email"><br>
 
 
       <label for="mobile"><b>Phone No</b></label><br>
-      <input type="number" placeholder="Enter Phone Number" name="phone" id="mobile">
+      <input type="number" placeholder="Enter Phone Number" name="phone" id="mobile"><br>
 
 
       <?php
-                                        // if($data['errors'])
-                                        // {
-                                        //     for($x=0;$x<count($data['errors']);$x++)
-                                        //     {
-                                        //         echo '<h5 style="color: red; font-family: Arial; ">'.array_values($data['errors'])[$x].'</h5>';
-                                        //     }
-                                        // }
-                                    ?>
+          // if($data['errors'])
+          // {
+          //     for($x=0;$x<count($data['errors']);$x++)
+          //     {
+          //         echo '<h5 style="color: red; font-family: Arial; ">'.array_values($data['errors'])[$x].'</h5>';
+          //     }
+          // }
+      ?>
 
       <div>
 
@@ -54,71 +54,28 @@
             <input type="hidden" name="release[]" value="<?php echo htmlspecialchars(json_encode($data['release'])); ?>">
       <?php
             }   
-            // show($data['release'][0]);
-            // show($data['release'][1]);
-
-  
       ?>                  
             <input type="hidden" name="table" value="<?=$data['release'][0]?>">
             <input type="hidden" name="price" value="<?=$data['release'][1]?>">
       <?php
-            $mila = $data['release'][1];
+
             $data['id'] = $data['release'][2]->id;
+            $data['table'] = $data['release'][0];
+            // show($data['id']);
+            // show($data['table']);
+
+            // show($data['table']);
       ?>
               
         <button class="registerbtn1" onclick="enablePaymentButton()">CONFIRM YOUR DETAILS</button>
             <br><br><br>
-        <button id="paymentButton" class="registerbtn" onclick="pay2(<?php echo $data['id']; ?>);" disabled>Go to Payment</button>
-        <!-- <button type="submit" class="registerbtn">Go to Payment</button> -->
+            <button id="paymentButton" class="registerbtn" onclick="pay2(<?php echo $data['id']; ?> ,'<?php echo $data['table']; ?>')" disabled>Go to Payment</button>
     </div>
   </div>
 </form>
 
 
-  <!-- START GATEWAY -->
-  <?php
 
-  // show($data['release'][0]);
-  // show($data['release'][1]);
-     
-      // $amount = $data['release'][1];
-      // $amount = 5000;
-      // $merchant_id = "1225768";
-      // $order_id = uniqid();
-      // $merchant_secret = "MTAxMDUzMDI0MzQzNjAyODIzNzM4OTkxMjU1MDIwNDM3MTg1MzA=";
-      // $currency = "LKR";
-
-      // $hash = strtoupper(
-      //     md5(
-      //         $merchant_id . 
-      //         $order_id . 
-      //         number_format($amount, 2, '.', '') . 
-      //         $currency .  
-      //         strtoupper(md5($merchant_secret)) 
-      //     ) 
-      // );
-
-      // $array = [];
-      // $array["item"]="ABCD";
-      // $array["first_name"]="kasun";
-      // $array["last_name"]="perera";
-      // $array["email"]="kasun@gmail.com";
-      // $array["phone"]="0777454545";
-      // $array["address"]="120, colombo, sri lanka";
-      // $array["city"]="colombo";
-
-      // $array["amount"] = $amount;
-      // $array["merchant_id"] = $merchant_id;
-      // $array["order_id"] = $order_id;
-      // $array["amount"] = $amount;
-      // $array["currency"] = $currency;
-      // $array["hash"] = $hash;
-
-      // $jsonObj = json_encode($array);
-
-      // echo $jsonObj;
-  ?>
-        <!-- END GATEWAY -->
           
 <!-- ___________________________Enable second button after clicking first button_____________________- -->
 <script>
@@ -134,7 +91,7 @@ function enablePaymentButton()
 
 <!-- ____________________________ Function to start the timer____________________________ -->
 
-<script>
+ <script>
     function startTimer(duration) 
     {
         var startTime = localStorage.getItem('countdownStartTime');
@@ -172,7 +129,9 @@ function enablePaymentButton()
 
     // Call startTimer function with desired duration (in seconds)
     startTimer(60); // 5 minutes (300 seconds)
+</script>
 
+<script>
     // Your existing setTimeout code for AJAX request
     setTimeout(() => {
         var releaseData = <?php echo json_encode($data['release']); ?>;
@@ -185,20 +144,20 @@ function enablePaymentButton()
             if (response === 'seats_released') 
             {
                 document.write('Time out. Your selected seats are released');
-                window.location = '<?=ROOT?>/seat_map';
+                window.location = '<?=ROOT?>/select_drama';
             } 
             else 
             {
                 console.log('Unexpected response from the server');
             }
         });
-    }, 60000);
+    }, 300000);
 </script>
 
 
 
-<!-- __________________________Do not refresh payment page.(Send form data for update username, email, phone) __________ -->
-<script>
+ <!-- (2)__________________________Do not refresh payment page.(Send form data for update username, email, phone) __________  -->
+ <script>
 $(document).ready(function() 
 {
   $('#paymentForm').submit(function(event) {
@@ -231,8 +190,9 @@ $(document).ready(function()
     event.preventDefault();
     event.returnValue = "";
   })
-
 </script>
+
+
 
 </body>
 </html>

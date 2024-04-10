@@ -23,44 +23,24 @@
 // showSlides();
 
 
-// _______________________________AUTO UPDATE DATE__________________________________________________________________
-
-function generateDates() {
-        const carousel = document.getElementById('dateCarousel');
-        const currentDate = new Date();
-
-        for (let i = 0; i < 7; i++) {
-            const date = new Date(currentDate);
-            date.setDate(currentDate.getDate() + i);
-
-            const dayName = date.toLocaleDateString('en-US', { weekday: 'short' });
-            const dateNumber = date.getDate();
-
-            const component = document.createElement('div');
-            component.classList.add('component');
-            component.textContent = `${dayName} ${dateNumber}`;
-
-            // Add an event listener to update the hidden input on click
-            component.addEventListener('click', function ()
-            {
-                document.getElementById('selectedDate').value = date.toISOString().split('T')[0];
-            });
-
-            carousel.appendChild(component);
-        }
-    }
-
-    generateDates();
 
 
 // ________________________SELECT BUTTON_______________________
 
-const clsList = document.querySelectorAll('.component');
+document.addEventListener("DOMContentLoaded", function() {
+    const components = document.querySelectorAll('.component');
 
-clsList.forEach(cls=>{
-    cls.addEventListener('click', ()=> {
-        document.querySelector('.special')?.classList.remove('special');
-        cls.classList.add('special');
+    components.forEach(component => {
+        component.addEventListener('click', function() {
+            // Toggle 'clicked' class for all components
+            components.forEach(comp => comp.classList.remove('clicked'));
+            this.classList.toggle('clicked');
+
+            // Toggle 'special' class for the clicked component
+            this.classList.toggle('special');
+        });
     });
 });
+
 // ____________________________________________________________  
+

@@ -1,17 +1,21 @@
 // __________________PAYMENTGETWAY____________________________
-function pay2(id)
+function pay2(id , table)
 {
+
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = ()=>{
       if(xhttp.readyState == 4 && xhttp.status == 200)
       {
           alert(xhttp.responseText);
           var obj = JSON.parse(xhttp.responseText);
-          // Payment completed. It can be a successful failure.
+
           payhere.onCompleted = function onCompleted(orderId) 
           {
-            console.log("Payment completed. OrderID:" + orderId);
-         // Note: validate the payment and show success or failure page to the customer
+            var xhttp = new XMLHttpRequest();
+            var url = "payment?orderId=" + orderId;
+            xhttp.open("GET", url, true);
+            xhttp.send();
+            alert("Payment completed. OrderID:" + orderId);
           };
 
             // Payment window closed
@@ -32,8 +36,8 @@ function pay2(id)
   var payment = {
       "sandbox": true,
       "merchant_id": "1225768",    // Replace your Merchant ID
-      "return_url": "http://localhost/testmvc/public/payment",     // Important
-      "cancel_url": "http://localhost/testmvc/public/payment",     // Important
+      "return_url": "http://localhost/Group-32/testmvc/public/payment",     // Important
+      "cancel_url": "http://localhost/Group-32/testmvc/public/payment",     // Important
       "notify_url": "http://sample.com/notify",
       "order_id": obj["order_id"],
       "items": obj["item"],
@@ -44,20 +48,27 @@ function pay2(id)
       "last_name": obj["last_name"],
       "email": obj["email"],
       "phone": obj["phone"],
-      "address": "No.1, Galle Road",
-      "city": "Colombo",
+      "address": "NOT NEED",
+      "city": "NOT NEED",
       "country": "Sri Lanka",
-      "delivery_address": "No. 46, Galle road, Kalutara South",
-      "delivery_city": "Kalutara",
+      "delivery_address": "NOT NEED",
+      "delivery_city": "NOT NEED",
       "delivery_country": "Sri Lanka",
       "custom_1": "",
       "custom_2": ""
   };
 
        payhere.startPayment(payment);
-      }
+    }
   };
-  xhttp.open("GET","pay2?id=" + id,true);
+  xhttp.open("GET","pay2?id=" + id + "&table=" + table, true);
   xhttp.send();
 }
 // _________________________________________________________________
+// function sendOrderIdToPay2(orderId) 
+// {
+//     var xhttp2 = new XMLHttpRequest();
+//     var url2 = "Payment?orderId=" + orderId;
+//     xhttp2.open("GET", url2, true);
+//     xhttp2.send();
+// }

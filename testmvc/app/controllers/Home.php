@@ -33,12 +33,8 @@ class Home
 					$i=$i+1;
 				}
 			}
-				// $data['data2'][$i] = $row2;
 							
 		}
-		// show($data['data2']);
-
-		// $row1 = $this->get_drama_time_date($row);
 
 
 		$data['data1']= $row;
@@ -48,7 +44,7 @@ class Home
 
 	private function get_drama_img()
 	{
-		$home = new Homes();
+		$home = new Homes;
 
 		$row = $home->findAll();
 		// $datax[0]=$row;
@@ -65,11 +61,5 @@ class Home
 
 		return $row;
 	}
-
-	// private function get_drama_time_date($row)
-	// {
-
-	// }
-
 }
 

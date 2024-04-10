@@ -125,6 +125,7 @@ img{
     align-items: center;
     height: 50px;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .b2:hover {
@@ -132,6 +133,7 @@ img{
     transform: scale(1.1); /* Scale the button to 110% of its size */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); 
     transition: transform 0.2s, box-shadow 0.2s;
+    cursor:pointer;
 }
 
 th{
@@ -157,22 +159,24 @@ table, td, th {
     display:flex;
     justify-content: space-around;
     text-align: left;
-    margin-top: 20px;
+    margin-top: 80px;
     height: 600px;
 }
 .form1 {
     justify-content: space-around;
     margin-right: 10%;
-    margin-left: -10%;
+    margin-left: -8%;
+    margin-top: 25px;
 }
 
 .form2 {
+    text-align: center;
     padding: 1px;
     border-radius: 0.25%;  
-    width: 20%; /* Adjust the width as needed */
+    width: 30%; /* Adjust the width as needed */
     padding-bottom: 10%;
     height: 20px;
-    margin-top: 5%;
+    margin-top: 2%;
     /* margin-right: 5%;  */
 }
 
@@ -195,20 +199,22 @@ table, td, th {
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
     font-weight: bold;
-    margin-left: 50px;
+    margin-left: 145px;
     margin-top: 3%;
     margin-right: 50px;
+    cursor: pointer;
 }
 
 .submit-button:hover {
     background-color:brown;
     transform: scale(1.1); /* Scale the button to 110% of its size */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add a subtle shadow on hover */
+    cursor: pointer;
 }
 
 
 button#showPopup {
-    background-color: brown;
+    background-color: rgb(249, 13, 13);
     color: white;
     padding: 10px 20px;
     border: none;
@@ -216,16 +222,16 @@ button#showPopup {
 }
 
 h1{
-    color:blue;
-    margin-left: 20%;
+    color:rgb(249, 13, 13);
+    /* margin-left: 20%; */
     align-items: center;
-    text-align: center;
-    margin-top: 0%;
+    text-align:right;
+    margin-top: 4%;
 }
 
 .topic p {
     font-size: 18px; /* Example font size */
-    color: blue; 
+    color: rgb(234, 28, 28); 
     font-size: large;
     text-align: center;
 }
@@ -289,13 +295,10 @@ h1{
     z-index: 50;
     background-color: #666;
 }
-
-.special{
-    background-color:#890505;
-    border-radius: 5px;
-    border-color: #000000;
-    border-width: 10px;
+.clicked {
+    background-color: rgb(132, 20, 20);
 }
+
 
 .carousel {
     display: flex;
@@ -335,3 +338,81 @@ h1{
     transform: translateY(-1px);
     transition: opacity 0.5s, box-shadow 0.5s;
 }
+
+
+
+
+.navbar {
+    width: 100%;
+    height: 80px;
+    background-color: black;
+    position: sticky;
+    top: 0;
+    transition: 1s ease all;
+    position: fixed;
+    z-index: 10;
+  }
+  
+  .navbar-container {
+    display: flex;
+    align-items: center;
+    padding: 0 50px;
+    height: 100%;
+    color: white;
+    font-family: "Sen", sans-serif;
+  }
+  
+  .logo-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .logo {
+    width: 100px;
+    height: 80px;
+    border-radius: 50%;
+    margin-top: 2%;
+    margin-right: 25%;
+  }
+  
+  /* Style for the logo */
+  .logo img {
+    max-width: 100%;
+    height: auto;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .menu-container {
+    flex: 20;
+  }
+  
+  .menu-list {
+    display: flex;
+    list-style: none;
+  }
+  .menu-listSL {
+    display: flex;
+    list-style: none;
+    margin-left: 50%;
+    width: 500px;
+    height: 20px;
+    size: 25%;
+    cursor: pointer;
+    transition: opacity 0.5s, box-shadow 0.3s;
+  }
+  
+  .menu-list-item {
+    margin-right: 20px;
+    cursor: pointer;
+    transition: opacity 0.3s, box-shadow 0.3s;
+  }
+  .menu-list-item a {
+    /* Add your link styles */
+    text-decoration: none; /* Remove underlines */
+    color: inherit; /* Inherit the text color from the parent */
+    transition: color 0.3s; /* Add a smooth transition for text color change */
+  }

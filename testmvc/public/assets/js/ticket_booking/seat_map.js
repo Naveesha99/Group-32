@@ -52,12 +52,12 @@ container.addEventListener('click', (e) => {
     } 
     else if (role === 'booked') 
     {
-      alert('This seat is already booked and cannot be selected.');
+      alert('This seat is already booked and you cannot be selected.');
       // You can customize this alert or add a UI indication for a booked seat
     } 
     else 
     {
-      alert('This seat is already booked and cannot be selected.');
+      alert('This seat is selected by another user just now. But not approved. So please wait and try again.');
       // Handle other roles if needed
     }
   }
@@ -70,6 +70,13 @@ const bookedSeats = document.querySelectorAll('.seat[role="booked"]');
 bookedSeats.forEach(seat => {
   seat.classList.add('booked');
 });
+
+// Color pending seats yellow
+const pendingSeats = document.querySelectorAll('.seat[role="pending"]');
+pendingSeats.forEach(seat => {
+  seat.classList.add('pending');
+});
+
 
 
 function toggleSubmitButton() {

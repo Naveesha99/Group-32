@@ -10,10 +10,10 @@ class Seat_map
 	public function index()
 	{
 
-		$row1 = $this->get_price_byid();
+		$row1 = $this->get_price_byid($_POST['drama_id']);
 		$data['get_price'] = $row1;
 
-		$seat_data = $this->seat_status($_POST['date'], $_POST['time'], $_POST['drama_id']);
+		$seat_data = $this->seat_status($_POST['date'], $_POST['time'], $_POST['drama_id']); //data coming from select_drama page
 		$data['get_seat'] = $seat_data;
 		// show($data['get_price']);
 
@@ -21,10 +21,12 @@ class Seat_map
 	}
 
 
-private function get_price_byid()
+private function get_price_byid($drama_id)
 	{
 		$price = new Price();
-		$row1 = $price->findAll();
+
+		$arr['drama_id']=$drama_id;
+		$row1 = $price->where($arr);
 
 		foreach ($row1 as $key)
 		{			
@@ -36,7 +38,7 @@ private function get_price_byid()
 
 	private function seat_status($dates, $times, $ids)
 	{
-		if($times=='09:00:00')
+		if($times<='12:00:00')
 		{
 			$timeslot1 = new Timeslot1();
 
@@ -49,7 +51,7 @@ private function get_price_byid()
 			return $result;
 		}
 
-		else if($times=='11:00:00')
+		else if($times<='18:00:00')
 		{
 			$timeslot2 = new Timeslot2();
 
@@ -63,7 +65,7 @@ private function get_price_byid()
 			return $result;
 		}
 
-		else if($times=='4:00:00')
+		else if($times<='23:00:00')
 		{
 			$timeslot3 = new Timeslot3();
 

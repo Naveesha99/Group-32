@@ -40,7 +40,7 @@
             </li>
             <li>
                 <div class="seatselected"></div>
-                <small>SELECTED</small>
+                <small>YOU SELECTED</small>
             </li>
             <li>
                 <div class="seat occupied"></div>
@@ -76,8 +76,7 @@
               ?>
                       <option value="<?= $x->id ?>" class="seat" id="<?= $x->seat_id ?>" name="set" role="<?= $x->status ?>"><?= $x->seat_id ?></option>
 
-              <?php
-              
+              <?php    
                       $count++;
                   }
                   echo '</div>'; // Close the last row
@@ -104,8 +103,7 @@
                 ?>
                 <input type="hidden" id="table" name="table" value="<?= $data['get_seat']['table']?>">
                 <?php
-                        
-                      }
+                }
                 ?>
 
       <!-- ////////////////////////////////////////////////////////////////////////////////// -->
