@@ -12,24 +12,52 @@
 <?php include 'navBar.php' ?>
 
 <body>
+    <?php
+    $today_tasks = [];
+    $historyTasks = [];
+
+    $currentDate = date('Y-m-d');
+
+    foreach ($data as $row) {
+        if ($row->relavant_date == $currentDate) {
+            $today_tasks[] = $row;
+        } else {
+            $historyTasks[] = $row;
+        }
+    }
+
+    $todoCount = 0;
+    $completedCount = 0;
+
+    foreach ($today_tasks as $task) {
+        if ($task->status == 'To do') {
+            $todoCount++;
+        } elseif ($task->status == 'Completed') {
+            $completedCount++;
+        }
+    }
+
+
+    ?>
+
     <div class="container">
         <div class="cardBox">
             <div class="card">
                 <div class="cardName">To Do</div>
-                <div class="numbers">10</div>
+                <div class="numbers"><?= $todoCount ?></div>
             </div>
 
             <div class="card">
                 <div class="cardName">Completed</div>
-                <div class="numbers">10</div>
+                <div class="numbers"><?= $completedCount ?></div>
             </div>
         </div>
 
         <div class="content-2">
             <div class="tasks">
                 <div class="title">
-                    <h2>Today : 2024.04.11</h2>
-                    <a href="#" class="btn">View All</a>
+                    <h2>Today : <?= date('Y-m-d'); ?></h2>
+                    <a href="<?= ROOT ?>/employeeDashboard" class="btn">View All</a>
                 </div>
                 <table>
                     <tr>
@@ -41,18 +69,18 @@
                     </tr>
 
                     <?php
-                    if($data &&(is_array($data))){
-                        foreach($data as $row){
+                    if ($today_tasks) {
+                        foreach ($today_tasks as $row) {
                             echo '<tr>
                             <td>' . $row->task . ' </td>
                             <td>' . $row->place . ' </td>
                             <td>' . $row->relavant_time . ' </td>
                             <td>' . $row->status . '</td>
-                            <td> <a href = "cwViewOwnArticle?id=' . $row->id . '" class = "btn">View</a>
+                            <td> <a href = "empTaskView?id=' . $row->id . '" class = "btn">View</a>
                             </tr>';
                         }
                     } else {
-                        echo '<tr><td colspan="9">No data available</td></tr>';
+                        echo '<tr><td colspan="5">No data available</td></tr>';
                     }
                     ?>
 
@@ -62,7 +90,7 @@
             <div class="history">
                 <div class="title">
                     <h2>History</h2>
-                    <a href="#" class="btn">View All</a>
+                    <a href="<?=ROOT?>/empHistory" class="btn">View All</a>
                 </div>
                 <table>
                     <tr>
@@ -74,32 +102,23 @@
                         <th>Option</th>
                     </tr>
 
-                    <tr>
-                        <td>Cleaning the hall</td>
-                        <td>Hall 01</td>
-                        <td>2024.04.10</td>
-                        <td>8.30 A.M</td>
-                        <td>to do</td>
-                        <td><a href="#" class="btn">View</a></td>
-                    </tr>
+                    <?php
+                    if ($historyTasks) {
+                        foreach ($historyTasks as $row) {
+                            echo '<tr>
+                            <td>' . $row->task . ' </td>
+                            <td>' . $row->place . ' </td>
+                            <td>' . $row->relavant_date . ' </td>
+                            <td>' . $row->relavant_time . ' </td>
+                            <td>' . $row->status . '</td>
+                            <td> <a href = "empTaskView?id=' . $row->id . '" class = "btn">View</a>
+                            </tr>';
+                        }
+                    } else {
+                        echo '<tr><td colspan="6">No data available</td></tr>';
+                    }
+                    ?>
 
-                    <tr>
-                        <td>Cleaning the theatre</td>
-                        <td>Theatre</td>
-                        <td>2024.04.10</td>
-                        <td>9.30 A.M</td>
-                        <td>completed</td>
-                        <td><a href="#" class="btn">View</a></td>
-                    </tr>
-
-                    <tr>
-                        <td>Cleaning the hall</td>
-                        <td>Hall 02</td>
-                        <td>2024.04.09</td>
-                        <td>11.30 A.M</td>
-                        <td>to do</td>
-                        <td><a href="#" class="btn">View</a></td>
-                    </tr>
                 </table>
             </div>
         </div>
