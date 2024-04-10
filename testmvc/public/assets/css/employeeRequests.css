@@ -22,6 +22,8 @@ body{
     transition: 0.5s;
     margin-top: 80px;
     padding: 100px 50px;
+    display: flex;
+    flex-direction: column;
 }
 
 .container .cardBox{
@@ -31,6 +33,8 @@ body{
     display: grid;
     grid-template-columns: repeat(4,1fr);
     grid-gap: 50px;
+    top: -30px;
+    margin-left: 15px;
 
 
 }
@@ -47,17 +51,18 @@ body{
 
 }
 
-.container .cardBox .card .numbers{
+.container .cardBox .card .cardName{
     position: relative;
-    font-weight: 500;
-    font-size: 2.5rem;
+    font-weight: 300;
+    font-size: 2.0rem;
     color: white;
 }
 
-.container .cardBox .card .cardName{
+.container .cardBox .card .numbers{
     color: white;
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     margin-top: 5px;
+    margin-left: 50%;
 }
 
 .container .cardBox .card .iconBox{

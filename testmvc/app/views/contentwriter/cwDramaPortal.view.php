@@ -14,7 +14,6 @@
 <body>
     <?php require_once 'cwNaviBar.php' ?>
     <?php include 'navBar.php' ?>
-    <!-- <?php include 'adminSidebar.php' ?> -->
 
     <?php
     function limitWords($text, $limit)
@@ -32,29 +31,33 @@
     ?>
 
     <div class="container">
-        <div class="search-bar">
-            <div class="dropdown">
-                <div id="drop-text" class="dropdown-text">
-                    <span id="span">All categories</span>
-                    <i id="icon" class="fa-solid fa-chevron-down"></i>
+        <form method="POST">
+            <div class="search-bar">
+                <div class="dropdown">
+                    <div id="drop-text" class="dropdown-text">
+                        <span id="span">All categories</span>
+                        <i id="icon" class="fa-solid fa-chevron-down"></i>
+                    </div>
+
+                    <ul id="list" class="dropdown-list">
+                        <li class="dropdown-list-item">All categories</li>
+                        <li class="dropdown-list-item"><a href="<?= ROOT ?>/cwDramaPortal?category=comedy">Comedy</a></li>
+                        <li class="dropdown-list-item">Tragedy</li>
+                        <li class="dropdown-list-item">Musical</li>
+                        <li class="dropdown-list-item">Melodrama</li>
+                    </ul>
                 </div>
 
-                <ul id="list" class="dropdown-list">
-                    <li class="dropdown-list-item">All categories</li>
-                    <li class="dropdown-list-item">Comedy</li>
-                    <li class="dropdown-list-item">Tragedy</li>
-                    <li class="dropdown-list-item">Musical</li>
-                    <li class="dropdown-list-item">Melodrama</li>
-                </ul>
+
+
+                <!-- <div class="search-box">
+                    <input type="text" id="search-input" placeholder="search category.." onkeyup="search()">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div> -->
             </div>
 
+        </form>
 
-
-            <div class="search-box">
-                <input type="text" id="search-input" placeholder="search category.." oninput="handleSearch()">
-                <i class="fa-solid fa-magnifying-glass"></i>
-            </div>
-        </div>
 
         <div class="addNew">
             <a href="<?= ROOT ?>/cwAddArticle">ADD NEW</a>

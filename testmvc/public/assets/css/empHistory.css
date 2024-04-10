@@ -88,7 +88,7 @@ body{
     align-items: flex-start;
     flex-wrap: wrap;
 }
-.container  .content-2 .tasks {
+.container  .content-2 .history {
     min-height: 50vh;
     flex: 5;
     background: white;

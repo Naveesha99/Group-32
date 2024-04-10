@@ -24,7 +24,7 @@ body{
     left: 250px;
     min-height: 100vh;
     /* background-color:  #FFEAD7; */
-    background-color: #d0c2c1;
+    background-color: #d0c2c1c4;
     transition: 0.5s;
     margin-top: 80px;
     padding: 100px 50px;

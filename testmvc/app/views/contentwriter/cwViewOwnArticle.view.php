@@ -14,7 +14,7 @@
     <div class="container">
 
         <?php if ($data !== null) :
-            //show($data)
+            // show($data)
         ?>
             <div class="card">
                 <img src="<?= ROOT ?>/assets/images/drama_portal/<?= $data['article'][0]->image ?>" alt="" class="card-img">

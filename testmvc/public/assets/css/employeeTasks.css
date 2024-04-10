@@ -33,7 +33,7 @@ body{
     padding: 5px;
     display: grid;
     grid-template-columns: repeat(4,1fr);
-    grid-gap: 30px;
+    grid-gap: 50px;
     top: -30px;
     margin-left: 15px;
 
@@ -52,17 +52,23 @@ body{
 
 }
 
-.container .cardBox .card .numbers{
+.container .cardBox .card .cardName{
     position: relative;
-    font-weight: 500;
+    font-weight: 300;
     font-size: 2.0rem;
     color: white;
+    /* top: 30px; */
+    /* margin-left: 10px; */
 }
 
-.container .cardBox .card .cardName{
+.container .cardBox .card .numbers{
     color: white;
-    font-size: 1.5rem;
-    margin-top: 5px;
+    font-size: 1.8rem;
+    /* margin-top: 5px; */
+    margin-left: 10px;
+    left: 10px;
+    /* top: 80px; */
+    /* margin-right: 60px; */
 }
 
 .container .cardBox .card .iconBox{
@@ -98,6 +104,18 @@ body{
     flex-direction: column;
     border-radius: 15px;
 }
+
+.container .content-2 .history {
+    flex: 6;
+    background: white;
+    min-height: 50vh;
+    margin: 0 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+}
+
 
 a {
     text-decoration: none;
