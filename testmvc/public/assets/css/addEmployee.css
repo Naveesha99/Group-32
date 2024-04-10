@@ -23,17 +23,18 @@ h3 {
     color: #999;
 }
 .btn {
-    background: rgba(195, 98, 1, 0.973);
-    color: white;
+    background: #e6cc00;
+    color: black;
     padding: 3px 10px;
     text-align: center;
-    border-radius: 5px;
+    border-radius: 15px;
 }
 .btn:hover {
-    color: rgba(195, 98, 1, 0.973);
-    background: white;
+    color: #e6cc00;
+    background:black;
+    /* opacity: 0.6; */
     padding: 3px 8px;
-    border: 2px solid rgba(195, 98, 1, 0.973);
+    /* border: 2px solid #e6cc00; */
 }
 .title {
     display: flex;
@@ -62,7 +63,7 @@ td {
 
 .container .add-employee {
     height: 100%;
-    width: 80;
+    width: 60%;
 }
 
   
@@ -111,25 +112,6 @@ td {
     margin-left: 30px;
 }
 
-  #popup {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 20px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-  }
-
-  /* Button styles for the popup options */
-  #popup button {
-    margin: 0 10px;
-    padding: 10px 15px;
-    cursor: pointer;
-  }
   
   @media screen and (max-width:536px) {
 

@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css?family=Catamaran:400,700');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Catamaran', sans-serif;
+}
+body {
+    min-height: 100vh;
+}
+a {
+    text-decoration: none;
+}
+li {
+    list-style: none;
+}
+h1{
+    color: white;
+}
+h2 {
+    color: black;
+}
+h3 {
+    color: #999;
+}
+.btn {
+    background: #e6cc00;
+    color: black;
+    padding: 3px 10px;
+    text-align: center;
+    border-radius: 15px;
+}
+.btn:hover {
+    color: #e6cc00;
+    background:black;
+    /* opacity: 0.6; */
+    padding: 3px 8px;
+    /* border: 2px solid #e6cc00; */
+}
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 15px 10px;
+    border-bottom: 2px solid #999;
+}
+table {
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.container {
+    position: absolute;
+    right: 0;
+    width: 80vw;
+    height: 100vh;
+    background: white;
+}
+
+.container .content {
+    position: relative;
+    margin-top: 10vh;
+    min-height: 90vh;
+    background: white;
+}
+.container .content .cards {
+    padding: 20px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    transition: all 0.3s ease-in-out;
+}
+
+.container .content .cards .box{
+    background-color: antiquewhite;
+    width: 270px;
+    height: 300px;
+    border-radius: 20px;
+    /* padding: 10px; */
+}
+
+.container .content .cards .box .details{
+    font-size: 15px;
+    padding: 10px;
+    font-weight: 700;
+}
+.container .content .cards .card {
+    width: 250px;
+    height: 150px;
+    background: #2424ff;
+    margin: 20px 10px;
+    display: flex;
+    border-radius: 40px;
+    align-items: center;
+    justify-content: space-around;
+    transition: all 0.3s ease-in-out;
+}
+
+.container .content .cards .card:hover {
+    width: 250px;
+    height: 150px;
+    background: white;
+    margin: 20px 10px;
+    display: flex;
+    border-radius: 40px;
+    align-items: center;
+    justify-content: space-around;
+    border: 3px solid #2424ff;
+    transition: all 0.3s ease-in-out;
+}
+
+.container .content .cards .card:hover h1 {
+    color: #2424ff;
+}

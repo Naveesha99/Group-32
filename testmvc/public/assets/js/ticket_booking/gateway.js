@@ -45,8 +45,8 @@ function pay2(id)
   var payment = {
       "sandbox": true,
       "merchant_id": "1225768",    // Replace your Merchant ID
-      "return_url": "http://localhost/testmvc1/public/payment",     // Important
-      "cancel_url": "http://localhost/testmvc1/public/payment",     // Important
+      "return_url": "http://localhost/testmvc/public/payment",     // Important
+      "cancel_url": "http://localhost/testmvc/public/payment",     // Important
       "notify_url": "http://sample.com/notify",
       "order_id":"ItemNo12345",
       "items": "ITEM",

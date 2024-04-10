@@ -107,8 +107,8 @@
                             //button1.onclick
 
                             $('.time').append('<td>'+
-                            '<form method="POST" action="seat_map">'+
-                            '<button type="submit" class="b2" name="time" value=time>' + time + '</button>'+
+                            '<form method="POST" action="<?= ROOT ?>/seat_map">'+    //added ROOT before -> '<form method="POST" action="seat_map">'+
+                            '<button type="submit" class="b2" name="time" value="' + time + '">' + time + '</button>'+  //before  ->  '<button type="submit" class="b2" name="time" value=time>' + time + '</button>'+
                             
                             '<input type="hidden" name="drama_id" value='+ data[i].drama_id +'>'+
                             '<input  type="hidden" name="date" value='+ data[i].date +'>'+
@@ -124,7 +124,7 @@
         </script>
 
 <script>
-    history.pushState(null, '', '/testmvc1/public/select_drama');
+    history.pushState(null, '', '/testmvc/public/select_drama'); //http://localhost/Group-32/testmvc/public/home
 
 
     window.onpopstate = function(event) {

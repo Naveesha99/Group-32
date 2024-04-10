@@ -1,158 +1,81 @@
 @import url('https://fonts.googleapis.com/css?family=Catamaran:400,700');
 
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Catamaran', sans-serif;
+}
+
 .container {
-    position: absolute;
-    right: 0;
-    width: 80vw;
-    /* width: 80%; */
-    height: 100vh;
-    /* background: #f1f1f1; */
-    /* background-color: #FFEAD7; */
-    /* background-color: #7B0303; */
+    width: 100%;
+    max-width: 900px;
+    margin-left: 260px;
+    margin-top: 60px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px var(--shadow);
 }
 
-
-.container .content {
-    position: relative;
-    margin-top: 10vh;
-    min-height: 90vh;
-    /* background: #f1f1f1; */
-    /* background-color: #FFEAD7; */
-
-
-    /* background: -webkit-linear-gradient(left, #25c481, #25b7c4); */
-  /* background: linear-gradient(to right, #25c481, #25b7c4); */
-  font-family: 'Roboto', sans-serif;
+.form-right {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    float: left;
 }
-tbody{
-  height:300px;
-    /* height: auto; */
-    overflow-x:auto;
-    margin-top: 0px;
-    border: 1px solid rgba(255,255,255,0.3);
-}
-h1{
-    font-size: 30px;
-    /* color: #fff; */
-    color: #5a5a5a;
-    /* font-weight:800; */
-    text-transform: uppercase;
-    font-weight: 800;
-    text-align: center;
-    margin-bottom: 15px;
-  }
-  table{
-    /* margin-left: 20%; */
-    width:100%;
-    /* width: auto; */
-    table-layout: fixed;
-  }
-  .tbl-header{
-    margin-left: 250px;
-    /* background-color: rgba(255,255,255,0.3); */
-    background-color: #D87400;
-   }
-  .tbl-content{
-    margin-left: 250px;
-    /* background-color: #ffca9a; */
-    background-color: #fffff6;
-    height:520px;
-    /* height: auto; */
-    overflow-x:auto;
-    margin-top: 0px;
-    border: 1px solid rgba(255,255,255,0.3);
-  }
-  th{
-    padding: 20px 15px;
-    text-align: left;
-    font-weight: 500;
-    font-size: 12px;
-    color: #fff;
-    text-transform: uppercase;
-    font-weight: bolder;
-  }
-  .tbl-id{
-    width: 60px;
-  }
-  td{
-    padding: 15px;
-    text-align: left;
-    vertical-align:middle;
-    font-weight: 300;
+
+.form-right label {
+    margin-top: 10px;
+    display: flex;
     font-size: 15px;
-    /* color: #fff; */
-    color: #5a5a5a;
-    border-bottom: solid 1px rgba(255,255,255,0.1);
-    word-wrap: break-word;
-    background-color: white;
-  }
-  
-td .Notallowed{
-cursor:not-allowed;
-pointer-events: none;
-display: none;
-
+    font-weight: 700;
+    align-items: center;
 }
 
-td .allowed{
-    cursor: pointer;
-
+.form-right input {
+    margin-left: 10px;
+    border: none;
+    border-radius: 15px;
+    width: 60%; /* Adjust the width as needed */
+    padding: 2px; /* Adjust padding for better appearance */
+    font-size: 15px;
+    display: inline-block;
 }
 
-.hidden-cell {
-    display: none;
+.btn-container {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px; /* Adjust the gap between buttons as needed */
+}
+
+.btn-accept,
+.btn-reject {
+    width: 80px;
+    font-size: 15px;
+    padding: 3px 8px;
+    text-align: center;
+    border-radius: 20px;
 }
 
 .btn-accept {
-  background: rgb(43 195 1 / 97%);
-  height: 30px;
-  width: 60px;
-  color: white;
-  padding: 3px 10px;
-  text-align: center;
-  border-radius: 18px;
-  border-color: rgb(43 195 1 / 97%);
+    background: rgb(43 195 1 / 97%);
+    border: 2px solid rgb(43 195 1 / 97%);
+    color: white;
 }
 
 .btn-accept:hover {
-  color: rgb(43 195 1 / 97%);
-  background: white;
-  padding: 3px 8px;
-  border: 2px solid rgb(43 195 1 / 97%);
+    color: rgb(43 195 1 / 97%);
+    background: white;
+    border: 2px solid rgb(43 195 1 / 97%);
 }
 
 .btn-reject {
-  background:rgba(255, 0, 0, 0.97);
-  height: 30px;
-  width: 60px;
-  color: white;
-  padding: 3px 10px;
-  text-align: center;
-  border-radius: 18px;
-  border-color: rgba(255, 0, 0, 0.97);
+    background: rgba(255, 0, 0, 0.97);
+    border: 2px solid rgba(255, 0, 0, 0.97);
+    color: rgb(255, 255, 255);
 }
 
 .btn-reject:hover {
-  color: rgba(255, 0, 0, 0.97);
-  background: white;
-  padding: 3px 8px;
-  border: 2px solid rgba(255, 0, 0, 0.97);
-}
-
-.btn {
-  background:rgba(195, 98, 1, 0.973);
-  height: 30px;
-  width: 60px;
-  color: white;
-  padding: 3px 10px;
-  text-align: center;
-  border-radius: 18px;
-  border-color: rgba(195, 98, 1, 0.973);
-}
-
-.btn:hover {
-  color: rgba(195, 98, 1, 0.973);
-  background: rgb(255, 255, 255);
-  padding: 3px 8px;
-  border: 2px solid rgba(195, 98, 1, 0.973);
+    color: rgba(255, 0, 0, 0.97);
+    background: white;
+    border: 2px solid rgba(255, 0, 0, 0.97);
 }

@@ -1,5 +1,5 @@
 <?php
-
+session_start(); // Start the session
 /**
  * cw login class
  */

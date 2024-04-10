@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css?family=Catamaran:400,700');
+*{
+    
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+
+}
+
+body{
+    font-family: 'Catamaran', sans-seri;
+    height: 100vh;
+}
+.container{
+    position: absolute;
+    width: calc(100% - 250px);
+    left: 250px;
+    min-height: 100vh;
+    background-color:  white;
+    transition: 0.5s;
+    margin-top: 80px;
+    padding: 100px 50px;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+}
+
+.container .cardBox{
+    position: relative;
+    width: 100%;
+    padding: 5px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 50px;
+    top: -30px;
+    margin-left: 15px;
+
+
+}
+
+.container .cardBox .card{
+    position: relative;
+    background: blue;
+    padding: 30px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+
+}
+
+.container .cardBox .card .cardName{
+    position: relative;
+    font-weight: 300;
+    font-size: 2.0rem;
+    color: white;
+    /* top: 30px; */
+    /* margin-left: 10px; */
+}
+
+.container .cardBox .card .numbers{
+    color: white;
+    font-size: 1.8rem;
+    /* margin-top: 5px; */
+    margin-left: 10px;
+    left: 10px;
+    /* top: 80px; */
+    /* margin-right: 60px; */
+}
+
+.container .cardBox .card .iconBox{
+    font-size: 3.5rem;
+    color: white;
+}
+
+.container .cardBox .card:hover{
+    background: white;
+    border: 3px solid #2424ff;
+}
+
+.cardBox .card:hover .numbers,
+.cardBox .card:hover .cardName,
+.cardBox .card:hover .iconBox{
+    color: blue;
+}
+
+.container  .content-2 {
+    min-height: 60vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+.container  .content-2 .tasks {
+    min-height: 50vh;
+    flex: 5;
+    background: white;
+    margin: 0 25px 25px 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+}
+
+.container .content-2 .history {
+    flex: 6;
+    background: white;
+    min-height: 50vh;
+    margin: 0 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+}
+
+
+a {
+    text-decoration: none;
+}
+li {
+    list-style: none;
+}
+h1{
+    color: white;
+}
+h2 {
+    color: black;
+}
+h3 {
+    color: #ffffff;
+}
+.btn {
+    background: #e6cc00;
+    color: black;
+    padding: 3px 10px;
+    text-align: center;
+    border-radius: 15px;
+}
+.btn:hover {
+    color: #e6cc00;
+    background:black;
+    /* opacity: 0.6; */
+    padding: 3px 8px;
+    /* border: 2px solid #e6cc00; */
+}
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 15px 10px;
+    border-bottom: 2px solid #999;
+}
+table {
+    padding: 10px;
+}
+th,
+td {
+    text-align: left;
+    padding: 8px;
+}

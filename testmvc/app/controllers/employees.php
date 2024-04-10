@@ -11,13 +11,31 @@ class employees
     {
 
         if (empty($_SESSION['USER'])) {
-			// Redirect or handle the case when the user is not logged in
-			// For example, you might want to redirect them to the login page
-			redirect('login');
-			exit();
-		}
-        
+            // Redirect or handle the case when the user is not logged in
+            // For example, you might want to redirect them to the login page
+            redirect('login');
+            exit();
+        }
+
+        $employeeRole = isset($_GET['role']) ? $_GET['role'] : null;
         $employee = new employee;
+        // show($employeeRole);
+        if ($employeeRole) {
+            $arr['role'] = $employeeRole;
+            $employeeData = $employee->where($arr);
+            show($employeeData);
+
+            if ($employeeData){
+                $data['role'] = $employeeData;
+            }else{
+                echo "employee role not found";
+                exit();
+            }
+        }
+
+
+
+
         $result['employees'] = $employee->findAll();
         $data['employees'] = $result['employees'];
         // show($data['employees']);
@@ -32,19 +50,32 @@ class employees
                 $empId = $_POST['delete_employee'];
                 $this->employeeDelete($empId, $employee);
             }
-
-            if (isset($_POST['update'])) {
-                $this->employeeUpdate($_POST['update'], $employee);
-            }
-
-            if (isset($_POST['view_employee'])) {
-                $empId = $_POST['view_employee'];
-                $this->employeeView($empId, $employee);
-            }
-            
         }
 
-        
+
+        $jobs = new Jobs;
+        $result = $this->jobRole($jobs);
+
+        // $data['username'] = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->email;
+
+        $data['role'] = $result;
+    }
+
+    private function jobRole($jobs)
+    {
+        $result = $jobs->findAll();
+        foreach ($result as $key) {
+
+            unset($key->startTime);
+            unset($key->endTime);
+            unset($key->salary);
+            unset($key->id);
+            unset($key->jobSummary);
+        }
+        // show($result);
+        return $result;
+        // $data['jobs'] = $result;
+        // $this->view('addemployee', $data);
     }
 
     private function employeeDelete($data, $employee)
@@ -52,24 +83,5 @@ class employees
         // Use $data instead of $id
         $employee->delete($data, 'id');
         redirect("employees");
-    }
-
-    private function employeeUpdate($data, $employee)
-    {
-        if (isset($data['id'])) {
-            $id = $data['id'];
-            unset($data['id']);
-            show($data);
-
-            $data['empName'] = $_POST['NewempName'];
-            $employee->update($id, $data, 'id');
-            show($_POST);
-        }
-    }
-
-    private function employeeView($data, $employee)
-    {
-        $result['view'] = $employee->where($data, 'id');
-        $data['view'] = $result['view'];
     }
 }

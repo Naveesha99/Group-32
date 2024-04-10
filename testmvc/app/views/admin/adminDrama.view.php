@@ -25,14 +25,14 @@
                             </div>
                         </div>
                     </a>
-                    <a href="<?= ROOT ?>/createtask">
+                    <a href="<?= ROOT ?>/allDramas">
                         <div class="card">
                             <div class="box">
-                                <h1>Create Tasks</h1>
+                                <h1>All Dramas</h1>
                             </div>
                         </div>
                     </a>
-                    <a href="assignTask.html">
+                    <a href="#">
                         <div class="card">
                             <div class="box">
                                 <h1>Assign Tasks</h1>

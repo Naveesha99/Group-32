@@ -213,7 +213,20 @@
       <div class="sub-menu">
         <div class="user-info">
           <img src="<?= ROOT ?>/assets/images/profilePic.png">
-          <h3> Ahmed Khan </h3>
+          <!-- <h3> Ahmed Khan </h3> -->
+          <h3>
+
+          <?php 
+          if (isset($_SESSION['USER'])) {
+            echo ucfirst($_SESSION['USER']->username); 
+          } else {
+            show('No session');
+          }
+          ?>
+
+
+
+          </h3>
         </div>
         <hr>
 
@@ -257,18 +270,33 @@
   <script>
     let subMenu = document.getElementById("subMenu");
 
-    window.onload = function() {
-      const urlSearchParams = new URLSearchParams(window.location.search);
-      var session = urlSearchParams.get('loggedin');
+    // window.onload = function() {
+      // const urlSearchParams = new URLSearchParams(window.location.search);
+      // var session = urlSearchParams.get('loggedin');
 
-      if(session==null){
-        document.getElementById('img-profile').style.display = 'none';
-        document.getElementById('login-btn').style.display='block';
+      // if(session==null){
+      //   document.getElementById('img-profile').style.display = 'none';
+      //   document.getElementById('login-btn').style.display='block';
 
-      }
+      // }
       // alert('fromnavbar' + session);
 
+    // }
+
+    window.onload = function() {
+    // Check if the user is logged in by accessing session data
+    var session = '<?php echo isset($_SESSION['USER']) ? "true" : "false"; ?>';
+    <?php if (isset($_SESSION['USER'])): ?>
+      console.log('<?php echo $_SESSION['USER']->username; ?>');
+    <?php endif; ?>
+
+    // If the session is not set, hide the profile image and display the login button
+    if (session === "false") {
+        document.getElementById('img-profile').style.display = 'none';
+        document.getElementById('login-btn').style.display = 'block';
     }
+}
+
 
     function toggleMenu() {
       subMenu.classList.toggle("open-menu");

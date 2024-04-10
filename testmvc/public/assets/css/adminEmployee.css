@@ -15,25 +15,28 @@ a {
 li {
     list-style: none;
 }
-h1,
+h1{
+    color: white;
+}
 h2 {
-    color: #b1b1b1;
+    color: black;
 }
 h3 {
     color: #999;
 }
 .btn {
-    background: rgba(73, 26, 114, 0.973);
-    color: white;
+    background: #e6cc00;
+    color: black;
     padding: 3px 10px;
     text-align: center;
     border-radius: 15px;
 }
 .btn:hover {
-    color: rgba(73, 26, 114, 0.973);
-    background: white;
+    color: #e6cc00;
+    background:black;
+    /* opacity: 0.6; */
     padding: 3px 8px;
-    border: 2px solid rgba(73, 26, 114, 0.973);
+    /* border: 2px solid #e6cc00; */
 }
 .title {
     display: flex;
@@ -44,6 +47,7 @@ h3 {
 }
 table {
     padding: 10px;
+    border-radius: 15px;
 }
 th,
 td {
@@ -55,14 +59,14 @@ td {
     right: 0;
     width: 80vw;
     height: 100vh;
-    background: #f1f1f1;
+    background: white;
 }
 
 .container .content {
     position: relative;
     margin-top: 10vh;
     min-height: 90vh;
-    background: #f1f1f1;
+    background: white;
 }
 .container .content .cards {
     padding: 20px 15px;
@@ -81,90 +85,43 @@ td {
     border-radius: 40px;
     align-items: center;
     justify-content: space-around;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     transition: all 0.3s ease-in-out;
 }
 
+.container .content .cards .card:hover {
+    width: 250px;
+    height: 150px;
+    background: white;
+    margin: 20px 10px;
+    display: flex;
+    border-radius: 40px;
+    align-items: center;
+    justify-content: space-around;
+    border: 3px solid #2424ff;
+    transition: all 0.3s ease-in-out;
+}
+
+.container .content .cards .card:hover h1 {
+    color: #2424ff;
+}
+
 .btn-1 {
-    background: rgba(73, 26, 114, 0.973);
+    background: #e6cc00;
     color: white;
     padding: 3px 10px;
     text-align: center;
     border-radius: 5px;
-    border: 2px solid rgba(73, 26, 114, 0.973);
+    border: 2px solid #e6cc00;
     margin-left: 30px;
     margin-bottom: 10px;
 }
 .btn-1:hover {
-    color: rgba(73, 26, 114, 0.973);
+    color: #e6cc00;
     background: white;
     padding: 3px 10px;
-    border: 2px solid rgba(73, 26, 114, 0.973);
+    border: 2px solid #e6cc00;
     margin-left: 30px;
 }
-
-.container .content .add-employee{
-    padding: 30px 0px 0px;
-    margin-top: 150px;
-    max-width: 800px;
-    height: 60%;
-    margin: 40px auto;
-    border-radius: 5px;
-    background-color: #ff00fb;
-  }
-  
-.container .add-employee label {
-    display: block;
-    margin-bottom: 8px;
-    margin-left: 20px;
-    font-weight: bold;
-  }
-  
-.container .add-employee input {
-    width: 90%;
-    height: 30px;
-    padding: 5px;
-    margin-bottom: 12px;
-    margin-left: 20px;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 15px;
-  }
-
-.container .add-employee .select {
-    width: 90%;
-    height: 35px;
-    /* padding: 8px; */
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    margin-left: 20px;
-    margin-bottom: 16px;
-}
-
-#overlay {
-    position: fixed;
-    z-index: 10;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(162, 158, 158, 0.9); /* Semi-transparent black overlay */
-    display: none;
-  }
-  
-  #popupForm {
-    z-index: 11;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    /* background-color: white; */
-    width: 50%;
-    padding: 20px;
-    border-radius: 5px;
-    display: none;
-  }
 
 .container .content .content-2 {
     min-height: 60vh;
@@ -181,6 +138,7 @@ td {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     display: flex;
     flex-direction: column;
+    border-radius: 15px;
 }
 .container .content .content-2 .new-employee {
     flex: 2;
@@ -190,6 +148,7 @@ td {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     display: flex;
     flex-direction: column;
+    border-radius: 15px;
 }
 .container .content .content-2 .new-employee table td:nth-child(1) img {
     height: 40px;
@@ -200,23 +159,7 @@ td {
         font-size: 18px;
     }
 }
-@media screen and (max-width: 940px) {
-    .side-menu li span {
-        display: none;
-    }
-    .side-menu {
-        align-items: center;
-    }
-    .side-menu li img {
-        width: 40px;
-        height: 40px;
-    }
-    .side-menu li:hover {
-        background: rgba(195, 98, 1, 0.973);
-        padding: 8px 38px;
-        border: 2px solid white;
-    }
-}
+
 
 select {
     width: 150px; /* Set the width of the dropdown */

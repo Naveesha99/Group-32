@@ -131,6 +131,17 @@
    
             <form  method="POST" class="form" id="Form" onsubmit="return validateForm()">
 
+
+
+
+<?php if (isset($_SESSION['USER'])) {
+            echo $_SESSION['USER']->username; 
+             }
+                else{show('No session');}
+            ?>
+
+
+
                 <h2> <span class="hallNo" id="hallNo">Hall No</span> <BR> BOOKING REQUEST  <br><span class="spn1">ID: <label class="spn2" id="requestId" name="requestId"> </label></span></h2>
                 <!-- <div class="form_f">
                     <label for="requestId">Request ID:</label>

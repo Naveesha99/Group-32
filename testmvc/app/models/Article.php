@@ -17,6 +17,7 @@ class Article
         'article_content',
         'image',
         'status',
+        'progress',
 
     ];
 
@@ -49,19 +50,50 @@ class Article
         return false;
     }
 
-    public function getDraftArticles(){
-        $query= "SELECT * FROM $this->table WHERE status =0";
+    public function getDraftArticles()
+    {
+        $query = "SELECT * FROM $this->table WHERE status =0";
         return $this->query($query);
     }
 
-    public function findPublishArticles(){
-        $query = "SELECT * FROM $this->table WHERE status =1 ";
+    public function findPublishArticles()
+    {
+        $query = "SELECT * FROM $this->table WHERE status =1 AND progress = 'accepted'";
         return $this->query($query);
     }
 
-    public function findArticleById($articleId){
+    public function publishDraftArticle($articleId)
+    {
+        $query = "UPDATE $this->table SET status = 1 WHERE id = :id AND status = 0";
+        $params = array(':id' => $articleId);
+        return $this->execute($query, $params);
+    }
+
+    public function findArticleById($articleId)
+    {
         $query = "SELECT * FROM $this->table WHERE id=:id";
-        $params = array(':id'=> $articleId);
-        return $this ->query($query, $params);
+        $params = array(':id' => $articleId);
+        return $this->query($query, $params);
+    }
+
+    public function findArticlesByStatus($status)
+    {
+        $query = "SELECT * FROM $this->table WHERE status = :status";
+        $params = array(':status' => $status);
+        return $this->query($query, $params);
+    }
+
+    public function findPublishArticlesByCategory($category)
+    {
+        $query = "SELECT * FROM $this->table WHERE status = 1 AND category = :category";
+        $params = array(':category' => $category);
+        return $this->query($query, $params);
+    }
+
+    public function findPublishArticlesByCategoryAndSearch($category, $searchQuery)
+    {
+        $query = "SELECT * FROM $this->table WHERE status = 1 AND category = :category AND (article_name LIKE :searchQuery OR article_content LIKE :searchQuery)";
+        $params = array(':category' => $category, ':searchQuery' => "%$searchQuery%");
+        return $this->query($query, $params);
     }
 }

@@ -13,34 +13,49 @@
 
 <body>
     <div class="container">
-        <div class="content">
-            <form method="POST" class="add-drama">
-                <h1>Add New Drama</h1>
-                <label for="empName">Drama Name</label>
-                <input type="text" name="empName">
-                <label for="empEmail">Showing Date</label>
-                <input type="email" name="empEmail">
-                <label for="empNIC">Showing Time</label>
-                <input type="text" name="empNIC">
-                <label for="empDOB">Description</label>
-                <input type="text" name="empDOB">
-                <label for="empAddress">Address</label>
-                <input type="text" name="empAddress">
-                <label for="empContact">Contact</label>
-                <input type="text" name="empContact">
-                <!-- <label for="empRoll">Employee Roll</label> -->
-                <!-- <select class="select" name="empRoll"> -->
-                <?php
-                // foreach ($data['role'] as $row) {
-                //     echo "<option value='" . $row->jobTitle . "'>" . $row->jobTitle . "</option>";
-                // }
-                ?>
-                </select>
+        <form method="POST" class="add-drama">
+            <h1>Add New Drama</h1><br>
+            <label for="dramaName">Drama Name
+                <input type="text" name="dramaName"></label>
+            <label for="showingDate">Showing Date
+                <div class="checkbox-group" id="days">
+                    <label class="checkbox"><input type="checkbox" name="showingDate[]" value="monday"> Monday</label>
+                    <label class="checkbox"><input type="checkbox" name="showingDate[]" value="tuesday"> Tuesday</label>
+                    <label class="checkbox"><input type="checkbox" name="showingDate[]" value="wednesday"> Wednesday</label>
+                    <label class="checkbox"><input type="checkbox" name="showingDate[]" value="thursday"> Thursday</label>
+                    <label class="checkbox"><input type="checkbox" name="showingDate[]" value="friday"> Friday</label>
+                    <label class="checkbox"><input type="checkbox" name="showingDate[]" value="saturday"> Saturday</label>
+                    <label class="checkbox"><input type="checkbox" name="showingDate[]" value="sunday"> Sunday</label>
+                </div>
+            </label>
 
-                <br>
-                <button class="btn-1">Submit</button>
-            </form>
-        </div>
+
+            <label for="showingTime">Showing Date
+                <div class="checkbox-group" id="times">
+                    <label class="checkbox"><input type="checkbox" name="showingTime[]" value="slot1">Slot 1 (09:00 - 10:00)</label>
+                    <label class="checkbox"><input type="checkbox" name="showingTime[]" value="slot2">Slot 2 (11:00 - 12:30)</label>
+                    <label class="checkbox"><input type="checkbox" name="showingTime[]" value="slot3">Slot 3 (14:00 - 15:30)</label>
+                </div>
+            </label>
+            <label for="description">Description
+                <input type="textarea" name="description"></label>
+            <label for="ticket">Ticket Price
+                <input type="text" name="ticketPrice">
+                <span>LKR</span>
+            </label>
+            <label for="coverPhoto">Cover Photo
+                <input type="file" name="coverPhoto"><br>
+                <span>image should **MB and 0000*1111 resolution<span>
+            </label>
+            <!-- <label for="empContact">Contact
+                    <input type="text" name="empContact"></label> -->
+            <!-- <label for="empRoll">Employee Roll</label> -->
+            <!-- <select class="select" name="empRoll"> -->
+            </select>
+
+            <br>
+            <button class="btn-1">Submit</button>
+        </form>
     </div>
 </body>
 

@@ -23,7 +23,7 @@ body{
     width: calc(100% - 250px);
     left: 250px;
     min-height: 100vh;
-    background-color:  #FFEAD7;
+    background-color:  #d0c2c1c4;
     transition: 0.5s;
     margin-top: 80px;
     padding: 100px 50px;
@@ -111,6 +111,18 @@ body{
 }
 
 .container .card .Content button[type="submit"]{
+    position: relative;
+    top: 15px;
+    display: inline-block;
+    padding: 12px 25px;
+    background: rgb(13, 91, 13);
+    color: #fff;
+    font-weight: 50px;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+.container .card .Content a{
     position: relative;
     top: 15px;
     display: inline-block;

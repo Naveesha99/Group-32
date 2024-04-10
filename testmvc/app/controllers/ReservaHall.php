@@ -7,11 +7,7 @@ class ReservaHall
 
 	public function index()
 	{
-
-
-
-
-
+		show($_SESSION['USER']);
 		// if (isset($_SESSION['USER'])) {
 		// 	$loggedInUsername = $_SESSION['reservationists']->username;
 		
@@ -20,6 +16,7 @@ class ReservaHall
 		// 	echo "User is not logged in.";
 		// }
 
+		// show($_SESSION['USER']);
 		$data = [];
 		$this->view('reservaHall',$data);
 	}

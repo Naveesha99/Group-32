@@ -23,7 +23,8 @@ body{
     width: calc(100% - 250px);
     left: 250px;
     min-height: 100vh;
-    background-color:  #FFEAD7;
+    /* background-color:  #FFEAD7; */
+    background-color: #d0c2c1c4;
     transition: 0.5s;
     margin-top: 80px;
     padding: 100px 50px;
@@ -33,6 +34,187 @@ body{
     gap: 100px 50px;
 
 }
+
+.container .search-bar{
+    display: flex;
+    align-items: center;
+    min-width: 800px ;
+    background-color: #fff;
+    border-radius: 50px;
+    height: fit-content;
+    top: 10px;
+    left: 20px;
+    
+
+
+}
+
+.container .search-bar .dropdown{
+    position: relative;
+    width: 200px;
+    background-color: brown;
+    border-radius: 50px;
+    border: 1px solid white;
+    box-shadow: gray;
+    cursor: pointer;
+    /* z-index: 100; */
+}
+
+.container .search-bar .dropdown .dropdown-text{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1rem;
+    font-weight: 500;
+    color: white;
+    padding: 1rem 1.5rem ;
+
+}
+
+.container .search-bar .dropdown .dropdown-list{
+   position: absolute;
+   top: 4rem;
+   left: 0;
+   width: 100%;
+   border-radius: 15px;
+   max-height: 0;
+   overflow: hidden;
+   background-color: white;
+   transition: max-height 0.5s;
+   z-index: 200;
+
+}
+
+#list.show{
+    max-height: 300px;
+}
+
+.dropdown-list-item{
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 1rem 0 1rem 1.5rem;
+    cursor: pointer;
+    transition: margin-left 0.2s ease, color 0.2s ease;
+}
+
+.dropdown-list-item:hover{
+    margin-left: 0.5rem;
+    color: brown;
+}
+
+.search-box{
+    display: flex;
+    align-items: center;
+    padding-right: 1rem;
+    width: 100%;
+    color: brown;
+}
+
+.search-box input{
+    padding: 1rem;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: 500;
+    color: brown;
+    border: 0;
+    outline: 0;
+}
+
+.search-box i{
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+.search-box input::placeholder{
+    font-size: 1rem;
+    font-weight: 500;
+    color: brown;
+}
+
+/* .container .search-bar{
+    background: #fff;
+    width: 90%;
+    max-width: 800px;
+    display: flex;
+    padding: 2px;
+    border-radius: 4px;
+}
+
+#select{
+    background: #160053;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+    width: 300px;
+    padding: 25px 20px;
+    cursor: pointer;
+    position: relative;
+    border-radius: 4px;
+}
+
+#select i{
+    width: 15px;
+}
+
+#select ul{
+    position: absolute;
+    top: 120%;
+    left: 0;
+    list-style: none;
+    background: #fff;
+    color: #555;
+    width: 100%;
+    border-radius: 4px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s;
+}
+
+#select ul li{
+    padding: 10px 20px;
+    cursor: pointer;
+
+}
+
+.container .search-bar input{
+    padding: 10px 25px;
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 18px;
+}
+
+#select ul .open{
+    max-height: 300px;
+} */
+
+.container .addNew{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px ;
+    border: none;
+    /* border-radius: 5px; */
+    cursor: pointer;
+    
+}
+.container .addNew a{
+    color: white;
+    /* background: whitesmoke; */
+    border: 1px solid black;
+    display: inline-block;
+    padding: 7px 17px;
+    font-weight: bold;
+    border-radius: 13px;
+    transition: 0.3s ease-in-out;
+    border-color: brown;
+    background-color: brown;
+}
+.container .addNew a:hover{
+    box-shadow: 0 2px 8px gray ;
+}
+
 /* .container heading{
     margin-top: 20px;
     justify-content: center;
@@ -44,6 +226,7 @@ body{
 .container .card{
     position: relative;
     display: flex;
+    top: 30px;
     justify-content: center;
     align-items: flex-start;
     width:350px ;

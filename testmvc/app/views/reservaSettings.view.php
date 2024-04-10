@@ -53,7 +53,8 @@
                     <input type="nic" id="nic" name="nic" placeholder="Enter your NIC" required>
 
                     <div class="btn2">
-                        <button type="submit">Save Settings</button>
+                        <!-- <button type="submit">Save Settings</button> -->
+                        <button id="edit-profile" class="btn btn-primary">Edit Profile</button>
                     </div>
                 </form>
             </div>
@@ -106,6 +107,10 @@
         }
         
         }
+
+        document.getElementById('edit-profile').addEventListener('click', function() {
+        window.location.href = 'reservaProfileEdit';
+        });
     </script>
 </body>
 

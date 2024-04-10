@@ -43,8 +43,8 @@
             <input type="file" id="image" name="image" accept="image/*">
 
             <div class="button-group">
-                <button type="submit" name="save_draft" >Save as Draft</button>
-                <button type="submit"  name = "submit_article" >SUBMIT</button>
+                <button type="submit" name="save_draft">Save as Draft</button>
+                <button type="submit" name="submit_article">SUBMIT</button>
 
             </div>
 
@@ -56,9 +56,8 @@
 
     <script>
         function submitForm() {
-            console.log("submitForm function caled");
-            windows.alert("Article added successfully!");
-            return false;
+            alert("Article added successfully!");
+            return true;
             // document.getElementById("articleForm").submit();
         }
     </script>

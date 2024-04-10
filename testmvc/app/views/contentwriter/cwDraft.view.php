@@ -39,7 +39,8 @@
                             <h2>' . $row->article_name . '</h2>
                             <p>Category:' . $row->category . '</p>
                             <p>' . limitWords($row->article_content, 20) . '</p>
-                            <button type="submit" onclick="publish()">Publish Article</button>
+                            
+                            <a href = "cwEditArticle?id=' . $row->id . '" class = "btn-publish">Publish Article </a>
     
                         </div>
                         </div>';

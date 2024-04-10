@@ -35,7 +35,7 @@
 
             <label for="article_content">Article Content:</label>
 
-            <textarea name="article_content"  id="article_content" cols="30" rows="10" required>
+            <textarea name="article_content" id="article_content" cols="30" rows="10" required>
                 <?= htmlspecialchars($data['article'][0]->article_content) ?>
             </textarea>
 
@@ -48,8 +48,6 @@
                 <button type="submit" name="submit_article">SUBMIT</button>
 
             </div>
-
-
         </form>
 
 
