@@ -31,7 +31,7 @@
     ?>
 
     <div class="container">
-        <form method="POST">
+        <!-- <form method="POST">
             <div class="search-bar">
                 <div class="dropdown">
                     <div id="drop-text" class="dropdown-text">
@@ -50,14 +50,13 @@
 
 
 
-                <!-- <div class="search-box">
+                <div class="search-box">
                     <input type="text" id="search-input" placeholder="search category.." onkeyup="search()">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </div> -->
-            </div>
+            <!-- </div>
 
-        </form>
-
+        </form> -->
 
         <div class="addNew">
             <a href="<?= ROOT ?>/cwAddArticle">ADD NEW</a>
@@ -72,6 +71,8 @@
                             </div>
     
                             <div class="Content">
+                                <i id="iconHeart<?=$row->id?>" onclick="post.like(' .$row->id. ')" class="fa-regular fa-heart"></i>
+
                                 <h2>' . $row->article_name . '</h2>
                                 <p>Category:' . $row->category . '</p>
                                 <p>' . limitWords($row->article_content, 20) . '</p>
@@ -83,9 +84,49 @@
             echo '<p>No data available</p>';
         }
         ?>
+
+        <script>
+            var post = {
+                posting : false,
+                like: function(post_id) {
+                    let obj ={
+                        post_id, 
+                        data_type:'like'
+                    };
+                    post.send_data(obj);
+
+                },
+
+                send_data: function(obj){
+                    if(post.posting)
+                    return; 
+                    let xhr= new XMLHttpRequest();
+                    post.posting =true;
+
+                    xhr.addEventListener('readystatechange',function(){
+                        if(xhr.readyState == 4){
+                            post.posting =false;
+                            alert(xhr.responseText);
+                        }
+
+                    });
+
+                    let myForm = new FormData();
+
+                    for(key in obj){
+                        myForm.append(key, obj[key]);
+                    }
+                    
+                    xhr.open('post','<?=ROOT?>/ajax');
+                    xhr.send(myForm);
+
+                },
+
+            };
+        </Script>
     </div>
 
-    <script>
+    <!-- <script>
         let searchTimer;
         let dropdownBtn = document.getElementById("drop-text");
         let list = document.getElementById("list");
@@ -182,7 +223,7 @@
         // document.querySelector(".fa-magnifying-glass").addEventListener("click", function() {
         //     handleSearch();
         // });
-    </script>
+    </script> -->
 
 
     <!-- <script src="search_category.js"></script> -->

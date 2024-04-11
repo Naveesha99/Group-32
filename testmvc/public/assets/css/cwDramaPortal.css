@@ -313,6 +313,21 @@ body{
     border-radius: 8px;
 }
 
+#iconHeart{
+    color: blue;
+    position: absolute;
+    top: 6px; 
+    right: 8px; 
+    font-size: 1.3em; 
+    font-weight: 200;
+    transition: all 0.3s cubic-bezier(0.41, 0.15, 0.36, 1);
+    cursor: pointer;
+}
+
+#iconHeart:hover{
+    transform: scale(1.2);
+}
+
 @media screen and (max-width: 1200px) {
     .container {
         width: calc(100% - 200px);
