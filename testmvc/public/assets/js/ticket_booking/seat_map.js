@@ -28,6 +28,7 @@ function updateSelectedCount() {
   // Update the value of the hidden input field with the total price
   document.getElementById('totalPriceInput').value = selectedSeatsCount * ticketPrice;
 
+  toggleSubmitButton();
 }
 
 // Movie Select Event
@@ -78,12 +79,13 @@ pendingSeats.forEach(seat => {
 });
 
 
-
+// _________________enable button after tick mark________________
 function toggleSubmitButton() {
   var checkbox = document.getElementById("myCheckbox");
   var submitButton = document.getElementById("submitBtn");
 
-  // Enable or disable the submit button based on checkbox state
-  submitButton.disabled = !checkbox.checked;
+  // Enable or disable the submit button based on checkbox state and selected seats count
+  submitButton.disabled = !checkbox.checked || count.innerText === '0';
 }
+
 

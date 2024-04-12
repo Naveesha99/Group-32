@@ -72,14 +72,17 @@
                         $itemsPerRow = 4;
 
                         // Loop through the data1 and group items by 4
-                        for ($i = $itemCount; $i >= 0; $i -= $itemsPerRow) 
+                        for ($i = $itemCount; $i > 0; $i -= $itemsPerRow) 
                         {
                             echo '<div class="movie-list-row">';
                             
                             // Display up to 4 items in the current row
-                            for ($j = 0; $j < $itemsPerRow && ($i + $j) < $itemCount; $j++) 
+                            for ($j=0; $j<$itemsPerRow; $j++) 
                             {
-                                $x = $data1[$i + $j];
+                                if($i-1-$j>=0){
+
+                                
+                                $x = $data1[$i-1-$j];
                     ?>
                                 <form action="select_drama" method="POST">
                                     <div class="movie-list-item">
@@ -119,6 +122,7 @@
                                     </div>
                                 </form>
                     <?php
+                                }
                             }
 
                             echo '</div>';

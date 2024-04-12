@@ -1,0 +1,227 @@
+________________________________TEMPORARY TABLE1_________________________
+
+CREATE TABLE pending_status1 (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    status_id INT,  -- assuming you have an ID column in your 'time1' table
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+________________________________TEMPORARY TABLE2_________________________
+
+CREATE TABLE pending_status2 (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    status_id INT,  -- assuming you have an ID column in your 'time1' table
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+________________________________TEMPORARY TABLE3_________________________
+
+CREATE TABLE pending_status3 (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    status_id INT,  -- assuming you have an ID column in your 'time1' table
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+
+
+
+
+
+
+
+
+
+___________________________________TRIGGER1_______________________________
+
+DELIMITER //
+
+CREATE TRIGGER update_to_pending_trigger1 AFTER UPDATE ON time1
+FOR EACH ROW
+BEGIN
+    IF NEW.status = 'pending' THEN
+        INSERT INTO pending_status1 (status_id) VALUES (NEW.id);
+    END IF;
+END//
+
+DELIMITER ;
+
+
+___________________________________TRIGGER2_______________________________
+
+DELIMITER //
+
+CREATE TRIGGER update_to_pending_trigger2 AFTER UPDATE ON time2
+FOR EACH ROW
+BEGIN
+    IF NEW.status = 'pending' THEN
+        INSERT INTO pending_status2 (status_id) VALUES (NEW.id);
+    END IF;
+END//
+
+DELIMITER ;
+
+___________________________________TRIGGER3_______________________________
+
+DELIMITER //
+
+CREATE TRIGGER update_to_pending_trigger3 AFTER UPDATE ON time3
+FOR EACH ROW
+BEGIN
+    IF NEW.status = 'pending' THEN
+        INSERT INTO pending_status3 (status_id) VALUES (NEW.id);
+    END IF;
+END//
+
+DELIMITER ;
+
+
+
+
+
+
+
+
+
+_______________________________________EVENT1______________________________
+
+DELIMITER $$
+
+CREATE EVENT update_pending_status_event1
+ON SCHEDULE EVERY 5 SECOND
+DO
+BEGIN
+    DECLARE pending_id INT;
+
+    SELECT MIN(status_id) INTO pending_id
+    FROM pending_status1
+    WHERE timestamp <= NOW() - INTERVAL 7 MINUTE;
+
+    IF pending_id IS NOT NULL THEN
+        UPDATE time1 t
+        JOIN pending_status p ON t.id = p.status_id
+        SET t.status = CASE
+            WHEN t.status = 'pending' THEN 'free'
+            ELSE t.status
+            END,
+            t.username = CASE
+            WHEN t.status = 'pending' THEN NULL
+            ELSE t.username
+            END,
+            t.email = CASE
+            WHEN t.status = 'pending' THEN NULL
+            ELSE t.email
+            END,
+            t.phone = CASE
+            WHEN t.status = 'pending' THEN NULL
+            ELSE t.phone
+            END,
+            t.price = CASE
+            WHEN t.status = 'pending' THEN 0
+            ELSE t.price
+            END
+        WHERE t.id = pending_id;
+
+        DELETE FROM pending_status1 WHERE status_id = pending_id;
+    END IF;
+END$$
+
+DELIMITER ;
+
+
+
+
+___________________________________EVENT2___________________________________________
+
+DELIMITER $$
+
+CREATE EVENT update_pending_status_event2
+ON SCHEDULE EVERY 5 SECOND
+DO
+BEGIN
+    DECLARE pending_id INT;
+
+    SELECT MIN(status_id) INTO pending_id
+    FROM pending_status2
+    WHERE timestamp <= NOW() - INTERVAL 7 MINUTE;
+
+    IF pending_id IS NOT NULL THEN
+        UPDATE time2 t
+        JOIN pending_status2 p ON t.id = p.status_id
+        SET t.status = CASE
+            WHEN t.status = 'pending' THEN 'free'
+            ELSE t.status
+            END,
+            t.username = CASE
+            WHEN t.status = 'pending' THEN NULL
+            ELSE t.username
+            END,
+            t.email = CASE
+            WHEN t.status = 'pending' THEN NULL
+            ELSE t.email
+            END,
+            t.phone = CASE
+            WHEN t.status = 'pending' THEN NULL
+            ELSE t.phone
+            END,
+            t.price = CASE
+            WHEN t.status = 'pending' THEN 0
+            ELSE t.price
+            END
+        WHERE t.id = pending_id;
+
+        DELETE FROM pending_status2 WHERE status_id = pending_id;
+    END IF;
+END$$
+
+DELIMITER ;
+
+
+
+
+
+
+___________________________________EVENT3___________________________________________
+
+DELIMITER $$
+
+CREATE EVENT update_pending_status_event3
+ON SCHEDULE EVERY 5 SECOND
+DO
+BEGIN
+    DECLARE pending_id INT;
+
+    SELECT MIN(status_id) INTO pending_id
+    FROM pending_status3
+    WHERE timestamp <= NOW() - INTERVAL 7 MINUTE;
+
+    IF pending_id IS NOT NULL THEN
+        UPDATE time3 t
+        JOIN pending_status3 p ON t.id = p.status_id
+        SET t.status = CASE
+            WHEN t.status = 'pending' THEN 'free'
+            ELSE t.status
+            END,
+            t.username = CASE
+            WHEN t.status = 'pending' THEN NULL
+            ELSE t.username
+            END,
+            t.email = CASE
+            WHEN t.status = 'pending' THEN NULL
+            ELSE t.email
+            END,
+            t.phone = CASE
+            WHEN t.status = 'pending' THEN NULL
+            ELSE t.phone
+            END,
+            t.price = CASE
+            WHEN t.status = 'pending' THEN 0
+            ELSE t.price
+            END
+        WHERE t.id = pending_id;
+
+        DELETE FROM pending_status3 WHERE status_id = pending_id;
+    END IF;
+END$$
+
+DELIMITER ;

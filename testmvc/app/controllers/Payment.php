@@ -6,14 +6,14 @@ class Payment
 
     public function index()
     {
+        $data = [];
 
 // (1)____________________received selected seats from previous page(seat_map)_______________________________
 
         if(isset($_POST['selectedSeats']))
         {
-            // show($_POST['totalPrice']);
             $selectedSeatsArray = json_decode($_POST['selectedSeats']);
-            // show($selectedSeatsArray);
+
             // Check if decoding was successful
             if ($selectedSeatsArray !== null) 
             {                
@@ -78,9 +78,7 @@ class Payment
                 }
                 else
                 {
-                    // $data['errors'] = $timeslot1->errors;
-                    // print_r($timeslot1->errors);
-                    echo 'ljsdf';
+                    $data['errors'] = $timeslot1->errors;
                 }
                 
             }
@@ -97,13 +95,11 @@ class Payment
 
                         $timeslot2->update($dta, $data);
                     }
-                    
+                   
                 }
                 else
                 {
-                    // $data['errors'] = $timeslot1->errors;
-                    // print_r($timeslot1->errors);
-                    echo 'ljsdf';
+                    $data['errors'] = $timeslot2->errors;
                 }
                 
             }
@@ -124,9 +120,7 @@ class Payment
                 }
                 else
                 {
-                    // $data['errors'] = $timeslot1->errors;
-                    // print_r($timeslot1->errors);
-                    echo 'ljsdf';
+                    $data['errors'] = $timeslot3->errors;
                 }
                 
             }
@@ -232,6 +226,7 @@ Thank you.";
                     }
                 }
             }
+            
         }
 
     }
@@ -270,15 +265,13 @@ Thank you.";
                         $release[1]=$price;
                         // show($release[1]);
                         $timeslot1->update($id, $data1);
-                        echo'successfully temporarily booked '.$data[0]->seat_id.'<br>';
+                        // echo'successfully temporarily booked '.$data[0]->seat_id.'<br>';
                         $release[$i]=$data[0];
                         $i=$i+1;
-                        
                     }
                     else
                     {
-                        echo 'Already booked you selected seats while your seats selection time<br>';
-                        redirect('seat_map');
+                        redirect('Error_message');
                     }
                 
             }
@@ -311,15 +304,13 @@ Thank you.";
                         $release[0]='table2';
                         $release[1]=$price;
                         $timeslot2->update($id, $data1);
-                        echo'successfully temporarily booked '.$data[0]->seat_id.'<br>';
+                        // echo'successfully temporarily booked '.$data[0]->seat_id.'<br>';
                         $release[$i]=$data[0];
                         $i=$i+1;
-                        
                     }
                     else
                     {
-                        echo 'Already booked you selected seats while your seats selection time<br>';
-                        redirect('seat_map');
+                        redirect('Error_message');
                     }
                 
                 }
@@ -356,20 +347,21 @@ Thank you.";
                         $release[1]=$price;
                         // show($release[1]);
                         $timeslot3->update($id, $data1);
-                        echo'successfully temporarily booked '.$data[0]->seat_id.'<br>';
+                        // echo'successfully temporarily booked '.$data[0]->seat_id.'<br>';
                         $release[$i]=$data[0];
                         $i=$i+1;
-                        
                     }
                     else
                     {
-                        echo 'Already booked you selected seats while your seats selection time<br>';
-                        redirect('seat_map');
+                        // echo 'Already booked you selected seats while your seats selection time<br>';
+                        redirect('Error_message');
                     }
                 
             }
             return $release;
         }      
     }
+    
 
 }
+
