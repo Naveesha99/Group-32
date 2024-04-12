@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+/* @import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap"); */
 
 /* @import url("https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"); */
 
@@ -12,11 +12,11 @@ body {
   color:rgb(0, 0, 0);
   margin: 0;
 
-  background-size: cover; /* This property ensures that the background image covers the entire background */
+  background-size:cover; /* This property ensures that the background image covers the entire background */
   background-position: center; /* This property centers the background image */
   background-repeat: no-repeat; 
   background-attachment: fixed;
-  background-color: #CAA6A6;
+  background-color: #df9983;
 }
 
 * {
@@ -80,10 +80,10 @@ body {
 }
 
 .selected {
-  background-color: hwb(254 1% 16%);
+  background-color: hwb(350 1% 16%);
 }
 .seatselected{
-  background-color: #1049f4;
+  background-color: #f4103a;
   height: 50px;
   width: 55px;
   margin: 3px;
@@ -97,7 +97,7 @@ body {
 }
 
 .seatavailable{
-  background-color:#e2860fef;
+  background-color:#944E63;
   height: 50px;
   width: 55px;
   margin: 3px;
@@ -110,9 +110,20 @@ body {
   font-weight: bold;
 }
 .occupied {
-  background-color:red;
+  background-color:rgba(100, 93, 93, 0.477);
   font-size: large;
 }
+
+.booked {
+  background-color: rgba(87, 80, 80, 0.477) !important;
+  pointer-events:none; /* Disable pointer events for booked seats */
+}
+
+.pending {
+  background-color: rgba(204, 67, 46, 0.544);
+}
+
+
 small {
   font-size: 130%; /* You can adjust the percentage as needed */
   color: rgb(5, 3, 3); /* Set the text color to red (change to your preferred color) */
@@ -292,10 +303,7 @@ h3{
 }
 
 /* Add this to your CSS file */
-.booked {
-  background-color: red !important;
-  pointer-events:none; /* Disable pointer events for booked seats */
-}
+
 
 
 .tickMarks {

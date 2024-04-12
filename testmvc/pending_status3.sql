@@ -24,39 +24,23 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ticket_price`
+-- Table structure for table `pending_status3`
 --
 
-CREATE TABLE `ticket_price` (
+CREATE TABLE `pending_status3` (
   `id` int(11) NOT NULL,
-  `drama_id` int(10) NOT NULL,
-  `t_type` varchar(255) NOT NULL,
-  `t_price` int(11) NOT NULL
+  `status_id` int(11) DEFAULT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `ticket_price`
---
-
-INSERT INTO `ticket_price` (`id`, `drama_id`, `t_type`, `t_price`) VALUES
-(5, 42, 'Normal', 850),
-(6, 43, 'Normal', 900),
-(7, 41, 'Normal', 570),
-(8, 33, 'Normal', 1200),
-(9, 26, 'Normal', 1500),
-(10, 44, 'Normal', 550),
-(11, 45, 'Normal', 0),
-(12, 45, 'Normal', 0),
-(13, 45, 'Normal', 0);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `ticket_price`
+-- Indexes for table `pending_status3`
 --
-ALTER TABLE `ticket_price`
+ALTER TABLE `pending_status3`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -64,10 +48,10 @@ ALTER TABLE `ticket_price`
 --
 
 --
--- AUTO_INCREMENT for table `ticket_price`
+-- AUTO_INCREMENT for table `pending_status3`
 --
-ALTER TABLE `ticket_price`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+ALTER TABLE `pending_status3`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=423;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

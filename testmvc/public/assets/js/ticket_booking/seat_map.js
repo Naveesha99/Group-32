@@ -28,6 +28,7 @@ function updateSelectedCount() {
   // Update the value of the hidden input field with the total price
   document.getElementById('totalPriceInput').value = selectedSeatsCount * ticketPrice;
 
+  toggleSubmitButton();
 }
 
 // Movie Select Event
@@ -52,12 +53,12 @@ container.addEventListener('click', (e) => {
     } 
     else if (role === 'booked') 
     {
-      alert('This seat is already booked and cannot be selected.');
+      alert('This seat is already booked and you cannot be selected.');
       // You can customize this alert or add a UI indication for a booked seat
     } 
     else 
     {
-      alert('This seat is already booked and cannot be selected.');
+      alert('This seat is selected by another user just now. But not approved. So please wait and try again.');
       // Handle other roles if needed
     }
   }
@@ -71,12 +72,20 @@ bookedSeats.forEach(seat => {
   seat.classList.add('booked');
 });
 
+// Color pending seats yellow
+const pendingSeats = document.querySelectorAll('.seat[role="pending"]');
+pendingSeats.forEach(seat => {
+  seat.classList.add('pending');
+});
 
+
+// _________________enable button after tick mark________________
 function toggleSubmitButton() {
   var checkbox = document.getElementById("myCheckbox");
   var submitButton = document.getElementById("submitBtn");
 
-  // Enable or disable the submit button based on checkbox state
-  submitButton.disabled = !checkbox.checked;
+  // Enable or disable the submit button based on checkbox state and selected seats count
+  submitButton.disabled = !checkbox.checked || count.innerText === '0';
 }
+
 

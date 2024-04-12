@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/home.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Sen:wght@400;700;800&display=swap" rel="stylesheet"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <title>Punchi theatre</title>
 </head>
@@ -26,24 +26,6 @@
         chatbox.setAttribute("attribution", "biz_inbox");
     </script>
 
-    <!-- Your SDK code -->
-    <!-- <script>
-        window.fbAsyncInit = function() {
-            FB.init({
-                xfbml: true,
-                version: 'v12.0'
-            });
-        };
-
-        (function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s);
-            js.id = id;
-            js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-    </script> -->
 
 
     <div class="navbar">
@@ -54,7 +36,7 @@
             <div class="menu-container">
                 <ul class="menu-list">
                     <li class="menu-list-item active">Home</li>
-                    <li class="menu-list-item"><a href="#">Dramas</a></li>
+                    <li class="menu-list-item"><a href="<?= ROOT ?>/addseats">Dramas</a></li>
                     <li class="menu-list-item"><a href="#">Popular</a></li>
                 </ul>
             </div>
@@ -79,34 +61,68 @@
                 <!-- <button class="featured-button">WATCH</button> -->
             </div>
             <div class="movie-list-container">
-                <h1 class="movie-list-title">NEW RELEASES</h1>
+                <h1 class="movie-list-title">SHOWING</h1>
 
                 <div class="movie-list-wrapper">
                     <?php
-                    if (isset($data) && is_array($data)) 
+                    if (isset($data1) && is_array($data1)) 
                     {
-                        $itemCount = count($data);
+                        $t = 0;
+                        $itemCount = count($data1);
                         $itemsPerRow = 4;
 
-                        // Loop through the data and group items by 7
-                        for ($i = 0; $i < $itemCount; $i += $itemsPerRow) 
+                        // Loop through the data1 and group items by 4
+                        for ($i = $itemCount; $i > 0; $i -= $itemsPerRow) 
                         {
                             echo '<div class="movie-list-row">';
                             
-                            // Display up to 7 items in the current row
-                            for ($j = 0; $j < $itemsPerRow && ($i + $j) < $itemCount; $j++) 
+                            // Display up to 4 items in the current row
+                            for ($j=0; $j<$itemsPerRow; $j++) 
                             {
-                                $x = $data['data1'][$i + $j];  //before ->  $x = $data[$i + $j];
+                                if($i-1-$j>=0){
+
+                                
+                                $x = $data1[$i-1-$j];
                     ?>
                                 <form action="select_drama" method="POST">
                                     <div class="movie-list-item">
-                                        <img class="movie-list-item-img" src="<?= ROOT ?>/assets/images/drama_img/<?= $x->image ?>">
-                                        <span class="movie-list-item-title"><?= $x->title ?></span>
+                                        <img class="movie-list-item-img" src="<?= ROOT ?>/assets/images/drama_img/<?= $x->image ?>" alt=''>
+
+                    <?php
+                                    $dates = []; // Initialize arrays to store dates and times
+                                    $times = [];
+                                    foreach($data2 as $n)
+                                    {
+                                        if($n->drama_id == $x->id)
+                                        {
+                                            $time_from_db = $n->time;
+                                            $time_formatted = date("h:i A", strtotime($time_from_db));
+                                            
+                                            $dates[]=$n->date;
+                                            $times[]=$time_formatted;                                              
+                                        }
+                                        $t++;    
+                                    }
+                                    // show($dates);
+                                    for($r=0; $r <count($dates); $r++)
+                                    {
+                    ?>
+                                        <span class="movie-list-item-title"><?=  $dates[$r].'  -  '.$times[$r]?></span><br>
+                                        <!-- <span class="datesTimes"><?=  $dates[$r].'  -  '.$times[$r]?></span><br> -->
+
+                    <?php
+                                    }
+                    ?>
+                                        <span class="movie-list-title"><?= $x->title ?></span>
                                         <input type="hidden" name="id" value="<?= $x->id ?>">
-                                        <button type="submit" class="movie-list-item-button">BOOK</button>
+                                        <button type="submit" class="movie-list-item-button">BOOK</button><br>
+
+                                        
+                                        
                                     </div>
                                 </form>
                     <?php
+                                }
                             }
 
                             echo '</div>';
@@ -122,12 +138,14 @@
                     <!-- <i class="fas fa-chevron-right arrow"></i> -->
                 </div>
             </div>
-
        
         </div>
     </div>
         
         <script src="<?= ROOT ?>/assets/js/home.js"></script>
+        <script>
+            
+        </script>
 </body>
 
 </html>

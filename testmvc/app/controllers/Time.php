@@ -12,7 +12,6 @@ class Time
 
         $booking = new Booking();
 
-        // show($_POST);
         $result = $booking->where($_POST);
 
         $response = json_encode($result);
@@ -20,10 +19,6 @@ class Time
         header('Content-Type: application/json');
         
         echo $response;
-        //show($response);
-        // $data['data2'] = $response;
-
-		// $this->view('/ticket_booking/select_drama', $data);
 
     }
 }
