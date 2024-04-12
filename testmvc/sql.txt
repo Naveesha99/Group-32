@@ -43,3 +43,6 @@ CREATE TABLE empTasks(
     status VARCHAR(100),
     Created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
+
+ALTER TABLE articles
+ADD likes INT

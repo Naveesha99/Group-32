@@ -18,6 +18,7 @@ class Article
         'image',
         'status',
         'progress',
+        'likes',
 
     ];
 

@@ -71,7 +71,8 @@
                             </div>
     
                             <div class="Content">
-                                <i id="iconHeart<?=$row->id?>" onclick="post.like(' .$row->id. ')" class="fa-regular fa-heart"></i>
+                                <i id="iconHeart" '.$row->id.' onclick="post_like(' .$row->id. ')" class="fa-regular fa-heart"></i>
+                                
 
                                 <h2>' . $row->article_name . '</h2>
                                 <p>Category:' . $row->category . '</p>
@@ -86,43 +87,98 @@
         ?>
 
         <script>
-            var post = {
-                posting : false,
-                like: function(post_id) {
-                    let obj ={
-                        post_id, 
-                        data_type:'like'
-                    };
-                    post.send_data(obj);
 
-                },
+            var is_liked = false;
+            var current_id = 0;
+            var likedArticles = {};
 
-                send_data: function(obj){
-                    if(post.posting)
-                    return; 
-                    let xhr= new XMLHttpRequest();
-                    post.posting =true;
+            function post_like(id){
 
-                    xhr.addEventListener('readystatechange',function(){
-                        if(xhr.readyState == 4){
-                            post.posting =false;
-                            alert(xhr.responseText);
-                        }
 
-                    });
+               
 
-                    let myForm = new FormData();
+                
+                // Retrieve the value from localStorage
+                var storedData = JSON.parse(localStorage.getItem('liked_articles'));
 
-                    for(key in obj){
-                        myForm.append(key, obj[key]);
+                // Use the cached value in a webpage element
+                // document.getElementById('likeCount').style.color = "red";
+
+
+                for(var key in likedArticles){
+
+                    if(likedArticles.hasOwnProperty(id)){
+                        delete likedArticles.id;
+                        localStorage.setItem('liked_articles', JSON.stringify(likedArticles));
+
                     }
+                }
+
+              
+                if(current_id == id){
+                  
+                  is_liked = !is_liked;
+                  
+                }else{
                     
-                    xhr.open('post','<?=ROOT?>/ajax');
-                    xhr.send(myForm);
+                    is_liked = true;
+                    current_id = id;
+                    likedArticles[`${id}`] = is_liked;
 
-                },
+                    localStorage.setItem('liked_articles', JSON.stringify(likedArticles));
 
-            };
+                }
+                
+            
+
+                var data = {};
+
+                if(is_liked){
+
+                    data = {
+    
+                        id: id,
+                        likes: true,
+                        
+                    };  
+                    
+                }else{
+
+                    data = {
+    
+                        id: id,
+                        likes: false,
+                        
+                    };
+
+                }
+                console.log(data);
+
+
+                $.ajax({
+                    type: "POST",
+                    url: '<?= ROOT ?>/CWDramaLike',
+                    data: data,
+                    cache: false,
+                    success: function (res) {
+                    try {
+
+                        //console.log(res);
+                        
+                        // convet to the json type
+                        Jsondata = JSON.parse(res);
+                       // console.log(Jsondata);
+
+                    } catch (error) {}
+                    },
+                    error: function (xhr, status, error) {
+                    // return xhr;
+                    },
+                });
+
+            
+            }
+
         </Script>
     </div>
 
@@ -227,6 +283,9 @@
 
 
     <!-- <script src="search_category.js"></script> -->
+
+    <!-- Import JQuary Library script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
 </body>
 
