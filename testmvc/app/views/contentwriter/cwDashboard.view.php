@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/cwDashboard.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <title>content writer dashboard</title>
 </head>
 <?php require_once 'cwNaviBar.php' ?>
@@ -31,15 +31,15 @@ function limitWords($text, $limit)
         <div class="cardBox">
             <div class=" card">
                 <div>
-                    <div class="numbers">1,504</div>
-                    <div class="cardName">Total Articles</div>
+                    <div class="numbers"><?= $data['published'] ?></div>
+                    <div class="cardName">Total Published Articles</div>
                 </div>
             </div>
 
             <div class=" card">
                 <div>
-                    <div class="numbers">1,504</div>
-                    <div class="cardName">Total Views</div>
+                    <div class="numbers"><?= $data['draft'] ?></div>
+                    <div class="cardName">Total Draft Articles</div>
                 </div>
             </div>
         </div>
@@ -48,7 +48,7 @@ function limitWords($text, $limit)
             <table>
                 <thead>
                     <tr>
-                        <th>Id</th>
+                        <!-- <th>Id</th> -->
                         <th>Article Name</th>
                         <th>Category</th>
                         <th>Article Content</th>
@@ -59,10 +59,9 @@ function limitWords($text, $limit)
 
                 <?php
                 // Check if $data is not false and is an array or object
-                if ($data && (is_array($data) || is_object($data))) {
-                    foreach ($data as $row) {
+                if ($data['result'] && (is_array($data['result']) || is_object($data['result']))) {
+                    foreach ($data['result'] as $row) {
                         echo '<tr>
-                                <td>' . $row->id . '</td>
                                 <td>' . $row->article_name . '</td>
                                 <td>' . $row->category . '</td>
                                 <td>' . limitWords($row->article_content, 5) . '</td>
@@ -89,9 +88,16 @@ function limitWords($text, $limit)
                 ?>
 
             </table>
+
+            
+
+
         </div>
 
+
     </div>
+
+
 
 
 </body>
