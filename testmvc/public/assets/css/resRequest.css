@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css?family=Catamaran:400,700');
+
+.container {
+    position: absolute;
+    right: 0;
+    width: 80vw;
+    /* width: 80%; */
+    /* height: 100%; */
+    /* background: #f1f1f1; */
+    /* background-color: #FFEAD7; */
+    /* background-color: #7B0303; */
+}
+
+
+.container .content {
+    position: relative;
+    margin-top: 10vh;
+    min-height: 90vh;
+    /* background: #f1f1f1; */
+    /* background-color: #FFEAD7; */
+
+
+    /* background: -webkit-linear-gradient(left, #25c481, #25b7c4); */
+  /* background: linear-gradient(to right, #25c481, #25b7c4); */
+  font-family: 'Roboto', sans-serif;
+}
+h1{
+    font-size: 30px;
+    /* color: #fff; */
+    color: #5a5a5a;
+    /* font-weight:800; */
+    text-transform: uppercase;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  .container .requests {
+    height: 100%;
+    min-height: 50vh;
+    flex: 5;
+    background: white;
+    margin-top: 50px;
+    margin-left: 20px;
+    margin-right: 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    overflow: hidden; /* Add overflow: hidden to clip borders */
+}
+
+.container .requests table {
+    border-collapse: collapse;
+    width: 100%;
+    height: 100%;
+}
+
+.container .requests th,
+.container .requests td {
+    border: 1px solid black;
+    padding: 8px;
+    height: 100%;
+}
+
+.container .requests .tr-1 {
+    height: 50px;
+    background-color: white; /* Change the background color of .tr-1 */
+    color: black; /* Change the text color of .tr-1 */
+    border: none; /* Remove borders for .tr-1 */
+}
+
+.container .requests .tr-2:nth-child(even) {
+    background-color: #9e9e9e; /* Add gray color to even rows */
+}
+
+
+.hidden-cell {
+    display: none;
+}
+
+.btn-accept {
+  background: rgb(43 195 1 / 97%);
+  height: 30px;
+  width: 60px;
+  color: white;
+  padding: 3px 10px;
+  text-align: center;
+  border-radius: 18px;
+  border-color: rgb(43 195 1 / 97%);
+}
+
+.btn-accept:hover {
+  color: rgb(43 195 1 / 97%);
+  background: white;
+  padding: 3px 8px;
+  border: 2px solid rgb(43 195 1 / 97%);
+}
+
+.btn-reject {
+  background:rgba(255, 0, 0, 0.97);
+  height: 30px;
+  width: 60px;
+  color: white;
+  padding: 3px 10px;
+  text-align: center;
+  border-radius: 18px;
+  border-color: rgba(255, 0, 0, 0.97);
+}
+
+.btn-reject:hover {
+  color: rgba(255, 0, 0, 0.97);
+  background: white;
+  padding: 3px 8px;
+  border: 2px solid rgba(255, 0, 0, 0.97);
+}
+
+.btn {
+  background:rgba(195, 98, 1, 0.973);
+  height: 30px;
+  width: 60px;
+  color: white;
+  padding: 3px 10px;
+  text-align: center;
+  border-radius: 18px;
+  border-color: rgba(195, 98, 1, 0.973);
+}
+
+.btn:hover {
+  color: rgba(195, 98, 1, 0.973);
+  background: rgb(255, 255, 255);
+  padding: 3px 8px;
+  border: 2px solid rgba(195, 98, 1, 0.973);
+}
