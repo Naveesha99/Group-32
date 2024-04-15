@@ -55,30 +55,30 @@
 
                   <!-- Personal Email -->
                   <label for="full_name">Employee Name:</label>
-                  <input type="text" id="full_name" value="<?= $data['content_writer'][0]->empName ?>" disabled />
+                  <input type="text" id="full_name" value="<?= $data['content_writer'][0]->username ?>" disabled />
 
                   <!-- NIC -->
                   <label for="nic">Email:</label>
-                  <input type="text" id="nic" value="<?= $data['employee'][0]->empEmail ?>" disabled />
+                  <input type="text" id="nic" value="<?= $data['content_writer'][0]->email ?>" disabled />
 
                   <!-- DOB -->
                   <label for="full_name">NIC:</label>
-                  <input type="text" id="full_name" value="<?= $data['employee'][0]->empNIC ?>" disabled />
+                  <input type="text" id="full_name" value="<?= $data['employee'][0]->nic ?>" disabled />
 
                   <!-- Address -->
-                  <label for="address">Date of Birth:</label>
-                  <input type="text" id="address" value="<?= $data['employee'][0]->empDOB ?>" disabled />
+                  <!-- <label for="address">Date of Birth:</label>
+                  <input type="text" id="address" value="<?= $data['employee'][0]->empDOB ?>" disabled /> -->
 
                   <!-- Contact No -->
-                  <label for="contact_no">Address:</label>
-                  <input type="text" id="contact_no" value="<?= $data['employee'][0]->empAddress ?>" disabled />
+                  <!-- <label for="contact_no">Address:</label>
+                  <input type="text" id="contact_no" value="<?= $data['employee'][0]->empAddress ?>" disabled /> -->
 
                   <!-- Hired Date -->
-                  <label for="hired_date">Contact:</label>
-                  <input type="text" id="hired_date" value="<?= $data['employee'][0]->empContact ?>" disabled />
+                  <!-- <label for="hired_date">Contact:</label>
+                  <input type="text" id="hired_date" value="<?= $data['employee'][0]->empContact ?>" disabled /> -->
 
-                  <label for="hired_date">Employee Roll:</label>
-                  <input type="text" id="hired_date" value="<?= $data['employee'][0]->empRoll ?>" disabled />
+                  <!-- <label for="hired_date">Employee Roll:</label>
+                  <input type="text" id="hired_date" value="<?= $data['employee'][0]->empRoll ?>" disabled /> -->
 
             </div>
 

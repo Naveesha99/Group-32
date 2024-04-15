@@ -19,6 +19,7 @@ class Article
         'status',
         'progress',
         'likes',
+        'category_id',
 
     ];
 
