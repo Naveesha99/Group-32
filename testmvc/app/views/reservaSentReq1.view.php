@@ -2,86 +2,65 @@
 <html lang="en">
 
 <head>
-    <title>Manager</title>
-    <!-- Link Styles -->
-    <!-- <link rel="stylesheet" href="<?= ROOT ?>/assets/css/style-bar.css"> -->
-    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/table.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="<?= ROOT ?>/assets/css/reservaSentReq.css" rel="stylesheet">
 
-    <!-- <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> -->
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"> -->
+    <title>Admin Panel</title>
 
-    </head>
+</head>
+<!-- <//?php require_once 'reservaSideBar.php' ?>  -->
 
-<body>
-    <!-- Sidebar -->
-    <!-- <?php //require_once 'reservaNavBar.php' ?> -->
-    <!-- Navigation bar -->
-    <?php if (isset($_SESSION['USER'])) {require_once 'reservaNavBarAfter.php';} else {require_once 'reservaNavBar.php';} ?>
+<?php require_once 'reservaNavBar.php' ?>
 
-    <!-- Scripts -->
 
-    <!-- content  -->
-    <section id="main" class="main">
+<body class="dashboard">
+    <div class="container">
+        <!-- <div class="header">
 
-        <ul class="breadcrumb">
-            <!-- <li>
-                <a href="#">Home</a>
-            </li> -->
-            <!-- <i class='bx bx-chevron-right'></i> -->
-            <li>
-                <a href="#" class="active">Sent Requests</a>
-            </li>
 
-        </ul>
+            <//?php require_once 'navBar.php' ?>
+        </div> -->
 
-        <form>
-            <div class="form">
-                <form >
-                    <div class="form-input">
-                        <input type="search" placeholder="Search...">
-                        <button type="submit" class="search-btn">
-                            <i class='bx bx-search'></i>
-                        </button>
-                    </div>
-                </form>
-				<!-- <input class="new-btn" type="button" onclick="openNew()" value="+New Order"> -->
-			</div>
 
-        </form>
 
-        <div class="table">
-            <!-- <div class="table-header">
-                <p>Order Details</p>
-                <div>
-                    <input placeholder="order"/>
-                    <button class="add_new">+ Add New</button>
+        <div class="content">
+            <section>
+                <!--for demo wrap-->
+                <h1>Sent Request</h1>
+                <div class="tbl-header">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <thead>
+                            <tr>
+                                <th class="tbl-id">ID</th>
+                                <th>HallNo</th>
+                                <th>Date</th>
+                                <th>Start</th>
+                                <th>End</th>
+                                <!-- <th>Request Sent Date</th> -->
+                                <!-- <th>Initial Payment</th> -->
+                                <!-- <th>Remaining Hours for Initial Payment</th> -->
+                                <!-- <th>Full Payment</th> -->
+                                <!-- <th>Remaining Days for Full Payment</th> -->
+                                <th>Amount</th>
+                                <th>Status</th>
+                                <th>Options</th> <!-- <th>View</th> -->
+                                <!-- <th>Edit</th> -->
+
+
+                            </tr>
+                        </thead>
+
+
+
+                    </table>
                 </div>
-            </div> -->
-            <div class="table-section">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Request Id</th>
-                            <th>Hall</th>
-                            <!-- <th>Name</th> -->
-                            <th>Date</th>
-                            <th>STart Time</th>
-                            <th>End Time</th>
-                            <th>Hours</th>
-                            <!-- <th>Head Count</th> -->
-                            <!-- <th>Sounds</th> -->
-                            <!-- <th>Standings</th> -->
-                            <!-- <th>Message</th> -->
-                            <th>Amount</th>
-                            <th>Status</th>
-                            <th>Options</th>
+                <div class="tbl-content">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <tbody>
 
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                    <?php
+                            <?php
                             if ($data && (is_array($data) || is_object($data))) {
                                 foreach ($data as $row) {
                                     echo '<tr>
@@ -91,31 +70,21 @@
                                 <td>' . $row->date . '</td>
                                 <td>' . $row->startTime . '</td>
                                 <td>' . $row->endTime . '</td>
-                                <td >' . $row->hours . '</td> <!-- Hidden cell -->
+                                <td class="hidden-cell">' . $row->hours . '</td> <!-- Hidden cell -->
                                 <td class="hidden-cell">' . $row->headCount . '</td> <!-- Hidden cell -->
                                 <td class="hidden-cell">' . $row->sounds . '</td> <!-- Hidden cell -->
                                 <td class="hidden-cell">' . $row->standings . '</td> <!-- Hidden cell -->
                                 <td class="hidden-cell">' . $row->message . '</td> <!-- Hidden cell -->
-                                <td >' . $row->amount . '</td>
-                                <td  class="text-status  ' . $row->status . '" >' . $row->status . '</td>
-                                
-                 
-                          
-
+                                <td>' . $row->amount . '</td>
+                                <td>' . $row->status . '</td>
 
                                 <td>
-                                    <span class="button">
-                                        <a class="edit" href="ReservaHall1Edit?id='. $row->id . '">Edit</a>
+                                    <span class="action_btn">
+                                        <a href="ReservaHall1Edit?id='. $row->id . '">Edit</a>
                                         <a href="#" class="view-btn">view</a>
                                         <a href="#" >Delete</a>
                                     </span>
                                 </td>
-
-
-
-                             
-
-
                               </tr>';
                                 }
                             } else {
@@ -123,9 +92,16 @@
                             }
                             ?>
 
-                    </tbody>
-                </table>
-            </div>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+
+
 
 
 
@@ -143,8 +119,9 @@
             </div>
         </div>
     </div>
-<script>
-// Get the modal
+
+    <script>
+        // Get the modal
         var modal = document.getElementById("myModal");
 
         // Get the close button
@@ -264,32 +241,27 @@
     </script>
 
 
+
+
+
 </body>
 
-
 <script>
-
-
-const search = document.querySelector(".form input"),
-    table_rows = document.querySelectorAll("tbody tr");
-
-search.addEventListener('input', performSearch);
-
-function performSearch() {
-    table_rows.forEach((row, i) => {
-        let search_data = search.value.toLowerCase(),
-            row_text = '';
-
-        for (let j = 0; j < row.children.length - 1; j++) {
-            row_text += row.children[j].textContent.toLowerCase();
-
+    window.onload = function() {
+        const urlSearchParams = new URLSearchParams(window.location.search);
+        var session = urlSearchParams.get('loggedin');
+        document.getElementById('img-profile').style.display = 'none';
+        if (session == 'false') {
+            document.getElementById('img-profile').style.display = 'none';
+            // document.getElementById('login-btn').style.display='none';
         }
-        // console.log(row_text);
+        if (session == 'true') {
+            // document.getElementById('img-profile').style.display = 'none';
+            document.getElementById('img-profile').style.display = 'block';
+            document.getElementById('login-btn').style.display = 'none';
+        }
 
-        row.classList.toggle('hide', row_text.indexOf(search_data) < 0);
-    })
-}
-
+    }
 </script>
 
 </html>

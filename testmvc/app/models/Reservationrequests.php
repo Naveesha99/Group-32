@@ -65,6 +65,9 @@ class Reservationrequests
 		'message',
 		'amount',
 		'status',
+		'rating',
+		'review',
+		'review_date',
 		// 'reservationistId',
 
 	];
@@ -163,6 +166,11 @@ class Reservationrequests
 			$this->errors['message'] = "message is required";
 		}
 
+		if(empty($data['amount']))
+		{
+			$data['amount'] = 'amount is required';
+		}
+		
 		if(empty($data['status']))
 		{
 			$data['status'] = 'status is required';
