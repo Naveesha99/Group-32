@@ -25,7 +25,11 @@
       /* background-color: var(--secondary-color); */
 
       /* background: #dfc2f2; */
-      background-image: linear-gradient(to right, #ffffb3, #ffe6e6);
+      /* background-image: linear-gradient(to right, #ffffb3, #ffe6e6); */
+      background-color: white;
+      /* background-image: url(../public/assets/images/Untitled6.png); */
+      background-repeat: no-repeat;
+      background-size: cover;
       background-attachment: fixed;
       background-size: cover;
     }
@@ -58,6 +62,7 @@
       position: fixed;
       z-index: 1000;
       /* background: rgba(0, 0, 0, 0.2); Black see-through */
+      background-color: white;
 
     }
 
@@ -209,6 +214,8 @@
       <li> <a href="#"> TICKETS </a></li>
       <li> <a href="<?=ROOT?>/reservaHall"> HALLS </a></li>
       <li> <a href="#"> BLOGS </a></li>
+      <li> <a href="<?=ROOT?>/contactus"> CONTACT US </a></li>
+
     </ul>
     <!-- <button class="login-btn" id="login-btn" onclick="redirectToLoginPage()">LOGIN</button> -->
     <img src="<?= ROOT ?>/assets/images/profilePic.png" class="user-pic" onclick="toggleMenu()" id="img-profile">
