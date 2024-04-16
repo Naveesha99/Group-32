@@ -46,13 +46,23 @@ h1{
     /* width: auto; */
     table-layout: fixed;
   }
+  /* Make every odd row darker */
+.tbody td:nth-child(odd) {
+  background-color: #D3D3D3 !important; /* Replace with the color you want */
+}
+
+/* Make every even row lighter */
+.tbody  td:nth-child(even) {
+  background-color: #aa5252 !important; /* Replace with the color you want */
+}
+
   .tbl-header{
     /* background-color: rgba(255,255,255,0.3); */
     background-color: #D87400;
    }
   .tbl-content{
     /* background-color: #ffca9a; */
-    background-color: #fffff6;
+    /* background-color: #fffff6; */
     height:520px;
     /* height: auto; */
     overflow-x:auto;
@@ -81,7 +91,7 @@ h1{
     color: #5a5a5a;
     border-bottom: solid 1px rgba(255,255,255,0.1);
     word-wrap: break-word;
-    background-color: white;
+    /* background-color: white; */
   }
   
 td .Notallowed{
