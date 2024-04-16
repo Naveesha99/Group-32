@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css?family=Catamaran:400,700');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Catamaran', sans-serif;
+}
+body {
+    min-height: 100vh;
+}
+a {
+    text-decoration: none;
+}
+li {
+    list-style: none;
+}
+h1{
+    color: white;
+}
+h2 {
+    color: black;
+}
+h3 {
+    color: #999;
+}
+.btn {
+    background: #e6cc00;
+    color: black;
+    padding: 3px 10px;
+    text-align: center;
+    border-radius: 15px;
+}
+.btn:hover {
+    color: #e6cc00;
+    background:black;
+    /* opacity: 0.6; */
+    padding: 3px 8px;
+    /* border: 2px solid #e6cc00; */
+}
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 15px 10px;
+    border-bottom: 2px solid #999;
+}
+table {
+    padding: 10px;
+    border-radius: 15px;
+}
+th,
+td {
+    text-align: left;
+    padding: 8px;
+}
+.container {
+    position: absolute;
+    right: 0;
+    width: 80vw;
+    height: 100vh;
+    background: white;
+}
+
+.container .content {
+    position: relative;
+    margin-top: 10vh;
+    min-height: 90vh;
+    background: white;
+}
+.container .content .cards {
+    padding: 20px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    transition: all 0.3s ease-in-out;
+}
+.container .content .cards .card {
+    width: 250px;
+    height: 150px;
+    background: #2424ff;
+    margin: 20px 10px;
+    display: flex;
+    border-radius: 40px;
+    align-items: center;
+    justify-content: space-around;
+    transition: all 0.3s ease-in-out;
+}
+
+.container .content .cards .card:hover {
+    width: 250px;
+    height: 150px;
+    background: white;
+    margin: 20px 10px;
+    display: flex;
+    border-radius: 40px;
+    align-items: center;
+    justify-content: space-around;
+    border: 3px solid #2424ff;
+    transition: all 0.3s ease-in-out;
+}
+
+.container .content .cards .card:hover h1 {
+    color: #2424ff;
+}
+
+.btn-1 {
+    background: #e6cc00;
+    color: white;
+    padding: 3px 10px;
+    text-align: center;
+    border-radius: 5px;
+    border: 2px solid #e6cc00;
+    margin-left: 30px;
+    margin-bottom: 10px;
+}
+.btn-1:hover {
+    color: #e6cc00;
+    background: white;
+    padding: 3px 10px;
+    border: 2px solid #e6cc00;
+    margin-left: 30px;
+}
+
+.container .content .content-2 {
+    min-height: 60vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+.container .content .content-2 .employees {
+    min-height: 50vh;
+    flex: 5;
+    background: white;
+    margin: 0 25px 25px 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+}
+.container .content .content-2 .new-employee {
+    flex: 2;
+    background: white;
+    min-height: 50vh;
+    margin: 0 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+}
+.container .content .content-2 .new-employee table td:nth-child(1) img {
+    height: 40px;
+    width: 40px;
+}
+@media screen and (max-width: 1050px) {
+    .side-menu li {
+        font-size: 18px;
+    }
+}
+
+
+select {
+    width: 150px; /* Set the width of the dropdown */
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Style for the dropdown options */
+option {
+    font-size: 14px;
+}
+  
+/* Optional: Style for the label */
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+
+@media screen and (max-width:536px) {
+    .brand-name h1 {
+        font-size: 16px;
+    }
+    .container .content .cards {
+        justify-content: center;
+    }
+    .side-menu li img {
+        width: 30px;
+        height: 30px;
+    }
+    .container .content .content-2 .employees table th:nth-child(2),
+    .container .content .content-2 .employees table td:nth-child(2) {
+        display: none;
+    }
+}
+
+@media screen and (max-width:536px) {
+
+    .container .content .form {
+        justify-content: center;
+    }
+    .container .content .content-2 .tasks table th:nth-child(2),
+    .container .content .content-2 .tasks table td:nth-child(2) {
+        display: none;
+    }
+}
