@@ -20,7 +20,8 @@
     </style>
 
 </head>
-<?php require_once 'reservaNavBar.php' ?>
+<!-- <?php //require_once 'reservaNavBar.php' ?> -->
+<?php if (isset($_SESSION['USER'])) {require_once 'reservaNavBarAfter.php';} else {require_once 'reservaNavBar.php';} ?>
 
 
 
