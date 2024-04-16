@@ -1,0 +1,199 @@
+/* @import url('https://fonts.googleapis.com/css?family=Catamaran:400,700');
+
+
+:root {
+  --grey: #f1f0f6;
+  --dark-grey: #8d8d8d;
+  --light: #fff;
+  --dark: #000;
+  --green: #81d43a;
+  --light-green: #e3ffcb;
+  --blue: #1775f1;
+  --light-blue: #d0e4ff;
+  --dark-blue: #0c5fcd;
+  --red: #fc3b56;
+}
+
+body{
+  min-height: 100vh;
+  scroll-behavior: smooth;
+}
+
+#main {
+  position: absolute;
+  top: 50px;
+  width: 100%;
+  height: max-content;
+  transition: all 0.5s ease;
+  z-index: 2;
+  border-radius: 50px;
+  scroll-behavior: smooth;
+}
+
+
+#main.open {
+  width: calc(100% - 250px);
+}
+
+.breadcrumb {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  grid-gap: 8px;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 16px 35px;
+}
+.breadcrumb li a {
+  text-decoration: none;
+  color: grey;
+}
+
+.breadcrumb li a.active {
+  color: black;
+  font-size: 17px;
+}
+
+.breadcrumb .bx-chevron-right {
+  font-size: 25px;
+} */
+
+
+.modal1 {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+  /* background-color: #f0f0f0; */
+  /* margin: 0;
+  padding: 0; */
+  /* display: flex; 
+  align-items: center;
+  justify-content: center;
+  height: 100vh; */
+}
+
+.cont{
+  /* background-color: #0000FF;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; */
+
+
+
+    font-family: "Montserrat", sans-serif;
+  /* background-color: #f0f0f0; */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 80%;
+  padding-left:20%;
+}
+
+
+
+.containerM {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 400px;
+
+
+
+
+  width: 80vw;
+color:black;
+background-color: #fffff6;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ffffff;
+}
+
+h1 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.rating {
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.stars {
+  font-size: 30px;
+  margin: 10px 0;
+}
+
+.star {
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+.one {
+  color: rgb(255, 0, 0);
+}
+
+.two {
+  color: rgb(255, 106, 0);
+}
+
+.three {
+  color: rgb(251, 255, 120);
+}
+
+.four {
+  color: rgb(255, 255, 0);
+}
+
+.five {
+  color: rgb(24, 159, 14);
+}
+
+.cont textarea {
+  width: 90%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.cont button {
+  background-color: #007BFF;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.cont button:hover {
+  background-color: #0056b3;
+}
+
+.reviews {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.review {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.review p {
+  margin: 0;
+}
