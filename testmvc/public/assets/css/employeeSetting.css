@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css?family=Catamaran:400,700');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Catamaran', sans-serif;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--background-color);
+    border-radius: 10px;
+    box-shadow: 0 0 10px var(--shadow);
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px;
+}
+
+.form-left,
+.form-right {
+    width: 50%;
+    float: left;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="password"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    outline: none;
+}
+
+.clear {
+    clear: both;
+}
+
+.form-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.button {
+    padding: 10px 20px;
+    /* Adjust the padding for your desired button size */
+    margin-right: 10px;
+    /* Add some spacing between buttons */
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 0 10px var(--shadow);
+}
+
+.add-button {
+    background-color: var(--add-color);
+    color: var(--text-color);
+}
+
+.update-button {
+    background-color: var(--update-color);
+    color: var(--text-color);
+}
+
+.delete-button {
+    background-color: var(--delete-color);
+    color: var(--text-color);
+}
+
+.clear-details {
+    background-color: var(--clear-color);
+    color: var(--text-color);
+}
+
+.invalid-feedback {
+    color: var(--invalid-color);
+    /* Red text color for error messages */
+    font-size: 16px;
+    /* Adjust the font size as needed */
+    margin-top: 0px;
+    /* Add some spacing between the input and the error message */
+    padding-bottom: 10px !important;
+}
+
+.valid-feedback {
+    color: var(--valid-color);
+    /* Red text color for error messages */
+    font-size: 16px;
+    /* Adjust the font size as needed */
+    margin-top: 0px;
+    /* Add some spacing between the input and the error message */
+    padding-bottom: 10px !important;
+}
+
+.is-invalid {
+    border: 1px solid var(--invalid-color) !important;
+    /* Red border for the input field */
+    margin-bottom: 0px !important;
+}
+
+.is-valid {
+    border: 1px solid var(--valid-color) !important;
+    /* Green border for the input field */
+    margin-bottom: 0px !important;
+}
+
+fieldset {
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+legend {
+    font-weight: bold;
+}

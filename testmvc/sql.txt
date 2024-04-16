@@ -47,11 +47,13 @@ CREATE TABLE empTasks(
 ALTER TABLE articles
 ADD likes INT
 
-CREATE TABLE category(
+CREATE TABLE categories(
     id INT AUTO_INCREMENT,
     category VARCHAR(255),
-    article_id INT,
     PRIMARY KEY(id),
-    ADD FOREIGN KEY(article_id) REFERENCES articles(id) ON DELETE CASCADE,
     Created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
+
+ALTER TABLE articles
+ADD catId INT
+ADD FOREIGN KEY(catId) REFERENCES categories(id) ON DELETE CASCADE

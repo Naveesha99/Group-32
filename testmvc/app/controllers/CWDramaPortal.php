@@ -16,33 +16,42 @@ class CWDramaPortal
 			exit();
 		}
 
-		// Fetch articles based on category if provided in the URL
-		$category = isset($_GET['category']) ? $_GET['category'] : null;
-		$searchQuery = isset($_GET['search']) ? $_GET['search'] : null;
 
-		// Fetch articles based on the selected category and search query
-		$article = new Article;
-		if ($category && $category !== "All categories") {
-			if ($searchQuery) {
-				$result = $article->findPublishArticlesByCategoryAndSearch($category, $searchQuery); // Assuming you have a method to fetch articles by category and search query
-			} else {
-				$result = $article->findPublishArticlesByCategory($category); // Assuming you have a method to fetch articles by category
-			}
-		} else {
-			$result = $article->findPublishArticles(); // Fetch all articles if no category is selected
-		}
+		$data['username'] = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->email;
 
+		$article = new article;
+		$result = $article->findPublishArticles();
 		$data = $result;
 
+		$catgoryType = $this->categoryType($article);
+		// show($result);
+
+		if (isset($_POST['all'])) {
+			$data['all'] = $article->findPublishArticles();
+		}
+
 		$this->view('contentwriter/cwDramaPortal', $data);
+	}
 
-		// $data['username'] = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->email;
+	private function categoryType($article)
+	{
+		$result = $article->findPublishArticles();
+		foreach ($result as $key) {
 
-		// $article = new article;
-		// $result = $article->findPublishArticles();
-		// $data = $result;
-
-
-		// $this->view('contentwriter/cwDramaPortal', $data);
+			unset($key->id);
+			unset($key->article_name);
+			unset($key->article_content);
+			unset($key->image);
+			unset($key->cw_id);
+			unset($key->Created_at);
+			unset($key->status);
+			unset($key->progress);
+			unset($key->likes);
+			unset($key->catId);
+		}
+		// show($result);
+		return $result;
+		// $data['jobs'] = $result;
+		// $this->view('addemployee', $data);
 	}
 }

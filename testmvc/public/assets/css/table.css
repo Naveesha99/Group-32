@@ -568,7 +568,7 @@ button.pay:hover {
 
 .add.card .left {
   display: flex;
-  width: fit-content;
+  width: auto;
   align-items: center;
   margin-left: 40%;
   margin-bottom: 15px;

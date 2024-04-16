@@ -31,7 +31,18 @@
     ?>
 
     <div class="container">
-        <!-- <form method="POST">
+        <!-- <div class="search-bar">
+            <select name="category" id="category">
+                <option value="" name="all">All Categories</option>
+                <option value="Tragedy" name="Trajedy">Trajedy</option>
+                <option value="Comedy" name="Comedy">Comedy</option>
+                <option value="MeloDrama" name="Melodrama">MeloDrama</option>a
+                <option value="Musical" name="Musical">Musical</option>
+            </select>
+        </div> -->
+
+
+        <form method="POST">
             <div class="search-bar">
                 <div class="dropdown">
                     <div id="drop-text" class="dropdown-text">
@@ -41,7 +52,7 @@
 
                     <ul id="list" class="dropdown-list">
                         <li class="dropdown-list-item">All categories</li>
-                        <li class="dropdown-list-item"><a href="<?= ROOT ?>/cwDramaPortal?category=comedy">Comedy</a></li>
+                        <li class="dropdown-list-item">Comedy</a></li>
                         <li class="dropdown-list-item">Tragedy</li>
                         <li class="dropdown-list-item">Musical</li>
                         <li class="dropdown-list-item">Melodrama</li>
@@ -53,10 +64,10 @@
                 <div class="search-box">
                     <input type="text" id="search-input" placeholder="search category.." onkeyup="search()">
                     <i class="fa-solid fa-magnifying-glass"></i>
-                </div> -->
-            <!-- </div>
+                </div>
+            </div>
 
-        </form> -->
+        </form>
 
         <div class="addNew">
             <a href="<?= ROOT ?>/cwAddArticle">ADD NEW</a>
@@ -71,7 +82,7 @@
                             </div>
     
                             <div class="Content">
-                                <i id="iconHeart" '.$row->id.' onclick="post_like(' .$row->id. ')" class="fa-regular fa-heart"></i>
+                                <i id="iconHeart"'. $row->id . '  onclick="post_like(' . $row->id . ')" class="icon'.$row->id.' fa-regular fa-heart"></i>
                                 
 
                                 <h2>' . $row->article_name . '</h2>
@@ -86,103 +97,103 @@
         }
         ?>
 
-        <script>
+        <style>
+                .selected {
+                    width:30px;
+                    height:30px;
+                    border-radius: 10px;
+                    color: white;
+                    background-color: red;
+                }
+        </style>
 
+        <script>
             var is_liked = false;
             var current_id = 0;
             var likedArticles = {};
 
-            function post_like(id){
+            // Retrieve the value from localStorage
+            let selectedIcons = JSON.parse(localStorage.getItem('selectedIcons')) || [];
 
+           console.log("currently localStorage stored likes id list :",selectedIcons);
 
-               
+            // currently available likes display
+            if(selectedIcons.length !=0){
 
-                
-                // Retrieve the value from localStorage
-                var storedData = JSON.parse(localStorage.getItem('liked_articles'));
+                selectedIcons.forEach(icon_id=>{
+                   // console.log(icon_id);
+                    var select_icon = document.querySelector(`.icon${icon_id}`);
+                    select_icon.classList.add('selected');
+                });
 
-                // Use the cached value in a webpage element
-                // document.getElementById('likeCount').style.color = "red";
-
-
-                for(var key in likedArticles){
-
-                    if(likedArticles.hasOwnProperty(id)){
-                        delete likedArticles.id;
-                        localStorage.setItem('liked_articles', JSON.stringify(likedArticles));
-
-                    }
-                }
-
-              
-                if(current_id == id){
-                  
-                  is_liked = !is_liked;
-                  
-                }else{
-                    
-                    is_liked = true;
-                    current_id = id;
-                    likedArticles[`${id}`] = is_liked;
-
-                    localStorage.setItem('liked_articles', JSON.stringify(likedArticles));
-
-                }
-                
+            }
             
+            function post_like(id) {
 
+                const index = selectedIcons.indexOf(id);
                 var data = {};
 
-                if(is_liked){
+                if (index === -1) {
 
+                    // Icon not in array, add it
+                    selectedIcons.push(id);
+                    var select_icon = document.querySelector(`.icon${id}`);
+                    select_icon.classList.add('selected');
+
+                    console.log("add after selected likes id list :",selectedIcons);
+                    
                     data = {
-    
                         id: id,
                         likes: true,
                         
-                    };  
+                    };
                     
-                }else{
-
+                } else {
+                    
+                    // Icon already in array, remove it
+                    selectedIcons.splice(index, 1);
+                    var select_icon = document.querySelector(`.icon${id}`);
+                    select_icon.classList.remove('selected');
+                    
                     data = {
-    
+                        
                         id: id,
                         likes: false,
-                        
                     };
 
-                }
-                console.log(data);
+                    console.log("remove after selected likes id list :",selectedIcons);
 
+                }
+
+                localStorage.setItem('selectedIcons', JSON.stringify(selectedIcons));
 
                 $.ajax({
                     type: "POST",
                     url: '<?= ROOT ?>/CWDramaLike',
                     data: data,
                     cache: false,
-                    success: function (res) {
-                    try {
+                    success: function(res) {
+                        try {
 
-                        //console.log(res);
-                        
-                        // convet to the json type
-                        Jsondata = JSON.parse(res);
-                       // console.log(Jsondata);
+                            //console.log(res);
 
-                    } catch (error) {}
+                            // convet to the json type
+                            Jsondata = JSON.parse(res);
+                            // console.log(Jsondata);
+
+                        } catch (error) {}
                     },
-                    error: function (xhr, status, error) {
-                    // return xhr;
+                    error: function(xhr, status, error) {
+                        // return xhr;
                     },
                 });
 
-            
-            }
 
+            }
         </Script>
     </div>
 
-    <!-- <script>
+    <script>
         let searchTimer;
         let dropdownBtn = document.getElementById("drop-text");
         let list = document.getElementById("list");
@@ -210,8 +221,6 @@
             }, 500);
         }
 
-
-
         // Show dropdown list on click on dropdown btn
         dropdownBtn.onclick = function() {
             list.classList.toggle('show');
@@ -234,26 +243,25 @@
             }
         };
 
+        // Handle click on list items
         for (item of listItems) {
             item.onclick = handleItemClick;
         }
 
         // Handle click on list items
         function handleItemClick(e) {
-            item.onclick = function(e) {
-                // Change dropdown btn text on click on selected list item
-                span.innerHTML = e.target.innerText;
+            // Change dropdown btn text on click on selected list item
+            span.innerHTML = e.target.innerText;
 
-                // Change input placeholder text on selected list item
-                if (e.target.innerText == "All categories") {
-                    input.placeholder = "Search in all categories...";
-                } else {
-                    input.placeholder = "Search in " + e.target.innerText + "...";
-                }
+            // Change input placeholder text on selected list item
+            if (e.target.innerText == "All categories") {
+                input.placeholder = "Search in all categories...";
+            } else {
+                input.placeholder = "Search in " + e.target.innerText + "...";
+            }
 
-                // Handle search when category is selected
-                handleSearch();
-            };
+            // Handle search when category is selected
+            handleSearch();
         }
 
         // Handle search when user presses Enter key in the search input field
@@ -264,7 +272,7 @@
             }
         });
 
-        // Add an event listener to the search input field
+        // Handle search when user types in the search input field
         input.addEventListener("input", function() {
             // Change dropdown btn text to the default "All categories" when typing in the search bar
             span.innerHTML = "All categories";
@@ -274,12 +282,8 @@
 
             handleSearch();
         });
+    </script>
 
-        // Handle search when user clicks on the search icon
-        // document.querySelector(".fa-magnifying-glass").addEventListener("click", function() {
-        //     handleSearch();
-        // });
-    </script> -->
 
 
     <!-- <script src="search_category.js"></script> -->

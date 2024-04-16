@@ -22,6 +22,8 @@ class CWArticleDisplay
 		// $this->view('cwArticleDisplay');
 		$article = new article;
 		$result = $article->findPublishArticles();
+
+
 		$data = $result;
 
 		$this->view('contentwriter/cwArticleDisplay', $data);
