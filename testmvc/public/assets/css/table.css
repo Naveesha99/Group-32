@@ -186,7 +186,9 @@ form .form-input button:hover {
  
 }
 
-
+a{
+  margin: 0 10px;
+}
 
 td .button{
   outline: none;
@@ -194,7 +196,7 @@ td .button{
   border-radius: 6px;
   cursor: pointer;
   padding: 10px;
-  background-color: #29292966;
+  /* background-color: #29292966; */
   border: none;
   padding: 2px 9px;
   text-align: center;
@@ -344,11 +346,13 @@ tbody tr:hover{
   }
 
 .text-status.pending{
-  background-color: #cfb103c7;
+  /* background-color: #cfb103c7; */
+  background-color: #488a99;
 }
 
 .text-status.accepted{
-  background-color: #1c7012cc;
+  /* background-color: #1c7012cc; */
+  background-color: #6ab187;
 }
 
 /* .text-status.printing{
@@ -364,7 +368,8 @@ tbody tr:hover{
 } */
 
 .text-status.rejected{
-  background-color: #cf0303c7;
+  /* background-color: #cf0303c7; */
+  background-color: #ac3e31;
 }
 
 
@@ -387,6 +392,25 @@ tbody tr:hover{
   height: 0;
 }
 
+button{
+  cursor: pointer;
+}
+
+.button a{
+  /* border: #000; */
+  border: 2px solid rgba(194, 179, 165, 0.973);
+  margin: 5px;
+  margin-left: 2px;
+  padding-left: 5px;
+  padding-right: 5px;
+  text-decoration: none;
+  border-radius: 8px;
+  color: #000;
+}
+.payNow{
+  background-color: #587c89;
+  color: #fff;
+}
 
 @media (max-width: 980px) {
   .pb{

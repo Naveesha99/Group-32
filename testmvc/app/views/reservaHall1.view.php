@@ -20,7 +20,9 @@
     </style>
 
 </head>
-<?php require_once 'reservaNavBar.php' ?>
+<?php //require_once 'reservaNavBar.php' ?>
+<?php if (isset($_SESSION['USER'])) {require_once 'reservaNavBarAfter.php';} else {require_once 'reservaNavBar.php';} ?>
+
 
 
 
@@ -28,6 +30,7 @@
     <div class="container">
 
         <div class="content">
+            <div class="tile-main1">
             <div class="tile-main">
                 <div class="tile">
 
@@ -134,15 +137,17 @@
 
 
 
-<?php if (isset($_SESSION['USER'])) {
-            echo $_SESSION['USER']->username; 
-             }
-                else{show('No session');}
-            ?>
+                <?php if (isset($_SESSION['USER'])) {
+                            // echo $_SESSION['USER']->username; 
+                            }
+                                else{show('No session');}
+                            ?>
 
 
 
-                <h2> <span class="hallNo" id="hallNo">Hall No</span> <BR> BOOKING REQUEST  <br><span class="spn1">ID: <label class="spn2" id="requestId" name="requestId"> </label></span></h2>
+                <h2> <span class="hallNo" id="hallNo">Hall No </span>  BOOKING REQUEST  
+                <!-- <br><span class="spn1">ID: <label class="spn2" id="requestId" name="requestId"> </label></span> -->
+            </h2>
                 <!-- <div class="form_f">
                     <label for="requestId">Request ID:</label>
                     <input type="text" id="requestId" name="requestId" readonly required>
@@ -161,19 +166,19 @@
 
                 <div class="form_f">
                     <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" placeholder="Write your name here.." required>
+                    <input type="text" id="name" name="name" placeholder="Your name here.." required>
                 </div>
                 <div class="form_f">
 
                     <label for="date">Date:</label>
-                    <input type="text" id="date" name="date" placeholder="Select the date from the calendar" readonly required>
+                    <input type="text" id="date" name="date" placeholder="Select from the calendar" readonly required>
                 </div>
 
                 <div class="form-inside">
                     <div class="form_f">
 
                         <label for="startTime">Starting Time:</label>
-                        <input type="text" id="startTime" name="startTime" placeholder="Select a starting time slot from the available time slots" readonly required>
+                        <input type="text" id="startTime" name="startTime" placeholder="Select a starting time slot" readonly required>
                     </div>
 
                     <datalist id="endSlots">
@@ -193,7 +198,7 @@
                     </datalist>
                     <div class="form_f">
 
-                        <label for="endTime">END TIME:</label>
+                        <label for="endTime">End Time:</label>
                         <input type="text" id="endTime" name="endTime" list="endSlots" placeholder="endTime" onblur="validateListInput(this, 'endSlots')" required>
                     </div>
                     <script>
@@ -209,10 +214,10 @@
                         }
                     </script>
                 </div>
-                <div class="form_f">
+                <!-- <div class="form_f">
                     <label for="hours">HOURS:</label>
                     <input type="text" id="hours" name="hours" placeholder="hours.." readonly required>
-                </div>
+                </div> -->
                 <div class="form_f">
 
                     <label for="headCount">Head Count:</label>
@@ -261,21 +266,25 @@
                             return false;
                         }
 
-        return true;
-    }
+                        return true;
+                    }
                 </script>
 
 
                 <div class="form_f">
 
                     <label for="message">Message:</label>
-                    <input type="text" id="message" name="message" placeholder="What would you like to tell us.." required>
+                    <input type="text" id="message" name="message" placeholder="Type your message" required>
                 </div>
                 <div class="form-inside2">
                     <div class="form_f1">
                         <label for="Amount to be paid ">Amount to be paid:</label>
                         <input type="A payment" placeholder="A payment" id="amount" name="amount" readonly>
                     </div>
+                    <div class="form_f1">
+                    <label for="hours">HOURS:</label>
+                    <input type="text" id="hours" name="hours" placeholder="hours.." readonly required>
+                </div>
                     <!-- <div class="form_f1">
                         <label for="Full Payment ">Advanced Payment:</label>
                         <input type="F payment" placeholder="F payment">
@@ -291,7 +300,7 @@
                 </div>
 
             </form>
-
+        </div>
         </div>
 
     </div>
@@ -326,7 +335,17 @@
     <script>
 
 const reservaReqs = <?php echo json_encode($acceptedReservations);?>;
-const amount = <?php echo json_encode($hall); ?>;
+// const amount=0;
+const amount = <?php echo json_encode($hall);?>;
+// const amount = <?php //echo json_encode($detailsofhall);?>;
+// const amount = 0;
+console.log("amount1", amount);
+console.log(amount[0].amountOneHour);
+// console.log(amount1);
+// const amount=amount1[0].amountOneHour;
+
+
+// console.log("amount is " ,amount);
 
 function calculateAmountToBePaid(hours,standing,sound,amountPerHour,amountStandings,amountSounds){
     var amountToBePaid = 0;
@@ -485,7 +504,7 @@ function updateEndTimeOptions(selectedStartTime) {
 
         window.onload = function() {
             updateSelectedDate();
-            generateAndSetRequestId();
+            // generateAndSetRequestId();
 
 
             const hallnumber = getQueryParam('hallno');
@@ -535,6 +554,7 @@ function updateEndTimeOptions(selectedStartTime) {
 
 
         function bookSlot(selectedTime) {
+            console.log("in book slot function");
             document.getElementById('endTime').value = '';
             document.getElementById('hours').value = '';
             // window.location.href = `reservaReq?time=${selectedTime}&date=${document.getElementById('selectedDate').innerHTML}`;
