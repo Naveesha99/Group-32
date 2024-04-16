@@ -20,13 +20,6 @@ class ReservaHall1Edit
 		$datareq=new Reservationrequests;
 		$result = $datareq->findAll();
 		$data=$result;
-		// $data['username'] = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->email;
-
-		// $this->view('cwArticleDisplay');
-		// $article = new article;
-		// $result = $article->findAll();
-		// $data = $result;
-
 
 
 		if($_SERVER['REQUEST_METHOD'] == "POST"){
@@ -40,7 +33,9 @@ class ReservaHall1Edit
 			
 	 
 		 
-			show($_POST);
+			// show($_POST);
+			// show($arrOrder);
+			// echo'<script> com</script>'
 			
 			
 			if($reservationequests->validate($_POST))
@@ -56,13 +51,6 @@ class ReservaHall1Edit
 
 		$this->view('reservaHall1Edit' , $data);
 	}
-
-	// public function cwViewOwnArticle($articleId)
-	// {
-	// 	$article = new article;
-	// 	$articleData = $article->where(['id' => $articleId]); 
-	// 	$this->view('contentwriter/cwViewOwnArticle', $articleData);
-	// }
 
 	// public function delete()
 	// {
