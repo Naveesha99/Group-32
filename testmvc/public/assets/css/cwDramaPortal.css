@@ -283,6 +283,8 @@ body{
 
 }
 
+
+
 .container .card:hover .Content{
     top: 90px;
     height: 250px
@@ -314,7 +316,7 @@ body{
 }
 
 #iconHeart{
-    color: blue;
+    color: rgb(105, 11, 11);
     position: absolute;
     top: 6px; 
     right: 8px; 
@@ -326,6 +328,14 @@ body{
 
 #iconHeart:hover{
     transform: scale(1.2);
+}
+
+.selected {
+    width:20px;
+    height:20px;
+    border-radius: 20px;
+    color: white;
+    background-color: red;
 }
 
 @media screen and (max-width: 1200px) {

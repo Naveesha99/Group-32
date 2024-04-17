@@ -97,16 +97,6 @@
         }
         ?>
 
-        <style>
-                .selected {
-                    width:30px;
-                    height:30px;
-                    border-radius: 10px;
-                    color: white;
-                    background-color: red;
-                }
-        </style>
-
         <script>
             var is_liked = false;
             var current_id = 0;
