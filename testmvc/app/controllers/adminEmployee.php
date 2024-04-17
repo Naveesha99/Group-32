@@ -39,6 +39,10 @@ class adminEmployee
 		$result['role'] = $jobs->findall();
 		$data['role'] = $result['role'];
 
+		$tasks = new Task;
+		$result['task'] = $tasks->findAll();
+		$data['task'] = $result['task'];
+
 		$this->view('admin/adminemployee', $data);
 	}
 	
