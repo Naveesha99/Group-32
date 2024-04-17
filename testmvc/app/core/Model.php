@@ -135,7 +135,4 @@ Trait Model
 		return false;
 
 	}
-
-	
-	
 }
