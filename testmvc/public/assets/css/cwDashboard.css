@@ -22,6 +22,8 @@ body{
     transition: 0.5s;
     margin-top: 80px;
     padding: 100px 50px;
+    margin-top: 50px;
+    transition:  margin-top 0.5s ease;
 }
 
 .container .cardBox{

@@ -1,31 +1,38 @@
-<?php 
+<?php
 
 /**
  * home class
  */
 class EmployeeReqView
 {
-	use Controller;
+    use Controller;
 
-	public function index()
-	{
+    public function index()
+    {
 
-		// $data['username'] = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->email;
+        if (empty($_SESSION['USER'])) {
+            // Redirect or handle the case when the user is not logged in
+            // For example, you might want to redirect them to the login page
+            redirect('cwLogin');
+            exit();
+        }
 
-        $data =[];
-        $reqId = isset($_GET['id'])? $_GET['id'] : null;
+        // $data['username'] = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->email;
+
+        $data = [];
+        $reqId = isset($_GET['id']) ? $_GET['id'] : null;
         // echo $reqId;
 
-        if($reqId){
+        if ($reqId) {
             $emp_req = new EmpRequest;
             $arr1['id'] = $reqId;
 
             $reqData = $emp_req->where($arr1);
-            
-            if($reqData){
-                $data['emp_req']=$reqData;
+
+            if ($reqData) {
+                $data['emp_req'] = $reqData;
                 // show($data);
-            }else{
+            } else {
                 echo "request not found";
                 exit();
             }
@@ -33,7 +40,6 @@ class EmployeeReqView
 
 
 
-		$this->view('employee/employeeReqView',$data);
-	}
-
+        $this->view('employee/employeeReqView', $data);
+    }
 }

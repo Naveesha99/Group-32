@@ -89,13 +89,27 @@ function limitWords($text, $limit)
 
             </table>
 
-            
+
 
 
         </div>
 
 
     </div>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            const navHeight = document.querySelector('.nav').offsetHeight;
+            const container = document.querySelector('.container');
+            const scrolled = window.scrollY;
+            // console.log(navHeight);
+            // console.log(container);
+            // console.log(scrolled);
+
+            // Adjust margin-top of the container based on scroll position
+            container.style.marginTop = (scrolled > navHeight) ? '0' : navHeight + 'px';
+        });
+    </script>
 
 
 
