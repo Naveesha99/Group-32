@@ -82,10 +82,12 @@
                             </div>
     
                             <div class="Content">
-                                <i id="iconHeart"'. $row->id . '  onclick="post_like(' . $row->id . ')" class="icon'.$row->id.' fa-regular fa-heart"></i>
+                                
                                 
 
                                 <h2>' . $row->article_name . '</h2>
+                                <i id="iconHeart"'. $row->id . '  onclick="post_like(' . $row->id . ')" class="icon'.$row->id.' fa-regular fa-heart"></i>
+                                <span id="likeCount' . $row->id . '" class="like-count">' . $row->likes . '</span>
                                 <p>Category:' . $row->category . '</p>
                                 <p>' . limitWords($row->article_content, 20) . '</p>
                                 <a href="cwViewOwnArticle?id=' . $row->id . '">READ MORE</a>

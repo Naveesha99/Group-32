@@ -24,7 +24,7 @@ body{
     left: 250px;
     min-height: 100vh;
     /* background-color:  #FFEAD7; */
-    background-color: #d0c2c1c4;
+    background-color: white;
     transition: 0.5s;
     margin-top: 80px;
     padding: 100px 50px;
@@ -39,11 +39,13 @@ body{
     display: flex;
     align-items: center;
     min-width: 800px ;
-    background-color: #fff;
+    background-color: white;
     border-radius: 50px;
     height: fit-content;
     top: 10px;
     left: 20px;
+    border: 2px solid blue;;
+
     
 
 
@@ -52,9 +54,9 @@ body{
 .container .search-bar .dropdown{
     position: relative;
     width: 200px;
-    background-color: brown;
+    background-color: blue;
     border-radius: 50px;
-    border: 1px solid white;
+    border: 1px solid rgb(213, 213, 140);
     box-shadow: gray;
     cursor: pointer;
     /* z-index: 100; */
@@ -79,7 +81,7 @@ body{
    border-radius: 15px;
    max-height: 0;
    overflow: hidden;
-   background-color: white;
+   background-color: rgb(213, 213, 140);
    transition: max-height 0.5s;
    z-index: 200;
 
@@ -99,7 +101,7 @@ body{
 
 .dropdown-list-item:hover{
     margin-left: 0.5rem;
-    color: brown;
+    color: blue;
 }
 
 .search-box{
@@ -107,7 +109,7 @@ body{
     align-items: center;
     padding-right: 1rem;
     width: 100%;
-    color: brown;
+    color: blue;
 }
 
 .search-box input{
@@ -115,7 +117,7 @@ body{
     width: 100%;
     font-size: 1rem;
     font-weight: 500;
-    color: brown;
+    color: blue;
     border: 0;
     outline: 0;
 }
@@ -128,7 +130,7 @@ body{
 .search-box input::placeholder{
     font-size: 1rem;
     font-weight: 500;
-    color: brown;
+    color: blue;
 }
 
 /* .container .search-bar{
@@ -233,7 +235,7 @@ body{
     height: 300px;
     background: #fff;
     border-radius: 20px;
-    box-shadow: 0 35px 80px rgba(0, 0, 0,0.15);
+    box-shadow: 0 35px 80px rgba(0, 0, 0,0.65);
     transition: 0.5s;
     margin-top: 10px;
 }
@@ -319,7 +321,7 @@ body{
     color: rgb(105, 11, 11);
     position: absolute;
     top: 6px; 
-    right: 8px; 
+    right: 20px; 
     font-size: 1.3em; 
     font-weight: 200;
     transition: all 0.3s cubic-bezier(0.41, 0.15, 0.36, 1);
@@ -328,6 +330,22 @@ body{
 
 #iconHeart:hover{
     transform: scale(1.2);
+}
+
+/* .Content .icon {
+    display: inline-block;
+    vertical-align: middle;
+} */
+
+.Content .like-count {
+    color: rgb(105, 11, 11);
+    position: absolute;
+    top: 2px; 
+    right: 3px; 
+    font-size: 1.3em; 
+    font-weight: 200;
+    transition: all 0.3s cubic-bezier(0.41, 0.15, 0.36, 1);
+    cursor: pointer;/* Adjust the margin as needed */
 }
 
 .selected {
