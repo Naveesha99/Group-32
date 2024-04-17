@@ -50,7 +50,7 @@
     <div class="row">
         <div class="in1">
             <div class="in1-1">
-                <iframe class="ifrm" height="320px" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d158859.26218817523!2d-0.241700207447217!3d51.5285582!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604ce34de7b6b%3A0x69fb038c7e1dd379!2sBuckingham%20Palace!5e0!3m2!1sen!2suk!4v1621884426374!5m2!1sen!2suk" frameborder="0"></iframe>
+                <iframe class="ifrm" height="320px" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d158859.26218817523!2d-0.241700207447217!3d51.5285582!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604ce34de7b6b%3A0x69fb038c7e1dd379!2sBuckingham%20Palace!5e0!3m2!1sen!2suk!4v1621884426374!5m2!1sen!2suk" frameborder="0" loading="lazy"></iframe>
                 
                 <h5>address</h5>
                 <a href="https://maps.app.goo.gl/RR8WZsmy6KSSAWtg8" target="_blank" >
@@ -84,33 +84,31 @@
 
             <div class="in1_2">
                 <div class="in1-2_1">
-                    <form action="POST">
+                    <form method="POST" class="add-facility" onsubmit="return validateForm()" name="contactusform">
                         <h2>Send a message</h2>
                         <div class="form-f">
                             <label for="name" style="font-weight: 500;">Name</label>
-                            <input type="text"  id="">
+                            <input type="text"  name="name" id="name">
                         </div>
 
                         <div class="form-f">
 
                             <label class="form-label" >Email</label>
-                            <input type="email" id="">
+                            <input type="email" id="email" name="email">
                         </div>
 
                         <div class="form-f">
 
                             <label class="form-label" style="font-weight: 500;">Subject</label>
-                            <input type="text" id="">
+                            <input type="text" id="subject" name="subject">
                         </div>
 
                         <div class="form-f">
                             <label class="form-label" style="font-weight: 500;">Message</label>
-                            <textarea rows="14" ></textarea>
+                            <textarea rows="14" id="messsage" name="message"></textarea>
                         </div>
 
-                        <button class="formbtn" type="submit" >SEND</button>
-
-
+                        <button class="formbtn" type="submit" name="submit_contactus">SEND</button>
                     </form>
                 </div>
             </div>
@@ -122,6 +120,32 @@
 
 </body>
 
+<script>
+function validateForm() {
+    var nameField = document.forms["contactusform"]["name"].value;
+    var emailField = document.forms["contactusform"]["email"].value;
+    var subjectField = document.forms["contactusform"]["subject"].value;
+    var messageField = document.forms["contactusform"]["message"].value;
+    
+    if (nameField.trim() === "") {
+        alert("Facility Name must be filled out");
+        return false;
+    }
+    
+    if (emailField.trim() === "") {
+        alert("Icon must be selected");
+        return false;
+    }
+    if (subjectField.trim() === "") {
+        alert("Icon must be selected");
+        return false;
+    }
+    if (messageField.trim() === "") {
+        alert("Icon must be selected");
+        return false;
+    }
+}
+</script>
 
 
 </html>
