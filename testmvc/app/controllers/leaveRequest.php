@@ -1,19 +1,19 @@
 <?php 
 
 
-class resRequest
+class leaveRequest
 {
 	use Controller;
 
 	public function index()
 	{
 
-		// $data = [];
-		$sentReq=new ReservationRequests;
-		$result=$sentReq->findAll();
+		$data = [];
+		$leaveReq=new EmpRequest;
+		$result=$leaveReq->findAll();
 		$data=$result;
-		//show($data);
-		$this->view('admin/resRequest',$data);
+		// show($data);
+		$this->view('admin/leaveRequest',$data);
 
 		// if (isset($_POST['id'])) {
 		// 	$articleId = $_POST['id'];
