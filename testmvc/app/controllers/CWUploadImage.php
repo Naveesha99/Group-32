@@ -26,19 +26,16 @@ class CWUploadImage
         // $result = $profile->findAll();
         // show($result);
 
-        $data['userid'] = $this->UserId($profile);
-        show($data);
+        $status = $this->getUserIdStatus($profile, $id);
+        show($status);
 
-        foreach ($data['userid'] as $key) {
+        if($status ==0){
+			echo '<img src="<?=ROOT?>/assests/images/Upload/profil".$id.".jpeg?"".mt_rand()." alt="Default image">';
 
-			if($id === $key){
-                echo 'image is uploaded';
-            }
-            else{
-                echo 'no user';
-            }
+
+		}else{
+			echo '<img src="<?=ROOT?>/assests/images/Upload/profiledfault.jpeg" alt="Default image">';
 		}
-
 
 		// $data['username'] = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->email;
 
@@ -49,20 +46,20 @@ class CWUploadImage
 
 		// $data = $result;
 
-		$this->view('contentwriter/cwUploadImage');
+		// $this->view('contentwriter/cwUploadImage');
     }
 
-    private function UserId($profile)
+    private function getUserIdStatus($profile, $userId)
 	{
 		$result = $profile->findAll();
 		foreach ($result as $key) {
 
-			unset($key->id);
-			unset($key->status);
-			unset($key->Created_at);
+			if($key->userid == $userId){
+				$status= $key->status;
+			}
 		}
-		show($result);
-		return $result;
+		show($status);
+		return $status;
 		// $data['jobs'] = $result;
 		// $this->view('addemployee', $data);
 	}

@@ -29,7 +29,7 @@
       </ul>
 
       <div class="Profile">
-        <img src="<?= ROOT ?>/assets/images/customer.jpeg" onclick="toggleMenu()">
+        <img src="<?= ROOT ?>/assets/images/user2.jpeg" onclick="toggleMenu()">
       </div>
     </div>
 

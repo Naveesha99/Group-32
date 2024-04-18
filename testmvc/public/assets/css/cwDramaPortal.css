@@ -34,7 +34,31 @@ body{
     gap: 100px 50px;
 
 }
+/* 
+.wrapper{
+    width: 95%;
+    margin: 0 auto;
+    height: 50px;
+}
 
+#search-container{
+    margin: 1em 0;
+}
+#search-container input{
+    background-color: transparent;
+    width: 40%;
+    border-bottom: 2px solid #110f29;
+    padding: 1em 0.3em;
+}
+
+#search-container input:focus{
+    border-bottom-color: blue;
+}
+
+#search-container button{
+    padding:  1em 2em;
+    margin-left: 1em;
+} */
 .container .search-bar{
     display: flex;
     align-items: center;
@@ -224,6 +248,11 @@ body{
     font-weight: 900;
     color: rgb(101, 21, 21);
 } */
+
+.container .Content{
+    top: 30px;
+    display: fl;
+}
 
 .container .card{
     position: relative;

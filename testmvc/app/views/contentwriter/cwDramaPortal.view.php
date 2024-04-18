@@ -31,64 +31,61 @@
     ?>
 
     <div class="container">
-        <!-- <div class="search-bar">
-            <select name="category" id="category">
-                <option value="" name="all">All Categories</option>
-                <option value="Tragedy" name="Trajedy">Trajedy</option>
-                <option value="Comedy" name="Comedy">Comedy</option>
-                <option value="MeloDrama" name="Melodrama">MeloDrama</option>a
-                <option value="Musical" name="Musical">Musical</option>
-            </select>
-        </div> -->
-
 
         <form method="POST">
             <div class="search-bar">
                 <div class="dropdown">
-                    <div id="drop-text" class="dropdown-text">
-                        <span id="span">All categories</span>
+                    <div id="drop-text" class="dropdown-text" onclick="handleCategorySelection('All categories')">
+                        <span id="span"><?= (!empty($data['select_categoery'])) ?  $data['select_categoery'] : "All categories"?></span>
                         <i id="icon" class="fa-solid fa-chevron-down"></i>
                     </div>
 
                     <ul id="list" class="dropdown-list">
-                        <li class="dropdown-list-item">All categories</li>
-                        <li class="dropdown-list-item">Comedy</a></li>
-                        <li class="dropdown-list-item">Tragedy</li>
-                        <li class="dropdown-list-item">Musical</li>
-                        <li class="dropdown-list-item">Melodrama</li>
+                        <li class="dropdown-list-item" onclick="handleCategorySelection('All categories')">All categories</li>
+                        <li class="dropdown-list-item" onclick="handleCategorySelection('Comedy')">Comedy</a></li>
+                        <li class="dropdown-list-item" onclick="handleCategorySelection('Trajedy')">Tragedy</li>
+                        <li class="dropdown-list-item" onclick="handleCategorySelection('Musical')">Musical</li>
+                        <li class="dropdown-list-item" onclick="handleCategorySelection('Melodrama')">Melodrama</li>
                     </ul>
                 </div>
 
 
 
                 <div class="search-box">
-                    <input type="text" id="search-input" placeholder="search category.." onkeyup="search()">
+                    <input type="text" id="search-input" placeholder="search <?= (!empty($data['select_categoery'])) ?  $data['select_categoery'] : "All categories"?>..">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
             </div>
 
         </form>
+        <!-- <div class="wrappr">
+            <div id="search-container">
+                <input type="search" id="search-input" placeholder="Search category name here..">
+                <button id="search"> Search</button>
+            </div>
+        </div>
+ -->
 
         <div class="addNew">
             <a href="<?= ROOT ?>/cwAddArticle">ADD NEW</a>
         </div>
 
         <?php
-        if ($data && (is_array($data) || is_object($data))) {
-            foreach ($data as $row) {
-                echo  '<div class="card">
+        if ($data['articles'] && (is_array($data['articles']) || is_object($data['articles']))) {
+            foreach ($data['articles'] as $row) {
+                echo  '<div class="card" id="card">
                             <div class="imgBX">
                                 <img src="' . ROOT . '/assets/images/drama_portal/' . $row->image . '" alt="image" >
                             </div>
     
-                            <div class="Content">
+                            <div class="Content" id="content">
                                 
                                 
 
                                 <h2>' . $row->article_name . '</h2>
-                                <i id="iconHeart"'. $row->id . '  onclick="post_like(' . $row->id . ')" class="icon'.$row->id.' fa-regular fa-heart"></i>
+                                <i id="iconHeart"' . $row->id . '  onclick="post_like(' . $row->id . ')" class="icon' . $row->id . ' fa-regular fa-heart"></i>
                                 <span id="likeCount' . $row->id . '" class="like-count">' . $row->likes . '</span>
-                                <p>Category:' . $row->category . '</p>
+                                <p id="category">Category:' . $row->category . '</p>
                                 <p>' . limitWords($row->article_content, 20) . '</p>
                                 <a href="cwViewOwnArticle?id=' . $row->id . '">READ MORE</a>
                             </div>
@@ -99,6 +96,10 @@
         }
         ?>
 
+
+
+
+
         <script>
             var is_liked = false;
             var current_id = 0;
@@ -107,19 +108,19 @@
             // Retrieve the value from localStorage
             let selectedIcons = JSON.parse(localStorage.getItem('selectedIcons')) || [];
 
-           console.log("currently localStorage stored likes id list :",selectedIcons);
+            console.log("currently localStorage stored likes id list :", selectedIcons);
 
             // currently available likes display
-            if(selectedIcons.length !=0){
+            if (selectedIcons.length != 0) {
 
-                selectedIcons.forEach(icon_id=>{
-                   // console.log(icon_id);
+                selectedIcons.forEach(icon_id => {
+                    // console.log(icon_id);
                     var select_icon = document.querySelector(`.icon${icon_id}`);
                     select_icon.classList.add('selected');
                 });
 
             }
-            
+
             function post_like(id) {
 
                 const index = selectedIcons.indexOf(id);
@@ -132,28 +133,28 @@
                     var select_icon = document.querySelector(`.icon${id}`);
                     select_icon.classList.add('selected');
 
-                    console.log("add after selected likes id list :",selectedIcons);
-                    
+                    console.log("add after selected likes id list :", selectedIcons);
+
                     data = {
                         id: id,
                         likes: true,
-                        
+
                     };
-                    
+
                 } else {
-                    
+
                     // Icon already in array, remove it
                     selectedIcons.splice(index, 1);
                     var select_icon = document.querySelector(`.icon${id}`);
                     select_icon.classList.remove('selected');
-                    
+
                     data = {
-                        
+
                         id: id,
                         likes: false,
                     };
 
-                    console.log("remove after selected likes id list :",selectedIcons);
+                    console.log("remove after selected likes id list :", selectedIcons);
 
                 }
 
@@ -195,23 +196,23 @@
         let listItems = document.querySelectorAll(".dropdown-list-item");
         let selectedCategory = "All categories";
 
-        // Function to handle search based on category
-        function handleSearch() {
-            // Clear previous search timer
-            clearTimeout(searchTimer);
+        // // Function to handle search based on category
+        // function handleSearch() {
+        //     // Clear previous search timer
+        //     clearTimeout(searchTimer);
 
-            // Set a new timer to delay the search by 500 milliseconds
-            searchTimer = setTimeout(() => {
-                // Get the search query directly from the input field
-                let searchQuery = input.value.trim().toLowerCase();
+        //     // Set a new timer to delay the search by 500 milliseconds
+        //     searchTimer = setTimeout(() => {
+        //         // Get the search query directly from the input field
+        //         let searchQuery = input.value.trim().toLowerCase();
 
-                // Get the selected category
-                let selectedCategory = span.innerText.trim();
+        //         // Get the selected category
+        //         let selectedCategory = span.innerText.trim();
 
-                // Redirect to the same page with selected category and search query as URL parameters
-                window.location.href = window.location.pathname + '?category=' + encodeURIComponent(selectedCategory) + '&search=' + encodeURIComponent(searchQuery);
-            }, 500);
-        }
+        //         // Redirect to the same page with selected category and search query as URL parameters
+        //         window.location.href = window.location.pathname + '?category=' + encodeURIComponent(selectedCategory) + '&search=' + encodeURIComponent(searchQuery);
+        //     }, 1000);
+        // }
 
         // Show dropdown list on click on dropdown btn
         dropdownBtn.onclick = function() {
@@ -248,12 +249,14 @@
             // Change input placeholder text on selected list item
             if (e.target.innerText == "All categories") {
                 input.placeholder = "Search in all categories...";
+                handleSearch();
             } else {
-                input.placeholder = "Search in " + e.target.innerText + "...";
+                input.placeholder = "Search in " + span.innerHTML + "...";
+                handleSearch();
             }
 
             // Handle search when category is selected
-            handleSearch();
+            // handleSearch();
         }
 
         // Handle search when user presses Enter key in the search input field
@@ -272,9 +275,60 @@
             // Change input placeholder text when typing in the search bar
             input.placeholder = "Search in all categories...";
 
+            // handleSearch();
+        });
+
+        // Function to handle category selection
+        function handleCategorySelection(category) {
+            // Set the selected category text
+            document.getElementById('span').innerText = category;
+            // Trigger search based on the selected category
             handleSearch();
+        }
+
+        // Function to handle search
+        function handleSearch() {
+            // Get the selected category
+            let selectedCategory = document.getElementById('span').innerText.trim();
+
+            // Get the search query from the input field
+            let searchQuery = document.getElementById('search-input').value.trim().toLowerCase();
+
+            // Redirect to the same page with selected category and search query as URL parameters
+            window.location.href = window.location.pathname + '?category=' + encodeURIComponent(selectedCategory) + '&search=' + encodeURIComponent(searchQuery);
+        }
+
+
+        const search = document.getElementById('search-input');
+        const card = document.querySelectorAll('.card');
+
+        search.addEventListener('input', function() {
+
+            card.forEach((item, index) => {
+
+                let search_data = search.value.toLowerCase();
+                // each card included text data
+                let card_data = item.textContent.toLowerCase();
+                // search bar typed text
+
+                console.log(card_data);
+
+                // Check if the row contains the search value
+                if (card_data.includes(search_data)) {
+                    item.classList.remove("hide");
+
+                } else {
+                    item.classList.add("hide");
+                }
+            });
         });
     </script>
+
+    <style>
+        .card.hide {
+            display: none;
+        }
+    </style>
 
 
 
