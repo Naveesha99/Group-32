@@ -30,7 +30,7 @@
                     </div>
                 </div>
                 <div class="box">
-                    <a href="#">
+                    <a href="<?= ROOT ?>/leaveRequest">
                         <div class="card">
                             <h1>Leave Requests</h1>
                         </div>
