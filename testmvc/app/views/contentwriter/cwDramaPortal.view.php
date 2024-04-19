@@ -36,7 +36,7 @@
             <div class="search-bar">
                 <div class="dropdown">
                     <div id="drop-text" class="dropdown-text" onclick="handleCategorySelection('All categories')">
-                        <span id="span"><?= (!empty($data['select_categoery'])) ?  $data['select_categoery'] : "All categories"?></span>
+                        <span id="span"><?= (!empty($data['select_categoery'])) ?  $data['select_categoery'] : "All categories" ?></span>
                         <i id="icon" class="fa-solid fa-chevron-down"></i>
                     </div>
 
@@ -52,28 +52,23 @@
 
 
                 <div class="search-box">
-                    <input type="text" id="search-input" placeholder="search <?= (!empty($data['select_categoery'])) ?  $data['select_categoery'] : "All categories"?>..">
+                    <input type="text" id="search-input" placeholder="search <?= (!empty($data['select_categoery'])) ?  $data['select_categoery'] : "All categories" ?>..">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
             </div>
 
         </form>
-        <!-- <div class="wrappr">
-            <div id="search-container">
-                <input type="search" id="search-input" placeholder="Search category name here..">
-                <button id="search"> Search</button>
-            </div>
-        </div>
- -->
+
 
         <div class="addNew">
             <a href="<?= ROOT ?>/cwAddArticle">ADD NEW</a>
         </div>
 
-        <?php
-        if ($data['articles'] && (is_array($data['articles']) || is_object($data['articles']))) {
-            foreach ($data['articles'] as $row) {
-                echo  '<div class="card" id="card">
+        <div class="cards-container">
+            <?php
+            if ($data['articles'] && (is_array($data['articles']) || is_object($data['articles']))) {
+                foreach ($data['articles'] as $row) {
+                    echo  '<div class="card" id="card">
                             <div class="imgBX">
                                 <img src="' . ROOT . '/assets/images/drama_portal/' . $row->image . '" alt="image" >
                             </div>
@@ -90,11 +85,15 @@
                                 <a href="cwViewOwnArticle?id=' . $row->id . '">READ MORE</a>
                             </div>
                         </div>';
+                }
+            } else {
+                echo '<p>No data available</p>';
             }
-        } else {
-            echo '<p>No data available</p>';
-        }
-        ?>
+            ?>
+
+        </div>
+
+
 
 
 

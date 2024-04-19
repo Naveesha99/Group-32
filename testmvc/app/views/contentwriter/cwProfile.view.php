@@ -46,30 +46,67 @@
 
             <hr>
 
-            <!-- <div class="form-left">
+            <div class="form-left">
 
-</div> -->
 
-            
-            <div class="form-right">
+            <div class="profile-box">
+                <div id="profilePhotoContainer">
+                    <?php
+                        
+                        $profile_photo_name = $data['content_writer'][0]->username;
 
-                  <!-- Personal Email -->
-                  <label for="full_name">Employee Name:</label>
-                  <input type="text" id="full_name" value="<?= $data['content_writer'][0]->username ?>" disabled />
+                        if (!empty($profile_photo_name)) {
+                              echo '<img src="' . ROOT . '/assets/images/Upload' . $profile_photo_name . '" alt="Profile Photo">';
+                          } else {
+                              echo '<img src="' . ROOT . '/assets/images/Upload/profiledefault.jpeg" alt="Default Profile Photo">';
+                          }
+                        
+                        ?>
+                    
+                </div>
 
-                  <!-- NIC -->
-                  <label for="nic">Email:</label>
-                  <input type="text" id="nic" value="<?= $data['content_writer'][0]->email ?>" disabled />
+                <input type="file" id="profilePhotoInput" onchange="displayProfilePhoto(event)">
+            </div>
 
-                  <!-- DOB -->
-                  <label for="full_name">NIC:</label>
-                  <input type="text" id="full_name" value="<?= $data['content_writer'][0]->nic ?>" disabled />
+        </div>
 
-                  
+                  <div class="form-right">
+
+                        <!-- Personal Email -->
+                        <label for="full_name">Employee Name:</label>
+                        <input type="text" id="full_name" value="<?= $data['content_writer'][0]->username ?>" disabled />
+
+                        <!-- NIC -->
+                        <label for="email">Email:</label>
+                        <input type="text" id="nic" value="<?= $data['content_writer'][0]->email ?>" disabled />
+
+                        <!-- DOB -->
+                        <label for="full_name">NIC:</label>
+                        <input type="text" id="full_name" value="<?= $data['content_writer'][0]->nic ?>" disabled />
+
+
+
+                  </div>
 
             </div>
 
-      </div>
+            <script>
+        // JavaScript function to display the selected profile photo
+        function displayProfilePhoto(event) {
+            const reader = new FileReader();
+            reader.onload = function() {
+                const profilePhotoContainer = document.getElementById('profilePhotoContainer');
+                profilePhotoContainer.innerHTML = '';
+                const img = document.createElement('img');
+                img.src = reader.result;
+                img.style.width = '100%';
+                img.style.height = '100%';
+                img.style.objectFit = 'cover';
+                profilePhotoContainer.appendChild(img);
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    </script>
 
 
 </body>

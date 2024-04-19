@@ -34,45 +34,31 @@ body{
     gap: 100px 50px;
 
 }
-/* 
-.wrapper{
-    width: 95%;
-    margin: 0 auto;
-    height: 50px;
-}
 
-#search-container{
-    margin: 1em 0;
-}
-#search-container input{
-    background-color: transparent;
-    width: 40%;
-    border-bottom: 2px solid #110f29;
-    padding: 1em 0.3em;
-}
-
-#search-container input:focus{
-    border-bottom-color: blue;
-}
-
-#search-container button{
-    padding:  1em 2em;
-    margin-left: 1em;
-} */
 .container .search-bar{
     display: flex;
     align-items: center;
-    min-width: 800px ;
+    min-width: 800px;
+    /* max-width: 800px ; */
+    width: 100%;
     background-color: white;
     border-radius: 50px;
     height: fit-content;
     top: 10px;
     left: 20px;
     border: 2px solid blue;;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 20px; 
 
-    
+}
 
-
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px; /* Add gap between cards */
 }
 
 .container .search-bar .dropdown{
@@ -132,12 +118,13 @@ body{
     display: flex;
     align-items: center;
     padding-right: 1rem;
+    padding: 0.8rem;
     width: 100%;
     color: blue;
 }
 
 .search-box input{
-    padding: 1rem;
+    /* padding: 1rem; */
     width: 100%;
     font-size: 1rem;
     font-weight: 500;
@@ -157,63 +144,7 @@ body{
     color: blue;
 }
 
-/* .container .search-bar{
-    background: #fff;
-    width: 90%;
-    max-width: 800px;
-    display: flex;
-    padding: 2px;
-    border-radius: 4px;
-}
 
-#select{
-    background: #160053;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: #fff;
-    width: 300px;
-    padding: 25px 20px;
-    cursor: pointer;
-    position: relative;
-    border-radius: 4px;
-}
-
-#select i{
-    width: 15px;
-}
-
-#select ul{
-    position: absolute;
-    top: 120%;
-    left: 0;
-    list-style: none;
-    background: #fff;
-    color: #555;
-    width: 100%;
-    border-radius: 4px;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s;
-}
-
-#select ul li{
-    padding: 10px 20px;
-    cursor: pointer;
-
-}
-
-.container .search-bar input{
-    padding: 10px 25px;
-    width: 100%;
-    border: none;
-    outline: none;
-    font-size: 18px;
-}
-
-#select ul .open{
-    max-height: 300px;
-} */
 
 .container .addNew{
     position: absolute;
@@ -443,4 +374,13 @@ body{
     .container .card .Content {
         padding: 0 10px;
     }
+
+    .container .search-bar {
+        max-width: 600px; /* Adjust maximum width for search bar */
+    }
+
+    .search-box input {
+        font-size: 0.8rem; /* Adjust font size for smaller screens */
+    }
+
 }

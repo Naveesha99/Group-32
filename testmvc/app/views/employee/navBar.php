@@ -29,14 +29,14 @@
       </ul>
 
       <div class="Profile">
-        <img src="<?= ROOT ?>/assets/images/upload/user2.jpeg" onclick="toggleMenu()">
+        <img src="<?= ROOT ?>/assets/images/Upload/profiledefault.jpeg" onclick="toggleMenu()">
       </div>
     </div>
 
     <div class="sub-menu-wrap" id="subMenu">
       <div class="sub-menu">
         <div class="user-info">
-          <img src="<?= ROOT ?>/assets/images/upload/user2.jpeg">
+          <img src="<?= ROOT ?>/assets/images/Upload/profiledefault.jpeg">
           <h3><?php echo $_SESSION['USER']->username;?></h3>
         </div>
         <hr>
