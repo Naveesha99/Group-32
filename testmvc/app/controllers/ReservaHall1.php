@@ -63,6 +63,12 @@ class ReservaHall1
 
 		$halldetails=new Hall;
 			$detailsofhall=$halldetails->where(['hallno'=>$hallId]);
+
+
+		foreach($detailsofhall as $key){
+			unset($key->content);
+			unset($key->image);
+		}
 			$data=[
 				'acceptedReservations'=>$acceptedReservations1,
 				'hall'=>$detailsofhall,

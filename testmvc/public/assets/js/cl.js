@@ -69,7 +69,14 @@ const renderCalendar = () => {
 
                 // this part was added to alert function
                 const today = new Date();
-                if ((selectedDate < today) || (selectedDate == today)) {
+                console.log("today");
+                console.log(today);
+                console.log("selected date");
+                console.log(selectedDate);
+                const twoDaysFromNow = new Date();
+                twoDaysFromNow.setDate(date.getDate() + 2);
+
+                if (selectedDate.getTime() < twoDaysFromNow.getTime()) {
 
                     const formattedDate = `${months[currMonth]} ${currYear}, ${this.textContent}`;
                 selectedDateHeader.textContent = formattedDate;
@@ -84,6 +91,8 @@ const renderCalendar = () => {
                         el[i].style.display = 'none';
                     }
                     var elem = document.getElementsByClassName('notice');
+                    console.log("elem   ");
+                    console.log(elem);
                     for (var i = 0; i < elem.length; i++) {
                         elem[i].style.display = 'block'
                     }

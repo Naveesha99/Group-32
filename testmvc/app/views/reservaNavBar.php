@@ -205,24 +205,26 @@
       <li> <a href="#"> TICKETS </a></li>
       <li> <a href="<?=ROOT?>/reservaHall"> HALLS </a></li>
       <li> <a href="#"> BLOGS </a></li>
+      <li> <a href="<?=ROOT?>/contactus"> CONTACT US </a></li>
+
     </ul>
     <button class="login-btn" id="login-btn" onclick="redirectToLoginPage()">LOGIN</button>
-    <img src="<?= ROOT ?>/assets/images/profilePic.png" class="user-pic" onclick="toggleMenu()" id="img-profile">
-
+    <!-- <img src="<?= ROOT ?>/assets/images/profilePic.png" class="user-pic" onclick="toggleMenu()" id="img-profile"> -->
+<!-- 
     <div class="sub-menu-wrap" id="subMenu">
       <div class="sub-menu">
         <div class="user-info">
-          <img src="<?= ROOT ?>/assets/images/profilePic.png">
-          <!-- <h3> Ahmed Khan </h3> -->
-          <h3>
+          <img src="<?//= ROOT ?>/assets/images/profilePic.png">
+           <h3> Ahmed Khan </h3> -->
+          <!-- <h3> -->
 
-          <?php 
-          if (isset($_SESSION['USER'])) {
-            echo ucfirst($_SESSION['USER']->username); 
-          } else {
-            show('No session');
-          }
-          ?>
+          <!-- <?php 
+          //if (isset($_SESSION['USER'])) {
+           // echo ucfirst($_SESSION['USER']->username); 
+          //} else {
+          //  show('No session');
+          //}
+          ?> -->
 
 
 
@@ -235,7 +237,7 @@
             <p>Hall Request</p>
             <span> > </span>
           </a> -->
-
+<!-- 
         <a href="reservaSentReq" class="sub-menu-link">
           <img src="<?= ROOT ?>/assets/images/request.png">
           <p onclick="reservaSentreqPg()">Sent Request</p>
@@ -252,17 +254,17 @@
           <img src="<?= ROOT ?>/assets/images/setting.png">
           <p onclick="reservaSettingsPg()">Settings</p>
           <span> > </span>
-        </a>
+        </a> -->
 
 
-        <a href="#" class="sub-menu-link">
+        <!-- <a href="#" class="sub-menu-link">
           <img src="<?= ROOT ?>/assets/images/logout.png">
           <p>Logout</p>
           <span> > </span>
-        </a>
+        </a> -->
 
-      </div>
-    </div>
+      <!-- </div> -->
+    <!-- </div>  -->
 
   </nav>
   <!-- </div> -->
@@ -285,16 +287,16 @@
 
     window.onload = function() {
     // Check if the user is logged in by accessing session data
-    var session = '<?php echo isset($_SESSION['USER']) ? "true" : "false"; ?>';
-    <?php if (isset($_SESSION['USER'])): ?>
-      console.log('<?php echo $_SESSION['USER']->username; ?>');
-    <?php endif; ?>
+    // var session = '<?//php// echo isset($_SESSION['USER']) ? "true" : "false"; ?>';
+    // <?php //if (isset($_SESSION['USER'])): ?>
+    //   console.log('<?php //echo $_SESSION['USER']->username; ?>');
+    // <?//php// endif; ?>
 
     // If the session is not set, hide the profile image and display the login button
-    if (session === "false") {
-        document.getElementById('img-profile').style.display = 'none';
-        document.getElementById('login-btn').style.display = 'block';
-    }
+    // if (session === "false") {
+    //     document.getElementById('img-profile').style.display = 'none';
+    //     document.getElementById('login-btn').style.display = 'block';
+    // }
 }
 
 

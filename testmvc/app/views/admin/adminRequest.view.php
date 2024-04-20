@@ -17,9 +17,35 @@
         <div class="content">
             <div class="cards">
                 <div class="box">
-                    <a href="<?= ROOT ?>/request">
+                    <a href="<?= ROOT ?>/resRequest">
                         <div class="card">
-                            <h1>All Requests</h1>
+                            <h1>Hall Requests</h1>
+                        </div>
+                    </a>
+
+                    <div class="details">
+                        <p>Pending : <?= $data['pending']?> </p>
+                        <p>Accepted : <?= $data['accepted']?> </p>
+                        <p>Rejected : <?= $data['rejected']?></p>
+                    </div>
+                </div>
+                <div class="box">
+                    <a href="<?= ROOT ?>/leaveRequest">
+                        <div class="card">
+                            <h1>Leave Requests</h1>
+                        </div>
+                    </a>
+
+                    <div class="details">
+                        <p>Pending : <?= $data['pending']?> </p>
+                        <p>Accepted : <?= $data['accepted']?> </p>
+                        <p>Rejected : <?= $data['rejected']?></p>
+                    </div>
+                </div>
+                <div class="box">
+                    <a href="#">
+                        <div class="card">
+                            <h1>Article Review</h1>
                         </div>
                     </a>
 
