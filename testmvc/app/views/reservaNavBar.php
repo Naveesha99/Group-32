@@ -25,7 +25,11 @@
       /* background-color: var(--secondary-color); */
 
       /* background: #dfc2f2; */
-      background-image: linear-gradient(to right, #ffffb3, #ffe6e6);
+      /* background-image: linear-gradient(to right, #ffffb3, #ffe6e6); */
+      background-color: white;
+      /* background-image: url(../public/assets/images/Untitled6.png); */
+      background-repeat: no-repeat;
+      background-size: cover;
       background-attachment: fixed;
       background-size: cover;
     }
@@ -58,6 +62,7 @@
       position: fixed;
       z-index: 1000;
       /* background: rgba(0, 0, 0, 0.2); Black see-through */
+      background-color: white;
 
     }
 
@@ -72,6 +77,7 @@
       border-radius: 50%;
       cursor: pointer;
       margin-left: 10px;
+      display: block;
     }
 
     nav ul {
