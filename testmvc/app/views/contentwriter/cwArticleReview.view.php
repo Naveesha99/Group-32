@@ -32,7 +32,7 @@ function limitWords($text, $limit)
             <table>
                 <thead>
                     <tr>
-                        <th>Id</th>
+                        <!-- <th>Id</th> -->
                         <th>Article Name</th>
                         <th>Category</th>
                         <th>Article Content</th>
@@ -46,7 +46,7 @@ function limitWords($text, $limit)
                 if ($data && (is_array($data) || is_object($data))) {
                     foreach ($data as $row) {
                         echo '<tr>
-                                <td>' . $row->id . '</td>
+                                
                                 <td>' . $row->article_name . '</td>
                                 <td>' . $row->category . '</td>
                                 <td>' . limitWords($row->article_content, 5) . '</td>
