@@ -76,7 +76,7 @@
                         <span id="likeCount' . $row->id . '" class="like-count">' . $row->likes . '</span>
                         <p id="category">Category:' . $row->category . '</p>
                         <p>' . limitWords($row->article_content, 20) . '</p>
-                        <a href="cwViewOwnArticle?id=' . $row->id . '">READ MORE</a>
+                        <a href="articleView?id=' . $row->id . '">READ MORE</a>
                     </div>
                 </div>';
                     }
