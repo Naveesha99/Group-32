@@ -1,0 +1,358 @@
+@import url('https://fonts.googleapis.com/css?family=Catamaran:400,700');
+*{
+    
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+
+}
+
+body{
+    font-family: 'Catamaran', sans-seri;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+
+
+}
+
+.container{
+    position: absolute;
+    min-height: 100vh;
+    /* background-color:  #FFEAD7; */
+    background-color: white;
+    transition: 0.5s;
+    margin-top: 60px;
+    padding: 100px 40px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 100px 50px;
+
+}
+
+.search-section {
+    width: 100%;
+    max-width: 800px;
+    /* margin-bottom: 5px; */
+}
+
+/* Style for cards section */
+.cards-section {
+    width: 100%;
+}
+
+
+.container .search-bar{
+    display: flex;
+    align-items: center;
+    min-width:  800px;
+    /* max-width: 800px ; */
+    width: 100%;
+    background-color: white;
+    border-radius: 50px;
+    height: fit-content;
+    top: 0px;
+    left: 50%;
+    border: 2px solid blue;;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 10px; 
+
+}
+
+.cards-container {
+    display: flex;
+    
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px;
+    gap: 50px; /* Add gap between cards */
+}
+
+.container .search-bar .dropdown{
+    position: relative;
+    width: 200px;
+    background-color: blue;
+    border-radius: 50px;
+    border: 1px solid rgb(213, 213, 140);
+    box-shadow: gray;
+    cursor: pointer;
+    /* z-index: 100; */
+}
+
+.container .search-bar .dropdown .dropdown-text{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1rem;
+    font-weight: 500;
+    color: white;
+    padding: 1rem 1.5rem ;
+
+}
+
+.container .search-bar .dropdown .dropdown-list{
+   position: absolute;
+   top: 4rem;
+   left: 0;
+   width: 100%;
+   border-radius: 15px;
+   max-height: 0;
+   overflow: hidden;
+   background-color: rgb(213, 213, 140);
+   transition: max-height 0.5s;
+   z-index: 200;
+
+}
+
+#list.show{
+    max-height: 300px;
+}
+
+.dropdown-list-item{
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 1rem 0 1rem 1.5rem;
+    cursor: pointer;
+    transition: margin-left 0.2s ease, color 0.2s ease;
+}
+
+.dropdown-list-item:hover{
+    margin-left: 0.5rem;
+    color: blue;
+}
+
+.search-box{
+    display: flex;
+    align-items: center;
+    padding-right: 1rem;
+    padding: 0.8rem;
+    width: 100%;
+    color: blue;
+}
+
+.search-box input{
+    /* padding: 1rem; */
+    width: 100%;
+    font-size: 1rem;
+    font-weight: 500;
+    color: blue;
+    border: 0;
+    outline: 0;
+}
+
+.search-box i{
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+.search-box input::placeholder{
+    font-size: 1rem;
+    font-weight: 500;
+    color: blue;
+}
+
+.container .card{
+    position: relative;
+    display: flex;
+    top: 30px;
+    justify-content: center;
+    align-items: flex-start;
+    width:350px ;
+    height: 300px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 35px 80px rgba(0, 0, 0,0.65);
+    transition: 0.5s;
+    margin-top: 10px;
+}
+
+
+.container .card:hover{
+    height: 400px;
+
+}
+.container .card .imgBX{
+    position: absolute;
+    top: 20px;
+    width: 300px;
+    height: 220px;
+    background: #333;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: 0.5s;
+
+}
+
+.container .card:hover .imgBX{
+    top: -100px;
+    scale: 0.75;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+
+}
+
+.container .card .imgBX img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+
+.container .card .Content{
+    position: absolute;
+    top: 252px;
+    width: 100%;
+    padding: 0 30px;
+    height: 35px;
+    overflow: hidden;
+    text-align: center;
+    transition: 0.5s;
+
+}
+
+
+
+.container .card:hover .Content{
+    top: 90px;
+    height: 250px
+}
+
+.container .card .Content h2{
+    font-size: 1.5em;
+    font-weight: 700;
+    color: rgb(105, 11, 11);
+
+}
+
+.container .card .Content p{
+    color: #333;
+    font-size:small;
+
+}
+
+.container .card .Content a{
+    position: relative;
+    top: 15px;
+    display: inline-block;
+    padding: 12px 25px;
+    background: rgb(64, 106, 64);
+    color: #fff;
+    font-weight: 50px;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+#iconHeart{
+    color: rgb(105, 11, 11);
+    position: absolute;
+    top: 6px; 
+    right: 20px; 
+    font-size: 1.3em; 
+    font-weight: 200;
+    transition: all 0.3s cubic-bezier(0.41, 0.15, 0.36, 1);
+    cursor: pointer;
+}
+
+#iconHeart:hover{
+    transform: scale(1.2);
+}
+
+/* .Content .icon {
+    display: inline-block;
+    vertical-align: middle;
+} */
+
+.Content .like-count {
+    color: rgb(105, 11, 11);
+    position: absolute;
+    top: 2px; 
+    right: 3px; 
+    font-size: 1.3em; 
+    font-weight: 200;
+    transition: all 0.3s cubic-bezier(0.41, 0.15, 0.36, 1);
+    cursor: pointer;/* Adjust the margin as needed */
+}
+
+.selected {
+    width:20px;
+    height:20px;
+    border-radius: 20px;
+    color: white;
+    background-color: red;
+}
+
+@media screen and (max-width: 1200px) {
+    .container {
+        width: calc(100% - 200px);
+        left: 200px;
+        padding: 80px 40px;
+    }
+
+    .container .card {
+        width: 300px;
+    }
+
+    .container .card .imgBX {
+        width: 250px;
+    }
+
+    .container .card .Content {
+        padding: 0 20px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .container {
+        width: calc(100% - 150px);
+        left: 150px;
+        padding: 80px 30px;
+    }
+
+    .container .card {
+        width: 250px;
+    }
+
+    .container .card .imgBX {
+        width: 200px;
+    }
+
+    .container .card .Content {
+        padding: 0 15px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        width: 100%;
+        left: 0;
+        padding: 80px 20px;
+    }
+
+    .container .card {
+        width: 100%;
+    }
+
+    .container .card .imgBX {
+        width: 100%;
+    }
+
+    .container .card .Content {
+        padding: 0 10px;
+    }
+
+    .container .search-bar {
+        max-width: 600px; /* Adjust maximum width for search bar */
+    }
+
+    .search-box input {
+        font-size: 0.8rem; /* Adjust font size for smaller screens */
+    }
+
+}
