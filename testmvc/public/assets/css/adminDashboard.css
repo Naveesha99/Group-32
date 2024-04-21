@@ -67,6 +67,25 @@ td {
     min-height: 90vh;
     background: white;
 }
+.container .content .chart-1 {
+    min-height: 30vh;
+    height: 200px;
+    width: 50%;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    float: left;
+}
+
+.container .content .chart-2 {
+    min-height: 30vh;
+    height: 200px;
+    width: 50%;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    float: right;
+}
 .container .content .cards {
     padding: 20px 15px;
     display: flex;

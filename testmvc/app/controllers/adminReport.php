@@ -6,7 +6,11 @@ class adminReport
 
     public function index()
     {
+        $data = [];
+        $income = new ticketIncome();
+        $result= $income->findAll();
+        $data = $result;
 
-        $this->view('admin/adminReport');
+        $this->view('admin/adminReport', $data);
     }
 }

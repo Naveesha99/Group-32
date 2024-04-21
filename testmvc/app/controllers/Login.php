@@ -13,14 +13,23 @@ class Login
 
 		if ($_SERVER['REQUEST_METHOD'] == "POST") {
 			$user = new User;
-			$arr['username'] = $_POST['username'];
+			$arr['email'] = $_POST['email'];
 
 			$row = $user->first($arr);
-
+			// show($row);
 			if ($row) {
 				if ($row->password === $_POST['password']) {
 					$_SESSION['USER'] = $row;
-					redirect('admindashboard');
+					if ($row->user_type == 'admin') {
+						redirect('admindashboard');
+					}elseif($row->user_type == 'Front Desk Officer'){
+						redirect('frontdesk');
+					}elseif($row->user_type == 'Content Writer'){
+						redirect('cwDashboard');
+					}elseif($row->user_type == 'Employee'){
+						redirect('employeeDashboard');
+					}
+					// redirect('admindashboard');
 				}
 			}
 

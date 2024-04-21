@@ -16,7 +16,7 @@
     <a href="<?= ROOT ?>/adminDashboard"> <i class="fa-solid fa-house"></i> <span>Dashboard</span></a>
     <a href="<?= ROOT ?>/adminDrama"> <i class="fa-solid fa-masks-theater"></i><span> Drama</span></a>
     <a href="<?= ROOT ?>/adminEmployee"> <i class="fa-solid fa-user"></i> <span>Employee</span></a>
-    <a href="<?= ROOT ?>/adminTheater"> <i class="fa-solid fa-panorama"></i> <span>Theater</span></a>
+    <!-- <a href="<?= ROOT ?>/adminTheater"> <i class="fa-solid fa-panorama"></i> <span>Theater</span></a> -->
     <a href="<?= ROOT ?>/adminFacilities"> <i class="fa-solid fa-flag"></i> <span>Facilities</span></a>
     <a href="<?= ROOT ?>/adminRequest"> <i class="fa-solid fa-hand"></i> <span>Request</span></a>
     <a href="<?= ROOT ?>/adminReport"> <i class="fa-solid fa-flag"></i> <span>Report</span></a>

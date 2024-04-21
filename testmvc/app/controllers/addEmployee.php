@@ -21,6 +21,7 @@ class addEmployee
 
 		if ($_SERVER['REQUEST_METHOD'] == "POST") {
 			$employee = new Employee;
+			$user = new User;
 			// show($_POST);
 			if ($employee->validate($_POST)) {
 				$_POST['password'] = $_POST['empNIC'];
@@ -29,6 +30,36 @@ class addEmployee
 				$name = $_POST['empName'];
 				$sendMail = new SendMail;
 				$sendMail->sendEmployeeEmail($email, $name);
+				if($_POST['empRoll'] == 'Front Desk Officer'){
+					$loginData = [
+						'fullname'=>$_POST['empName'],
+						'email'=>$_POST['empEmail'],
+						'nic'=>$_POST['empNIC'],
+						'password'=>$_POST['empNIC'],
+						'dob'=>$_POST['empDOB'],
+						'user_type'=>'Front Desk Officer'
+					];
+				}elseif($_POST['empRoll'] == 'Content Writer'){
+					$loginData = [
+						'fullname'=>$_POST['empName'],
+						'email'=>$_POST['empEmail'],
+						'nic'=>$_POST['empNIC'],
+						'password'=>$_POST['empNIC'],
+						'dob'=>$_POST['empDOB'],
+						'user_type'=>'Content Writer'
+					];
+				}else{
+					$loginData = [
+						'fullname'=>$_POST['empName'],
+						'email'=>$_POST['empEmail'],
+						'nic'=>$_POST['empNIC'],
+						'password'=>$_POST['empNIC'],
+						'dob'=>$_POST['empDOB'],
+						'user_type'=>'Employee'
+					];
+				}
+				// show($loginData);
+				$user->insert($loginData);
 				$employee->insert($_POST);
 				redirect('adminemployee');
 			}
