@@ -37,7 +37,7 @@
       <div class="sub-menu">
         <div class="user-info">
           <img src="<?= ROOT ?>/assets/images/Upload/profiledefault.jpeg">
-          <h3><?php echo $_SESSION['USER']->username;?></h3>
+          <h3><?php echo $_SESSION['USER']->empName;?></h3>
         </div>
         <hr>
 
