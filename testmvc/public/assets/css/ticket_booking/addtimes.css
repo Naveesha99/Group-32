@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css?family=Catamaran:400,700');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Catamaran', sans-serif;
+}
+
+html, body {
+    height: 100%;
+    /* overflow: hidden; */
+    background-color: #a97a7a;
+}
+
+.signup {
+    height: 100%;
+    width: 100%;
+    /* background-color: #857171; */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup_box {
+    width: 1550px;
+    height: 900px;
+    /* background: #7e5656; */
+    border-radius: 10px;
+    box-shadow: 1px 4px 22px -8px #0004;
+    display: flex;
+    overflow: hidden;
+}
+
+.signup_box .left {
+    width: 41%;
+    padding: 25px 25px;
+    /* background: #965353; */
+}
+
+.signup_box .right {
+    width: 59%;
+    height: 100%;
+    /* background: url(/public/assets/images/background.jpg); */
+    background-size: cover;
+    color: #fff;
+    position: relative;
+}
+
+
+.left .contact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    height: 100%;
+    width: 73%;
+    /* margin: auto; */
+}
+
+.right .contact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    height: 100%;
+    width: 73%;
+    margin: auto;
+}
+
+.left input {
+    border: none;
+    width: 80%;
+    margin: 15px 0px;
+    border-bottom: 1px solid #0000007d;
+    padding: 3px 5px;
+    width: 100%;
+    overflow: hidden;
+    background: transparent;
+    font-weight: 600;
+    font-size: 14px;
+}
+.errors{
+    color: red;
+    font-weight: bold;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    width: 150px;
+}
+
+.remember-me input[type="checkbox"] {
+    margin: 0 5px 0 0;
+}
+
+.submit {
+    border: none;
+    padding: 15px 70px;
+    border-radius: 8px;
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+    background: rgba(195, 98, 1, 0.973);
+    color: #fff;
+    font-weight: bolder;
+    font-size: 15px;
+}
+
+.sign {
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+.heading{
+    text-align: center;
+    font-size: 15px;
+    margin-top: 15px;
+}
+
+@media (max-width: 768px) {
+    .signup_box {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .signup_box .left {
+        width: 100%;
+    }
+
+    .submit {
+        margin-top: 20px;
+    }
+}

@@ -10,13 +10,12 @@ class EmployeeDashboard
 	public function index()
 	{
 
-		// if (empty($_SESSION['USER'])) {
-		// 	// Redirect or handle the case when the user is not logged in
-		// 	// For example, you might want to redirect them to the login page
-		// 	redirect('login');
-		// 	exit();
-		// }
-
+		if (empty($_SESSION['USER'])) {
+			// Redirect or handle the case when the user is not logged in
+			// For example, you might want to redirect them to the login page
+			redirect('cwLogin');
+			exit();
+		}
 		// $data['username'] = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->email;
 
 		$data = [];
@@ -47,10 +46,10 @@ class EmployeeDashboard
 
 		$data['to_do'] = $todoCount;
 		$data['completed'] = $completedCount;
-		$data['today_tasks'] =$today_tasks;
+		$data['today_tasks'] = $today_tasks;
 
 		// show($data);
-		
+
 		$this->view('employee/employeeDashboard', $data);
 	}
 }

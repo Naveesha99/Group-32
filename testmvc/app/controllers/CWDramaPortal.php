@@ -16,33 +16,42 @@ class CWDramaPortal
 			exit();
 		}
 
-		// Fetch articles based on category if provided in the URL
-		$category = isset($_GET['category']) ? $_GET['category'] : null;
-		$searchQuery = isset($_GET['search']) ? $_GET['search'] : null;
 
-		// Fetch articles based on the selected category and search query
-		$article = new Article;
-		if ($category && $category !== "All categories") {
-			if ($searchQuery) {
-				$result = $article->findPublishArticlesByCategoryAndSearch($category, $searchQuery); // Assuming you have a method to fetch articles by category and search query
-			} else {
-				$result = $article->findPublishArticlesByCategory($category); // Assuming you have a method to fetch articles by category
-			}
+		$data['username'] = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->email;
+
+		$article = new article;
+		$result = $article->findPublishArticles();
+		$data['articles'] = $result;
+
+		// Check if a category filter is applied
+		$selectedCategory = isset($_GET['category']) ? $_GET['category'] : 'All categories';
+		if ($selectedCategory !== 'All categories') {
+
+			// Filter articles based on the selected category
+			$filteredArticles = array_filter($result, function ($article) use ($selectedCategory) {
+				return $article->category === $selectedCategory;
+			});
+
+			$data['articles'] = $filteredArticles;
 		} else {
-			$result = $article->findPublishArticles(); // Fetch all articles if no category is selected
+			$data['articles'] = $article->findPublishArticles();
 		}
 
-		$data = $result;
+		$searchQuery = isset($_GET['search']) ? $_GET['search'] : '';
+		if (!empty($searchQuery)) {
 
+			// Filter articles based on the search query
+			$data['articles'] = array_filter($data['articles'], function ($article) use ($searchQuery) {
+				// Perform case-insensitive search in article name and content
+				return stripos($article->article_name, $searchQuery) !== false ||
+					stripos($article->article_content, $searchQuery) !== false;
+			});
+			// show($data['articles']);
+		}
+
+		// $data['articles'] = $result;
+		// show($data);
+		$data['select_categoery'] = $selectedCategory;
 		$this->view('contentwriter/cwDramaPortal', $data);
-
-		// $data['username'] = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->email;
-
-		// $article = new article;
-		// $result = $article->findPublishArticles();
-		// $data = $result;
-
-
-		// $this->view('contentwriter/cwDramaPortal', $data);
 	}
 }

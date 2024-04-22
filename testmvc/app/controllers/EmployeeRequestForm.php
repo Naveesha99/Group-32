@@ -9,30 +9,42 @@ class EmployeeRequestForm
 
 	public function index()
 	{
-		// if (empty($_SESSION['USER'])) {
-		// 	// Redirect or handle the case when the user is not logged in
-		// 	// For example, you might want to redirect them to the login page
-		// 	redirect('cwLogin');
-		// 	exit();
-		// }
+		if (empty($_SESSION['USER'])) {
+			// Redirect or handle the case when the user is not logged in
+			// For example, you might want to redirect them to the login page
+			redirect('cwLogin');
+			exit();
+		}
 
-		// $data['username'] = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->email;
+		$name = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->username;
+		$email = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->email;
 
-		$data =[];
+		echo $name;
+		echo $email;
+
+		$data = [];
 		$emp_req = new EmpRequest;
+		$emp = new Content_writers;
 
-		if (isset($_POST['submit'])){
-			$_POST['state'] ='pending';
-			if($emp_req->validate($_POST)){
+		
+
+
+
+		if (isset($_POST['submit'])) {
+			$_POST['state'] = 'pending';
+			if ($emp_req->validate($_POST)) {
+
+				$sendMail = new SendMail;
+				$sendMail->employeeRequest($email, $name);
 				$emp_req->insert($_POST);
 				redirect('employeeReq');
 			}
 		}
 
 		$data['errors'] = $emp_req->errors;
-        // show($_POST);
+		// show($_POST);
 
 
-		$this->view('employee/employeeRequestForm',$data);
+		$this->view('employee/employeeRequestForm', $data);
 	}
 }

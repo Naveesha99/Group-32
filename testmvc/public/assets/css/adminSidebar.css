@@ -71,6 +71,12 @@ a {
     color: black;
 }
 
+.active{
+    background: #e6cc00;
+    border-radius: 30px;
+    padding-left: 20px;
+}
+
 .nav .menu-bar{
     float: right;
     margin-top: 20px;
