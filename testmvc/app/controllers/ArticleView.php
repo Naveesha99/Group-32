@@ -31,6 +31,8 @@ class ArticleView
 			}
 		}
 
+        // show($data['article']);
+
 		// $data['username'] = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->email;
 
 		$this->view('user/articleView', $data);

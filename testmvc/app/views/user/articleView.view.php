@@ -21,15 +21,16 @@
 
 
             <div class="card-body">
-                <h2 class="card-title"><?= $data['article'][0]->article_name?></h2>
+                <h2 class="card-title"><?= $data['article'][0]->article_name ?></h2>
                 <h3 class="card-local">Category : <?= $data['article'][0]->category ?></h3>
-               
+
                 <p class="card-texto"><?= $data['article'][0]->article_content ?></p>
+                <div class="card-footer">
+                <p class="author">Author : <?= $data['article'][0]->cwName ?></p>
+            </div>
             </div>
 
-            <!-- <div class="card-footer">
-
-            </div> -->
+            
         </div>
 
     </div>
