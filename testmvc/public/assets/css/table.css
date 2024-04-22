@@ -280,6 +280,8 @@ th, td{
     word-break: break-all;
     text-align: center;
     align-items: center;
+    font-size: 12px;
+
 }
 
 td{
