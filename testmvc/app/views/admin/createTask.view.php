@@ -19,20 +19,20 @@
         <h1>Create Tasks</h1>
         <label for="taskType">Task</label>
         <input type="text" name="taskType">
-        <label for="date">Date</label>
-        <input type="date" name="date">
-        <label for="startTime">Start Time</label>
-        <input type="time" name="startTime">
-        <label for="endTime">end Time</label>
-        <input type="time" name="endTime">
-        <label for="location">Location</label>
-        <input type="text" name="location">
-        <label for="count">Employee count</label>
-        <input type="number" name="count">
-        <!-- <label for="empname">Employee Name</label>
-                <input type="text" name="empty" placeholder="Empty">                 -->
-                <br>
-        <button class="btn">Add Task</button>
+        <label for="description">Description</label>
+        <textarea name="description"></textarea>
+        <label for="employeeType">Employee Type</label>
+        <select name="employeeType">
+          <?php
+            foreach ($data['role'] as $row) {
+            if ($row->jobTitle != 'Front Desk Officer' && $row->jobTitle != 'Content Writer') {
+              echo "<option value='" . $row->jobTitle . "'>" . $row->jobTitle . "</option>";
+            }
+            }
+            ?>
+        </select>
+        <br>
+        <button class="btn-1">Add Task</button>
       </form>
     </div>
   </div>
