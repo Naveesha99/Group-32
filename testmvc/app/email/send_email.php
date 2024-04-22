@@ -57,12 +57,15 @@ class SendMail
         }
     }
 
+
     public function sendOTP($email, $name, $otp, $type = "otp")
     {
         try{
+
             // Replace with your SMTP server & port
             ini_set("SMTP", "smtp.gmail.com");
             ini_set("smtp_port", "587");
+
 
             if ($type == "otp") {
                 // Email content
@@ -77,18 +80,23 @@ class SendMail
 
             }
 
+
             // Email headers
             $headers = "MIME-Version: 1.0" . "\r\n";
             $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+
             $headers .= "From: lakshannaveesha10@gmail.com" . "\r\n";
+
 
             if (mail($email, $subject, $message, $headers)) {
                 return true;
             } else {
                 return false;
             }
+
         }catch (Exception $e) {
             return false;
         }
     }
+
 }

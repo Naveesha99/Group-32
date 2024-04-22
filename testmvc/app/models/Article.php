@@ -16,8 +16,12 @@ class Article
         'category',
         'article_content',
         'image',
+        'cw_id',
+        'cwName',
         'status',
         'progress',
+        'likes',
+        'catId',
 
     ];
 
