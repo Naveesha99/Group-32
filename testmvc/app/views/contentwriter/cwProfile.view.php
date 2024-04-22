@@ -35,7 +35,7 @@
       </style>
       <!-- end of styling are -->
 
-      Page content
+      <!-- Page content -->
 
       <hr>
 
@@ -46,60 +46,67 @@
 
             <hr>
 
-            <!-- <div class="form-left">
+            <div class="form-left">
 
-</div> -->
 
-            </div>
-            <div class="form-right">
+            <div class="profile-box">
+                <div id="profilePhotoContainer">
+                    <?php
+                        
+                        $profile_photo_name = $data['content_writer'][0]->username;
 
-                  <!-- Personal Email -->
-                  <label for="full_name">Employee Name:</label>
-                  <input type="text" id="full_name" value="<?= $data['content_writer'][0]->empName ?>" disabled />
+                        if (!empty($profile_photo_name)) {
+                              echo '<img src="' . ROOT . '/assets/images/Upload' . $profile_photo_name . '" alt="Profile Photo">';
+                          } else {
+                              echo '<img src="' . ROOT . '/assets/images/Upload/profiledefault.jpeg" alt="Default Profile Photo">';
+                          }
+                        
+                        ?>
+                    
+                </div>
 
-                  <!-- NIC -->
-                  <label for="nic">Email:</label>
-                  <input type="text" id="nic" value="<?= $data['employee'][0]->empEmail ?>" disabled />
-
-                  <!-- DOB -->
-                  <label for="full_name">NIC:</label>
-                  <input type="text" id="full_name" value="<?= $data['employee'][0]->empNIC ?>" disabled />
-
-                  <!-- Address -->
-                  <label for="address">Date of Birth:</label>
-                  <input type="text" id="address" value="<?= $data['employee'][0]->empDOB ?>" disabled />
-
-                  <!-- Contact No -->
-                  <label for="contact_no">Address:</label>
-                  <input type="text" id="contact_no" value="<?= $data['employee'][0]->empAddress ?>" disabled />
-
-                  <!-- Hired Date -->
-                  <label for="hired_date">Contact:</label>
-                  <input type="text" id="hired_date" value="<?= $data['employee'][0]->empContact ?>" disabled />
-
-                  <label for="hired_date">Employee Roll:</label>
-                  <input type="text" id="hired_date" value="<?= $data['employee'][0]->empRoll ?>" disabled />
-
+                <input type="file" id="profilePhotoInput" onchange="displayProfilePhoto(event)">
             </div>
 
-      </div>
+        </div>
+
+                  <div class="form-right">
+
+                        <!-- Personal Email -->
+                        <label for="full_name">Employee Name:</label>
+                        <input type="text" id="full_name" value="<?= $data['content_writer'][0]->username ?>" disabled />
+
+                        <!-- NIC -->
+                        <label for="email">Email:</label>
+                        <input type="text" id="nic" value="<?= $data['content_writer'][0]->email ?>" disabled />
+
+                        <!-- DOB -->
+                        <label for="full_name">NIC:</label>
+                        <input type="text" id="full_name" value="<?= $data['content_writer'][0]->nic ?>" disabled />
 
 
-      <!-- Content -->
-      <!-- <div class="container">
-            <div class="carddiv">
-                  <div class="card">
-                        <img src="<?= ROOT ?>/assets/images/customer.jpeg" />
-                        <div>
-                              <h2>John Dias</h2>
-                              <div class="details">
-                                    <div class="infor"><b>Email</b> :nivo@gmail.com</div>
-                                    <div class="infor"><b>Mobile Number</b> : 075-8963240</div>
-                                    
-                        </div>
+
                   </div>
+
             </div>
-      </div> -->
+
+            <script>
+        // JavaScript function to display the selected profile photo
+        function displayProfilePhoto(event) {
+            const reader = new FileReader();
+            reader.onload = function() {
+                const profilePhotoContainer = document.getElementById('profilePhotoContainer');
+                profilePhotoContainer.innerHTML = '';
+                const img = document.createElement('img');
+                img.src = reader.result;
+                img.style.width = '100%';
+                img.style.height = '100%';
+                img.style.objectFit = 'cover';
+                profilePhotoContainer.appendChild(img);
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    </script>
 
 
 </body>

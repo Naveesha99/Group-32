@@ -14,6 +14,7 @@
 
 <body>
     <div class="container">
+        <div class="overlay" id="overlay"></div>
 
 
         <form method="post" id="articleForm" class="addArticle">
@@ -44,24 +45,52 @@
 
             <div class="button-group">
                 <button type="submit" name="save_draft">Save as Draft</button>
-                <button type="submit" name="submit_article">SUBMIT</button>
+                <button type="submit" id="submitBtn" name="submit_article">SUBMIT</button>
+
 
             </div>
 
 
         </form>
 
+        <div class="wrpper">
+            <!-- <button type="submit" class="btn" onclick="openPopup()">Submit</button> -->
+            <div class="popup" id="popup">
+                <img src="<?= ROOT ?>/assets/images/tick.jpeg" alt="" srcset="">
+                <h2>Thank You!</h2>
+                <p>Your article has been successfully added!!</p>
+                <button type="button " onclick="closePopup()">OK</button>
+            </div>
+        </div>
 
     </div>
 
-    <script>
-        function submitForm() {
-            alert("Article added successfully!");
-            return true;
-            // document.getElementById("articleForm").submit();
-        }
-    </script>
+    <!-- <script>
+        let popup = document.getElementById('popup');
+        let overlay = document.getElementById('overlay');
 
+        function openPopup() {
+            //  popup.classList.add("open-popup");
+            popup.style.display = "block";
+            overlay.style.display = "block";
+        }
+
+        function closePopup() {
+            popup.style.display = "none";
+            overlay.style.display = "none";
+            // popup.classList.remove("open-popup");
+            document.getElementById('articleForm').submit();
+            window.location.href = "<?= ROOT ?>/cwArticleReview";
+        }
+
+        // Add event listener to the submit button
+        document.getElementById('submitBtn').addEventListener('click', function(event) {
+            // Prevent the default form submission behavior
+            event.preventDefault();
+            // Open the popup
+            openPopup();
+        });
+    </script> -->
 
 
 </body>

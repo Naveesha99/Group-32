@@ -24,7 +24,7 @@ body{
     left: 250px;
     min-height: 100vh;
     /* background-color:  #FFEAD7; */
-    background-color: #d0c2c1c4;
+    background-color: white;
     transition: 0.5s;
     margin-top: 80px;
     padding: 100px 50px;
@@ -38,23 +38,35 @@ body{
 .container .search-bar{
     display: flex;
     align-items: center;
-    min-width: 800px ;
-    background-color: #fff;
+    min-width: 800px;
+    /* max-width: 800px ; */
+    width: 100%;
+    background-color: white;
     border-radius: 50px;
     height: fit-content;
     top: 10px;
     left: 20px;
-    
+    border: 2px solid blue;;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 20px; 
 
+}
 
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px; /* Add gap between cards */
 }
 
 .container .search-bar .dropdown{
     position: relative;
     width: 200px;
-    background-color: brown;
+    background-color: blue;
     border-radius: 50px;
-    border: 1px solid white;
+    border: 1px solid rgb(213, 213, 140);
     box-shadow: gray;
     cursor: pointer;
     /* z-index: 100; */
@@ -79,7 +91,7 @@ body{
    border-radius: 15px;
    max-height: 0;
    overflow: hidden;
-   background-color: white;
+   background-color: rgb(213, 213, 140);
    transition: max-height 0.5s;
    z-index: 200;
 
@@ -99,23 +111,24 @@ body{
 
 .dropdown-list-item:hover{
     margin-left: 0.5rem;
-    color: brown;
+    color: blue;
 }
 
 .search-box{
     display: flex;
     align-items: center;
     padding-right: 1rem;
+    padding: 0.8rem;
     width: 100%;
-    color: brown;
+    color: blue;
 }
 
 .search-box input{
-    padding: 1rem;
+    /* padding: 1rem; */
     width: 100%;
     font-size: 1rem;
     font-weight: 500;
-    color: brown;
+    color: blue;
     border: 0;
     outline: 0;
 }
@@ -128,66 +141,10 @@ body{
 .search-box input::placeholder{
     font-size: 1rem;
     font-weight: 500;
-    color: brown;
+    color: blue;
 }
 
-/* .container .search-bar{
-    background: #fff;
-    width: 90%;
-    max-width: 800px;
-    display: flex;
-    padding: 2px;
-    border-radius: 4px;
-}
 
-#select{
-    background: #160053;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: #fff;
-    width: 300px;
-    padding: 25px 20px;
-    cursor: pointer;
-    position: relative;
-    border-radius: 4px;
-}
-
-#select i{
-    width: 15px;
-}
-
-#select ul{
-    position: absolute;
-    top: 120%;
-    left: 0;
-    list-style: none;
-    background: #fff;
-    color: #555;
-    width: 100%;
-    border-radius: 4px;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s;
-}
-
-#select ul li{
-    padding: 10px 20px;
-    cursor: pointer;
-
-}
-
-.container .search-bar input{
-    padding: 10px 25px;
-    width: 100%;
-    border: none;
-    outline: none;
-    font-size: 18px;
-}
-
-#select ul .open{
-    max-height: 300px;
-} */
 
 .container .addNew{
     position: absolute;
@@ -223,6 +180,11 @@ body{
     color: rgb(101, 21, 21);
 } */
 
+.container .Content{
+    top: 30px;
+    display: fl;
+}
+
 .container .card{
     position: relative;
     display: flex;
@@ -233,7 +195,7 @@ body{
     height: 300px;
     background: #fff;
     border-radius: 20px;
-    box-shadow: 0 35px 80px rgba(0, 0, 0,0.15);
+    box-shadow: 0 35px 80px rgba(0, 0, 0,0.65);
     transition: 0.5s;
     margin-top: 10px;
 }
@@ -283,6 +245,8 @@ body{
 
 }
 
+
+
 .container .card:hover .Content{
     top: 90px;
     height: 250px
@@ -311,6 +275,45 @@ body{
     font-weight: 50px;
     text-decoration: none;
     border-radius: 8px;
+}
+
+#iconHeart{
+    color: rgb(105, 11, 11);
+    position: absolute;
+    top: 6px; 
+    right: 20px; 
+    font-size: 1.3em; 
+    font-weight: 200;
+    transition: all 0.3s cubic-bezier(0.41, 0.15, 0.36, 1);
+    cursor: pointer;
+}
+
+#iconHeart:hover{
+    transform: scale(1.2);
+}
+
+/* .Content .icon {
+    display: inline-block;
+    vertical-align: middle;
+} */
+
+.Content .like-count {
+    color: rgb(105, 11, 11);
+    position: absolute;
+    top: 2px; 
+    right: 3px; 
+    font-size: 1.3em; 
+    font-weight: 200;
+    transition: all 0.3s cubic-bezier(0.41, 0.15, 0.36, 1);
+    cursor: pointer;/* Adjust the margin as needed */
+}
+
+.selected {
+    width:20px;
+    height:20px;
+    border-radius: 20px;
+    color: white;
+    background-color: red;
 }
 
 @media screen and (max-width: 1200px) {
@@ -371,4 +374,13 @@ body{
     .container .card .Content {
         padding: 0 10px;
     }
+
+    .container .search-bar {
+        max-width: 600px; /* Adjust maximum width for search bar */
+    }
+
+    .search-box input {
+        font-size: 0.8rem; /* Adjust font size for smaller screens */
+    }
+
 }

@@ -67,6 +67,34 @@ td {
     min-height: 90vh;
     background: white;
 }
+
+.container .content .charts {
+    padding: 20px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.container .content .charts .chart-1 {
+    min-height: 30vh;
+    height: 200px;
+    width: 400px;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    float: left;
+}
+
+.container .content .charts .chart-2 {
+    min-height: 30vh;
+    height: 200px;
+    width: 300px;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    float: right;
+}
 .container .content .cards {
     padding: 20px 15px;
     display: flex;
