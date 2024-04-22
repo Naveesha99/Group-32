@@ -1,3 +1,12 @@
+<?php
+foreach ($data['payments'] as $key => $value) {
+    $dataPoints[] = array("y" => $value, "label" => $key);
+}
+foreach ($data['status_counts'] as $key => $value) {
+    $statusCounts[] = array("y" => $value, "label" => $key);
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,6 +17,52 @@
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/adminDashboard.css">
 
     <title>Admin Panel</title>
+
+    <script>
+        window.onload = function() {
+            var dataPoints1 = <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>;
+            var chart1 = new CanvasJS.Chart("chartContainer-1", {
+                animationEnabled: true,
+                title: {
+                    text: "Ticket Income"
+                },
+                axisY: {
+                    title: "Income in LKR",
+                    includeZero: true
+                },
+                data: [{
+                    color: "#cea2fd",
+                    type: "bar",
+                    yValueFormatString: "#,##0LKR",
+                    indexLabel: "{y}",
+                    indexLabelPlacement: "inside",
+                    indexLabelFontWeight: "bolder",
+                    indexLabelFontColor: "white",
+                    dataPoints: dataPoints1
+                }]
+            });
+            chart1.render();
+
+            var dataPoints2 = <?php echo json_encode($statusCounts, JSON_NUMERIC_CHECK); ?>;
+            var chart2 = new CanvasJS.Chart("chartContainer-2", {
+                animationEnabled: true,
+                title: {
+                    text: "Reservation Requests"
+                },
+                subtitles: [{
+                    text: "Current Status"
+                }],
+                data: [{
+                    type: "pie",
+                    yValueFormatString: "#,##0",
+                    indexLabel: "{label} ({y})",
+                    dataPoints: dataPoints2
+                }]
+            });
+            chart2.render();
+        }
+    </script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </head>
 
 <?php include 'adminSidebar.php' ?>
@@ -16,8 +71,11 @@
 <body class="dashboard">
     <div class="container">
 
-
         <div class="content">
+            <div class="charts">
+                <div class="chart-1" id="chartContainer-1"></div>
+                <div class="chart-2" id="chartContainer-2"></div>
+            </div>
             <div class="cards">
                 <div class="card">
                     <div class="box">
@@ -30,20 +88,13 @@
                 </div>
                 <div class="card">
                     <div class="box">
-                        <h1>28</h1>
+                        <h1>
+                            <?php echo count($data['employee']) ?>
+                        </h1>
                         <h3>Total Employees</h3>
                     </div>
                     <div class="icon-case">
                         <img src="teachers.png" alt="">
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="box">
-                        <h1>12</h1>
-                        <h3>Reservation Requests</h3>
-                    </div>
-                    <div class="icon-case">
-                        <img src="schools.png" alt="">
                     </div>
                 </div>
                 <div class="card">
