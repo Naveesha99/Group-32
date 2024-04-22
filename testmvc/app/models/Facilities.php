@@ -21,9 +21,9 @@ class Facilities
     {
         $this->errors = [];
 
-        if (empty($data['icon'])) {
-            $this->errors['facility_name'] = "Facility Icon is required";
-        }
+        // if (empty($data['icon'])) {
+        //     $this->errors['facility_name'] = "Facility Icon is required";
+        // }
 
         if (empty($data['name'])) {
             $this->errors['name'] = "Name is required";
