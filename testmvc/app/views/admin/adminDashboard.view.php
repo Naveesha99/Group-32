@@ -72,8 +72,10 @@ foreach ($data['status_counts'] as $key => $value) {
     <div class="container">
 
         <div class="content">
-            <div class="chart-1" id="chartContainer-1"></div>
-            <div class="chart-2" id="chartContainer-2"></div>
+            <div class="charts">
+                <div class="chart-1" id="chartContainer-1"></div>
+                <div class="chart-2" id="chartContainer-2"></div>
+            </div>
             <div class="cards">
                 <div class="card">
                     <div class="box">

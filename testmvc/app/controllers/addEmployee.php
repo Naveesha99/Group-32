@@ -24,7 +24,8 @@ class addEmployee
 			$user = new User;
 			// show($_POST);
 			if ($employee->validate($_POST)) {
-				$_POST['password'] = $_POST['empNIC'];
+				$hashedPassword = password_hash($_POST['empNIC'], PASSWORD_DEFAULT);
+				$_POST['password'] = $hashedPassword;
 				// show($_POST);
 				$email = $_POST['empEmail'];
 				$name = $_POST['empName'];
@@ -35,7 +36,7 @@ class addEmployee
 						'fullname'=>$_POST['empName'],
 						'email'=>$_POST['empEmail'],
 						'nic'=>$_POST['empNIC'],
-						'password'=>$_POST['empNIC'],
+						'password'=>$hashedPassword,
 						'dob'=>$_POST['empDOB'],
 						'user_type'=>'Front Desk Officer'
 					];
@@ -44,7 +45,7 @@ class addEmployee
 						'fullname'=>$_POST['empName'],
 						'email'=>$_POST['empEmail'],
 						'nic'=>$_POST['empNIC'],
-						'password'=>$_POST['empNIC'],
+						'password'=>$hashedPassword,
 						'dob'=>$_POST['empDOB'],
 						'user_type'=>'Content Writer'
 					];
@@ -53,7 +54,7 @@ class addEmployee
 						'fullname'=>$_POST['empName'],
 						'email'=>$_POST['empEmail'],
 						'nic'=>$_POST['empNIC'],
-						'password'=>$_POST['empNIC'],
+						'password'=>$hashedPassword,
 						'dob'=>$_POST['empDOB'],
 						'user_type'=>'Employee'
 					];

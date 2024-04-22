@@ -14,11 +14,13 @@ class Login
 		if ($_SERVER['REQUEST_METHOD'] == "POST") {
 			$user = new User;
 			$arr['email'] = $_POST['email'];
+			// $hashedPassword = password_hash($_POST['password'], PASSWORD_DEFAULT);
+			// show($hashedPassword);
 
 			$row = $user->first($arr);
 			// show($row);
 			if ($row) {
-				if ($row->password === $_POST['password']) {
+				if (password_verify($_POST['password'], $row->password)) {
 					$_SESSION['USER'] = $row;
 					if ($row->user_type == 'admin') {
 						redirect('admindashboard');
