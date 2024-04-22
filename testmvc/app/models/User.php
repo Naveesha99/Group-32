@@ -14,11 +14,11 @@ class User
 	protected $allowedColumns = [
 		'id',
 		'fullname',
-		'username',
 		'email',
 		'nic',
 		'dob',
 		'password',
+		'user_type',
 	];
 
 	public function validate($data)
@@ -27,10 +27,6 @@ class User
 
 		if (empty($data['fullname'])) {
 			$this->errors['fullname'] = "Full name is required";
-		}
-
-		if (empty($data['username'])) {
-			$this->errors['username'] = "Username is required";
 		}
 
 		if (empty($data['email'])) {

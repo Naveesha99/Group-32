@@ -142,7 +142,7 @@ body{
 }
 
 .container .table-responsive table>tbody>tr:nth-child(even){
-    background-color: wheat;
+    background-color: #cec78f;
 }
 
 .container .table-responsive table>tbody>tr:hover{

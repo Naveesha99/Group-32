@@ -19,7 +19,12 @@ class CWDashboard
 		// $data['username'] = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->email;
 		$article = new article;
 		$result = $article->findPublishArticles();
-		$data = $result;
+		$draft = $article->getDraftArticles();
+
+		$total = count($result);
+		$data['draft'] = count($draft);
+		$data['published'] =$total;
+		$data['result'] = $result;
 
 		$this->view('contentwriter/cwDashboard', $data);
 	}

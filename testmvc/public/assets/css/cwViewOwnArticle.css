@@ -20,7 +20,7 @@ body{
     width: calc(100% - 250px);
     left: 250px;
     min-height: 100vh;
-    background-color:  #FFEAD7;
+    background-color:  white;
     transition: 0.5s;
     margin-top: 80px;
     display: flex;
@@ -36,6 +36,7 @@ body{
     margin-top: 60px;
     border: 8px solid #fff;
     position: relative;
+    box-shadow: 0 35px 80px rgba(0, 0, 0.5,0.45);
 }
 
 .container .card-img{

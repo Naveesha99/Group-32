@@ -19,7 +19,7 @@ body{
     width: calc(100% - 250px);
     left: 250px;
     min-height: 100vh;
-    background-color:  #FFEAD7;
+    background-color:  white;
     transition: 0.5s;
     margin-top: 80px;
     padding: 100px 50px;
@@ -141,7 +141,7 @@ body{
 }
 
 .container .table-responsive table>tbody>tr:nth-child(even){
-    background-color: wheat;
+    background-color: #ece4a8c8;
 }
 
 .container .table-responsive table>tbody>tr:hover{
