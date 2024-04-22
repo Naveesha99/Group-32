@@ -22,10 +22,31 @@
                             ?>
 					<form  method="POST">
                         <h3 class="sign">ADD TIMES</h3>
+
+                        <label for="drama"><b>Select Drama ID</b></label><br>
                         <input type="number" name="drama_id" placeholder="Drama ID">
-						<input type="date" name="date" placeholder="Date">
-						<input type="time" name="time" placeholder="Time">
+                        <div class="errors"></div>
+
+                        <label for="drama"><b>Starting Date</b></label><br>
+						<input type="date" name="start_date" placeholder="Starting Date">
+                        <div class="errors"></div>
+
+                        <label for="drama"><b>End Date</b></label><br>
+						<input type="date" name="end_date" placeholder="End Date">
+                        <div class="errors"></div>
+
+                        <label for="drama"><b>Drama Starting Time for above each day</b></label><br>
+						<input type="date" name="end_date" placeholder="End Date">
+                        <div class="errors"></div>
+
+                        <label for="drama"><b>Number of Time Slots Per Day</b></label><br>
+						<input type="date" name="end_date" placeholder="End Date">
+                        <div class="errors"></div>
+
+                        <label for="drama"><b>Drama Ticket Price</b></label><br>
                         <input type="number" name="price" placeholder="Price">
+                        <div class="errors"></div>
+
                             <?php 
                                 if(isset($data['invalid']))
                                 {
