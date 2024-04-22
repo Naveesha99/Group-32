@@ -1,42 +1,41 @@
 /* reservationist-request.css */
-
+@import url('https://fonts.googleapis.com/css?family=Catamaran:400,700');
 body {
-    font-family: Arial, sans-serif;
+    font-family: Cambria, Cochin, Georgia, Times, serif;
     margin: 0;
     background-image: url('/images/ticket_booking/theatre.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed; /* Add this line */
-    height: 100%;
-    background-color: #df9983;
+    background-color: white;
+}
+
+.footer{
+    width:100%;
 }
 
 
 input[type="date"] {
-    width: 200px; /* Set the desired width */
-    font-size: 16px; /* Set the desired font size */
-    text-align: right; /* Align text to the right */
-    color: #3a03ee; /* Text color */
-    font-family: Arial, sans-serif; /* Font family */
-    padding: 5px; /* Padding */
-    border: 1px solid #ccc; /* Border color */
-    border-radius: 5px; /* Border radius */
-    /* Add any other styles you want to modify */
+    width: 200px; 
+    font-size: 16px;
+    text-align: right;
+    color: #3a03ee;
+    font-family: Arial, sans-serif;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
   }
   
   
 
-.image-container {
-    text-align: left;
-    margin-top: 20px;
+.title{
+    margin-left: 20%;
+    font-size:large;
+    font-weight: bold;
 }
 img{
     width: 560px;
     height: 330px;
     margin-left: 8%;
     margin-top:0%;
-    border-radius: 10px;
+    border-radius: 3px;
 }
 .calendar {
     width: 50%;
@@ -159,14 +158,17 @@ table, td, th {
     display:flex;
     justify-content: space-around;
     text-align: left;
-    margin-top: 80px;
-    height: 600px;
+    margin-top: 2%;
+    height: 670px;
+    background-color:#ffffff;
+
 }
+
 .form1 {
-    justify-content: space-around;
+    /* justify-content: space-around; */
     margin-right: 10%;
-    margin-left: -8%;
-    margin-top: 25px;
+    margin-left:7%;
+    margin-top: 100px;
 }
 
 .form2 {
@@ -176,15 +178,16 @@ table, td, th {
     width: 30%; /* Adjust the width as needed */
     padding-bottom: 10%;
     height: 20px;
-    margin-top: 2%;
-    /* margin-right: 5%;  */
+    margin-top: 4%;
+    margin-right: 5%; 
 }
 
 .topic {
     font-family: Arial;
-    font-size: x-large;
-    margin-top: -3%;
+    font-size: large;
+    margin-top: 0%;
     font-weight: bold;
+    margin-right: 20px;
 
 }
 
@@ -199,9 +202,9 @@ table, td, th {
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
     font-weight: bold;
-    margin-left: 145px;
-    margin-top: 3%;
-    margin-right: 50px;
+    margin-left: 200px;
+    margin-top: 0%;
+    /* margin-right: 35px; */
     cursor: pointer;
 }
 
@@ -222,7 +225,7 @@ button#showPopup {
 }
 
 h1{
-    color:rgb(249, 13, 13);
+    color:rgb(255, 255, 255);
     /* margin-left: 20%; */
     align-items: center;
     text-align:right;
@@ -240,7 +243,7 @@ h1{
     display: flex;
     align-items:center;
     margin-left: 60%;
-    margin-bottom: 40%;
+    /* margin-bottom: 40%; */
 }
 
 
@@ -261,18 +264,21 @@ h1{
 .component {
     display: flex;
     box-sizing: border-box;
-    border: 2px solid #333;
+    border: 5px solid #333;
     border-radius: 5px;
     padding: 5px;
     text-align: center;
-    margin: 5px;
+    margin: 7px;
+    margin-bottom: 5px;
     pointer-events:all;
     cursor: pointer;
     background-color: rgb(193, 39, 39);
-    border: none;
+    border:#ccc;
     flex: 1;
     z-index: 10;
-    color: #cdc6c6;
+    color: #ffffff;
+    width: 60px;
+    height: 50px;
     font-weight: bold;
 }
 
@@ -284,7 +290,7 @@ h1{
 .component_left, .component_right {
     cursor: pointer;
     flex: 1;
-    border: 2px solid #333;
+    border: 7px solid #333;
     padding: 5px;
     text-align: center;
     margin: 5px;
@@ -303,9 +309,11 @@ h1{
 .carousel {
     display: flex;
     /* overflow: hidden; */
-    width: 400px;
+    width: 450px;
     border-radius: 5px;
     border-color: #ccc;
+    height:68px;
+    font-weight: bold;
     
 }
 /* ===== */
@@ -329,7 +337,7 @@ h1{
     background-color:hsl(0, 0%, 100%);
     border-radius: 7px;
     width: 55px;
-    height:40px;
+    height:0px;
     margin-top: 8px;
     cursor: pointer;
 
@@ -338,81 +346,3 @@ h1{
     transform: translateY(-1px);
     transition: opacity 0.5s, box-shadow 0.5s;
 }
-
-
-
-
-.navbar {
-    width: 100%;
-    height: 80px;
-    background-color: black;
-    position: sticky;
-    top: 0;
-    transition: 1s ease all;
-    position: fixed;
-    z-index: 10;
-  }
-  
-  .navbar-container {
-    display: flex;
-    align-items: center;
-    padding: 0 50px;
-    height: 100%;
-    color: white;
-    font-family: "Sen", sans-serif;
-  }
-  
-  .logo-container {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .logo {
-    width: 100px;
-    height: 80px;
-    border-radius: 50%;
-    margin-top: 2%;
-    margin-right: 25%;
-  }
-  
-  /* Style for the logo */
-  .logo img {
-    max-width: 100%;
-    height: auto;
-    width: auto;
-    display: block;
-    margin: 0 auto;
-  }
-
-  .menu-container {
-    flex: 20;
-  }
-  
-  .menu-list {
-    display: flex;
-    list-style: none;
-  }
-  .menu-listSL {
-    display: flex;
-    list-style: none;
-    margin-left: 50%;
-    width: 500px;
-    height: 20px;
-    size: 25%;
-    cursor: pointer;
-    transition: opacity 0.5s, box-shadow 0.3s;
-  }
-  
-  .menu-list-item {
-    margin-right: 20px;
-    cursor: pointer;
-    transition: opacity 0.3s, box-shadow 0.3s;
-  }
-  .menu-list-item a {
-    /* Add your link styles */
-    text-decoration: none; /* Remove underlines */
-    color: inherit; /* Inherit the text color from the parent */
-    transition: color 0.3s; /* Add a smooth transition for text color change */
-  }

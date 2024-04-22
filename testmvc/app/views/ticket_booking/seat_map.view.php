@@ -12,8 +12,13 @@
 
 <body>
 
+<?php 
+  require_once 't_reservaNavBar.php';
+?>
+
 <div class="movie-container">
     <div class="container">
+      <div class="pricedetails">
         <label for="movie">Ticket Price</label>
 
         <select id="movie" name="movie">
@@ -31,7 +36,7 @@
             }
           ?>      
         </select>
-
+      </div>
         
         <ul class="showcase">
             <li>
@@ -109,7 +114,19 @@
       <!-- ////////////////////////////////////////////////////////////////////////////////// -->
 
         </div>
+
         <div class="cont">
+          
+        <?php
+        if(isset($data['get_seat']['data']))
+        {
+          $time_from_db =$data['get_seat']['data'][0]->time;
+          $time_formatted = date("h:i A", strtotime($time_from_db));
+        ?>
+          <div class="details"><p class="text">DRAMA : &nbsp;&nbsp;<?= $data['row']->title ?><br>DATE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;<?= $data['get_seat']['data'][0]->date ?><br>TIME &nbsp;&nbsp;&nbsp;&nbsp; :&nbsp;&nbsp;<?= $time_formatted ?></p></div>
+        <?php
+        }
+        ?>
           <div class="container1">  
             <h3>BOOKING SUMMARY</h3>
             <p class="text">
@@ -134,5 +151,7 @@
         </div>
     <script src="<?=ROOT?>/assets/js/ticket_booking/seat_map.js"></script>
     </div>
+
+    <?php require_once 't_reservaFooter1.php' ?>
 </body>
 </html>

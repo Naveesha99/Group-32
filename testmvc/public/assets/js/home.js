@@ -33,3 +33,38 @@ ball.addEventListener("click", () => {
   });
   ball.classList.toggle("active");
 });
+
+
+//_____________________search bar_________________________
+function search() {
+  let filter = document.getElementById('find').value.toUpperCase();
+  let items = document.querySelectorAll('.movie-list-item');
+
+  // Find the position of the first visible item
+  let firstVisibleItem = null;
+  items.forEach(function(item) {
+      let title = item.querySelector('.movie-list-title');
+      let titleText = title.textContent.toUpperCase();
+
+      if (titleText.includes(filter) && !firstVisibleItem) {
+          firstVisibleItem = item;
+      }
+  });
+
+  // Scroll to the position of the first visible item
+  if (firstVisibleItem) {
+      firstVisibleItem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // Filter the items based on the search filter
+  items.forEach(function(item) {
+      let title = item.querySelector('.movie-list-title');
+      let titleText = title.textContent.toUpperCase();
+
+      if (titleText.includes(filter)) {
+          item.style.display = "";
+      } else {
+          item.style.display = "none";
+      }
+  });
+}
