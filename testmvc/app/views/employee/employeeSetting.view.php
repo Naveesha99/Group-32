@@ -24,7 +24,7 @@
                   <div class="profile-box">
                         <div id="profilePhotoContainer">
 
-                              <img id="profileImage" src="<?= ROOT ?>/assets/images/Upload/profiledefault.jpeg" alt="Profile Photo">
+                              <!-- <img id="profileImage" src="<?= ROOT ?>/assets/images/Upload/profiledefault.jpeg" alt="Profile Photo"> -->
 
                               <div class="profile-photo-edit-container" style="display: none;">
                                     <form method="post" autocomplete="off" enctype="multipart/form-data">
@@ -35,37 +35,46 @@
 
 
 
-                              <!-- <?php
+                               <?php
                                     $empid = $data['emp'][0]->id;
-                                    echo $empid;
+                                    // echo $empid;
                                     $profile_photo_name = "profile{$empid}.jpeg";
-                                    echo $profile_photo_name;
+                                    // echo $profile_photo_name;
 
-                                    if (!empty($profile_photo_name)) {
-                                          echo '<img src="' . ROOT . '/assets/images/Upload' . $profile_photo_name . '" alt="Profile Photo">';
-                                    } else {
-                                          echo '<img src="' . ROOT . '/assets/images/Upload/profiledefault.jpeg" alt="Default Profile Photo">';
-                                    }
-
-
+                                    // if (!empty($profile_photo_name)) {
+                                    //       echo '<img src="' . ROOT . '/assets/images/Upload' . $profile_photo_name . '" alt="Profile Photo">';
+                                    // } else {
+                                    //       echo '<img src="' . ROOT . '/assets/images/Upload/profiledefault.jpeg" alt="Default Profile Photo">';
+                                    // }
 
 
 
-                                    $allowed_extensions = ['jpg', 'jpeg', 'png'];
+
+
+                                    $allowed_extensions = ['jpeg', 'jpg', 'png'];
                                     $profile_photo_name = '';
+                              
+                                    // show($allowed_extensions);
 
                                     foreach ($allowed_extensions as $extension) {
                                           $profile_photo_name = "profile{$empid}.{$extension}";
-                                          echo $profile_photo_name;
+                                          // echo $profile_photo_name;
                                           $profile_photo_path = ROOT . "/assets/images/Upload/{$profile_photo_name}";
 
-                                          echo $profile_photo_path;
+                                          // echo $profile_photo_path;
+                                          echo " ";
+                                          clearstatcache();
 
-                                          if (file_exists($profile_photo_path)) {
-                                                echo $profile_photo_path;
+                                          if (!file_exists($profile_photo_path)) {
+                                          // if (file_exists("navBar.php")) {
+
+                                                
+                                                // echo $profile_photo_path;
                                                 echo '<img id="profileImage" src="'  . $profile_photo_path . '" alt="Profile Photo">';
                                                 break;
                                           } else {
+                                                // echo "avu";
+                                                echo " ";
                                                 $profile_photo_path = '';
                                           }
                                     }
@@ -73,7 +82,7 @@
                                           echo '<img  id="profileImage" src="' . ROOT . '/assets/images/Upload/profiledefault.jpeg" alt="Default Profile Photo">';
                                     }
 
-                                    ?>  -->
+                                    ?>  
 
                               <h1 class="profile-name"><?= $data['emp'][0]->empName ?></h1>
                               <div class="button-container"> <!-- Wrap the button and input in a container -->

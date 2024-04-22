@@ -55,13 +55,14 @@ body{
 
     height: 170px;
     padding: 15px;
-    text-align: center;
+    ;
 
 }
 
 .card-local {
     font-size: 18px;
     margin: 10px 0;
+    text-align: center
     
 }
   
@@ -71,12 +72,16 @@ body{
     text-transform: uppercase;
     font-size: 50px;
     font-weight: 500;
+    text-align: center
   }
   
   .card-texto {
     font-size: 15px;
     width: 250px;
     margin: 0 auto;
+    text-align: left;
+    margin-top: 0; /* Remove top margin */
+    margin-bottom: 0;
   }
 
   .card-footer{

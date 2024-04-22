@@ -40,8 +40,11 @@
           <h3><?php echo $_SESSION['USER']->empName;?></h3>
         </div>
         <hr>
-
-        <a href="#" class="sub-menu-link">
+        <?php
+        $ID =$_SESSION['USER'] -> id;
+        
+        echo '<a href="empEditProfile?id=' . $ID . '" class="sub-menu-link">';
+        ?>
           <i class="fa-solid fa-user"></i>
           <p>Edit Profile</p>
           <span>></span>
