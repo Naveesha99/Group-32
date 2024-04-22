@@ -1,0 +1,27 @@
+body {
+    background: #ccc;
+    font-family: 'Poppins', sans-serif;
+  }
+
+.container{
+    width: 40%;
+    align-items: center;
+
+}
+.container h3{
+    margin-left: 40%;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+#you-qr-result{
+    border-radius: 2px;
+    margin-left: 40%;
+    width: 59%;
+}
+.data{
+    margin-left: 40%;
+}
+#btn1{
+    margin-left: 40%;
+    width: 60%;
+}

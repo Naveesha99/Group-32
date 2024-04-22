@@ -1,5 +1,6 @@
 <?php
 
+// header("Cache-Control: no-cache");
 class Payment
 {
     use Controller;
@@ -26,6 +27,7 @@ class Payment
                 echo 'Please select the seats....!';
             }
         }
+      
 
 
 // (2)__________________Data coming from Ajax when clicking the "Confirm your details" button and store form data (email/name/phone)_______________________________
@@ -159,6 +161,8 @@ class Payment
 
 
                 // ___________________Send Email to the User____________________
+                // require_once "phpqrcode/qrlib.php";
+
                 $name = $_SESSION['username'];
                 $price = $releaseData1[1];
                 $drama_id = $releaseData1[2]['drama_id'];

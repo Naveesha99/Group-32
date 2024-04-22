@@ -11,13 +11,19 @@
 <body>
 	<section class="login">
 		<div class="login_box">
+
 			<div class="left">
 				<!-- <div class="top_link"><a href="#"><img src="/public/styles/images/login.jpg" alt="">Return home</a></div> -->
 				<div class="contact">
 					<form method="POST">
 						<h3 class="log">LOG IN</h3>
-						<input type="text" name="username" placeholder="USERNAME">
+						<input type="text" name="email" placeholder="E-Mail">
 						<input type="password" name="password" placeholder="PASSWORD">
+						<?php if (!empty($errors)) : ?>
+							<span class="error-msg">
+								<?= implode('<br>', $errors) ?>
+							</span>
+						<?php endif; ?>
 
 						<!-- <div class="remember-me">
                             <input type="checkbox" id="remember-me">

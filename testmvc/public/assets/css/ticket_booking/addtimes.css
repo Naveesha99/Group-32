@@ -9,39 +9,40 @@
 
 html, body {
     height: 100%;
-    overflow: hidden;
+    /* overflow: hidden; */
+    background-color: #a97a7a;
 }
 
-.login {
+.signup {
     height: 100%;
     width: 100%;
-    background-color: #ffffff;
+    /* background-color: #857171; */
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.login_box {
-    width: 1050px;
-    height: 600px;
-    background: #fff;
+.signup_box {
+    width: 1550px;
+    height: 900px;
+    /* background: #7e5656; */
     border-radius: 10px;
     box-shadow: 1px 4px 22px -8px #0004;
     display: flex;
     overflow: hidden;
 }
 
-.login_box .left {
+.signup_box .left {
     width: 41%;
     padding: 25px 25px;
-    background: linear-gradient(-45deg, #dcd7e0, #fff);
+    /* background: #965353; */
 }
 
-.login_box .right {
+.signup_box .right {
     width: 59%;
     height: 100%;
-    background: url(<?=ROOT?>/assets/images/background.jpg);
+    /* background: url(/public/assets/images/background.jpg); */
     background-size: cover;
     color: #fff;
     position: relative;
@@ -55,6 +56,16 @@ html, body {
     align-self: center;
     height: 100%;
     width: 73%;
+    /* margin: auto; */
+}
+
+.right .contact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    height: 100%;
+    width: 73%;
     margin: auto;
 }
 
@@ -62,13 +73,17 @@ html, body {
     border: none;
     width: 80%;
     margin: 15px 0px;
-    border-bottom: 1px solid #4f30677d;
-    padding: 7px 9px;
+    border-bottom: 1px solid #0000007d;
+    padding: 3px 5px;
     width: 100%;
     overflow: hidden;
     background: transparent;
     font-weight: 600;
     font-size: 14px;
+}
+.errors{
+    color: red;
+    font-weight: bold;
 }
 
 .remember-me {
@@ -88,15 +103,16 @@ html, body {
     border-radius: 8px;
     display: block;
     margin: auto;
-    margin-top: 120px;
+    margin-top: 20px;
     background: rgba(195, 98, 1, 0.973);
     color: #fff;
     font-weight: bolder;
     font-size: 15px;
 }
 
-.log {
+.sign {
     font-size: 25px;
+    margin-bottom: 15px;
 }
 
 .heading{
@@ -106,12 +122,12 @@ html, body {
 }
 
 @media (max-width: 768px) {
-    .login_box {
+    .signup_box {
         flex-direction: column;
         height: auto;
     }
 
-    .login_box .left {
+    .signup_box .left {
         width: 100%;
     }
 

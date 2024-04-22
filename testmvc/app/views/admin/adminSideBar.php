@@ -10,44 +10,20 @@
 
     <title>Document</title>
 </head>
+<body>
+<?php
+$page = substr($_SERVER['REQUEST_URI'], strrpos($_SERVER['REQUEST_URI'], "/") + 1);
+?>    
 
 <div class="sidebar">
 
-    <a href="<?= ROOT ?>/adminDashboard"> <i class="fa-solid fa-house"></i> <span>Dashboard</span></a>
-    <a href="<?= ROOT ?>/adminDrama"> <i class="fa-solid fa-masks-theater"></i><span> Drama</span></a>
-    <a href="<?= ROOT ?>/adminEmployee"> <i class="fa-solid fa-user"></i> <span>Employee</span></a>
-    <a href="<?= ROOT ?>/adminTheater"> <i class="fa-solid fa-panorama"></i> <span>Theater</span></a>
-    <a href="<?= ROOT ?>/adminFacilities"> <i class="fa-solid fa-flag"></i> <span>Facilities</span></a>
-    <a href="<?= ROOT ?>/adminRequest"> <i class="fa-solid fa-hand"></i> <span>Request</span></a>
-    <a href="<?= ROOT ?>/adminReport"> <i class="fa-solid fa-flag"></i> <span>Report</span></a>
+    <a class="<?= $page == "adminDashboard"?'active':''; ?>" href="<?= ROOT ?>/adminDashboard" > <i class="fa-solid fa-house"></i> <span>Dashboard</span></a>
+    <a class="<?= $page == "adminDrama"?'active':''; ?>" href="<?= ROOT ?>/adminDrama"> <i class="fa-solid fa-masks-theater"></i><span> Drama</span></a>
+    <a class="<?= $page == "adminEmployee"?'active':''; ?>" href="<?= ROOT ?>/adminEmployee"> <i class="fa-solid fa-user"></i> <span>Employee</span></a>
+    <!-- <a href="<?= ROOT ?>/adminTheater"> <i class="fa-solid fa-panorama"></i> <span>Theater</span></a> -->
+    <a class="<?= $page == "adminFacilities"?'active':''; ?>" href="<?= ROOT ?>/adminFacilities"> <i class="fa-solid fa-flag"></i> <span>Facilities</span></a>
+    <a class="<?= $page == "adminRequest"?'active':''; ?>" href="<?= ROOT ?>/adminRequest"> <i class="fa-solid fa-hand"></i> <span>Request</span></a>
+    <a class="<?= $page == "adminReport"?'active':''; ?>" href="<?= ROOT ?>/adminReport"> <i class="fa-solid fa-flag"></i> <span>Report</span></a>
 </div>
-
-
-<!-- <div class="side-menu">
-    <div class="brand-name">
-        <img src="<?= ROOT ?>/assets/images/Logo.png" id="logo">
-
-    </div>
-    <ul>
-        <a href="<?= ROOT ?>/admindashboard">
-            <li> <i class="fa-solid fa-gauge"></i>  &nbsp; <span>Dashboard</span> </li>
-        </a>
-        <a href="<?= ROOT ?>/admindrama">
-            <li><i class="fa-solid fa-masks-theater"></i>&nbsp; <span>Drama</span> </li>
-        </a>
-        <a href="<?= ROOT ?>/adminemployee">
-            <li><i class="fa-solid fa-user"></i> &nbsp; <span>Employee</span> </li>
-        </a>
-        <a href="<?= ROOT ?>/admindrama">
-            <li><i class="fa-solid fa-panorama"></i>&nbsp; <span>Theater</span> </li>
-        </a>
-        <a href="<?= ROOT ?>/adminrequests">
-            <li><i class="fa-solid fa-hand"></i>&nbsp; <span>Request</span> </li>
-        </a>
-        <a href="<?= ROOT ?>/adminreports">
-            <li><i class="fa-solid fa-flag"></i>&nbsp; <span>Reports</span> </li>
-        </a>
-    </ul>
-</div> -->
-
+</body>
 </html>
