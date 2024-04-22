@@ -3,8 +3,8 @@
 /* @import url("https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"); */
 
 body {
-	/* font-family: "Montserrat", sans-serif; */
-	min-height: 100vh;
+  font-family: Arial, sans-serif;
+	/* min-height: 90vh; */
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -12,23 +12,23 @@ body {
   color:rgb(0, 0, 0);
   margin: 0;
 
-  background-size:cover; /* This property ensures that the background image covers the entire background */
+  background-size:cover;
   background-position: center; /* This property centers the background image */
-  background-repeat: no-repeat; 
-  background-attachment: fixed;
-  background-color: #df9983;
+  /* background-repeat: no-repeat; 
+  background-attachment: fixed; */
+  background-color: #ccc;
 }
 
 * {
-	/* font-family: "Montserrat", sans-serif !important; */
   box-sizing: border-box;
 }
 
 .movie-container {
-  margin: 20px 0px;
+  margin-top: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100%;
 }
 
 .movie-container select {
@@ -63,11 +63,15 @@ body {
   width: 430px;
   /* font-family: 'Times New Roman', Times, serif; */
 }
+.cont{
+  margin-top: 80px;
+  margin-left: 95px;
+}
 
 .seat {
   background-color:#944E63;
-  height: 50px;
-  width: 55px;
+  height: 40px;
+  width: 45px;
   margin: 3px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -76,6 +80,7 @@ body {
   text-align: center;
   color: #ffffff;
   font-weight: bold;
+  font-size: medium;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
@@ -83,7 +88,7 @@ body {
   background-color: hwb(350 1% 16%);
 }
 .seatselected{
-  background-color: #f4103a;
+  background-color: hwb(350 1% 16%);
   height: 50px;
   width: 55px;
   margin: 3px;
@@ -112,15 +117,18 @@ body {
 .occupied {
   background-color:rgba(100, 93, 93, 0.477);
   font-size: large;
+  height: 50px;
+  width: 55px;
 }
 
 .booked {
   background-color: rgba(87, 80, 80, 0.477) !important;
-  pointer-events:none; /* Disable pointer events for booked seats */
+  pointer-events:none;
 }
 
 .pending {
-  background-color: rgba(204, 67, 46, 0.544);
+  background-color: #AF8260;
+  
 }
 
 
@@ -156,6 +164,7 @@ small {
   padding: 5px 10px;
   border-radius: 5px;
   color: #777;
+  margin-bottom: -8px;
 }
 
 .showcase li {
@@ -184,6 +193,14 @@ small {
   box-shadow: 0 3px 10px rgba(255,255,255,0.7);
   margin-left: 100px;
 }
+
+.pricedetails{
+  display: flex;
+}
+.details{
+  margin-left: 21%;
+}
+
 h4{
   text-align: center;
   font-size: 25px;
@@ -239,7 +256,7 @@ p.text span {
 
 }
 .submit:disabled {
-  background-color: #c4c4c4;
+  background-color: #a39f9f;
   cursor:auto;
 }
 
@@ -255,15 +272,20 @@ button#showPopup {
 }
 
 label[for="movie"] {
+  margin-left: 10px;
   color:#1049f4;
-  font-size: xx-large;
+  font-size:x-large;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 #movie {
   /* Styles for the select element */
-  width: 150px; /* Set the width as needed */
-  padding: 6px;
+  width: 130px; /* Set the width as needed */
+  height: fit-content;
+  /* padding: 6px; */
+  margin-bottom: -10px;
+  margin-left: 10px;
+  margin-top: 5px;
   font-size: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -294,12 +316,14 @@ label[for="movie"] {
 h3{
   text-align: center;
   margin-top: -20px;
-  margin-bottom: 50px;
+  /* margin-bottom: 50px; */
   font-family:Arial, Helvetica, sans-serif;
   color: black;
 }
 .text{
   font-family:'Times New Roman', Times, serif ;
+  margin-left: 10
+  px;
 }
 
 /* Add this to your CSS file */
@@ -330,10 +354,22 @@ input[type="checkbox"] {
 
 label {
   display: block;
-  margin-bottom: 15px;
+  /* margin-bottom: 15px; */
   font-size: 16px;
   color: #333;
   line-height: 1.5;
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+
+
+
+
+ /* ______________________Footer____________________ */
+
+ .footer {
+  margin-top: 80px;
+  width: 100%;
+  background-color: black;
+}
+
 

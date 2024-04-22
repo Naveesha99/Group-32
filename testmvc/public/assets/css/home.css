@@ -138,7 +138,7 @@ body {
 .toggle-ball {
   width: 18px;
   height: 18px;
-  background-color: black;
+  background-color: rgb(215, 207, 207);
   position: absolute;
   right: 1px;
   border-radius: 50%;
@@ -166,10 +166,12 @@ body {
 }
 
 .container {
-  background-color: #151515;
+  background-color: #ccc;
   min-height: calc(100vh - 50px);
-  color: white;
+  color: rgb(2, 1, 1);
+  font-weight: bold;
   transition: 1s ease all;
+  background-color: white;
 }
 
 .content-container {
@@ -178,7 +180,8 @@ body {
 
 .featured-content {
   height: 50vh;
-  padding: 50px;
+  /* padding: 50px; */
+  margin-left: -70px;
 }
 
 .featured-title {
@@ -203,6 +206,7 @@ body {
 
 .movie-list-container {
   padding: 0 20px;
+  margin-top: 20px;
 }
 
 .movie-list-wrapper {
@@ -221,6 +225,8 @@ body {
 .movie-list-item {
   margin-right: 30px;
   position: relative;
+  width: 300px;  
+  /* newly added */
 }
 
 .movie-list-item:hover .movie-list-item-img {
@@ -248,14 +254,15 @@ body {
   width: 300px;
   height: 200px;
   object-fit: cover;
-  border-radius: 20px;
+  border-radius:5px;
   margin-top: 15px;
 }
 
 .movie-list-item-title {
-  background-color: #000000;
+  background-color: #ddd1d1c4;
   padding: 0 10px;
-  font-size: 32px;
+  font-size:large;
+  color: red;
   font-weight: bold;
   position: absolute;
   /* top: 10%; */
@@ -306,8 +313,13 @@ body {
   background-color: white;
 }
 
+.movie-list-title1{
+  font-size: 20px;
+}
+
+
 .movie-list-title{
-  font-size: xx-large;
+  font-size: 14px;
 }
 
 .movie-list-title.active {
@@ -351,3 +363,35 @@ body {
   margin-bottom: 20px; /* Adjust as needed to control the gap between rows */
 }
 
+/*__________________Search CSS______________*/
+.search{
+  position: fixed;
+  margin-top: 6%;
+  margin-left: 25%;
+  width: 50%;
+  display: flex;
+  padding: 0px 0px;
+  justify-content: space-between;
+  border-radius: 5px;
+  background-color: #ffffffbf;
+  border-color:aliceblue;
+  z-index: 100;
+}
+
+.search input{
+  width: 60%;
+  padding: 5px 16px;
+  background: transparent;
+  border: 1px solid #ffffff00;
+  font-size: 20px;
+  text-transform: capitalize;
+  letter-spacing: 3px;
+  outline: none;
+  font-weight: bold;
+  color: #141010;
+}
+
+.search input::placeholder{
+  color: rgb(235, 238, 235);
+  font-weight: 500;
+}

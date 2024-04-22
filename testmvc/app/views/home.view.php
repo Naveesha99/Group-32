@@ -5,63 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/home.css">
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Sen:wght@400;700;800&display=swap" rel="stylesheet"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.css" integrity="sha512-U9Y1sGB3sLIpZm3ePcrKbXVhXlnQNcuwGQJ2WjPjnp6XHqVTdgIlbaDzJXJIAuCTp3y22t+nhI4B88F/5ldjFA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Catamaran:400,700">
+
     <title>Punchi theatre</title>
 </head>
 
 <body>
-    <script src="scripts1.js"></script>
-
-    <!-- Messenger Chat Plugin Code -->
-    <div id="fb-root"></div>
-
-    <!-- Your Chat Plugin code -->
-    <div id="fb-customer-chat" class="fb-customerchat">
-    </div>
-
-    <script>
-        var chatbox = document.getElementById('fb-customer-chat');
-        chatbox.setAttribute("page_id", "1003601506490347");
-        chatbox.setAttribute("attribution", "biz_inbox");
-    </script>
 
 
+<?php 
+  require_once 't_reservaNavBar.php';
+ ?>
 
-    <div class="navbar">
-        <div class="navbar-container">
-            <div class="logo-container">
-                <img class="logo" src="<?= ROOT ?>/assets/images/home/Logo.png" alt="PUNCHI THEATRE">
-            </div>
-            <div class="menu-container">
-                <ul class="menu-list">
-                    <li class="menu-list-item active">Home</li>
-                    <li class="menu-list-item"><a href="<?= ROOT ?>/addseats">Dramas</a></li>
-                    <li class="menu-list-item"><a href="#">Popular</a></li>
-                </ul>
-            </div>
-
-            <div class="menu-container">
-                <ul class="menu-listSL">
-                    <li class="menu-list-item"><a href="<?= ROOT ?>/login">Login</a></li>
-                    <li class="menu-list-item"><a href="<?= ROOT ?>/signup">Sign Up</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="sidebar">
+    <!-- <div class="sidebar">
         <a href="#"><i class="left-menu-icon fas fa-search"></a></i>
-    </div>
+    </div> -->
 
     <div class="container">
         <div class="content-container">
             <div class="featured-content" style="background: linear-gradient(to bottom, rgba(0,0,0,0), #151515), url('<?= ROOT ?>/assets/images/home/p-2.jpg');">
-                <!-- <img class="featured-title" src="img/#" alt=""> -->
                 <p class="featured-desc"></p>
-                <!-- <button class="featured-button">WATCH</button> -->
+                
+                <!--___________________SEARCH BAR____________________-->
+                <div class="search">
+                        <input type="text" name="" id="find" placeholder="" onkeyup="search()">
+                        <i class="fa-solid fa-magnifying-glass" style="  font-size: 30px; margin-right: 10px; margin-top:3px;"></i>
+                </div>
+
             </div>
             <div class="movie-list-container">
-                <h1 class="movie-list-title">SHOWING</h1>
+                <h1 class="movie-list-title1">SHOWING</h1>
 
                 <div class="movie-list-wrapper">
                     <?php
@@ -146,6 +121,7 @@
         <script>
             
         </script>
+        <?php require_once 't_reservaFooter1.php' ?>
 </body>
 
 </html>

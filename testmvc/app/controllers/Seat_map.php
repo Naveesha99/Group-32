@@ -1,4 +1,5 @@
 <?php 
+header("Cache-Control: no-cache");
 
 /**
  * Seat_map class
@@ -9,15 +10,25 @@ class Seat_map
 
 	public function index()
 	{
+		
+		if(isset($_POST['drama_id']) && isset($_POST['time']) && isset($_POST['date']))
+		{
+            $_SESSION['drama_id'] = $_POST['drama_id'];
+            $_SESSION['time'] = $_POST['time'];
+            $_SESSION['date'] = $_POST['date'];
 
-		$row1 = $this->get_price_byid($_POST['drama_id']);
+		$row1 = $this->get_price_byid($_SESSION['drama_id']);
 		$data['get_price'] = $row1;
 
-		$seat_data = $this->seat_status($_POST['date'], $_POST['time'], $_POST['drama_id']); //data coming from select_drama page
+		$seat_data = $this->seat_status($_SESSION['date'], $_SESSION['time'], $_SESSION['drama_id']); //data coming from select_drama page
 		$data['get_seat'] = $seat_data;
 		// show($data['get_price']);
-
+			$arr['id'] =  $_SESSION['drama_id'];
+		$homes = new Homes;
+		$data['row'] = $homes->first($arr);
+		
         $this->view('/ticket_booking/seat_map', $data);
+		}
 	}
 
 
