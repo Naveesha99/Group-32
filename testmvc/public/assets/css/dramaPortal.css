@@ -21,11 +21,12 @@ body{
 .container{
     position: absolute;
     min-height: 100vh;
+    /* width: auto; */
     /* background-color:  #FFEAD7; */
     background-color: white;
     transition: 0.5s;
-    margin-top: 60px;
-    padding: 100px 40px;
+    margin-top: 50px;
+    padding: 50px 100px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -36,6 +37,7 @@ body{
 .search-section {
     width: 100%;
     max-width: 800px;
+    margin-top: 3px;
     /* margin-bottom: 5px; */
 }
 
@@ -60,7 +62,7 @@ body{
     justify-content: space-between;
     width: 100%;
     max-width: 800px;
-    margin-bottom: 10px; 
+    /* margin-bottom: 10px;  */
 
 }
 
@@ -69,7 +71,7 @@ body{
     
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 30px;
+    /* margin-top: 10px; */
     gap: 50px; /* Add gap between cards */
 }
 

@@ -10,29 +10,15 @@
 <?php include 'navBar.php' ?>
 
 <body>
+    <div class="wrapper">
+        <img src="<?= ROOT ?>/assets/images/drama_portal/<?= $data['article'][0]->image ?>" alt="" srcset="">
+        <div class="text-box">
+            <h2><?= $data['article'][0]->article_name ?></h2>
+            <p>Category : <?= $data['article'][0]->category ?></p>
+            <p><?= $data['article'][0]->article_content ?></p><br><br>
+            <p>Author : <?= $data['article'][0]->cwName ?></p>
 
-    <div class="container">
-        <div class="card">
-            <div class="card-header">
-                <img src="<?= ROOT ?>/assets/images/drama_portal/<?= $data['article'][0]->image ?>" class="card-img">
-
-            </div>
-
-
-
-            <div class="card-body">
-                <h2 class="card-title"><?= $data['article'][0]->article_name ?></h2>
-                <h3 class="card-local">Category : <?= $data['article'][0]->category ?></h3>
-
-                <p class="card-texto"><?= $data['article'][0]->article_content ?></p>
-                <div class="card-footer">
-                <p class="author">Author : <?= $data['article'][0]->cwName ?></p>
-            </div>
-            </div>
-
-            
         </div>
-
     </div>
 
 
