@@ -7,12 +7,11 @@
 	<title>ADD TIMES</title>
 </head>
 <body>
-	<section class="signup">
 		<div class="signup_box">
 			<div class="left">
 				<div class="contact">
                              
-					<form  method="POST">
+					<form  method="POST" class="form1" id="myForm">
                         <h3 class="sign">ADD TIMES</h3>
 
                         <label for="drama"><b>Select Drama ID</b></label><br>
@@ -29,10 +28,12 @@
                         <div class="errors"><?= $data['not_drama']?></div> 
                         <?php } ?>
 
-                    <form id="myForm">
                         <label for="drama"><b>Starting Date</b></label><br>
 						<input type="date" name="start_date" placeholder="Starting Date">
-                        <div class="errors"></div>
+                        <?php if(isset($data['old_date'])) 
+                        { ?> 
+                        <div class="errors"><?= $data['old_date']?></div> 
+                        <?php } ?>
 
                         <label for="drama"><b>End Date</b></label><br>
 						<input type="date" name="end_date" placeholder="End Date">
@@ -41,8 +42,12 @@
                         <div class="errors"><?= $data['not_date']?></div> 
                         <?php } ?>
 
-                        <button id="submit_btn" type="button">Find Available Days For Drama</button>
-                    </form>
+                        <?php if(isset($data['invalid_range'])) 
+                        { ?>
+                        <div class="errors"><?= $data['invalid_range']?></div> 
+                        <?php } ?>
+
+                        <!-- <button id="submit_btn" type="button">Find Available Days For Drama</button> -->
 
 
                         <label for="facilities">Time Slots</label>
@@ -56,7 +61,7 @@
 
                             <div class="check_box">
                                 <label class="checkbox">
-                                    <p>Timeslot 2: 6:30</p>
+                                    <p>Timeslot 2: 18:30</p>
                                     <input type="checkbox" name="time2" value="6:30:00">
                                 </label> 
                             </div>
@@ -88,14 +93,14 @@
                 </select> -->
 
 
-                        <button class="submit">ADD</button>
+                        <button class="submit">AVAILABLE DATES</button>
 					</form><br>
 
 				</div>
 			</div>
             <br><br><br>
 
-            <div class="right_right">
+            <div class="right_right" style="overflow-y: auto;">
                         <div class="contact">
                             <?php if(isset($data['home_data'])){ ?>
                                     <table id="myTable">
@@ -116,64 +121,195 @@
 
                     <?php if(isset($data['filt_date']))
                     {
-                        show($data['filt_date']['available']);
+                        // show($data['filt_date']['available']);
                     }
                     ?>
 
 			    <div class="right">
-                <div class="contact">
-                    <br><br><br>
-                            <?php if(isset($data['all_days'])){ ?>
-                                    <table id="myTable2">
-                                        <tr>
-                                            <th>Drama ID</th>
-                                            <th>Date</th>
-                                            <th>Time</th>
-                                        </tr>
-                                        <?php foreach($data['all_days'] as $day) { ?>
-                                            <tr class="date-clickable">
-                                                <td class="id"><?=$day->drama_id ?></td>
-                                                <td class="date"><?=$day->date ?></td>
-                                                <td class="time"><?=$day->time ?></td>
-                                            </tr>
-                                    <?php }?>
-                                    </table>
-                            <?php } ?>
-                        </div>        
-                </div>
+                    <div class="contact">
+                        <br><br><br>
+                                        <div class="details">
+                                            <div class="cont">
+                                                <h5>AVAILABLE DATES</h5>
+                                         <?php if(isset($data['filt_date']['available']))
+                                                {
+                                                    foreach($data['filt_date']['available'] as $x)
+                                                    {
+                                            ?>
+                                                        <p><?= $x ?></p>
+                                            <?php
+                                                    }
+                                                ?>
+                                         <?php } ?>
+                                            </div>
+
+                                            <div class="cont">
+                                                <h5>BOOKED DATES</h5>
+                                                <?php if(isset($data['filt_date']['booked']))
+                                                {
+                                                    foreach($data['filt_date']['booked'] as $y)
+                                                    {
+                                            ?>
+                                                        <p><?= $y ?></p>
+                                            <?php
+                                                    }
+                                                ?>
+                                         <?php } ?>
+                                            </div>
+
+                                            <div class="timeslot">
+                                                <h5>Available Time Slots</h5>
+                                        <?php if(isset($data['filt_date']['input_time1']) && !isset($data['filt_date']['input_time2'])) { ?>
+                                            <?php $time_from_db = $data['filt_date']['input_time1'];
+                                                $time_formatted = date("h:i A", strtotime($time_from_db)); ?>
+                                                    <p><?= $time_formatted ?></p>
+                                         <?php } 
+                                                else if(!isset($data['filt_date']['input_time1']) && isset($data['filt_date']['input_time2'])) { ?>
+                                            <?php $time_from_db = $data['filt_date']['input_time2'];
+                                                $time_formatted = date("h:i A", strtotime($time_from_db)); ?>
+                                                    <p><?= $time_formatted ?></p>
+                                           
+                                         <?php }
+                                                else if(isset($data['filt_date']['input_time1']) && isset($data['filt_date']['input_time2'])) { ?>
+                                            <?php $time_from_db1 = $data['filt_date']['input_time1'];
+                                                    $time_from_db2 = $data['filt_date']['input_time2'];
+
+                                                $time_formatted1 = date("h:i A", strtotime($time_from_db1));
+                                                $time_formatted2 = date("h:i A", strtotime($time_from_db2)); ?>
+                                                    <p><?= $time_formatted1 ?></p>
+                                                    <p><?= $time_formatted2 ?></p>
+                                        <?php } ?>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="details">
+
+                        <form method="post" id="form2">
+                                            <div class="message">
+                                            <?php if(isset($data['filt_date']['available']))
+                                            {
+                                                if($data['filt_date']['available'] == null)
+                                                {?>
+                                                <p>No available dates for selected date range. Try another date range</p>
+                                          <?php }
+                                                else
+                                                { 
+                                                    $available_data_json = json_encode($data['filt_date']['available']);
+                                                    ?>
+
+                                                <input type="hidden" name="pst_available_data" value="<?php echo htmlspecialchars($available_data_json); ?>">
+                                                <input type="hidden" name="pst_drama_id" value="<?= $data['drama_id'] ?>">
+                                                <input type="hidden" name="pst_title" value="<?= $data['title'] ?>">
+                                                <input type="hidden" name="pst_price" value="<?= $data['price'] ?>">
+                                                
+                                                
+                                                <!-- <input type="hidden" name="pst_time2" value=""> -->
+
+                                                    <p>You can add this drama above available dates only.<br> Are you sure add drama into above dates in above times/time?</p>
+                                                    
+                                                    <p>Drama ID : <?= $data['drama_id']; ?></p>
+                                                    <p>Drama Title : <?= $data['title']; ?></p>
+                                                    <p>Ticket Price : <?= $data['price']; ?></p>
+
+                                                    <p>Time Slots : <div class="timeslot">
+                                                                        
+                                                                <?php if(isset($data['filt_date']['input_time1']) && !isset($data['filt_date']['input_time2'])) { ?>
+                                                                    <?php $time_from_db = $data['filt_date']['input_time1'];
+                                                                        $time_formatted = date("h:i A", strtotime($time_from_db)); ?>
+                                                                            <p><?= $time_formatted ?></p>
+                                                <input type="hidden" name="pst_time1" value="<?= $data['filt_date']['input_time1'] ?>">
+                                                                <?php } 
+                                                                        else if(!isset($data['filt_date']['input_time1']) && isset($data['filt_date']['input_time2'])) { ?>
+                                                                    <?php $time_from_db = $data['filt_date']['input_time2'];
+                                                                        $time_formatted = date("h:i A", strtotime($time_from_db)); ?>
+                                                                            <p><?= $time_formatted ?></p>
+                                                <input type="hidden" name="pst_time2" value="<?= $data['filt_date']['input_time2'] ?>">
+                                                                
+                                                                <?php }
+                                                                        else if(isset($data['filt_date']['input_time1']) && isset($data['filt_date']['input_time2'])) { ?>
+                                                                    <?php $time_from_db1 = $data['filt_date']['input_time1'];
+                                                                            $time_from_db2 = $data['filt_date']['input_time2'];
+
+                                                                        $time_formatted1 = date("h:i A", strtotime($time_from_db1));
+                                                                        $time_formatted2 = date("h:i A", strtotime($time_from_db2)); ?>
+                                                                            <p><?= $time_formatted1 ?></p>
+                                                                            <p><?= $time_formatted2 ?></p>
+
+                                                <input type="hidden" name="pst_both_time1" value="<?= $data['filt_date']['input_time1'] ?>">
+                                                <input type="hidden" name="pst_both_time2" value="<?= $data['filt_date']['input_time2'] ?>">
+                                                                <?php } ?>
+
+                                                                    </div></p>
+                                                    <button type="submit">ADD DRAMA</button>
+                                        <?php   }
+                                            }?>
+                                                
+                                            </div>
+                        </form>
+
+                                        </div>
+
+                                        <?php if(isset($data['success'] ))
+                                        {
+                                            echo $data['success'];
+                                        }
+                                        ?>
+                                         <?php if(isset($data['invalid'] ))
+                                        {
+                                            echo $data['invalid'];
+                                        }
+                                        ?>
+                                        <?php if(isset($data['no_enough_data'] ))
+                                        {
+                                            echo $data['no_enough_data'];
+                                        }
+                                        ?>
+                                
+                            </div>        
+                        </div>
                 
 			</div>
-	</section>
 </body>
 </html>
 
 <!-- _____________________________AJAX SEND___________________________ -->
-<script>
-    $(document).ready(function() {
-        $("#submit_btn").click(function() {
-            var start_date = $("#start_date").val();
-            var end_date = $("#end_date").val();
+<!-- <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var form = document.getElementById("myForm");
+        var submitButton = document.querySelector(".submit");
 
-            $.ajax({
-                type: "POST",
-                url: "<?=ROOT?>/addtimes",
-                data: { start_date: start_date, end_date: end_date },
-                success: function(response) 
+        submitButton.addEventListener("click", function() {
+            var formData = new FormData(form);
+
+            // Send form data via Ajax
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "<?=ROOT?>/addseats", true);
+            xhr.onload = function() 
+            {
+                if (xhr.status === 200) 
                 {
-                    // Handle the response here
-                    console.log(response);
-                },
-                error: function(xhr, status, error) 
+                    // Request was successful
+                    console.log(xhr.responseText); // Print response data to console
+                    // Handle response data as needed
+                } 
+                else 
                 {
-                    console.error(xhr.responseText);
+                    // Request failed
+                    console.error('Error: ' + xhr.status);
                 }
-            });
+            };
+            xhr.onerror = function() {
+                // Request error
+                console.error('Request failed');
+            };
+            xhr.send(formData);
         });
     });
-</script>
+</script> -->
 
 
-<!-- ______________________clicl and fill input fields__________________- -->
+<!-- ______________________click and fill input fields__________________- -->
 <script>
     // Get all rows with class "row-clickable"
     var rows = document.querySelectorAll('.row-clickable');
@@ -197,20 +333,6 @@
 </script>
 
 
-<script>
-// Function to check if the given date and time are in the input range
-function checkDateInRange(date, time) {
-    var startDate = new Date(document.getElementsByName("start_date")[0].value);
-    var endDate = new Date(document.getElementsByName("end_date")[0].value);
 
-    var startTime = time.split(":");
-    var selectedTime = new Date(date);
-    selectedTime.setHours(startTime[0]);
-    selectedTime.setMinutes(startTime[1]);
-    selectedTime.setSeconds(startTime[2]);
-
-    return selectedTime >= startDate && selectedTime <= endDate;
-}
-</script>
 
 
