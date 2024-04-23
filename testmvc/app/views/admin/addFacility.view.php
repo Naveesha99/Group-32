@@ -14,10 +14,10 @@
 
 <body>
     <div class="container">
-            <form method="POST" class="add-facility" onsubmit="return validateForm()" name="facilityForm">
+            <form method="POST" class="add-facility" onsubmit="return validateForm()" name="facilityForm" enctype="multipart/form-data">
                 <h1>Add Facility</h1>
                 <label for="name">Facility Name</label>
-                <input type="text" name="name">
+                <input type="text" name="name" id="name">
                 
                 <label for="icon">Icon</label>
                 <input type="file" id="icon" name="icon" accept="image/*">
@@ -25,7 +25,7 @@
                 <br>
                 <button type="submit" class="btn-1" name="submit_facility">Submit</button>
             </form>
-    </div>
+    </div>  
 </body>
 
 <script>
