@@ -24,62 +24,17 @@
 
                   <div class="profile-box">
                         <div id="profilePhotoContainer">
-
-                              <!-- <img id="profileImage" src="<?= ROOT ?>/assets/images/Upload/profiledefault.jpeg" alt="Profile Photo"> -->
-
-                              <div class="profile-photo-edit-container" style="display: none;">
-                                    <form method="post" autocomplete="off" enctype="multipart/form-data">
-                                          <input type="file" id="profilePhotoInput" class="hidden" name="image" accept=".jpg, .jpeg, .png" required>
-                                          <button type="submit" name="submit">Submit</button>
-                                    </form>
-                              </div>
-
-
-
                               <?php
-                              $empid = $data['content_writer'][0]->id;
-                              // echo $empid;
-                              $profile_photo_name = "profile{$empid}.jpeg";
-                              // echo $profile_photo_name;
+                              if ($data['profile'] && (is_array($data['profile']) || is_object($data['profile']))) {
+                                    $empid = $data['profile'][0]->id;
+                                    // echo $empid;
 
-                              // if (!empty($profile_photo_name)) {
-                              //       echo '<img src="' . ROOT . '/assets/images/Upload' . $profile_photo_name . '" alt="Profile Photo">';
-                              // } else {
-                              //       echo '<img src="' . ROOT . '/assets/images/Upload/profiledefault.jpeg" alt="Default Profile Photo">';
-                              // }
-
-
-
-
-
-                              $allowed_extensions = ['jpeg', 'jpg', 'png'];
-                              $profile_photo_name = '';
-
-                              // show($allowed_extensions);
-
-                              foreach ($allowed_extensions as $extension) {
-                                    $profile_photo_name = "profile{$empid}.{$extension}";
-                                    // echo $profile_photo_name;
+                                    $profile_photo_name = $data['profile'][0]->images;
+                                    // $profile_photo_name;
                                     $profile_photo_path = ROOT . "/assets/images/Upload/{$profile_photo_name}";
 
-                                    // echo $profile_photo_path;
-                                    echo " ";
-                                    clearstatcache();
-
-                                    if (!file_exists($profile_photo_path)) {
-                                          // if (file_exists("navBar.php")) {
-
-
-                                          // echo $profile_photo_path;
-                                          echo '<img id="profileImage" src="'  . $profile_photo_path . '" alt="Profile Photo">';
-                                          break;
-                                    } else {
-                                          // echo "avu";
-                                          echo " ";
-                                          $profile_photo_path = '';
-                                    }
-                              }
-                              if (empty($profile_photo_name)) {
+                                    echo '<img id="profileImage" src="'  . $profile_photo_path . '" alt="Profile Photo">';
+                              } else {
                                     echo '<img  id="profileImage" src="' . ROOT . '/assets/images/Upload/profiledefault.jpeg" alt="Default Profile Photo">';
                               }
 
@@ -89,6 +44,12 @@
                               <div class="button-container"> <!-- Wrap the button and input in a container -->
                                     <button id="editProfileBtn" class="btn-edit">Edit</button> <!-- Edit button -->
 
+                              </div>
+                              <div class="profile-photo-edit-container" style="display: none;">
+                                    <form method="post" autocomplete="off" enctype="multipart/form-data">
+                                          <input type="file" id="profilePhotoInput" class="hidden" name="image" accept=".jpg, .jpeg, .png" required>
+                                          <button type="submit" name="submit">Submit</button>
+                                    </form>
                               </div>
 
                         </div>

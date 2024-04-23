@@ -18,7 +18,7 @@ class EmployeeSetting
 
         $empid = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->id;
         $empname = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->empName;
-        
+
 
         $emp = new Employee;
         $profiles = new Profiles;
@@ -67,7 +67,8 @@ class EmployeeSetting
                     }
 
                     move_uploaded_file($tmpName, $fileDestination);
-                    // $_SESSION['PROFILE_IMAGE'] = $fileNameNew;
+                    // $_SESSION['USER']->image = $fileNameNew;
+                    // show($_SESSION['USER']->image);
                     
                     echo
                     "
@@ -121,7 +122,7 @@ class EmployeeSetting
 
 
         $data['emp'] = $result;
-         $data['profile'] = $prof;
+        $data['profile'] = $prof;
         
         // show($data);
 
