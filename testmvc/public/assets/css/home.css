@@ -87,7 +87,8 @@ body {
   text-decoration:blue;
   transform: translateY(-1px);
   color: #3498db;
-  opacity: 0.8; /* Reduce opacity on hover */
+  opacity: 0.8; 
+  /* Reduce opacity on hover */
   box-shadow: 0 0 10px rgba(52, 152, 219, 0.8);
   transition: opacity 0.5s, box-shadow 0.5s;
 }
@@ -207,6 +208,8 @@ body {
 .movie-list-container {
   padding: 0 20px;
   margin-top: 20px;
+  display: flex;
+
 }
 
 .movie-list-wrapper {
@@ -232,7 +235,9 @@ body {
 .movie-list-item:hover .movie-list-item-img {
   transform: scale(1.2);
   margin: 0 30px;
-  opacity: 0.1;
+  /* opacity: 0.2; */
+  background-color: #141010;
+  opacity: 0.4;
 }
 
 .movie-list-item:hover .movie-list-item-title{
@@ -250,6 +255,7 @@ body {
 }
 
 .movie-list-item-img {
+  background-color: #141010;
   transition: all 1s ease-in-out;
   width: 300px;
   height: 200px;
