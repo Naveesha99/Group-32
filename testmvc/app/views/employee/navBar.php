@@ -41,18 +41,18 @@
         </div>
         <hr>
         <?php
-        $ID =$_SESSION['USER'] -> id;
+        $ID = $_SESSION['USER'] -> id;
         
         echo '<a href="empEditProfile?id=' . $ID . '" class="sub-menu-link">';
         ?>
-          <i class="fa-solid fa-user"></i>
+          <i class="fa-solid fa-wrench"></i>
           <p>Edit Profile</p>
           <span>></span>
         </a>
 
         <a href="<?=ROOT?>/employeeSetting" class="sub-menu-link">
-          <i class="fa-solid fa-gear"></i>
-          <p>Settings</p>
+          <i class="fa-solid fa-user"></i>
+          <p>Profile</p>
           <span>></span>
         </a>
 

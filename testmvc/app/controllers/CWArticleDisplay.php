@@ -20,7 +20,7 @@ class CWArticleDisplay
 		// $data['username'] = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->email;
 
 		// $this->view('cwArticleDisplay');
-		$article = new article;
+		$article = new Article;
 		$result = $article->findPublishArticles();
 
 
