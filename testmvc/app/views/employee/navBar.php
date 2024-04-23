@@ -29,28 +29,40 @@
       </ul>
 
       <div class="Profile">
-        <img src="<?= ROOT ?>/assets/images/Upload/profiledefault.jpeg" onclick="toggleMenu()">
+        <?php
+        if (!empty($_SESSION['PROFILE_IMAGE'])) {
+          echo '<img src="' . ROOT . '/assets/images/Upload/' . $_SESSION['PROFILE_IMAGE'] . '" onclick="toggleMenu()">';
+        } else {
+          echo '<img src="' . ROOT . '/assets/images/Upload/profiledefault.jpeg" onclick="toggleMenu()">';
+        }
+        ?>
       </div>
     </div>
 
     <div class="sub-menu-wrap" id="subMenu">
       <div class="sub-menu">
         <div class="user-info">
-          <img src="<?= ROOT ?>/assets/images/Upload/profiledefault.jpeg">
-          <h3><?php echo $_SESSION['USER']->empName;?></h3>
+          <?php
+          if (!empty($_SESSION['PROFILE_IMAGE'])) {
+            echo '<img src="' . ROOT . '/assets/images/Upload/' . $_SESSION['PROFILE_IMAGE'] . '">';
+          } else {
+            echo '<img src="' . ROOT . '/assets/images/Upload/profiledefault.jpeg">';
+          }
+          ?>
+          <h3><?php echo $_SESSION['USER']->empName; ?></h3>
         </div>
         <hr>
         <?php
-        $ID = $_SESSION['USER'] -> id;
-        
+        $ID = $_SESSION['USER']->id;
+
         echo '<a href="empEditProfile?id=' . $ID . '" class="sub-menu-link">';
         ?>
-          <i class="fa-solid fa-wrench"></i>
-          <p>Edit Profile</p>
-          <span>></span>
+        <i class="fa-solid fa-wrench"></i>
+        <p>Edit Profile</p>
+        <span>></span>
         </a>
 
-        <a href="<?=ROOT?>/employeeSetting" class="sub-menu-link">
+        <a href="<?= ROOT ?>/employeeSetting" class="sub-menu-link">
           <i class="fa-solid fa-user"></i>
           <p>Profile</p>
           <span>></span>
@@ -67,7 +79,7 @@
   <script>
     let subMenu = document.getElementById("subMenu");
 
-    function toggleMenu(){
+    function toggleMenu() {
       subMenu.classList.toggle("open-menu");
     }
   </script>

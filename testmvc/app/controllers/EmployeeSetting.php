@@ -5,32 +5,36 @@
  */
 class EmployeeSetting
 {
-	use Controller;
+    use Controller;
 
-	public function index()
-	{
-		if (empty($_SESSION['USER'])) {
-			// Redirect or handle the case when the user is not logged in
-			// For example, you might want to redirect them to the login page
-			redirect('empLogin');
-			exit();
-		}
+    public function index()
+    {
+        if (empty($_SESSION['USER'])) {
+            // Redirect or handle the case when the user is not logged in
+            // For example, you might want to redirect them to the login page
+            redirect('empLogin');
+            exit();
+        }
 
-		$empid = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->id;
-		$empname = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->empName;
+        $empid = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->id;
+        $empname = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->empName;
+        
 
-		$emp = new Employee;
-		$profiles = new Profiles;
-		
-		if($empid){
-			$arr1['id'] = $empid;
-			$empData = $emp ->where($arr1);
+        $emp = new Employee;
+        $profiles = new Profiles;
 
-			if($empData){
-				$result=$empData;
-			}
-		}
-		if (isset($_POST['submit'])) {
+        if ($empid) {
+            $arr1['id'] = $empid;
+            $empData = $emp->where($arr1);
+            // $arr2['userid'] = $empid;
+            // $profileData = $profiles ->where($arr2);
+
+
+            if ($empData) {
+                $result = $empData;
+            }
+        }
+        if (isset($_POST['submit'])) {
             // $_POST['name'] =  $username;
 
             if ($_FILES["image"]["error"] == 4) {
@@ -58,7 +62,13 @@ class EmployeeSetting
 
                     $fileDestination = $_SERVER['DOCUMENT_ROOT'] . '/Group-32/testmvc/public/assets/images/Upload/' . $fileNameNew;
 
+                    if (file_exists($fileDestination)) {
+                        unlink($fileDestination); // Delete the existing image file
+                    }
+
                     move_uploaded_file($tmpName, $fileDestination);
+                    // $_SESSION['PROFILE_IMAGE'] = $fileNameNew;
+                    
                     echo
                     "
                     <script>
@@ -69,22 +79,53 @@ class EmployeeSetting
                 }
             }
 
-            $insertData = [
-                'userid' => $empid,
-                'name' => $empname,
-                'images' => $fileNameNew
-            ];
-            // show($insertData);
+            $arr2['userid'] = $empid;
+            $existingProfile = $profiles->where($arr2);
 
-            $profiles->insert($insertData);
+            if ($existingProfile) {
+                // If a profile photo exists, update the database with the new file name
+                $updateData = [
+                    'images' => $fileNameNew
+                ];
+                $profiles->update($empid, $updateData, 'userid');
+                $_SESSION['PROFILE_IMAGE'] = $fileNameNew;
+                show($_SESSION['PROFILE_IMAGE']);
+                redirect('employeeSetting');
+            } else {
+                // If a profile photo doesn't exist, insert the new photo into the database
+                $insertData = [
+                    'userid' => $empid,
+                    'name' => $empname,
+                    'images' => $fileNameNew
+                ];
+                $profiles->insert($insertData);
+                $_SESSION['PROFILE_IMAGE'] = $fileNameNew;
+                show($_SESSION['PROFILE_IMAGE']);
+                
+            }
+        }
+
+        $prof = null;
+
+        if ($empid) {
+            $arr2['userid'] = $empid;
+            $profileData = $profiles->where($arr2);
+
+            if ($profileData) {
+                $prof = $profileData;
+                $data['profile'] = $prof;
+            }
         }
 
 
 
 
-		$data['emp'] = $result;
+        $data['emp'] = $result;
+         $data['profile'] = $prof;
         
+        // show($data);
 
-		$this->view('employee/employeeSetting', $data);
-	}
+
+        $this->view('employee/employeeSetting', $data);
+    }
 }

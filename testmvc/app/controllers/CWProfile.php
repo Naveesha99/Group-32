@@ -16,9 +16,18 @@ class CWProfile
 			exit();
 		}
 
-		// $data['username'] = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->email;
+		$cwId = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->id;
 
 		$emp = new Content_writers;
+		$profile =  new Profiles;
+
+		if($cwId){
+			$arr1['id'] =$cwId;
+			$empData = $emp ->where($arr1);
+			if($empData){
+				$result = $empData;
+			}
+		}
 		$result = $emp->findAll();
 
 		$data['content_writer'] = $result;
