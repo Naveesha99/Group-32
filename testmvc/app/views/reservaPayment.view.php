@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="<?= ROOT ?>/assets/css/reservaPaymentNew.css" rel="stylesheet">
     <script type="text/javascript" src="https://www.payhere.lk/lib/payhere.js"></script>
-    <!-- <script src="<?= ROOT ?>/assets/js/cl.js" defer></script> -->
+    <!-- <script ype="text/javascript" src="<?= ROOT ?>/assets/js/payhere.js"></script> -->
     <!-- <script src="/js/ReservaHall1.js"></script> -->
     <!-- <link rel="stylesheet" href="<?= ROOT ?>/assets/css/cl.css"> -->
     <!-- <script src="<?= ROOT ?>/assets/js/reservaReqModal.js" defer></script> -->
