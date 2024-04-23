@@ -10,7 +10,7 @@
 
 
   <title>Document</title>
-  <?php echo $_SESSION['USER']->username;?>
+  <!-- <?php echo $_SESSION['USER']->username;?> -->
 </head>
 
 <body>
@@ -44,7 +44,7 @@
         </div>
         <hr>
 
-        <a href="#" class="sub-menu-link">
+        <a href="<?=ROOT?>/cwEditProfile" class="sub-menu-link">
           <i class="fa-solid fa-wrench"></i>
           <p>Edit Profile</p>
           <span>></span>

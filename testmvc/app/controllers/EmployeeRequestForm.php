@@ -16,15 +16,15 @@ class EmployeeRequestForm
 			exit();
 		}
 
-		$name = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->empName;
-		$email = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->email;
+		// $name = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->empname;
+		// $email = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->email;
 
-		echo $name;
-		echo $email;
+		// echo $name;
+		// echo $email;
 
 		$data = [];
 		$emp_req = new EmpRequest;
-		$emp = new Employee;
+		// $emp = new Employee;
 
 		
 
@@ -34,8 +34,8 @@ class EmployeeRequestForm
 			$_POST['state'] = 'pending';
 			if ($emp_req->validate($_POST)) {
 
-				$sendMail = new SendMail;
-				$sendMail->employeeRequest($email, $name);
+				// $sendMail = new SendMail;
+				// $sendMail->employeeRequest($email, $name);
 				$emp_req->insert($_POST);
 				redirect('employeeReq');
 			}
