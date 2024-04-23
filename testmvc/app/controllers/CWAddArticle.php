@@ -21,7 +21,7 @@ class CWAddArticle
 
         $username = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->username;
         $id = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->id;
-        echo $id;
+        // echo $id;
 
         $data = [];
 
