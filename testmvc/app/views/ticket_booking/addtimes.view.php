@@ -61,7 +61,7 @@
 
                             <div class="check_box">
                                 <label class="checkbox">
-                                    <p>Timeslot 2: 6:30</p>
+                                    <p>Timeslot 2: 18:30</p>
                                     <input type="checkbox" name="time2" value="6:30:00">
                                 </label> 
                             </div>
@@ -100,7 +100,7 @@
 			</div>
             <br><br><br>
 
-            <div class="right_right">
+            <div class="right_right" style="overflow-y: auto;">
                         <div class="contact">
                             <?php if(isset($data['home_data'])){ ?>
                                     <table id="myTable">
@@ -198,7 +198,7 @@
                                                     $available_data_json = json_encode($data['filt_date']['available']);
                                                     ?>
 
-                                                <input type="hidden" name="available_data" value="<?php echo htmlspecialchars($available_data_json); ?>">
+                                                <input type="hidden" name="pst_available_data" value="<?php echo htmlspecialchars($available_data_json); ?>">
                                                 <input type="hidden" name="pst_drama_id" value="<?= $data['drama_id'] ?>">
                                                 <input type="hidden" name="pst_title" value="<?= $data['title'] ?>">
                                                 <input type="hidden" name="pst_price" value="<?= $data['price'] ?>">
@@ -249,6 +249,22 @@
                         </form>
 
                                         </div>
+
+                                        <?php if(isset($data['success'] ))
+                                        {
+                                            echo $data['success'];
+                                        }
+                                        ?>
+                                         <?php if(isset($data['invalid'] ))
+                                        {
+                                            echo $data['invalid'];
+                                        }
+                                        ?>
+                                        <?php if(isset($data['no_enough_data'] ))
+                                        {
+                                            echo $data['no_enough_data'];
+                                        }
+                                        ?>
                                 
                             </div>        
                         </div>
