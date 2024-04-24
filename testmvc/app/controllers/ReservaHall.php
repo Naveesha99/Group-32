@@ -21,6 +21,19 @@ class ReservaHall
 
 		// show($_SESSION['USER']);
 		$data = [];
+		$halls= new Hall;
+		$halls1=$halls->findAll();
+		$facilities= new Facilities;
+		$facilities1=$facilities->findAll();
+		$hallfacilities = new HallFacilities;
+		$hallfacilities1=$hallfacilities->findAll();
+
+		$data=[
+			'halls'=>$halls1,
+			'facilities'=>$facilities1,
+			'hallfacilities'=>$hallfacilities1
+		];
+
 		$this->view('reservaHall',$data);
 	}
 

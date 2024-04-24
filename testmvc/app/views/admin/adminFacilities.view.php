@@ -2,7 +2,7 @@
 <?php
 if(isset($_POST['submitFacility'])){
     $name= $_POST['name'];
-    $icon = $_POST['icon'];
+    // $icon = $_POST['icon'];
     $id = $_POST['id']; // Retrieve the request ID from the form
     // show($rating);
 
@@ -13,7 +13,6 @@ if(isset($_POST['submitFacility'])){
     $controller->updateFacilities($_POST);
 
     // Redirect or perform any other actions as needed
-    redirect('adminFacilities');
 }
 ?>
 
@@ -30,6 +29,19 @@ if(isset($_POST['submitFacility'])){
 
     <title>Admin Employee</title>
 </head>
+
+<style>
+    td img {
+        width: 50px;
+        height: 50px;
+    }
+
+    img{
+        width: 100px;
+        height: 100px;
+    
+    }
+</style>
 
 <?php include 'adminSidebar.php' ?>
 <?php include 'navBar.php' ?>
@@ -59,12 +71,15 @@ if(isset($_POST['submitFacility'])){
                             <th>Name</th>
                             <th>Options</th>
                         </tr>
+                        <!-- <td><img src="' . $row->icon . '" alt="Facility Icon"></td> -->
 
                         <?php
-                        foreach ($data['facility'] as $row) {
+                        if(is_array($data['facility'])) {
+                            foreach ($data['facility'] as $row) {
+                               
                             echo '<tr>
                                     <td>' . $row->id . '</td>
-                                    <td><img src="' . $row->icon . '" alt="Facility Icon"></td>
+                                    <td><img src="' .ROOT . '/assets/images/upload/facilities/' . $row->icon . '" alt="Facility Icon"></td>
                                     <td>' . $row->name . '</td>
                                     <td>
                                         <span class="button">
@@ -84,6 +99,7 @@ if(isset($_POST['submitFacility'])){
                                     </td>
                                 </tr>';
                         }
+                    }
                         ?>
                     </table>
                 </div>
@@ -99,7 +115,7 @@ if(isset($_POST['submitFacility'])){
                 <h1>Update Facilities</h1>
 
 
-                <form action="adminFacilities" method="post" id="facilityUpdateForm">
+                <form action="adminFacilities" method="post" id="facilityUpdateForm" enctype="multipart/form-data">
                     <!-- echo '<form action="ReservaPayment"  style="display:inline;"> -->
                     <input type="hidden" name="id" id="id">
 
@@ -109,6 +125,7 @@ if(isset($_POST['submitFacility'])){
                     <label for="icon">Icon</label>
                     <input type="file" id="icon" name="icon" accept="image/*">
 
+                    
                     <button type="submit" name="submitFacility" id="submitFacility">Submit</button>
                 </form>
 
@@ -132,11 +149,14 @@ if(isset($_POST['submitFacility'])){
             var row = this.closest("tr");
             var rowData = {
                 id: row.cells[0].innerText,
-                icon: row.cells[1].innerText,
+                // icon: row.cells[1].innerText,
+                // icon: row.cells[1].querySelector('img').getAttribute('src'),
+                // icon: row.cells[1].innerText,
                 name: row.cells[2].innerText
             };
             console.log(rowData);
-            console.log(rowData.rating);
+            // console.log(rowData.rating);
+            console.log(rowData.icon);
             populateModal1(rowData);
         }
     }
@@ -145,9 +165,18 @@ if(isset($_POST['submitFacility'])){
     function populateModal1(data) {
         console.log("data.naem = " ,data.name);
         console.log(document.getElementById('name').innerHTML);
+        // document.getElementById('iconPreview').src = data.icon;
         document.getElementById('id').value = data.id;
         document.getElementById('name').value = data.name;
-        document.getElementById('icon').value = data.icon;
+        // var iconPreview = document.getElementById('iconPreview');
+        var iconInput = document.getElementById('icon');
+        // iconInput.value = ''; // Clear the input value
+        // iconInput.files = null; // Clear the selected file
+        // iconPreview.src = data.icon;
+        // iconPreview.src = data.icon;
+
+        // Set the value of the hidden input field to store the old image path
+        // document.getElementById('oldIcon').value = data.icon;
     }
     closeModalBtn.onclick = function() {
         console.log("close button clicked for mymodal");

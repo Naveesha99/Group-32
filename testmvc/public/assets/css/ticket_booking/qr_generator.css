@@ -1,0 +1,75 @@
+/* body{
+    font-family: Arial, sans-serif;
+    background-color: black;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+} */
+
+#container{
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#heading{
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: rgb(8, 78, 153);
+
+}
+
+#qr-code{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    padding: 20px;
+    border: 5px solid #fff;
+    border-radius: 10px;
+    min-height: 200px;
+    margin-top: 20px;
+}
+
+#fake-qr{
+    width: 150px;
+    height: 150px;
+    background-image: url('placeholder-qr.png');
+    background-size: cover;
+}
+
+#loading-text{
+    color: aqua;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+#text-input{
+    width: calc(100% -20px);
+    padding: 10px;
+    font-size: 16px;
+    box-sizing: border-box;
+    margin-top: 10px;
+}
+
+#generate-btn, #download-btn{
+    background-color: blue;
+    color: #fff;
+    padding: 10px;
+    font-size: 16px;
+    cursor:pointer;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+#download-btn:disabled{
+    background-color: darkgrey;
+    cursor: not-allowed;
+}

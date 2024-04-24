@@ -6,16 +6,19 @@ function pay2(id , table)
   xhttp.onreadystatechange = ()=>{
       if(xhttp.readyState == 4 && xhttp.status == 200)
       {
-          alert(xhttp.responseText);
+          // alert(xhttp.responseText);
           var obj = JSON.parse(xhttp.responseText);
 
           payhere.onCompleted = function onCompleted(orderId) 
           {
+            var message = "Your payment is successful. Booking ID: " + orderId + ". Seat reservation information has been sent to you via email. If you have not received it, please let us know on 0112 222 222. Thank you for your reservation";
+            showCustomAlert(message, orderId);
+            
             var xhttp = new XMLHttpRequest();
             var url = "payment?orderId=" + orderId;
             xhttp.open("GET", url, true);
             xhttp.send();
-            alert("Payment completed. OrderID:" + orderId);
+            // alert("Payment completed. OrderID:" + orderId);
           };
 
             // Payment window closed
@@ -64,11 +67,3 @@ function pay2(id , table)
   xhttp.open("GET","pay2?id=" + id + "&table=" + table, true);
   xhttp.send();
 }
-// _________________________________________________________________
-// function sendOrderIdToPay2(orderId) 
-// {
-//     var xhttp2 = new XMLHttpRequest();
-//     var url2 = "Payment?orderId=" + orderId;
-//     xhttp2.open("GET", url2, true);
-//     xhttp2.send();
-// }

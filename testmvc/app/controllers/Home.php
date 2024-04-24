@@ -1,5 +1,5 @@
 <?php 
-
+header("Cache-Control: no-cache");
 /**
  * home class
  */

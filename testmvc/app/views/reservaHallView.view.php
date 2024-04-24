@@ -32,23 +32,30 @@
                 <a href="#">Halls</a>
             </li>
             >
-            <!-- <i class='bx bx-chevron-right'></i> -->
             <li>
                 <a href="#" class="active">Hall01</a>
             </li>
 
         </ul>
 
+
+<?php 
+// show($data);
+// show($data['halls'][0]->image);
+?>
+
+
         <div class="container2">
             <div class="container3">
                 <div class="imgBx">
-                    <!-- <img src="https://github.com/anuzbvbmaniac/Responsive-Product-Card---CSS-ONLY/blob/master/assets/img/jordan_proto.png?raw=true" alt="Nike Jordan Proto-Lyte Image"> -->
-                    <img src="<?= ROOT ?>/assets/images/Hall3Photo1.jpg" data-src="https://www.anscom.lk/wp-content/uploads/2023/02/For-the-Workplace-of-the-Future-1360x900-1.webp" class="img-responsive lazy mobile-optimized" alt="" title="">
+                <!-- <img src="<?= ROOT ?>/assets/images/Hall1Photo1.jpg" class="img-responsive lazy mobile-optimized" alt="" title=""> -->
+
+                    <!-- <img src="<?= ROOT ?>/assets/images/halls/" class="img-responsive lazy mobile-optimized" alt="" title=""> -->
+                    <!-- <img src="<?= ROOT ?>/assets/images/Upload/halls/<?//= $data['halls']->image ?>" class="img-responsive lazy mobile-optimized" alt="" title=""> -->
+                    <img src="<?= ROOT ?>/assets/images/Upload/halls/<?= $data['halls'][0]->image ?>" class="img-responsive lazy mobile-optimized" alt="<?= $data['halls'][0]->image ?>" title="">
 
                 </div>
                 <div class="details">
-
-
                     <div class="content">
                         <div class="starts">
                             <span class="fa fa-star checked"></span>
@@ -57,18 +64,15 @@
                             <span class="fa fa-star"></span>
                             <span class="fa fa-star"></span>
                         </div>
-                        <h2>HALL 01<br>
+                        <!-- <h2>HALL 01<br>
                             <span>Hall id: 1</span>
                         </h2>
                         <p>
-
-
                             Elevate your events at Conference Hall 1.
                             With cutting-edge facilities and a capacity of up to 20, we ensure seamless meetings and conferences.
                             Clear sound, comfortable seating, and high-speed Wi-Fi guarantee a productive experience.
                             Welcome to the epitome of functionality and comfort.
-                        </p>
-
+                        </p> 
                         <div class="description">
                             <h1>BENEFITS</h1>
                             <ul>
@@ -79,73 +83,55 @@
                                 <li>Whiteboards</li>
                             </ul>
                         </div>
+                    
+                        <h3>Rs. 1,000</h3>-->
 
-                        <h3>Rs. 1,000</h3>
+                        <h2><?= $halls[0]->hallno ?><br>
+                            <span>Hall id: <?= $halls[0]->id ?></span>
+                        </h2>
+                        <p><?= $halls[0]->content ?></p>
 
+                        <div class="description">
+                            <h1>BENEFITS</h1>
+                            <ul>
+                                <?php foreach ($hallfacilities as $hallfacility) : ?>
+                                    <?php foreach ($facilities as $facility) : ?>
+                                        <?php if ($hallfacility->facility === $facility->name) : ?>
+                                            <li><?= $facility->name ?></li>
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
+                        <h3>Rs. <?= $halls[0]->amountOneHour ?></h3>
+
+                        
                         <!-- <button>Book Now</button> -->
                         <!-- <button class="viewandbook" onclick="redirectToReservaHall1('HALL01');">BOOK NOW</button> -->
-
                     </div>
                 </div>
             </div>
         </div>
-            <?php
-                // show([$data]->['hallno']);
-                // if (isset($data['hallno']) && $data['hallno'] != 'hall01') {
-                //     show($data);
-                // }
-            ?>
+            
 
-
-        <!-- <div class="cont1_2">
-            <h3 class="mb-3">Reviews And Ratings</h5>
-                <div>
-                    <div class="d-flex align-items-center mb-2">
-                        <img src="" alt="image" width="30px">
-                        <h5 class="m=0 ms-2">Random User1</h6>
-                    </div>
-                    <p>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit facere saepe sunt tempora optio culpa, possimus minus beatae aperiam voluptates! Esse tenetur illum alias iusto optio, ipsam enim nemo nesciunt?
-                    </p>
-                    <div class="starts">
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                    </div>
-                </div>
-                <div>
-                    <div class="d-flex align-items-center mb-2">
-                        <img src="" alt="image" width="30px">
-                        <h5 class="m=0 ms-2">Random User1</h6>
-                    </div>
-                    <p>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit facere saepe sunt tempora optio culpa, possimus minus beatae aperiam voluptates! Esse tenetur illum alias iusto optio, ipsam enim nemo nesciunt?
-                    </p>
-                    <div class="starts">
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                    </div>
-                </div>
-        </div> -->
  <div class="cont1_2">
     <h3 class="mb-3">Reviews And Ratings</h3>
 
+    <!-- <?//php show($data['reqs']); ?> -->
 
 <?php
 // Sort the $data array based on the review_date in descending order
-usort($data, function($a, $b) {
+usort($data['reqs'], function($a, $b) {
     return strtotime($b->review_date) - strtotime($a->review_date);
 });
 ?>
 
+<?php ?>
 
 
-    <?php foreach ($data as $object) : ?>
+    <?//php foreach ($data as $object) : ?>
+    <?php    foreach ($data['reqs'] as $object): ?>
+
         <?php if (($object->hallno === 'HALL01')&&($object->review != NULL)) : ?>
             <div class="rev">
                 <div class="rev-i">

@@ -7,6 +7,8 @@
         <title>Theatre Reservation Form</title>
         <link rel="stylesheet" href="<?= ROOT ?>/assets/css/ticket_booking/select_drama.css">
         <!-- <link rel="stylesheet" href="<?= ROOT ?>/assets/css/ticket_booking/select_drama1.css"> -->
+         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Catamaran:400,700">
+
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
         <script src= "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -16,33 +18,12 @@
     <body>
 
 
-    <div class="navbar">
-        <div class="navbar-container">
-            <div class="logo-container">
-                <img class="logo" src="<?= ROOT ?>/assets/images/home/Logo.png" alt="PUNCHI THEATRE">
-            </div>
-            <div class="menu-container">
-                <ul class="menu-list">
-                    <li class="menu-list-item active"><a href="http://localhost/Group-32/testmvc/public/">Home</a></li>
-                    <!-- <li class="menu-list-item"><a href="#">Dramas</a></li>
-                    <li class="menu-list-item"><a href="#">Popular</a></li> -->
-                </ul>
-            </div>
-
-            <div class="menu-container">
-                <!-- <ul class="menu-listSL"> -->
-                    <div class="menu-list-item"><h1><?= $data[0]->title ?></h1></a></div>
-                    <!-- <li class="menu-list-item"><a href="<?= ROOT ?>/signup">Sign Up</a></li> -->
-                <!-- </ul> -->
-            </div>
-        </div>
-    </div>
-
+<?php 
+  require_once 't_reservaNavBar.php';
+?>
 
         <div class="image-container">
             <div class="form1">
-
-                <!-- <h1><?= $data[0]->title ?></h1> -->
 
                 <img src="<?= ROOT ?>/assets/images/drama_img/<?= $data[0]->image ?>" alt="Image 1">
 
@@ -51,6 +32,7 @@
                         <table>
 
                             <br>
+                            <div class="title"><?= $data[0]->title ?></a></div>
 
                             <tr>
                                 <div class="container">
@@ -69,7 +51,6 @@
                                 ?>
                             </tr>
 
-
                             <tr>
                                 <td class="time">
                                     <!-- <form action="seat_map" method="POST">
@@ -81,6 +62,29 @@
                     </div>
                 </div>
             </div>
+
+            <!-- <div class="form3">
+                <div class="topic">Upcoming Drama Times</div>
+                <?php
+                if(isset($data['tms']))
+                {
+                    echo'ISHAN CHAMIKA';
+                    show($data['tms']);
+                    foreach($data['tms'] as $x)
+                    {
+                        $time_from_db = $x->time;
+                        $time_formatted = date("h:i A", strtotime($time_from_db));
+                    ?>
+                        <div class="times"><?= $x->date ?> <?= $time_formatted ?></div><br>
+                    <?php 
+                    }
+                }
+                else
+                {
+                    show($data);
+                }
+                    ?>
+            </div> -->
 
             <div class="form2">
                 <div class="topic">
@@ -96,8 +100,8 @@
 
         <div class="switch">
             <div class="switch1">
-                <a href="<?= ROOT ?>/cancellation">
-                    <button class="submit-button">CANCEL TICKET</button>
+                <a href="<?= ROOT ?>/recover">
+                    <button class="submit-button">Lost Your Booking Details ?</button>
                 </a>
             </div>
             <!-- <div class="swich1">
@@ -107,7 +111,7 @@
             </div> -->
         </div>
 
-
+        <?php require_once 't_reservaFooter1.php' ?>
 
 <script>
 // ____________________________show times_________________________________________

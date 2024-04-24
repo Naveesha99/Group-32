@@ -13,22 +13,20 @@
 			<div class="left">
 				<div class="contact">
 					<form  method="POST">
-						<h3 class="sign">SIGNUP</h3>
+						<h3 class="sign">ADD DRAMA</h3>
 						<input type="text" name="title" placeholder="title">
 						<input type="text" name="description" placeholder="description">
 						<input type="text" name="image" placeholder="image">
-						<input type="number" name="price" placeholder="price">
+						<!-- <input type="number" name="price" placeholder="price"> -->
 
-						<input type="date" name="date" placeholder="date">
-						<input type="time" name="time" placeholder="time">
+						<!-- <input type="date" name="date" placeholder="date"> -->
+						<!-- <input type="time" name="time" placeholder="time"> -->
 
 						<?php if(!empty($errors)):?>
 							<h5>
 								<?= implode("<br>",$errors)?>
 							</h5>
 						<?php endif;?>
-
-						
 
 						<button class="submit">ADD</button>
 					</form><br>
@@ -37,6 +35,7 @@
 
 			<div class="right">
 				<div class="right-text"></div>
+				<a href="<?=ROOT?>/addtimes"><button class="submit">ADD TIME</button></a>
 			</div>
 		</div>
 	</section>
