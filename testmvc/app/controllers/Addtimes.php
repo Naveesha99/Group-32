@@ -13,7 +13,6 @@ class Addtimes
         $data = [];
 
         $homes = new Homes;
-        $t_prices = new Price;
 
         $row =$homes->findAll();
         $data['home_data'] = $row;
@@ -22,17 +21,91 @@ class Addtimes
         $data['all_days'] = $rows1;
 
 
+        //____(2)_________________Add Time Slots into time1 time2 and time3_______________________
+        if(isset($_POST['pst_available_data']) && isset($_POST['pst_drama_id']) && isset($_POST['pst_title']) && isset($_POST['pst_price'])) 
+        {
+            $t_prices = new Price;
+
+            $id = $_POST['pst_drama_id'];
+            $d_title = $_POST['pst_title'];
+            $d_price = $_POST['pst_price'];
+            $available_data = json_decode($_POST['pst_available_data'], true);       // Decode the JSON data
+
+            //_________Add Price__________
+            $arr9['drama_id'] = $id;
+            $arr9['t_type'] = 'Normal';
+            $arr9['t_price'] = $d_price;
+            $t_prices->insert($arr9);
 
 
-        if($_SERVER["REQUEST_METHOD"] == "POST")
+            if(isset($_POST['pst_time1']) && !isset($_POST['pst_time2'])) //time1 only (3:30 PM)
+            {
+                $time1 = $_POST['pst_time1'];
+                foreach($available_data as $date)
+                {
+                    $this->addtimes($id, $time1, $date);
+                    $this->insert_times_into_b_times($id, $date, $time1, $d_title);
+                }
+            }
+            else if(!isset($_POST['pst_time1']) && isset($_POST['pst_time2']))
+            {
+                $time2= $_POST['pst_time2'];
+                foreach($available_data as $date)
+                {
+                    $this->addtimes($id, $time2, $date);
+                    $this->insert_times_into_b_times($id, $date, $time2, $d_title);
+                }
+            }
+            else if(isset($_POST['pst_both_time1']) && isset($_POST['pst_both_time2']))
+            {
+                $b_time1 = $_POST['pst_both_time1'];
+                $b_time2 = $_POST['pst_both_time2'];
+
+                foreach($available_data as $date)
+                {
+                    $this->addtimes($id, $b_time1, $date);
+                    $this->insert_times_into_b_times($id, $date, $b_time1, $d_title);
+                }
+
+                foreach($available_data as $date)
+                {
+                    $this->addtimes($id, $b_time2, $date);
+                    $this->insert_times_into_b_times($id, $date, $b_time2, $d_title);
+                }
+            }
+        }
+        else
+        {
+            $data['no_enough_data'] = 'Not enough data to add seats';
+        }
+
+
+        //_____(3)_______________Data come from input fields (VALIDATIONS AND FILTER DATA FROM b_time)_______________________________
+        if(isset($_POST['drama-id']))
         {
             if(isset($_POST['title']) && $_POST['title'] == '')
             {
-                $data['not_drama'] = 'Selectttt the drama to add time or times';
+                $data['not_drama'] = 'Select the drama to add time or times';
             }
             if($_POST['start_date'] == '' || $_POST['end_date'] =='')
             {
                 $data['not_date'] = 'select the both drama starting date and end date';
+            }
+            if(isset($_POST['stat_date']) && isset($_POST['end_date']))
+            {
+                $today = new DateTime(); // Get today's date as DateTime object
+                $start_date_new = new DateTime($_POST['start_date']);
+                $end_date_new = new DateTime($_POST['end_date']);
+
+                if($start_date_new > $end_date_new)
+                {
+                    $data['invalid_range'] = 'select the valid date range';
+                }
+                
+                if($start_date_new < $today)
+                {
+                    $data['old_date'] = 'You have selected OLD DATE RANGE';
+                }
             }
             if((!isset($_POST['time1']) && !isset($_POST['time2'])))
             {
@@ -40,8 +113,9 @@ class Addtimes
             }
             if($_POST['price'] == '')
             {
-                $data['not_price'] = 'Select  drama time or times';
+                $data['not_price'] = 'Price should be not null';
             }
+            
 
 
 
@@ -50,10 +124,18 @@ class Addtimes
             {
                 // show($_POST['drama-id']);
                 // show($_POST['title']);
-                if($_POST['start_date'] !='' && $_POST['end_date'] != '')
+                $data['title'] = $_POST['title'];
+                $data['drama_id'] = $_POST['drama-id'];
+
+                $today = new DateTime(); // Get today's date as DateTime object
+                $start_date_new = new DateTime($_POST['start_date']);
+                $end_date_new = new DateTime($_POST['end_date']);
+
+                if($_POST['start_date'] !='' && $_POST['end_date'] != '' &&  $start_date_new <= $end_date_new  &&  $start_date_new >= $today)
                 {
                     if(isset($_POST['price']) && $_POST['price'] >0)
                     { 
+                            $data['price'] = $_POST['price'];
                             if(isset($_POST['time1']) || isset($_POST['time2']))
                             {
                                     
@@ -102,6 +184,9 @@ class Addtimes
                                     $data5['available'] = $avai_days;
                                     $data5['booked'] = $booked_days;
                                     $data5['input_time1'] = $_POST['time1'];
+                                    $data['title'] = $_POST['title'];
+                                    // $data['drama_id'] = $_POST['drama-id'];
+                                    
 
                                     $data['filt_date'] =$data5;
                                     // return $data5;
@@ -152,7 +237,8 @@ class Addtimes
                                     $data5['input_time2'] = $_POST['time2'];
 
                                     $data['filt_date'] =$data5;
-                                    // return $data5;
+                                    $data['title'] = $_POST['title'];
+                                    // $data['drama_id'] = $_POST['drama-id'];
                                 }
                                 else if(isset($_POST['time1']) && isset($_POST['time2']))
                                 {
@@ -199,6 +285,8 @@ class Addtimes
                                     $data5['booked'] = $booked_days;
                                     $data5['input_time1'] = $_POST['time1'];
                                     $data5['input_time2'] = $_POST['time2'];
+                                    $data['title'] = $_POST['title'];
+                                    // $data['drama_id'] = $_POST['drama-id'];
 
                                     $data['filt_date'] =$data5;
                                     // return $data5;
@@ -206,108 +294,16 @@ class Addtimes
                             }
                     }
                 }
+
             } 
-         
-
-        }
-        
-        // YourController.php
-        
-        // Check if the request is a POST request
-        if ($_SERVER["REQUEST_METHOD"] == "POST") 
-        {
-            // Check if start_date and end_date are set
-            if (isset($_POST["start_date"]) && isset($_POST["end_date"])) 
-            {
-                // Retrieve start_date and end_date from POST data
-                $start_date = $_POST["start_date"];
-                $end_date = $_POST["end_date"];
-        
-                // Validate start_date and end_date (You can perform any validation you need here)
-                // For example, you can check if they are in the correct format or if end_date is after start_date
-        
-                // Simulate processing and prepare the response
-                // Here, we just echo the received data as a response
-                $response = array(
-                    "start_date" => $start_date,
-                    "end_date" => $end_date
-                );
-        
-                // Send the response back as JSON
-                header('Content-Type: application/json');
-                echo json_encode($response);
-                exit; // Stop further execution
-            } else {
-                // If start_date or end_date is not set, return an error response
-                $response = array(
-                    "error" => "Start date or end date is missing"
-                );
-        
-                // Send the error response back as JSON
-                header('Content-Type: application/json');
-                echo json_encode($response);
-                exit; // Stop further execution
-            }
         } 
-        else 
-        {
-            // If it's not a POST request, handle accordingly
-            // For example, redirect to an error page or show an error message
-            echo "Error: Invalid request method";
-        }
-        
-        // $rows2 = $this->find_all_times($rows1);
-        // $data['booked_dates'] = $rows2;
-        // show($data['booked_dates']); 
-
-
-
-        // if($_POST)
-        // {
-        //     if($_POST['drama_id']!=='' && $_POST['date']!=='' && $_POST['time']!=='' && $_POST['price']!=='')
-        //     {
-        //         $booking = new Booking;
-        //         $timestamp = strtotime($_POST['time']);
-        //         $formattedTime = date("H:i:s", $timestamp);
-
-        //         // ____If alredy included this time for this drama___
-        //         $arr1['drama_id'] = $_POST['drama_id'];
-        //         $arr1['date'] = $_POST['date'];
-        //         $arr1['time'] = 
-        //         $included = $booking->first($arr1);
-
-        //         if($included=='')
-        //         {
-        //             // ___add date and time into b_time table____
-        //             $arr2['time'] = $formattedTime;
-        //             $arr2['drama_id'] = $_POST['drama_id'];
-        //             $arr2['date'] = $_POST['date'];
-        //             $booking->insert($arr2);
-
-        //             $arr3['drama_id'] = $_POST['drama_id'];
-        //             $arr3['t_type'] = 'Normal';
-        //             $arr3['t_price'] = $_POST['price'];
-        //             $t_prices->insert($arr3);
-
-        //             $row = $this->addtimes($_POST['drama_id'], $_POST['time'], $_POST['date']);
-        //             $data['row'] = $row;
-        //         }
-        //         else
-        //         {
-        //             $data['invalid'] = 'Already added this time....!.';
-        //         }
-                
-        //     }
-        //     else
-        //     {
-        //         $data['invalid'] = 'All data are required, please enter the all data.';
-        //     }
-        // }
-       
-        
 		$this->view('/ticket_booking/addtimes', $data);
     }
 
+
+
+
+    // _______________________________________FUNCTIONS____________________________________________________________
     private function check_time_has_next_7_days()
     {
         $id_array = [];
@@ -373,6 +369,36 @@ class Addtimes
     }
 
 
+    private function insert_times_into_b_times($drama_id, $date, $time, $title)
+    {
+                $booking = new Booking;
+                $timestamp = strtotime($time);
+                $formattedTime = date("H:i:s", $timestamp);
+
+                // ____If alredy included this time for this drama___
+                // $arr1['drama_id'] = $drama_id;
+                $arr1['date'] = $date;
+                $arr1['time'] = $time;
+
+                $included = $booking->first($arr1);
+
+                if($included=='')
+                {
+                    // ___add date and time into b_time table____
+                    $arr2['time'] = $formattedTime;
+                    $arr2['drama_id'] = $drama_id;
+                    $arr2['date'] = $date;
+                    $arr2['title'] = $title;
+                    $booking->insert($arr2);
+                }
+                else
+                {
+                    $data['invalid'] = 'Already added this time....!.';
+                }
+    }
+
+
+
     private function addtimes($drama_id, $time, $date)
     {
         $booking = new Booking;
@@ -397,7 +423,7 @@ class Addtimes
                         $timeslot1->insert($data);
                     }
                     $data['success'] = "Successfully added seats.";
-                    return $data['success'];
+                    // return $data['success'];
                 }
                 else if($formattedTime<='18:00:00')
                 {
@@ -413,7 +439,7 @@ class Addtimes
                         $timeslot2->insert($data);
                     }
                     $data['success'] = "Successfully added seats.";
-                    return $data['success'];
+                    // return $data['success'];
                 }
                 else
                 {
@@ -429,7 +455,7 @@ class Addtimes
                         $timeslot3->insert($data);
                     }
                     $data['success'] = "Successfully added seats.";
-                    return $data['success'];
+                    // return $data['success'];
                 }
     }
 }
