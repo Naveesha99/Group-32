@@ -8,7 +8,7 @@
     <title>Assign Task</title>
 </head>
 
-<?php include 'adminSidebar.php' ?>
+<?php include 'adminSidebar.php'?>
 <?php include 'navBar.php'?>
 
 <body>

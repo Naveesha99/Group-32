@@ -22,6 +22,6 @@ class forgotPW
                 }
             }
         }
-        $this->view('forgotPW');
+        $this->view('password/forgotPW');
     }
 }
