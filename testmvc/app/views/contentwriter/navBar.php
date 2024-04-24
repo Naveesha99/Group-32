@@ -44,7 +44,11 @@
         </div>
         <hr>
 
-        <a href="<?=ROOT?>/cwEditProfile" class="sub-menu-link">
+        <?php
+        $userid = $_SESSION['USER']->id;
+
+       echo  '<a href = "cwEditProfile?id=' .$userid. '" class="sub-menu-link">';
+       ?>
           <i class="fa-solid fa-wrench"></i>
           <p>Edit Profile</p>
           <span>></span>
