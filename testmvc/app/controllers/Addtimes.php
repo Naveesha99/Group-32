@@ -310,7 +310,7 @@ class Addtimes
 
             } 
         } 
-		$this->view('/ticket_booking/addtimes', $data);
+		$this->view('/admin/addtimes', $data);
     }
 
 
