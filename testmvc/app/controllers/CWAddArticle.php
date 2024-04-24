@@ -44,6 +44,10 @@ class CWAddArticle
             $_POST['cw_id'] = $id;
             $_POST['status'] = 1;
             $_POST['progress'] ='pending';
+
+
+
+            
             if ($article->validate($_POST)) {
                 $category->insert($_POST);
                 $article->insert($_POST);
