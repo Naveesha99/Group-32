@@ -8,8 +8,8 @@
     <title>Assign Task</title>
 </head>
 
-<?php include 'adminSidebar.php'?>
-<?php include 'navBar.php' ?>
+<?php include 'adminSidebar.php' ?>
+<?php include 'navBar.php'?>
 
 <body>
     <div class="container">
@@ -17,24 +17,28 @@
             <div class="assign-task">
                 <form method="POST">
                     <h1>Assign Task</h1>
-                    <form>
-                        <label for="taskType">Task</label>
-                        <select name="taskType">
-                            <?php
-                            foreach ($data['task'] as $row) {
-                                echo "<option value='" . $row->taskType . "'>" . $row->taskType . "</option>";
-                            }
-                            ?>
-                        </select>
+                    <label for="taskType">Task</label>
+                    <select name="taskType">
+                        <?php
+                        foreach ($data['task'] as $row) {
+                            echo "<option value='" . $row->taskType . "'>" . $row->taskType . "</option>";
+                        }
+                        ?>
+                    </select>
 
-                        <label for="date">Date</label>
-                        <input type="date" name="date">
-                        <label for="startTime">Start Time</label>
-                        <input type="time" name="startTime">
-                        <label for="endTime">End Time</label>
-                        <input type="time" name="endTime">
-                        <button id="apply" class="btn">Apply</button>
-                    </form>
+                    <label for="date">Date</label>
+                    <input type="date" name="date">
+                    <label for="startTime">Start Time</label>
+                    <input type="time" name="startTime">
+                    <label for="endTime">End Time</label>
+                    <input type="time" name="endTime">
+                    <button name="check" class="btn">Check Available Employees</button>
+                </form>
+                <form method="POST">
+                    <input type="hidden" name="taskType" value="<?= $data['temp1']['taskType'] ?>">
+                    <input type="hidden" name="date" value="<?= $data['temp1']['date'] ?>">
+                    <input type="hidden" name="startTime" value="<?= $data['temp1']['startTime'] ?>">
+                    <input type="hidden" name="endTime" value="<?= $data['temp1']['endTime'] ?>">
                     <label for="assignEmployee">Assign Employee</label>
                     <select name="assignEmployee">
                         <?php
@@ -46,45 +50,11 @@
                     <label for="location">Location</label>
                     <input type="text" name="location">
                     <br>
-                    <button class="btn-1">Submit</button>
+                    <button name="submit" class="btn-1">Submit</button>
                 </form>
             </div>
         </div>
     </div>
-    <script>
-        document.getElementById('apply').addEventListener('click', function() {
-            var taskType = document.querySelector('select[name="taskType"]').value;
-            var date = document.querySelector('input[name="date"]').value;
-            var startTime = document.querySelector('input[name="startTime"]').value;
-            var endTime = document.querySelector('input[name="endTime"]').value;
-            var assignEmployee = document.querySelector('select[name="assignEmployee"]').value;
-            var location = document.querySelector('input[name="location"]').value;
-
-            var data = {
-                taskType: taskType,
-                date: date,
-                startTime: startTime,
-                endTime: endTime,
-                assignEmployee: assignEmployee,
-                location: location
-            }
-
-            fetch('<?= ROOT ?>/assignTask', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(data)
-                })
-                .then(response => response.json())
-                .then(data => {
-                    console.log('Success:', data);
-                })
-                .catch((error) => {
-                    console.error('Error:', error);
-                });
-        });
-    </script>
 </body>
 
 </html>

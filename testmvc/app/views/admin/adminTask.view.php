@@ -25,7 +25,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="<?= ROOT ?>/assignTask?>">
+                <a href="<?= ROOT ?>/assignTask">
                     <div class="card">
                         <div class="box">
                             <h1>Assign Tasks</h1>
