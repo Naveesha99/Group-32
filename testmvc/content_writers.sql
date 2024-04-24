@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Feb 11, 2024 at 01:21 PM
+-- Generation Time: Apr 23, 2024 at 05:56 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -42,7 +42,8 @@ CREATE TABLE `content_writers` (
 --
 
 INSERT INTO `content_writers` (`id`, `username`, `email`, `password`, `contactNumber`, `nic`, `Created_at`) VALUES
-(1, 'Nethmi Hasinthara', 'nethuhasi2001@gmail.com', 'Nethu123#', '0765615423', '200145786212', '2024-02-10 06:52:52');
+(1, 'Nethmi Hasinthara', 'www.nethmihasi2001@gmail.com', 'Nethu123#', '0765615423', '200145786212', '2024-02-10 06:52:52'),
+(2, 'Jane Dias', 'jane@gmail.com', 'Jane13#', '0788888657', '123456789', '2024-04-17 23:40:35');
 
 --
 -- Indexes for dumped tables
@@ -62,7 +63,7 @@ ALTER TABLE `content_writers`
 -- AUTO_INCREMENT for table `content_writers`
 --
 ALTER TABLE `content_writers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

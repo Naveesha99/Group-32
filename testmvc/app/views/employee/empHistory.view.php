@@ -13,7 +13,20 @@
 
 <body>
     <div class="container">
-        <div class="cardBox">
+        <form>
+            <div class="form">
+                <form>
+                    <div class="form-input">
+                        <input type="search" placeholder="Search...">
+                        <button type="submit" class="search-btn">
+                            <i class='bx bx-search'></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+        </form>
+        <!-- <div class="cardBox">
             <div class="card">
                 <div>
                     <div class="numbers">Total Tasks</div>
@@ -27,9 +40,10 @@
                     <div class="cardName"><?= $data['completed'] ?></div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <div class="content-2">
+
 
 
             <div class="history">
@@ -45,11 +59,11 @@
                         <th>Status</th>
                         <th>Option</th>
                     </tr>
-
-                    <?php
-                    if ($historyTasks) {
-                        foreach ($historyTasks as $row) {
-                            echo '<tr>
+                    <tbody>
+                        <?php
+                        if ($historyTasks) {
+                            foreach ($historyTasks as $row) {
+                                echo '<tr>
                             <td>' . $row->task . ' </td>
                             <td>' . $row->place . ' </td>
                             <td>' . $row->relavant_date . ' </td>
@@ -57,16 +71,44 @@
                             <td>' . $row->status . '</td>
                             <td> <a href = "empTaskView?id=' . $row->id . '" class = "btn">View</a>
                             </tr>';
+                            }
+                        } else {
+                            echo '<tr><td colspan="6">No data available</td></tr>';
                         }
-                    } else {
-                        echo '<tr><td colspan="6">No data available</td></tr>';
-                    }
-                    ?>
+                        ?>
+
+                    </tbody>
+
+
 
                 </table>
             </div>
         </div>
     </div>
+
+    <script>
+        const search = document.querySelector(".form input"),
+            table_rows = document.querySelectorAll("tbody tr");
+
+        search.addEventListener('input', performSearch);
+
+        function performSearch() {
+            table_rows.forEach((row, i) => {
+                let search_data = search.value.toLowerCase(),
+                    row_text = '';
+
+                for (let j = 0; j < row.children.length - 1; j++) {
+                    row_text += row.children[j].textContent.toLowerCase();
+
+
+                }
+                // console.log(row_text);
+
+                row.classList.toggle('hide', row_text.indexOf(search_data) < 0);
+            })
+        }
+    </script>
+
 
 </body>
 

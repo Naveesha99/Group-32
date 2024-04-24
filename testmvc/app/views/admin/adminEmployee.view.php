@@ -68,7 +68,7 @@
                         <?php
                         foreach ($data['employee'] as $row) {
                             echo '<tr>
-                                    <td>' . $row->id . '</td>
+                                    <td>' . "emp" . $row->id . '</td>
                                     <td>' . $row->empName . '</td>
                                     <td>' . $row->empNIC . '</td>
                                     <td>' . $row->empRoll . '</td>
@@ -92,7 +92,8 @@
                         </tr>
 
                         <?php
-                        foreach ($data['role'] as $row) {
+                        $role = array_slice($data['role'], -5);
+                        foreach ($role as $row) {
                             echo '<tr>
                                     <td>' . $row->jobTitle . '</td>
                                     <td><a href="#" class="btn">View</a></td>

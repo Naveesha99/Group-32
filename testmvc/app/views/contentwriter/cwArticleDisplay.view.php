@@ -55,6 +55,7 @@ function limitWords($text, $limit)
                                 <td>' . $row->image . '</td>
                                 <td>
                                     <span class="action_btn">
+                                    <button class="btn-hide">Hide</button>
                                         
                                         <a href = "cwViewOwnArticle?id=' . $row->id . '" class = "btn-view">View</a>
 
