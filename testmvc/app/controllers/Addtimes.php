@@ -43,8 +43,11 @@ class Addtimes
                 $time1 = $_POST['pst_time1'];
                 foreach($available_data as $date)
                 {
-                    $this->addtimes($id, $time1, $date);
-                    $this->insert_times_into_b_times($id, $date, $time1, $d_title);
+                    $row1 = $this->addtimes($id, $time1, $date);
+                    $data['invalid1'] = $row1;
+
+                    $row2 = $this->insert_times_into_b_times($id, $date, $time1, $d_title);
+                    $data['invalid2'] = $row2;
                 }
             }
             else if(!isset($_POST['pst_time1']) && isset($_POST['pst_time2']))
@@ -52,8 +55,12 @@ class Addtimes
                 $time2= $_POST['pst_time2'];
                 foreach($available_data as $date)
                 {
-                    $this->addtimes($id, $time2, $date);
-                    $this->insert_times_into_b_times($id, $date, $time2, $d_title);
+                    $row1 = $this->addtimes($id, $time2, $date);
+                    $data['invalid1'] = $row1;
+
+                    $row2 = $this->insert_times_into_b_times($id, $date, $time2, $d_title);
+                    $data['invalid2'] = $row2;
+
                 }
             }
             else if(isset($_POST['pst_both_time1']) && isset($_POST['pst_both_time2']))
@@ -63,14 +70,20 @@ class Addtimes
 
                 foreach($available_data as $date)
                 {
-                    $this->addtimes($id, $b_time1, $date);
-                    $this->insert_times_into_b_times($id, $date, $b_time1, $d_title);
+                    $row1 = $this->addtimes($id, $b_time1, $date);
+                    $data['invalid1'] = $row1;
+
+                    $row2 = $this->insert_times_into_b_times($id, $date, $b_time1, $d_title);
+                    $data['invalid2'] = $row2;
                 }
 
                 foreach($available_data as $date)
                 {
-                    $this->addtimes($id, $b_time2, $date);
-                    $this->insert_times_into_b_times($id, $date, $b_time2, $d_title);
+                   $row3 =  $this->addtimes($id, $b_time2, $date);
+                   $data['invalid1'] = $row3;
+
+                    $row4 = $this->insert_times_into_b_times($id, $date, $b_time2, $d_title);
+                    $data['invalid2'] = $row4;
                 }
             }
         }
@@ -91,7 +104,7 @@ class Addtimes
             {
                 $data['not_date'] = 'select the both drama starting date and end date';
             }
-            if(isset($_POST['stat_date']) && isset($_POST['end_date']))
+            if(isset($_POST['start_date']) && isset($_POST['end_date']))
             {
                 $today = new DateTime(); // Get today's date as DateTime object
                 $start_date_new = new DateTime($_POST['start_date']);
@@ -361,7 +374,7 @@ class Addtimes
             $drama_ids[] = $id;
             $i++;
         }
-        show($alldates);
+        // show($alldates);
 
         $data2['filter_dates'] =  $alldates;
         $data2['filter_ids'] = $drama_ids;
@@ -390,10 +403,14 @@ class Addtimes
                     $arr2['date'] = $date;
                     $arr2['title'] = $title;
                     $booking->insert($arr2);
+
+                    $data['time_added'] = 'Successfully added times';
+                    return $data['time_added'];
                 }
                 else
                 {
-                    $data['invalid'] = 'Already added this time....!.';
+                    $data['invalid_time_added'] = 'Already added this time....!.';
+                    return $data['invalid_time_added'];
                 }
     }
 
@@ -422,8 +439,8 @@ class Addtimes
 
                         $timeslot1->insert($data);
                     }
-                    $data['success'] = "Successfully added seats.";
-                    // return $data['success'];
+                    $data['success'] = "Successfully added setas" ;
+                    return $data['success'];
                 }
                 else if($formattedTime<='18:00:00')
                 {
@@ -438,8 +455,8 @@ class Addtimes
 
                         $timeslot2->insert($data);
                     }
-                    $data['success'] = "Successfully added seats.";
-                    // return $data['success'];
+                    $data['success'] = "Successfully added setas on ".$date ;
+                    return $data['success'];
                 }
                 else
                 {
@@ -454,8 +471,8 @@ class Addtimes
 
                         $timeslot3->insert($data);
                     }
-                    $data['success'] = "Successfully added seats.";
-                    // return $data['success'];
+                    $data['success'] = "Successfully added setas on ".$date ;
+                    return $data['success'];
                 }
     }
 }
