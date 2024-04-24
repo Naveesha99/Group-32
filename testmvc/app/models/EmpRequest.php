@@ -18,6 +18,7 @@ class EmpRequest
         'end_date',
         'reason',
         'state',
+        'emp_id',
 
 
     ];
