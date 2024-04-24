@@ -20,6 +20,7 @@ $page = substr($_SERVER['REQUEST_URI'], strrpos($_SERVER['REQUEST_URI'], "/") + 
     <a class="<?= $page == "adminDashboard"?'active':''; ?>" href="<?= ROOT ?>/adminDashboard" > <i class="fa-solid fa-house"></i> <span>Dashboard</span></a>
     <a class="<?= $page == "adminDrama"?'active':''; ?>" href="<?= ROOT ?>/adminDrama"> <i class="fa-solid fa-masks-theater"></i><span> Drama</span></a>
     <a class="<?= $page == "adminEmployee"?'active':''; ?>" href="<?= ROOT ?>/adminEmployee"> <i class="fa-solid fa-user"></i> <span>Employee</span></a>
+    <a class="<?= $page == "adminJobTask"?'active':''; ?>" href="<?= ROOT ?>/adminTask"> <i class="fa solid fa-tasks"></i> <span>Task</span></a>
     <!-- <a href="<?= ROOT ?>/adminTheater"> <i class="fa-solid fa-panorama"></i> <span>Theater</span></a> -->
     <a class="<?= $page == "adminFacilities"?'active':''; ?>" href="<?= ROOT ?>/adminFacilities"> <i class="fa-solid fa-flag"></i> <span>Facilities</span></a>
     <a class="<?= $page == "adminRequest"?'active':''; ?>" href="<?= ROOT ?>/adminRequest"> <i class="fa-solid fa-hand"></i> <span>Request</span></a>
