@@ -250,19 +250,30 @@
 
                                         </div>
 
-                                        <?php if(isset($data['success'] ))
+                                        <?php if(isset($data['invalid1']))
                                         {
-                                            echo $data['success'];
+                                            // foreach($data['invalid1'] as $m)
+                                            // {
+                                                show($data['invalid1']);
+                                                // echo $m; ?><br><?php
+                                            // }
                                         }
                                         ?>
-                                         <?php if(isset($data['invalid'] ))
+                                         <?php if(isset($data['invalid2']))
                                         {
-                                            echo $data['invalid'];
+                                            // foreach($data['invalid2'] as $m)
+                                            // {
+                                                show($data['invalid2']);
+                                                // echo $m; ?><br><?php
+                                            // }
                                         }
                                         ?>
-                                        <?php if(isset($data['no_enough_data'] ))
+                                        <?php if(isset($data['no_enough_data']))
                                         {
-                                            echo $data['no_enough_data'];
+                                            // foreach($data['success'] as $m)
+                                            // {
+                                            //     echo $m; ?><br><?php
+                                            // }
                                         }
                                         ?>
                                 
