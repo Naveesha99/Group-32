@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="<?=ROOT?>/assets/css/ticket_booking/addtimes.css" rel="stylesheet">
+  <link href="<?=ROOT?>/assets/css/addtimes.css" rel="stylesheet">
 	<title>ADD TIMES</title>
 </head>
 <body>
