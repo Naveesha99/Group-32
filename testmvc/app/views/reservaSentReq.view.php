@@ -14,6 +14,29 @@
 
 </head>
 
+<style>
+    .button a[disabled]{
+        background-color: #ccc;
+        color: #666;
+        cursor: not-allowed;
+    
+    }
+
+    .button a[disabled]{
+        background-color: light-dark(rgba(239, 239, 239, 0.3), rgba(19, 1, 1, 0.3));
+    color: light-dark(rgba(16, 16, 16, 0.3), rgba(255, 255, 255, 0.3));
+    border-color: light-dark(rgba(118, 118, 118, 0.3), rgba(195, 195, 195, 0.3));
+    
+    }
+
+    button:disabled {
+    background-color: light-dark(rgba(239, 239, 239, 0.3), rgba(19, 1, 1, 0.3));
+    color: light-dark(rgba(16, 16, 16, 0.3), rgba(255, 255, 255, 0.3));
+    border-color: light-dark(rgba(118, 118, 118, 0.3), rgba(195, 195, 195, 0.3));
+}
+</style>
+
+
 <body>
     <!-- Sidebar -->
     <!-- <?php //require_once 'reservaNavBar.php' 
