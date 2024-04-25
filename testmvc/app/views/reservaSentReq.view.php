@@ -5,7 +5,7 @@
     <title>Manager</title>
     <!-- Link Styles -->
     <!-- <link rel="stylesheet" href="<?= ROOT ?>/assets/css/style-bar.css"> -->
-    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/table.css">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/table_copy.css">
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/reservaRating.css">
     <script src="<?= ROOT ?>/assets/js/reservaRating.js" defer></script>
 
@@ -58,13 +58,6 @@ value="+New Order"> -->
         </form>
 
         <div class="table">
-            <!-- <div class="table-header">
-                <p>Order Details</p>
-                <div>
-                    <input placeholder="order"/>
-                    <button class="add_new">+ Add New</button>
-                </div>
-            </div> -->
             <div class="table-section">
                 <table>
                     <thead>
@@ -83,107 +76,94 @@ value="+New Order"> -->
                             <th>Amount</th>
                             <th>Status</th>
                             <th>Options</th>
+                            <!-- <th class="pr">pay and review</th> -->
 
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
 
-                        <?php
-                        if ($data && (is_array($data) || is_object($data))) {
-                            foreach ($data as $row) {
-                                echo '<tr>
-                                <td class="tbl-id">' . $row->id . '</td>
-                                <td>' . $row->hallno . '</td>
-                                <td class="hidden-cell">' . $row->name . '</td> <!-- Hidden cell -->
-                                <td>' . $row->date . '</td>
-                                <td>' . $row->startTime . '</td>
-                                <td>' . $row->endTime . '</td>
-                                <td >' . $row->hours . '</td> <!-- Hidden cell -->
-                                <td class="hidden-cell">' . $row->headCount . '</td> <!-- Hidden cell -->
-                                <td class="hidden-cell">' . $row->sounds . '</td> <!-- Hidden cell -->
-                                <td class="hidden-cell">' . $row->standings . '</td> <!-- Hidden cell -->
-                                <td class="hidden-cell">' . $row->message . '</td> <!-- Hidden cell -->
-                                <td >' . $row->amount . '</td>
-                                <td  class="text-status  ' . $row->status . '" >' . $row->status . '</td>
-                                <td class="hidden-cell">' . $row->rating . '</td> <!-- Hidden cell -->
-                                <td class="hidden-cell">' . $row->review . '</td> <!-- Hidden cell -->
+                    <tbody>
 
-                                
-                               
+<?php
+if ($data && (is_array($data) || is_object($data))) : ?>
+    <?php foreach ($data as $row) : ?>
+        <tr>
+            <td class="tbl-id"> <?php echo $row->id ?> </td>
+            <td><?php echo $row->hallno ?></td>
+            <td class="hidden-cell"><?php echo $row->name ?></td> <!-- Hidden cell -->
+            <td><?php echo $row->date ?></td>
+            <td><?php echo $row->startTime ?></td>
+            <td><?php echo $row->endTime ?></td>
+            <td><?php echo $row->hours ?></td> <!-- Hidden cell -->
+            <td class="hidden-cell"><?php echo $row->headCount ?></td> <!-- Hidden cell -->
+            <td class="hidden-cell"><?php echo $row->sounds ?></td> <!-- Hidden cell -->
+            <td class="hidden-cell"><?php echo $row->standings ?></td> <!-- Hidden cell -->
+            <td class="hidden-cell"><?php echo $row->message ?></td> <!-- Hidden cell -->
+            <td><?php echo $row->amount ?></td>
+            <td class="text-status <?php echo $row->status ?>"><?php echo $row->status ?></td>
+            <td class="hidden-cell"><?php echo $row->rating ?></td> <!-- Hidden cell -->
+            <td class="hidden-cell"><?php echo $row->review ?></td> <!-- Hidden cell -->
 
+            <td class="b1">
+                <span class="button">
+                <a href="#" class="view-btn">view</a>
 
-                                <td>
-                                    <span class="button">
-                                        <a class="edit" href="ReservaHall1Edit?id=' . $row->id . '">Edit</a>
-                                        <a href="#" class="view-btn">view</a>
-                                        <a href="#" >Delete</a>';
-                                if ($row->status == "accepted") {
-                                    // echo '<a class="payNow" href="ReservaPayment?id=' . urlencode($row->id) . '&hall=' . urlencode($row->hallno) . '&hours=' . urlencode($row->hours) . '&amount=' . urlencode($row->amount) . '">PayNow</a>';
+                    <?php if ($row->status != "accepted" && $row->status != "rejected") : ?>
+                        <a class="edit" href="ReservaHall1Edit?id=<?php echo $row->id ?>">Edit</a>
+                        <a href="#">Delete</a>
+                    <?php else : ?>
+                        <a class="edit" href="#" disabled>Edit</a>
+                        <a href="#" disabled>Delete</a>
+                    <?php endif; ?>
 
-                                    // echo '<a class="payNow"  href="ReservaPayment" data-id="' . $row->id . '" data-hall="' . $row->hallno . '" data-hours="' . $row->hours . '" data-amount="' . $row->amount . '">PayNow</a>';
+                    <?php if ($row->status == "accepted") : ?>
+                        <form action="ReservaPayment" method="get" style="display:inline;">
+                                <input type="hidden" name="id" value="<?php echo htmlspecialchars($row->id) ?>">
+                                <input type="hidden" name="hall" value="<?php echo htmlspecialchars($row->hallno) ?>">
+                                <input type="hidden" name="hours" value="<?php echo htmlspecialchars($row->hours) ?>">
+                                <input type="hidden" name="amount" value="<?php echo htmlspecialchars($row->amount) ?>">
+                                <input type="hidden" name="hcount" value="<?php echo htmlspecialchars($row->headCount) ?>">
+                                <input type="hidden" name="date" value="<?php echo htmlspecialchars($row->date) ?>">
+                                <input type="hidden" name="startTime" value="<?php echo htmlspecialchars($row->startTime) ?>">
+                                <input type="hidden" name="endTime" value="<?php echo htmlspecialchars($row->endTime) ?>">
+                                <input type="hidden" name="sounds" value="<?php echo htmlspecialchars($row->sounds) ?>">
+                                <input type="hidden" name="standings" value="<?php echo htmlspecialchars($row->standings) ?>">
+                                <button type="submit" class="payNow">PayNow</button>
+                            </form>
 
+                    <?php else : ?>
+                        <button type="button" class="payNow" disabled>PayNow</button>
+                    <?php endif; ?>
 
-                                    echo '<form action="ReservaPayment" method="post" style="display:inline;">
-                                            <input type="hidden" name="id" value="' . htmlspecialchars($row->id) . '">
-                                            <input type="hidden" name="hall" value="' . htmlspecialchars($row->hallno) . '">
-                                            <input type="hidden" name="hours" value="' . htmlspecialchars($row->hours) . '">
-                                            <input type="hidden" name="amount" value="' . htmlspecialchars($row->amount) . '">
-                                            <input type="hidden" name="hcount" value="' . htmlspecialchars($row->headCount) . '">
-                                            <input type="hidden" name="date" value="' . htmlspecialchars($row->date) . '">
-                                            <input type="hidden" name="startTime" value="' . htmlspecialchars($row->startTime) . '">
-                                            <input type="hidden" name="endTime" value="' . htmlspecialchars($row->endTime) . '">
-
-                                            <button type="submit" class="payNow">PayNow</button>
-                                        </form>';
-
-
-
-                                    // }'
-
-                                }
-
-                                //  show(date("Y-m-d"));
-                                //  show(date("H:i:s"));
-                                // if (($row->status == "accepted") && ($row->date < date("Y-m-d")) && ($row->startTime < date("H:i:s"))) {
-                                if (($row->status == "accepted") && ($row->date < date("Y-m-d")) || (($row->status == "accepted")&&($row->date == date("Y-m-d"))&&($row->startTime < date("H:i:s")))) {
-
-                                    // show(date("Y-m-d"));
-
-                                    echo '<form action="ReservaSentReq" method="post" style="display:inline;">
-                                            <input type="hidden" name="id" value="' . htmlspecialchars($row->id) . '">
-                                            <input type="hidden" name="hall" value="' . htmlspecialchars($row->hallno) . '">
-
-                                            <button type="submit" class="Review">Reviews</button>
-                                            </form>';
-
-                                    // '<a href="#" class="view-btn">review</a>';
-                                }
-                                '                                        
-                                        
-                                    </span>
-                                </td>;        
+                    <?php
+                    if (($row->status == "accepted") && ($row->date < date("Y-m-d")) || (($row->status == "accepted") && ($row->date == date("Y-m-d")) && ($row->startTime < date("H:i:s")))) : ?>
 
 
+                    <?php endif; ?>
+                    <?php if (($row->status == "accepted") && ($row->date < date("Y-m-d")) || (($row->status == "accepted") && ($row->date == date("Y-m-d")) && ($row->startTime < date("H:i:s")))) : ?> 
+                        <form action="ReservaSentReq" method="post" style="display:inline;">
+                        <input type="hidden" name="id" value="<?php echo htmlspecialchars($row->id) ?>">
+                        <input type="hidden" name="hall" value="<?php echo htmlspecialchars($row->hallno) ?>">
+                        <button type="submit" class="Review">Reviews</button>
+                        </form>
 
-                             
 
+                    <?php else : ?>
+                        <button type="button" class="Review" disabled>Review</button>
+                    <?php endif; ?>
 
-                              </tr>';
-                            }
-                        } else {
-                            echo '<tr><td colspan="9">No data available</td></tr>';
-                        }
-                        ?>
+                </span>
+            </td>
+        </tr>
+    <?php endforeach; ?>
 
-                    </tbody>
+<?php else : ?>
+    <tr> <td colspan="9">No data available</td></tr>
+<?php endif; ?>
+</tbody>
                 </table>
             </div>
-
-
-
-
-
             <div id="myModal1" class="modal1" style="display: none;">
                 <div class="cont">
                     <div class="containerM">

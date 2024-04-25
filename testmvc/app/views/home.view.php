@@ -25,19 +25,10 @@
 
     <div class="container">
         <div class="content-container">
-            <div class="featured-content" style="background: linear-gradient(to bottom, rgba(0,0,0,0), #151515), url('<?= ROOT ?>/assets/images/home/p-2.jpg');">
-                <p class="featured-desc"></p>
-                
-                <!--___________________SEARCH BAR____________________-->
-                <div class="search">
-                        <input type="text" name="" id="find" placeholder="" onkeyup="search()">
-                        <i class="fa-solid fa-magnifying-glass" style="  font-size: 30px; margin-right: 10px; margin-top:3px;"></i>
-                </div>
-                <!-- _______________________________________________ -->
-            </div>
+            <div class="c1">
 
-            <div class="movie-list-container">
-                <h1 class="movie-list-title1">SHOWING</h1>
+            <div class="movie-list-wrapper1">
+                <h1 class="movie-list-title1">NOW SHOWING</h1>
 
                 <?php
                         // check date is in this week or not
@@ -50,123 +41,57 @@
                         $nextDate5 = date('Y-m-d', strtotime("+4 day", strtotime($today)));
                         $nextDate6 = date('Y-m-d', strtotime("+5 day", strtotime($today)));
                         $nextDate7 = date('Y-m-d', strtotime("+6 day", strtotime($today)));
-?>
+                ?>
 
-
-                    <div class="movie-list-wrapper">
-                                <div class="dateshowing">
-                                    <h3><?= $nextDate1 ?></h3>
-                                    <?php
-                                        foreach($data2 as $ondate)
-                                        {
-                                            if($ondate->date == $nextDate1)
-                                            {
-                                                $time_from_db = $ondate->time;
-                                                $time_formatted = date("h:i A", strtotime($time_from_db));
-                                                ?>
-                                                <!-- <p><?= $ondate->title ?><?= $time_formatted ?></p> -->
-                                       <?php }
-                                        }
-                                    ?>
-                                </div><br><br>
-
-                                <div class="dateshowing">
-                                    <h3><?= $nextDate2 ?></h3>
-                                    <?php
-                                        foreach($data2 as $ondate)
-                                        {
-                                                $time_from_db = $ondate->time;
-                                                $time_formatted = date("h:i A", strtotime($time_from_db));
-                                            if($ondate->date == $nextDate2)
-                                        {
-                                                ?>
-                                                <p><?= $ondate->title ?> - <?= $time_formatted ?></p>
-                                       <?php }
-                                        }
-                                    ?>
-                                </div><br><br>
-
-                                <div class="dateshowing">
-                                    <h3><?= $nextDate3 ?></h3>
-                                    <?php
-                                        foreach($data2 as $ondate)
-                                        {
-                                            if($ondate->date == $nextDate3)
-                                            {
-                                                $time_from_db = $ondate->time;
-                                                $time_formatted = date("h:i A", strtotime($time_from_db));
-                                                ?>
-                                                <p><?= $ondate->title ?> - <?= $time_formatted ?></p>
-                                       <?php }
-                                        }
-                                    ?>
-                                </div><br><br>
-
-                                <div class="dateshowing">
-                                    <h3><?= $nextDate4 ?></h3>
-                                    <?php
-                                        foreach($data2 as $ondate)
-                                        {
-                                            if($ondate->date == $nextDate4)
-                                            {
-                                                $time_from_db = $ondate->time;
-                                                $time_formatted = date("h:i A", strtotime($time_from_db));
-                                                ?>
-                                                <p><?= $ondate->title ?> - <?= $time_formatted ?></p>
-                                       <?php }
-                                        }
-                                    ?>
-                                </div><br><br>
-
-                                <div class="dateshowing">
-                                    <h3><?= $nextDate5 ?></h3>
-                                    <?php
-                                        foreach($data2 as $ondate)
-                                        {
-                                            if($ondate->date == $nextDate5)
-                                            {
-                                                $time_from_db = $ondate->time;
-                                                $time_formatted = date("h:i A", strtotime($time_from_db));
-                                                ?>
-                                                <p><?= $ondate->title ?> - <?= $time_formatted ?></p>
-                                       <?php }
-                                        }
-                                    ?>
-                                </div><br><br>
-
-                                <div class="dateshowing">
-                                    <h3><?= $nextDate6 ?></h3>
-                                    <?php
-                                        foreach($data2 as $ondate)
-                                        {
-                                            if($ondate->date == $nextDate6)
-                                            {
-                                                $time_from_db = $ondate->time;
-                                                $time_formatted = date("h:i A", strtotime($time_from_db));
-                                                ?>
-                                                <p><?= $ondate->title ?> - <?= $time_formatted ?></p>
-                                       <?php }
-                                        }
-                                    ?>
-                                </div><br><br>
-
-                                <div class="dateshowing">
-                                    <h3><?= $nextDate7 ?></h3>
-                                    <?php
-                                        foreach($data2 as $ondate)
-                                        {
-                                            if($ondate->date == $nextDate7)
-                                            {
-                                                $time_from_db = $ondate->time;
-                                                $time_formatted = date("h:i A", strtotime($time_from_db));
-                                                ?>
-                                                <p><?= $ondate->title ?> - <?= $time_formatted ?></p>
-                                       <?php }
-                                        }
-                                    ?>
-                                </div><br><br>
+                <?php for ($i = 1; $i <= 7; $i++) { ?>
+                    <div class="dateshowing" id="date<?= $i ?>" style="<?= $i == 1 ? '' : 'display: none;' ?>">
+                        <h3><?= ${'nextDate'.$i} ?></h3>
+                        <?php
+                        foreach ($data2 as $ondate) {
+                            if ($ondate->date == ${'nextDate'.$i}) {
+                                $time_from_db = $ondate->time;
+                                $time_formatted = date("h:i A", strtotime($time_from_db));
+                                ?>
+                                <p><?= $ondate->title ?> - <?= $time_formatted ?></p>
+                        <?php }
+                        } ?>
                     </div>
+                <?php } ?>
+            </div>
 
+                <div class="featured-content" style="background: linear-gradient(to bottom, rgba(0,0,0,0), #151515), url('<?= ROOT ?>/assets/images/home/p-2.jpg');">
+                    <p class="featured-desc"></p>
+                    
+                    <!--___________________SEARCH BAR____________________-->
+                    <div class="search">
+                            <input type="text" name="" id="find" placeholder="" onkeyup="search()">
+                            <i class="fa-solid fa-magnifying-glass" style="  font-size: 30px; margin-right: 10px; margin-top:3px;"></i>
+                    </div>
+                    <!-- _______________________________________________ -->
+                </div>
+            </div>
+            <div class="movie-list-container">
+
+                
+
+
+
+
+
+<script>
+    function showNextDate(currentDate) {
+        var nextDate = currentDate + 1;
+        if (nextDate > 7) nextDate = 1; // Reset to first date if exceeds 7
+        document.getElementById('date' + currentDate).style.display = 'none';
+        document.getElementById('date' + nextDate).style.display = 'block';
+        setTimeout(function() {
+            showNextDate(nextDate);
+        }, 10000); // Change to 5000ms (5 seconds)
+    }
+
+    // Start the process with the first date
+    showNextDate(1);
+</script>
 
                 <div class="movie-list-wrapper">
                     <?php
@@ -190,7 +115,7 @@
                                 
                                 $x = $data1[$i-1-$j];
                     ?>
-                                <form action="select_drama" method="POST">
+                                <form action="select_drama" class="form1" method="POST">
                                     <div class="movie-list-item">
                                         <img class="movie-list-item-img" src="<?= ROOT ?>/assets/images/drama_img/<?= $x->image ?>" alt=''>
 
@@ -198,16 +123,21 @@
                                     $dates = []; // Initialize arrays to store dates and times
                                     $times = [];
                                     foreach($data2 as $n)
-                                    {
+                                    {   
                                         if($n->drama_id == $x->id)
                                         {
-                                            $time_from_db = $n->time;
-                                            $time_formatted = date("h:i A", strtotime($time_from_db));
-                                            
-                                            $dates[]=$n->date;
-                                            $times[]=$time_formatted;                                              
+                                            if($n->date >= $today)
+                                            {
+
+                                                $time_from_db = $n->time;
+                                                $time_formatted = date("h:i A", strtotime($time_from_db));
+                                                
+                                                $dates[]=$n->date;
+                                                $times[]=$time_formatted;    
+                                            }   
+
                                         }
-                                        $t++;    
+                                        $t++;      
                                     }
                                     // show($dates);
                                     for($r=0; $r <count($dates); $r++)

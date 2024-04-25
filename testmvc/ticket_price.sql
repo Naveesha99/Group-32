@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 12, 2024 at 12:04 PM
+-- Generation Time: Apr 25, 2024 at 06:38 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -47,7 +47,24 @@ INSERT INTO `ticket_price` (`id`, `drama_id`, `t_type`, `t_price`) VALUES
 (10, 44, 'Normal', 550),
 (11, 45, 'Normal', 0),
 (12, 45, 'Normal', 0),
-(13, 45, 'Normal', 0);
+(13, 45, 'Normal', 0),
+(15, 49, 'Normal', 750),
+(16, 25, 'Normal', 800),
+(17, 50, 'Normal', 720),
+(18, 52, 'Normal', 550),
+(19, 52, 'Normal', 560),
+(20, 53, 'Normal', 600),
+(21, 41, 'Normal', 900),
+(22, 41, 'Normal', 900),
+(23, 20, 'Normal', 450),
+(24, 21, 'Normal', 500),
+(25, 20, 'Normal', 500),
+(26, 20, 'Normal', 500),
+(27, 16, 'Normal', 700),
+(28, 52, 'Normal', 600),
+(29, 18, 'Normal', 600),
+(30, 44, 'Normal', 600),
+(31, 54, 'Normal', 800);
 
 --
 -- Indexes for dumped tables
@@ -67,7 +84,7 @@ ALTER TABLE `ticket_price`
 -- AUTO_INCREMENT for table `ticket_price`
 --
 ALTER TABLE `ticket_price`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

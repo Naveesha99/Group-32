@@ -1,9 +1,10 @@
 /* @import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap"); */
 
-/* @import url("https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"); */
+@import url("https://fonts.googleapis.com/css?family=Catamaran:400,700");
+
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: catamaran;
 	/* min-height: 90vh; */
 	display: flex;
 	align-items: center;
@@ -16,13 +17,23 @@ body {
   background-position: center; /* This property centers the background image */
   /* background-repeat: no-repeat; 
   background-attachment: fixed; */
-  background-color: #ccc;
+  background-color:#e6dede;
 }
+
 
 * {
   box-sizing: border-box;
 }
-
+.container2{
+    margin-bottom: 0%;
+    margin-top: 3%;
+    margin-left: 0%;
+    margin-right: 0%;
+    background-color: #ffffff;
+    padding: 10px 20px;
+    border: 3px solid rgb(169, 169, 169);
+    border-radius: 17px;
+}
 .movie-container {
   margin-top: 80px;
   display: flex;
@@ -127,7 +138,7 @@ body {
 }
 
 .pending {
-  background-color: #AF8260;
+  background-color: #d0d06e;
   
 }
 
@@ -192,6 +203,7 @@ small {
   transform: rotateX(-45deg);
   box-shadow: 0 3px 10px rgba(255,255,255,0.7);
   margin-left: 100px;
+  margin-top: -4%;
 }
 
 .pricedetails{

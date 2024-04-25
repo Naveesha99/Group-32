@@ -19,11 +19,14 @@
     position: absolute;
     width: calc(100% - 250px);
     left: 250px;
+   
     min-height: 100vh;
+    /* min-height: 100vh; */
     background-color:   white;
     transition: 0.5s;
     margin-top: 80px;
     padding: 20px;
+    
 
 }
 /* .container.active{
@@ -41,16 +44,22 @@ h1 {
 }
 
 .container form.addArticle{
+    width: 650px;
+    margin: 0 auto;
+    padding: 20px;
     display: grid;
+    
     gap: 10px;
     align-items: center;
-    width: 600px;
-    /* color: white;  */
+   
+    color: white; 
     background-color: rgba(255, 255, 255, 0.066);
     align-content: center;
-        /* justify-content: center; */
+    /* justify-content: center; */
     margin-left: 25%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    border: 2px solid #ccc; /* Added border */
+    border-radius: 15px; 
     
 }
 label {
@@ -59,20 +68,63 @@ label {
     padding: 10px;
 }
 
-input, select, textarea {
-    width: 95%;
+input,[type="text"],
+textarea {
+    width: 100%;
     padding: 10px;
     box-sizing: border-box;
-    border: 3px solid #ccc;
+    border: 2px solid #ccc;
     border-radius: 4px;
     margin: 5px;
-    align-items: center;
+    /* align-items: center; */
 
 }
+
+
+#category{
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    margin: 5px;
+    background-color: #fff;
+    color: #000;
+}
+  
+  /* Style the label text next to the checkbox */
+  label {
+    margin-left: 5px;
+    vertical-align: middle;
+    color: black;
+  }
+
+
+#addNewButton{
+    background-color: transparent;
+    color: #7B0303;
+    border: 2px solid #7B0303;
+    border-radius: 4px;
+    padding: 5px 10px;
+    width: 100px;
+    cursor: pointer;
+    margin-left: 5px;
+    transition: background-color 0.3s, color 0.3s border-color 0.3s;
+}
+
+#addNewButton :hover{
+    background-color: #7B0303;
+    color: #fff;
+    border-color: #7B0303;
+}
+
+  
 
 .button-group{
     margin-left: 60%;
     margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
 
 
 }

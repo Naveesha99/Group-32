@@ -1,4 +1,6 @@
 <?php
+header("Cache-Control: no-cache");
+
 Class Recover
 {
     use Controller;

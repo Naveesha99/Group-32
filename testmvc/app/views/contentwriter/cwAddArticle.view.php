@@ -17,31 +17,33 @@
         <div class="overlay" id="overlay"></div>
 
 
-        <form method="post" id="articleForm" class="addArticle">
+        <form method="post" id="articleForm" class="addArticle" autocomplete="off" enctype="multipart/form-data">
             <h1>Add New Article</h1>
 
             <label for="article_name">Article Name :</label>
             <input type="text" name="article_name" id="article_name" required>
 
-            <label for="category">Category:</label><br>
-            <input type="text" name="category" id="category" list="category" autofocus required>
-            <datalist id="category">
-                <option value="Comedy"></option>
-                <option value="Farce"></option>
-                <option value="Tragedy"></option>
-                <option value="Melodrama"></option>
-                <option value="Opera"></option>
-                <option value="Musical"></option>
-                <option value="Tragi-Comedy"></option>
-            </datalist>
+            <label for="category">Category : </label><br>
+            <select name="category" id="category">
+                <option value="Comedy">Comedy</option>
+                <option value="Farce">Farce</option>
+                <option value="Tragedy">Tragedy</option>
+                <option value="Opera">Opera</option>
+                <option value="Melodrama">Melodrama</option>
+                <option value="Tragi-Comdedy">Trag-Comedy</option>
+
+            </select>
+
+
+            <button type="button" id="addNewButton" onclick="addNewCategory()">Add New</button>
 
             <label for="article_content">Article Content:</label>
 
             <textarea name="article_content" id="article_content" cols="30" rows="10" required></textarea>
 
 
-            <label for="image">Image:</label><br>
-            <input type="file" id="image" name="image" accept="image/*">
+            <label for="image">Image:</label>
+            <input type="file" id="image" name="image" accept=".jpg, .jpeg, .png" required>
 
             <div class="button-group">
                 <button type="submit" name="save_draft">Save as Draft</button>
@@ -64,6 +66,27 @@
         </div>
 
     </div>
+    <script>
+        function addNewCategory() {
+            var newCategory = prompt("Enter the new category:");
+            if (newCategory) {
+                var select = document.getElementById("category");
+                if(!select){
+                    select = document.createElement("select");
+                    select.name ="category";
+                    select.id = "category";
+                    var form = document.getElementById("articleForm");
+                    form.insertBefore(select, form.children[3]);
+                }
+                var option = document.createElement("option");
+                option.text = newCategory;
+                option.value = newCategory;
+                select.add(option);
+                // Set the newly added category as selected
+                select.value = newCategory;
+            }
+        }
+    </script>
 
     <!-- <script>
         let popup = document.getElementById('popup');

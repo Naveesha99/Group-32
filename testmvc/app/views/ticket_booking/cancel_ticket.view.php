@@ -19,7 +19,7 @@
 <div class="allforms">
 <div class="container1">
     <form id="paymentForm">
-          <h1>Terms and Conditions</h1>
+          <h2>Terms and Conditions</h2>
 
           <div class="input-control">
             <label for="condition"><b>1. You can only cancel tickets at least <span class="subtext">24 hours (minimum one day)</span> before the show.</b></label><br>
@@ -56,7 +56,7 @@
 
 <div class="container2" id="container2">
       <form id="paymentForm2" method="post" disabled>
-                    <h1>Ticket cancellation</h1>
+                    <h2>Ticket cancellation</h2>
 
    
               <?php if(!empty($errors['expire_date'])):?>

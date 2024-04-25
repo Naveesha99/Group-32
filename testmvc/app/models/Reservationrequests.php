@@ -65,10 +65,10 @@ class Reservationrequests
 		'message',
 		'amount',
 		'status',
+		'reservationistId',
 		'rating',
 		'review',
 		'review_date',
-		// 'reservationistId',
 
 	];
 
@@ -222,6 +222,7 @@ class Reservationrequests
 			return true;
 		}
 
+		// show("duey");
 		return false;
 
 

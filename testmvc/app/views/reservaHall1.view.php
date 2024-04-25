@@ -136,9 +136,12 @@
 
 
 
-
+<?//php show($data); ?>
+<?php show($data['hall'][0]->headCount); ?>
                 <?php if (isset($_SESSION['USER'])) {
-                            // echo $_SESSION['USER']->username; 
+
+                    $a=$_SESSION['USER']->id;
+                            // echo $_SESSION['USER']->id; 
                             }
                                 else{show('No session');}
                             ?>
@@ -153,9 +156,13 @@
                     <input type="text" id="requestId" name="requestId" readonly required>
                 </div>  -->
 
+                <input type="hidden" id="userid" name="reservationistId" value="<?php echo $a; ?>">
+
                 <input type="hidden" id="hallno" name="hallno" >
 
                 <input type="hidden" id="status" name="status" value="pending" >
+                <!-- <input type="hidden" id="alllowedhcount" name="alllowedhcount" value="<?//php echo $data['hall']['name']; ?>"> -->
+
                 <!-- <script>
                     var hallnoText = document.getElementById('hallno').textContent;
                     console.log(hallnoText);
@@ -167,6 +174,10 @@
                 <div class="form_f">
                     <label for="name">Name:</label>
                     <input type="text" id="name" name="name" placeholder="Your name here.." required>
+                    <?php if (isset($data['errors']['name'])) : ?>
+                        <span class="error" style="color: red;"><?php echo $data['errors']['name']; ?></span>
+                    <?php endif; ?>
+
                 </div>
                 <div class="form_f">
 
@@ -222,16 +233,41 @@
 
                     <label for="headCount">Head Count:</label>
                     <input type="number" id="headCount" name="headCount" placeholder="Head Count" required>
+                    <span id="headCountError" class="error-message">abvyuy</span> <!-- Error message span -->
+
+
                 </div>
                 <script>
-                    function validateHCount(input) {
+                    document.getElementById('headCount').addEventListener('input',function(){
+                        console.log("in head count input event listener");
+                        var b=document.getElementById('headCount').value;
+                        validateHCount(b,a);
+                    });
+
+                    function validateHCount(input,a) {
                         // Get the entered value
-                        let enteredValue = input.value;
+                        let enteredValue = input;
 
                         // Check if the entered value is negative
                         if (enteredValue < 0) {
                             // If negative, set the value to 0
-                            input.value = 0;
+                            // input.value = "";
+
+                            document.getElementById('headCount').value = "";
+                            document.getElementById('headCountError').textContent = "Head count cannot be negative"; // Set error message
+                            // errorMessageSpan.textContent = "Head count cannot be negative"; // Set error message
+
+
+                        }
+                        else if(enteredValue > a){
+                            // input.value = "";
+                            document.getElementById('headCount').value = "";
+                            document.getElementById('headCountError').textContent = "Head count cannot exceed limit"; // Set error message
+
+
+                        }
+                        else{
+                            document.getElementById('headCountError').textContent = ""; // Clear error message
                         }
                     }
                 </script>
@@ -341,6 +377,7 @@ const amount = <?php echo json_encode($hall);?>;
 // const amount = 0;
 console.log("amount1", amount);
 console.log(amount[0].amountOneHour);
+let a= amount[0].headCount;
 // console.log(amount1);
 // const amount=amount1[0].amountOneHour;
 
@@ -598,20 +635,47 @@ function updateEndTimeOptions(selectedStartTime) {
 
 
         function checkRequiredFields() {
-            // Get all required fields
-            const requiredFields = document.querySelectorAll('[required]');
+    const requiredFields = document.querySelectorAll('[required]');
+    let isValid = true;
+    const errorMessages = [];
 
-            // Check if all required fields are filled
-            for (const field of requiredFields) {
-                if (!field.value.trim()) {
-                    // Field is empty, return false
-                    return false;
-                }
-            }
+    // Remove any existing error messages
+    const errorElements = document.querySelectorAll('.error');
+    errorElements.forEach(element => element.remove());
 
-            // All required fields are filled, return true
-            return true;
+    // Check if any required fields are empty
+    for (const field of requiredFields) {
+        if (!field.value.trim()) {
+            isValid = false;
+            const errorMessage = field.dataset.error; // Assuming you have stored error messages in data attributes
+            errorMessages.push(errorMessage);
         }
+    }
+
+    // Check if head count exceeds the maximum allowed
+    const headCountInput = document.getElementById('headCount');
+    const maxHeadCount = amount[0].hcount;
+    if (headCountInput && parseInt(headCountInput.value) > maxHeadCount) {
+        isValid = false;
+        const errorMessage = `Head count cannot exceed ${maxHeadCount}.`;
+        errorMessages.push(errorMessage);
+    }
+
+    // Display error messages
+    const errorContainer = document.getElementById('error-container'); // Add an error container element in your HTML
+    if (!isValid) {
+        errorContainer.innerHTML = ''; // Clear previous error messages
+        errorMessages.forEach(message => {
+            const errorElement = document.createElement('div');
+            errorElement.classList.add('error');
+            errorElement.textContent = message;
+            errorContainer.appendChild(errorElement);
+        });
+    }
+
+    return isValid;
+}
+
 
 
         function closeConfirmation() {

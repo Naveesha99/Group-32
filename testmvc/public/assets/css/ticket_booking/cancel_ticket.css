@@ -1,14 +1,19 @@
+@import url("https://fonts.googleapis.com/css?family=Catamaran:400,700");
+
+
 body {
     /* background: linear-gradient(to right, #0f2027, #203a43, #2c5364); */
-    font-family: 'Poppins', sans-serif;
+    /* font-family: 'Poppins', sans-serif; */
+    font-family: catamaran;
     width:100%;
     margin-left: -2px;
-    background-color: #ccc;
+    background-color: #e6dede;
   }
   .allforms{
     font-family: 'Poppins', sans-serif;
     display: flex;
     /* margin-left: -5px; */
+    background-color: e6dede;
     height:100%;
     width: 100%;
   }
@@ -23,7 +28,7 @@ body {
     /* height: 100%; */
   }
   
-  #paymentForm h1 {
+  #paymentForm h2 {
     color: #0f2027;
     text-align: center;
   }
@@ -37,7 +42,7 @@ body {
     height:86.6%
   }
   
-  #paymentForm2 h1 {
+  #paymentForm2 h2 {
     color: #0f2027;
     text-align: center;
   }
@@ -62,7 +67,8 @@ body {
     flex-direction: column;
     font-size: 15px;
     text-align: left;
-    margin-top: 25px;
+    margin-top: 15px;
+    font-family: catamaran;
   }
 
   .input-control1 {

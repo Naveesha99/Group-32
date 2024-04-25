@@ -11,7 +11,8 @@ function pay2(id , table)
 
           payhere.onCompleted = function onCompleted(orderId) 
           {
-            var message = "Your payment is successful. Booking ID: " + orderId + ". Seat reservation information has been sent to you via email. If you have not received it, please let us know on 0112 222 222. Thank you for your reservation";
+            // window.alert("Payment completed. OrderID:" + orderId);
+            var message = "Your payment is successful. Seat reservation information has been sent to you via email. If you have not received it, please let us know on 0112 222 222. Thank you for your reservation";
             showCustomAlert(message, orderId);
             
             var xhttp = new XMLHttpRequest();
@@ -24,6 +25,7 @@ function pay2(id , table)
             // Payment window closed
             payhere.onDismissed = function onDismissed() 
             {
+              // window.alert("Payment dismissed");
                 // Note: Prompt user to pay again or show an error page
                 console.log("Payment dismissed");
             };
