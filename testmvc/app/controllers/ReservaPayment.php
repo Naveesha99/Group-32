@@ -75,18 +75,49 @@ class ReservaPayment
 			// redirect('reservaHall');
 
 			$reservaPayment = new Reservationpayments;
-				// show($_POST);
-			if($reservaPayment->validate($_POST))
-			{
-				// redirect('reservaSentReq');
-				// show($_POST);
-				$reservaPayment->insert($_POST);
-				// redirect('reservaSentReq');
-			}
+			$details=[
+				'reqid'=>$_POST['reqid'],
+				'fullname'=>$_POST['fullname'],
+				'mobile'=>$_POST['mobile'],
+				'email'=>$_POST['email'],
+				'isPaid'=>$_POST['isPaid'],
+			];
+
+			// $findid=[
+			// 	'reqid'=>$_POST['reqid']
+			// ];
+
+			// $existingPayment=$reservaPayment->first($findid);
+
+			// if($existingPayment){
+				// $id=$existingPayment['id'];
+				// $arr=[
+					// 'fullname'=>$_POST['fullname'],
+					// 'mobile'=>$_POST['mobile'],
+					// 'email'=>$_POST['email'],
+				// ];
+				
+				// if($reservaPayment->validate($arr)){
+				// 	$reservaPayment->update($id,$arr);
+				// }
+				// else{
+				// 	$data['errors'] = $reservaPayment->errors;
+				// }
+			// }
+			// else
+			// {
+				if($reservaPayment->validate($details)){
+					$reservaPayment->insert($details);
+				}
+				else{
+					$data['errors'] = $reservaPayment->errors;
+				}
+
 	
-			$data['errors'] = $reservaPayment->errors;			
-		}
+			// $data['errors'] = $reservaPayment->errors;			
+			}
 
         }
 
 	}
+// }
