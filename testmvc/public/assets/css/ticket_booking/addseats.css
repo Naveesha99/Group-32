@@ -1,3 +1,7 @@
+.errors{
+    color: red;
+}
+
 @import url('https://fonts.googleapis.com/css?family=Catamaran:400,700');
 
 * {
@@ -9,14 +13,14 @@
 
 html, body {
     height: 100%;
-    /* overflow: hidden; */
-    background-color: #a97a7a;
+    overflow: hidden;
+    background-color: #fff;
 }
 
 .signup {
     height: 100%;
     width: 100%;
-    /* background-color: #857171; */
+    background-color: #000;
     position: relative;
     display: flex;
     justify-content: center;
@@ -24,9 +28,9 @@ html, body {
 }
 
 .signup_box {
-    width: 1550px;
-    height: 900px;
-    /* background: #7e5656; */
+    width: 1050px;
+    height: 600px;
+    background: #fff;
     border-radius: 10px;
     box-shadow: 1px 4px 22px -8px #0004;
     display: flex;
@@ -36,13 +40,13 @@ html, body {
 .signup_box .left {
     width: 41%;
     padding: 25px 25px;
-    /* background: #965353; */
+    background: linear-gradient(-45deg, #dcd7e0, #fff);
 }
 
 .signup_box .right {
     width: 59%;
     height: 100%;
-    /* background: url(/public/assets/images/background.jpg); */
+    background: url(/public/assets/images/background.jpg);
     background-size: cover;
     color: #fff;
     position: relative;
@@ -50,16 +54,6 @@ html, body {
 
 
 .left .contact {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    align-self: center;
-    height: 100%;
-    width: 73%;
-    /* margin: auto; */
-}
-
-.right .contact {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -80,10 +74,6 @@ html, body {
     background: transparent;
     font-weight: 600;
     font-size: 14px;
-}
-.errors{
-    color: red;
-    font-weight: bold;
 }
 
 .remember-me {

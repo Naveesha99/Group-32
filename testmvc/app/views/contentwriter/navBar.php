@@ -10,6 +10,7 @@
 
 
   <title>Document</title>
+  <!-- <?php echo $_SESSION['USER']->username;?> -->
 </head>
 
 <body>
@@ -43,15 +44,19 @@
         </div>
         <hr>
 
-        <a href="#" class="sub-menu-link">
-          <i class="fa-solid fa-user"></i>
+        <?php
+        $userid = $_SESSION['USER']->id;
+
+       echo  '<a href = "cwEditProfile?id=' .$userid. '" class="sub-menu-link">';
+       ?>
+          <i class="fa-solid fa-wrench"></i>
           <p>Edit Profile</p>
           <span>></span>
         </a>
 
         <a href="<?=ROOT?>/cwProfile" class="sub-menu-link">
-          <i class="fa-solid fa-gear"></i>
-          <p>Settings</p>
+          <i class="fa-solid fa-user"></i>
+          <p>Profile</p>
           <span>></span>
         </a>
 

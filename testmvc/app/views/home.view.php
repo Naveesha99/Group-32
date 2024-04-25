@@ -25,23 +25,79 @@
 
     <div class="container">
         <div class="content-container">
-            <div class="featured-content" style="background: linear-gradient(to bottom, rgba(0,0,0,0), #151515), url('<?= ROOT ?>/assets/images/home/p-2.jpg');">
-                <p class="featured-desc"></p>
-                
-                <!--___________________SEARCH BAR____________________-->
-                <div class="search">
-                        <input type="text" name="" id="find" placeholder="" onkeyup="search()">
-                        <i class="fa-solid fa-magnifying-glass" style="  font-size: 30px; margin-right: 10px; margin-top:3px;"></i>
-                </div>
+            <div class="c1">
 
+            <div class="movie-list-wrapper1">
+                <h1 class="movie-list-title1">NOW SHOWING</h1>
+
+                <?php
+                        // check date is in this week or not
+                        $today = date('Y-m-d');
+
+                        $nextDate1 = date('Y-m-d', strtotime("+0 day", strtotime($today)));
+                        $nextDate2 = date('Y-m-d', strtotime("+1 day", strtotime($today)));
+                        $nextDate3 = date('Y-m-d', strtotime("+2 day", strtotime($today)));
+                        $nextDate4 = date('Y-m-d', strtotime("+3 day", strtotime($today)));
+                        $nextDate5 = date('Y-m-d', strtotime("+4 day", strtotime($today)));
+                        $nextDate6 = date('Y-m-d', strtotime("+5 day", strtotime($today)));
+                        $nextDate7 = date('Y-m-d', strtotime("+6 day", strtotime($today)));
+                ?>
+
+                <?php for ($i = 1; $i <= 7; $i++) { ?>
+                    <div class="dateshowing" id="date<?= $i ?>" style="<?= $i == 1 ? '' : 'display: none;' ?>">
+                        <h3><?= ${'nextDate'.$i} ?></h3>
+                        <?php
+                        foreach ($data2 as $ondate) {
+                            if ($ondate->date == ${'nextDate'.$i}) {
+                                $time_from_db = $ondate->time;
+                                $time_formatted = date("h:i A", strtotime($time_from_db));
+                                ?>
+                                <p><?= $ondate->title ?> - <?= $time_formatted ?></p>
+                        <?php }
+                        } ?>
+                    </div>
+                <?php } ?>
+            </div>
+
+                <div class="featured-content" style="background: linear-gradient(to bottom, rgba(0,0,0,0), #151515), url('<?= ROOT ?>/assets/images/home/p-2.jpg');">
+                    <p class="featured-desc"></p>
+                    
+                    <!--___________________SEARCH BAR____________________-->
+                    <div class="search">
+                            <input type="text" name="" id="find" placeholder="" onkeyup="search()">
+                            <i class="fa-solid fa-magnifying-glass" style="  font-size: 30px; margin-right: 10px; margin-top:3px;"></i>
+                    </div>
+                    <!-- _______________________________________________ -->
+                </div>
             </div>
             <div class="movie-list-container">
-                <h1 class="movie-list-title1">SHOWING</h1>
+
+                
+
+
+
+
+
+<script>
+    function showNextDate(currentDate) {
+        var nextDate = currentDate + 1;
+        if (nextDate > 7) nextDate = 1; // Reset to first date if exceeds 7
+        document.getElementById('date' + currentDate).style.display = 'none';
+        document.getElementById('date' + nextDate).style.display = 'block';
+        setTimeout(function() {
+            showNextDate(nextDate);
+        }, 10000); // Change to 5000ms (5 seconds)
+    }
+
+    // Start the process with the first date
+    showNextDate(1);
+</script>
 
                 <div class="movie-list-wrapper">
                     <?php
                     if (isset($data1) && is_array($data1)) 
                     {
+                        
                         $t = 0;
                         $itemCount = count($data1);
                         $itemsPerRow = 4;
@@ -54,12 +110,12 @@
                             // Display up to 4 items in the current row
                             for ($j=0; $j<$itemsPerRow; $j++) 
                             {
-                                if($i-1-$j>=0){
-
+                                if($i-1-$j>=0)
+                                {
                                 
                                 $x = $data1[$i-1-$j];
                     ?>
-                                <form action="select_drama" method="POST">
+                                <form action="select_drama" class="form1" method="POST">
                                     <div class="movie-list-item">
                                         <img class="movie-list-item-img" src="<?= ROOT ?>/assets/images/drama_img/<?= $x->image ?>" alt=''>
 
@@ -110,8 +166,8 @@
                     <?php
                     }
                     ?>
-                    <!-- <i class="fas fa-chevron-right arrow"></i> -->
                 </div>
+
             </div>
        
         </div>

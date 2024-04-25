@@ -1,82 +1,67 @@
 <?php
 
-class assignTask
+class AssignTask
 {
     use Controller;
 
     public function index()
     {
-        // if (empty($_SESSION['USER'])) {
-        //     // Redirect or handle the case when the user is not logged in
-        //     // For example, you might want to redirect them to the login page.
-        //     redirect('login');
-        //     exit();
-        // }
-
-        date_default_timezone_set('Asia/Colombo');
-        $data = [];
-        $date = isset($_GET['date']) ? $_GET['date'] : date('Y-m-d');
         $task = new Task;
+        $employee = new Employee;
+        $employeeTask = new EmployeeTask;
+        $data['employeetask'] = $employeeTask->findAll();
+        $data['task'] = $task->findAll();
+        $data['employee'] = $employee->findAll();
 
-        if ($date) {
-            $arr['date'] = $date;
+        if (isset($_POST['check'])) {
+            $taskType = $_POST['taskType'];
 
-            $dateTaskData = $task->where($arr);
-
-            if ($dateTaskData) {
-                $data['task'] = $dateTaskData;
-            } else {
-                echo "task not found";
-                exit();
+            foreach ($data['task'] as $row) {
+                if ($row->taskType == $taskType) {
+                    $employeeType = $row->employeeType;
+                }
             }
 
-            $taskID = isset($_GET['id']) ? $_GET['id'] : null;
-            // show((int)$taskID);
-            if ($taskID) {
-                $arr['id'] = $taskID;
-
-                $taskData = $task->where($arr);
-                // show($taskData);
-                if ($taskData) {
-                    $data['selectedTask'] = $taskData;
-                } else {
-                    echo "task not found";
-                    exit();
+            $data['available'] = [];
+            foreach ($data['employee'] as $row) {
+                if ($row->empRoll == $employeeType) {
+                    $empName = $row->empName;
+                    foreach ($data['employeetask'] as $row2) {
+                        if (
+                            $row2->assignEmployee == $empName && $row2->date == $_POST['date'] && ($row2->endTime >= $_POST['startTime'] && $row2->startTime <= $_POST['endTime']) ||
+                            ($_POST['endTime'] >= $row2->startTime && $_POST['startTime'] <= $row2->endTime)
+                        ) {
+                            echo "Employee is not available";
+                        } else {
+                            $data['available'][] = $empName;
+                        }
+                    }
                 }
             }
         }
-
-        if($_SERVER['REQUEST_METHOD'] == 'POST'){
-            $taskData = [
-            'taskType' => $_POST['taskType'],
-            'date' => $_POST['date'],
+        $temp1 = [
+            'taskType' => $taskType,
+            'date' => $_POST['date'], // Use null coalescing operator to avoid errors if $_POST['date'] is not set
             'startTime' => $_POST['startTime'],
-            'endTime' => $_POST['endTime'],
-            'location' => $_POST['location'],
-            'count' => $_POST['count'],
-            'status' => 'assigned'
-            ];
+            'endTime' => $_POST['endTime']
+        ];
 
-            $task->update($_POST['id'], $taskData, 'id');
+        $data['temp1'] = $temp1;
 
-            for($i = 0; $i < count($_POST['assignedEmp']); $i++){
-            $employeeTaskData = [
-                'taskID' => $_POST['id'],
-                'empID' => $_POST['assignedEmp'][$i],
+        if (isset($_POST['submit'])) {
+
+
+            $insertData = [
+                'taskType' => $_POST['taskType'],
                 'date' => $_POST['date'],
                 'startTime' => $_POST['startTime'],
-                'endTime' => $_POST['endTime']
+                'endTime' => $_POST['endTime'],
+                'assignEmployee' => $_POST['assignEmployee'],
+                'location' => $_POST['location']
             ];
-            // show($employeeTaskData);
-
-            $employeetask = new EmployeeTask;
-            $employeetask->insert($employeeTaskData);
-            }
-            redirect('adminemployee');
+            // show($insertData);
+            $employeeTask->insert($insertData);
         }
-
-
-
         $this->view('admin/assignTask', $data);
     }
 }

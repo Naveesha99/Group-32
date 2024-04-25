@@ -26,6 +26,6 @@ if($_SERVER['SERVER_NAME'] == 'localhost')
 
 define('APP_NAME', "My Webiste");
 define('APP_DESC', "Best website on the planet");
-
+define('PUBROOT', dirname(dirname(dirname(__FILE__))).DIRECTORY_SEPARATOR.'public');
 /** true means show errors **/
 define('DEBUG', true);

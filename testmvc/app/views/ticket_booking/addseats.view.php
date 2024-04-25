@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="<?=ROOT?>/assets/css/signup.css" rel="stylesheet">
+  <link href="<?=ROOT?>/assets/css/ticket_booking/addseats.css" rel="stylesheet">
 
 	<title>signup</title>
 </head>
@@ -12,15 +12,24 @@
 		<div class="signup_box">
 			<div class="left">
 				<div class="contact">
-					<form  method="POST">
+					<form  method="POST" action="<?=ROOT?>/addseats"  enctype="multipart/form-data" >
 						<h3 class="sign">ADD DRAMA</h3>
-						<input type="text" name="title" placeholder="title">
-						<input type="text" name="description" placeholder="description">
-						<input type="text" name="image" placeholder="image">
-						<!-- <input type="number" name="price" placeholder="price"> -->
 
-						<!-- <input type="date" name="date" placeholder="date"> -->
-						<!-- <input type="time" name="time" placeholder="time"> -->
+						<input type="text" name="title" placeholder="title">
+						<?php if(isset($data['no_title'])){?>  <div class="errors"><?= $data['no_title'] ?></div> <?php } ?>
+
+
+						<!--<input type="text" name="description" placeholder="description">-->
+						<label for="content" >Content</label>
+						<textarea rows="10" id="content" name="description"></textarea>
+						<?php if(isset($data['no_description'])){?>  <div class="errors"><?= $data['no_description'] ?></div> <?php } ?>
+
+						<label for="image">Image</label>
+                		<input type="file" id="image" name="image" accept="image/*">
+						<?php if(isset($data['no_image'])){?>  <div class="errors"><?= $data['no_image'] ?></div> <?php } ?>
+						<?php if(isset($data['not_all'])){?>  <div class="errors"><?= $data['not_all'] ?></div> <?php } ?>
+
+
 
 						<?php if(!empty($errors)):?>
 							<h5>

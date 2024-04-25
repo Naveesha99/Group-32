@@ -6,6 +6,7 @@ body {
   font-family: "Roboto", sans-serif;
   max-width: 100%;
   overflow-x: hidden;
+  background-color: #e6dede;
 }
 
 .navbar {
@@ -87,7 +88,8 @@ body {
   text-decoration:blue;
   transform: translateY(-1px);
   color: #3498db;
-  opacity: 0.8; /* Reduce opacity on hover */
+  opacity: 0.8; 
+  /* Reduce opacity on hover */
   box-shadow: 0 0 10px rgba(52, 152, 219, 0.8);
   transition: opacity 0.5s, box-shadow 0.5s;
 }
@@ -166,12 +168,12 @@ body {
 }
 
 .container {
-  background-color: #ccc;
+  background-color: #e6dede;
   min-height: calc(100vh - 50px);
   color: rgb(2, 1, 1);
   font-weight: bold;
   transition: 1s ease all;
-  background-color: white;
+  background-color: #e6dede;
 }
 
 .content-container {
@@ -181,7 +183,8 @@ body {
 .featured-content {
   height: 50vh;
   /* padding: 50px; */
-  margin-left: -70px;
+  /* margin-left: -70px; */
+  width: 100%;
 }
 
 .featured-title {
@@ -205,15 +208,45 @@ body {
 }
 
 .movie-list-container {
-  padding: 0 20px;
+  /* padding: 0 20px; */
   margin-top: 20px;
+  display: flex;
+  background-color: #e6dede;
+  margin-left: 0px;
+
+}
+.c1{
+  height: 50%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  margin-top: 48px;
 }
 
 .movie-list-wrapper {
-  position: relative;
+  position:relative;
   overflow: hidden;
+  width: 100%;
+  margin-left: 0%;
+  margin-top: 0px;
+}
+.movie-list-wrapper1 {
+  overflow: hidden;
+  width: 40%;
+  /* margin-left: -40px; */
+  background-color: rgb(131, 83, 59);
+  /* margin-top: 0px; */
+  height: 100%;
+  /* height: 47.5%; */
+  margin-top: 0px;
+  margin-left: -47px;
+
 }
 
+.select-drama .form1{
+  margin-left: -10px;
+  margin-right: -10px;
+}
 .movie-list {
   display: flex;
   align-items: center;
@@ -228,11 +261,16 @@ body {
   width: 300px;  
   /* newly added */
 }
+.movie-list-item:hover{
+  z-index: 1000;
+}
+
 
 .movie-list-item:hover .movie-list-item-img {
-  transform: scale(1.2);
-  margin: 0 30px;
-  opacity: 0.1;
+  transform: scale(1.0);
+  margin: 0 30px;;
+  opacity: 0.6;
+  z-index: 500px;
 }
 
 .movie-list-item:hover .movie-list-item-title{
@@ -250,6 +288,7 @@ body {
 }
 
 .movie-list-item-img {
+  background-color: #141010;
   transition: all 1s ease-in-out;
   width: 300px;
   height: 200px;
@@ -315,6 +354,9 @@ body {
 
 .movie-list-title1{
   font-size: 20px;
+  text-align: center;
+  color: white;
+  margin-top: 10px;
 }
 
 
@@ -366,18 +408,20 @@ body {
 /*__________________Search CSS______________*/
 .search{
   position: fixed;
-  margin-top: 6%;
-  margin-left: 25%;
+  margin-top: 0%;
+  margin-left: 10%;
   width: 50%;
   display: flex;
-  padding: 0px 0px;
+  /* padding: 0px 0px; */
   justify-content: space-between;
   border-radius: 5px;
   background-color: #ffffffbf;
   border-color:aliceblue;
   z-index: 100;
 }
-
+#find{
+  height: 5px;
+}
 .search input{
   width: 60%;
   padding: 5px 16px;
@@ -395,3 +439,49 @@ body {
   color: rgb(235, 238, 235);
   font-weight: 500;
 }
+
+/* ____________________transitions________________________ */
+.dateshowing {
+  /* position: absolute; */
+  /* top: 0;
+  left: 0; */
+  width: 20x;
+  height: 200px;
+  animation: slideDate 5s forwards;
+  color: #f0f0f0;
+  /* overflow:visible; */
+}
+
+.dateshowing h3 {
+  color: #bbbaba;
+  font-size: 24px;
+  /* margin-bottom: 0px; */
+  margin-top: 100px;
+  margin-left: 5%;
+}
+
+.dateshowing p {
+  color: #bbbaba;
+  font-size: 18px;
+  margin-bottom: 5px;
+  margin-left: 5%;
+}
+
+ @keyframes slideDate {
+  0% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+  20% { 
+      opacity: 1;
+      transform: translateY(-100%);
+  }
+  /* 80% {
+      opacity: 1;
+      transform: translateY(100%);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  } */
+} 
