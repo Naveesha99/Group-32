@@ -10,14 +10,15 @@ class CWEditProfile{
 			redirect('cwLogin');
 			exit();
 		}
+        $empEmail = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->email;
 
         $data=[];
         $cwId = isset($_GET['id']) ? $_GET['id'] :null;
         // echo $empId;
-        $cw = new Content_writers;
+        $cw = new User;
 
         if($cwId){
-            $arr1['id'] = $cwId;
+            $arr1['email'] = $empEmail;
             $empData = $cw->where($arr1);
 
             if($empData){
@@ -29,8 +30,8 @@ class CWEditProfile{
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             
             $insertData = [
-                'username' => $_POST['employee_name'],
-                'password' =>  $_POST['password'],
+                'empName' => $_POST['employee_name'],
+                // 'password' =>  $_POST['password'],
             ];
             // show($insertData);
 

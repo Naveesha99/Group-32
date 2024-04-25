@@ -56,12 +56,12 @@ function limitWords($text, $limit)
                         <th>Action</th>
                     </tr>
                 </thead>
-
-                <?php
-                // Check if $data is not false and is an array or object
-                if ($data['result'] && (is_array($data['result']) || is_object($data['result']))) {
-                    foreach ($data['result'] as $row) {
-                        echo '<tr>
+                <tbody>
+                    <?php
+                    // Check if $data is not false and is an array or object
+                    if ($data['result'] && (is_array($data['result']) || is_object($data['result']))) {
+                        foreach ($data['result'] as $row) {
+                            echo '<tr>
                                 <td>' . $row->article_name . '</td>
                                 <td>' . $row->category . '</td>
                                 <td>' . limitWords($row->article_content, 5) . '</td>
@@ -81,11 +81,15 @@ function limitWords($text, $limit)
                                     </span>
                                 </td>
                               </tr>';
+                        }
+                    } else {
+                        echo '<tr><td colspan="9">No data available</td></tr>';
                     }
-                } else {
-                    echo '<tr><td colspan="9">No data available</td></tr>';
-                }
-                ?>
+                    ?>
+
+                </tbody>
+
+
 
             </table>
 

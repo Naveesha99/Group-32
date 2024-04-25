@@ -19,14 +19,15 @@ class CWAddArticle
 			exit();
 		}
 
-        $username = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->username;
+        $username = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->fullname;
         $id = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->id;
+        $empEmail = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->email;
         // echo $id;
 
         $data = [];
 
         $article = new Article;
-        $category = new Category;
+        // $category = new Category;
 
         if (isset($_POST['save_draft'])) {
             $_POST['status'] = 0;
@@ -45,12 +46,23 @@ class CWAddArticle
             $_POST['status'] = 1;
             $_POST['progress'] ='pending';
 
-
+            // show($_POST);
+            $insertData =[
+                'article_name' => $_POST['article_name'],
+                'category' => $_POST['category'],
+                'article_content' => $_POST['article_content'],
+                'image' => $_POST['image'],
+                'status' => $_POST['status'],
+                'progress' => $_POST['progress'],
+                'cwName' => $_POST['cwName'],
+                'cw_id' => $_POST['cw_id']
+            ];
+            show($insertData);
 
             
-            if ($article->validate($_POST)) {
-                $category->insert($_POST);
-                $article->insert($_POST);
+            if ($article->validate($insertData)) {
+                // $category->insert($_POST);
+                $article->insert($insertData);
                 // $this->$article['catId'] =$this->$category['id'];
                 redirect('cwArticleReview');
             }
