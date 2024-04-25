@@ -13,10 +13,10 @@
         <h1>Edit profile</h1>
         <form method="post">
             <label for="employee_name">Employee Name:</label>
-            <input type="text" id="employee_name" name="employee_name" value="<?=$data['contentwriter'][0]->username?>" required>
+            <input type="text" id="employee_name" name="employee_name" value="<?=$data['contentwriter'][0]->fullname?>" required>
 
-            <label for="password">Password:</label>
-            <input type="text" id="password" name="password" value="<?=$data['contentwriter'][0]->password?>" required>
+            <!-- <label for="password">Password:</label>
+            <input type="text" id="password" name="password" value="<?=$data['contentwriter'][0]->password?>" required> -->
 
             <button type="submit" name="submit">SUBMIT</button>
 

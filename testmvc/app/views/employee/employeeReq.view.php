@@ -30,10 +30,10 @@ function limitWords($text, $limit)
     <div class="container">
         <div class="cardBox">
             <div class="card">
-            <a href="<?= ROOT ?>/EmployeeRequestForm">
-                <div>
-                    <div class="cardName">Request to Leave</div>
-                </div>
+                <a href="<?= ROOT ?>/EmployeeRequestForm">
+                    <div>
+                        <div class="cardName">Request to Leave</div>
+                    </div>
             </div>
 
             <div class="card">
@@ -56,21 +56,21 @@ function limitWords($text, $limit)
                         <th>Option</th>
                     </tr>
                 </thead>
-
-                <?php
-                if($data &&(is_array($data))) {
-                    foreach($data as $row){
-                        echo '<tr>
+                <tbody>
+                    <?php
+                    if ($data && (is_array($data))) {
+                        foreach ($data as $row) {
+                            echo '<tr>
                         <td>' . $row->leave_type . ' </td>
                         <td>' . $row->start_date . ' </td>
                         <td>' . $row->end_date . ' </td>
-                        <td>' . limitWords($row->reason,5) . ' </td>
+                        <td>' . limitWords($row->reason, 5) . ' </td>
                         <td>' . $row->state . '</td>
                         <td>
                                 <span class="action_btn">';
 
-                                if($row->state === 'pending'){
-                                    echo '<a href = "employeeReqView?id=' . $row->id . '" class = "btn-view">View</a>
+                            if ($row->state === 'pending') {
+                                echo '<a href = "employeeReqView?id=' . $row->id . '" class = "btn-view">View</a>
 
                                         
                                     <a href = "empEditRequest?id=' . $row->id . '" class = "btn-update">Edit </a>
@@ -80,21 +80,25 @@ function limitWords($text, $limit)
                                         <input type="hidden" name="delete_request" value="' . $row->id . '">
                                         <button type="submit" name="Delete" class="btn-delete">Delete</button>
                                     </form>';
-                                } else{
-                                    echo '<a href = "employeeReqView?id=' . $row->id . '" class = "btn-view">View</a>
+                            } else {
+                                echo '<a href = "employeeReqView?id=' . $row->id . '" class = "btn-view">View</a>
                                     <button class ="btn-update" disabled>Edit</button>
                                     <button class ="btn-delete" disabled>Delete</button>';
-                                }
-                                        
-                                    
-                                echo '</span>
+                            }
+
+
+                            echo '</span>
                         </td>
                         </tr>';
+                        }
+                    } else {
+                        echo '<tr><td colspan="9">No data available</td></tr>';
                     }
-                }else {
-                    echo '<tr><td colspan="9">No data available</td></tr>';
-                }
-                ?>
+                    ?>
+
+                </tbody>
+
+
             </table>
         </div>
 

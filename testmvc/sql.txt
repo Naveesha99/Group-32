@@ -83,3 +83,6 @@ CREATE TABLE profiles(
 ALTER TABLE articles
 ADD hide INT NOT NULL DEFAULT 0,
  ADD CONSTRAINT CHK_hide CHECK (hide IN (0, 1));
+
+ ALTER TABLE employee_requests
+ADD FOREIGN KEY(emp_id) REFERENCES employee(id) ON DELETE CASCADE

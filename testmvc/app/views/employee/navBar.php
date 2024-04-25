@@ -49,7 +49,7 @@
             echo '<img src="' . ROOT . '/assets/images/Upload/profiledefault.jpeg">';
           }
           ?>
-          <h3><?php echo $_SESSION['USER']->empName; ?></h3>
+          <h3><?php echo $_SESSION['USER']->fullname; ?></h3>
         </div>
         <hr>
         <?php

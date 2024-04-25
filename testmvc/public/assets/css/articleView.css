@@ -21,7 +21,7 @@ body{
 
 .wrapper{
   padding: 100px 50px;
-  margin: 150px auto;
+  margin: 100px auto;
   width: 70%;
   background-color: #f2f2f2;
   border-radius: 20px;
@@ -54,4 +54,38 @@ body{
 .text-box p{
   font-size: 16px;
   padding: 6px;
+}
+
+ #iconheart{
+  color: yellow;
+  position: absolute;
+  top: 6px; 
+  left: 300px; 
+  font-size: 1.3em; 
+  font-weight: 200;
+  transition: all 0.3s cubic-bezier(0.41, 0.15, 0.36, 1);
+  cursor: pointer;
+}
+
+#iconheart:hover{
+  transform: scale(1.2);
+}
+
+.wrapper .like-count {
+  color: rgb(105, 11, 11);
+  position: absolute;
+  top: 2px; 
+  right: 3px; 
+  font-size: 1.3em; 
+  font-weight: 200;
+  transition: all 0.3s cubic-bezier(0.41, 0.15, 0.36, 1);
+  cursor: pointer;/* Adjust the margin as needed */
+}
+
+.selected {
+  width:20px;
+  height:20px;
+  border-radius: 20px;
+  color: white;
+  background-color: red;
 }

@@ -16,7 +16,7 @@
         <form method="POST">
 
             <label for="employee_name">Employee Name:</label>
-            <input type="text" id="employee_name" name="employee_name" required>
+            <input type="text" id="employee_name" name="employee_name" value="<?=$_SESSION['USER']->fullname?>" required>
 
             <label for="leave_type">Leave Type:</label>
             <select id="leave_type" name="leave_type" required>

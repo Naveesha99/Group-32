@@ -17,14 +17,15 @@ class EmployeeSetting
         }
 
         $empid = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->id;
-        $empname = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->empName;
+        $empname = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->fullname;
+        $empEmail = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->email;
 
 
         $emp = new Employee;
         $profiles = new Profiles;
 
         if ($empid) {
-            $arr1['id'] = $empid;
+            $arr1['empEmail'] = $empEmail;
             $empData = $emp->where($arr1);
             // $arr2['userid'] = $empid;
             // $profileData = $profiles ->where($arr2);

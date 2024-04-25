@@ -17,13 +17,14 @@ class CWProfile
 		}
 
 		$cwId = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->id;
-		$cwname = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->username;
+		$cwname = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->fullname;
+		$empEmail = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->email;
 
-		$emp = new Content_writers;
+		$emp = new Employee;
 		$profiles =  new Profiles;
 
 		if ($cwId) {
-			$arr1['id'] = $cwId;
+			$arr1['empEmail'] = $empEmail;
 			$empData = $emp->where($arr1);
 			if ($empData) {
 				$result = $empData;
