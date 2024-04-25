@@ -109,8 +109,8 @@ value="+New Order"> -->
                     <tbody>
 
 <?php
-if ($data && (is_array($data) || is_object($data))) : ?>
-    <?php foreach ($data as $row) : ?>
+if ($data['reservationRequests'] && (is_array($data['reservationRequests']) || is_object($data['reservationRequests']))) : ?>
+    <?php foreach ($data['reservationRequests'] as $row) : ?>
         <tr>
             <td class="tbl-id"> <?php echo $row->id ?> </td>
             <td><?php echo $row->hallno ?></td>
@@ -140,21 +140,36 @@ if ($data && (is_array($data) || is_object($data))) : ?>
                         <a href="#" disabled>Delete</a>
                     <?php endif; ?>
 
-                    <?php if ($row->status == "accepted") : ?>
-                        <form action="ReservaPayment" method="get" style="display:inline;">
-                                <input type="hidden" name="id" value="<?php echo htmlspecialchars($row->id) ?>">
-                                <input type="hidden" name="hall" value="<?php echo htmlspecialchars($row->hallno) ?>">
-                                <input type="hidden" name="hours" value="<?php echo htmlspecialchars($row->hours) ?>">
-                                <input type="hidden" name="amount" value="<?php echo htmlspecialchars($row->amount) ?>">
-                                <input type="hidden" name="hcount" value="<?php echo htmlspecialchars($row->headCount) ?>">
-                                <input type="hidden" name="date" value="<?php echo htmlspecialchars($row->date) ?>">
-                                <input type="hidden" name="startTime" value="<?php echo htmlspecialchars($row->startTime) ?>">
-                                <input type="hidden" name="endTime" value="<?php echo htmlspecialchars($row->endTime) ?>">
-                                <input type="hidden" name="sounds" value="<?php echo htmlspecialchars($row->sounds) ?>">
-                                <input type="hidden" name="standings" value="<?php echo htmlspecialchars($row->standings) ?>">
-                                <button type="submit" class="payNow">PayNow</button>
-                            </form>
 
+                    <?//php foreach($data['from'])?>
+
+
+                    <?php if ($row->status == "accepted") : ?>
+                        <?php $paymentFound = false; ?>
+                        <?php foreach($data['fromPymentTable'] as $row2): ?>
+                            <?php if(($row2->reqid==$row->id) && ($row2->ispaid == 1)) : ?>
+                                <?php $paymentFound = true; ?>
+                                <button type="button" class="payNow" disabled style="background-color: #6263a7; color: white; cursor:not-allowed;">&nbsp;&nbsp;&nbsp;Paid&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                                <?php break; ?>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                        <?php if (!$paymentFound) : ?>
+
+                                <form action="ReservaPayment" method="get" style="display:inline;">
+                                    <input type="hidden" name="id" value="<?php echo htmlspecialchars($row->id) ?>">
+                                    <input type="hidden" name="hall" value="<?php echo htmlspecialchars($row->hallno) ?>">
+                                    <input type="hidden" name="hours" value="<?php echo htmlspecialchars($row->hours) ?>">
+                                    <input type="hidden" name="amount" value="<?php echo htmlspecialchars($row->amount) ?>">
+                                    <input type="hidden" name="hcount" value="<?php echo htmlspecialchars($row->headCount) ?>">
+                                    <input type="hidden" name="date" value="<?php echo htmlspecialchars($row->date) ?>">
+                                    <input type="hidden" name="startTime" value="<?php echo htmlspecialchars($row->startTime) ?>">
+                                    <input type="hidden" name="endTime" value="<?php echo htmlspecialchars($row->endTime) ?>">
+                                    <input type="hidden" name="sounds" value="<?php echo htmlspecialchars($row->sounds) ?>">
+                                    <input type="hidden" name="standings" value="<?php echo htmlspecialchars($row->standings) ?>">
+                                    <button type="submit" class="payNow">PayNow</button>
+                                </form>
+                                
+                        <?php endif; ?>
                     <?php else : ?>
                         <button type="button" class="payNow" disabled>PayNow</button>
                     <?php endif; ?>
