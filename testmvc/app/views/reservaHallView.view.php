@@ -120,19 +120,23 @@
     <!-- <?//php show($data['reqs']); ?> -->
 
 <?php
+if (is_array($data['reqs'])) {
 // Sort the $data array based on the review_date in descending order
 usort($data['reqs'], function($a, $b) {
     return strtotime($b->review_date) - strtotime($a->review_date);
 });
+}
 ?>
 
 <?php ?>
 
 
     <?//php foreach ($data as $object) : ?>
+<?php if (is_array($data['reqs']) || is_object($data['reqs'])) : ?>
+
     <?php    foreach ($data['reqs'] as $object): ?>
 
-        <?php if (($object->hallno === 'HALL01')&&($object->review != NULL)) : ?>
+        <?php if (($object->hallno === $halls[0]->hallno)&&($object->review != NULL)) : ?>
             <div class="rev">
                 <div class="rev-i">
                     <!-- <div class="d-flex align-items-center mb-2"> -->
@@ -159,6 +163,7 @@ usort($data['reqs'], function($a, $b) {
             </div>
         <?php endif; ?>
     <?php endforeach; ?>
+<?php endif; ?>
 </div>
 
 
