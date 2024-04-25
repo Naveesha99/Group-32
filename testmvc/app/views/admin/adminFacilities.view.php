@@ -24,9 +24,11 @@ if(isset($_POST['submitFacility'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="<?= ROOT ?>/assets/css/adminFacilities.css"> --><!-- <link rel="stylesheet" href="<?= ROOT ?>/assets/css/reservaRating.css"> --><!-- <link rel="stylesheet" href="<?= ROOT ?>/assets/css/newcss.css"> -->
+    <!-- <link rel="stylesheet" href="<?= ROOT ?>/assets/css/admintables.css"> -->
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/adminFacilities.css">
-    <!-- <link rel="stylesheet" href="<?= ROOT ?>/assets/css/reservaRating.css"> -->
-    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/newcss.css">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/reservaRating.css">
+
 
     <title>Admin Employee</title>
 </head>
@@ -63,9 +65,9 @@ if(isset($_POST['submitFacility'])){
                 <div class="employees">
                     <div class="title">
                         <h2>Facilities</h2>
-                        <!-- <a href="<?= ROOT ?>/adminFacilities" class="btn">View All</a> -->
+
                     </div>
-                    <!-- <table>
+                     <table>
                         <tr>
                             <th>Id</th>
                             <th>Icon</th>
@@ -75,37 +77,40 @@ if(isset($_POST['submitFacility'])){
                         <!-- <td><img src="' . $row->icon . '" alt="Facility Icon"></td> -->
 
                         <?php
-                    //     if(is_array($data['facility'])) {
-                    //         foreach ($data['facility'] as $row) {
+                        if(is_array($data['facility'])) {
+                            foreach ($data['facility'] as $row) {
                                
-                    //         echo '<tr>
-                    //                 <td>' . $row->id . '</td>
-                    //                 <td><img src="' .ROOT . '/assets/images/upload/facilities/' . $row->icon . '" alt="Facility Icon"></td>
-                    //                 <td>' . $row->name . '</td>
-                    //                 <td>
-                    //                     <span class="button">
+                            echo '<tr>
+                                    <td>' . $row->id . '</td>
+                                    <td><img src="' .ROOT . '/assets/images/upload/facilities/' . $row->icon . '" alt="Facility Icon"></td>
+                                    <td>' . $row->name . '</td>
+                                    <td>
+                                        <span class="button">
 
-                    //                         <a class="btn" href="#" class="view-btn">View</a>
-                    //                         <a class="btn" href="#" class="view-btn">Edit</a>
+                                            <a class="btn" href="#" class="view-btn">View</a>
+                                            <a class="btn" href="#" class="view-btn">Edit</a>
 
-                    //                         <form action="adminFacilities" method="post" style="display:inline;">
-                    //                             <input type="hidden" name="id" value="' . htmlspecialchars($row->id) . '">
-                    //                             <input type="hidden" name="hall" value="' . htmlspecialchars($row->icon) . '">
-                    //                             <input type="hidden" name="hall" value="' . htmlspecialchars($row->name) . '">
-                    //                             <button class="btn-edit"> Edit </button>
-                    //                         </form>
+                                            <form action="adminFacilities" method="post" style="display:inline;">
+                                                <input type="hidden" name="id" value="' . htmlspecialchars($row->id) . '">
+                                                <input type="hidden" name="hall" value="' . htmlspecialchars($row->icon) . '">
+                                                <input type="hidden" name="hall" value="' . htmlspecialchars($row->name) . '">
+                                                <button class="btn-edit"> Edit </button>
+                                            </form>
                                             
-                    //                         <a class="btn" href="#">Delete</a>
-                    //                     </span>
-                    //                 </td>
-                    //             </tr>';
-                    //     }
-                    // }
+                                            <a class="btn" href="#">Delete</a>
+                                        </span>
+                                    </td>
+                                </tr>';
+                        }
+                    }
                         ?>
-                <!--    </table> -->
+                    </table> 
+                    </div>
+            </div>
+        </div>
+    </div>
 
-
-<div class="details">
+<!-- <div class="details">
                 <div class="recentOrders">
                     <div class="cardHeader">
                         <h2>Users</h2>
@@ -151,15 +156,10 @@ if(isset($_POST['submitFacility'])){
 
                     </div>
                 </div>
-                </div>
+                </div> -->
 
 
 
-
-                </div>
-            </div>
-        </div>
-    </div>
 
 
     <div id="myModal1" class="modal1" style="display: none;">
