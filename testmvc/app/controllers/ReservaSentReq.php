@@ -15,24 +15,23 @@ class ReservaSentReq
 			exit();
 		}
 
-		// $data = [];
 		$sentReq=new ReservationRequests;
-		$result=$sentReq->findAll();
+		// $result=$sentReq->findAll();
+		$find=[
+			'reservationistId'=>$_SESSION['USER']->id
+		];
+		
+		$result=$sentReq->where($find);
 		$data=$result;
-		// show($data);
+		// $data=$result;
 		$this->view('reservaSentReq',$data);
 
 		// if (isset($_POST['id'])) {
 		// 	$articleId = $_POST['id'];
 		// 	$this->requestDelete($articleId, $article);
-		// }
+		// 
 	}
 
-	// private function articleDelete($data, $article)
-	// {
-	// 	$article->delete($data, 'id');
-	// 	redirect("cwArticleDisplay");
-	// }
 
 	public function review($data) {
 		$currentDateTime = date('Y-m-d H:i:s');
