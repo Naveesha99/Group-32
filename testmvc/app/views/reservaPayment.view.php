@@ -6,6 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="<?= ROOT ?>/assets/css/reservaPaymentNew.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- <link href="<?= ROOT ?>/assets/css/reservaPayment.css" rel="stylesheet"> -->
+
     <script type="text/javascript" src="https://www.payhere.lk/lib/payhere.js"></script>
     <!-- <script ype="text/javascript" src="<?= ROOT ?>/assets/js/payhere.js"></script> -->
     <!-- <script src="/js/ReservaHall1.js"></script> -->
@@ -29,44 +34,41 @@
     } ?>
 
 <body>
-  <div class="container">
-    <div class="model">
+ <!-- <div class="container"> -->
+    <!-- <div class="model">
       <div class="room">
         <div class="text-cover">
           <h1>Request Id : </h1>
-          <h1 class="id"> <?php echo $data['detailsofReq']['id']; ?></h1>
-          <h1 class="Hallid"> <?php echo $data['detailsofReq']['hall']; ?></h1>
-          <p class="price">Rs.<?php echo $detailsofhall[0]->amountOneHour;?> / One Hour  </p>
+          <h1 class="id"> <?//php echo $data['detailsofReq']['id']; ?></h1>
+          <h1 class="Hallid"> <?//php echo $data['detailsofReq']['hall']; ?></h1>
+          <p class="price">Rs.<?//php echo $detailsofhall[0]->amountOneHour;?> / One Hour  </p>
           <hr>
-            <p class="hall">Entire Hall for <span class="hcount"><?php echo $data['detailsofReq']['hcount']; ?></span> guest</p>
-            <p> <?php echo $data['detailsofReq']['date']; ?> 
+            <p class="hall">Entire Hall for <span class="hcount"><?//php echo $data['detailsofReq']['hcount']; ?></span> guest</p>
+            <p> <?//php echo $data['detailsofReq']['date']; ?> 
             </p>
-            <p>From <?php echo $data['detailsofReq']['startTime']; ?> To <?php echo $data['detailsofReq']['endTime']; ?></p>
+            <p>From <?//php echo $data['detailsofReq']['startTime']; ?> To <?//php echo $data['detailsofReq']['endTime']; ?></p>
           </div>
-        </div>
-
-      <div class="payment">
-        <div class="receipt-box">
+        </div> -->
+      <!-- <div class="payment"> -->
+        <!-- <div class="receipt-box">
           <h3>Reciept Summary</h3>
           <table class="table">
             <tr>
               <td class="detail1">
-              <?php echo $detailsofhall[0]->amountOneHour;?> * <?php echo $data['detailsofReq']['hours']; ?>
+              <?//php echo $detailsofhall[0]->amountOneHour;?> * <?//php echo $data['detailsofReq']['hours']; ?>
               </td>
             </tr>
-        
             <tfoot>
               <tr>
                 <td>Sum</td>
                 <td class="sum"> Rs.
-                <?php echo $data['detailsofReq']['amount']; ?>
-                  <!-- $180 -->
+                <?//php echo $data['detailsofReq']['amount']; ?>
                 </td>
               </tr>
             </tfoot>
           </table>
-        </div>
-        <div class="payment-info">
+        </div> -->
+        <!-- <div class="payment-info">
           <h3>Pesonal Info</h3>
             <form>
               <label>Name</label>
@@ -74,13 +76,13 @@
               <label>Mobile Number</label>
               <input type="text" name="lastname" value=" ">
               <br><br>
-              <?php $data1['id']= $data['detailsofReq']['id']; ?>
-              <input class="btn" onclick="pay2(<?php echo $data1['id']; ?>)" value="Book Securly">
+              <?//php $data1['id']= $data['detailsofReq']['id']; ?>
+              <input class="btn" onclick="pay2(<?//php echo $data1['id']; ?>)" value="Book Securly">
             </form>
-        </div>
-      </div>
-    </div>
-  </div>
+        </div> -->
+      <!-- </div> -->
+    <!-- </div> -->
+  <!-- </div>  -->
 
 
 
@@ -96,11 +98,12 @@
 
 
   <body>
+    <!-- <?//php show($data['detailsofReq']=>); ?> -->
   <section class="booking-container">
     <header class="booking-title">Complete Your Booking</header>
     <section class="booking-details">
       <div class="hall-details">
-        <!-- <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/625cea8462c5892500036276520148e15ec393fd0b520fbdb94938f4027b7a6a?apiKey=dea1212f91cd47c4a8da71d9bc446936&" alt="Community Hall" class="hall-image" /> -->
+        <img loading="lazy" src="<?= ROOT ?>/assets/images/ImgHall.png" alt="Community Hall" class="hall-image" />
         <div class="hall-info">
           <div class="hall-name"><?php echo $data['detailsofReq']['hall']; ?></div>
           <p class="price">Rs.<?php echo $detailsofhall[0]->amountOneHour;?> / One Hour  </p>
@@ -109,23 +112,37 @@
           <div>Address: 1 Hacker Way, Menlo Park, CA 94025</div>
         </div>
       </div>
-      <div class="booking-price"> <?php echo $data['detailsofReq']['amount']; ?> </div>
-    </section>
+      <!-- <div class="booking-price"> <?//php echo $data['detailsofReq']['amount']; ?> </div> -->
+    </section> 
     <section class="session-details">
-      <div>Date: <?php echo $data['detailsofReq']['date']; ?>  </div>
-      <div>Time: <?php echo $data['detailsofReq']['startTime']; ?> <?php echo $data['detailsofReq']['endTime']; ?> </div>
-      <div>Duration:<?php echo $data['detailsofReq']['hours']; ?></div>
-      <div>Hall ID:<?php echo $data['detailsofReq']['hall']; ?> </div>
+      <div class="a">Date: <div class="b"><?php echo $data['detailsofReq']['date']; ?> </div> </div>
+      <div class="a">Time: <div class="b"><?php echo $data['detailsofReq']['startTime']; ?> - <?php echo $data['detailsofReq']['endTime']; ?> </div></div>
+      <div class="a">Duration: <div class="b"><?php echo $data['detailsofReq']['hours']; ?> hrs</div></div>
+      <div class="a">Hall Name: <div class="b"><?php echo $data['detailsofReq']['hall']; ?> </div></div>
     </section>
+
     <section class="guests-details">
-      <div>Guests: <?php echo $data['detailsofReq']['hcount']; ?></div>
+      <div class="a">Guests:  <div class="b"><?php echo $data['detailsofReq']['hcount']; ?></div></div>
+      <div class="a">Standings:  <div class="b"><?php echo $data['detailsofReq']['standings']; ?></div></div>
+      <div class="a">Sounds:  <div class="b"><?php echo $data['detailsofReq']['sounds']; ?></div></div>
+    </section>
+
+    <!-- <section class="session-details">
+      <div>Date: <?//php echo $data['detailsofReq']['date']; ?>  </div>
+      <div>Time: <?//php echo $data['detailsofReq']['startTime']; ?> - <?//php echo $data['detailsofReq']['endTime']; ?> </div>
+      <div>Duration: <?//php echo $data['detailsofReq']['hours']; ?> hrs</div>
+      <div>Hall Name: <?//php echo $data['detailsofReq']['hall']; ?> </div>
+    </section> -->
+
+    <!-- <section class="guests-details">
+      <div>Guests: <?//php echo $data['detailsofReq']['hcount']; ?></div>
       <div>Standings: Yes</div>
       <div>Sounds: Yes</div>
-    </section>
-    <section class="promo-code-section">
+    </section> -->
+    <!-- <section class="promo-code-section">
       <div>Add a promo code</div>
-      <!-- <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/2907024eb1cf3988fc9da497ef2666e39917755e18de83929e9d978b69a8ba41?apiKey=dea1212f91cd47c4a8da71d9bc446936&" alt="" class="promo-icon" /> -->
-    </section>
+      <img loading="lazy" src="<?= ROOT ?>/assets/images/searchIcon.png" alt="" class="promo-icon" />
+    </section> -->
 
     <section>
         <div class ="dea">
@@ -143,6 +160,32 @@
     </section>
     <div class="payment-button">Proceed to Payment</div>
   </section>
+
+        <div class="details">
+          <div class="payment-info">
+            <h3>Pesonal Info</h3>
+            <!-- <form> -->
+            <form  method="POST"  class="form-checkout" id="Form" >
+
+              <input type="number" name="reqid" value="<?php echo $data['detailsofReq']['id']; ?>">
+              <input type="number" name="ispaid" value="0">
+
+              <label>Full Name</label>
+              <input type="text" name="fullname" value=" ">
+
+              <label>Mobile Number</label>
+              <input type="text" name="mobile" value=" ">
+
+              <label>Email</label>
+              <input type="text" name="email" value=" ">
+              <br><br>
+              <?php $data1['id']= $data['detailsofReq']['id']; ?>
+              <!-- <input class="btn" onclick="pay2(<?php echo $data1['id']; ?>)" value="Book Securly"> -->
+              <button type="submit" >Book Securly</button>
+
+            </form>
+          </div>
+        </div>
 
 <body>
 
@@ -231,14 +274,17 @@
 <?//php echo $data[]; ?>
 
 <script>
+  
   // const detailsofhall = <?//php echo json_encode($detailsofhall);?>;
   const detailsofReq = <?php echo json_encode($detailsofReq);?>;
   console.log("detailsofhall");
   // console.log(detailsofhall);
   console.log("detailsofReq");
   console.log(detailsofReq);
+  console.log(detailsofReq['id']);
+
   // document.querySelector('.price').innerText = detailsofhall[0].amountOneHour;
-  document.querySelector('.hcount').innerText = detailsofReq.hcount;
+  // document.querySelector('.hcount').innerText = detailsofReq.hcount;
 
 var model = document.querySelector(".model");
 
@@ -250,16 +296,20 @@ function fadeIn () {
 // __________________PAYMENTGETWAY____________________________
 function pay2(id)
 {
+  // console.log("pay2");
+  // console.log(id);
+  let id1=id;
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = ()=>{
       if(xhttp.readyState == 4 && xhttp.status == 200)
       {
-          alert(xhttp.responseText);
+          // alert(xhttp.responseText);
           var obj = JSON.parse(xhttp.responseText);
           // Payment completed. It can be a successful failure.
           payhere.onCompleted = function onCompleted(orderId) 
           {
-            console.log("Payment completed. OrderID:" + orderId);
+            // console.log("Payment completed. OrderID:" + obj["order_id"] +""+ orderId);
+            paymentSuccess(orderId);
          // Note: validate the payment and show success or failure page to the customer
           };
 
@@ -302,14 +352,67 @@ function pay2(id)
       "custom_1": "",
       "custom_2": ""
   };
-
        payhere.startPayment(payment);
       }
   };
   xhttp.open("GET","pay3?id=" + id,true);
   xhttp.send();
+  //END paymentgatway
 }
 // _________________________________________________________________
+
+
+function paymentSuccess(orderId){
+
+  console.log("Payment completed. OrderID:" + orderId);
+
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = ()=>{
+      if(xhttp.readyState == 4 && xhttp.status == 200)
+      {
+          alert(xhttp.responseText);
+          var obj = JSON.parse(xhttp.responseText);
+          console.log("sdfsdfsdf"+obj);
+
+          window.location.href = "<?php echo ROOT ?>/reservaQR?pay_id=" + orderId;
+      }
+  };
+  xhttp.open("GET","pay3?pay_id=" + orderId,true);
+  xhttp.send();
+}
+</script>
+
+
+
+
+
+
+
+
+<script>
+
+//ajax for updating order
+let updateOrderForm = document.querySelector(".form-checkout");
+        updateOrderForm.addEventListener('submit', function(event){
+            event.preventDefault();
+            let formData = new FormData(updateOrderForm);
+            let xhr = new XMLHttpRequest();
+            xhr.open("POST", "<?php echo ROOT ?>/reservaPayment", true);
+            xhr.onload = function() {
+                if(this.status == 200) {
+                        console.log("Order updated successfully");
+                        console.log(detailsofReq['id']);
+                        var id=detailsofReq['id'];
+                        // $data['detailsofReq']['id'];
+                        // pay2(<?//php echo $data['detailsofReq']['id']; ?>);
+                        
+                        pay2(id);
+                }
+            }
+
+            xhr.send(formData);
+              
+        });
 
 
 </script>
