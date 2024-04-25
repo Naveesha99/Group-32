@@ -18,9 +18,14 @@
 					<form method="POST">
 						<h3 class="log">LOG IN</h3>
 						<input type="text" name="email" placeholder="E-Mail">
+						<?php if (!empty($errors)) : ?>
+							<span style="color: red; font-weight: bold; padding: 10px; margin-bottom: 10px;">
+								<?= implode('<br>', $errors) ?>
+							</span>
+						<?php endif; ?>
 						<input type="password" name="password" placeholder="PASSWORD">
 						<?php if (!empty($errors)) : ?>
-							<span class="error-msg">
+							<span style="color: red; font-weight: bold; padding: 10px; margin-bottom: 10px;">
 								<?= implode('<br>', $errors) ?>
 							</span>
 						<?php endif; ?>
