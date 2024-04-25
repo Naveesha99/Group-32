@@ -210,10 +210,10 @@
     <!-- <h2 class="logo">Coding Pakistan</h2> -->
     <img src="<?= ROOT ?>/assets/images/Logo.png" class="logo">
     <ul>
-      <li> <a href="#"> HOME </a></li>
+      <li> <a href="<?=ROOT?>/home">HOME </a></li>
       <li> <a href="#"> TICKETS </a></li>
       <li> <a href="<?=ROOT?>/reservaHall"> HALLS </a></li>
-      <li> <a href="#"> BLOGS </a></li>
+      <li> <a href="<?=ROOT?>/dramaportal"> BLOGS </a></li>
       <li> <a href="<?=ROOT?>/contactus"> CONTACT US </a></li>
 
     </ul>
@@ -229,7 +229,7 @@
 
           <?php 
           if (isset($_SESSION['USER'])) {
-            echo ucfirst($_SESSION['USER']->username); 
+            echo ucfirst($_SESSION['USER']->fullname); 
           } else {
             show('No session');
           }

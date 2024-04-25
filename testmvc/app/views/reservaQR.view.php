@@ -87,6 +87,10 @@
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
+
+            // window.location.href = 'https://example.com'; // Change this URL to the desired page
+            window.location.href = "<?php echo ROOT ?>/reservasentreq";
+
         }
     }
 
