@@ -357,6 +357,7 @@ body {
   text-align: center;
   color: white;
   margin-top: 10px;
+  z-index: 450;
 }
 
 
@@ -417,27 +418,24 @@ body {
   border-radius: 5px;
   background-color: #ffffffbf;
   border-color:aliceblue;
-  z-index: 100;
+  text-align: center;
 }
 #find{
+  margin-top: 10px;
   height: 5px;
 }
 .search input{
-  width: 60%;
-  padding: 5px 16px;
   background: transparent;
   border: 1px solid #ffffff00;
-  font-size: 20px;
+  font-size: 11px;
   text-transform: capitalize;
   letter-spacing: 3px;
   outline: none;
-  font-weight: bold;
   color: #141010;
 }
 
 .search input::placeholder{
   color: rgb(235, 238, 235);
-  font-weight: 500;
 }
 
 /* ____________________transitions________________________ */
