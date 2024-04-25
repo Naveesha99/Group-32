@@ -1,5 +1,5 @@
 body {
-  background: #ccc;
+  background: #e6dede;
   font-family: 'Poppins', sans-serif;
 }
 
@@ -14,31 +14,35 @@ body {
     width: 45%;
     margin-left: 10px;
     padding: 40px;
-    background-color: #ccc;
-    border-radius: 4px;
+    background-color: #ffffff;
+    /* border-radius: 4px; */
     font-size: 16px;
     margin-top: 5%;
     margin-left: 10px;
     align-content: center;
     display: flex;
     justify-content:space-around;
+    border:  solid #bbb5b5;
+    /* text-align: justify; */
 }
 #paymentForm {
   height:580px;
   width: 40%;
   margin: 0 auto 0 auto;
   padding: 40px;
-  background-color: #ccc;
-  border-radius: 4px;
+  background-color: #ffffff;
+  /* border-radius: 4px; */
   font-size: 16px;
   margin-top: 5%;
   margin-left: 2%;
   align-items: center;
+  border:  solid #bbb5b5;
 }
 
-#paymentForm h1 {
+#paymentForm h2 {
   color: #0f2027;
-  text-align: center;
+  text-align: justify;
+  margin-left: 7%;
 }
 
 .registerbtn1{

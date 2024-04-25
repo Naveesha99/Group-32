@@ -1,12 +1,17 @@
 /* reservationist-request.css */
-@import url('https://fonts.googleapis.com/css?family=Catamaran:400,700');
+@import url("https://fonts.googleapis.com/css?family=Catamaran:400,700");
+
 body {
-    font-family: Cambria, Cochin, Georgia, Times, serif;
+    font-family: catamaran;
     margin: 0;
     background-image: url('/images/ticket_booking/theatre.jpg');
     background-color: white;
 }
-
+.mySlides {
+    font-family: catamaran;
+    font-size: large;
+    font-weight: 500;
+}
 .footer{
     width:100%;
 }
@@ -26,9 +31,10 @@ input[type="date"] {
   
 
 .title{
-    margin-left: 20%;
+    margin-left: 8%;
     font-size:large;
     font-weight: bold;
+    font-family: catamaran;
 }
 img{
     width: 560px;
@@ -156,19 +162,26 @@ table, td, th {
 
 .image-container {
     display:flex;
-    justify-content: space-around;
-    text-align: left;
+    /* justify-content: space-around; */
+    text-align: justify;
     margin-top: 2%;
     height: 670px;
     background-color:#e6dede;
-
+    margin-left: 0%;
+}
+.para{
+    margin-left: 17%;
+    width: 150%;
+}
+p{
+    width: 100%;
 }
 
 .form1 {
     /* justify-content: space-around; */
     margin-right: 10%;
     margin-left:7%;
-    margin-top: 100px;
+    margin-top: 5%;
 }
 
 .form2 {
@@ -280,6 +293,7 @@ h1{
     width: 60px;
     height: 50px;
     font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .component:hover{
@@ -302,19 +316,19 @@ h1{
     background-color: #666;
 }
 .clicked {
-    background-color: rgb(132, 20, 20);
+    background-color: rgb(36, 18, 174);
 }
 
 
 .carousel {
     display: flex;
     /* overflow: hidden; */
-    width: 450px;
+    width: 570px;
     border-radius: 5px;
     border-color: #ccc;
-    height:68px;
+    height: 68px;
     font-weight: bold;
-    
+    gap: 4%;    
 }
 /* ===== */
 

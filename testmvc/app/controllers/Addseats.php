@@ -84,15 +84,16 @@ class Addseats
 
                         // $data['title'] = $_POST['title'];
                             //$data['description'] = $_POST['description'];
-                            //$data['image'] = $fileNameNew;
+                               // $data['image'] = $fileNameNew;
 
                             
                                 //_______add drama into home table_________
                                 $arr['title'] = $_POST['title'];
                                 $arr['description'] = $_POST['description'];
-                                $arr['image'] = $data['image'];
+                                $arr['image'] = $fileNameNew;
                                 $home->insert($arr);
 
+                                $data['ok'] = 'Drama Added successed...!';
                                 redirect('addtimes');
                         }
 

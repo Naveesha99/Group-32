@@ -123,16 +123,21 @@
                                     $dates = []; // Initialize arrays to store dates and times
                                     $times = [];
                                     foreach($data2 as $n)
-                                    {
+                                    {   
                                         if($n->drama_id == $x->id)
                                         {
-                                            $time_from_db = $n->time;
-                                            $time_formatted = date("h:i A", strtotime($time_from_db));
-                                            
-                                            $dates[]=$n->date;
-                                            $times[]=$time_formatted;                                              
+                                            if($n->date >= $today)
+                                            {
+
+                                                $time_from_db = $n->time;
+                                                $time_formatted = date("h:i A", strtotime($time_from_db));
+                                                
+                                                $dates[]=$n->date;
+                                                $times[]=$time_formatted;    
+                                            }   
+
                                         }
-                                        $t++;    
+                                        $t++;      
                                     }
                                     // show($dates);
                                     for($r=0; $r <count($dates); $r++)

@@ -18,15 +18,9 @@
 
     <form method="post" id="paymentForm">
       
-          <h1>Find Latest Booking Details</h1>
+          <h2>Find Your Latest Booked Details</h2>
 
-          <?php if(isset($errors['not_data']))
-          {
-            ?>
-                <div class="error"><?= $errors['not_data'];?> </div>
-            <?php
-          }
-            ?>
+          
 
           <div class="input-control">
             <label for="email"><b>Email</b></label><br>
@@ -50,7 +44,16 @@
         </div>
     </form>
 
+    
+
     <div class="paymentForm">
+    <?php if(isset($errors['not_data']))
+          {
+            ?>
+                <div class="error"><?= $errors['not_data'];?> </div>
+            <?php
+          }
+            ?>
 
         <?php
             if(isset($data['rows']))

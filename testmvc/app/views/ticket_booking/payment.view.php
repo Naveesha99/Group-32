@@ -79,8 +79,6 @@
           seats are ready to payment.
 
 
-          <!-- <div id="countdownTimer"></div>
-          <div id="timer" class="timer"></div> -->
           <div id="timer">Timer: 6:50</div>
 
 
@@ -219,38 +217,31 @@ const validateInputs = () => {
 </script>
           
 <!-- __________________________timer on the page____________________ -->
-    <script>
-        var timerInterval; // Variable to store the timer interval
-        var remainingTime = 0; // Variable to store the remaining time
+</script>
+          
 
+<script>
         // Function to start the timer
         function startTimer(duration, display) {
             var timer = duration, minutes, seconds;
-            var startTime = new Date().getTime();
-
-            timerInterval = setInterval(function () {
-                var currentTime = new Date().getTime();
-                var elapsedTime = Math.floor((currentTime - startTime) / 1000);
-
-                remainingTime = duration - elapsedTime;
-
-                if (remainingTime < 0) {
-                    clearInterval(timerInterval);
-                    display.textContent = "Your time is over";
-                    setTimeout(() => {
-                        // Navigate back to the previous page
-                        history.back();
-                    }, 2000); // Adjust the delay as needed
-                    return;
-                }
-
-                minutes = parseInt(remainingTime / 60, 10);
-                seconds = parseInt(remainingTime % 60, 10);
+            setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
 
                 minutes = minutes < 10 ? "0" + minutes : minutes;
                 seconds = seconds < 10 ? "0" + seconds : seconds;
 
                 display.textContent = "You have remaining time to pay: " + minutes + ":" + seconds;
+
+                if (--timer < 0) 
+                {
+                    timer = 0;
+                    display.textContent = "Your time is over";
+                    setTimeout(() => {
+                        // Navigate back to the previous page
+                        history.back();
+                    }, 2000); // Adjust the delay as needed
+                }
             }, 1000);
         }
 
@@ -258,29 +249,9 @@ const validateInputs = () => {
         window.onload = function () {
             var fiveMinutes = 410, // 6 minutes and 50 seconds(60*5+40)
                 display = document.querySelector('#timer');
-
-            // Check if remainingTime is not zero, if it's not zero, start the timer again with the remaining time
-            if (remainingTime > 0) {
-                startTimer(remainingTime, display);
-            } else {
-                startTimer(fiveMinutes, display);
-            }
-
-            // Add event listener for visibility change
-            document.addEventListener("visibilitychange", function () {
-                if (document.visibilityState === 'visible') {
-                    // Page is visible again, clear existing timer and start a new one
-                    clearInterval(timerInterval);
-                    if (remainingTime > 0) {
-                        startTimer(remainingTime, display);
-                    } else {
-                        startTimer(fiveMinutes, display);
-                    }
-                }
-            });
+            startTimer(fiveMinutes, display);
         };
-    </script>
-
+</script>
 
  <!-- (2)__________________________Do not refresh payment page.(Send form data for update username, email, phone) __________  -->
  <script>

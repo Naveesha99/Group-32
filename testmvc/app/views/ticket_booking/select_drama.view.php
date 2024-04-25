@@ -23,8 +23,10 @@
 ?>
 
         <div class="image-container">
+            
             <div class="form1">
-
+            <div class="title"><?= $data[0]->title ?></a></div>
+            
                 <img src="<?= ROOT ?>/assets/images/drama_img/<?= $data[0]->image ?>" alt="Image 1">
 
                 <div class="calendar">
@@ -32,7 +34,10 @@
                         <table>
 
                             <br>
-                            <div class="title"><?= $data[0]->title ?></a></div>
+                            <div class="para">
+                                <p>Click on the required date to check the Drama Showing Time </p>
+                            </div>
+                            
 
                             <tr>
                                 <div class="container">
