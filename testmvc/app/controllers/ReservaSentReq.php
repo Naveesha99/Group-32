@@ -22,8 +22,35 @@ class ReservaSentReq
 		];
 		
 		$result=$sentReq->where($find);
-		$data=$result;
+		$paid=new Reservationpayments;
+		$find1=[
+			 	'ispaid'=>1
+			];
+		$result2=$paid->where($find1);
+		$fromPymentTable=[];
+
+		$i=0;
+		foreach ($result as $key) 
+		{
+			$reqid= $key->id ;
+			// $ispaid=$key->ispaid;
+			foreach ($result2 as $key2) 
+			{
+				if ($key2->reqid==$reqid ) 
+				{
+						$fromPymentTable[$i] = $key2;
+						$i=$i+1;
+				}
+			}
+		}
+		// show($fromPymentTable);
 		// $data=$result;
+		$data=[
+			'reservationRequests'=>$result,
+			'fromPymentTable'=>$fromPymentTable
+		];
+		// show($data['fromPymentTable']);
+
 		$this->view('reservaSentReq',$data);
 
 		// if (isset($_POST['id'])) {
