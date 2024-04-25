@@ -42,12 +42,12 @@ function limitWords($text, $limit)
                         <th>Action</th>
                     </tr>
                 </thead>
-
-                <?php
-                // Check if $data is not false and is an array or object
-                if ($data && (is_array($data) || is_object($data))) {
-                    foreach ($data as $row) {
-                        echo '<tr>
+                <tbody>
+                    <?php
+                    // Check if $data is not false and is an array or object
+                    if ($data && (is_array($data) || is_object($data))) {
+                        foreach ($data as $row) {
+                            echo '<tr>
                                
                                 <td>' . $row->article_name . '</td>
                                 <td>' . $row->category . '</td>
@@ -70,11 +70,15 @@ function limitWords($text, $limit)
                                     </span>
                                 </td>
                               </tr>';
+                        }
+                    } else {
+                        echo '<tr><td colspan="9">No data available</td></tr>';
                     }
-                } else {
-                    echo '<tr><td colspan="9">No data available</td></tr>';
-                }
-                ?>
+                    ?>
+
+                </tbody>
+
+
 
             </table>
         </div>

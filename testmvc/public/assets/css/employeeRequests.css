@@ -84,43 +84,59 @@ body{
 .container .table-responsive{
     max-width: 1500px;
     border: 2px  ;
-    background-color: #efefef33;
-    padding: 15px;
+    background-color: ghostwhite;
+    
     overflow: auto;
     /* margin: auto; */
-    border-radius: 4px;
-    display: grid;
+    border-radius: 20px;
+    
     margin-top: 20px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Box shadow added */
+    /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);  */
     
     
 }
 
 .container .table-responsive table{
     width: 100%;
+    position: relative;
     font-size: 14px;
-    color: #444;
+    /* color: #444; */
     white-space: nowrap;
     border-collapse: collapse;
+    border-spacing: 0;
 }
 
 .container .table-responsive table>thead{
-    background-color: rgba(0, 0, 0, 0.61);
+    background-color: #000000;
     color: whitesmoke;
 }
 
 .container .table-responsive table>thead th{
     padding: 15px;
+    color: #fff;
+    padding-top: 17px;
+    font-size: 15px;
+    border-bottom: 1px solid black;
+    text-align: center;
+    align-items: center;
+
 
 }
 
 .container .table-responsive table th, table td{
-    border: 1px solid rgb(24, 23, 23);
-    padding: 4px 7px;
+    border-bottom: 1px solid #dddddd;
+    padding: 10px 20px;
+    word-break: break-all;
+    font-size: 13px;
 }
+
+.container .table-responsive table td{
+    box-sizing: border-box;
+}
+
 
 .container .table-responsive table>tbody>tr>td>img{
     display: inline-block;
@@ -138,26 +154,57 @@ body{
     gap: 10px;
 }
 
+tr.hide{
+    opacity: 0;
+    transform: translateX(100%);
+    line-height: 0;
+  }
+  
+  tr.hide td,
+  tr.hide span,
+  tr.hide td div{
+    padding: 0;
+    height: 0;
+    border: none;
+    margin: 0;
+    border-bottom: none;
+    font-size: 0;
+  
+  }
+  
+  tr.hide td *{
+    visibility: hidden;
+  }
+  
+  
+  tbody tr:hover{
+    cursor: pointer;
+    background-color: #0298cf0d;
+  
+    transition: all 0.3s ease-in-out;
+  }
+  
+
 .action_btn>a{
     text-decoration: none;
-    color: white;
+    color: black;
     /* background: whitesmoke; */
     border: 1px solid black;
     display: inline-block;
-    padding: 7px 17px;
+    padding: 5px 12px;
     font-weight: bold;
-    border-radius: 13px;
+    border-radius: 10px;
     transition: 0.3s ease-in-out;
 
 }
 
 .action_btn .btn-view{
     border-color: blue;
-    background-color: blue;
+    background-color: transparent;
     text-decoration: none;
-    color: white;
+    color: black;
     /* background: whitesmoke; */
-    border: 1px solid black;
+    border: 1px solid blue;
     display: inline-block;
     padding: 7px 17px;
     font-weight: bold;
@@ -166,11 +213,11 @@ body{
 }
 .action_btn .btn-update{
     border-color: green;
-    background-color: green;
+    background-color: transparent;
     text-decoration: none;
-    color: white;
+    color: black;
     /* background: whitesmoke; */
-    border: 1px solid black;
+    border: 1px solid green;
     display: inline-block;
     padding: 7px 17px;
     font-weight: bold;
@@ -180,16 +227,16 @@ body{
 
 .action_btn .btn-delete{
     text-decoration: none;
-    color: white;
+    color: black;
     /* background: whitesmoke; */
-    border: 1px solid black;
+    border: 1px solid red;
     display: inline-block;
     padding: 7px 17px;
     font-weight: bold;
     border-radius: 13px;
     transition: 0.3s ease-in-out;
     border-color: red;
-    background-color: red;
+    background-color: transparent;
 }
 
 
@@ -197,13 +244,18 @@ body{
     box-shadow: 0 2px 8px gray ;
 }
 
+.action_btn .btn-delete:hover{
+    box-shadow: 0 2px 8px gray ;
+    
+}
+
 .container .table-responsive table>tbody>tr{
-    background-color: whitesmoke;
+    background-color: #ffffff;
     transition: 0.3s ease-in-out;
 }
 
 .container .table-responsive table>tbody>tr:nth-child(even){
-    background-color: wheat;
+    background-color: #ffffff;
 }
 
 .container .table-responsive table>tbody>tr:hover{

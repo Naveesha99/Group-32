@@ -188,9 +188,9 @@ tr.hide{
     /* background: whitesmoke; */
     border: 1px solid black;
     display: inline-block;
-    padding: 7px 17px;
+    padding: 5px 12px;
     font-weight: bold;
-    border-radius: 20px;
+    border-radius: 10px;
     transition: 0.3s ease-in-out;
 
 }
@@ -241,6 +241,10 @@ tr.hide{
     box-shadow: 0 2px 8px gray ;
 }
 
+.action_btn .btn-delete:hover{
+    box-shadow: 0 2px 8px gray ;
+    
+}
 .container .table-responsive table>tbody>tr{
     background-color: #ffffff;
     transition: 0.3s ease-in-out;
