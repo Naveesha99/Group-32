@@ -47,16 +47,75 @@ class CWEditArticle
                 $article->update($articleId, $_POST, 'id');
                 redirect('cwDraft');
             }
+
+            if (isset($_POST['submit_article'])) {
+                $_POST['status'] = 1;
+                $_POST['progress'] = 'pending';
+
+                if ($_FILES["image"]["error"] == 4) {
+                    echo
+                    "<script> alert('Image Does Not Exist'); </script>";
+                } else {
+                    $fileName = $_FILES["image"]["name"];
+                    // $fileSize = $_FILES["image"]["size"];
+                    $tmpName = $_FILES["image"]["tmp_name"];
+    
+                    $validImageExtension = ['jpg', 'jpeg', 'png'];
+                    $imageExtension = explode('.', $fileName);
+                    $imageExtension = strtolower(end($imageExtension));
+    
+                    if (!in_array($imageExtension, $validImageExtension)) {
+                        echo
+                        "
+                        <script>
+                          alert('Invalid Image Extension');
+                        </script>
+                        ";
+                    } else {
+                        // $newImageName = uniqid();
+                        $fileNameNew = uniqid('', true) . '.' . $imageExtension;
+    
+                        $fileDestination = $_SERVER['DOCUMENT_ROOT'] . '/Group-32/testmvc/public/assets/images/drama_portal/' . $fileNameNew;
+    
+                        if (file_exists($fileDestination)) {
+                            unlink($fileDestination); // Delete the existing image file
+                        }
+    
+                        move_uploaded_file($tmpName, $fileDestination);
+                        // $_SESSION['USER']->image = $fileNameNew;
+                        // show($_SESSION['USER']->image);
+    
+                        echo
+                        "
+                        <script>
+                          alert('Successfully Added');
+                          
+                        </script>
+                        ";
+                    }
+                }
+    
+                // show($_POST);
+                $updateData = [
+                    'article_name' => $_POST['article_name'],
+                    'category' => $_POST['category'],
+                    'article_content' => $_POST['article_content'],
+                    'image' => $fileNameNew,
+                    'status' => $_POST['status'],
+                    'progress' => $_POST['progress'],
+                    // 'cwName' => $_POST['cwName'],
+                    // 'cw_id' => $_POST['cw_id']
+                ];
+                show($updateData);
+    
+                $article->update($articleId, $updateData, 'id');
+                redirect('cwArticleReview');
+            }
+    
+    
         }
 
-        if (isset($_POST['submit_article'])) {
-            $_POST['status'] = 1;
-            $_POST['progress'] = 'pending';
-            $article->update($articleId, $_POST, 'id');
-            redirect('cwArticleReview');
-            
-        }
-
+       
 
         // redirect('cwArticleDisplay');
 
