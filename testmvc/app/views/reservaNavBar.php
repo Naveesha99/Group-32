@@ -331,7 +331,7 @@
 
     function redirectToLoginPage() {
       // Redirect to the reservalogin page
-      window.location.href = 'reservaLogin';
+      window.location.href = 'login';
     }
 
     function reservaSentreqPg() {
