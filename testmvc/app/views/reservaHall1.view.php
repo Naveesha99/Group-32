@@ -136,8 +136,8 @@
 
 
 
-<?//php show($data); ?>
-<?php show($data['hall'][0]->headCount); ?>
+<!-- <?//php show($data); ?> -->
+<!-- <?//php show($data['hall'][0]->headCount); ?> -->
                 <?php if (isset($_SESSION['USER'])) {
 
                     $a=$_SESSION['USER']->id;
