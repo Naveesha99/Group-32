@@ -35,27 +35,27 @@ class addEmployee
 					$loginData = [
 						'fullname'=>$_POST['empName'],
 						'email'=>$_POST['empEmail'],
-						'nic'=>$_POST['empNIC'],
+						// 'nic'=>$_POST['empNIC'],
 						'password'=>$hashedPassword,
-						'dob'=>$_POST['empDOB'],
+						// 'dob'=>$_POST['empDOB'],
 						'user_type'=>'Front Desk Officer'
 					];
 				}elseif($_POST['empRoll'] == 'Content Writer'){
 					$loginData = [
 						'fullname'=>$_POST['empName'],
 						'email'=>$_POST['empEmail'],
-						'nic'=>$_POST['empNIC'],
+						// 'nic'=>$_POST['empNIC'],
 						'password'=>$hashedPassword,
-						'dob'=>$_POST['empDOB'],
+						// 'dob'=>$_POST['empDOB'],
 						'user_type'=>'Content Writer'
 					];
 				}else{
 					$loginData = [
 						'fullname'=>$_POST['empName'],
 						'email'=>$_POST['empEmail'],
-						'nic'=>$_POST['empNIC'],
+						// 'nic'=>$_POST['empNIC'],
 						'password'=>$hashedPassword,
-						'dob'=>$_POST['empDOB'],
+						// 'dob'=>$_POST['empDOB'],
 						'user_type'=>'Employee'
 					];
 				}
