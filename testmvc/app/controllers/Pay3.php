@@ -14,7 +14,6 @@ class Pay3
         {
 
             $id = $_GET['id'];
-
             // show($id);
 
             $resrvaReq = new Reservationrequests;
@@ -27,7 +26,7 @@ class Pay3
                 // $phone = $data[0]->phone;
 
                 $merchant_id = "1225768";
-                $order_id = uniqid();
+                // $order_id = uniqid();
                 // $merchant_secret = "NzYwOTE2NzQ1MjcyNzYyNTAxMTQ4ODkzMzQ1OTMzMDg0Njg5NDg=";
                 $merchant_secret="NzYwOTE2NzQ1MjcyNzYyNTAxMTQ4ODkzMzQ1OTMzMDg0Njg5NDg=";
                 $currency = "LKR";
@@ -35,7 +34,7 @@ class Pay3
                 $hash = strtoupper(
                     md5(
                         $merchant_id . 
-                        $order_id . 
+                        $id . 
                         number_format($amount, 2, '.', '') . 
                         $currency .  
                         strtoupper(md5($merchant_secret)) 
@@ -53,7 +52,7 @@ class Pay3
 
                 $array["amount"] = $amount;
                 $array["merchant_id"] = $merchant_id;
-                $array["order_id"] = $order_id;
+                $array["order_id"] = $id;
                 $array["amount"] = $amount;
                 $array["currency"] = $currency;
                 $array["hash"] = $hash;
@@ -62,6 +61,23 @@ class Pay3
 
                 echo $jsonObj;
         }
-        
+
+        // payment success 
+        if (isset($_GET['pay_id'])) {
+            echo json_encode($_GET['pay_id']);
+
+            $pay_id = $_GET['pay_id'];
+
+            $reqid=$pay_id;      
+            $resrvaReq = new Reservationpayments;
+            $result = $resrvaReq->where(['reqid' => $reqid]);
+             $detailsofReq['ispaid'] = 1;
+            foreach($result as $res)
+            {
+                $id = $res->id;
+                // show($id);
+                $resrvaReq->update($id, $detailsofReq);
+            }
+        }
     }
 }
