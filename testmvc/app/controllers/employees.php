@@ -48,7 +48,9 @@ class employees
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (isset($_POST['delete_employee'])) {
                 $empId = $_POST['delete_employee'];
-                $this->employeeDelete($empId, $employee);
+                $select = $employee->first(['id' => $empId]);
+                
+                // $this->employeeDelete($empId, $employee);
             }
         }
 
