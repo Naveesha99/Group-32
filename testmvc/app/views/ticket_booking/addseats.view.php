@@ -20,7 +20,7 @@
 
 
 						<!--<input type="text" name="description" placeholder="description">-->
-						<label for="content" >Content</label>
+						<label for="description">Description</label>
 						<textarea rows="10" id="content" name="description"></textarea>
 						<?php if(isset($data['no_description'])){?>  <div class="errors"><?= $data['no_description'] ?></div> <?php } ?>
 
@@ -38,6 +38,8 @@
 						<?php endif;?>
 
 						<button class="submit">ADD</button>
+						<?php if(isset($data['ok'])){?>  <div class="errors"><?= $data['ok'] ?></div> <?php } ?>
+
 					</form><br>
 				</div>
 			</div>

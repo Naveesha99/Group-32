@@ -53,7 +53,7 @@
             </li>    
         </ul>
     
-    
+    <div class="container2">
       <div class="screen">
         <h4>STAGE</h4>
       </div>
@@ -88,7 +88,7 @@
                 }
               ?>
 
-      
+    </div>
       <!-- ////////////////////////////////////////////////////////////////////////////////// -->
 <form action="<?=ROOT?>/payment" method="POST">
 

@@ -201,7 +201,7 @@
     <!-- <h2 class="logo">Coding Pakistan</h2> -->
     <img src="<?= ROOT ?>/assets/images/Logo.png" class="logo">
     <ul>
-      <li> <a href="#"> HOME </a></li>
+      <li> <a href="<?=ROOT?>/home"> HOME </a></li>
       <li> <a href="#"> TICKETS </a></li>
       <li> <a href="<?=ROOT?>/reservaHall"> HALLS </a></li>
       <li> <a href="#"> BLOGS </a></li>
