@@ -16,7 +16,6 @@ class adminDashboard
 			redirect('login');
 			exit();
 		}
-
 		$employee = new Employee;
 		$result['employee'] = $employee->findAll();
 		$data['employee'] = $result['employee'];

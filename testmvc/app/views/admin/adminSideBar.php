@@ -24,6 +24,7 @@ $page = substr($_SERVER['REQUEST_URI'], strrpos($_SERVER['REQUEST_URI'], "/") + 
     <!-- <a href="<?= ROOT ?>/adminTheater"> <i class="fa-solid fa-panorama"></i> <span>Theater</span></a> -->
     <a class="<?= $page == "adminFacilities"?'active':''; ?>" href="<?= ROOT ?>/adminFacilities"> <i class="fa-solid fa-check"></i> <span>Facilities</span></a>
     <a class="<?= $page == "adminUserQueries"?'active':''; ?>" href="<?= ROOT ?>/adminUserQueries"> <i class="fa-solid fa-flag"></i> <span>User Queries</span></a>
+    <a class="<?= $page == "adminHalls"?'active':''; ?>" href="<?= ROOT ?>/adminHalls"> <i class="fa-solid fa-panorama"></i> <span>Halls</span></a>
     <a class="<?= $page == "adminRequest"?'active':''; ?>" href="<?= ROOT ?>/adminRequest"> <i class="fa-solid fa-hand"></i> <span>Request</span></a>
     <a class="<?= $page == "adminReport"?'active':''; ?>" href="<?= ROOT ?>/adminReport"> <i class="fa-solid fa-flag"></i> <span>Report</span></a>
 
