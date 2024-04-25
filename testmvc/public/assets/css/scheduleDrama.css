@@ -1,0 +1,498 @@
+@import url('https://fonts.googleapis.com/css?family=Catamaran:400,700');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Catamaran', sans-serif;
+}
+body {
+    min-height: 100vh;
+}
+a {
+    text-decoration: none;
+}
+li {
+    list-style: none;
+}
+h1,
+h2 {
+    color: #444;
+}
+h3 {
+    color: #999;
+}
+.btn {
+    background: #e6cc00;
+    color: black;
+    padding: 3px 10px;
+    text-align: center;
+    border-radius: 15px;
+}
+.btn:hover {
+    color: #e6cc00;
+    background:black;
+    /* opacity: 0.6; */
+    padding: 3px 8px;
+    /* border: 2px solid #e6cc00; */
+}
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 15px 10px;
+    border-bottom: 2px solid #999;
+}
+table {
+    padding: 10px;
+}
+th,
+td {
+    text-align: left;
+    padding: 8px;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    right: 0;
+    width: 80vw;
+    height: 100vh;
+    background: white;
+}
+
+/* ------------------------------------------------------------------------- */
+
+@import url('https://fonts.googleapis.com/css?family=Catamaran:400,700');
+
+* {
+    /* padding: 0;
+    margin: 0; */
+    /* box-sizing: border-box; */
+    font-family:  sans-serif;
+    font-weight: 2px;
+}
+
+html, body {
+    height: 100%;
+    /* overflow: hidden; */
+    background-color: #eeeeee;
+}
+
+.signup {
+    height: 100%;
+    width: 100%;
+    background-color: #857171;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .signup_box {
+    width: 100%;
+    height: 100%;
+    /* background: #7e5656; */
+    border-radius: 10px;
+    box-shadow: 1px 4px 22px -8px #0004;
+    display: flex;
+    /* overflow: hidden; */
+    background-color: aquamarine;
+}
+
+.container .signup_box .left {
+    width: 30%;
+    padding: 25px 25px;
+    margin-top: 0px;
+    background: #e2dede;
+}
+
+.signup_box .right {
+    /* width: 59%; */
+    font-size: small;
+    height: 100%;
+    /* background: url(/public/assets/images/background.jpg); */
+    /* background-size: cover; */
+    color: #fff;
+    background-color: #caccc1;
+    /* position: relative; */
+}
+
+
+.container .left .contact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    height: 100%;
+    width: 55%;
+    margin-top: 0px;
+    margin-left: 20%;
+    /* margin: auto; */
+}
+
+.right{
+    width: 40%;
+    margin-top: 0px;
+    color: black;
+}
+.right_right{
+    width: 30%;
+    margin-top: -16px;
+}
+
+.right .contact {
+    /* display: flex;
+    align-self: center;
+    height: 60%;
+    width:fit-content; */
+    margin-top: -63px;
+  
+} 
+
+/* .right_right .contact{
+    margin-left: 50%;
+    display: flex;
+    width: 50%;
+
+} */
+.drama-id{
+    height: 2px;
+    /* width: fit-content; */
+}
+
+.left input {
+    width: 80%;
+    margin: 7px 0px;
+    border-bottom: 1px solid #0000007d;
+    padding: 3px 5px;
+    width: 100%;
+    /* overflow: hidden; */
+    /* background: transparent; */
+    /* font-weight: 100; */
+    font-size: 12px;
+}
+.errors{
+    color: red;
+    /* font-weight: bold; */
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    width: 150px;
+}
+
+.remember-me input[type="checkbox"] {
+    margin: 0 5px 0 0;
+}
+
+.submit {
+    border: none;
+    padding: 15px 70px;
+    border-radius: 8px;
+    display: block;
+    /* margin: auto; */
+    /* margin-top: 20px; */
+    background: rgba(195, 98, 1, 0.973);
+    color: #fff;
+    font-size: 15px;
+}
+
+.sign {
+    font-size: 15px;
+    margin-bottom: 15px;
+    /* margin-top: 20%; */
+}
+
+.heading{
+    text-align: center;
+    font-size: 13px;
+    /* margin-top: 15px; */
+}
+
+/* @media (max-width: 768px) {
+    .signup_box {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .signup_box .left {
+        width: 100%;
+    }
+
+    .submit {
+        margin-top: 20px;
+    }
+} */
+
+.checkbox-group {
+    display: flex;
+    gap: 50px;
+    font-weight: 400;
+    margin-right: 0px;
+    /* white-space: nowrap; */
+}
+
+
+.checkbox-group input[type="checkbox"], .checkbox-group label{
+    margin-left: 50px;
+    width: 30px;
+    height: 30px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    display: inline-block;
+}
+.t_rows_container {
+    display: flex; /* Use flexbox layout */
+}
+
+#myTable {
+    margin-top: 17px;
+    border-collapse:collapse ;
+    width: 70%; /* Adjust the width as needed */
+    max-height:1px;
+    margin-left: 50px;
+}
+
+/* CSS for table header */
+#myTable th {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+    background-color: lightgray; /* Adjust the background color */
+    color: black; /* Font color */
+}
+
+/* CSS for table cells */
+#myTable td {
+    border: 1px solid black;
+    padding: 4px;
+    text-align: left;
+    color: black; /* Font color */
+}
+
+/* CSS for clickable rows */
+.row-clickable:hover {
+    background-color: rgb(171, 159, 159); /* Light red color on hover */
+}
+
+/* CSS to reduce height and width of rows */
+#myTable tr, #myTable td, #myTable th {
+    height: 10px; /* Adjust height as needed */
+    width: 5px ;
+}
+
+/* table 2 css______________________ */
+
+#myTable2 {
+    margin-top: 17px;
+    border-collapse:collapse ;
+    width: 60%; /* Adjust the width as needed */
+    max-height:1px;
+}
+
+/* CSS for table header */
+#myTable2 th {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+    background-color: lightgray; /* Adjust the background color */
+    color: black; /* Font color */
+}
+
+/* CSS for table cells */
+#myTable2 td {
+    border: 1px solid black;
+    padding: 4px;
+    text-align: left;
+    color: black; /* Font color */
+}
+
+/* CSS for clickable rows */
+.row-clickable:hover {
+    background-color: rgb(248, 244, 244); /* Light red color on hover */
+}
+
+/* CSS to reduce height and width of rows */
+#myTable2 tr, #myTable td, #myTable th {
+    height: 10px; /* Adjust height as needed */
+    width: 5px ;
+}
+
+
+/* Add the styles for the rows within the date range */
+#myTable2 .in-range {
+    background-color: #f0f0f0; /* Grey color */
+}
+
+.form1{
+    margin-top: 0px;
+}
+
+.details{
+    display: flex;
+    gap: 20px;
+    padding-left: 10px;
+    color: black;
+    font-size: medium;
+}
+.details .contact{
+    display: flex;
+}
+
+/* ------------------------------------------------------- */
+
+.container .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 80%;
+    border-radius: 30px;
+    position: relative;
+    margin-top: 100px;
+    min-height: 90vh;
+    background: linear-gradient(180deg, #ccc, white);
+}
+
+.container .content .add-Drama {
+    padding: 80px;
+    justify-content: center;
+    height: 80%;
+    width: 95%;
+}
+
+  
+.container .content .add-Drama label {
+    display: flex;
+    width: 20%;
+    /* margin-bottom: 8px; */
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+.container .content .add-Drama input {
+    display: flex;
+    width: 70%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.container .content .add-Drama textarea {
+    display: flex;
+    width: 70%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.container .content .add-Drama select {
+    display: flex;
+    width: 70%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.btn-1 {
+  appearance: button;
+  background-color: #4D4AE8;
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, .15), rgba(255, 255, 255, 0));
+  border: 1px solid #4D4AE8;
+  border-radius: 1rem;
+  box-shadow: rgba(255, 255, 255, 0.15) 0 1px 0 inset,rgba(46, 54, 80, 0.075) 0 1px 1px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Inter,sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+  margin: 0;
+  padding: .5rem 1rem;
+  text-align: center;
+  text-transform: none;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+}
+
+.btn-1:focus:not(:focus-visible),
+.btn-1:focus {
+  outline: 0;
+}
+
+.btn-1:hover {
+  background-color: #3733E5;
+  border-color: #3733E5;
+}
+
+.btn-1:focus {
+  background-color: #413FC5;
+  border-color: #3E3BBA;
+  box-shadow: rgba(255, 255, 255, 0.15) 0 1px 0 inset, rgba(46, 54, 80, 0.075) 0 1px 1px, rgba(104, 101, 235, 0.5) 0 0 0 .2rem;
+}
+
+.btn-1:active {
+  background-color: #3E3BBA;
+  background-image: none;
+  border-color: #3A38AE;
+  box-shadow: rgba(46, 54, 80, 0.125) 0 3px 5px inset;
+}
+
+.btn-1:active:focus {
+  box-shadow: rgba(46, 54, 80, 0.125) 0 3px 5px inset, rgba(104, 101, 235, 0.5) 0 0 0 .2rem;
+}
+
+.btn-1:disabled {
+  background-image: none;
+  box-shadow: none;
+  opacity: .65;
+  pointer-events: none;
+}
+
+  #popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+  }
+
+  /* Button styles for the popup options */
+  #popup button {
+    margin: 0 10px;
+    padding: 10px 15px;
+    cursor: pointer;
+  }
+  
+  @media screen and (max-width:536px) {
+
+    .container .content .form {
+        justify-content: center;
+    }
+    .container .content .content-2 .tasks table th:nth-child(2),
+    .container .content .content-2 .tasks table td:nth-child(2) {
+        display: none;
+    }
+}
+
+  

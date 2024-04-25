@@ -25,28 +25,13 @@
                             </div>
                         </div>
                     </a>
-                    <a href="<?= ROOT ?>/allDramas">
+                    <a href="<?= ROOT ?>/scheduledrama">
                         <div class="card">
                             <div class="box">
-                                <h1>All Dramas</h1>
+                                <h1>Schedule Drama</h1>
                             </div>
                         </div>
                     </a>
-                    <a href="#">
-                        <div class="card">
-                            <div class="box">
-                                <h1>Assign Tasks</h1>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="<?= ROOT ?>/addjobrole">
-                        <div class="card">
-                            <div class="box">
-                                <h1>Add Job</h1>
-                            </div>
-                        </div>
-                    </a>
-                </div>
                 <div class="content-2">
                     <div class="employees">
                         <div class="title">

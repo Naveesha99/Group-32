@@ -14,11 +14,15 @@ class forgotPW
                     $otp = mt_rand(100000, 999999);
                     $email = $row->email;
                     $name = $row->fullname;
-                    $sendMail = new SendMail;
-                    $sendMail->sendOTP($email, $name, $otp);
-                    $_POST['otp'] = $otp;
                     $sendOTP = new sendOTP;
-                    $sendOTP->insert($_POST);
+                    $arr = [
+                        'email' => $email,
+                        'otp' => $otp
+                    ];
+                    $sendOTP->insert($arr);
+                    $url = ROOT . '/changePW?email=' . $email . '&otp=' . $otp;
+                    $sendMail = new SendMail;
+                    $sendMail->sendResetEmail($email, $url); 
                 }
             }
         }

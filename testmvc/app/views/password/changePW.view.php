@@ -18,8 +18,9 @@
 				<!-- <div class="top_link"><a href="#"><img src="/public/styles/images/login.jpg" alt="">Return home</a></div> -->
 				<div class="contact">
 					<form method="POST">
-						<h3 class="log">FORGOT PASSWORD</h3>
-						<input type="text" name="email" placeholder="E-Mail">
+						<h3 class="log">RESET PASSWORD</h3>
+						<input type="password" name="password" placeholder="Password">
+                        <input type="password" name="confirm_password" placeholder="Confirm Password">
 						<?php if (!empty($errors)) : ?>
 							<span style="color: red; font-weight: bold; border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; background-color: #ffe6e6;">
 								<?= implode('<br>', $errors) ?>

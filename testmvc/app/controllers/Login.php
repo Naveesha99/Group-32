@@ -35,7 +35,8 @@ class Login
 				}
 			}
 
-			$user->errors['username'] = "Wrong username or password";
+			$user->errors['email'] = "Wrong Email or Password";
+			// $user->errors['password'] = "Wrong Password";
 
 			$data['errors'] = $user->errors;
 		}

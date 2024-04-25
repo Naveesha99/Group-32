@@ -61,15 +61,11 @@ class User
 		// 	}
 		// }
 
-		if (empty($data['password'])) {
-			$this->errors['password'] = "Password is required";
-		} elseif (!preg_match('/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/', $data['password'])) {
-			$this->errors['password'] = "Password must be 8 or more characters, and include at least one uppercase letter, one lowercase letter, one number, and one symbol";
-		}
-
-		if ($data['Repassword'] != $data['password']) {
-			$this->errors['Repassword'] = "Check the Re-Entered password";
-		}
+		// if (empty($data['password'])) {
+		// 	$this->errors['password'] = "Password is required";
+		// } elseif (!preg_match('/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/', $data['password'])) {
+		// 	$this->errors['password'] = "Password must be 8 or more characters, and include at least one uppercase letter, one lowercase letter, one number, and one symbol";
+		// }
 
 		if (empty($this->errors)) {
 			return true;
