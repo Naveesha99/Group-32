@@ -20,6 +20,7 @@ class Reservationists
 		'nic',
 		'password',
 		'date',
+		'images'
 	];
 
 	public function validate($data)
