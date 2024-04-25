@@ -71,6 +71,21 @@ body{
     box-shadow: 0 2px 6px #0003;
 }
 
+.container .table-responsive table .btn-hide {
+    background-color: #e6cc00;
+    color: white;
+    border: none;
+    padding: 7px 17px;
+    font-weight: bold;
+    border-radius: 13px;
+    transition: 0.3s ease-in-out;
+}
+
+.container .table-responsive table .btn-hide:hover {
+    background-color: #e6cc00;
+    box-shadow: 0 2px 8px gray;
+}
+
 .action_btn{
     display: flex;
     justify-content: center;
@@ -89,6 +104,8 @@ body{
     transition: 0.3s ease-in-out;
 
 }
+
+
 
 .action_btn .btn-view{
     border-color: blue;

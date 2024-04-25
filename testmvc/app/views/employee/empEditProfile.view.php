@@ -8,43 +8,21 @@
     <title>User Profile</title>
 </head>
 
-<?php require_once 'employeeSideBar.php' ?>
-<?php include 'navBar.php' ?>
-
-
 <body>
     <div class="container">
-        <h1>User Profile</h1>
-        <hr>
-        <div class="profile">
-            <div class="profile-photo">
-                <img id="profileImage" src="<?=ROOT?>/assets/images/Upload/profiledefault.jpeg" alt="Profile Photo">
-                <p class="profile-name">John Doe</p>
-                <label for="profilePhotoInput" class="change-photo-button">Change Photo</label>
-                <input type="file" id="profilePhotoInput" onchange="displayProfilePhoto(event)">
-                
-            </div>
-            <div class="profile-details">
-                <label for="fullName">Full Name:</label>
-                <input type="text" id="fullName" value="John Doe" disabled>
-                <label for="email">Email:</label>
-                <input type="email" id="email" value="john@example.com" disabled>
-                <label for="bio">Bio:</label>
-                <textarea id="bio" disabled>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</textarea>
-            </div>
-        </div>
+        <h1>Edit profile</h1>
+        <form method="post">
+            <label for="employee_name">Employee Name:</label>
+            <input type="text" id="employee_name" name="employee_name" value="<?=$data['employee'][0]->empName?>" required>
+
+            <label for="password">Password:</label>
+            <input type="text" id="password" name="password" value="<?=$data['employee'][0]->password?>" required>
+
+            <button type="submit" name="submit">SUBMIT</button>
+
+        </form>
     </div>
 
-    <script>
-        function displayProfilePhoto(event) {
-            const reader = new FileReader();
-            reader.onload = function() {
-                const profileImage = document.getElementById('profileImage');
-                profileImage.src = reader.result;
-            };
-            reader.readAsDataURL(event.target.files[0]);
-        }
-    </script>
 </body>
 
 </html>

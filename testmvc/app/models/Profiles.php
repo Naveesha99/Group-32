@@ -3,7 +3,7 @@
  * profile image class
  */
 
-class ProfileImg
+class Profiles
 {
     use Model;
 
@@ -12,6 +12,7 @@ class ProfileImg
     protected $allowedColumns =[
         'id',
         'userid',
+        'name',
         'images',
 
     ];
@@ -21,8 +22,8 @@ class ProfileImg
     {
         $this->errors = [];
 
-        if (empty($data['article_name'])) {
-            $this->errors['article_name'] = "Article Name is required";
+        if (empty($data['name'])) {
+            $this->errors['name'] = " Name is required";
         }
 
         if (empty($data['image'])) {

@@ -22,34 +22,49 @@
     <div class="nav">
       <ul>
         <li><a href="<?= ROOT ?>/home">Home</a></li>
-        <li><a href="#">Drama Portal</a></li>
+        <li><a href="<?= ROOT ?>/dramaPortal">Drama Portal</a></li>
         <li><a href="#">Drama</a></li>
         <li><a href="#">Theater</a></li>
         <li><a href="<?= ROOT ?>/logout" class="signup-button">Log Out</a></li>
       </ul>
 
       <div class="Profile">
-        <img src="<?= ROOT ?>/assets/images/Upload/profiledefault.jpeg" onclick="toggleMenu()">
+        <?php
+        if (!empty($_SESSION['PROFILE_IMAGE'])) {
+          echo '<img src="' . ROOT . '/assets/images/Upload/' . $_SESSION['PROFILE_IMAGE'] . '" onclick="toggleMenu()">';
+        } else {
+          echo '<img src="' . ROOT . '/assets/images/Upload/profiledefault.jpeg" onclick="toggleMenu()">';
+        }
+        ?>
       </div>
     </div>
 
     <div class="sub-menu-wrap" id="subMenu">
       <div class="sub-menu">
         <div class="user-info">
-          <img src="<?= ROOT ?>/assets/images/Upload/profiledefault.jpeg">
-          <h3><?php echo $_SESSION['USER']->username;?></h3>
+          <?php
+          if (!empty($_SESSION['PROFILE_IMAGE'])) {
+            echo '<img src="' . ROOT . '/assets/images/Upload/' . $_SESSION['PROFILE_IMAGE'] . '">';
+          } else {
+            echo '<img src="' . ROOT . '/assets/images/Upload/profiledefault.jpeg">';
+          }
+          ?>
+          <h3><?php echo $_SESSION['USER']->empName; ?></h3>
         </div>
         <hr>
+        <?php
+        $ID = $_SESSION['USER']->id;
 
-        <a href="#" class="sub-menu-link">
-          <i class="fa-solid fa-user"></i>
-          <p>Edit Profile</p>
-          <span>></span>
+        echo '<a href="empEditProfile?id=' . $ID . '" class="sub-menu-link">';
+        ?>
+        <i class="fa-solid fa-wrench"></i>
+        <p>Edit Profile</p>
+        <span>></span>
         </a>
 
-        <a href="<?=ROOT?>/employeeSetting" class="sub-menu-link">
-          <i class="fa-solid fa-gear"></i>
-          <p>Settings</p>
+        <a href="<?= ROOT ?>/employeeSetting" class="sub-menu-link">
+          <i class="fa-solid fa-user"></i>
+          <p>Profile</p>
           <span>></span>
         </a>
 
@@ -64,7 +79,7 @@
   <script>
     let subMenu = document.getElementById("subMenu");
 
-    function toggleMenu(){
+    function toggleMenu() {
       subMenu.classList.toggle("open-menu");
     }
   </script>
