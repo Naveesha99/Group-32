@@ -55,13 +55,21 @@ body{
   font-size: 16px;
   padding: 6px;
 }
+.like-icon{
+  position: relative;
+  display: inline-block;
+  /* width: 20px;
+  height: 20px; */
+  float: right;
+  cursor: pointer;
+}
 
  #iconheart{
   color: rgb(105, 11, 11);
   position: absolute;
   top: 6px; 
   margin-right: 20px; 
-  font-size: 1.3em; 
+  font-size: 1.8em; 
   font-weight: 200;
   transition: all 0.3s cubic-bezier(0.41, 0.15, 0.36, 1);
   cursor: pointer;
@@ -83,9 +91,9 @@ body{
 }
 
 .selected {
-  width:20px;
-  height:20px;
+  width:15px;
+  height:15px;
   border-radius: 20px;
-  color: white;
+  color: black;
   background-color: red;
 }
