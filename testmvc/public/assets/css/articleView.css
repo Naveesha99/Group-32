@@ -11,7 +11,7 @@
 
 body{
     font-family: 'Catamaran', sans-seri;
-    display: flex;
+    display: flex;  
     justify-content: center;
     align-items: center;
     min-height: 100vh;
@@ -57,10 +57,10 @@ body{
 }
 
  #iconheart{
-  color: yellow;
+  color: rgb(105, 11, 11);
   position: absolute;
   top: 6px; 
-  left: 300px; 
+  margin-right: 20px; 
   font-size: 1.3em; 
   font-weight: 200;
   transition: all 0.3s cubic-bezier(0.41, 0.15, 0.36, 1);
