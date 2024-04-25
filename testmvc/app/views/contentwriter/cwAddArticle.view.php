@@ -17,7 +17,7 @@
         <div class="overlay" id="overlay"></div>
 
 
-        <form method="post" id="articleForm" class="addArticle" autocomplete="off" enctype="multipart/form-data">
+        <form method="post" id="articleForm" class="addArticle" >
             <h1>Add New Article</h1>
 
             <label for="article_name">Article Name :</label>
@@ -43,7 +43,7 @@
 
 
             <label for="image">Image:</label>
-            <input type="file" id="image" name="image" accept=".jpg, .jpeg, .png" required>
+            <input type="file" id="image" name="image" accept="image/*" required>
 
             <div class="button-group">
                 <button type="submit" name="save_draft">Save as Draft</button>

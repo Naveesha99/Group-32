@@ -17,10 +17,10 @@ class EmployeeRequestForm
 		}
 
 		// $name = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->empname;
-		// $email = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->email;
+		$userid = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->id;
 
 		// echo $name;
-		// echo $email;
+		echo $userid;
 
 		$data = [];
 		$emp_req = new EmpRequest;
@@ -32,11 +32,14 @@ class EmployeeRequestForm
 
 		if (isset($_POST['submit'])) {
 			$_POST['state'] = 'pending';
+			$_POST['emp_id'] = $userid;
 			if ($emp_req->validate($_POST)) {
+				show($_POST);
 
 				// $sendMail = new SendMail;
 				// $sendMail->employeeRequest($email, $name);
 				$emp_req->insert($_POST);
+				
 				redirect('employeeReq');
 			}
 		}

@@ -17,7 +17,7 @@ class CWDashboard
 		}
 
 		// $data['username'] = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->email;
-		$article = new article;
+		$article = new Article;
 		$result = $article->findPublishArticles();
 		$draft = $article->getDraftArticles();
 

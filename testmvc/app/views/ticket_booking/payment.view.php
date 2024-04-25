@@ -128,9 +128,7 @@
     
     </form>
 
-    <form id="paymentForm">
-        
-    </form>
+   
 </div>
 <?php require_once 't_reservaFooter1.php' ?>
 </body>
@@ -217,41 +215,39 @@ const validateInputs = () => {
 </script>
           
 <!-- __________________________timer on the page____________________ -->
-</script>
-          
-
 <script>
-        // Function to start the timer
-        function startTimer(duration, display) {
-            var timer = duration, minutes, seconds;
-            setInterval(function () {
-                minutes = parseInt(timer / 60, 10);
-                seconds = parseInt(timer % 60, 10);
+// Function to start the timer
+function startTimer(duration, display) {
+    var timer = duration;
+    var interval = setInterval(function () {
+        var minutes = parseInt(timer / 60, 10);
+        var seconds = parseInt(timer % 60, 10);
 
-                minutes = minutes < 10 ? "0" + minutes : minutes;
-                seconds = seconds < 10 ? "0" + seconds : seconds;
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
 
-                display.textContent = "You have remaining time to pay: " + minutes + ":" + seconds;
+        display.textContent = "You have remaining time to pay: " + minutes + ":" + seconds;
 
-                if (--timer < 0) 
-                {
-                    timer = 0;
-                    display.textContent = "Your time is over";
-                    setTimeout(() => {
-                        // Navigate back to the previous page
-                        history.back();
-                    }, 2000); // Adjust the delay as needed
-                }
-            }, 1000);
+        if (--timer < 0) {
+            clearInterval(interval); // Clear the interval when timer reaches zero
+            display.textContent = "Your time is over";
+            setTimeout(() => {
+                // Navigate back to the previous page
+                history.back();
+            }, 2000); // Adjust the delay as needed
         }
+    }, 1000);
+}
 
-        // Execute the timer when the page loads
-        window.onload = function () {
-            var fiveMinutes = 410, // 6 minutes and 50 seconds(60*5+40)
-                display = document.querySelector('#timer');
-            startTimer(fiveMinutes, display);
-        };
+// Execute the timer when the page loads
+document.addEventListener("DOMContentLoaded", function () {
+    var fiveMinutes = 410, // 6 minutes and 50 seconds(60*6+50)
+        display = document.getElementById('timer');
+    startTimer(fiveMinutes, display);
+});
 </script>
+
+
 
  <!-- (2)__________________________Do not refresh payment page.(Send form data for update username, email, phone) __________  -->
  <script>
@@ -315,10 +311,9 @@ function redirectToAnotherPage() {
   // Redirect to another page
   window.location.href = 'http://localhost/Group-32/testmvc/public/';
 }
+</script>
 
-
-
-
+<script>
 // _______________________________________QR GENERATOR_________________________________________ 
 
         var qrcode;
