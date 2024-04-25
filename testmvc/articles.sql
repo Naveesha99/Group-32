@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 24, 2024 at 01:47 PM
+-- Generation Time: Apr 25, 2024 at 06:19 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -66,7 +66,8 @@ INSERT INTO `articles` (`id`, `article_name`, `category`, `article_content`, `im
 (58, 'naribana', 'Tragedy', 'fdsryuk', 0x6d616e616d652e6a7067, 0, '', '2024-04-07 15:14:27', 1, 'pending', NULL, NULL, 0),
 (59, 'Naribana', 'Comedy', 'Nari bana (aka Jackal son-in-law) is a story every Sri Lankan kid would\'ve heard. A village girl disobeys her mother and her mother gives her a scolding, saying that she would marry the girl off to a jackal. Unfortunately for both of them, a Jackal overhears this and asks for the girl\'s hand in marriage.', 0x6e61726962616e612e6a706567, 0, '', '2024-04-11 11:27:57', 1, 'accepted', NULL, NULL, 0),
 (62, 'Math Ekka Natann ', 'Musical', 'Suddek Oba Amathai sri lankan stage drama. Stage Drama List. Abuddassa Kolama, Acid Wessa · Acinamalee · Adara Wasthuwa · Adaraneeya Sanwadayak · Adaraneeya', 0x6d61746820656b6b206e6174616e6e2e6a706567, 0, '', '2024-04-16 10:33:15', 1, 'pending', NULL, NULL, 0),
-(69, 'sinhabahu', 'Tragedy', 'xvwgwuw', 0x69372e6a7067, 0, '', '2024-04-16 12:08:26', NULL, NULL, NULL, NULL, 0);
+(69, 'sinhabahu', 'Tragedy', 'xvwgwuw', 0x69372e6a7067, 0, '', '2024-04-16 12:08:26', NULL, NULL, NULL, NULL, 0),
+(102, 'balloth ekka be', 'Comedy', 'ghjyu', 0x69372e6a7067, 5, 'Nethmi Hasi', '2024-04-25 10:50:07', 1, 'pending', NULL, NULL, 0);
 
 --
 -- Indexes for dumped tables
@@ -76,8 +77,7 @@ INSERT INTO `articles` (`id`, `article_name`, `category`, `article_content`, `im
 -- Indexes for table `articles`
 --
 ALTER TABLE `articles`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `cw_id` (`cw_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -87,18 +87,7 @@ ALTER TABLE `articles`
 -- AUTO_INCREMENT for table `articles`
 --
 ALTER TABLE `articles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `articles`
---
-ALTER TABLE `articles`
-  ADD CONSTRAINT `articles_ibfk_1` FOREIGN KEY (`cw_id`) REFERENCES `content_writers` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `articles_ibfk_2` FOREIGN KEY (`catId`) REFERENCES `categories` (`id`) ON DELETE CASCADE;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

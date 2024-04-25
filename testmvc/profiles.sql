@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 23, 2024 at 05:57 PM
+-- Generation Time: Apr 25, 2024 at 06:19 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -41,7 +41,8 @@ CREATE TABLE `profiles` (
 
 INSERT INTO `profiles` (`id`, `userid`, `name`, `images`, `Created_at`) VALUES
 (16, 4, 'Nethmi Hasi', 'profile4.jpeg', '2024-04-23 21:14:04'),
-(17, 1, 'Nethmi Hasinthara', 'profile1.jpeg', '2024-04-23 22:00:48');
+(17, 1, 'Nethmi Hasinthara', 'profile1.jpeg', '2024-04-23 22:00:48'),
+(18, 5, 'Nethmi Hasi', 'profile5.jpeg', '2024-04-25 11:12:24');
 
 --
 -- Indexes for dumped tables
@@ -61,7 +62,7 @@ ALTER TABLE `profiles`
 -- AUTO_INCREMENT for table `profiles`
 --
 ALTER TABLE `profiles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
