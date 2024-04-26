@@ -88,11 +88,16 @@
 
                         <h2><?= $halls[0]->hallno ?><br>
                             <span>Hall id: <?= $halls[0]->id ?></span>
+<br>
+                            <span>Head Count: <?= $halls[0]->headCount  ?></span>
                         </h2>
+                        
                         <p><?= $halls[0]->content ?></p>
+                        <!-- <?php show($halls); ?> -->
+
 
                         <div class="description">
-                            <h1>BENEFITS</h1>
+                            <h1>FACILITIES</h1>
                             <ul>
                                 <?php foreach ($hallfacilities as $hallfacility) : ?>
                                     <?php foreach ($facilities as $facility) : ?>
@@ -144,7 +149,9 @@ usort($data['reqs'], function($a, $b) {
                         <img src="<?= ROOT ?>/assets/images/profilePic.png">
 
                         <div class="rev1">
-                            <h5 class="m=0 ms-2"><?= $object->name ?></h5>
+                            <!-- <h5 class="m=0 ms-2"><?= $object->name ?></h5> -->
+                            <h5 class="m=0 ms-2"><?= $_SESSION['USER']->fullname; ?></h5>
+
                             <p class="revDate">On: <?= $object->review_date ?></p> <!-- Add this line to display review date -->
                         </div>
                     <!-- </div> -->

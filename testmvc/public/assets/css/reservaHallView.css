@@ -46,7 +46,7 @@
   padding: 0;
   padding-left: 16px;
   /* margin: 16px 35px; */
-  background-color: aqua;
+  /* background-color: aqua; */
 }
 .breadcrumb li a {
   text-decoration: none;
@@ -165,7 +165,7 @@
 
 .container3 .details p {
     max-width: 85%;
-    margin-left: 15%;
+    /* margin-left: 15%; */
     color: #333;
     font-size: 15px;
     margin-bottom: 20px;

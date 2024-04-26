@@ -22,8 +22,35 @@ class ReservaSentReq
 		];
 		
 		$result=$sentReq->where($find);
-		$data=$result;
+		$paid=new Reservationpayments;
+		$find1=[
+			 	'ispaid'=>1
+			];
+		$result2=$paid->where($find1);
+		$fromPymentTable=[];
+
+		$i=0;
+		foreach ($result as $key) 
+		{
+			$reqid= $key->id ;
+			// $ispaid=$key->ispaid;
+			foreach ($result2 as $key2) 
+			{
+				if ($key2->reqid==$reqid ) 
+				{
+						$fromPymentTable[$i] = $key2;
+						$i=$i+1;
+				}
+			}
+		}
+		// show($fromPymentTable);
 		// $data=$result;
+		$data=[
+			'reservationRequests'=>$result,
+			'fromPymentTable'=>$fromPymentTable
+		];
+		// show($data['fromPymentTable']);
+
 		$this->view('reservaSentReq',$data);
 
 		// if (isset($_POST['id'])) {
@@ -37,13 +64,13 @@ class ReservaSentReq
 		$currentDateTime = date('Y-m-d H:i:s');
 
 		// Your code here
-		echo "in review function";
-		print_r($data);
-		echo $data['review'];
+		// echo "in review function";
+		// print_r($data);
+		// echo $data['review'];
 		$reqId = intval($data['request_id']);
-		echo "before vardump";
+		// echo "before vardump";
 		// var_dump($reqId);
-		echo gettype($reqId);
+		// echo gettype($reqId);
 		$review=$data['review'];
 		$rating=$data['rating'];
 		$arrOrder = [  
@@ -51,11 +78,14 @@ class ReservaSentReq
 			,'rating' => $rating 
 			,'review_date' => $currentDateTime
 		]; 
-		show($arrOrder);
+		// show($arrOrder);
 	
 		$resevationRequests = new ReservationRequests;
-		show($resevationRequests);
+		// show($resevationRequests);
 		// $resevationRequests->update($reqId, ['review' => $review] , 'id'); // Corrected
 		$resevationRequests->update($reqId, $arrOrder);
+		// header('Location: /reservaHall');
+		// exit()
+		// error_log("Review function called");
 	}
 }

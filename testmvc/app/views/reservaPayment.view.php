@@ -98,7 +98,6 @@
 
 
   <body>
-    <!-- <?//php show($data['detailsofReq']=>); ?> -->
   <section class="booking-container">
     <header class="booking-title">Complete Your Booking</header>
     <section class="booking-details">
@@ -395,6 +394,15 @@ function paymentSuccess(orderId){
 let updateOrderForm = document.querySelector(".form-checkout");
         updateOrderForm.addEventListener('submit', function(event){
             event.preventDefault();
+            var x=validate();
+            console.log("XXXXXXXXXXXXX");
+          console.log(x);
+            if(!x){
+                return;
+                console.log("Form not submitted");
+            }
+            else{
+            console.log("Form submitted");
             let formData = new FormData(updateOrderForm);
             let xhr = new XMLHttpRequest();
             xhr.open("POST", "<?php echo ROOT ?>/reservaPayment", true);
@@ -411,8 +419,39 @@ let updateOrderForm = document.querySelector(".form-checkout");
             }
 
             xhr.send(formData);
-              
+          }
         });
+
+
+
+        function validate(){
+            let fullname = document.querySelector('input[name="fullname"]').value;
+            let mobile = document.querySelector('input[name="mobile"]').value;
+            let email = document.querySelector('input[name="email"]').value;
+
+            if(fullname == ""){
+                alert("Full name is required");
+                return false;
+            }
+
+            if(mobile == ""){
+                alert("Mobile is required");
+                return false;
+            } else if(!mobile.match(/^[0-9]{10}$/)){
+                alert("Mobile is not valid");
+                return false;
+            }
+
+            if(email == ""){
+                alert("Email is required");
+                return false;
+            } else if(!email.match(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/)){
+                alert("Email is not valid");
+                return false;
+            }
+
+            return true;
+        }
 
 
 </script>

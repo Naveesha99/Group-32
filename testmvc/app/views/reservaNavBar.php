@@ -207,10 +207,10 @@
     <!-- <h2 class="logo">Coding Pakistan</h2> -->
     <img src="<?= ROOT ?>/assets/images/Logo.png" class="logo">
     <ul>
-      <li> <a href="#"> HOME </a></li>
+    <li> <a href="<?=ROOT?>/home">HOME </a></li>
       <li> <a href="#"> TICKETS </a></li>
       <li> <a href="<?=ROOT?>/reservaHall"> HALLS </a></li>
-      <li> <a href="#"> BLOGS </a></li>
+      <li> <a href="<?=ROOT?>/dramaportal"> BLOGS </a></li>
       <li> <a href="<?=ROOT?>/contactus"> CONTACT US </a></li>
 
     </ul>
@@ -331,7 +331,7 @@
 
     function redirectToLoginPage() {
       // Redirect to the reservalogin page
-      window.location.href = 'reservaLogin';
+      window.location.href = 'login';
     }
 
     function reservaSentreqPg() {

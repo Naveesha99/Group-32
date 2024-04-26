@@ -295,6 +295,7 @@ h1 {
                     </div>
                 <//?php endif;?> -->
                     <!-- <input type="text" placeholder="USERNAME" /> -->
+                    <input type="hidden" value="reservationist" name="empRoll" id="empRoll">
                     <input type="text" placeholder="FULLNAME" name = "fullname" id="fullname" class="fullname"  required>
                     <input type="text" placeholder="USERNAME" name = "username" id="username" class="username"  required>
                     <input type="email" placeholder="EMAIL" name = "email" id="email" class="email" required>
