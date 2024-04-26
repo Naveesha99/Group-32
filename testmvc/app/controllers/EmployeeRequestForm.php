@@ -20,7 +20,7 @@ class EmployeeRequestForm
 		$userid = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->id;
 
 		// echo $name;
-		echo $userid;
+		// echo $userid;
 
 		$data = [];
 		$emp_req = new EmpRequest;

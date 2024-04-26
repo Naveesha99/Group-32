@@ -18,10 +18,25 @@ class CWDraft
 		}
 
 
-		// $data['username'] = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->email;
+		$cwId = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->id;
 		$data = [];
 		$article = new Article;
-		$data['draft_articles'] = $article->getDraftArticles();
+		
+		if ($cwId) {
+			$arr1['cw_id'] = $cwId;
+			$articleData = $article->where($arr1);
+			if ($articleData) {
+
+				$draft = array_filter($articleData, function ($article) {
+					return $article->status == 0 ;
+				});
+
+            } else {
+                echo "Article not found.";
+                exit();
+            }
+		}
+		$data['draft_articles'] = $draft;
 
 		$this->view('contentwriter/cwDraft', $data);
 	}

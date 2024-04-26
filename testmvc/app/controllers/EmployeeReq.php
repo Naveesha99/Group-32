@@ -18,10 +18,21 @@ class EmployeeReq
             exit();
         }
 
-        // $data['username'] = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->email;
+        $empId = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->id;
 
         $emp_req = new EmpRequest;
-        $result = $emp_req->findAll();
+        if ($empId) {
+			$arr1['emp_id'] = $empId;
+			$articleData = $emp_req->where($arr1);
+			if ($articleData) {
+
+				$result = $articleData;
+            } else {
+                echo "Request not found.";
+                exit();
+            }
+		}
+		
         $data = $result;
 
         $this->view('employee/employeeReq', $data);
