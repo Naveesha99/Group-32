@@ -36,8 +36,8 @@
                         </div> -->
 
 						<button class="submit">LOGIN</button>
-						<h3 class="heading">New User? <a href="<?= ROOT ?>/signup">Create an account</a>
-							<br><a href="forgot.html">Forgot password?</a>
+						<h3 class="heading">
+							<br><a href="<?= ROOT ?>/forgotPW">Forgot password?</a>
 						</h3>
 					</form><br>
 				</div>

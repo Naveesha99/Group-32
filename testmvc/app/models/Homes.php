@@ -27,7 +27,7 @@ class Homes
       }
       if(empty($data['image']))
       {
-          $this->errors['image']="Please upload image";
+          $this->errors['image']="Please upload cover image";
       }
       if(empty($this->errors))
       {

@@ -22,7 +22,7 @@ class addDrama
             $data['image'] = $_POST['image'];
 
 
-            if($home->validate($data))
+            if($home->validate($_POST))
             {
                 //_______add drama into home table_________
                 $arr['title'] = $_POST['title'];

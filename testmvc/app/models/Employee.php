@@ -32,11 +32,10 @@ class Employee
 
 		if (empty($data['empEmail'])) {
 			$this->errors['empEmail'] = "Email is required";
-		}
-
-		if (!filter_var($data['empEmail'], FILTER_VALIDATE_EMAIL)) {
+		}elseif (!filter_var($data['empEmail'], FILTER_VALIDATE_EMAIL)) {
 			$this->errors['empEmail'] = "Email is not valid";
 		}
+
 
 		if (empty($data['empNIC'])) {
 			$this->errors['empNIC'] = "NIC is required";
@@ -58,6 +57,14 @@ class Employee
 			if ($age < 18) {
 				$this->errors['empDOB'] = "Employee must be at least 18 years old";
 			}
+		}
+
+		if (empty($data['empAddress'])) {
+			$this->errors['empAddress'] = "Employee Address is required";
+		}
+
+		if (!empty($data['empContact']) && strlen($data['empContact']) !== 10) {
+			$this->errors['empContact'] = "Employee Contact must be 10 digits";
 		}
 
 		if (empty($data['empRoll'])) {

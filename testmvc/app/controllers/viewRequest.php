@@ -33,6 +33,12 @@ class viewRequest
                 if ($status === 'pending') {
                     $arr1['status'] = 'accepted';
                     $request->update($id, $arr1);
+                    
+                    // show($data['request'][0]->reservationistId);
+                    // show($id);
+                    // show($arr1['status']);
+                    $message = new Message;
+                    $message->resNotification($data['request'][0]->reservationistId, $id, $arr1['status']);
                     redirect('request');
                 }
             }
