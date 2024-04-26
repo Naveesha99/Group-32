@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="<?= ROOT ?>/assets/css/navBar.css">
+  <script src="https://kit.fontawesome.com/8bff7d7f97.js" crossorigin="anonymous"></script>
   <!-- <link rel="stylesheet" href="/css/nav.css"> -->
 
 
@@ -30,8 +31,9 @@
 
       <div class="Profile">
         <?php
+        $id = $_SESSION['USER']->id;
         if (!empty($_SESSION['PROFILE_IMAGE'])) {
-          echo '<img src="' . ROOT . '/assets/images/Upload/' . $_SESSION['PROFILE_IMAGE'] . '" onclick="toggleMenu()">';
+          echo '<img src="' . ROOT . '/assets/images/Upload/profile' . $id . '.jpeg" onclick="toggleMenu()">';
         } else {
           echo '<img src="' . ROOT . '/assets/images/Upload/profiledefault.jpeg" onclick="toggleMenu()">';
         }
@@ -52,6 +54,12 @@
           <h3><?php echo $_SESSION['USER']->fullname; ?></h3>
         </div>
         <hr>
+
+        <a href="<?= ROOT ?>/employeeSetting" class="sub-menu-link">
+          <i class="fa-solid fa-user"></i>
+          <p>Profile</p>
+          <span>></span>
+        </a>
         <?php
         $ID = $_SESSION['USER']->id;
 
@@ -62,11 +70,14 @@
         <span>></span>
         </a>
 
-        <a href="<?= ROOT ?>/employeeSetting" class="sub-menu-link">
+        <a href="<?= ROOT ?>/empEditPassword" class="sub-menu-link">
           <i class="fa-solid fa-user"></i>
-          <p>Profile</p>
+          <p>Change Password</p>
           <span>></span>
         </a>
+
+
+
 
       </div>
 
