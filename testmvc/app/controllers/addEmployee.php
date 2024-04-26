@@ -31,38 +31,40 @@ class addEmployee
 				$name = $_POST['empName'];
 				$sendMail = new SendMail;
 				$sendMail->sendEmployeeEmail($email, $name);
-				if($_POST['empRoll'] == 'Front Desk Officer'){
+				if ($_POST['empRoll'] == 'Front Desk Officer') {
 					$loginData = [
-						'fullname'=>$_POST['empName'],
-						'email'=>$_POST['empEmail'],
+						'fullname' => $_POST['empName'],
+						'email' => $_POST['empEmail'],
 						// 'nic'=>$_POST['empNIC'],
-						'password'=>$hashedPassword,
+						'password' => $hashedPassword,
 						// 'dob'=>$_POST['empDOB'],
-						'user_type'=>'Front Desk Officer'
+						'user_type' => 'Front Desk Officer'
 					];
-				}elseif($_POST['empRoll'] == 'Content Writer'){
+				} elseif ($_POST['empRoll'] == 'Content Writer') {
 					$loginData = [
-						'fullname'=>$_POST['empName'],
-						'email'=>$_POST['empEmail'],
+						'fullname' => $_POST['empName'],
+						'email' => $_POST['empEmail'],
 						// 'nic'=>$_POST['empNIC'],
-						'password'=>$hashedPassword,
+						'password' => $hashedPassword,
 						// 'dob'=>$_POST['empDOB'],
-						'user_type'=>'Content Writer'
+						'user_type' => 'Content Writer'
 					];
-				}else{
+				} else {
 					$loginData = [
-						'fullname'=>$_POST['empName'],
-						'email'=>$_POST['empEmail'],
+						'fullname' => $_POST['empName'],
+						'email' => $_POST['empEmail'],
 						// 'nic'=>$_POST['empNIC'],
-						'password'=>$hashedPassword,
+						'password' => $hashedPassword,
 						// 'dob'=>$_POST['empDOB'],
-						'user_type'=>'Employee'
+						'user_type' => 'Employee'
 					];
 				}
 				// show($loginData);
 				$user->insert($loginData);
-				$employee->insert($_POST);
-				redirect('adminemployee');
+				if ($employee->validate($_POST)) {
+					$employee->insert($_POST);
+					redirect('adminemployee');
+				}
 			}
 
 			$data['errors'] = $employee->errors;

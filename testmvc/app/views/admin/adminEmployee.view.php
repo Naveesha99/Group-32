@@ -66,7 +66,8 @@
                             <!-- <td><a href="#" class="btn">View</a></td> -->
                         </tr>
                         <?php
-                        foreach ($data['employee'] as $row) {
+                        $employees = array_slice($data['employee'], -6);
+                        foreach ($employees as $row) {
                             echo '<tr>
                                     <td>' . "emp" . $row->id . '</td>
                                     <td>' . $row->empName . '</td>
@@ -75,7 +76,6 @@
                                     <td><a href="#" class="btn">View</a></td>
                                   </tr>';
                         }
-
                         ?>
 
                     </table>
@@ -99,43 +99,7 @@
                                     <td><a href="#" class="btn">View</a></td>
                                   </tr>';
                         }
-
                         ?>
-
-                    </table>
-                </div>
-            </div>
-            <div class="content-3">
-                <div class="Tasks">
-                    <div class="title">
-                        <h2>Tasks</h2>
-                        <a href="<?= ROOT ?>/employees" class="btn">View All</a>
-                    </div>
-                    <table>
-                        <tr>
-                            <th>Task</th>
-                            <th>Date</th>
-                            <th>Start Time</th>
-                            <th>End Time</th>
-                            <th>Location</th>
-                            <th>Status</th>
-                            <!-- <td><a href="#" class="btn">View</a></td> -->
-                        </tr>
-                        <?php
-                        foreach ($data['task'] as $row) {
-                            echo '<tr>
-                                    <td>' . $row->taskType . '</td>
-                                    <td>' . $row->date . '</td>
-                                    <td>' . $row->startTime . '</td>
-                                    <td>' . $row->endTime . '</td>
-                                    <td>' . $row->location . '</td>
-                                    <td>' . $row->status . '</td>
-                                    <td><a href="#" class="btn">View</a></td>
-                                  </tr>';
-                        }
-
-                        ?>
-
                     </table>
                 </div>
             </div>
