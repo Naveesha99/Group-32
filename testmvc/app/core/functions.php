@@ -33,3 +33,14 @@ function get_image(mixed $file = '', string $type = 'post'): string
 		return ROOT . "/assets/no_image.jpg";
 	}
 }
+
+function set_value($key,$default = '')
+{
+    if(!empty($_POST[$key])){
+        return $_POST[$key];
+    }else
+    if (!empty($default)) {
+        return $default;
+    }
+    return '';
+}
