@@ -17,7 +17,8 @@ class CWDramaPortal
 		}
 
 
-		$cwId = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->id;
+		$cwId =$_SESSION['USER']->id;
+
 
 		$article = new Article;
 		if ($cwId) {
@@ -36,20 +37,20 @@ class CWDramaPortal
             }
 		}
 		
-		$data['articles'] = $result;
+		// $data['result'] = $result;
 
 		// Check if a category filter is applied
 		$selectedCategory = isset($_GET['category']) ? $_GET['category'] : 'All categories';
 		if ($selectedCategory !== 'All categories') {
 
 			// Filter articles based on the selected category
-			$filteredArticles = array_filter($result, function ($article) use ($selectedCategory) {
-				return $article->category === $selectedCategory;
+			$filteredArticles = array_filter($result, function ($article) use ($selectedCategory,$cwId) {
+				return $article->category === $selectedCategory && $article->cw_id == $cwId;
 			});
 
 			$data['articles'] = $filteredArticles;
 		} else {
-			$data['articles'] = $article->findPublishArticles();
+			$data['articles'] = $result;
 		}
 
 		$searchQuery = isset($_GET['search']) ? $_GET['search'] : '';
