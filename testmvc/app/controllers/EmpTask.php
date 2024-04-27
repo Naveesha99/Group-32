@@ -21,6 +21,7 @@ class EmpTask
     $empId = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->id;
 
     $emp_task = new Emp_tasks;
+    $result = [];
     
 
     if ($empId) {
@@ -28,10 +29,7 @@ class EmpTask
       $empData = $emp_task->where($arr1);
       if ($empData) {
           $result = $empData;
-      } else {
-          echo "Task not found.";
-          exit();
-      }
+      } 
   }
     $data = $result;
 

@@ -19,6 +19,7 @@ class EmpHistory
 
         $empId = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->id;
         $data = [];
+        $result = [];
         $emp_task = new Emp_tasks;
         
         if ($empId) {
@@ -26,10 +27,7 @@ class EmpHistory
             $empData = $emp_task->where($arr1);
             if ($empData) {
                 $result = $empData;
-            } else {
-                echo "Task not found.";
-                exit();
-            }
+            } 
         }
 
         $historyTasks = [];
