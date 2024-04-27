@@ -54,16 +54,17 @@
                         <div class="checkbox-group" id="days">   
                             <div class="check_box">
                                 <label class="checkbox">
-                                    <p>Timeslot 1: 3:30</p>
-                                    <input type="checkbox" name="time1" value="3:30:00">
+                                    <?php if(isset($data['showing_time'])){ ?> 
+                                    <p>Timeslot 1: <?= $data['showing_time'][0]->time ?></p>
+                                    <input type="checkbox" name="time1" value="<?= $data['showing_time'][0]->time ?>">
                                 </label> 
                             </div> 
 
                             <div class="check_box">
                                 <label class="checkbox">
-                                    <p>Timeslot 2: 18:30</p>
-                                    <input type="checkbox" name="time2" value="6:30:00">
-                                </label> 
+                                    <p>Timeslot 2: <?= $data['showing_time'][1]->time ?></p>
+                                    <input type="checkbox" name="time2" value="<?= $data['showing_time'][1]->time ?>">
+                                </label> <?php } ?>
                             </div>
                         </div>
                         <?php if(isset($data['not_time'])) 
@@ -102,7 +103,8 @@
 
             <div class="right_right" style="overflow-y: auto;">
                         <div class="contact">
-                            <?php if(isset($data['home_data'])){ ?>
+                            <?php if(isset($data['home_data']) && $data['home_data'] != null)
+                            { ?>
                                     <table id="myTable">
                                         <tr>
                                             <th>Drama ID</th>
