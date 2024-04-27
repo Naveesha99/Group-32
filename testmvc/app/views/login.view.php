@@ -18,9 +18,14 @@
 					<form method="POST">
 						<h3 class="log">LOG IN</h3>
 						<input type="text" name="email" placeholder="E-Mail">
+						<?php if (!empty($errors)) : ?>
+							<span style="color: red; font-weight: bold; padding: 10px; margin-bottom: 10px;">
+								<?= implode('<br>', $errors) ?>
+							</span>
+						<?php endif; ?>
 						<input type="password" name="password" placeholder="PASSWORD">
 						<?php if (!empty($errors)) : ?>
-							<span class="error-msg">
+							<span style="color: red; font-weight: bold; padding: 10px; margin-bottom: 10px;">
 								<?= implode('<br>', $errors) ?>
 							</span>
 						<?php endif; ?>
@@ -31,8 +36,8 @@
                         </div> -->
 
 						<button class="submit">LOGIN</button>
-						<h3 class="heading">New User? <a href="<?= ROOT ?>/signup">Create an account</a>
-							<br><a href="forgot.html">Forgot password?</a>
+						<h3 class="heading">
+							<br><a href="<?= ROOT ?>/forgotPW">Forgot password?</a>
 						</h3>
 					</form><br>
 				</div>

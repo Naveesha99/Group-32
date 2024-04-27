@@ -6,6 +6,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="<?= ROOT ?>/assets/css/login.css" rel="stylesheet">
 	<title>Forgot Password</title>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -19,7 +21,7 @@
 						<h3 class="log">FORGOT PASSWORD</h3>
 						<input type="text" name="email" placeholder="E-Mail">
 						<?php if (!empty($errors)) : ?>
-							<span class="error-msg">
+							<span style="color: red; font-weight: bold; border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; background-color: #ffe6e6;">
 								<?= implode('<br>', $errors) ?>
 							</span>
 						<?php endif; ?>
@@ -31,7 +33,14 @@
 			<div class="right">
 				<div class="right-text">
 				</div>
-				<!-- <div class="right-inductor"><img src="/public/styles/images/login.jpg" ></div> -->
+				<div class="right-inductor"><img src="/public/styles/images/login.jpg"></div>
+			</div>
+			<div id="otp-popup" style="display: none;">
+				<h3>Enter OTP</h3>
+				<form id="otp-form">
+					<input type="text" id="otp-input" placeholder="Enter OTP">
+					<button type="submit">Submit</button>
+				</form>
 			</div>
 		</div>
 	</section>

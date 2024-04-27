@@ -12,15 +12,30 @@ class CWDramaPortal
 		if (empty($_SESSION['USER'])) {
 			// Redirect or handle the case when the user is not logged in
 			// For example, you might want to redirect them to the login page
-			redirect('cwLogin');
+			redirect('login');
 			exit();
 		}
 
 
-		$data['username'] = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->email;
+		$cwId = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->id;
 
-		$article = new article;
-		$result = $article->findPublishArticles();
+		$article = new Article;
+		if ($cwId) {
+			$arr1['cw_id'] = $cwId;
+			$articleData = $article->where($arr1);
+			if ($articleData) {
+
+				$result = array_filter($articleData, function ($article) {
+					return $article->status == 1 && $article->progress == 'accepted';
+				});
+
+
+            } else {
+                echo "Article not found.";
+                exit();
+            }
+		}
+		
 		$data['articles'] = $result;
 
 		// Check if a category filter is applied

@@ -88,11 +88,16 @@
 
                         <h2><?= $halls[0]->hallno ?><br>
                             <span>Hall id: <?= $halls[0]->id ?></span>
+<br>
+                            <span>Head Count: <?= $halls[0]->headCount  ?></span>
                         </h2>
+                        
                         <p><?= $halls[0]->content ?></p>
+                        <!-- <?php show($halls); ?> -->
+
 
                         <div class="description">
-                            <h1>BENEFITS</h1>
+                            <h1>FACILITIES</h1>
                             <ul>
                                 <?php foreach ($hallfacilities as $hallfacility) : ?>
                                     <?php foreach ($facilities as $facility) : ?>
@@ -120,19 +125,23 @@
     <!-- <?//php show($data['reqs']); ?> -->
 
 <?php
+if (is_array($data['reqs'])) {
 // Sort the $data array based on the review_date in descending order
 usort($data['reqs'], function($a, $b) {
     return strtotime($b->review_date) - strtotime($a->review_date);
 });
+}
 ?>
 
 <?php ?>
 
 
     <?//php foreach ($data as $object) : ?>
+<?php if (is_array($data['reqs']) || is_object($data['reqs'])) : ?>
+
     <?php    foreach ($data['reqs'] as $object): ?>
 
-        <?php if (($object->hallno === 'HALL01')&&($object->review != NULL)) : ?>
+        <?php if (($object->hallno === $halls[0]->hallno)&&($object->review != NULL)) : ?>
             <div class="rev">
                 <div class="rev-i">
                     <!-- <div class="d-flex align-items-center mb-2"> -->
@@ -140,7 +149,9 @@ usort($data['reqs'], function($a, $b) {
                         <img src="<?= ROOT ?>/assets/images/profilePic.png">
 
                         <div class="rev1">
-                            <h5 class="m=0 ms-2"><?= $object->name ?></h5>
+                            <!-- <h5 class="m=0 ms-2"><?= $object->name ?></h5> -->
+                            <h5 class="m=0 ms-2"><?= $_SESSION['USER']->fullname; ?></h5>
+
                             <p class="revDate">On: <?= $object->review_date ?></p> <!-- Add this line to display review date -->
                         </div>
                     <!-- </div> -->
@@ -159,6 +170,7 @@ usort($data['reqs'], function($a, $b) {
             </div>
         <?php endif; ?>
     <?php endforeach; ?>
+<?php endif; ?>
 </div>
 
 

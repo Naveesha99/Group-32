@@ -1,40 +1,43 @@
-<?php 
+<?php
 
 /**
  * home class
  */
 class addDrama
 {
-	use Controller;
+    use Controller;
 
-	public function index()
-	{
+    public function index()
+    {
+        $data = [];
+        
+		
+		if($_SERVER['REQUEST_METHOD'] == "POST")
+		{
 
-		if (empty($_SESSION['USER'])) {
-			// Redirect or handle the case when the user is not logged in
-			// For example, you might want to redirect them to the login page.
-			redirect('login');
-			exit();
+			$home = new Homes;
+
+            $data['title'] = $_POST['title'];
+            $data['description'] = $_POST['description'];
+            $data['image'] = $_POST['image'];
+
+
+            if($home->validate($_POST))
+            {
+                //_______add drama into home table_________
+                $arr['title'] = $_POST['title'];
+                $arr['description'] = $_POST['description'];
+                $arr['image'] = $_POST['image'];
+				$home->insert($arr);
+
+            }
+            else
+            {
+                $data['errors'] = $home->errors;   
+            }
+
 		}
 
-		$data = [];
-
-		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-			$drama = new Drama;
-			show($_POST);
-            if ($drama->validate($_POST)) {
-                $drama->insert($_POST);
-                redirect('dramas');
-            } else {
-
-                echo "Drama not found.";
-                exit();
-            }
-        }
-
-		// $data['username'] = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->email;
-
-		$this->view('admin/adddrama');
-	}
-
+		$this->view('admin/adddrama', $data);
+    }
 }

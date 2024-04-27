@@ -8,7 +8,7 @@ class ReservaHall
 	public function index()
 	{
 		if(isset($_SESSION['USER'])){
-			show($_SESSION['USER']->username);
+			// show($_SESSION['USER']->username);
 		}
 		// show($_SESSION['USER']);
 		// if (isset($_SESSION['USER'])) {

@@ -12,19 +12,30 @@ class CWArticleDisplay
 		if (empty($_SESSION['USER'])) {
 			// Redirect or handle the case when the user is not logged in
 			// For example, you might want to redirect them to the login page
-			redirect('cwLogin');
+			redirect('login');
 			exit();
 		}
 
 
-		// $data['username'] = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->email;
-
+		$cwId = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->id;
 		// $this->view('cwArticleDisplay');
 		$article = new Article;
-		$result = $article->findPublishArticles();
+		if ($cwId) {
+			$arr1['cw_id'] = $cwId;
+			$articleData = $article->where($arr1);
+			if ($articleData) {
 
+				$result = array_filter($articleData, function ($article) {
+					return $article->status == 1 && $article->progress == 'accepted';
+				});
+			} else {
+				echo "Article not found.";
+				exit();
+			}
+		}
 
 		$data = $result;
+
 
 		$this->view('contentwriter/cwArticleDisplay', $data);
 
@@ -33,8 +44,6 @@ class CWArticleDisplay
 				$articleId = $_POST['delete_article'];
 				$this->articleDelete($articleId, $article);
 			}
-
-			
 		}
 	}
 
@@ -43,6 +52,4 @@ class CWArticleDisplay
 		$article->delete($data, 'id');
 		redirect("contentwriter/cwArticleDisplay");
 	}
-
-	
 }

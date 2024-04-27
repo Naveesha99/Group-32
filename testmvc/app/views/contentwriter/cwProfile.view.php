@@ -40,7 +40,7 @@
 
                               ?>
 
-                              <h1 class="profile-name"><?= $data['content_writer'][0]->username ?></h1>
+                              <h1 class="profile-name"><?= $data['content_writer'][0]->empName ?></h1>
                               <div class="button-container"> <!-- Wrap the button and input in a container -->
                                     <button id="editProfileBtn" class="btn-edit">Edit</button> <!-- Edit button -->
 
@@ -63,15 +63,30 @@
 
                   <!-- Personal Email -->
                   <label for="full_name">Employee Name:</label>
-                  <input type="text" id="full_name" value="<?= $data['content_writer'][0]->username ?>" disabled />
+                  <input type="text" id="full_name" value="<?= $data['content_writer'][0]->empName ?>" disabled />
 
-                  <!-- NIC -->
                   <label for="email">Email:</label>
-                  <input type="text" id="email" value="<?= $data['content_writer'][0]->email ?>" disabled />
+                  <input type="text" id="email" value="<?= $data['content_writer'][0]->empEmail ?>" disabled />
 
-                  <!-- DOB -->
-                  <label for="full_name">NIC:</label>
-                  <input type="text" id="nic" value="<?= $data['content_writer'][0]->nic ?>" disabled />
+
+                  <label for="nic">NIC:</label>
+                  <input type="text" id="nic" value="<?= $data['content_writer'][0]->empNIC ?>" disabled />
+
+
+                  <label for="address">Date of Birth:</label>
+                  <input type="text" id="address" value="<?= $data['content_writer'][0]->empDOB ?>" disabled />
+
+
+                  <label for="address">Address:</label>
+                  <input type="text" id="address" value="<?= $data['content_writer'][0]->empAddress ?>" disabled />
+
+
+                  <label for="contact">Contact:</label>
+                  <input type="text" id="contact" value="<?= $data['content_writer'][0]->empContact ?>" disabled />
+
+                  <label for="emp_roll">Employee Roll:</label>
+                  <input type="text" id="emp_role" value="<?= $data['content_writer'][0]->empRoll ?>" disabled />
+
 
                   <?php
                   $ID = $data['content_writer'][0]->id;

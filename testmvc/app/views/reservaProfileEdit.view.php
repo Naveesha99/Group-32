@@ -6,28 +6,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="<?= ROOT ?>/assets/css/reservaSettings.css" rel="stylesheet">
+    <!-- <link href="<?= ROOT ?>/assets/css/reservaSettings.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/cwEditProfile.css">
+
 
     <title>Admin Panel</title>
 
 </head>
-<?php require_once 'reservaNavBar.php' ?>
+<!-- <?//php require_once 'reservaNavBar.php' ?> -->
+<?php if (isset($_SESSION['USER'])) {
+    require_once 'reservaNavBarAfter.php';
+} else {
+    require_once 'reservaNavBar.php';
+} ?>
 
-
-<body class="dashboard">
+<!-- <body class="dashboard">
     <div class="container">
 
 
         <div class="content">
             <div id="settings-container">
                 <header>
-                    <!-- <h1>Settings Page</h1> -->
                 </header>
 
+
                 <form onsubmit="return validateFormSettings()">
+                <?//php show($data); ?>
 
                     <input type="file" id="photo" name="photo" accept="image/*" onchange="previewImage(this)">
-                    <!-- <img id="preview" src="/images/profilePic.png" alt="Preview"> -->
                     <img id="preview" src="<?= ROOT ?>/assets/images/profilePic.png" alt="Preview">
 
                     <label id="photo-label" for="photo">Upload Image</label>
@@ -49,7 +55,6 @@
                     <input type="nic" id="nic" name="nic" placeholder="Enter your NIC" required>
 
                     <div class="btn2">
-                        <!-- <button type="submit">Save Settings</button> -->
                         <button id="edit-profile" class="btn btn-primary">SAVE</button>
                     </div>
                 </form>
@@ -75,7 +80,6 @@
             var contactInput = document.getElementById('contact');
             var contactError = document.getElementById('contact-error');
 
-            // Regular expression for a simple phone number validation
             var phoneRegex = /^\d{10}$/;
 
             if (!phoneRegex.test(contactInput.value)) {
@@ -94,10 +98,8 @@
         document.getElementById('img-profile').style.display = 'none';
         if(session == 'false'){
             document.getElementById('img-profile').style.display = 'none';
-            // document.getElementById('login-btn').style.display='none';
         }
         if(session == 'true'){
-            // document.getElementById('img-profile').style.display = 'none';
             document.getElementById('img-profile').style.display = 'block';
             document.getElementById('login-btn').style.display='none';
         }
@@ -108,6 +110,31 @@
         window.location.href = 'reservaProfileEdit';
         });
     </script>
-</body>
+</body> -->
+
+
+
+<div class="container">
+        <h1>Edit profile</h1>
+        <!-- <?php show($data); ?> -->
+        <form method="post" action="reservaProfileEdit1">
+
+            <input type="hidden" id="id" name="id" value="<?=$data['fromUser1'][0]->id?>" required>
+
+            <label for="Full Name">Employee Name:</label>
+            <input type="text" id="fullname" name="fullname" value="<?=$data['fromUser1'][0]->fullname?>" required>
+
+            <label for="Contact Number">Employee Name:</label>
+            <input type="text" id="mobile" name="mobile" value="<?=$data['fromReserva1'][0]->contactNumber?>" required>
+
+            <!-- <label for="password">Password:</label>
+            <input type="text" id="password" name="password" value="<?=$data['contentwriter'][0]->password?>" required> -->
+
+            <button type="submit" name="submit">SUBMIT</button>
+
+        </form>
+    </div>
+
+
 
 </html>

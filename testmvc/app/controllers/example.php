@@ -11,22 +11,12 @@ class example
     {
         // show($_POST);
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
-            $email = 'lnaveesha4@gmail.com';
-            $name = 'Lakshan Naveesha';
-            $ticket_id = 'T123456';
-            $path = $_SERVER['DOCUMENT_ROOT'] . '/Group-32/testmvc/public/assets/ticket';
-            $jpgFile = $path . '/' . $ticket_id . '.jpg';
+            $email = "lnaveesha4@gmail.com";
+            $subject = "Test mail";
+            $message = "This is a test mail";
+            $headers = "From: lakshannaveesha10@gmail.com";
 
-            if (file_exists($jpgFile)) {
-                show($jpgFile);
-                $sendMail = new SendMail;
-                $sendMail->sendTicketEmail($email, $name, $jpgFile, $ticket_id);
-            } else {
-                show($name);
-                // JPG file does not exist
-                // Your code here
-            }
-            // show($email);
+            mail($email, $subject, $message, $headers);
         }
         $this->view('example');
     }

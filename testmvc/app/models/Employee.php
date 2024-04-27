@@ -32,11 +32,10 @@ class Employee
 
 		if (empty($data['empEmail'])) {
 			$this->errors['empEmail'] = "Email is required";
-		}
-
-		if (!filter_var($data['empEmail'], FILTER_VALIDATE_EMAIL)) {
+		}elseif (!filter_var($data['empEmail'], FILTER_VALIDATE_EMAIL)) {
 			$this->errors['empEmail'] = "Email is not valid";
 		}
+
 
 		if (empty($data['empNIC'])) {
 			$this->errors['empNIC'] = "NIC is required";
@@ -60,6 +59,14 @@ class Employee
 			}
 		}
 
+		if (empty($data['empAddress'])) {
+			$this->errors['empAddress'] = "Employee Address is required";
+		}
+
+		if (!empty($data['empContact']) && strlen($data['empContact']) !== 10) {
+			$this->errors['empContact'] = "Employee Contact must be 10 digits";
+		}
+
 		if (empty($data['empRoll'])) {
 			$this->errors['empRoll'] = "Employee Roll is required";
 		}
@@ -71,4 +78,41 @@ class Employee
 
 		return false;
 	}
+
+	public function validateNew($data)
+	{
+		$this->errors = [];
+
+		if (empty($data['empName'])) {
+			$this->errors['empName'] = "Employee name is required";
+		}
+
+		if (empty($data['empEmail'])) {
+			$this->errors['empEmail'] = "Email is required";
+		}
+
+		if (!filter_var($data['empEmail'], FILTER_VALIDATE_EMAIL)) {
+			$this->errors['empEmail'] = "Email is not valid";
+		}
+
+		
+		if (empty($data['empAddress'])) {
+			$this->errors['empAddress'] = "Employee addres is required";
+		}
+
+		if (empty($data['empContact'])) {
+			$this->errors['empContact'] = "Employee contact is required";
+		}
+
+
+		
+
+
+		if (empty($this->errors)) {
+			return true;
+		}
+
+		return false;
+	}
+
 }

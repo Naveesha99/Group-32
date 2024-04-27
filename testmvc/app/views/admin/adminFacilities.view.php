@@ -24,8 +24,11 @@ if(isset($_POST['submitFacility'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="<?= ROOT ?>/assets/css/adminFacilities.css"> --><!-- <link rel="stylesheet" href="<?= ROOT ?>/assets/css/reservaRating.css"> --><!-- <link rel="stylesheet" href="<?= ROOT ?>/assets/css/newcss.css"> -->
+    <!-- <link rel="stylesheet" href="<?= ROOT ?>/assets/css/admintables.css"> -->
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/adminFacilities.css">
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/reservaRating.css">
+
 
     <title>Admin Employee</title>
 </head>
@@ -62,9 +65,9 @@ if(isset($_POST['submitFacility'])){
                 <div class="employees">
                     <div class="title">
                         <h2>Facilities</h2>
-                        <!-- <a href="<?= ROOT ?>/adminFacilities" class="btn">View All</a> -->
+
                     </div>
-                    <table>
+                     <table>
                         <tr>
                             <th>Id</th>
                             <th>Icon</th>
@@ -101,11 +104,62 @@ if(isset($_POST['submitFacility'])){
                         }
                     }
                         ?>
-                    </table>
-                </div>
+                    </table> 
+                    </div>
             </div>
         </div>
     </div>
+
+<!-- <div class="details">
+                <div class="recentOrders">
+                    <div class="cardHeader">
+                        <h2>Users</h2>
+                        <a href="#users-content" class="btn" id="users-tab"onclick="showContent('users-content')">View All</a>
+                        </div>
+
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>Id</td>
+                                    <td>Icon</td>
+                                    <td>Namer</td>
+                                    <td>Options</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+    <?php if(is_array($data['facility'])) : ?>
+        <?php foreach ($data['facility'] as $row) : ?>
+            <tr>
+                <td><p><?php echo $row->id ?></p></td>
+                <td><img src="<?php echo ROOT ?>/assets/images/upload/facilities/<?php echo $row->icon ?>" alt="Facility Icon"></td>
+                <td><?php echo $row->name ?></td>
+                <td>
+                    <span class="button">
+                        <a class="btn" href="#" class="view-btn">View</a>
+                        <a class="btn" href="#" class="view-btn">Edit</a>
+
+                        <form action="adminFacilities" method="post" style="display:inline;">
+                            <input type="hidden" name="id" value="<?php echo htmlspecialchars($row->id) ?>">
+                            <input type="hidden" name="hall" value="<?php echo htmlspecialchars($row->icon) ?>">
+                            <input type="hidden" name="hall" value="<?php echo htmlspecialchars($row->name) ?>">
+                            <button class="btn-edit">Edit</button>
+                        </form>
+                        <a class="btn" href="#">Delete</a>
+                    </span>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    <?php endif; ?>
+</tbody>
+
+                        </table>
+
+                    </div>
+                </div>
+                </div> -->
+
+
+
 
 
     <div id="myModal1" class="modal1" style="display: none;">

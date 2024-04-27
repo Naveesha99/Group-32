@@ -56,16 +56,17 @@ function limitWords($text, $limit)
                         <th>Action</th>
                     </tr>
                 </thead>
-
-                <?php
-                // Check if $data is not false and is an array or object
-                if ($data['result'] && (is_array($data['result']) || is_object($data['result']))) {
-                    foreach ($data['result'] as $row) {
-                        echo '<tr>
+                <tbody>
+                    <?php
+                    // Check if $data is not false and is an array or object
+                    if ($data['result'] && (is_array($data['result']) || is_object($data['result']))) {
+                        foreach ($data['result'] as $row) {
+                            echo '<tr>
                                 <td>' . $row->article_name . '</td>
                                 <td>' . $row->category . '</td>
                                 <td>' . limitWords($row->article_content, 5) . '</td>
-                                <td>' . $row->image . '</td>
+                                <td> 
+                                    <img src="' . ROOT . '/assets/images/drama_portal/' . $row->image . '" alt="Article Image"></td>
                                 <td>
                                     <span class="action_btn">
                                         <a href = "cwViewOwnArticle?id=' . $row->id . '" class = "btn-view">View</a>
@@ -81,11 +82,15 @@ function limitWords($text, $limit)
                                     </span>
                                 </td>
                               </tr>';
+                        }
+                    } else {
+                        echo '<tr><td colspan="9">No data available</td></tr>';
                     }
-                } else {
-                    echo '<tr><td colspan="9">No data available</td></tr>';
-                }
-                ?>
+                    ?>
+
+                </tbody>
+
+
 
             </table>
 

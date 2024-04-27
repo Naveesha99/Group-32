@@ -17,6 +17,6 @@
         <a href="<?= ROOT ?>/empTask"> <i class="fa-solid fa-list-check"></i><span> Tasks</span></a>
         <a href="<?= ROOT ?>/employeeReq"> <i class="fa-solid fa-hand"></i> <span>Request</span></a>
         <a href="<?= ROOT ?>/notification"> <i class="fa-solid fa-bell"></i> <span>Notification</span></a>
-        <a href="<?= ROOT ?>/employeeSetting"> <i class="fa-solid fa-user"></i> <span>Profile</span></a>
+        <!-- <a href="<?= ROOT ?>/employeeSetting"> <i class="fa-solid fa-user"></i> <span>Profile</span></a> -->
     </div>
 </body>
