@@ -40,6 +40,7 @@ label {
 
 input[type="text"],
 input[type="date"],
+input[type="email"],
 select,
 textarea {
     width: 100%;
