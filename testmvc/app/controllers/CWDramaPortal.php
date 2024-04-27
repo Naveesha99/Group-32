@@ -17,10 +17,25 @@ class CWDramaPortal
 		}
 
 
-		$data['username'] = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->email;
+		$cwId = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->id;
 
 		$article = new Article;
-		$result = $article->findPublishArticles();
+		if ($cwId) {
+			$arr1['cw_id'] = $cwId;
+			$articleData = $article->where($arr1);
+			if ($articleData) {
+
+				$result = array_filter($articleData, function ($article) {
+					return $article->status == 1 && $article->progress == 'accepted';
+				});
+
+
+            } else {
+                echo "Article not found.";
+                exit();
+            }
+		}
+		
 		$data['articles'] = $result;
 
 		// Check if a category filter is applied

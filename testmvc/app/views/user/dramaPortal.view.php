@@ -107,7 +107,9 @@
             if (selectedIcons.length != 0) {
 
                 selectedIcons.forEach(icon_id => {
-                    // console.log(icon_id);
+                    
+                    console.log(icon_id);
+                    
                     var select_icon = document.querySelector(`.icon${icon_id}`);
                     select_icon.classList.add('selected');
                 });
