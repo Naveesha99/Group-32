@@ -11,15 +11,17 @@ class CWEditProfile{
 			exit();
 		}
         $empEmail = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->email;
+        $cwId = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->id;
 
         $data=[];
         $cwId = isset($_GET['id']) ? $_GET['id'] :null;
         // echo $empId;
         $cw = new User;
+        $cwNew = new Employee;
 
         if($cwId){
-            $arr1['email'] = $empEmail;
-            $empData = $cw->where($arr1);
+            $arr1['empEmail'] = $empEmail;
+            $empData = $cwNew->where($arr1);
 
             if($empData){
                 $data['contentwriter'] = $empData;
@@ -28,15 +30,20 @@ class CWEditProfile{
         }
 
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
+            $arr['empName'] = $_POST['employee_name'];
+            $arr['empEmail'] = $_POST['empEmail'];
+            $arr['empContact'] = $_POST['phone'];
+            $arr['empAddress'] = $_POST['address'];
             
-            $insertData = [
-                'empName' => $_POST['employee_name'],
-                // 'password' =>  $_POST['password'],
-            ];
-            // show($insertData);
+            if ($cwNew->validateNew($arr)) {
+    
+                
+                $cwNew->update($cwId, $arr, 'id');
+                redirect('cwProfile');
+            }
 
-            $cw->update($cwId, $insertData, 'id');
-            redirect('cwProfile');
+            
+            
         }
 
         

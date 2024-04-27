@@ -37,51 +37,6 @@
                               } else {
                                     echo '<img  id="profileImage" src="' . ROOT . '/assets/images/Upload/profiledefault.jpeg" alt="Default Profile Photo">';
                               }
-                              // echo $empid;
-                              // $profile_photo_name = $data['profile'][0] ->images;
-                              // $profile_photo_name;
-                              // echo $profile_photo_name;
-
-                              // if (!empty($profile_photo_name)) {
-                              //       echo '<img src="' . ROOT . '/assets/images/Upload' . $profile_photo_name . '" alt="Profile Photo">';
-                              // } else {
-                              //       echo '<img src="' . ROOT . '/assets/images/Upload/profiledefault.jpeg" alt="Default Profile Photo">';
-                              // }
-
-
-
-
-
-                              // $allowed_extensions = ['jpeg', 'jpg', 'png'];
-                              // $profile_photo_name = '';
-
-                              // show($allowed_extensions);
-
-                              // foreach ($allowed_extensions as $extension) {
-                              // $profile_photo_name = "profile{$empid}.{$extension}";
-                              // echo $profile_photo_name;
-                              // $profile_photo_path = ROOT . "/assets/images/Upload/{$profile_photo_name}";
-
-                              // echo $profile_photo_path;
-                              // echo " ";
-                              // clearstatcache();
-
-                              // if (file_exists($profile_photo_path)) {
-                              // if (file_exists("navBar.php")) {
-
-
-                              // echo $profile_photo_path;
-                              //       echo '<img id="profileImage" src="'  . $profile_photo_path . '" alt="Profile Photo">';
-
-                              // } else {
-                              // echo "avu";
-                              //       echo '<img  id="profileImage" src="' . ROOT . '/assets/images/Upload/profiledefault.jpeg" alt="Default Profile Photo">';
-                              // }
-                              // }
-                              // if (empty($profile_photo_name)) {
-
-                              // }
-
                               ?>
 
                               <h1 class="profile-name"><?= $data['emp'][0]->empName ?></h1>

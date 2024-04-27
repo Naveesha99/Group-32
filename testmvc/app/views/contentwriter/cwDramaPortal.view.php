@@ -92,97 +92,6 @@
             ?>
 
         </div>
-
-
-
-
-
-
-
-        <script>
-            var is_liked = false;
-            var current_id = 0;
-            var likedArticles = {};
-
-            // Retrieve the value from localStorage
-            let selectedIcons = JSON.parse(localStorage.getItem('selectedIcons')) || [];
-
-            console.log("currently localStorage stored likes id list :", selectedIcons);
-
-            // currently available likes display
-            if (selectedIcons.length != 0) {
-
-                selectedIcons.forEach(icon_id => {
-                    // console.log(icon_id);
-                    var select_icon = document.querySelector(`.icon${icon_id}`);
-                    select_icon.classList.add('selected');
-                });
-
-            }
-
-            function post_like(id) {
-
-                const index = selectedIcons.indexOf(id);
-                var data = {};
-
-                if (index === -1) {
-
-                    // Icon not in array, add it
-                    selectedIcons.push(id);
-                    var select_icon = document.querySelector(`.icon${id}`);
-                    select_icon.classList.add('selected');
-
-                    console.log("add after selected likes id list :", selectedIcons);
-
-                    data = {
-                        id: id,
-                        likes: true,
-
-                    };
-
-                } else {
-
-                    // Icon already in array, remove it
-                    selectedIcons.splice(index, 1);
-                    var select_icon = document.querySelector(`.icon${id}`);
-                    select_icon.classList.remove('selected');
-
-                    data = {
-
-                        id: id,
-                        likes: false,
-                    };
-
-                    console.log("remove after selected likes id list :", selectedIcons);
-
-                }
-
-                localStorage.setItem('selectedIcons', JSON.stringify(selectedIcons));
-
-                $.ajax({
-                    type: "POST",
-                    url: '<?= ROOT ?>/CWDramaLike',
-                    data: data,
-                    cache: false,
-                    success: function(res) {
-                        try {
-
-                            //console.log(res);
-
-                            // convet to the json type
-                            Jsondata = JSON.parse(res);
-                            // console.log(Jsondata);
-
-                        } catch (error) {}
-                    },
-                    error: function(xhr, status, error) {
-                        // return xhr;
-                    },
-                });
-
-
-            }
-        </Script>
     </div>
 
     <script>
@@ -329,6 +238,95 @@
         }
     </style>
 
+
+<script>
+        var is_liked = false;
+        var current_id = 0;
+        var likedArticles = {};
+
+        // Retrieve the value from localStorage
+        let selectedIcons = JSON.parse(localStorage.getItem('selectedIcons')) || [];
+
+        console.log("currently localStorage stored likes id list :", selectedIcons);
+
+        // currently available likes display
+        if (selectedIcons.length != 0) {
+
+            selectedIcons.forEach(icon_id => {
+                // console.log(icon_id);
+                console.log(select_icon);
+
+                var select_icon = document.querySelector(`.icon${icon_id}`);
+
+
+                select_icon.classList.add('selected');
+            });
+
+        }
+
+        function post_like(id) {
+
+            const index = selectedIcons.indexOf(id);
+            var data = {};
+
+            if (index === -1) {
+
+                // Icon not in array, add it
+                selectedIcons.push(id);
+                var select_icon = document.querySelector(`.icon${id}`);
+                select_icon.classList.add('selected');
+
+                console.log("add after selected likes id list :", selectedIcons);
+
+                data = {
+                    id: id,
+                    likes: true,
+
+                };
+
+            } else {
+
+                // Icon already in array, remove it
+                selectedIcons.splice(index, 1);
+                var select_icon = document.querySelector(`.icon${id}`);
+                select_icon.classList.remove('selected');
+
+                data = {
+
+                    id: id,
+                    likes: false,
+                };
+
+                console.log("remove after selected likes id list :", selectedIcons);
+
+            }
+
+            localStorage.setItem('selectedIcons', JSON.stringify(selectedIcons));
+
+            $.ajax({
+                type: "POST",
+                url: '<?= ROOT ?>/CWDramaLike',
+                data: data,
+                cache: false,
+                success: function(res) {
+                    try {
+
+                        //console.log(res);
+
+                        // convet to the json type
+                        Jsondata = JSON.parse(res);
+                        // console.log(Jsondata);
+
+                    } catch (error) {}
+                },
+                error: function(xhr, status, error) {
+                    // return xhr;
+                },
+            });
+
+
+        }
+    </Script>
 
 
     <!-- <script src="search_category.js"></script> -->

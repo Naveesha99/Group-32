@@ -65,7 +65,8 @@ function limitWords($text, $limit)
                                 <td>' . $row->article_name . '</td>
                                 <td>' . $row->category . '</td>
                                 <td>' . limitWords($row->article_content, 5) . '</td>
-                                <td>' . $row->image . '</td>
+                                <td> 
+                                    <img src="' . ROOT . '/assets/images/drama_portal/' . $row->image . '" alt="Article Image"></td>
                                 <td>
                                     <span class="action_btn">
                                         <a href = "cwViewOwnArticle?id=' . $row->id . '" class = "btn-view">View</a>

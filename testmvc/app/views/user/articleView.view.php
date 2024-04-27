@@ -19,11 +19,12 @@
             <p><?= $data['article'][0]->article_content ?></p><br><br>
             <p>Author : <?= $data['article'][0]->cwName ?></p>
             <p>Published Date : <?= $data['article'][0]->Created_at ?></p>
-            
-            <i id="iconheart<?= $data['article'][0]->id ?>" onclick="post_like(<?= $data['article'][0]->id ?>)" class="iconheart <?= $data['article'][0]->id ?> fa-regular fa-heart"></i> 
-            <span id="like_count<?= $data['article'][0]->id ?>"><?= $data['article'][0]->likes ?></span> <!-- Removed extra single quote -->
 
+            <div class="like-icon">
+                <i id="iconheart<?= $data['article'][0]->id ?>" onclick="post_like(<?= $data['article'][0]->id ?>)" class="iconheart<?= $data['article'][0]->id ?> fa-regular fa-heart"></i>
+                <span id="like_count<?= $data['article'][0]->id ?>"><?= $data['article'][0]->likes ?></span> <!-- Removed extra single quote -->
 
+            </div>
         </div>
     </div>
 
@@ -41,8 +42,8 @@
         if (selectedIcons.length != 0) {
 
             selectedIcons.forEach(icon_id => {
-                // console.log(icon_id);
-                var select_icon = document.querySelector(`.icon${icon_id}`);
+                //console.log(icon_id);
+                var select_icon = document.querySelector(`.iconheart${icon_id}`);
                 select_icon.classList.add('selected');
             });
 
@@ -57,7 +58,7 @@
 
                 // Icon not in array, add it
                 selectedIcons.push(id);
-                var select_icon = document.querySelector(`.icon${id}`);
+                var select_icon = document.querySelector(`.iconheart${id}`);
                 select_icon.classList.add('selected');
 
                 console.log("add after selected likes id list :", selectedIcons);
@@ -72,7 +73,7 @@
 
                 // Icon already in array, remove it
                 selectedIcons.splice(index, 1);
-                var select_icon = document.querySelector(`.icon${id}`);
+                var select_icon = document.querySelector(`.iconheart<?= $data['article'][0]->id ?>`);
                 select_icon.classList.remove('selected');
 
                 data = {
@@ -112,7 +113,7 @@
         }
     </Script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
 
 </body>

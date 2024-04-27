@@ -28,37 +28,56 @@ body{
 }
 
 .container .table-responsive{
-    max-width: 1000px;
-    border: 2px solid brown ;
-    background-color: #efefef33;
-    padding: 15px;
+    max-width: 1500px;
+    border: 2px;
+    background-color: ghostwhite;
+    /* margin-top: 20px; */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     overflow: auto;
-    margin: auto;
-    border-radius: 4px;
+    /* margin: auto; */
+    border-radius: 20px;
+    /* margin-top: 10px; */
     
 }
 
 .container .table-responsive table{
     width: 100%;
+    position: relative;
     font-size: 14px;
-    color: #444;
+    /* color: #444; */
     white-space: nowrap;
     border-collapse: collapse;
+    border-spacing: 0;
 }
 
 .container .table-responsive table>thead{
-    background-color: brown;
+    background-color: #000000;
     color: whitesmoke;
 }
 
 .container .table-responsive table>thead th{
     padding: 15px;
+    color: #fff;
+    padding-top: 17px;
+    font-size: 15px;
+    border-bottom: 1px solid black;
+    text-align: center;
+    align-items: center;
 
 }
 
 .container .table-responsive table th, table td{
-    border: 1px solid rgb(24, 23, 23);
-    padding: 4px 7px;
+    border-bottom: 1px solid #dddddd;
+    padding: 10px 20px;
+    word-break: break-all;
+    
+    font-size: 13px;
+}
+
+.container .table-responsive table td{
+    box-sizing: border-box;
 }
 
 .container .table-responsive table>tbody>tr>td>img{
@@ -72,9 +91,11 @@ body{
 }
 
 .container .table-responsive table .btn-hide {
-    background-color: #e6cc00;
-    color: white;
-    border: none;
+    background-color: transparent;
+    border-color: #e6cc00;
+    color: black;
+    border: 1px solid #e6cc00;
+    display: inline-block;
     padding: 7px 17px;
     font-weight: bold;
     border-radius: 13px;
@@ -82,9 +103,40 @@ body{
 }
 
 .container .table-responsive table .btn-hide:hover {
-    background-color: #e6cc00;
+    /* background-color: #e6cc00; */
     box-shadow: 0 2px 8px gray;
 }
+
+tr.hide{
+    opacity: 0;
+    transform: translateX(100%);
+    line-height: 0;
+  }
+  
+  tr.hide td,
+  tr.hide span,
+  tr.hide td div{
+    padding: 0;
+    height: 0;
+    border: none;
+    margin: 0;
+    border-bottom: none;
+    font-size: 0;
+  
+  }
+  
+  tr.hide td *{
+    visibility: hidden;
+  }
+  
+  
+  tbody tr:hover{
+    cursor: pointer;
+    background-color: #0298cf0d;
+  
+    transition: all 0.3s ease-in-out;
+  }
+  
 
 .action_btn{
     display: flex;
@@ -94,13 +146,13 @@ body{
 
 .action_btn>a{
     text-decoration: none;
-    color: white;
+    color: black;
     /* background: whitesmoke; */
     border: 1px solid black;
     display: inline-block;
-    padding: 7px 17px;
+    padding: 5px 12px;
     font-weight: bold;
-    border-radius: 13px;
+    border-radius: 10px;
     transition: 0.3s ease-in-out;
 
 }
@@ -109,11 +161,11 @@ body{
 
 .action_btn .btn-view{
     border-color: blue;
-    background-color: blue;
+    background-color: transparent;
     text-decoration: none;
-    color: white;
+    color: black;
     /* background: whitesmoke; */
-    border: 1px solid black;
+    border: 1px solid blue;
     display: inline-block;
     padding: 7px 17px;
     font-weight: bold;
@@ -122,11 +174,11 @@ body{
 }
 .action_btn .btn-update{
     border-color: green;
-    background-color: green;
+    background-color: transparent;
     text-decoration: none;
-    color: white;
+    color: black;
     /* background: whitesmoke; */
-    border: 1px solid black;
+    border: 1px solid green;
     display: inline-block;
     padding: 7px 17px;
     font-weight: bold;
@@ -136,29 +188,35 @@ body{
 
 .action_btn .btn-delete{
     text-decoration: none;
-    color: white;
+    color: black;
     /* background: whitesmoke; */
-    border: 1px solid black;
+    border: 1px solid red;
     display: inline-block;
     padding: 7px 17px;
     font-weight: bold;
     border-radius: 13px;
     transition: 0.3s ease-in-out;
     border-color: red;
-    background-color: red;
+    background-color: transparent;
 }
-
+.action_btn>a:hover{
+    box-shadow: 0 2px 8px gray ;
+}
 .action_btn .btn-delete,.btn-update, .btn-view:hover{
     box-shadow: 0 2px 8px gray ;
 }
+.action_btn .btn-delete:hover{
+    box-shadow: 0 2px 8px gray ;
+    
+}
 
 .container .table-responsive table>tbody>tr{
-    background-color: whitesmoke;
+    background-color: #ffffff;
     transition: 0.3s ease-in-out;
 }
 
 .container .table-responsive table>tbody>tr:nth-child(even){
-    background-color: #ece4a8c8;
+    background-color: #ffffff;
 }
 
 .container .table-responsive table>tbody>tr:hover{

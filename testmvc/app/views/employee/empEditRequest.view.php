@@ -34,8 +34,7 @@
             <input type="date" id="end_date" name="end_date" value="<?=$data['emp_req'][0]->end_date?>" required>
 
             <label for="reason">Reason:</label>
-            <textarea id="reason" name="reason" rows="4" required>
-                <?= htmlspecialchars($data['emp_req'][0]->reason) ?>
+            <textarea id="reason" name="reason" rows="4" required><?= htmlspecialchars($data['emp_req'][0]->reason) ?>
             </textarea>
 
             <button type="submit" name="submit">SUBMIT</button>

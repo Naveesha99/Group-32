@@ -22,21 +22,22 @@
             <input type="text" name="article_name" id="article_name" value="<?= $data['article'][0]->article_name ?>" required>
 
             <label for="category">Category:</label><br>
-            <input type="text" name="category" id="category" list="category" autofocus required value="<?= $data['article'][0]->category ?>">
-            <datalist id="category">
-                <option value="Comedy"></option>
-                <option value="Farce"></option>
-                <option value="Tragedy"></option>
-                <option value="Melodrama"></option>
-                <option value="Opera"></option>
-                <option value="Musical"></option>
-                <option value="Tragi-Comedy"></option>
-            </datalist>
+            <select name="category" id="category" required>
+                <option value="Comedy" <?= ($data['article'][0]->category === 'Comedy') ? 'selected' : '' ?>>Comedy</option>
+                <option value="Farce" <?= ($data['article'][0]->category === 'Farce') ? 'selected' : '' ?>>Farce</option>
+                <option value="Tragedy" <?= ($data['article'][0]->category === 'Tragedy') ? 'selected' : '' ?>>Tragedy</option>
+                <option value="Opera" <?= ($data['article'][0]->category === 'Opera') ? 'selected' : '' ?>>Opera</option>
+                <option value="Melodrama" <?= ($data['article'][0]->category === 'Melodrama') ? 'selected' : '' ?>>Melodrama</option>
+                <option value="Tragi-Comdedy" <?= ($data['article'][0]->category === 'Tragi-Comdedy') ? 'selected' : '' ?>>Tragi-Comdedy</option>
+            </select>
+
+
+
+            <button type="button" id="addNewButton" onclick="addNewCategory()">Add New</button>
 
             <label for="article_content">Article Content:</label>
 
-            <textarea name="article_content" id="article_content" cols="30" rows="10" required>
-                <?= htmlspecialchars($data['article'][0]->article_content) ?>
+            <textarea name="article_content" id="article_content" cols="30" rows="10" required><?=htmlspecialchars($data['article'][0]->article_content) ?>
             </textarea>
 
 
@@ -59,6 +60,27 @@
             windows.alert("Article added successfully!");
             return false;
             // document.getElementById("articleForm").submit();
+        }
+
+
+        function addNewCategory() {
+            var newCategory = prompt("Enter the new category:");
+            if (newCategory) {
+                var select = document.getElementById("category");
+                if (!select) {
+                    select = document.createElement("select");
+                    select.name = "category";
+                    select.id = "category";
+                    var form = document.getElementById("articleForm");
+                    form.insertBefore(select, form.children[3]);
+                }
+                var option = document.createElement("option");
+                option.text = newCategory;
+                option.value = newCategory;
+                select.add(option);
+                // Set the newly added category as selected
+                select.value = newCategory;
+            }
         }
     </script>
 
