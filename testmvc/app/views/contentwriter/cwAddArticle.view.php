@@ -21,7 +21,7 @@
             <h1>Add New Article</h1>
 
             <label for="article_name">Article Name :</label>
-            <input type="text" name="article_name" id="article_name" required>
+            <input type="text" name="article_name" id="article_name">
             <?php if (!empty($errors['article_name'])) : ?>
                 <span style="color: red; font-weight: bold; margin-bottom: 5px;">
                     <?= show($errors['article_name']) ?>
@@ -49,7 +49,7 @@
 
             <label for="article_content">Article Content:</label>
 
-            <textarea name="article_content" id="article_content" cols="30" rows="10" required></textarea>
+            <textarea name="article_content" id="article_content" cols="30" rows="10"></textarea>
             <?php if (!empty($errors['article_content'])) : ?>
                 <span style="color: red; font-weight: bold; margin-bottom: 5px;">
                     <?= show($errors['article_content']) ?>
@@ -58,7 +58,7 @@
 
 
             <label for="image">Image:</label>
-            <input type="file" id="image" name="image" accept=".jpg, .jpeg, .png" required>
+            <input type="file" id="image" name="image" accept=".jpg, .jpeg, .png">
             <?php if (!empty($errors['image'])) : ?>
                 <span style="color: red; font-weight: bold; margin-bottom: 5px;">
                     <?= show($errors['image']) ?>
