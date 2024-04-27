@@ -13,6 +13,9 @@ class Addtimes
         $data = [];
 
         $homes = new Homes;
+        $showing_times = new Showtimes;
+        $show_rows = $showing_times->findAll();
+        $data['showing_time'] = $show_rows;
 
         $row =$homes->findAll();
         $data['home_data'] = $row;
@@ -41,6 +44,8 @@ class Addtimes
             if(isset($_POST['pst_time1']) && !isset($_POST['pst_time2'])) //time1 only (3:30 PM)
             {
                 $time1 = $_POST['pst_time1'];
+                // show($time1);
+ 
                 foreach($available_data as $date)
                 {
                     $row1 = $this->addtimes($id, $time1, $date);
@@ -53,15 +58,16 @@ class Addtimes
             else if(!isset($_POST['pst_time1']) && isset($_POST['pst_time2']))
             {
                 $time2= $_POST['pst_time2'];
-                foreach($available_data as $date)
-                {
-                    $row1 = $this->addtimes($id, $time2, $date);
-                    $data['invalid1'] = $row1;
+                // show($time2);
+                 foreach($available_data as $date)
+                 {
+                     $row1 = $this->addtimes($id, $time2, $date);
+                     $data['invalid1'] = $row1;
 
-                    $row2 = $this->insert_times_into_b_times($id, $date, $time2, $d_title);
-                    $data['invalid2'] = $row2;
+                     $row2 = $this->insert_times_into_b_times($id, $date, $time2, $d_title);
+                     $data['invalid2'] = $row2;
 
-                }
+                 }
             }
             else if(isset($_POST['pst_both_time1']) && isset($_POST['pst_both_time2']))
             {
@@ -144,6 +150,7 @@ class Addtimes
                 $start_date_new = new DateTime($_POST['start_date']);
                 $end_date_new = new DateTime($_POST['end_date']);
 
+
                 if($_POST['start_date'] !='' && $_POST['end_date'] != '' &&  $start_date_new <= $end_date_new  &&  $start_date_new >= $today)
                 {
                     if(isset($_POST['price']) && $_POST['price'] >0)
@@ -178,15 +185,19 @@ class Addtimes
                                     {
                                         // Check if the day is in the details array
                                         $found = false;
-                                        foreach ($details as $detail) 
+                                        if($details)
                                         {
-                                            if ($detail->date == $day) 
+                                            foreach ($details as $detail) 
                                             {
-                                                $booked_days[] = $day;
-                                                $found = true;
-                                                break; // No need to continue searching if found
+                                                if ($detail->date == $day) 
+                                                {
+                                                    $booked_days[] = $day;
+                                                    $found = true;
+                                                    break; // No need to continue searching if found
+                                                }
                                             }
                                         }
+                                        
                                         // If the day wasn't found in details, add it to available days
                                         if (!$found) 
                                         {
@@ -230,15 +241,19 @@ class Addtimes
                                     {
                                         // Check if the day is in the details array
                                         $found = false;
-                                        foreach ($details as $detail) 
+                                        if($details)
                                         {
-                                            if ($detail->date == $day) 
+                                            foreach ($details as $detail) 
                                             {
-                                                $booked_days[] = $day;
-                                                $found = true;
-                                                break; // No need to continue searching if found
+                                                if ($detail->date == $day) 
+                                                {
+                                                    $booked_days[] = $day;
+                                                    $found = true;
+                                                    break; // No need to continue searching if found
+                                                }
                                             }
                                         }
+                                        
                                         // If the day wasn't found in details, add it to available days
                                         if (!$found) 
                                         {
@@ -279,15 +294,19 @@ class Addtimes
                                     {
                                         // Check if the day is in the details array
                                         $found = false;
-                                        foreach ($details as $detail) 
+                                        if($details)
                                         {
-                                            if ($detail->date == $day) 
+                                            foreach ($details as $detail) 
                                             {
-                                                $booked_days[] = $day;
-                                                $found = true;
-                                                break; // No need to continue searching if found
+                                                if ($detail->date == $day) 
+                                                {
+                                                    $booked_days[] = $day;
+                                                    $found = true;
+                                                    break; // No need to continue searching if found
+                                                }
                                             }
                                         }
+                                        
                                         // If the day wasn't found in details, add it to available days
                                         if (!$found) 
                                         {
@@ -337,6 +356,8 @@ class Addtimes
                         $nextDate6 = date('Y-m-d', strtotime("+5 day", strtotime($today)));
                         $nextDate7 = date('Y-m-d', strtotime("+6 day", strtotime($today)));
 
+        if($check_ids)
+        {
             foreach($check_ids as $y)
             {
                 $db_date = $y->date;
@@ -348,7 +369,9 @@ class Addtimes
                     // $times_array[] = $db_time;
                 }
             }
-        return $days_array;
+            return $days_array;
+        }
+            
     }
 
 
@@ -359,22 +382,26 @@ class Addtimes
         $all_times = $booking->findAll();
 
         $alldates=[];
-        foreach($rows1['ids'] as $id)
-        {
 
-            $today = date('Y-m-d');
-            foreach($all_times as $per_row)
+        if($all_times)
+        {
+            foreach($rows1['ids'] as $id)
             {
-                // show($per_row->date);
-                if($per_row->date >= $today && $per_row->drama_id==$id)
+                $today = date('Y-m-d');
+                foreach($all_times as $per_row)
                 {
-                    $alldates[$i][] = $per_row->date;
+                    // show($per_row->date);
+                    if($per_row->date >= $today && $per_row->drama_id==$id)
+                    {
+                        $alldates[$i][] = $per_row->date;
+                    }
                 }
+                $drama_ids[] = $id;
+                $i++;
             }
-            $drama_ids[] = $id;
-            $i++;
+            // show($alldates);
         }
-        // show($alldates);
+        
 
         $data2['filter_dates'] =  $alldates;
         $data2['filter_ids'] = $drama_ids;
