@@ -71,8 +71,8 @@
         </a>
 
         <a href="<?= ROOT ?>/empEditPassword" class="sub-menu-link">
-          <<i class="fa-solid fa-lock"></i>
-          <p>Change Password</p>
+          <i class="fa-solid fa-lock"></i>
+          <p> Change Password </p>
           <span>></span>
         </a>
 

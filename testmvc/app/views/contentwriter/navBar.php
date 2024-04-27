@@ -17,9 +17,9 @@
 <body>
 
   <div class="navBar">
-    <div class="logo">
+   <!-- <div class="logo">
       <img src="<?= ROOT ?>/assets/images/Logo.png" alt="">
-    </div>
+    </div> -->
 
     <div class="nav">
       <ul>
@@ -76,7 +76,7 @@
         </a>
 
         <a href="<?= ROOT ?>/cwEditPassword" class="sub-menu-link">
-          <<i class="fa-solid fa-lock"></i>
+          <i class="fa-solid fa-lock"></i>
           <p>Change Password</p>
           <span>></span>
         </a>
