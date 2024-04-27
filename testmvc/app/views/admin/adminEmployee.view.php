@@ -23,26 +23,6 @@
                         </div>
                     </div>
                 </a>
-
-                <a href="<?= ROOT ?>/createtask">
-                    <div class="card">
-                        <div class="box">
-                            <h1>Create Tasks</h1>
-                        </div>
-                    </div>
-                </a>
-                <?php
-                date_default_timezone_set('Asia/Colombo');
-                $date = date('Y-m-d');
-                // show($date);
-                ?>
-                <a href="<?= ROOT ?>/assignTask?date=<?= $date ?>">
-                    <div class="card">
-                        <div class="box">
-                            <h1>Assign Tasks</h1>
-                        </div>
-                    </div>
-                </a>
                 <a href="<?= ROOT ?>/addjobrole">
                     <div class="card">
                         <div class="box">

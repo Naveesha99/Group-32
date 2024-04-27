@@ -69,6 +69,8 @@ class Reservationrequests
 		'rating',
 		'review',
 		'review_date',
+		'reason',
+		'acceptedTime',
 
 	];
 

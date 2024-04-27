@@ -27,34 +27,31 @@ class viewRequest
         }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            if (isset($_POST['accept_request'])) {
-                $id = $data['request'][0]->id;
-                $status = $data['request'][0]->status;
-                if ($status === 'pending') {
-                    $arr1['status'] = 'accepted';
-                    $request->update($id, $arr1);
-                    
-                    // show($data['request'][0]->reservationistId);
-                    // show($id);
-                    // show($arr1['status']);
-                    $message = new Message;
-                    $message->resNotification($data['request'][0]->reservationistId, $id, $arr1['status']);
-                    redirect('request');
-                }
-            }
+            $status = $_POST['status'];
+            $reason = $_POST['reason'];
 
-            if (isset($_POST['reject_request'])) {
-                $id = $data['request'][0]->id;
-                $status = $data['request'][0]->status;
-                if ($status === 'pending' || $status === 'accepted') {
-                    $arr1['status'] = 'rejected';
-                    $request->update($id, $arr1);
-                    redirect('request');
-                }
+            if ($status == 'accepted') {
+                $arr['status'] = 'accepted';
+                date_default_timezone_set('Asia/Colombo');
+                $dateTime = new DateTime();
+                $arr['acceptedTime'] = $dateTime->format('Y-m-d H:i:s');
+                show($arr['acceptedTime']);
+                $request->update($requestID, $arr);
+                $message = new Message;
+                $message->acceptNotification($requestData[0]->reservationistId, $requestID, $status);
+                redirect('adminrequest');
+            } else {
+                $arr['status'] = 'rejected';
+                $arr['reason'] = $reason;
+                date_default_timezone_set('Asia/Colombo');
+                $dateTime = new DateTime();
+                $arr['acceptedTime'] = $dateTime->format('Y-m-d H:i:s');
+                $request->update($requestID, $arr);
+                $message = new Message;
+                $message->rejectNotification($requestData[0]->reservationistId, $requestID, $status, $reason);
+                redirect('adminrequest');
             }
         }
-        //  show($data['request']);
-
         $this->view('admin/viewrequest', $data);
     }
 }

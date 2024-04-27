@@ -42,8 +42,10 @@ class adminEmployee
 		$tasks = new Task;
 		$result['task'] = $tasks->findAll();
 		$data['task'] = $result['task'];
-
+		// show($_SESSION['USER']['user_type']);
+		if($_SESSION['USER']->user_type == 'admin'){
 		$this->view('admin/adminemployee', $data);
+		}
 	}
 	
 	// private function jobRole($jobs) {
