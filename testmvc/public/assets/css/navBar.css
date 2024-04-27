@@ -18,6 +18,10 @@ body {
     left: 0;
     width: 80px;
     height: 60px;
+    z-index: 11;
+    margin-left: 60px;
+    margin-top: 10px;
+    margin-bottom: 20px;
   }
   
   .logo img {
@@ -38,6 +42,8 @@ body {
     z-index: 5;
     padding: 1px;
     justify-content: space-between;
+    /*overflow: hidden;*/
+    margin-left: 200px;
 
 }
 
@@ -50,7 +56,7 @@ body {
     left: 0; /* Center horizontally by setting both right and left to 0 */
     width: 50%;
     height: 50px;
-    background: #e6cc00;
+    background: #dbe2ee;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -84,32 +90,33 @@ body {
 
 .nav li a:hover {
     color: white;
+    color: #6196A6;
 }
 
 .nav .active {
     color: #7B0303;
-    ;
+    
 }
 
 .nav .signup-button {
     height: 25px;
-    background-color: #2424ff;
+    background-color: #6196A6;
     color: white;
-    padding: 5px 8px;
+    padding: 5px 5px;
     border-radius: 20px;
 }
 
 .nav .signup-button:hover {
-    background-color: #e6cc00;
+    background-color: white;
     color: black;
-    border: 1px solid #2424ff;
+    /*border: 1px solid #2424ff;*/
 }
 
 .Profile {
     position: fixed;
     top: 6px; /* Adjust the top position as needed */
-    right: 45px; /* Adjust the right position as needed */
-    width: 60px; /* Adjust the width as needed */
+    right: 55px; /* Adjust the right position as needed */
+    width: 50px; /* Adjust the width as needed */
     height: 50px; /* Adjust the height as needed */
     border-radius: 50%;
     overflow: hidden;
@@ -125,8 +132,8 @@ body {
 .sub-menu-wrap{
     position: absolute;
     top: 60px;
-    right: 45px;
-    width: 300px;
+    right:200px;
+    width: 250px;
     max-height: 0px;
     overflow: hidden;
     transition: max-height 0.5s;
@@ -137,7 +144,7 @@ body {
 }
 
 .sub-menu{
-    background: rgb(213, 213, 140);
+    background: #dbe2ee;
     padding: 20px;
     margin: 10px;
 }
@@ -154,7 +161,8 @@ body {
 }
 
 .user-info img{
-    width: 60px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     margin-right: 15px;
 }
