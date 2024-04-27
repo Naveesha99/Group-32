@@ -47,14 +47,19 @@
                     <div class="dateshowing" id="date<?= $i ?>" style="<?= $i == 1 ? '' : 'display: none;' ?>">
                         <h3><?= ${'nextDate'.$i} ?></h3>
                         <?php
-                        foreach ($data2 as $ondate) {
-                            if ($ondate->date == ${'nextDate'.$i}) {
-                                $time_from_db = $ondate->time;
-                                $time_formatted = date("h:i A", strtotime($time_from_db));
-                                ?>
-                                <p><?= $ondate->title ?> - <?= $time_formatted ?></p>
-                        <?php }
-                        } ?>
+                        if(isset($data2) && is_array($data2))
+                        {
+                            foreach ($data2 as $ondate) 
+                            {
+                                if ($ondate->date == ${'nextDate'.$i}) {
+                                    $time_from_db = $ondate->time;
+                                    $time_formatted = date("h:i A", strtotime($time_from_db));
+                                    ?>
+                                    <p><?= $ondate->title ?> - <?= $time_formatted ?></p>
+                            <?php }
+                            } 
+                        }
+                        ?>
                     </div>
                 <?php } ?>
             </div>
@@ -114,6 +119,7 @@
                                 {
                                 
                                 $x = $data1[$i-1-$j];
+                                
                     ?>
                                 <form action="select_drama" class="form1" method="POST">
                                     <div class="movie-list-item">
@@ -122,6 +128,9 @@
                     <?php
                                     $dates = []; // Initialize arrays to store dates and times
                                     $times = [];
+
+                                    if(isset($data2) && is_array($data2))
+                                    {    
                                     foreach($data2 as $n)
                                     {   
                                         if($n->drama_id == $x->id)
@@ -153,10 +162,11 @@
                                         <input type="hidden" name="id" value="<?= $x->id ?>">
                                         <button type="submit" class="movie-list-item-button">BOOK</button><br>
 
-                                        
+                            <?php } ?>
                                         
                                     </div>
                                 </form>
+                                
                     <?php
                                 }
                             }

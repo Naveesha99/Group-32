@@ -203,7 +203,7 @@
       <li> <a href="<?=ROOT?>/home"> HOME </a></li>
       <li> <a href="#"> TICKETS </a></li>
       <li> <a href="<?=ROOT?>/reservaHall"> HALLS </a></li>
-      <li> <a href="#"> BLOGS </a></li>
+      <li> <a href="<?=ROOT?>/dramaPortal"> BLOGS </a></li>
       <li> <a href="<?=ROOT?>/contactus"> CONTACT US </a></li>
 
     </ul>

@@ -17,6 +17,7 @@ class Emp_tasks
         'relavant_date',
         'relavant_time',
         'status',
+        'emp_id',
         'Created_at',
 
     ];

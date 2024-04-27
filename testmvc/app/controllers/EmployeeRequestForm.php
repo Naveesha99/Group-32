@@ -12,7 +12,7 @@ class EmployeeRequestForm
 		if (empty($_SESSION['USER'])) {
 			// Redirect or handle the case when the user is not logged in
 			// For example, you might want to redirect them to the login page
-			redirect('empLogin');
+			redirect('login');
 			exit();
 		}
 
@@ -20,7 +20,7 @@ class EmployeeRequestForm
 		$userid = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->id;
 
 		// echo $name;
-		echo $userid;
+		// echo $userid;
 
 		$data = [];
 		$emp_req = new EmpRequest;
@@ -34,7 +34,7 @@ class EmployeeRequestForm
 			$_POST['state'] = 'pending';
 			$_POST['emp_id'] = $userid;
 			if ($emp_req->validate($_POST)) {
-				show($_POST);
+				// show($_POST);
 
 				// $sendMail = new SendMail;
 				// $sendMail->employeeRequest($email, $name);

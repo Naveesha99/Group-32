@@ -42,5 +42,5 @@ function set_value($key,$default = '')
     if (!empty($default)) {
         return $default;
     }
- return '';
+    return '';
 }

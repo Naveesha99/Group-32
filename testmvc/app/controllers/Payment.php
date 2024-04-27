@@ -182,6 +182,7 @@ class Payment
                 Drama ID  : $drama_id
                 Date      : $date
                 Time      : $time
+If you have any issues,please call us on 011-2345678 or visit our website for more details
 Thank you.";
 
                 if(mail($recipient_email, $subject, $body, "From: $sender_name <$sender_email>")){

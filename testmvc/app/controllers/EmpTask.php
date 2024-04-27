@@ -14,14 +14,25 @@ class EmpTask
     if (empty($_SESSION['USER'])) {
       // Redirect or handle the case when the user is not logged in
       // For example, you might want to redirect them to the login page
-      redirect('empLogin');
+      redirect('login');
       exit();
     }
 
-    // $data['username'] = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->email;
+    $empId = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->id;
 
     $emp_task = new Emp_tasks;
-    $result = $emp_task->findAll();
+    
+
+    if ($empId) {
+      $arr1['emp_id'] = $empId;
+      $empData = $emp_task->where($arr1);
+      if ($empData) {
+          $result = $empData;
+      } else {
+          echo "Task not found.";
+          exit();
+      }
+  }
     $data = $result;
 
     $this->view('employee/empTask', $data);

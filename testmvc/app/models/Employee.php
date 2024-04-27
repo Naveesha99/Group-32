@@ -78,4 +78,41 @@ class Employee
 
 		return false;
 	}
+
+	public function validateNew($data)
+	{
+		$this->errors = [];
+
+		if (empty($data['empName'])) {
+			$this->errors['empName'] = "Employee name is required";
+		}
+
+		if (empty($data['empEmail'])) {
+			$this->errors['empEmail'] = "Email is required";
+		}
+
+		if (!filter_var($data['empEmail'], FILTER_VALIDATE_EMAIL)) {
+			$this->errors['empEmail'] = "Email is not valid";
+		}
+
+		
+		if (empty($data['empAddress'])) {
+			$this->errors['empAddress'] = "Employee addres is required";
+		}
+
+		if (empty($data['empContact'])) {
+			$this->errors['empContact'] = "Employee contact is required";
+		}
+
+
+		
+
+
+		if (empty($this->errors)) {
+			return true;
+		}
+
+		return false;
+	}
+
 }

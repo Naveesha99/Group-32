@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+A<!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/cwArticleReview.css">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/cwArticleDisplay.css">
     <title>Display Article</title>
 </head>
 <?php require_once 'cwNaviBar.php' ?>
@@ -50,7 +50,9 @@ function limitWords($text, $limit)
                                 <td>' . $row->article_name . '</td>
                                 <td>' . $row->category . '</td>
                                 <td>' . limitWords($row->article_content, 5) . '</td>
-                                <td>' . $row->image . '</td>
+                                <td>
+                                    <img src="' . ROOT . '/assets/images/drama_portal/' . $row->image . '" alt="Article Image">
+                                </td>
                                 <td>' . $row->progress . '</td>
                                 <td>
                                     <span class="action_btn">
