@@ -228,7 +228,7 @@
         </div>
     </div>
     <script>
-        function openPopup() {
+        function openPopup(button) {
             var order = JSON.parse(button.getAttribute("data-order"));
             document.getElementById('taskType').value = order.taskType;
             document.getElementById('location').value = order.location;
