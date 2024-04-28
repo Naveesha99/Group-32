@@ -2,333 +2,212 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link href="<?= ROOT ?>/assets/css/reservaHall.css" rel="stylesheet"> -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+	<!-- <link rel="stylesheet" href="style.css"> -->
+	<link href="<?= ROOT ?>/assets/css/loginnew.css" rel="stylesheet">
 
-    <title>Admin Panel</title>
+	<title>
+		Animated login signup
+	</title>
+</head>
 
 <style>
-    /* :root {
-    --background: #1a1a2e;
-    --color: #ffffff;
-    --primary-color: #0f3460;
-} */
-
-:root{
-    --background: #461220;
-    --color: #FFFFFF;
-    --primaryColor: #E94560;
-    /* background: var(--background) url(/public/assets/images/tbg.jpg) center/cover no-repeat; Replace 'path/to/your/image.jpg' with the actual path to your image */
-
-}
-
-::placeholder{
-    color: #FFFFFF;
-    opacity: 0.4;
-}
-
-* {
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    margin: 0;
-    box-sizing: border-box;
-    font-family: "poppins";
-    /* background: var(--background); */
-    background:  url(../public/assets/images/tbg2.jpg) center/cover no-repeat; /* Replace 'path/to/your/image.jpg' with the actual path to your image */
-    /* background: url(../public/assets/images/background.jpg); */
-    /* color: var(--color); */
-    letter-spacing: 1px;
-    transition: background 0.2s ease;
-    -webkit-transition: background 0.2s ease;
-    -moz-transition: background 0.2s ease;
-    -ms-transition: background 0.2s ease;
-    -o-transition: background 0.2s ease;
-    overflow-x: hidden  !important;
-    overflow: hidden;
-}
-
-body::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6); /* Adjust the alpha value for the desired transparency */
-    z-index: 1; /* Place the overlay above the background image */
-    backdrop-filter: blur(4px); /* Adjust the blur radius as needed */
-
-}
-
-a {
-    text-decoration: none;
-    color: var(--color);
-}
-
-h1 {
-    font-size: 2.5rem;
-    color: #FFFFFF;
-}
-
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-.login-container {
-    position: relative;
-    width: 22.2rem;
-    z-index:2 ;
-}
-.form-container {
-    /* border: 1px solid hsla(0, 0%, 65%, 0.158); */
-    border: 1px solid hsla(0, 0%, 65%, 0.3);
-    box-shadow: 0 0 36px 1px rgba(0, 0, 0, 0.2);
-    /* box-shadow: 0 0 36px 1px rgba(0, 0, 0, 0.2); */
-
-    border-radius: 10px;
-    backdrop-filter: blur(20px);
-    z-index: 99;
-    padding: 2rem;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
-}
-
-.login-container form input {
-    display: block;
-    padding: 10px;
-    width: 100%;
-    margin: 1rem 0;
-    color: var(--color);
-    /* color: #461220; */
-    outline: none;
-    background-color: #9191911f;
-    border: none;
-    border-radius: 5px;
-    font-weight: 500;
-    letter-spacing: 0.8px;
-    font-size: 10px;
-    backdrop-filter: blur(15px);
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
-}
-
-.login-container form input:focus {
-    box-shadow: 0 0 16px 1px rgba(0, 0, 0, 0.2);
-    animation: wobble 0.3s ease-in;
-    -webkit-animation: wobble 0.3s ease-in;
-}
-
-.login-container form button {
-    background-color: var(--primary-color);
-    color: var(--color);
-    display: block;
-    padding: 9px;
-    outline: none;
-    font-size: 18px;
-    letter-spacing: 1.5px;
-    font-weight: bold;
-    width: 100%;
-    cursor: pointer;
-    margin-bottom: 1rem;
-    transition: all 0.1s ease-in-out;
-    border: none;
-    /* border: 2px solid rgba(195, 98, 1, 0.973); */
-    border: 2px solid hsla(0, 0%, 65%, 0.5);
-    border-radius: 8px;
-    /* -webkit-border-radius: 5px; */
-    /* -moz-border-radius: 5px; */
-    /* -ms-border-radius: 5px; */
-    /* -o-border-radius: 5px; */
-    -webkit-transition: all 0.1s ease-in-out;
-    -moz-transition: all 0.1s ease-in-out;
-    -ms-transition: all 0.1s ease-in-out;
-    -o-transition: all 0.1s ease-in-out;
-}
-
-.login-container form button:hover {
-    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.15);
-    transform: scale(1.02);
-    -webkit-transform: scale(1.02);
-    -moz-transform: scale(1.02);
-    -ms-transform: scale(1.02);
-    -o-transform: scale(1.02);
-}
-
-.circle {
-    width: 8rem;
-    height: 8rem;
-    background: var(--primary-color);
-    border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
-    position: absolute;
-    /* background-color: #3c0505; */
-    background-color: hsl(10, 95%, 17%);
-}
-
-.illustration {
-    position: absolute;
-    top: -14%;
-    /* right: -2px; */
-    right: -100px;
-    width: 90%;
-}
-
-.circle-one {
-    top: 0;
-    left: 0;
-    z-index: -1;
-    transform: translate(-45%, -45%);
-    -webkit-transform: translate(-45%, -45%);
-    -moz-transform: translate(-45%, -45%);
-    -ms-transform: translate(-45%, -45%);
-    -o-transform: translate(-45%, -45%);
-}
-
-.circle-two {
-    bottom: 0;
-    right: 0;
-    z-index: -1;
-    transform: translate(45%, 45%);
-    -webkit-transform: translate(45%, 45%);
-    -moz-transform: translate(45%, 45%);
-    -ms-transform: translate(45%, 45%);
-    -o-transform: translate(45%, 45%);
-}
-
-.register-forget {
-    margin: 1rem 0;
-    display: flex;
-    justify-content: space-between;
-}
-.opacity {
-    opacity: 0.6;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-
-}
-
-.theme-btn-container {
-    position: absolute;
-    left: 0;
-    bottom: 2rem;
-}
-
-.theme-btn {
-    cursor: pointer;
-    transition: all 0.3s ease-in;
-}
-
-.theme-btn:hover {
-    width: 40px !important;
-}
-
-@keyframes wobble {
-    0% {
-        transform: scale(1.025);
-        -webkit-transform: scale(1.025);
-        -moz-transform: scale(1.025);
-        -ms-transform: scale(1.025);
-        -o-transform: scale(1.025);
-    }
-    25% {
-        transform: scale(1);
-        -webkit-transform: scale(1);
-        -moz-transform: scale(1);
-        -ms-transform: scale(1);
-        -o-transform: scale(1);
-    }
-    75% {
-        transform: scale(1.025);
-        -webkit-transform: scale(1.025);
-        -moz-transform: scale(1.025);
-        -ms-transform: scale(1.025);
-        -o-transform: scale(1.025);
-    }
-    100% {
-        transform: scale(1);
-        -webkit-transform: scale(1);
-        -moz-transform: scale(1);
-        -ms-transform: scale(1);
-        -o-transform: scale(1);
-    }
-}
+	form{
+		width: 100%;
+	}
 </style>
 
-
-</head>
 <body>
-<!-- partial:index.partial.html -->
-<body>
-    <section class="container">
-        <div class="login-container">
-            <div class="circle circle-one"></div>
-            <div class="form-container">
-                <!-- <img src="https://raw.githubusercontent.com/hicodersofficial/glassmorphism-login-form/master/assets/illustration.png" alt="illustration" class="illustration" /> -->
-                <img src="<?= ROOT ?>/assets/images/mask.png" alt="illustration" class="illustration" />
-
-                
-                <h1 class="opacity">SIGNUP</h1>
-                <!-- <form method="post" onsubmit="return validateForm()"> -->
-                <form method="post" onsubmit="return validateForm()">
-
-                <!-- <//?php if(!empty($errors)):?>
-                    <div class="alert-danger">
-                        <//?= implode("<br>",$errors)?>
-                    </div>
-                <//?php endif;?> -->
-                    <!-- <input type="text" placeholder="USERNAME" /> -->
-                    <input type="hidden" value="reservationist" name="empRoll" id="empRoll">
-                    <input type="text" placeholder="FULLNAME" name = "fullname" id="fullname" class="fullname"  required>
-                    <input type="text" placeholder="USERNAME" name = "username" id="username" class="username"  required>
-                    <input type="email" placeholder="EMAIL" name = "email" id="email" class="email" required>
-                    <input type="tel" placeholder="CONTACTNUMBER" name = "contactNumber" id="contactNumber" class="contactNumber" required pattern="[0-9]{10}">
-                    <input type="text" placeholder="NIC" name = "nic" id="nic" class="nic" required>
-
-                    <!-- <input type="password" placeholder="PASSWORD" /> -->
-                    <input type="password" placeholder="PASSWORD" name = "password" id="password" required >
-                    <input type="password" placeholder="CONFIRMPASSWORD" name = "confirmPassword" id="confirmPassword" required >
-                    <div id="error-message" style="color: white;"></div>
+	<div id="container" class="container">
+		<!-- FORM SECTION -->
+		<div class="row">
+			<!-- SIGN UP -->
+			<form method="POST" onsubmit="return validateForm()" class="col align-items-center flex-col sign-up">
+				<div class="form-wrapper align-items-center">
+					<div class="form sign-up">
+                            <!-- <input type="hidden" value="reservationist" name="empRoll" id="empRoll"> -->
 
 
-                    <button type="submit" class="opacity">Register</button>
-                </form>
-                <div class="register-forget opacity">
-                <a> Already registered?</a>
-                    <a href="<?=ROOT?>/reservalogin">LOGIN</a>
-                    <!-- <a href="">FORGOT PASSWORD</a> -->
-                </div>
-            </div>
-            <div class="circle circle-two"></div>
-        </div>
-        <div class="theme-btn-container"></div>
-    </section>
+						<div class="input-group">
+							<i class='bx bxs-user'></i>
+                            <input type="text" placeholder="FULLNAME" name = "fullname" id="fullname" class="fullname"  required>
+						</div>
+						<div class="input-group">
+							<i class='bx bx-mail-send'></i>
+                            <input type="text" placeholder="USERNAME" name = "username" id="username" class="username"  required>
+						</div>
+						<div class="input-group">
+							<i class='bx bxs-lock-alt'></i>
+                            <input type="email" placeholder="EMAIL" name = "email" id="email" class="email" required>
+						</div>
+                        <div class="input-group">
+							<i class='bx bxs-lock-alt'></i>
+                            <input type="tel" placeholder="CONTACTNUMBER" name = "contactNumber" id="contactNumber" class="contactNumber" required pattern="[0-9]{10}">
+						</div>
+                        <div class="input-group">
+							<i class='bx bxs-lock-alt'></i>
+                            <input type="text" placeholder="NIC" name = "nic" id="nic" class="nic" required>
+						</div>
 
-</body>
-<!-- partial -->
-  <!-- <script  src="./script.js"></script> -->
+						<div class="input-group">
+							<i class='bx bxs-lock-alt'></i>
+							<input type="password" placeholder="Confirm password">
+						</div>
+                        <div class="input-group">
+							<i class='bx bxs-lock-alt'></i>
+                            <input type="password" placeholder="CONFIRMPASSWORD" name = "confirmPassword" id="confirmPassword" required >
+                            <div id="error-message" style="color: white;"></div>
 
-</body>
+						</div>
+                        <button type="submit" class="opacity">Register</button>
 
-    <script>
-    function validateForm() {
+						<!-- <button>
+							Sign up
+						</button> -->
+						<p>
+							<span>
+								Already have an account?
+							</span>
+                            <a href="<?=ROOT?>/login">LOGIN</a>
+
+							<!-- <b onclick="toggle()" class="pointer">
+								Sign in here -->
+							</b>
+						</p>
+					</div>
+				</div>
+				<div class="form-wrapper">
+					<div class="social-list align-items-center sign-up">
+						<div class="align-items-center facebook-bg">
+							<i class='bx bxl-facebook'></i>
+						</div>
+						<div class="align-items-center google-bg">
+							<i class='bx bxl-google'></i>
+						</div>
+						<div class="align-items-center twitter-bg">
+							<i class='bx bxl-twitter'></i>
+						</div>
+						<div class="align-items-center insta-bg">
+							<i class='bx bxl-instagram-alt'></i>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- END SIGN UP -->
+			<!-- SIGN IN -->
+			
+			<div class="col align-items-center flex-col sign-in">
+				<div class="form-wrapper align-items-center">
+					<div class="form sign-in">
+						<div class="input-group">
+							<i class='bx bxs-user'></i>
+							<input type="text" name="email" placeholder="E-Mail">
+						<?php if (!empty($errors)) : ?>
+							<span style="color: red; font-weight: bold; padding: 10px; margin-bottom: 10px;">
+								<?= implode('<br>', $errors) ?>
+							</span>
+						<?php endif; ?>
+						</div>
+						<div class="input-group">
+							<i class='bx bxs-lock-alt'></i>
+							<input type="password" name="password" placeholder="PASSWORD">
+						<?php if (!empty($errors)) : ?>
+							<span style="color: red; font-weight: bold; padding: 10px; margin-bottom: 10px;">
+								<?= implode('<br>', $errors) ?>
+							</span>
+						<?php endif; ?>
+						</div>
+						<!-- <button>
+							Sign in
+						</button> -->
+						<button class="submit">LOGIN</button>
+
+						<p>
+							<b>
+								Forgot password?
+							</b>
+						</p>
+						<p>
+							<span>
+								Don't have an account?
+							</span>
+							<!-- <b onclick="toggle()" class="pointer">
+								Sign up here
+							</b> -->
+							<a href="<?= ROOT ?>/reservasignup">Sign up here</a>
+						</p>
+					</div>
+				</div>
+				<div class="form-wrapper">
+					<div class="social-list align-items-center sign-in">
+						<div class="align-items-center facebook-bg">
+							<i class='bx bxl-facebook'></i>
+						</div>
+						<div class="align-items-center google-bg">
+							<i class='bx bxl-google'></i>
+						</div>
+						<div class="align-items-center twitter-bg">
+							<i class='bx bxl-twitter'></i>
+						</div>
+						<div class="align-items-center insta-bg">
+							<i class='bx bxl-instagram-alt'></i>
+						</div>
+					</div>
+				</div>
+                        </div>
+			<!-- END SIGN IN -->
+
+			
+		</div>
+		<!-- END FORM SECTION -->
+		<!-- CONTENT SECTION -->
+		<div class="row content-row">
+			<!-- SIGN IN CONTENT -->
+			<div class="col align-items-center flex-col">
+				<div class="text sign-in">
+					<h2>
+						Welcome back
+					</h2>
+					<p>
+						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit obcaecati, accusantium
+						molestias, laborum, aspernatur deserunt officia voluptatum tempora dicta quo ab ullam. Assumenda
+						enim harum minima possimus dignissimos deserunt rem.
+					</p>
+				</div>
+				<div class="img sign-in">
+					<img src="<?= ROOT ?>/assets/images/undraw_different_love_a3rg.svg" alt="welcome">
+				</div>
+			</div>
+			<!-- END SIGN IN CONTENT -->
+			<!-- SIGN UP CONTENT -->
+			<div class="col align-items-center flex-col">
+				<div class="img sign-up">
+					<img src="<?= ROOT ?>/assets/images/undraw_different_love_a3rg.svg" alt="welcome">
+				</div>
+				<div class="text sign-up">
+					<h2>
+						Join with us
+					</h2>
+					<p>
+						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit obcaecati, accusantium
+						molestias, laborum, aspernatur deserunt officia voluptatum tempora dicta quo ab ullam. Assumenda
+						enim harum minima possimus dignissimos deserunt rem.
+					</p>
+				</div>
+			</div>
+			<!-- END SIGN UP CONTENT -->
+		</div>
+		<!-- END CONTENT SECTION -->
+	</div>
+
+
+
+<script>
+
+
+function validateForm() {
     var password = document.getElementById("password").value;
     var confirmPassword = document.getElementById("confirmPassword").value;
 
@@ -344,6 +223,25 @@ h1 {
     // If passwords match, continue with the form submission
     // return true;
 }
+
+
+window.onload = function() {
+
+
+
+let container = document.getElementById('container');
+
+toggle = () => {
+	container.classList.toggle('sign-up')
+	container.classList.toggle('sign-in')
+}
+
+setTimeout(() => {
+	// container.classList.add('sign-in')
+}, 200)
+}
 </script>
+
+</body>
 
 </html>
