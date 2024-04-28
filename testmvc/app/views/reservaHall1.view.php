@@ -233,7 +233,7 @@
 
                     <label for="headCount">Head Count:</label>
                     <input type="number" id="headCount" name="headCount" placeholder="Head Count" required>
-                    <span id="headCountError" class="error-message">abvyuy</span> <!-- Error message span -->
+                    <span id="headCountError" class="error-message"> </span> <!-- Error message span -->
 
 
                 </div>
@@ -386,10 +386,10 @@ let a= amount[0].headCount;
 
 function calculateAmountToBePaid(hours,standing,sound,amountPerHour,amountStandings,amountSounds){
     var amountToBePaid = 0;
-    if(standing == 'yes'){
+    if(standing == 'YES'){
         amountToBePaid += amountStandings;
     }
-    if(sound == 'yes'){
+    if(sound == 'YES'){
         amountToBePaid += amountSounds;
     }
     amountToBePaid += hours * amountPerHour;
@@ -397,6 +397,39 @@ function calculateAmountToBePaid(hours,standing,sound,amountPerHour,amountStandi
     
 }
 
+document.getElementById('standings').addEventListener('input',function(){
+    console.log("in standings input event listener");
+    const startTime = document.getElementById('startTime').value;
+    const endTime = document.getElementById('endTime').value;
+    const hoursDifference = calculateHoursDifference(startTime, endTime);
+    const standing = this.value;
+    const sound = document.getElementById('sounds').value;
+
+    const amountPerHour = amount[0].amountOneHour;
+    console.log("amount per hour");
+    console.log(amountPerHour);
+    const amountStandings = amount[0].amountStandings;
+    const amountSounds = amount[0].amountSounds;
+    const amountToBePaid = calculateAmountToBePaid(hoursDifference,standing,sound,amountPerHour,amountStandings,amountSounds);
+    document.getElementById('amount').value = amountToBePaid;
+});
+
+document.getElementById('sounds').addEventListener('input',function(){
+    console.log("in sounds input event listener");
+    const startTime = document.getElementById('startTime').value;
+    const endTime = document.getElementById('endTime').value;
+    const hoursDifference = calculateHoursDifference(startTime, endTime);
+    const standing = document.getElementById('standings').value;
+    const sound = this.value;
+
+    const amountPerHour = amount[0].amountOneHour;
+    console.log("amount per hour");
+    console.log(amountPerHour);
+    const amountStandings = amount[0].amountStandings;
+    const amountSounds = amount[0].amountSounds;
+    const amountToBePaid = calculateAmountToBePaid(hoursDifference,standing,sound,amountPerHour,amountStandings,amountSounds);
+    document.getElementById('amount').value = amountToBePaid;
+});
 
 
 document.getElementById('endTime').addEventListener('input',function(){
