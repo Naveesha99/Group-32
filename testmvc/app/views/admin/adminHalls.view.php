@@ -27,6 +27,8 @@ if(isset($_POST['submitHall'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/adminFacilities.css">
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/reservaRating.css">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/ModalClose.css">
+
 
     <title>Admin Employee</title>
 </head>
@@ -36,6 +38,49 @@ if(isset($_POST['submitHall'])){
         width: 50px;
         height: 50px;
     }
+
+    .inmodal{
+        display: flex;
+        flex-direction: row;
+        margin: 10px;
+    }
+
+    .inmodal label{
+        width: 150px;
+        text-align: left;
+    }
+    .checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Add some gap between checkboxes */
+    width: 80%;
+}
+
+.checkbox-group .checkbox {
+    flex: 0 0 auto;
+    display: flex; /* Align checkbox and label horizontally */
+    align-items: center; /* Vertically center checkbox and label */
+}
+
+.checkbox-group .checkbox input[type="checkbox"] {
+    margin-right: 5px; /* Add some space between checkbox and label */
+}
+.checkbox-group label {
+    width: auto; /* Adjust label width to fit content */
+    margin-right: 15px; /* Add some spacing between labels */
+}
+.inmodal textarea{
+    width: 70%;
+}
+
+.inmodal input{
+    /* width: 70%; */
+    border: none;
+    border-radius: 8px;
+    height: 30px;
+    padding-left: 5px;
+}
+
 </style>
 
 <?php include 'adminSidebar.php' ?>
@@ -64,18 +109,24 @@ if(isset($_POST['submitHall'])){
                         <h2>Halls</h2>
                         <!-- <a href="<?= ROOT ?>/adminFacilities" class="btn">View All</a> -->
                     </div>
+                    <div class="table-responsive">
                     <table>
+                        <thead>
                         <tr>
                             <th>Id</th>
                             <th>Hallno</th>
-                            <th>AmountOneHour</th>
-                            <th>HeadCount</th>
+                            <th>Amount <br> /1hr</th>
+                            <th>Amount <br>Sounds</th>
+                            <th>Amount <br>Standings</th>
+                            <th>HCount</th>
                             <th>image</th>
                             <th>content</th>
                             <th>status</th>
+                            <th>Options</th>
 
                         </tr>
-
+                        </thead>
+                        <tbody>
                         <?php
 
                         // show($data);
@@ -86,6 +137,8 @@ if(isset($_POST['submitHall'])){
                                     <td>' . $row->id . '</td>
                                     <td>' . $row->hallno . '</td>
                                     <td>' . $row->amountOneHour . '</td>
+                                    <td>' . $row->amountSounds   . '</td>
+                                    <td>' . $row->amountStandings	 . '</td>
                                     <td>' . $row->headCount . '</td>
                                     <td><img src="' . ROOT . '/assets/images/upload/halls/' . $row->image . '" alt="Hall Image"></td>
                                     <td>' . $row->content . '</td>
@@ -93,18 +146,19 @@ if(isset($_POST['submitHall'])){
                                     <td>
                                     <span class="button">
 
-                                    <a class="btn" href="#" class="view-btn">View</a>
-                                    <a class="btn" href="#" class="view-btn">Edit</a>
+                                    
 
                                     <form action="adminFacilities" method="post" style="display:inline;">
                                         <input type="hidden" name="id" value="' . htmlspecialchars($row->id) . '">
                                         <input type="hidden" name="hallno" value="' . htmlspecialchars($row->hallno) . '">
                                         <input type="hidden" name="amountOneHour" value="' . htmlspecialchars($row->amountOneHour) . '">
+                                        <input type="hidden" name="amountSounds" value="' . htmlspecialchars($row->amountSounds) . '">
+                                        <input type="hidden" name="amountOneHour" value="' . htmlspecialchars($row->amountStandings) . '">
                                         <input type="hidden" name="headCount" value="' . htmlspecialchars($row->headCount) . '">
                                         <input type="hidden" name="content" value="' . htmlspecialchars($row->content) . '">
                                         <input type="hidden" name="status" value="' . htmlspecialchars($row->status) . '">
 
-                                        <button class="btn-edit"> Edit </button>
+                                        <button class="btn-edit"> Edit/View </button>
                                     </form>
                                     
                                     <a class="btn" href="#">Delete</a>
@@ -115,7 +169,9 @@ if(isset($_POST['submitHall'])){
                         }
                                     
                         ?>
+                        </tbody>
                     </table>
+                    </div>
                 </div>
             </div>
         </div>
@@ -125,34 +181,70 @@ if(isset($_POST['submitHall'])){
     <div id="myModal1" class="modal1" style="display: none;">
         <div class="cont">
             <div class="containerM">
-                <button id="closeModalBtn">Close</button>
-                <h1>Update Hall</h1>
+                <!-- <button id="closeModalBtn">Close</button> -->
+
+
+
+                <button class="buttonClose" id="closeModalBtn">
+                    <span class="X"></span>
+                    <span class="Y"></span>
+                    <div class="close">Close</div>
+                </button>
+
+
+
+
+                
+                <!-- <h1>Update Hall</h1> -->
 
 
                 <form action="adminHalls" method="post" id="hallUpdateForm" enctype="multipart/form-data">
                     <?php 
                     // show($data)
                     ?>
+                    
                     <input type="hidden" name="id" id="id">
-                    <label for="name">Hall Name</label>
+                    <div class="inmodal">
+                    <label for="name">Hall Name :</label>
                     <input type="text" name="hallno" id="hallno">
-                    <label for="amountOneHour">Amount</label>
+                    </div>
+
+                    <div class="inmodal">
+                    <label for="amountOneHour">Amount :</label>
                     <input type="number" name="amountOneHour" id="amountOneHour">
-                    <label for="headCount">Head Count</label>
+                    </div>
+                    <div class="inmodal">
+                    <label for="amountSounds">AmountSounds :</label>
+                    <input type="number" name="amountSounds" id="amountSounds">
+                    </div>
+                    <div class="inmodal">
+                    <label for="amountStandings">AmountStandings :</label>
+                    <input type="number" name="amountStandings" id="amountStandings">
+                    </div>
+                    <div class="inmodal">
+                    <label for="headCount">Head Count :</label>
                     <input type="number" name="headCount" id="headCount">
-                    <label for="image">Image</label>
+                    </div>
+                    <div class="inmodal">
+                    <label for="image">Image :</label>
                     <input type="file" id="image" name="image" accept="image/*">
-                    <label for="content" >Content</label>
+                    </div>
+                    <div class="inmodal">
+                    <label for="content" >Content :</label>
                     <textarea id="content" name="content"></textarea> 
-                    <label for="status">Status</label>
+                    </div>
+                    <div class="inmodal">
+                    <label for="status">Status :</label>
                     <select name="status" id="status">
                         <option value="active">Active</option>
                         <option value="inactive">Inactive</option>
                     </select>
+                    </div>
                     
+                    <div class="inmodal">
+                    <label for="facilities">Facilities :</label>
 
                     <div class="checkbox-group" id="days">
-                        <label for="facilities">Facilities</label>
                             <?php if (is_array($data['facility'])): 
                                 // show($data['facility']); ?>
                                 <?php foreach ($data['facility'] as $facility): ?>
@@ -163,6 +255,7 @@ if(isset($_POST['submitHall'])){
                                 <?php endforeach; ?>
                             <?php endif; ?>
                      </div>
+                    </div>
                     <button type="submit" name="submitHall" id="submitHall">Submit</button>
                 </form>
 
@@ -188,9 +281,11 @@ if(isset($_POST['submitHall'])){
                 // icon: row.cells[1].innerText,
                 name: row.cells[1].innerText,
                 amountOneHour: row.cells[2].innerText,
-                headCount: row.cells[3].innerText,
-                content: row.cells[5].innerText,
-                status: row.cells[6].innerText,
+                amountSounds: row.cells[3].innerText,
+                amountStandings: row.cells[4].innerText,
+                headCount: row.cells[5].innerText,
+                content: row.cells[7].innerText,
+                status: row.cells[8].innerText,
             };
             console.log(rowData);
             // console.log(rowData.rating);
@@ -207,6 +302,8 @@ if(isset($_POST['submitHall'])){
         document.getElementById('id').value = data.id;
         document.getElementById('hallno').value = data.name;
         document.getElementById('amountOneHour').value = data.amountOneHour;
+        document.getElementById('amountSounds').value = data.amountSounds;
+        document.getElementById('amountStandings').value = data.amountStandings;
         document.getElementById('headCount').value = data.headCount;
         document.getElementById('content').value = data.content;
         document.getElementById('status').value = data.status;

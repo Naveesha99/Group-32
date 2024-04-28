@@ -67,7 +67,10 @@ if(isset($_POST['submitFacility'])){
                         <h2>Facilities</h2>
 
                     </div>
+                    <div class="table-responsive">
+
                      <table>
+                        <thead>
                         <tr>
                             <th>Id</th>
                             <th>Icon</th>
@@ -75,7 +78,8 @@ if(isset($_POST['submitFacility'])){
                             <th>Options</th>
                         </tr>
                         <!-- <td><img src="' . $row->icon . '" alt="Facility Icon"></td> -->
-
+                        </thead>
+                        <tbody>
                         <?php
                         if(is_array($data['facility'])) {
                             foreach ($data['facility'] as $row) {
@@ -87,46 +91,36 @@ if(isset($_POST['submitFacility'])){
                                     <td>
                                         <span class="button">
 
-                                            <a class="btn" href="#" class="view-btn">View</a>
-                                            <a class="btn" href="#" class="view-btn">Edit</a>
 
                                             <form action="adminFacilities" method="post" style="display:inline;">
                                                 <input type="hidden" name="id" value="' . htmlspecialchars($row->id) . '">
                                                 <input type="hidden" name="hall" value="' . htmlspecialchars($row->icon) . '">
                                                 <input type="hidden" name="hall" value="' . htmlspecialchars($row->name) . '">
-                                                <button class="btn-edit"> Edit </button>
+                                                <button class="btn-edit"> View/Edit </button>
                                             </form>
                                             
-                                            <a class="btn" href="#">Delete</a>
+                                            <a class="btn" class="dlt-button" href="#">Delete</a>
                                         </span>
                                     </td>
                                 </tr>';
                         }
                     }
                         ?>
+                        </tbody>
                     </table> 
                     </div>
+                </div>
             </div>
         </div>
     </div>
 
 <!-- <div class="details">
-                <div class="recentOrders">
-                    <div class="cardHeader">
+                <div class="recentOrders"><div class="cardHeader">
                         <h2>Users</h2>
                         <a href="#users-content" class="btn" id="users-tab"onclick="showContent('users-content')">View All</a>
                         </div>
-
-                        <table>
-                            <thead>
-                                <tr>
-                                    <td>Id</td>
-                                    <td>Icon</td>
-                                    <td>Namer</td>
-                                    <td>Options</td>
-                                </tr>
-                            </thead>
-                            <tbody>
+                        <table><thead><tr><td>Id</td><td>Icon</td><td>Namer</td>
+                                    <td>Options</td></tr></thead><tbody>
     <?php if(is_array($data['facility'])) : ?>
         <?php foreach ($data['facility'] as $row) : ?>
             <tr>
@@ -137,26 +131,13 @@ if(isset($_POST['submitFacility'])){
                     <span class="button">
                         <a class="btn" href="#" class="view-btn">View</a>
                         <a class="btn" href="#" class="view-btn">Edit</a>
-
                         <form action="adminFacilities" method="post" style="display:inline;">
                             <input type="hidden" name="id" value="<?php echo htmlspecialchars($row->id) ?>">
                             <input type="hidden" name="hall" value="<?php echo htmlspecialchars($row->icon) ?>">
                             <input type="hidden" name="hall" value="<?php echo htmlspecialchars($row->name) ?>">
                             <button class="btn-edit">Edit</button>
-                        </form>
-                        <a class="btn" href="#">Delete</a>
-                    </span>
-                </td>
-            </tr>
-        <?php endforeach; ?>
-    <?php endif; ?>
-</tbody>
-
-                        </table>
-
-                    </div>
-                </div>
-                </div> -->
+                        </form><a class="btn" href="#">Delete</a></span></td></tr><?php endforeach; ?><?php endif; ?>
+</tbody></table></div></div></div> -->
 
 
 
@@ -166,19 +147,20 @@ if(isset($_POST['submitFacility'])){
         <div class="cont">
             <div class="containerM">
                 <button id="closeModalBtn">Close</button>
-                <h1>Update Facilities</h1>
+                <!-- <h1>Update Facilities</h1> -->
 
 
                 <form action="adminFacilities" method="post" id="facilityUpdateForm" enctype="multipart/form-data">
                     <!-- echo '<form action="ReservaPayment"  style="display:inline;"> -->
                     <input type="hidden" name="id" id="id">
-
+                    <div class="inmodal">
                     <label for="name">Facility Name</label>
                     <input type="text" name="name" id="name">
-
+                    </div>
+                    <div class="inmodal">
                     <label for="icon">Icon</label>
                     <input type="file" id="icon" name="icon" accept="image/*">
-
+                    </div>
                     
                     <button type="submit" name="submitFacility" id="submitFacility">Submit</button>
                 </form>
@@ -203,9 +185,6 @@ if(isset($_POST['submitFacility'])){
             var row = this.closest("tr");
             var rowData = {
                 id: row.cells[0].innerText,
-                // icon: row.cells[1].innerText,
-                // icon: row.cells[1].querySelector('img').getAttribute('src'),
-                // icon: row.cells[1].innerText,
                 name: row.cells[2].innerText
             };
             console.log(rowData);

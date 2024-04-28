@@ -50,7 +50,8 @@ class ReservaSignup
 		}
 
 
-		$this->view('reservaSignup',$data);
+		// $this->view('reservaSignup',$data);
+		$this->view('login',$data);
 	}
 
 }

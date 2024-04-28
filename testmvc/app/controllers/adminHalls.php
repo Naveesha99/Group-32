@@ -92,6 +92,8 @@ class adminHalls
                         $arrOrder = [
                             'hallno' => $name,
                             'amountOeHour' => $data['amountOneHour'],
+                            'amountSounds' => $data['amountSounds'],
+                            'amountStandings' => $data['amountStandings'],
                             'headCount' => $data['headCount'],
                             'content' => $data['content'],
                             'status' => $data['status'],
@@ -102,6 +104,8 @@ class adminHalls
                         $arrOrder = [
                             'hallno' => $name,
                             'amountOeHour' => $data['amountOneHour'],
+                            'amountSounds' => $data['amountSounds'],
+                            'amountStandings' => $data['amountStandings'],
                             'headCount' => $data['headCount'],
                             'content' => $data['content'],
                             'status' => $data['status'],
