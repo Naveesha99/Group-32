@@ -19,6 +19,7 @@ class User
 		'dob',
 		'password',
 		'user_type',
+		'isActive',
 	];
 
 	public function validate($data)
@@ -42,30 +43,27 @@ class User
 			$this->errors['nic'] = "NIC must be either 12 digits or 9 digits with 'x' or 'v'";
 		}
 
-		// if (empty($data['dob'])) {
-		// 	$this->errors['dob'] = "Date of Birth is required";
-		// } else {
-		// 	$dobTimestamp = strtotime($data['dob']);
-		// 	if (!$dobTimestamp) {
-		// 		$this->errors['dob'] = "Invalid Date of Birth format";
-		// 	} else {
-		// 		$currentTimestamp = time();
-		// 		if ($dobTimestamp > $currentTimestamp) {
-		// 			$this->errors['dob'] = "Date of Birth must be in the past";
-		// 		}
+		if (empty($data['dob'])) {
+			$this->errors['dob'] = "Date of Birth is required";
+		} else {
+			$currentDate = new DateTime();
+			$inputDate = new DateTime($data['dob']);
 
-		// 		$eighteenYearsAgo = strtotime('-18 years', $currentTimestamp);
-		// 		if ($dobTimestamp > $eighteenYearsAgo) {
-		// 			$this->errors['dob'] = "You must be 18 years or older";
-		// 		}
-		// 	}
-		// }
+			if ($inputDate > $currentDate) {
+				$this->errors['dob'] = "Date of Birth must be in the past";
+			}
 
-		// if (empty($data['password'])) {
-		// 	$this->errors['password'] = "Password is required";
-		// } elseif (!preg_match('/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/', $data['password'])) {
-		// 	$this->errors['password'] = "Password must be 8 or more characters, and include at least one uppercase letter, one lowercase letter, one number, and one symbol";
-		// }
+			$age = $currentDate->diff($inputDate)->y;
+			if ($age < 18) {
+				$this->errors['dob'] = "Employee must be at least 18 years old";
+			}
+		}
+
+		if (empty($data['password'])) {
+			$this->errors['password'] = "Password is required";
+		} elseif (!preg_match('/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/', $data['password'])) {
+			$this->errors['password'] = "Password must be 8 or more characters, and include at least one uppercase letter, one lowercase letter, one number, and one symbol";
+		}
 
 		if (empty($this->errors)) {
 			return true;

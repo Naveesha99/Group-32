@@ -41,6 +41,10 @@ class Article
             $this->errors['article_content'] = "Article Content is required";
         }
 
+        if (!empty($data['article_content']) && strlen($data['article_content']) < 400) {
+            $this->errors['article_content'] = "Article Content must be at least 400 characters";
+        }
+
         if (empty($data['image'])) {
             $this->errors['image'] = "Image is required";
         }

@@ -26,10 +26,11 @@
             <a class="<?= $page == "adminEmployee" ? 'active' : ''; ?>" href="<?= ROOT ?>/adminEmployee"> <i class="fa-solid fa-user"></i> <span>Employee</span></a>
             <a class="<?= $page == "adminTask" ? 'active' : ''; ?>" href="<?= ROOT ?>/adminTask"> <i class="fa solid fa-tasks"></i> <span>Task</span></a>
             <!-- <a href="<?= ROOT ?>/adminTheater"> <i class="fa-solid fa-panorama"></i> <span>Theater</span></a> -->
-            <a class="<?= $page == "adminFacilities" ? 'active' : ''; ?>" href="<?= ROOT ?>/adminFacilities"> <i class="fa-solid fa-check"></i> <span>Facilities</span></a>
+            <!-- <a class="<?= $page == "adminFacilities" ? 'active' : ''; ?>" href="<?= ROOT ?>/adminFacilities"> <i class="fa-solid fa-check"></i> <span>Facilities</span></a> -->
             <a class="<?= $page == "adminUserQueries" ? 'active' : ''; ?>" href="<?= ROOT ?>/adminUserQueries"> <i class="fa-solid fa-flag"></i> <span>User Queries</span></a>
-            <a class="<?= $page == "adminHalls" ? 'active' : ''; ?>" href="<?= ROOT ?>/adminHalls"> <i class="fa-solid fa-panorama"></i> <span>Halls</span></a>
-            <a class="<?= $page == "adminRequest" ? 'active' : ''; ?>" href="<?= ROOT ?>/adminRequest"> <i class="fa-solid fa-hand"></i> <span>Request</span></a>
+            <a class="<?= $page == "Halls" ? 'active' : ''; ?>" href="<?= ROOT ?>/Halls"> <i class="fa-solid fa-panorama"></i> <span>Halls</span></a>
+            <a class="<?= $page == "adminArticle" ? 'active' : ''; ?>" href="<?= ROOT ?>/adminArticles"> <i class="fa-solid fa-newspaper"></i> <span>Articles</span></a>
+            <!-- <a class="<?= $page == "adminRequest" ? 'active' : ''; ?>" href="<?= ROOT ?>/adminRequest"> <i class="fa-solid fa-hand"></i> <span>Request</span></a> -->
             <a class="<?= $page == "adminReport" ? 'active' : ''; ?>" href="<?= ROOT ?>/adminReport"> <i class="fa-solid fa-flag"></i> <span>Report</span></a>
 
         </div>

@@ -37,8 +37,8 @@ class addHall
         $data['facility'] = $facilities1;
 
 		if($_SERVER['REQUEST_METHOD'] == "POST"){
-            show("POST 1");
-            show($_POST);
+            // show("POST 1");
+            // show($_POST);
 
             $hallname=$_POST['hallno'];
             if ($_FILES["image"]["error"] == 4) {
@@ -101,7 +101,9 @@ class addHall
                 ];
 
 				// $hall->insert($_POST);
-                $hall->insert($insertData);
+                if($hall->validate($insertData)){
+                    $hall->insert($insertData);
+                }
                 $hallFacility = new HallFacilities;
                 for($i=0; $i<count($_POST['facility']); $i++){
                     $hallfac=[

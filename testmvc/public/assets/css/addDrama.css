@@ -52,155 +52,84 @@ td {
     padding: 8px;
 }
 .container {
-    display: flex;
-    justify-content: center;
+    /* display: flex; */
+    margin-top: 80px;
     position: absolute;
     right: 0;
     width: 80vw;
-    height: 100vh;
-    background: white;
+    /* height: 100%;/ */
+    /* background: #f1f1f1; */
 }
 
+span.error {
+    color: red;
+    font-size: 12px;
+    font-weight: 600;
+    margin-left: 10px;
+}
 
-
-.container .content {
-    display: flex;
-    justify-content: center;
+.container form.add-Drama{
+    width: 650px;
+    /* padding: 20px; */
+    display: inline-block;
+    
+    /* gap: 10px; */
     align-items: center;
-    width: 80%;
-    height: 80%;
-    border-radius: 30px;
-    position: relative;
-    margin-top: 100px;
-    min-height: 90vh;
-    background: linear-gradient(180deg, #ccc, white);
+   
+    color: white; 
+    background-color: rgba(255, 255, 255, 0.066);
+    /* align-content: center; */
+    /* justify-content: center; */
+    margin-left: 10%;
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.6); */
+    /* border: 2px solid #ccc; */
+    /* border-radius: 15px;  */
+    
 }
-
-.container .content .add-Drama {
-    padding: 80px;
-    justify-content: center;
-    height: 80%;
-    width: 95%;
-}
-
-  
-.container .content .add-Drama label {
-    display: flex;
-    width: 20%;
-    /* margin-bottom: 8px; */
-    margin-left: 20px;
+label {
     font-weight: bold;
+    color: black;
+    padding: 10px;
 }
 
-.container .content .add-Drama input {
-    display: flex;
-    width: 70%;
-    padding: 8px;
-    margin-bottom: 16px;
+input,[type="text"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
     box-sizing: border-box;
-    border: 1px solid #ccc;
+    border: 2px solid #ccc;
     border-radius: 4px;
-}
+    margin-bottom: 10px;
+    /* margin: 5px; */
+    /* align-items: center; */
 
-.container .content .add-Drama textarea {
-    display: flex;
-    width: 70%;
-    padding: 8px;
-    margin-bottom: 16px;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 4px;
 }
-
-.container .content .add-Drama select {
-    display: flex;
-    width: 70%;
-    padding: 8px;
-    margin-bottom: 16px;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
+  
+  /* Style the label text next to the checkbox */
+  label {
+    margin-left: 5px;
+    vertical-align: middle;
+    color: black;
+  }
 .btn-1 {
-  appearance: button;
-  background-color: #4D4AE8;
-  background-image: linear-gradient(180deg, rgba(255, 255, 255, .15), rgba(255, 255, 255, 0));
-  border: 1px solid #4D4AE8;
-  border-radius: 1rem;
-  box-shadow: rgba(255, 255, 255, 0.15) 0 1px 0 inset,rgba(46, 54, 80, 0.075) 0 1px 1px;
-  box-sizing: border-box;
-  color: #FFFFFF;
-  cursor: pointer;
-  display: inline-block;
-  font-family: Inter,sans-serif;
-  font-size: 1rem;
-  font-weight: 500;
-  line-height: 1.5;
-  margin: 0;
-  padding: .5rem 1rem;
-  text-align: center;
-  text-transform: none;
-  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  vertical-align: middle;
+    background: rgba(195, 98, 1, 0.973);
+    color: white;
+    padding: 3px 10px;
+    text-align: center;
+    border-radius: 5px;
+    border: 2px solid rgba(195, 98, 1, 0.973);
+    margin-left: 30px;
+    width: 80px;
 }
-
-.btn-1:focus:not(:focus-visible),
-.btn-1:focus {
-  outline: 0;
-}
-
 .btn-1:hover {
-  background-color: #3733E5;
-  border-color: #3733E5;
+    color: rgba(195, 98, 1, 0.973);
+    background: white;
+    padding: 3px 10px;
+    border: 2px solid rgba(195, 98, 1, 0.973);
+    margin-left: 30px;
 }
 
-.btn-1:focus {
-  background-color: #413FC5;
-  border-color: #3E3BBA;
-  box-shadow: rgba(255, 255, 255, 0.15) 0 1px 0 inset, rgba(46, 54, 80, 0.075) 0 1px 1px, rgba(104, 101, 235, 0.5) 0 0 0 .2rem;
-}
-
-.btn-1:active {
-  background-color: #3E3BBA;
-  background-image: none;
-  border-color: #3A38AE;
-  box-shadow: rgba(46, 54, 80, 0.125) 0 3px 5px inset;
-}
-
-.btn-1:active:focus {
-  box-shadow: rgba(46, 54, 80, 0.125) 0 3px 5px inset, rgba(104, 101, 235, 0.5) 0 0 0 .2rem;
-}
-
-.btn-1:disabled {
-  background-image: none;
-  box-shadow: none;
-  opacity: .65;
-  pointer-events: none;
-}
-
-  #popup {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 20px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-  }
-
-  /* Button styles for the popup options */
-  #popup button {
-    margin: 0 10px;
-    padding: 10px 15px;
-    cursor: pointer;
-  }
   
   @media screen and (max-width:536px) {
 
@@ -212,5 +141,4 @@ td {
         display: none;
     }
 }
-
   

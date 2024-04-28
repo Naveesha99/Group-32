@@ -45,34 +45,217 @@ h3 {
     padding: 15px 10px;
     border-bottom: 2px solid #999;
 }
-table {
-    padding: 10px;
-    border-radius: 15px;
-}
-th,
-td {
-    text-align: left;
-    padding: 8px;
-}
 .container {
     position: absolute;
-    right: 0;
-    width: 80vw;
-    height: 100vh;
-    background: white;
+    width: calc(100% - 200px);
+    left: 200px;
+    min-height: 100vh;
+    background-color:  white;
+    transition: 0.5s;
+    margin-top: 80px;
+    padding: 100px 50px;
+    margin-top: 40px;
+    transition:  margin-top 0.5s ease;
 }
 
-.container .content {
+.container .content{
+    min-height: 60vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.left, .right{
+    flex-basis: 48%;
+    margin-right: 20px;
+}
+
+.right{
+    flex-basis: 48%;
+    margin-left: 20px;
+}
+
+.container .content .left .ticket-income{
+    max-width: 1500px;
+    border: 2px  ;
+    background: ghostwhite;
+    /* padding: 15px; */
+    overflow: auto;
+    border-radius: 20px;
+    /* margin: auto; */
+    /* border-radius: 4px; */
+    /* display: grid; */
+    /* width: 50%; */
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);  */
+   
+}
+
+.container .content .left .ticket-income table{
+    width: 100%;
     position: relative;
-    margin-top: 10vh;
-    min-height: 90vh;
-    background: white;
+    font-size: 14px;
+    /* color: #444; */
+    white-space: nowrap;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 
-.container .content .chartContainer {
-    position: absolute;
-    width: 600px;
-    height: 300px;
-    background: white;
-    border: #999;
+.container .content .left .ticket-income table>thead{
+    background-color: #000000;
+    color: whitesmoke;
+}
+
+.container .content .left .ticket-income table>thead th{
+    padding: 15px;
+    color: #fff;
+    padding-top: 17px;
+    font-size: 15px;
+    border-bottom: 1px solid black;
+    text-align: left;
+    align-items: center;
+
+}
+
+.container .content .left .ticket-income table th, table td{
+    border-bottom: 1px solid #dddddd;
+    padding: 10px 20px;
+    word-break: break-all;
+    
+    font-size: 13px;
+}
+.container .content .left .ticket-income table td{
+    box-sizing: border-box;
+}
+
+.container .content .left .ticket-income table>tbody>tr{
+    background-color: #ffffff;
+    transition: 0.3s ease-in-out;
+}
+
+.container .content .left .ticket-income table>tbody>tr:nth-child(even){
+    background-color: #ffffff;
+}
+
+.container .content .left .ticket-income table>tbody>tr:hover{
+    filter: drop-shadow(0 3px 7px #0002);
+}
+
+.container .content .right .reservation-income{
+    max-width: 1500px;
+    border: 2px  ;
+    background: ghostwhite;
+    /* padding: 15px; */
+    overflow: auto;
+    border-radius: 20px;
+    /* margin: auto; */
+    /* border-radius: 4px; */
+    /* display: grid; */
+    /* width: 50%; */
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);  */
+   
+}
+
+.container .content .right .reservation-income table{
+    width: 100%;
+    position: relative;
+    font-size: 14px;
+    /* color: #444; */
+    white-space: nowrap;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.container .content .right .reservation-income table>thead{
+    background-color: #000000;
+    color: whitesmoke;
+}
+
+.container .content .right .reservation-income table>thead th{
+    padding: 15px;
+    color: #fff;
+    padding-top: 17px;
+    font-size: 15px;
+    border-bottom: 1px solid black;
+    text-align: left;
+    align-items: center;
+
+}
+
+.container .content .right .reservation-income table th, table td{
+    border-bottom: 1px solid #dddddd;
+    padding: 10px 20px;
+    word-break: break-all;
+    
+    font-size: 13px;
+}
+.container .content .right .reservation-income table td{
+    box-sizing: border-box;
+}
+
+.container .content .right .reservation-income table>tbody>tr{
+    background-color: #ffffff;
+    transition: 0.3s ease-in-out;
+}
+
+.container .content .right .reservation-income table>tbody>tr:nth-child(even){
+    background-color: #ffffff;
+}
+
+.container .content .right .reservation-income table>tbody>tr:hover{
+    filter: drop-shadow(0 3px 7px #0002);
+}
+
+/* td.hidden-cell,
+td.hidden-cell span,
+td.hidden-cell td div{
+  padding: 0;
+  height: 0;
+  border: none;
+  margin: 0;
+  border-bottom: none;
+  font-size: 0;
+
+} */
+
+td.hidden-cell{
+  visibility: hidden;
+  padding: 0;
+  height: 0;
+  border: none;
+  margin: 0;
+  border-bottom: none;
+  font-size: 0;
+}
+
+.btn-1{
+    border-color: blue;
+    background-color: transparent;
+    text-decoration: none;
+    color: black;
+    /* background: whitesmoke; */
+    margin-top: 30px;
+    margin-left: 10px;
+    border: 1px solid blue;
+    display: inline-block;
+    padding: 7px 17px;
+    font-weight: bold;
+    border-radius: 13px;
+    transition: 0.3s ease-in-out;
+}
+
+.btn-1>a:hover{
+    box-shadow: 0 2px 8px gray ;
+}
+
+.btn-1:hover{
+    box-shadow: 0 2px 8px gray ;
+    
 }
