@@ -86,7 +86,7 @@ td {
 }
 
 
-.container .add-employee .select {
+.container .add-employee select {
     width: 80%;
     padding: 8px;
     border-radius: 4px;

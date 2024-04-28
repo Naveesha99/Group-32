@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css?family=Catamaran:400,700');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Catamaran', sans-serif;
+}
+
+body {
+    background-color: #f9f9f9;
+    display: inline;
+    justify-content: center;
+}
+
+h2 {
+    font-size: 25px;
+    font-weight: 700;
+    color: #333;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    /* margin-left: 20%; */
+}
+
+h5 {
+    font-size: 1.25rem;
+}
+
+.card1 {
+    display: flex;
+    justify-content: center;
+    border: paleturquoise;
+    border-radius: 30px;
+    margin-top: 20px;
+    margin-left: 20%;
+    height: 50px;
+    width: 60%;
+    background-color: #6196A6;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.card1-title {
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-weight: 500;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 1.25rem;
+    cursor: pointer;
+}
+
+.card2 {
+    display: flex;
+    justify-content: center;
+    border: paleturquoise;
+    border-radius: 30px;
+    margin-top: 20px;
+    margin-left: 20%;
+    height: 50px;
+    width: 60%;
+    background-color: #E3FEF7;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.card2-title {
+    display: flex;
+    justify-content: center;
+    color: black;
+    font-weight: 500;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 1.25rem;
+    cursor: pointer;
+}

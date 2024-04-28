@@ -27,11 +27,11 @@
                     </select>
 
                     <label for="date">Date</label>
-                    <input type="date" name="date">
+                    <input type="date" name="date" value="<?= set_value('date')?>">
                     <label for="startTime">Start Time</label>
-                    <input type="time" name="startTime">
+                    <input type="time" name="startTime" value="<?= set_value('startTime')?>">
                     <label for="endTime">End Time</label>
-                    <input type="time" name="endTime">
+                    <input type="time" name="endTime" value="<?= set_value('endTime')?>">
                     <button name="check" class="btn">Check Available Employees</button>
                 </form>
                 <form method="POST">

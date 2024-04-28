@@ -4,7 +4,7 @@ header("Cache-Control: no-cache");
 /**
  * home class
  */
-class scheduleDrama
+class Addtimes
 {
     use Controller;
 
@@ -329,7 +329,7 @@ class scheduleDrama
 
             } 
         } 
-		$this->view('admin/scheduledrama', $data);
+		$this->view('/admin/addtimes', $data);
     }
 
 

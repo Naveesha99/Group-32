@@ -26,16 +26,19 @@ class Cancel_drama
 
         $details_array = [];
 
-        foreach($drama_details as $x)
+        if($drama_details)
         {
-            if($x->date >= $today)
+            foreach($drama_details as $x)
             {
-               
-                $details_array[] = $x; 
+                if($x->date >= $today)
+                {
+                    $details_array[] = $x; 
+                }
             }
+            $data['details_array'] = $details_array;
         }
         
-        $data['details_array'] = $details_array;
+        
         // show($data);
  
 
@@ -202,6 +205,7 @@ class Cancel_drama
                                         $arr5['drama_date'] = $_POST['b_drama_date'];
                                         $arr5['drama_time'] = $_POST['b_drama_time'];
                                         $arr5['email'] = $email;
+                                        $arr5['refund_status'] = 'notpaid';
 
                                         if($ref_status == 'no' || $ref_status == 'pending')
                                         { //not other refunded yet
@@ -215,13 +219,12 @@ class Cancel_drama
 
                                         $this->email_send_for_drama_cancel($email, $user_name, $drama_name, $d_date, $d_time, $booking_id, $ref_price);
                                     }
-                                    $data['update_rows'] = 'Successfully Updated rows';
+                                    $data['updated_rows'] = 'Successfully Updated rows';
                                 }
                 }
                         //__________________________not orders________________________________________________
                         if(isset($_POST['nb_drama_id']) && isset($_POST['nb_drama_date']) && isset($_POST['nb_drama_time']) && isset($_POST['nb_id']))
                         {
-                            show($_POST);
                             if($_POST['nb_drama_id'] != null && $_POST['nb_drama_date'] != null && $_POST['nb_drama_time'] != null && $_POST['nb_id']!=null)
                             {
                                 $booking = new Booking;
@@ -289,7 +292,6 @@ class Cancel_drama
             //__________________________future dates________________________________________________
                 if(isset($_POST['free_drama_id']) && isset($_POST['free_drama_date']) && isset($_POST['free_drama_time']))
                 {
-                    show($_POST);
                     if($_POST['free_drama_id'] != null && $_POST['free_drama_date'] != null && $_POST['free_drama_time'] != null)
                     {
                         $booking = new Booking;

@@ -6,14 +6,12 @@ body{
     font-family: catamaran;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
+
 th, td {
-    border: 1px solid #dddddd;
+    /* border: 1px solid #dddddd; */
     text-align: left;
     padding: 8px;
+    border: none;
 }
 th {
     background-color: #f2f2f2;
@@ -28,32 +26,43 @@ th {
     font-family: catamaran;
 }
 
+
 label{
-    width: 50%;
+    width: 100%;
+    padding-right: 9%;
+    margin-left: 3%;
+    margin-right: 4%;
+    text-align: justify;
+    margin-top: -10px;
+    display: block; 
+    /* margin-bottom: -20px */
+}
+.header{
+    margin-left: 3%;
 }
 
-input{
-    width: 50%;
+.buttons{
+    display: flex;
+    margin-left: -20%;
 }
+
+
 .errors{
     color: red;
 }
 
-#paymentForm{
 
-    display:block;
-    font-family: catamaran;
-}
 .container1{
     width: 50%;
     margin-right: 5%;
-    margin-left: 5%;
+    margin-left: 2%;
     font-family: catamaran;
     display: block;
 }
 .container2{
     width: 50%;
     font-family: catamaran;
+    margin-right: -10%;
 }
 
 .subtext{
@@ -63,3 +72,66 @@ input{
     font-family: catamaran;
     font-size: 20px;
 }
+
+.forms{
+    display: flex;
+    height: 77%;
+}
+#form2{
+    width: 100%;
+    background-color: rgb(208, 200, 200);
+    padding-left: 10px;
+}
+
+#paymentForm{
+    width: 100%;
+    display:block;
+    position: static;
+    font-family: catamaran;
+    background-color: chocolate;
+}
+input[type="text"] {
+    /* Add your styles here */
+    width: 70%;
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-left: 2%;
+}
+
+textarea {
+    /* Add your styles here */
+    margin-left: 2%;
+    width: 70%;
+    /* padding: 10px; */
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Ensure padding and border are included in the width */
+    /* Add any other styles as needed */
+}
+.registerbtn {
+    background-color: #9e0e0e; /* Green */
+    color: white;
+    padding: 10px 20px;
+    font-size: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 17%;
+}
+
+.condition{
+    border: 3px solid #7e7676;
+    border-radius: 5px;
+    width: auto;
+    height: 22%;
+    margin-bottom: 3px;
+}
+.table1{
+    width: 80%;
+    margin-right: 0%;
+}
+

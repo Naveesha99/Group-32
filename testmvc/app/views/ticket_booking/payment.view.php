@@ -267,6 +267,9 @@ $(document).ready(function()
       data: formData,
       success: function(response) {
         // Handle successful response here
+
+        document.querySelector('.registerbtn1').disabled = true;
+        
         console.log(response);
      
         if(response.data3)

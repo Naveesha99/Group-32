@@ -22,23 +22,23 @@
           <h2>Terms and Conditions</h2>
 
           <div class="input-control">
-            <label for="condition"><b>1. You can only cancel tickets at least <span class="subtext">24 hours (minimum one day)</span> before the show.</b></label><br>
+            <label for="condition">1. You can only cancel tickets at least <span class="subtext">24 hours (minimum one day)</span> before the show.</label><br>
           </div>
 
           <div class="input-control">
-            <label for="condition"><b>2. You can only cancel a maximum of <span class="subtext">3 or less tickets booked</span> .</b></label><br>
+            <label for="condition">2. You can only cancel a maximum of <span class="subtext">3 or less tickets booked</span></label><br>
           </div>
 
           <div class="input-control">
-            <label for="condition"><b>3. By canceling the tickets you can get only <span class="subtext">fifty percent (50%) of the amount</span> paid.  You will not be <span class="space">refunded</span> the full payment.</b></label><br>
+            <label for="condition">3. By canceling the tickets you can get only <span class="subtext">fifty percent (50%) of the amount</span> paid.  You will not be <span class="space">refunded</span> the full payment.</label><br>
           </div>
                 
           <div class="input-control">
-            <label for="condition"><b>4. To ensure the safety of your money, <span class="subtext">no online payments</span> will be made.</b></label><br>
+            <label for="condition">4. To ensure the safety of your money, <span class="subtext">no online payments</span> will be made.</label><br>
           </div>
 
           <div class="input-control">
-            <label for="condition"><b>5. You have to visit Borella PUNCHI THEATRE to get refund.</b></label><br>
+            <label for="condition">5. You have to visit Borella PUNCHI THEATRE to get refund.</label><br>
           </div>
 
           <div class="input-control">
@@ -67,7 +67,7 @@
     
               <div class="input-control">
                 <label for="bookingid"><b>Booking ID</b></label><br>
-                <input type="text" placeholder="Booking ID" name="bookingid" id="bookingid"><br>
+                <input type="text" placeholder="Booking ID" name="bookingid" id="bookingid" value="<?= set_value('bookingid') ?>"><br>
                 <?php if(!empty($errors['order_id'])):?>
                 <div class="error"><?= $errors['order_id']?></div>
                 <?php endif;?>
@@ -75,7 +75,7 @@
 
               <div class="input-control">
                 <label for="email"><b>Email</b></label><br>
-                <input type="text" placeholder="Email" name="email" id="email"><br>
+                <input type="text" placeholder="Email" name="email" id="email" value="<?= set_value('email') ?>"><br>
                 <?php if(!empty($errors['email'])):?>
                 <div class="error"><?= $errors['email']?></div>
                 <?php endif;?>
@@ -83,7 +83,7 @@
 
               <div class="input-control">
                 <label for="phone"><b>Phone Number</b></label><br>
-                <input type="text" placeholder="Phone Number" name="phone" id="phone"><br>
+                <input type="text" placeholder="Phone Number" name="phone" id="phone" value="<?= set_value('phone') ?>"><br>
                 <?php if(!empty($errors['phone'])):?>
                 <div class="error"><?= $errors['phone']?></div>
                 <?php endif;?>

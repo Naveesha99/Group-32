@@ -3,6 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Drama cancellation</title>
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/ticket_booking/cancel_drama.css">
 
@@ -15,16 +16,11 @@
 
 <div class="container">
           <div class="container1">
-              
+              <div class="condition">
                     <div class="header">Terms and Conditions for Drama Canceling</div>
-
-                    <div class="input-control">
-                      <label for="myCheckbox"><p>There is no need to any transaction with the user only when canceling a drama  <span class="subtext">after seven days from today.</span></p></label>
-                    </div>
-
-                    <div class="input-control">
-                      <label for="myCheckbox"><p>If the drama is canceled before 7 days including today, the user will <span class="subtext">have to pay the full amount</span> paid for the tickets again.</p></label><br>
-                    </div>
+                      <label>Not Need to any transaction with the user only when canceling a drama  after seven days from today.</label><br>
+                      <label>If the drama is canceled before 7 days including today, the user will have to pay the full amount paid for the tickets again.</label>
+              </div>
 
           <div class="forms">
             <!-- _____(1)_____ -->
@@ -37,25 +33,25 @@
                         <!-- idInput -->
                         <input type="hidden" name="id" id="idInput" placeholder="ID" readonly><br>
 
-                    <label for="drama"><b>Selected Drama ID</b></label><br>
+                        <label for="drama">Selected Drama ID</label><br>
                         <input type="text" name="drama_id" id="dramaIdInput" placeholder="Drama ID" readonly><br>
-                        <?php if(isset($data['not_id'])) 
+                        <?php if(isset($data['not_id']))
                         { ?> 
                         <div class="errors"><?= $data['not_id']?></div> 
                         <?php } ?>
 <br>
-                        <label for="drama"><b>Selected Drama </b></label><br>
+                        <label for="drama">Selected Drama </label><br>
                         <input type="text" name="drama_name" id="titleInput" placeholder="Drama Name" readonly><br>
                        
 <br>
-                        <label for="drama"><b>Selected Drama Date</b></label><br>
+                        <label for="drama">Selected Drama Date</label><br>
                         <input type="text" name="drama_date" id="dateInput" placeholder="Date" readonly><br>
                         <?php if(isset($data['not_date'])) 
                         { ?> 
                         <div class="errors"><?= $data['not_date']?></div> 
                         <?php } ?>
 <br>
-                        <label for="drama"><b>Selected Drama Time</b></label><br>
+                        <label for="drama">Selected Drama Time</label><br>
                         <input type="text" name="drama_time" id="timeInput" placeholder="Time" readonly><br>
                         <?php if(isset($data['not_time'])) 
                         { ?> 
@@ -63,24 +59,24 @@
                         <?php } ?>
 
 <br>
-                        <label for="drama"><b>Reason for Cancel</b></label><br>
-                        <textarea rows="5" id="reason" name="reason"></textarea>
+                        <label for="drama">Reason for Cancel</label><br>
+                        <textarea rows="3" id="reason" name="reason"></textarea>
                         <?php if(isset($data['not_reason'])) 
                         { ?> 
                         <div class="errors"><?= $data['not_reason']?></div> 
                         <?php } ?>
 
                         <div>
-                            <button class="registerbtn" id="registerbtnid" type="submit">SUBMIT</button>
+                            <button class="registerbtn" id="openPopupBtn" type="submit">Proceed</button>
                         </div>  
               </form>
 
               
               <!-- ____(2)___ -->
-          <form id="form2" method="post">
-              <div class="sec_show">
+      <div id="popupForm" class="popup" style="display: none;">
+        <form id="form2" method="post">
           <?php if(isset($data['booked_count']))
-                {
+                {  
                   if($data['booked_count']==0) 
                   {?>
                     <div class="message">
@@ -117,12 +113,15 @@
                     <input type="hidden" name="b_drama_time"  value="<?= $data['drama_time'] ?>">
                 <?php
                   }  ?>
-                        <div>
-                            <button class="registerbtn" id="registerbtnid" type="submit">SUBMIT</button>
-                        </div>
+                        <!-- <div class="buttons"> -->
+                            <button class="registerbtn" id="yesBtn" type="submit">YES</button>
+                            <button class="registerbtn" id="noBtn" type="submit">NO</button>
+                        <!-- </div> -->
           <?php }
                 if(isset($data['next_week']))
-                { ?>
+                { 
+                  
+                  ?>
                     <div class="message">
                       <p>This drama date is not in this week. SO, you can DELETE this time and NO NEED TO REFUND.</p>
                       <p>Are you sure DELETE this time?</p>
@@ -138,80 +137,62 @@
                     <input type="hidden" name="free_drama_date"  value="<?= $data['drama_date'] ?>">
                     <input type="hidden" name="free_drama_time"  value="<?= $data['drama_time'] ?>">
 
-                    <div>
-                        <button class="registerbtn" id="registerbtnid" type="submit">SUBMIT</button>
+                    <!-- <div class="buttons"> -->
+                        <button class="registerbtn" id="yesBtn" type="submit">YES</button>
+                        <button class="registerbtn" id="noBtn" type="submit">NO</button>
                     </div>
        <?php    }
              ?>
 
-              </div>
           </form>
-              </div>
-          </div>
+<!-- Show success message -->
+          <?php
+          if(isset($data['updated_rows']))
+          {?>
+            <div><?= $data['updated_rows'];?></div>
+     <?php }
+          if(isset($data['deleted_rows']))
+          {?>
+             <div><?= $data['deleted_rows'];?></div>
+    <?php }
+          ?>
+      </div>
+      </div>
+  </div>
 
 
 
           <div class="container2" id="container2">
-                              <h2>Drama cancellation</h2>
+                  <h3>slect the required drama cancel</h3>
 
-                              <?php 
-                                if(!empty($data['details_array']));
-                                {?>
-                                    <table>
-                                        <thead>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Drama ID</th>
-                                                <th>Drama</th>
-                                                <th>Date</th>
-                                                <th>Time</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php foreach($data['details_array'] as $drama): ?>
-                                                <tr class="row_clickable">
-                                                    <td class="id"><?php echo $drama->id; ?></td>
-                                                    <td class="drama_id"><?php echo $drama->drama_id; ?></td>
-                                                    <td class="title"><?php echo $drama->title; ?></td>
-                                                    <td class="date"><?php echo $drama->date; ?></td>
-                                                    <td class="time"><?php echo $drama->time; ?></td>
-                                                </tr>
-                                            <?php endforeach; ?>
-                                        </tbody>
-                                    </table>   
-                            <?php }
-                              ?>
-            
-                     
-              
-                        <div class="input-control">
-                          <label for="bookingid"><b>Booking ID</b></label><br>
-                          <input type="text" placeholder="Booking ID" name="bookingid" id="bookingid"><br>
-                          <?php if(!empty($errors['order_id'])):?>
-                          <div class="error"><?= $errors['order_id']?></div>
-                          <?php endif;?>
-                        </div>
-
-                        <div class="input-control">
-                          <label for="email"><b>Email</b></label><br>
-                          <input type="text" placeholder="Email" name="email" id="email"><br>
-                          <?php if(!empty($errors['email'])):?>
-                          <div class="error"><?= $errors['email']?></div>
-                          <?php endif;?>
-                        </div>
-
-                        <div class="input-control">
-                          <label for="phone"><b>Phone Number</b></label><br>
-                          <input type="text" placeholder="Phone Number" name="phone" id="phone"><br>
-                          <?php if(!empty($errors['phone'])):?>
-                          <div class="error"><?= $errors['phone']?></div>
-                          <?php endif;?>
-                        </div>
-                              
-                        <div>
-                            <button class="registerbtn" id="registerbtnid" type="submit">SUBMIT</button>
-                        </div>
-                    </div>
+                  <?php 
+                    if(!empty($data['details_array']));
+                    {?>
+                        <table class="table1">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Drama ID</th>
+                                    <th>Drama</th>
+                                    <th>Date</th>
+                                    <th>Time</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach($data['details_array'] as $drama): ?>
+                                    <tr class="row_clickable">
+                                        <td class="id"><?php echo $drama->id; ?></td>
+                                        <td class="drama_id"><?php echo $drama->drama_id; ?></td>
+                                        <td class="title"><?php echo $drama->title; ?></td>
+                                        <td class="date"><?php echo $drama->date; ?></td>
+                                        <td class="time"><?php echo $drama->time; ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>   
+                <?php }
+                  ?>  
+          </div>       
       </div>
       <?php require_once 't_reservaFooter1.php' ?>
 
@@ -250,4 +231,34 @@
         });
     });
 </script>
-</html>
+
+
+<script>
+// Function to open the popup form
+function openPopup() {
+    document.getElementById("popupForm").style.display = "block";
+}
+
+// Function to close the popup form
+function closePopup() {
+    document.getElementById("popupForm").style.display = "none";
+}
+
+// Check if data is received, then show popup after 1 second
+setTimeout(function() {
+    <?php if(isset($data)): ?>
+        openPopup();
+    <?php endif; ?>
+}, 1000);
+
+// Function to submit the form when clicking the YES button
+document.getElementById("yesBtn").addEventListener("click", function() {
+    document.getElementById("form2").submit();
+});
+
+// Function to close the popup form when clicking the NO button
+document.getElementById("noBtn").addEventListener("click", function() {
+    closePopup();
+});
+</script>
+
