@@ -42,13 +42,13 @@ body{
 
 .container .cardBox .card{
     position: relative;
-    background: blue;
+    background: white;
     padding: 30px;
-    border-radius: 20px;
+    border-radius: 25px;
     display: flex;
     justify-content: space-between;
     cursor: pointer;
-    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.6);
 
 }
 
@@ -56,13 +56,13 @@ body{
     position: relative;
     font-weight: 300;
     font-size: 2.0rem;
-    color: white;
+    color: black;
     /* top: 30px; */
     /* margin-left: 10px; */
 }
 
 .container .cardBox .card .numbers{
-    color: white;
+    color: black;
     font-size: 1.8rem;
     /* margin-top: 5px; */
     margin-left: 10px;
@@ -73,28 +73,28 @@ body{
 
 .container .cardBox .card .iconBox{
     font-size: 3.5rem;
-    color: white;
+    color: black;
 }
 
 .container .cardBox .card:hover{
-    background: white;
-    border: 3px solid #2424ff;
+    background: #6196A6;
+    border: 3px solid white;
 }
 
 .cardBox .card:hover .numbers,
 .cardBox .card:hover .cardName,
 .cardBox .card:hover .iconBox{
-    color: blue;
+    color: white;
 }
 
 .container  .content-2 {
     min-height: 60vh;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: flex-start;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
 }
-.container  .content-2 .tasks {
+/* .container  .content-2 .tasks {
     min-height: 50vh;
     flex: 5;
     background: white;
@@ -114,50 +114,180 @@ body{
     display: flex;
     flex-direction: column;
     border-radius: 15px;
+} */
+
+.tasks,
+.history {
+    flex-basis: 48%; /* Adjust the width of each column as needed */
+    margin-right: 20px; /* Add margin-right to create space between tables */
+}
+
+.history {
+    flex-basis: 48%;
+    margin-left: 20px; /* Add margin-left to create space between tables */
 }
 
 
-a {
-    text-decoration: none;
+.content-2 .table-responsive{
+    max-width: 1500px;
+    border: 2px  ;
+    background: ghostwhite;
+    /* padding: 15px; */
+    overflow: auto;
+    border-radius: 20px;
+    /* margin: auto; */
+    /* border-radius: 4px; */
+    /* display: grid; */
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);  */
+    
+    
 }
-li {
-    list-style: none;
+
+.content-2 .table-responsive table{
+    width: 100%;
+    position: relative;
+    font-size: 15px;
+    /* color: #444; */
+    white-space: nowrap;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
-h1{
-    color: white;
+
+.content-2 .table-responsive table>thead{
+    background-color: #000000;
+    color: whitesmoke;
 }
-h2 {
-    color: black;
+
+.content-2 .table-responsive table>thead th{
+    padding: 15px;
+    color: #fff;
+    padding-top: 17px;
+    font-size: 18px;
+    border-bottom: 1px solid black;
+    text-align: left;
+    align-items: center;
+
 }
-h3 {
-    color: #ffffff;
+
+.content-2 .table-responsive table th, table td{
+    border-bottom: 1px solid #dddddd;
+    padding: 10px 20px;
+    word-break: break-all;
+    
+    font-size: 14px;
 }
-.btn {
-    background: #e6cc00;
-    color: black;
-    padding: 3px 10px;
-    text-align: center;
-    border-radius: 15px;
+.content-2 .table-responsive table td{
+    box-sizing: border-box;
 }
-.btn:hover {
-    color: #e6cc00;
-    background:black;
-    /* opacity: 0.6; */
-    padding: 3px 8px;
-    /* border: 2px solid #e6cc00; */
-}
+
 .title {
     display: flex;
-    align-items: center;
-    justify-content: space-around;
-    padding: 15px 10px;
-    border-bottom: 2px solid #999;
+    justify-content: left; 
+    margin-bottom: 20px; 
+    margin-top: 20px;
 }
-table {
-    padding: 10px;
+
+.title h2 {
+    color: black; 
+    font-size: 24px; 
+    font-weight: bold;
+    margin-bottom: 5px;
 }
-th,
-td {
-    text-align: left;
-    padding: 8px;
+tr.hide{
+    opacity: 0;
+    transform: translateX(100%);
+    line-height: 0;
+  }
+  
+  tr.hide td,
+  tr.hide span,
+  tr.hide td div{
+    padding: 0;
+    height: 0;
+    border: none;
+    margin: 0;
+    border-bottom: none;
+    font-size: 0;
+  
+  }
+  
+  tr.hide td *{
+    visibility: hidden;
+  }
+  
+  
+  tbody tr:hover{
+    cursor: pointer;
+    background-color: #0298cf0d;
+  
+    transition: all 0.3s ease-in-out;
+  }
+
+  .content-2 .table-responsive table>tbody>tr{
+    background-color: #ffffff;
+    transition: 0.3s ease-in-out;
 }
+
+.content-2 .table-responsive table>tbody>tr:nth-child(even){
+    background-color: #ffffff;
+}
+
+.content-2 .table-responsive table>tbody>tr:hover{
+    filter: drop-shadow(0 3px 7px #0002);
+}
+
+.action_btn>a{
+    text-decoration: none;
+    color: black;
+    /* background: whitesmoke; */
+    border: 1px solid black;
+    display: inline-block;
+    padding: 5px 12px;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: 0.3s ease-in-out;
+
+}
+
+.action_btn .btn{
+    border-color: blue;
+    background-color: transparent;
+    text-decoration: none;
+    color: black;
+    /* background: whitesmoke; */
+    border: 1px solid blue;
+    display: inline-block;
+    padding: 7px 17px;
+    font-weight: bold;
+    border-radius: 13px;
+    transition: 0.3s ease-in-out;
+}
+
+.action_btn>a:hover{
+    box-shadow: 0 2px 8px gray ;
+}
+
+.action_btn .btn-view:hover{
+    box-shadow: 0 2px 8px gray ;
+    
+}
+
+.action_btn .btn-view{
+    border-color: blue;
+    background-color: transparent;
+    text-decoration: none;
+    color: black;
+    /* background: whitesmoke; */
+    border: 1px solid blue;
+    display: inline-block;
+    padding: 3px 8px;
+    font-weight: bold;
+    border-radius: 13px;
+    transition: 0.3s ease-in-out;
+    margin-left: 100px;
+}
+  

@@ -50,38 +50,49 @@
                 <div class="title">
                     <h2>History</h2>
                 </div>
-                <table>
-                    <tr>
-                        <th>Task</th>
-                        <th>Place</th>
-                        <th>Date</th>
-                        <th>Time</th>
-                        <th>Status</th>
-                        <th>Option</th>
-                    </tr>
-                    <tbody>
-                        <?php
-                        if ($historyTasks) {
-                            foreach ($historyTasks as $row) {
-                                echo '<tr>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Task</th>
+                                <th>Place</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Status</th>
+                                <th>Option</th>
+                            </tr>
+                        </thead>
+                        
+                        <tbody>
+                            <?php
+                            if ($historyTasks) {
+                                foreach ($historyTasks as $row) {
+                                    echo '<tr>
                             <td>' . $row->task . ' </td>
                             <td>' . $row->place . ' </td>
                             <td>' . $row->relavant_date . ' </td>
                             <td>' . $row->relavant_time . ' </td>
                             <td>' . $row->status . '</td>
-                            <td> <a href = "empTaskView?id=' . $row->id . '" class = "btn">View</a>
+                            <td> 
+                            <span class="action_btn">
+                                    <a href = "empTaskView?id=' . $row->id . '" class = "btn">View</a>
+                                </span>
+                                </td>
                             </tr>';
+                                }
+                            } else {
+                                echo '<tr><td colspan="6">No data available</td></tr>';
                             }
-                        } else {
-                            echo '<tr><td colspan="6">No data available</td></tr>';
-                        }
-                        ?>
+                            ?>
 
-                    </tbody>
+                        </tbody>
 
 
 
-                </table>
+                    </table>
+
+                </div>
+
             </div>
         </div>
     </div>

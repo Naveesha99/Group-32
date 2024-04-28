@@ -57,69 +57,99 @@
             <div class="tasks">
                 <div class="title">
                     <h2>Today : <?= date('Y-m-d'); ?></h2>
-                    <a href="<?= ROOT ?>/employeeDashboard" class="btn">View All</a>
+                    <span class="action_btn">
+                        <a href="<?= ROOT ?>/employeeDashboard" class="btn-view">View All</a>
+                    </span>
                 </div>
-                <table>
-                    <tr>
-                        <th>Task</th>
-                        <th>Place</th>
-                        <th>Time</th>
-                        <th>Status</th>
-                        <th>Option</th>
-                    </tr>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Task</th>
+                                <th>Place</th>
+                                <th>Time</th>
+                                <th>Status</th>
+                                <th>Option</th>
 
-                    <?php
-                    if ($today_tasks) {
-                        foreach ($today_tasks as $row) {
-                            echo '<tr>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <?php
+                            if ($today_tasks) {
+                                foreach ($today_tasks as $row) {
+                                    echo '<tr>
                             <td>' . $row->task . ' </td>
                             <td>' . $row->place . ' </td>
                             <td>' . $row->relavant_time . ' </td>
                             <td>' . $row->status . '</td>
-                            <td> <a href = "empTaskView?id=' . $row->id . '" class = "btn">View</a>
+                            <td> 
+                            
+                            <span class="action_btn">
+                                    <a href = "empTaskView?id=' . $row->id . '" class = "btn">View</a>
+                                </span>
+                                </td>
+                            
                             </tr>';
-                        }
-                    } else {
-                        echo '<tr><td colspan="5">No data available</td></tr>';
-                    }
-                    ?>
+                                }
+                            } else {
+                                echo '<tr><td colspan="5">No data available</td></tr>';
+                            }
+                            ?>
+                        </tbody>
 
-                </table>
+                    </table>
+
+                </div>
+
             </div>
 
             <div class="history">
                 <div class="title">
                     <h2>History</h2>
-                    <a href="<?=ROOT?>/empHistory" class="btn">View All</a>
+                    <span class="action_btn">
+                        <a href="<?= ROOT ?>/empHistory" class="btn-view">View All</a>
+                    </span>
+                    
                 </div>
-                <table>
-                    <tr>
-                        <th>Task</th>
-                        <th>Place</th>
-                        <th>Date</th>
-                        <th>Time</th>
-                        <th>Status</th>
-                        <th>Option</th>
-                    </tr>
 
-                    <?php
-                    if ($historyTasks) {
-                        foreach ($historyTasks as $row) {
-                            echo '<tr>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Task</th>
+                                <th>Place</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Status</th>
+                                <th>Option</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <?php
+                            if ($historyTasks) {
+                                foreach ($historyTasks as $row) {
+                                    echo '<tr>
                             <td>' . $row->task . ' </td>
                             <td>' . $row->place . ' </td>
                             <td>' . $row->relavant_date . ' </td>
                             <td>' . $row->relavant_time . ' </td>
                             <td>' . $row->status . '</td>
-                            <td> <a href = "empTaskView?id=' . $row->id . '" class = "btn">View</a>
+                            <td>  <span class="action_btn">
+                                    <a href = "empTaskView?id=' . $row->id . '" class = "btn">View</a>
+                                </span>
+                                </td>
                             </tr>';
-                        }
-                    } else {
-                        echo '<tr><td colspan="6">No data available</td></tr>';
-                    }
-                    ?>
+                                }
+                            } else {
+                                echo '<tr><td colspan="6">No data available</td></tr>';
+                            }
+                            ?>
+                        </tbody>
 
-                </table>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

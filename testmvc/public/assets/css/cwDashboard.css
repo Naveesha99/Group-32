@@ -16,7 +16,7 @@ body{
 .container{
     position: absolute;
     width: calc(100% - 200px);
-    left: 250px;
+    left: 200px;
     min-height: 100vh;
     background-color:  white;
     transition: 0.5s;
