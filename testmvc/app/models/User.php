@@ -19,6 +19,7 @@ class User
 		'dob',
 		'password',
 		'user_type',
+		'isActive',
 	];
 
 	public function validate($data)

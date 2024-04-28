@@ -175,5 +175,87 @@ class SendMail
             return false;
         }
     }
+
+    public function acceptRequest($email, $requestID, $hall, $date, $payment, $type = "accept")
+    {
+        try {
+            // Replace with your SMTP server & port
+            ini_set("SMTP", "smtp.gmail.com");
+            ini_set("smtp_port", "587");
+
+            if ($type == "accept") {
+                // Email content
+                $subject = "Request Accepted";
+                $message =
+                '<div style="background-color: #e7e7e7; padding: 40px 15px 50px 15px; margin: 5px; border-top-left-radius: 30px; border-bottom-right-radius: 30px;">'
+                . '<p style="text-align: start; font-size: 19px; padding: 0; margin:0 0 0 15px;" >Dear User,</p> <br>'
+                . '<p style="color:white; text-align: center; font-size: 42px; padding: 20px 0 0 10px; margin: 0px;">Welcome To</p>'
+                . '<p style="font-size: 18px; text-align: center;padding: 0px 20px;">Your Request has been accepted.<br>'
+                . ' Your Request ID is <b>' . $requestID . '</b><br>'
+                . '<p style="font-size: 21px; text-align: center;"> <b>'
+                . 'Your request for' . $hall . ' at ' . $date . ' is accepted .<br>'
+                . 'You should pay ' . $payment . ' before 12 hours'
+                . '<a href="#">Click Here</a> to track your request<br>'
+                . '</div>';
+
+                // Email headers
+                $headers = "MIME-Version: 1.0" . "\r\n";
+                $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+                $headers .= "From: lakshannaveesha10@gmail.com" . "\r\n";
+
+                // Send email
+                if (mail($email, $subject, $message, $headers)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        } catch (Exception $e) {
+            return false;
+        }
+    }
+
+    public function rejectRequest($email, $requestID, $hall, $date, $reason, $type = "accept")
+    {
+        try {
+            // Replace with your SMTP server & port
+            ini_set("SMTP", "smtp.gmail.com");
+            ini_set("smtp_port", "587");
+
+            if ($type == "accept") {
+                // Email content
+                $subject = "Request Rejected";
+                $message =
+                '<div style="background-color: #e7e7e7; padding: 40px 15px 50px 15px; margin: 5px; border-top-left-radius: 30px; border-bottom-right-radius: 30px;">'
+                . '<p style="text-align: start; font-size: 19px; padding: 0; margin:0 0 0 15px;" >Dear User,</p> <br>'
+                . '<p style="color:white; text-align: center; font-size: 42px; padding: 20px 0 0 10px; margin: 0px;">Welcome To</p>'
+                . '<p style="font-size: 18px; text-align: center;padding: 0px 20px;">Your Request has been accepted.<br>'
+                . ' Your Request ID is <b>' . $requestID . '</b><br>'
+                . '<p style="font-size: 21px; text-align: center;"> <b>'
+                . 'Your request for' . $hall . ' at ' . $date . ' is rejected .<br>'
+                . 'Due to  ' . $reason . ' before 12 hours'
+                . '<a href="#">Click Here</a> to track your request<br>'
+                . '</div>';
+
+                // Email headers
+                $headers = "MIME-Version: 1.0" . "\r\n";
+                $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+                $headers .= "From: lakshannaveesha10@gmail.com" . "\r\n";
+
+                // Send email
+                if (mail($email, $subject, $message, $headers)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        } catch (Exception $e) {
+            return false;
+        }
+    }
 }
 

@@ -21,12 +21,13 @@
         <div class="form-right">
             <form method="POST" class="form">
                 <label for="hallno">Hall No:</label>
-                <input type="text" id="hallno" value="<?= $data['request'][0]->hallno ?>" disabled />
-                <label for="name">Name:</label>
+                <input type="text" id="hallno" name="hallno" value="<?= $data['request'][0]->hallno ?>" disabled />
 
-                <input type="text" id="name" value="<?= $data['request'][0]->name ?>" disabled />
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" value="<?= $data['request'][0]->name ?>" disabled />
+
                 <label for="full_name">Date:</label>
-                <input type="text" id="date" value="<?= $data['request'][0]->date ?>" disabled />
+                <input type="text" id="date" name="date" value="<?= $data['request'][0]->date ?>" disabled />
 
                 <label for="startTime">Start Time:</label>
                 <input type="text" id="startTime" value="<?= $data['request'][0]->startTime ?>" disabled />
@@ -47,7 +48,7 @@
                 <input type="text1" id="message" value="<?= $data['request'][0]->message ?>" disabled />
 
                 <label for="amount">Amount:</label>
-                <input type="text" id="amount" value="<?= $data['request'][0]->amount ?>" disabled />
+                <input type="text" id="amount" name="amount" value="<?= $data['request'][0]->amount ?>" disabled />
 
                 <label for="status">Current Status:</label>
                 <input type="text" id="status" value="<?= $data['request'][0]->status ?>" disabled />

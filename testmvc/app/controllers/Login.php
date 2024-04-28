@@ -32,7 +32,7 @@ class Login
 							redirect('cwDashboard');
 						} elseif ($row->user_type == 'Employee') {
 							redirect('employeeDashboard');
-						} elseif ($row->user_type == 'Reservationist') {
+						} elseif ($row->user_type == 'reservationist') {
 							redirect('reservaHall');
 							// redirect('admindashboard');
 						}
