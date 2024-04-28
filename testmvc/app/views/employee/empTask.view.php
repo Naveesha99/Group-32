@@ -19,7 +19,7 @@
     $currentDate = date('Y-m-d');
 
     foreach ($data as $row) {
-        if ($row->relavant_date == $currentDate) {
+        if ($row->date == $currentDate) {
             $today_tasks[] = $row;
         } else {
             $historyTasks[] = $row;
@@ -67,7 +67,8 @@
                             <tr>
                                 <th>Task</th>
                                 <th>Place</th>
-                                <th>Time</th>
+                                <th>Start Time</th>
+                                <th>End Time</th>
                                 <th>Status</th>
                                 <th>Option</th>
 
@@ -79,9 +80,10 @@
                             if ($today_tasks) {
                                 foreach ($today_tasks as $row) {
                                     echo '<tr>
-                            <td>' . $row->task . ' </td>
-                            <td>' . $row->place . ' </td>
-                            <td>' . $row->relavant_time . ' </td>
+                            <td>' . $row->taskType . ' </td>
+                            <td>' . $row->location . ' </td>
+                            <td>' . $row->startTime . ' </td>
+                            <td>' . $row->endTime . ' </td>
                             <td>' . $row->status . '</td>
                             <td> 
                             
@@ -120,7 +122,8 @@
                                 <th>Task</th>
                                 <th>Place</th>
                                 <th>Date</th>
-                                <th>Time</th>
+                                <th>Start Time</th>
+                                <th>End Time</th>
                                 <th>Status</th>
                                 <th>Option</th>
                             </tr>
@@ -131,10 +134,11 @@
                             if ($historyTasks) {
                                 foreach ($historyTasks as $row) {
                                     echo '<tr>
-                            <td>' . $row->task . ' </td>
-                            <td>' . $row->place . ' </td>
-                            <td>' . $row->relavant_date . ' </td>
-                            <td>' . $row->relavant_time . ' </td>
+                            <td>' . $row->taskType . ' </td>
+                            <td>' . $row->location . ' </td>
+                            <td>' . $row->date . ' </td>
+                            <td>' . $row->startTime . ' </td>
+                            <td>' . $row->endTime . ' </td>
                             <td>' . $row->status . '</td>
                             <td>  <span class="action_btn">
                                     <a href = "empTaskView?id=' . $row->id . '" class = "btn">View</a>

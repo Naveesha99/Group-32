@@ -12,11 +12,12 @@
 body{
     font-family: 'Catamaran', sans-seri;
     height: 100vh;
+    overflow-x: hidden;
 }
 .container{
     position: absolute;
-    width: calc(100% - 250px);
-    left: 250px;
+    width: calc(100% - 200px);
+    left: 200px;
     min-height: 100vh;
     background-color:  white;
     transition: 0.5s;
@@ -148,7 +149,7 @@ body{
 }
 
 .content-2 .table-responsive table{
-    width: 100%;
+    width: 80%;
     position: relative;
     font-size: 15px;
     /* color: #444; */
@@ -166,10 +167,10 @@ body{
     padding: 15px;
     color: #fff;
     padding-top: 17px;
-    font-size: 18px;
+    font-size: 16px;
     border-bottom: 1px solid black;
     text-align: left;
-    align-items: center;
+    
 
 }
 
@@ -178,7 +179,7 @@ body{
     padding: 10px 20px;
     word-break: break-all;
     
-    font-size: 14px;
+    font-size: 13px;
 }
 .content-2 .table-responsive table td{
     box-sizing: border-box;
@@ -229,7 +230,7 @@ tr.hide{
 
   .content-2 .table-responsive table>tbody>tr{
     background-color: #ffffff;
-    transition: 0.3s ease-in-out;
+    /* transition: 0.3s ease-in-out; */
 }
 
 .content-2 .table-responsive table>tbody>tr:nth-child(even){

@@ -20,10 +20,10 @@ class EmpHistory
         $empId = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->id;
         $data = [];
         $result = [];
-        $emp_task = new Emp_tasks;
+        $emp_task = new EmployeeTask;
         
         if ($empId) {
-            $arr1['emp_id'] = $empId;
+            $arr1['empID'] = $empId;
             $empData = $emp_task->where($arr1);
             if ($empData) {
                 $result = $empData;
@@ -34,7 +34,7 @@ class EmpHistory
         $currentDate = date('Y-m-d');
 
         foreach ($result as $row) {
-            if ($row->relavant_date < $currentDate) {
+            if ($row->date < $currentDate) {
                 $historyTasks[] = $row;
             }
         }

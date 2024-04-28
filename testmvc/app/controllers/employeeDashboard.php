@@ -19,11 +19,11 @@ class EmployeeDashboard
 		$empId = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->id;
 
 		$data = [];
-		$emp_task = new Emp_tasks;
+		$emp_task = new EmployeeTask;
 		$result = [];
 
 		if ($empId) {
-			$arr1['emp_id'] = $empId;
+			$arr1['empId'] = $empId;
 			$empData = $emp_task->where($arr1);
 			if ($empData) {
 				$result = $empData;
@@ -34,12 +34,17 @@ class EmployeeDashboard
 
 
 			$today_tasks = [];
+			$future_tasks = [];
 
 			$currentDate = date('Y-m-d');
 
 			foreach ($result as $row) {
-				if ($row->relavant_date == $currentDate) {
+				if ($row->date == $currentDate) {
 					$today_tasks[] = $row;
+				}
+
+				if ($row->date > $currentDate) {
+					$future_tasks[] = $row;
 				}
 			}
 
@@ -57,10 +62,12 @@ class EmployeeDashboard
 			$data['to_do'] = $todoCount;
 			$data['completed'] = $completedCount;
 			$data['today_tasks'] = $today_tasks;
+			$data['future_tasks'] = $future_tasks;
 		}else{
 			$data['to_do'] = 0;
 			$data['completed'] = 0;
 			$data['today_tasks'] = [];
+			$data['future_tasks'] = [];
 		}
 
 

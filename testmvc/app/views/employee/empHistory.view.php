@@ -57,7 +57,8 @@
                                 <th>Task</th>
                                 <th>Place</th>
                                 <th>Date</th>
-                                <th>Time</th>
+                                <th>Start Time</th>
+                                <th>End Time</th>
                                 <th>Status</th>
                                 <th>Option</th>
                             </tr>
@@ -68,10 +69,11 @@
                             if ($historyTasks) {
                                 foreach ($historyTasks as $row) {
                                     echo '<tr>
-                            <td>' . $row->task . ' </td>
-                            <td>' . $row->place . ' </td>
-                            <td>' . $row->relavant_date . ' </td>
-                            <td>' . $row->relavant_time . ' </td>
+                            <td>' . $row->taskType . ' </td>
+                            <td>' . $row->location . ' </td>
+                            <td>' . $row->date . ' </td>
+                            <td>' . $row->startTime . ' </td>
+                            <td>' . $row->endTime . ' </td>
                             <td>' . $row->status . '</td>
                             <td> 
                             <span class="action_btn">

@@ -41,18 +41,19 @@
     </div>
 
     <div class="content-2">
-        
-            <div class="title">
-                <h2>Today : <?= date('Y-m-d'); ?></h2>
-                
-            </div>
+
+        <div class="title">
+            <h2>Today : <?= date('Y-m-d'); ?></h2>
+
+        </div>
         <div class="table-responsive">
             <table>
                 <thead>
                     <tr>
                         <th>Task</th>
                         <th>Place</th>
-                        <th>Time</th>
+                        <th>Start Time</th>
+                        <th>End Time</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
@@ -64,9 +65,60 @@
                     if ($today_tasks && (is_array($today_tasks) || is_object($today_tasks))) {
                         foreach ($today_tasks as $row) {
                             echo '<tr>
-                            <td>' . $row->task . ' </td>
-                            <td>' . $row->place . ' </td>
-                            <td>' . $row->relavant_time . ' </td>
+                            <td>' . $row->taskType . ' </td>
+                            <td>' . $row->location . ' </td>
+                            <td>' . $row->startTime . ' </td>
+                            <td>' . $row->endTime . ' </td>
+                            <td>' . $row->status . '</td>
+                            <td> 
+                                <span class="action_btn">
+                                    <a href = "empTaskView?id=' . $row->id . '" class = "btn">View</a>
+                                </span>
+                            </td>
+                            </tr>';
+                        }
+                    } else {
+                        echo '<tr><td colspan="5">No data available</td></tr>';
+                    }
+                    ?>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <div class="content-3">
+
+        <div class="title">
+            <h2>Tasks to Complete</h2>
+
+        </div>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Task</th>
+                        <th>Place</th>
+                        <th>Date</th>
+                        <th>Start Time</th>
+                        <th>End Time</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <?php
+                    if ($future_tasks && (is_array($future_tasks) || is_object($future_tasks))) {
+                        
+                        foreach ($future_tasks as $row) {
+                            echo '<tr>
+                            <td>' . $row->taskType . ' </td>
+                            <td>' . $row->location . ' </td>
+                            <td>' . $row->date . ' </td>
+                            <td>' . $row->startTime . ' </td>
+                            <td>' . $row->endTime . ' </td>
                             <td>' . $row->status . '</td>
                             <td> 
                                 <span class="action_btn">

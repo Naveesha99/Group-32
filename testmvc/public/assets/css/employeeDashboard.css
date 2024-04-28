@@ -82,7 +82,8 @@ body{
 }
 
 
-.content-2 .table-responsive{
+.content-2 .table-responsive,
+.content-3 .table-responsive{
     max-width: 1500px;
     border: 2px  ;
     background: ghostwhite;
@@ -101,7 +102,8 @@ body{
     
 }
 
-.content-2 .table-responsive table{
+.content-2 .table-responsive table,
+.content-3 .table-responsive table{
     width: 100%;
     position: relative;
     font-size: 15px;
@@ -111,12 +113,14 @@ body{
     border-spacing: 0;
 }
 
-.content-2 .table-responsive table>thead{
+.content-2 .table-responsive table>thead,
+.content-3 .table-responsive table>thead{
     background-color: #000000;
     color: whitesmoke;
 }
 
-.content-2 .table-responsive table>thead th{
+.content-2 .table-responsive table>thead th
+.content-3 .table-responsive table>thead th{
     padding: 15px;
     color: #fff;
     padding-top: 17px;
@@ -127,14 +131,16 @@ body{
 
 }
 
-.content-2 .table-responsive table th, table td{
+.content-2 .table-responsive table th, table td
+.content-3 .table-responsive table th, table td{
     border-bottom: 1px solid #dddddd;
     padding: 10px 20px;
     word-break: break-all;
     
     font-size: 14px;
 }
-.content-2 .table-responsive table td{
+.content-2 .table-responsive table td
+.content-3 .table-responsive table td{
     box-sizing: border-box;
 }
 
@@ -180,16 +186,19 @@ tr.hide{
     transition: all 0.3s ease-in-out;
   }
 
-  .content-2 .table-responsive table>tbody>tr{
+  .content-2 .table-responsive table>tbody>tr
+  .content-3 .table-responsive table>tbody>tr{
     background-color: #ffffff;
     transition: 0.3s ease-in-out;
 }
 
-.content-2 .table-responsive table>tbody>tr:nth-child(even){
+.content-2 .table-responsive table>tbody>tr:nth-child(even)
+.content-3 .table-responsive table>tbody>tr:nth-child(even){
     background-color: #ffffff;
 }
 
-.content-2 .table-responsive table>tbody>tr:hover{
+.content-2 .table-responsive table>tbody>tr:hover
+.content-3 .table-responsive table>tbody>tr:hover{
     filter: drop-shadow(0 3px 7px #0002);
 }
 
@@ -228,4 +237,5 @@ tr.hide{
     box-shadow: 0 2px 8px gray ;
     
 }
+
   
