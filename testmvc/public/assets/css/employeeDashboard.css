@@ -81,6 +81,49 @@ body{
     color: white;
 }
 
+.container .cardBox .cardN{
+    position: relative;
+    background: #6196A6;
+    padding: 30px;
+    border-radius: 25px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.6);
+
+}
+
+.container .cardBox .cardN .numbers{
+    position: relative;
+    font-weight: 500;
+    font-size: 2.0rem;
+    color: white;
+}
+
+.container .cardBox .cardN .cardName{
+    color: white;
+    font-size: 1.5rem;
+    margin-top: 5px;
+}
+
+.container .cardBox .cardN .iconBox{
+    font-size: 3.5rem;
+    color: white;
+}
+
+.container .cardBox .cardN:hover{
+    background: #6196A6;
+    border: 3px solid white;
+}
+
+.cardBox .cardN:hover .numbers,
+.cardBox .cardN:hover .cardName,
+.cardBox .cardN:hover .iconBox{
+    color: white;
+}
+
+
+
 
 .content-2 .table-responsive,
 .content-3 .table-responsive{
@@ -119,7 +162,7 @@ body{
     color: whitesmoke;
 }
 
-.content-2 .table-responsive table>thead th
+.content-2 .table-responsive table>thead th,
 .content-3 .table-responsive table>thead th{
     padding: 15px;
     color: #fff;
@@ -127,11 +170,11 @@ body{
     font-size: 18px;
     border-bottom: 1px solid black;
     text-align: left;
-    align-items: center;
+    align-items: left;
 
 }
 
-.content-2 .table-responsive table th, table td
+.content-2 .table-responsive table th, table td,
 .content-3 .table-responsive table th, table td{
     border-bottom: 1px solid #dddddd;
     padding: 10px 20px;
@@ -139,7 +182,7 @@ body{
     
     font-size: 14px;
 }
-.content-2 .table-responsive table td
+.content-2 .table-responsive table td,
 .content-3 .table-responsive table td{
     box-sizing: border-box;
 }
@@ -163,7 +206,7 @@ tr.hide{
   }
   
   tr.hide td,
-  tr.hide span,
+ 
   tr.hide td div{
     padding: 0;
     height: 0;
@@ -186,18 +229,18 @@ tr.hide{
     transition: all 0.3s ease-in-out;
   }
 
-  .content-2 .table-responsive table>tbody>tr
+  .content-2 .table-responsive table>tbody>tr,
   .content-3 .table-responsive table>tbody>tr{
     background-color: #ffffff;
     transition: 0.3s ease-in-out;
 }
 
-.content-2 .table-responsive table>tbody>tr:nth-child(even)
+.content-2 .table-responsive table>tbody>tr:nth-child(even),
 .content-3 .table-responsive table>tbody>tr:nth-child(even){
     background-color: #ffffff;
 }
 
-.content-2 .table-responsive table>tbody>tr:hover
+.content-2 .table-responsive table>tbody>tr:hover,
 .content-3 .table-responsive table>tbody>tr:hover{
     filter: drop-shadow(0 3px 7px #0002);
 }
@@ -233,7 +276,7 @@ tr.hide{
     box-shadow: 0 2px 8px gray ;
 }
 
-.action_btn .btn-delete:hover{
+.action_btn .btn:hover{
     box-shadow: 0 2px 8px gray ;
     
 }
@@ -317,7 +360,7 @@ tr.hide{
     padding-left: 40px;
 
 }
-.container .card1 .box .content p
+.container .card1 .box .content p,
 .container .card2 .box .content p{
     /* margin-top: 30px; */
     font-size: 1.3em;
@@ -357,7 +400,7 @@ tr.hide{
     transition: background-color 0.3s ease;
 }
 
-.container .card1 .box .content button:hover
+.container .card1 .box .content button:hover,
 .container .card2 .box .content button:hover
  {
     background-color: #487d89;

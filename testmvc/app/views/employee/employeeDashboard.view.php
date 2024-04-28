@@ -26,14 +26,14 @@
             </div>
         </div>
 
-        <div class="card">
+        <div class="cardN">
             <div>
                 <div class="numbers">To Do</div>
                 <div class="cardName"><?= $data['to_do'] ?></div>
             </div>
         </div>
 
-        <div class="card">
+        <div class="cardN">
             <div>
                 <div class="numbers">Completed</div>
                 <div class="cardName"><?= $data['completed'] ?></div>
@@ -69,16 +69,15 @@
                             <tr>
                                 <td><?= $row->taskType ?> </td>
                                 <td><?= $row->location ?> </td>
-                                
+
                                 <td><?= $row->startTime ?> </td>
                                 <td><?= $row->endTime ?> </td>
                                 <td><?= $row->status ?></td>
                                 <td>
-                                <td>
                                     <span class="action_btn">
                                         <form method="POST">
                                             <input type="hidden" name="task_id" value="<?= $row->id ?>">
-                                            <button type="button" data-order='<?= json_encode($row)?>' class="btn" onClick="openPopupNew(this)">View</button>
+                                            <button type="button" data-order='<?= json_encode($row) ?>' class="btn" onClick="openPopupNew(this)">View</button>
                                         </form>
                                     </span>
                                 </td>
@@ -101,19 +100,19 @@
                                     <input type="text" id="taskType" name="taskType" readonly>
 
                                     <label for="location">Place:</label>
-                                    <input type="text" id="location" name="location"  readonly>
+                                    <input type="text" id="location" name="location" readonly>
 
                                     <label for="date">Date:</label>
-                                    <input type="text" id="date" name="date"  readonly>
+                                    <input type="text" id="date" name="date" readonly>
 
                                     <label for="startTime">Start Time:</label>
-                                    <input type="text" id="startTime" name="startTime"  readonly>
+                                    <input type="text" id="startTime" name="startTime" readonly>
 
                                     <label for="endTime">End Time:</label>
-                                    <input type="text" id="endTime" name="endTime"  readonly>
+                                    <input type="text" id="endTime" name="endTime" readonly>
 
                                     <label for="status">Status:</label>
-                                    <input type="text" id="status" name="status"  readonly>
+                                    <input type="text" id="status" name="status" readonly>
                                     <button onclick="closePopupNew()">Close</button>
                                 </div>
 
@@ -164,7 +163,7 @@
 
                                         <form method="POST">
                                             <input type="hidden" name="task_id" value="<?= $row->id ?>">
-                                            <button type="button" data-order='<?=json_encode($row)?>' class="btn" onClick="openPopupNew(this)">View</button>
+                                            <button type="button" data-order='<?= json_encode($row) ?>' class="btn" onClick="openPopupNew(this)">View</button>
                                         </form>
 
                                     </span>
@@ -184,22 +183,22 @@
 
                                 <div class="paragraph">
                                     <label for="taskType">Task:</label>
-                                    <input type="text" id="taskType" name="taskType"  readonly>
+                                    <input type="text" id="taskType" name="taskType" readonly>
 
                                     <label for="location">Place:</label>
-                                    <input type="text" id="location" name="location"  readonly>
+                                    <input type="text" id="location" name="location" readonly>
 
                                     <label for="date">Date:</label>
-                                    <input type="text" id="date" name="date"  readonly>
+                                    <input type="text" id="date" name="date" readonly>
 
                                     <label for="startTime">Start Time:</label>
-                                    <input type="text" id="startTime" name="startTime"  readonly>
+                                    <input type="text" id="startTime" name="startTime" readonly>
 
                                     <label for="endTime">End Time:</label>
-                                    <input type="text" id="endTime" name="endTime"  readonly>
+                                    <input type="text" id="endTime" name="endTime" readonly>
 
                                     <label for="status">Status:</label>
-                                    <input type="text" id="status" name="status"  readonly>
+                                    <input type="text" id="status" name="status" readonly>
                                     <button onclick="closePopup()">Close</button>
                                 </div>
 
@@ -228,7 +227,7 @@
 
         document.getElementById('card1').style.display = 'block';
         document.getElementById('overlay').style.display = 'block';
-       
+
 
 
     };
@@ -236,7 +235,7 @@
     function closePopup() {
         document.getElementById('card1').style.display = 'none';
         document.getElementById('overlay').style.display = 'none';
-       // document.getElementById('task_id').value = null;
+        // document.getElementById('task_id').value = null;
         window.location.href = 'EmployeeDashboard';
     };
 
@@ -249,7 +248,7 @@
         document.getElementById('taskType').value = order.taskType;
         document.getElementById('location').value = order.location;
         document.getElementById('date').value = order.date;
-        
+
         document.getElementById('startTime').value = order.startTime;
         document.getElementById('endTime').value = order.endTime;
         document.getElementById('status').value = order.status;
