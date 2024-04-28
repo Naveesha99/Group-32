@@ -217,13 +217,19 @@
       <li> <a href="<?=ROOT?>/contactus"> CONTACT US </a></li>
 
     </ul>
+
+    <?php $img=$_SESSION['USER']->id; ?>
     <!-- <button class="login-btn" id="login-btn" onclick="redirectToLoginPage()">LOGIN</button> -->
-    <img src="<?= ROOT ?>/assets/images/profilePic.png" class="user-pic" onclick="toggleMenu()" id="img-profile">
+    <!-- <img src="<?= ROOT ?>/assets/images/profilePic.png" class="user-pic" onclick="toggleMenu()" id="img-profile"> -->
+    <img src="<?= ROOT ?>/assets/images/Upload/Profile<?= $img ?>.jpg" class="user-pic" onclick="toggleMenu()" id="img-profile">
+    <!-- <img src="<?= ROOT ?>/assets/images/Profile<?= $img ?>.png" class="user-pic" onclick="toggleMenu()" id="img-profile"> -->
+
+
 
     <div class="sub-menu-wrap" id="subMenu">
       <div class="sub-menu">
         <div class="user-info">
-          <img src="<?= ROOT ?>/assets/images/profilePic.png">
+        <img src="<?= ROOT ?>/assets/images/Upload/Profile<?= $img ?>.jpg">
           <!-- <h3> Ahmed Khan </h3> -->
           <h3>
 

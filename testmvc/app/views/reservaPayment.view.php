@@ -6,8 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="<?= ROOT ?>/assets/css/reservaPaymentNew.css" rel="stylesheet">
+    <link href="<?= ROOT ?>/assets/css/reservaPaymentForm.css" rel="stylesheet">
+
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 
     <!-- <link href="<?= ROOT ?>/assets/css/reservaPayment.css" rel="stylesheet"> -->
 
@@ -34,6 +38,21 @@
     } ?>
 
 <body>
+  
+
+<ul class="breadcrumb">
+            <li>
+                <a href="<?= ROOT ?>/reservasentreq">Sent Requests</a>
+            <li>
+            <i class='bx bx-chevron-right'> > </i>
+
+            <li>
+            <a href="#" class="active">Payment</a>
+                
+            </li>
+
+        </ul> 
+
  <!-- <div class="container"> -->
     <!-- <div class="model">
       <div class="room">
@@ -97,7 +116,7 @@
 
 
 
-  <body>
+  <div class="body1">
   <section class="booking-container">
     <header class="booking-title">Complete Your Booking</header>
     <section class="booking-details">
@@ -108,30 +127,47 @@
           <p class="price">Rs.<?php echo $detailsofhall[0]->amountOneHour;?> / One Hour  </p>
 
           <div>Request ID: <?php echo $data['detailsofReq']['id']; ?> </div>
-          <div>Address: 1 Hacker Way, Menlo Park, CA 94025</div>
+          <div>Address: Punchi Theatre, Borella</div>
         </div>
       </div>
       <!-- <div class="booking-price"> <?//php echo $data['detailsofReq']['amount']; ?> </div> -->
     </section> 
     <section class="session-details">
+    <div class="a">Hall Name: <div class="b"><?php echo $data['detailsofReq']['hall']; ?> </div></div>
       <div class="a">Date: <div class="b"><?php echo $data['detailsofReq']['date']; ?> </div> </div>
       <div class="a">Time: <div class="b"><?php echo $data['detailsofReq']['startTime']; ?> - <?php echo $data['detailsofReq']['endTime']; ?> </div></div>
       <div class="a">Duration: <div class="b"><?php echo $data['detailsofReq']['hours']; ?> hrs</div></div>
-      <div class="a">Hall Name: <div class="b"><?php echo $data['detailsofReq']['hall']; ?> </div></div>
+      <div class="a">Guests:  <div class="b"><?php echo $data['detailsofReq']['hcount']; ?></div></div>
     </section>
 
     <section class="guests-details">
-      <div class="a">Guests:  <div class="b"><?php echo $data['detailsofReq']['hcount']; ?></div></div>
-      <div class="a">Standings:  <div class="b"><?php echo $data['detailsofReq']['standings']; ?></div></div>
-      <div class="a">Sounds:  <div class="b"><?php echo $data['detailsofReq']['sounds']; ?></div></div>
-    </section>
 
-    <!-- <section class="session-details">
-      <div>Date: <?//php echo $data['detailsofReq']['date']; ?>  </div>
-      <div>Time: <?//php echo $data['detailsofReq']['startTime']; ?> - <?//php echo $data['detailsofReq']['endTime']; ?> </div>
-      <div>Duration: <?//php echo $data['detailsofReq']['hours']; ?> hrs</div>
-      <div>Hall Name: <?//php echo $data['detailsofReq']['hall']; ?> </div>
-    </section> -->
+    <div class="a">Hall:  
+        <div class="b">
+        <?php echo $data['detailsofReq']['hours'] * $data['detailsofhall'][0]->amountOneHour; ?>
+      </div>
+    </div>
+      <!-- <div class="a">Standings:  <div class="b"><?php echo $data['detailsofReq']['standings']; ?></div></div> -->
+      <div class="a">Standings:  
+        <div class="b">
+        <?php if($data['detailsofReq']['standings'] == "YES")
+              echo $data['detailsofhall'][0]->amountStandings;
+              else
+              echo "NO"?>
+      </div>
+    </div>
+
+
+      <!-- <div class="a">Sounds:  <div class="b"><?php echo $data['detailsofReq']['sounds']; ?></div></div> -->
+      <div class="a">Sounds:  
+        <div class="b">
+        <?php if($data['detailsofReq']['sounds'] == "YES")
+              echo $data['detailsofhall'][0]->amountSounds;
+              else
+              echo "NO"?>
+      </div>
+    </div>
+    </section>
 
     <!-- <section class="guests-details">
       <div>Guests: <?//php echo $data['detailsofReq']['hcount']; ?></div>
@@ -143,7 +179,7 @@
       <img loading="lazy" src="<?= ROOT ?>/assets/images/searchIcon.png" alt="" class="promo-icon" />
     </section> -->
 
-    <section>
+    <section class="final">
         <div class ="dea">
             <div class="subtotal-label">Subtotal</div>
             <div class="subtotal-amount"><?php echo $data['detailsofReq']['amount']; ?></div>
@@ -157,45 +193,63 @@
             <div class="total-amount"><?php echo $data['detailsofReq']['amount']; ?></div>
       </div>
     </section>
-    <div class="payment-button">Proceed to Payment</div>
+    <!-- <div class="payment-button">Proceed to Payment</div> -->
   </section>
 
-        <div class="details">
-          <div class="payment-info">
-            <h3>Pesonal Info</h3>
+        <!-- <div class="details"> -->
+          <div class="modal">
+
+          <!-- <div class="payment-info"> -->
+
+            <!-- <h3>Pesonal Info</h3> -->
+            <div class="separator">
+              <hr class="line">
+              <p>Enter Your Details</p>
+              <hr class="line">
+            </div>
+            <div class="credit-card-info--form">
+
             <!-- <form> -->
+
             <form  method="POST"  class="form-checkout" id="Form" >
-
+            <!-- 
               <input type="number" name="reqid" value="<?php echo $data['detailsofReq']['id']; ?>">
-              <input type="number" name="ispaid" value="0">
+              <input type="number" name="ispaid" value="0"> -->
+              <input type="hidden" name="reqid" value="<?php echo $data['detailsofReq']['id']; ?>">
+              <input type="hidden" name="ispaid" value="0">
 
-              <label>Full Name</label>
-              <input type="text" name="fullname" value=" ">
 
-              <label>Mobile Number</label>
-              <input type="text" name="mobile" value=" ">
+              <!-- <label>Full Name</label> -->
+              <!-- <input type="text" name="fullname" value=" "> -->
+              <div class="input_container">
+                <label for="Full Name" class="input_label">Full name</label>
+                <input type="text" id="fullname" class="input_field" name="fullname" title="Inpit title" placeholder="Enter your full name">
+              </div>
 
-              <label>Email</label>
-              <input type="text" name="email" value=" ">
+              <!-- <label>Mobile Number</label>
+              <input type="text" name="mobile" value=" "> -->
+              <div class="input_container">
+                <label for="mobile" class="input_label">Mobile Number</label>
+                <input id="mobile" class="input_field" type="text" name="mobile" title="Inpit title" placeholder="Enter your mobile number">
+              </div>
+
+              <!-- <label>Email</label>
+              <input type="text" name="email" value=" "> -->
+              <div class="input_container">
+                <label for="email" class="input_label">Email</label>
+                <input id="email" class="input_field" type="text" name="email" title="Expiry Date" placeholder="Enter your email">
+              </div>
               <br><br>
               <?php $data1['id']= $data['detailsofReq']['id']; ?>
               <!-- <input class="btn" onclick="pay2(<?php echo $data1['id']; ?>)" value="Book Securly"> -->
-              <button type="submit" >Book Securly</button>
+              <button type="submit" class="purchase--btn">Book Securly</button>
 
             </form>
+            </div>
           </div>
         </div>
 
 <body>
-
-
-
-
-
-
-
-
-
 
 </body> 
 
@@ -260,17 +314,6 @@
 <body> -->
 
 
-
-
-
-
-
-
-
-
-
-
-<?//php echo $data[]; ?>
 
 <script>
   
@@ -373,7 +416,9 @@ function paymentSuccess(orderId){
           var obj = JSON.parse(xhttp.responseText);
           console.log("sdfsdfsdf"+obj);
 
-          window.location.href = "<?php echo ROOT ?>/reservaQR?pay_id=" + orderId;
+          sessionStorage.setItem('order_id', orderId);
+          // window.location.href = "<?php echo ROOT ?>/reservaQR?pay_id=" + orderId;
+          window.location.href = "<?php echo ROOT ?>/reservaQR1";
       }
   };
   xhttp.open("GET","pay3?pay_id=" + orderId,true);
@@ -460,37 +505,3 @@ let updateOrderForm = document.querySelector(".form-checkout");
 
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

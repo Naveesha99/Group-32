@@ -43,12 +43,15 @@
                 </a>
             </div> -->
             <div class="content-2">
-                <div class="pt2">
+                <div class="employees">
                     <div class="title">
                         <h2>User Queries</h2>
                         <!-- <a href="<?= ROOT ?>/adminFacilities" class="btn">View All</a> -->
                     </div>
+                    <div class="table-responsive">
+
                     <table>
+                        <thead>
                         <tr>
                             <th>Id</th>
                             <th>Name</th>
@@ -56,9 +59,12 @@
                             <th>Subject</th>
                             <th>Message</th>
                             <th>Date</th>
+                            <th>Options</th>
 
                         </tr>
 
+                        </thead>
+                        <tbody>
                         <?php
                         foreach ($data['userqueries'] as $row) {
                             echo '<tr>
@@ -78,7 +84,9 @@
                                 </tr>';
                         }
                         ?>
+                        </tbody>
                     </table>
+                    </div>
                 </div>
             </div>
         </div>
