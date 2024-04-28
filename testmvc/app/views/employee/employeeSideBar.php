@@ -11,12 +11,23 @@
 </head>
 
 <body>
+    <?php
+    $page = substr($_SERVER['REQUEST_URI'], strrpos($_SERVER['REQUEST_URI'], "/") + 1);
+    ?>
     <div class="sidebar">
+        <div class="logo">
+            <img src="<?= ROOT ?>/assets/images/Logo.png" alt="">
+        </div>
 
-        <a href="<?= ROOT ?>/employeeDashboard"> <i class="fa-solid fa-house"></i> <span>Dashboard</span></a>
-        <a href="<?= ROOT ?>/empTask"> <i class="fa-solid fa-list-check"></i><span> Tasks</span></a>
-        <a href="<?= ROOT ?>/employeeReq"> <i class="fa-solid fa-hand"></i> <span>Request</span></a>
-        <a href="<?= ROOT ?>/notification"> <i class="fa-solid fa-bell"></i> <span>Notification</span></a>
-        <!-- <a href="<?= ROOT ?>/employeeSetting"> <i class="fa-solid fa-user"></i> <span>Profile</span></a> -->
+        <div class="pages">
+            <a class="<?=$page=="employeeDashboard" ? 'active' : '';?>"  href="<?= ROOT ?>/employeeDashboard"> <i class="fa-solid fa-house"></i> <span>Dashboard</span></a>
+            <a class="<?=$page=="empTask" ? 'active' : '';?>" href="<?= ROOT ?>/empTask"> <i class="fa-solid fa-list-check"></i><span> Tasks</span></a>
+            <a class="<?=$page=="employeeReq" ? 'active' : '';?>"  href="<?= ROOT ?>/employeeReq"> <i class="fa-solid fa-hand"></i> <span>Request</span></a>
+            <a class="<?=$page=="notification" ? 'active' : '';?>" href="<?= ROOT ?>/notification"> <i class="fa-solid fa-bell"></i> <span>Notification</span></a>
+            <!-- <a href="<?= ROOT ?>/employeeSetting"> <i class="fa-solid fa-user"></i> <span>Profile</span></a> -->
+
+        </div>
+
+
     </div>
 </body>
