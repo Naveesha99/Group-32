@@ -16,7 +16,6 @@
     <div class="container">
         <form method="POST" class="add-employee">
             <h1>Employee Registration Form</h1>
-            
             <label for="empName">Employee Name</label>
             <?php if (!empty($errors['empName'])) : ?>
                 <span class="error">
