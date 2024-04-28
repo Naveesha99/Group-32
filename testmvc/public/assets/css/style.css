@@ -68,7 +68,7 @@ body{
     margin: 0 3px 3px;
     display: inline-block;
     vertical-align: middle;
-    -webkit-appearance: none;
+    /* -webkit-appearance: none; */
     text-transform: capitalize;
     transition: all 0.3s linear;
     z-index: 1;
