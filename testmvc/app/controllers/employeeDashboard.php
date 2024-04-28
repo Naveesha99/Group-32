@@ -63,12 +63,28 @@ class EmployeeDashboard
 			$data['completed'] = $completedCount;
 			$data['today_tasks'] = $today_tasks;
 			$data['future_tasks'] = $future_tasks;
-		}else{
+		} else {
 			$data['to_do'] = 0;
 			$data['completed'] = 0;
 			$data['today_tasks'] = [];
 			$data['future_tasks'] = [];
 		}
+
+		if (isset($_POST['task_id'])) {
+			if ($_POST['task_id']) {
+				$arr2['id'] = $_POST['task_id'];
+				$empData = $emp_task->where($arr2);
+				if ($empData) {
+					$result = $empData;
+				}
+			}
+
+			
+		}
+		$data['empTask'] = $result;	
+
+
+
 
 
 
