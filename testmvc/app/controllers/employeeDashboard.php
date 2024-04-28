@@ -70,8 +70,39 @@ class EmployeeDashboard
 			$data['future_tasks'] = [];
 		}
 
-		
+		// if($_SERVER['REQUEST_METHOD'] == 'POST'){
+		// 	$taskId = $_POST['taskId'];
+		// 	$status = $_POST['status'];
+
+			
+		// 	$empTask = new EmployeeTask;
+		// 	if($taskId){
+		// 		$arr1['id'] = $taskId;
+		// 		$reqData = $empTask->where($arr1);
+		// 		show($reqData);
+		// 		if($reqData){
+		// 			$task = $reqData;
+		// 		}
+		// 	}
+
+		// 	if($task){
+		// 		$arrNew['status'] = $status;
+		// 		$empTask->update($taskId, $arrNew, 'id');
+				
+		// 		redirect('EmployeeDashboard');
+		// 	}else{
+				
+		// 		redirect('error');
+		// 	}
+		// }
+
+
+
+
 
 		$this->view('employee/employeeDashboard', $data);
 	}
+
+	
+	
 }

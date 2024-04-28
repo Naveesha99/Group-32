@@ -31,8 +31,10 @@
     ?>
 
     <div class="container">
+        
 
-        <form method="POST">
+
+        <!-- <form method="POST">
             <div class="search-bar">
                 <div class="dropdown">
                     <div id="drop-text" class="dropdown-text" onclick="handleCategorySelection('All categories')">
@@ -57,12 +59,30 @@
                 </div>
             </div>
 
-        </form>
+        </form> -->
 
 
         <div class="addNew">
             <a href="<?= ROOT ?>/cwAddArticle">ADD NEW</a>
         </div>
+
+        <!-- <div class="searchBar">
+            <form>
+                <div class="form">
+                    <form>
+                        <div class="form-input">
+                            <input type="search" placeholder="Search...">
+                            <button type="submit" class="search-btn">
+                                <i class='bx bx-search'></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+            </form>
+
+        </div> -->
+
 
         <div class="cards-container">
             <?php
@@ -95,14 +115,14 @@
     </div>
 
     <script>
-        let searchTimer;
-        let dropdownBtn = document.getElementById("drop-text");
-        let list = document.getElementById("list");
-        let icon = document.getElementById("icon");
-        let span = document.getElementById("span");
-        let input = document.getElementById("search-input");
-        let listItems = document.querySelectorAll(".dropdown-list-item");
-        let selectedCategory = "All categories";
+        // let searchTimer;
+        // let dropdownBtn = document.getElementById("drop-text");
+        // let list = document.getElementById("list");
+        // let icon = document.getElementById("icon");
+        // let span = document.getElementById("span");
+        // let input = document.getElementById("search-input");
+        // let listItems = document.querySelectorAll(".dropdown-list-item");
+        // let selectedCategory = "All categories";
 
         // // Function to handle search based on category
         // function handleSearch() {
@@ -123,113 +143,135 @@
         // }
 
         // Show dropdown list on click on dropdown btn
-        dropdownBtn.onclick = function() {
-            list.classList.toggle('show');
+        // dropdownBtn.onclick = function() {
+        //     list.classList.toggle('show');
 
-            // Rotate arrow icon
-            if (list.classList.contains('show')) {
-                icon.style.rotate = "0deg";
-            } else {
-                icon.style.rotate = "-180deg";
-            }
-        };
+        //     // Rotate arrow icon
+        //     if (list.classList.contains('show')) {
+        //         icon.style.rotate = "0deg";
+        //     } else {
+        //         icon.style.rotate = "-180deg";
+        //     }
+        // };
 
-        // Hide dropdown list when clicked outside dropdown btn
-        window.onclick = function(e) {
-            if (e.target.id !== "drop-text" &&
-                e.target.id !== "span" &&
-                e.target.id !== "icon") {
-                list.classList.remove('show')
-                icon.style.rotate = "0deg";
-            }
-        };
+        // // Hide dropdown list when clicked outside dropdown btn
+        // window.onclick = function(e) {
+        //     if (e.target.id !== "drop-text" &&
+        //         e.target.id !== "span" &&
+        //         e.target.id !== "icon") {
+        //         list.classList.remove('show')
+        //         icon.style.rotate = "0deg";
+        //     }
+        // };
 
-        // Handle click on list items
-        for (item of listItems) {
-            item.onclick = handleItemClick;
-        }
+        // // Handle click on list items
+        // for (item of listItems) {
+        //     item.onclick = handleItemClick;
+        // }
 
-        // Handle click on list items
-        function handleItemClick(e) {
-            // Change dropdown btn text on click on selected list item
-            span.innerHTML = e.target.innerText;
+        // // Handle click on list items
+        // function handleItemClick(e) {
+        //     // Change dropdown btn text on click on selected list item
+        //     span.innerHTML = e.target.innerText;
 
-            // Change input placeholder text on selected list item
-            if (e.target.innerText == "All categories") {
-                input.placeholder = "Search in all categories...";
-                handleSearch();
-            } else {
-                input.placeholder = "Search in " + span.innerHTML + "...";
-                handleSearch();
-            }
+        //     // Change input placeholder text on selected list item
+        //     if (e.target.innerText == "All categories") {
+        //         input.placeholder = "Search in all categories...";
+        //         handleSearch();
+        //     } else {
+        //         input.placeholder = "Search in " + span.innerHTML + "...";
+        //         handleSearch();
+        //     }
 
-            // Handle search when category is selected
-            // handleSearch();
-        }
+        //     // Handle search when category is selected
+        //     // handleSearch();
+        // }
 
-        // Handle search when user presses Enter key in the search input field
-        input.addEventListener("keyup", function(event) {
-            if (event.keyCode === 13) {
-                event.preventDefault();
-                handleSearch();
-            }
-        });
+        // // Handle search when user presses Enter key in the search input field
+        // input.addEventListener("keyup", function(event) {
+        //     if (event.keyCode === 13) {
+        //         event.preventDefault();
+        //         handleSearch();
+        //     }
+        // });
 
-        // Handle search when user types in the search input field
-        input.addEventListener("input", function() {
-            // Change dropdown btn text to the default "All categories" when typing in the search bar
-            span.innerHTML = "All categories";
+        // // Handle search when user types in the search input field
+        // input.addEventListener("input", function() {
+        //     // Change dropdown btn text to the default "All categories" when typing in the search bar
+        //     span.innerHTML = "All categories";
 
-            // Change input placeholder text when typing in the search bar
-            input.placeholder = "Search in all categories...";
+        //     // Change input placeholder text when typing in the search bar
+        //     input.placeholder = "Search in all categories...";
 
-            // handleSearch();
-        });
+        //     // handleSearch();
+        // });
 
-        // Function to handle category selection
-        function handleCategorySelection(category) {
-            // Set the selected category text
-            document.getElementById('span').innerText = category;
-            // Trigger search based on the selected category
-            handleSearch();
-        }
+        // // Function to handle category selection
+        // function handleCategorySelection(category) {
+        //     // Set the selected category text
+        //     document.getElementById('span').innerText = category;
+        //     // Trigger search based on the selected category
+        //     handleSearch();
+        // }
 
-        // Function to handle search
-        function handleSearch() {
-            // Get the selected category
-            let selectedCategory = document.getElementById('span').innerText.trim();
+        // // Function to handle search
+        // function handleSearch() {
+        //     // Get the selected category
+        //     let selectedCategory = document.getElementById('span').innerText.trim();
 
-            // Get the search query from the input field
-            let searchQuery = document.getElementById('search-input').value.trim().toLowerCase();
+        //     // Get the search query from the input field
+        //     let searchQuery = document.getElementById('search-input').value.trim().toLowerCase();
 
-            // Redirect to the same page with selected category and search query as URL parameters
-            window.location.href = window.location.pathname + '?category=' + encodeURIComponent(selectedCategory) + '&search=' + encodeURIComponent(searchQuery);
-        }
+        //     // Redirect to the same page with selected category and search query as URL parameters
+        //     window.location.href = window.location.pathname + '?category=' + encodeURIComponent(selectedCategory) + '&search=' + encodeURIComponent(searchQuery);
+        // }
 
 
-        const search = document.getElementById('search-input');
-        const card = document.querySelectorAll('.card');
+        // const search = document.getElementById('search-input');
+        // const card = document.querySelectorAll('.card');
 
-        search.addEventListener('input', function() {
+        // search.addEventListener('input', function() {
 
-            card.forEach((item, index) => {
+        //     card.forEach((item, index) => {
 
-                let search_data = search.value.toLowerCase();
-                // each card included text data
-                let card_data = item.textContent.toLowerCase();
-                // search bar typed text
+        //         let search_data = search.value.toLowerCase();
+        //         // each card included text data
+        //         let card_data = item.textContent.toLowerCase();
+        //         // search bar typed text
 
-                console.log(card_data);
+        //         console.log(card_data);
 
-                // Check if the row contains the search value
-                if (card_data.includes(search_data)) {
-                    item.classList.remove("hide");
+        //         // Check if the row contains the search value
+        //         if (card_data.includes(search_data)) {
+        //             item.classList.remove("hide");
 
-                } else {
-                    item.classList.add("hide");
+        //         } else {
+        //             item.classList.add("hide");
+        //         }
+        //     });
+        // });
+
+
+        const search = document.querySelector(".form input"),
+            table_rows = document.querySelectorAll(".card .Content");
+
+        search.addEventListener('input', performSearch);
+
+        function performSearch() {
+            table_rows.forEach((row, i) => {
+                let search_data = search.value.toLowerCase(),
+                    row_text = '';
+
+                for (let j = 0; j < row.children.length - 1; j++) {
+                    row_text += row.children[j].textContent.toLowerCase();
+
+
                 }
+                // console.log(row_text);
+
+                content.parentNode.classList.toggle('hide', content_text.indexOf(search_data) < 0);
             });
-        });
+        }
     </script>
 
     <style>
@@ -239,7 +281,7 @@
     </style>
 
 
-<script>
+    <script>
         var is_liked = false;
         var current_id = 0;
         var likedArticles = {};

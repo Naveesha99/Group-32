@@ -94,27 +94,37 @@
                             <div class="content">
                                 <?php // show($data['empTask']);  
                                 ?>
+                                <!-- <form id="completeTaskForm" action="<?= ROOT ?>/EmployeeDashboard/index" method="POST"> -->
 
-                                <div class="paragraph">
-                                    <label for="taskType">Task:</label>
-                                    <input type="text" id="taskType" name="taskType" readonly>
+                                    <div class="paragraph">
+                                        <label for="taskType">Task:</label>
+                                        <input type="text" id="taskType" name="taskType" readonly>
 
-                                    <label for="location">Place:</label>
-                                    <input type="text" id="location" name="location" readonly>
+                                        <label for="location">Place:</label>
+                                        <input type="text" id="location" name="location" readonly>
 
-                                    <label for="date">Date:</label>
-                                    <input type="text" id="date" name="date" readonly>
+                                        <label for="date">Date:</label>
+                                        <input type="text" id="date" name="date" readonly>
 
-                                    <label for="startTime">Start Time:</label>
-                                    <input type="text" id="startTime" name="startTime" readonly>
+                                        <label for="startTime">Start Time:</label>
+                                        <input type="text" id="startTime" name="startTime" readonly>
 
-                                    <label for="endTime">End Time:</label>
-                                    <input type="text" id="endTime" name="endTime" readonly>
+                                        <label for="endTime">End Time:</label>
+                                        <input type="text" id="endTime" name="endTime" readonly>
 
-                                    <label for="status">Status:</label>
-                                    <input type="text" id="status" name="status" readonly>
-                                    <button onclick="closePopupNew()">Close</button>
-                                </div>
+                                        <label for="status">Status:</label>
+                                        <input type="text" id="status" name="status" readonly>
+
+                                        <!-- <select id="status" name="status">
+                                            <option value="Pending">Pending</option>
+                                            <option value="Completed">Completed</option>
+                                        </select> -->
+                                        <button onclick="closePopupNew()">Close</button>
+                                        <!-- <button type="submit">Complete</button> -->
+                                    </div>
+                                    <!-- <input type="hidden" id="taskId" name="taskId"> -->
+                                <!-- </form> -->
+
 
                             </div>
                         </div>

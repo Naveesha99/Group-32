@@ -20,6 +20,7 @@ class CWArticleDisplay
 		$cwId = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->id;
 		// $this->view('cwArticleDisplay');
 		$article = new Article;
+		$result = [];
 		if ($cwId) {
 			$arr1['cw_id'] = $cwId;
 			$articleData = $article->where($arr1);
@@ -28,10 +29,7 @@ class CWArticleDisplay
 				$result = array_filter($articleData, function ($article) {
 					return $article->status == 1 && $article->progress == 'accepted';
 				});
-			} else {
-				echo "Article not found.";
-				exit();
-			}
+			} 
 		}
 
 		$data = $result;
