@@ -18,7 +18,8 @@ class CWDashboard
 
 		$cwId= empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->id;
 		$article = new Article;
-
+		$result = [];
+		$draft = [];
 		if ($cwId) {
 			$arr1['cw_id'] = $cwId;
 			$articleData = $article->where($arr1);
@@ -32,10 +33,7 @@ class CWDashboard
 					return $article->status == 0 ;
 				});
 
-            } else {
-                echo "Article not found.";
-                exit();
-            }
+            } 
 		}
 		
 		

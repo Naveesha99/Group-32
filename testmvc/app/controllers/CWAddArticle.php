@@ -157,7 +157,7 @@ class CWAddArticle
                 'cwName' => $_POST['cwName'],
                 'cw_id' => $_POST['cw_id']
             ];
-            // show($insertData);
+             show($insertData);
 
 
             if ($article->validate($insertData)) {
@@ -173,8 +173,8 @@ class CWAddArticle
         $data['errors'] = $article->errors;
         // show($_POST);
 
-        if($_SESSION['USER']->user_type == 'Content Writer'){
+    
         $this->view('contentwriter/CWAddArticle', $data);
-        }
+        
     }
 }

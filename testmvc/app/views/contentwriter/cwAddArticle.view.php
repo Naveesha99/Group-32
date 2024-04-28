@@ -14,7 +14,7 @@
 
 <body>
     <div class="container">
-        <div class="overlay" id="overlay"></div>
+        
 
 
         <form method="post" id="articleForm" class="addArticle" autocomplete="off" enctype="multipart/form-data">
@@ -29,6 +29,7 @@
             <input type="text" name="article_name" id="article_name">
 
             <label for="category">Category : </label><br>
+            <button type="button" id="addNewButton" onclick="addNewCategory()">Add New</button><br>
             <?php if (!empty($errors['category'])) : ?>
                 <span class="error">
                     <?= '* ' . $errors['category'] ?>
@@ -45,8 +46,6 @@
             </select>
 
 
-            <button type="button" id="addNewButton" onclick="addNewCategory()">Add New</button>
-
             <label for="article_content">Article Content:</label>
             <?php if (!empty($errors['article_content'])) : ?>
                 <span class="error">
@@ -57,14 +56,13 @@
 
 
             <label for="image">Image:</label>
-            <input type="file" id="image" name="image" accept=".jpg, .jpeg, .png" onchange="displayFileName(this)">
-            <div id="imageFileName">No file selected</div>
+            <input type="file" id="image" name="image" accept=".jpg, .jpeg, .png">
+            
             <?php if (!empty($errors['image'])) : ?>
                 <span class="error">
                     <?= '* ' . $errors['image'] ?>
                 </span>
             <?php endif; ?>
-            <input type="file" id="image" name="image" accept=".jpg, .jpeg, .png">
             
 
             <div class="button-group">
@@ -79,10 +77,7 @@
 
     </div>
     <script>
-        function displayFileName(input) {
-            const fileName = input.files[0].name;
-            document.getElementById("imageFileName").textContent = fileName;
-        }
+        
 
         function addNewCategory() {
             var newCategory = prompt("Enter the new category:");
