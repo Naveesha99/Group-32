@@ -58,7 +58,7 @@ h3 {
     transition:  margin-top 0.5s ease;
 }
 
-.container .content .requests{
+.container .content .income{
     max-width: 1500px;
     border: 2px  ;
     background: ghostwhite;
@@ -76,7 +76,7 @@ h3 {
    
 }
 
-.container .content .requests table{
+.container .content .income table{
     width: 100%;
     position: relative;
     font-size: 14px;
@@ -86,12 +86,12 @@ h3 {
     border-spacing: 0;
 }
 
-.container .content .requests table>thead{
+.container .content .income table>thead{
     background-color: #000000;
     color: whitesmoke;
 }
 
-.container .content .requests table>thead th{
+.container .content .income table>thead th{
     padding: 15px;
     color: #fff;
     padding-top: 17px;
@@ -102,50 +102,28 @@ h3 {
 
 }
 
-.container .content .requests table th, table td{
+.container .content .income table th, table td{
     border-bottom: 1px solid #dddddd;
     padding: 10px 20px;
     word-break: break-all;
     
     font-size: 13px;
 }
-.container .content .requests table td{
+.container .content .income table td{
     box-sizing: border-box;
 }
 
-.container .content .requests table>tbody>tr{
+.container .content .income table>tbody>tr{
     background-color: #ffffff;
     transition: 0.3s ease-in-out;
 }
 
-.container .content .requests table>tbody>tr:nth-child(even){
+.container .content .income table>tbody>tr:nth-child(even){
     background-color: #ffffff;
 }
 
-.container .content .requests table>tbody>tr:hover{
+.container .content .income table>tbody>tr:hover{
     filter: drop-shadow(0 3px 7px #0002);
-}
-
-/* td.hidden-cell,
-td.hidden-cell span,
-td.hidden-cell td div{
-  padding: 0;
-  height: 0;
-  border: none;
-  margin: 0;
-  border-bottom: none;
-  font-size: 0;
-
-} */
-
-td.hidden-cell{
-  visibility: hidden;
-  padding: 0;
-  height: 0;
-  border: none;
-  margin: 0;
-  border-bottom: none;
-  font-size: 0;
 }
 
 .btn-1{

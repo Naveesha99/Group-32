@@ -12,6 +12,7 @@ class viewRequest
 
         $requestID = isset($_GET['id']) ? $_GET['id'] : null;
         $request = new Reservationrequests;
+        $user = new User;
 
         if ($requestID) {
             $arr['id'] = $requestID;
@@ -35,7 +36,9 @@ class viewRequest
                 date_default_timezone_set('Asia/Colombo');
                 $dateTime = new DateTime();
                 $arr['acceptedTime'] = $dateTime->format('Y-m-d H:i:s');
-                show($arr['acceptedTime']);
+                $arr2['id'] = $requestData[0]->reservationistId;
+                $result = $user->where($arr2);
+                $email = $result['email'];
                 $request->update($requestID, $arr);
                 $message = new Message;
                 $message->acceptNotification($requestData[0]->reservationistId, $requestID, $status);

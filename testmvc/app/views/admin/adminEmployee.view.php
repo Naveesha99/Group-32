@@ -30,6 +30,13 @@
                         </div>
                     </div>
                 </a>
+                <a href="<?= ROOT ?>/leaveRequest">
+                    <div class="card">
+                        <div class="box">
+                            <h1>Leave Requests</h1>
+                        </div>
+                    </div>
+                </a>
             </div>
             <div class="content-2">
                 <div class="employees">

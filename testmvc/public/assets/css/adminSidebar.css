@@ -145,7 +145,7 @@ nav ul li a:hover{
 
 .sidebar a:hover {
     /*padding-left: 30px;*/
-    padding-left: 20px;
+    padding-left: 10px;
     background: white;
     /*border-radius: 25px;*/
 
@@ -156,10 +156,6 @@ nav ul li a:hover{
     
     }
 }
-
-/*.sidebar a i{
-    margin-right: 16px;
-}*/
 
 .sidebar a span:hover{
     color: black;
