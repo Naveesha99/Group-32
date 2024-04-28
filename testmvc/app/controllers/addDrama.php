@@ -10,34 +10,44 @@ class addDrama
     public function index()
     {
         $data = [];
-        
-		
-		if($_SERVER['REQUEST_METHOD'] == "POST")
-		{
 
-			$home = new Homes;
+
+        if ($_SERVER['REQUEST_METHOD'] == "POST") {
+
+            $home = new Homes;
 
             $data['title'] = $_POST['title'];
             $data['description'] = $_POST['description'];
             $data['image'] = $_POST['image'];
 
 
-            if($home->validate($_POST))
-            {
+            if ($home->validate($_POST)) {
+
+
                 //_______add drama into home table_________
                 $arr['title'] = $_POST['title'];
                 $arr['description'] = $_POST['description'];
                 $arr['image'] = $_POST['image'];
-				$home->insert($arr);
+                $arr1['title'] = $_POST['title'];
+                $result = $home->first($arr1);
 
+                if ($result) {
+                    $home->errors['title'] = "Wrong Email or Password";
+                    // $user->errors['password'] = "Wrong Password";
+    
+                    $data['errors'] = $home->errors;
+
+                } else {
+                    $home->insert($arr);
+                }
+
+                // $home->insert($arr);
+
+            } else {
+                $data['errors'] = $home->errors;
             }
-            else
-            {
-                $data['errors'] = $home->errors;   
-            }
+        }
 
-		}
-
-		$this->view('admin/adddrama', $data);
+        $this->view('admin/adddrama', $data);
     }
 }

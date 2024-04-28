@@ -12,34 +12,34 @@
 
 <style>
     .checkbox-group {
-    font-weight: 400;
-    margin-right: 10px;
-    /* padding: none; */
-    width: 100%;
-    white-space: nowrap;
-}
+        font-weight: 400;
+        margin-right: 10px;
+        /* padding: none; */
+        width: 100%;
+        white-space: nowrap;
+    }
 
-.checkbox-group input[type="checkbox"], .checkbox-group label{
-    /* vertical-align: middle; */
-    /* margin-right: 10px; */
-    margin-bottom: 0px;
-    width: 10px;
-}
+    .checkbox-group input[type="checkbox"],
+    .checkbox-group label {
+        /* vertical-align: middle; */
+        /* margin-right: 10px; */
+        margin-bottom: 0px;
+        width: 10px;
+    }
 
-.checkbox-group input[type="checkbox"] {
-    display: inline-block;
-}
+    .checkbox-group input[type="checkbox"] {
+        display: inline-block;
+    }
 
-.container .add-employee textarea {
-    display: inline-block;
-    width: 70%;
-    padding: 8px;
-    margin-bottom: 16px;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
+    .container .add-employee textarea {
+        display: inline-block;
+        width: 70%;
+        padding: 8px;
+        margin-bottom: 16px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
 </style>
 
 <?php include 'adminSidebar.php' ?>
@@ -47,48 +47,72 @@
 
 <body>
     <div class="container">
-            <form method="POST" class="add-employee" onsubmit="return validateForm()" name="hallForm" enctype="multipart/form-data">
-                <h1>Add Hall</h1>
-                <label for="name">Hall Number</label>
-                <input type="text" name="hallno" id="hallno">
-
-                <label for="amountOneHour">Amount</label>
-                <input type="number" name="amountOneHour" id="amountOneHour">
-
-                <label for="headCount">Head Count</label>
-                <input type="number" name="headCount" id="headCount">
-                
-                <label for="image">Image</label>
-                <input type="file" id="image" name="image" accept="image/*">
-
-                <label for="content" >Content</label>
-                <!-- <input type="text" id="content" name="content"> -->
-                <textarea rows="10" id="content" name="content"></textarea> 
-
-                <label for="status">Status</label>
-                <select name="status" id="status">
-                    <option value="active">Active</option>
-                    <option value="inactive">Inactive</option>
-                </select>
-                
+        <form method="POST" class="add-employee" onsubmit="return validateForm()" name="hallForm" enctype="multipart/form-data">
+            <h1>Add Hall</h1>
+            <label for="name">Hall Number</label>
+            <input type="text" name="hallno" id="hallno">
+            <?php if (!empty($errors['hallno'])) : ?>
+                <span style="color: red; font-weight: bold; margin-bottom: 5px; height: 10px">
+                    <?= show($errors['hallno']) ?>
+                </span>
+            <?php endif; ?>
+            <label for="amountOneHour">Amount</label>
+            <input type="number" name="amountOneHour" id="amountOneHour">
+            <?php if (!empty($errors['amountOneHour'])) : ?>
+                <span style="color: red; font-weight: bold;">
+                    <?= show($errors['amountOneHour']) ?>
+                </span>
+            <?php endif; ?>
+            <label for="headCount">Head Count</label>
+            <input type="number" name="headCount" id="headCount">
+            <?php if (!empty($errors['headCount'])) : ?>
+                <span style="color: red; font-weight: bold; margin-bottom: 5px;">
+                    <?= show($errors['headCount']) ?>
+                </span>
+            <?php endif; ?>
+            <label for="image">Image</label>
+            <input type="file" id="image" name="image" accept="image/*">
+            <?php if (!empty($errors['image'])) : ?>
+                <span style="color: red; font-weight: bold; margin-bottom: 5px;">
+                    <?= show($errors['image']) ?>
+                </span>
+            <?php endif; ?>
+            <label for="content">Content</label>
+            <!-- <input type="text" id="content" name="content"> -->
+            <textarea rows="10" id="content" name="content"></textarea>
+            <?php if (!empty($errors['content'])) : ?>
+                <span style="color: red; font-weight: bold; margin-bottom: 5px;">
+                    <?= show($errors['content']) ?>
+                </span>
+            <?php endif; ?>
+            <label for="status">Status</label>
+            <select name="status" id="status">
+                <option value="active">Active</option>
+                <option value="inactive">Inactive</option>
+            </select>
+            <?php if (!empty($errors['status'])) : ?>
+                <span style="color: red; font-weight: bold; margin-bottom: 5px;">
+                    <?= show($errors['status']) ?>
+                </span>
+            <?php endif; ?>
 
 
             <div class="checkbox-group" id="days">
                 <label for="facilities">Facilities</label>
-                    <?php if (is_array($data['facility'])): ?>
-                        <?php foreach ($data['facility'] as $facility): ?>
-                            <label class="checkbox">
-                                <input type="checkbox" name="facility[]" value="<?= $facility->name ?>">
-                                <?= $facility->name ?>
-                            </label>
-                        <?php endforeach; ?>
-                    <?php endif; ?>
+                <?php if (is_array($data['facility'])) : ?>
+                    <?php foreach ($data['facility'] as $facility) : ?>
+                        <label class="checkbox">
+                            <input type="checkbox" name="facility[]" value="<?= $facility->name ?>">
+                            <?= $facility->name ?>
+                        </label>
+                    <?php endforeach; ?>
+                <?php endif; ?>
             </div>
-           
-                <button type="submit" class="btn-1" name="submit_hall">Submit</button>
-            </form>
+
+            <button type="submit" class="btn-1" name="submit_hall">Submit</button>
+        </form>
     </div>
-</body> 
+</body>
 
 <!-- <body>
     <div class="container">
@@ -106,39 +130,39 @@
     </div>
 </body> -->
 <script>
-function validateForm() {
-    var nameField = document.forms["hallForm"]["name"].value;
-    // var amountField = document.forms["hallForm"]["amountOneHour"].value;
-    // var hcountField = document.forms["hallForm"]["headcount"].value;
-    // var imageField = document.forms["hallForm"]["image"].value;
-    // var contentField = document.forms["hallForm"]["content"].value;
-    // var statusField = document.forms["status"]["name"].value;
+    function validateForm() {
+        var nameField = document.forms["hallForm"]["name"].value;
+        // var amountField = document.forms["hallForm"]["amountOneHour"].value;
+        // var hcountField = document.forms["hallForm"]["headcount"].value;
+        // var imageField = document.forms["hallForm"]["image"].value;
+        // var contentField = document.forms["hallForm"]["content"].value;
+        // var statusField = document.forms["status"]["name"].value;
 
-    
-    if (nameField.trim() === "") {
-        alert("Facility Name must be filled out");
-        return false;
+
+        if (nameField.trim() === "") {
+            alert("Facility Name must be filled out");
+            return false;
+        }
+
+        // if (amountField.trim() === "") {
+        //     alert("Icon must be selected");
+        //     return false;
+        // }
+        // if (hcountField.trim() === "") {
+        //     alert("Icon must be selected");
+        //     return false;
+        // }
+        // if (imageField.trim() === "") {
+        //     alert("Icon must be selected");
+        //     return false;
+        // }
+        // if (contentField.trim() === "") {
+        //     alert("Icon must be selected");
+        //     return false;
+        // }
+        // if (statusField.trim() === "") {
+        //     alert("Icon must be selected");
+        //     return false;
+        // }
     }
-    
-    // if (amountField.trim() === "") {
-    //     alert("Icon must be selected");
-    //     return false;
-    // }
-    // if (hcountField.trim() === "") {
-    //     alert("Icon must be selected");
-    //     return false;
-    // }
-    // if (imageField.trim() === "") {
-    //     alert("Icon must be selected");
-    //     return false;
-    // }
-    // if (contentField.trim() === "") {
-    //     alert("Icon must be selected");
-    //     return false;
-    // }
-    // if (statusField.trim() === "") {
-    //     alert("Icon must be selected");
-    //     return false;
-    // }
-}
 </script>
