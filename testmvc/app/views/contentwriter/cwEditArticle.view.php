@@ -15,7 +15,7 @@
 <body>
     <div class="container">
         <!-- <?php show($data['article']); ?> -->
-        <form method="post" id="articleForm" class="addArticle">
+        <form method="post" id="articleForm" class="addArticle" autocomplete="off" enctype="multipart/form-data">
             <h1>Edit Article</h1>
 
             <label for="article_name">Article Name :</label>

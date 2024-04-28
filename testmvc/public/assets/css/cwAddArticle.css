@@ -6,6 +6,7 @@
     box-sizing: border-box;
     font-family: 'Catamaran', sans-serif;
 }
+
 body {
     min-height: 100vh;
 }
@@ -80,10 +81,12 @@ span.error {
     background-color: rgba(255, 255, 255, 0.066);
     /* align-content: center; */
     /* justify-content: center; */
+
     margin-left: 10%;
     /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.6); */
     /* border: 2px solid #ccc; */
     /* border-radius: 15px;  */
+
     
 }
 label {

@@ -15,21 +15,21 @@ body{
 }
 .container{
     position: absolute;
-    width: calc(100% - 250px);
-    left: 250px;
+    width: calc(100% - 200px);
+    left: 200px;
     min-height: 100vh;
     background-color:  white;
     transition: 0.5s;
     margin-top: 80px;
     padding: 100px 50px;
-    margin-top: 50px;
+    margin-top: 40px;
     transition:  margin-top 0.5s ease;
 }
 
 .container .cardBox{
     position: relative;
     width: 100%;
-    padding: 5px;
+    padding: 7px;
     display: grid;
     grid-template-columns: repeat(4,1fr);
     grid-gap: 50px;
@@ -39,13 +39,13 @@ body{
 
 .container .cardBox .card{
     position: relative;
-    background: blue;
+    background: white;
     padding: 30px;
-    border-radius: 20px;
+    border-radius: 25px;
     display: flex;
     justify-content: space-between;
     cursor: pointer;
-    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.6);
 
 }
 
@@ -53,29 +53,29 @@ body{
     position: relative;
     font-weight: 500;
     font-size: 2.5rem;
-    color: white;
+    color: black;
 }
 
 .container .cardBox .card .cardName{
-    color: white;
+    color: black;
     font-size: 1.2rem;
     margin-top: 5px;
 }
 
 .container .cardBox .card .iconBox{
     font-size: 3.5rem;
-    color: white;
+    color: black;
 }
 
 .container .cardBox .card:hover{
-    background: white;
-    border: 3px solid #2424ff;
+    background: #6196A6;
+    border: 3px solid white;
 }
 
 .cardBox .card:hover .numbers,
 .cardBox .card:hover .cardName,
 .cardBox .card:hover .iconBox{
-    color: blue;
+    color: white;
 }
 
 .container .table-responsive{

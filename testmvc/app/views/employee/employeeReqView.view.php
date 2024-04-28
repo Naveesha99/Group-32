@@ -29,7 +29,7 @@
             </div>
         </div>
         <?php else : ?>
-            <p>Article not found!</p>
+            <p>Request not found!</p>
         <?php endif; ?>
     </div>
     

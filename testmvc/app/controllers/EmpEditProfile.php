@@ -16,7 +16,7 @@ class EmpEditProfile
         $empId = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->id;
 
         $data = [];
-        // $empId = isset($_GET['id']) ? $_GET['id'] : null;
+        // $empIdNew = isset($_GET['id']) ? $_GET['id'] : null;
         // echo $empId;
         $emp = new Employee;
         $user = new User;
@@ -24,6 +24,8 @@ class EmpEditProfile
         if ($empId) {
             $arr1['empEmail'] = $email;
             $empData = $emp->where($arr1);
+            $empIdNew = $empData[0]->id;
+            //show($empIdNew);
 
             if ($empData) {
                 $data['employee'] = $empData;
@@ -36,13 +38,25 @@ class EmpEditProfile
             $arr['empEmail'] = $_POST['empEmail'];
             $arr['empContact'] = $_POST['phone'];
             $arr['empAddress'] = $_POST['address'];
+            $arr2['fullname']= $_POST['empName'];
+            $arr2['email']= $_POST['empEmail'];
+            // show($arr1);
+
             
 
 
             if ($emp->validateNew($arr)) {
     
                 
-                $emp->update($empId, $arr, 'id');
+                $emp->update($empIdNew, $arr, 'id');
+                // redirect('employeeSetting');
+            }
+
+            if ($user->validateUser($arr2)) {
+                //show($arr1);
+    
+                
+                $user->update($empId, $arr2, 'id');
                 redirect('employeeSetting');
             }
             

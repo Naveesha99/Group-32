@@ -14,7 +14,7 @@ class CWEditArticle
         if (empty($_SESSION['USER'])) {
             // Redirect or handle the case when the user is not logged in
             // For example, you might want to redirect them to the login page
-            redirect('cwLogin');
+            redirect('login');
             exit();
         }
         $data = [];
@@ -95,7 +95,7 @@ class CWEditArticle
                     }
                 }
     
-                // show($_POST);
+                //show($_POST);
                 $updateData = [
                     'article_name' => $_POST['article_name'],
                     'category' => $_POST['category'],
@@ -106,7 +106,7 @@ class CWEditArticle
                     // 'cwName' => $_POST['cwName'],
                     // 'cw_id' => $_POST['cw_id']
                 ];
-                show($updateData);
+                //show($updateData);
     
                 $article->update($articleId, $updateData, 'id');
                 redirect('cwArticleReview');

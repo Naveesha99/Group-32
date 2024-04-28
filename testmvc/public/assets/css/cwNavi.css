@@ -14,6 +14,11 @@ body{
     min-height: 100vh;
 
 }
+a {
+    text-decoration: none;
+    font-family: 'Catamaran', sans-serif;
+}
+
 
 /* .data{
     height: 100vh;
@@ -24,7 +29,7 @@ body{
 
 nav{
     /* background: #97704F; */
-    background:   #4b0606;
+    background:   #6196A6;
     line-height: 80px;
     width: 100%;
     position: fixed;
@@ -73,12 +78,16 @@ nav ul li a:hover{
 .sidebar{
     position: fixed;
     left: 0;
-    width: 250px;
+    width: 200px;
     height: 100%;
     /* background: #97704F; */
     background: white;
-    margin-top: 80px;
-    border-right: 2px solid black;
+    background: #6196A6;
+    padding-top: 10px;
+    z-index: 10;
+    /*margin-top: 80px;*/
+    margin-right: 10px;
+    /*border-right: 2px solid black;*/
 }
 
 /* .sidebar header{
@@ -90,6 +99,33 @@ nav ul li a:hover{
     user-select: none;
 
 } */
+
+.sidebar .logo {
+    position: fixed;
+    margin-left: 80px;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 60px;
+    z-index: 11;
+    margin-left: 60px;
+    margin-top: 10px;
+   bottom: 10px;
+    /* padding-bottom: 10px; */
+  }
+  
+  .sidebar .logo img {
+    width: 100%;
+    height: 100%;
+    
+  }
+
+  .sidebar .pages{
+    margin-top: 80px;
+  
+  }
+
+
 
 .sidebar  a{
     display: block;
@@ -103,31 +139,73 @@ nav ul li a:hover{
     border-top: 1px solid rgba(255, 255, 255, .1);
     border-bottom: 1px ; */
     transition: 0.4s;
+    font-weight: 300;
+    /*margin-top: 80px;*/
 }
 
 .sidebar a:hover {
-    padding-left: 30px;
+    /*padding-left: 30px;*/
     padding-left: 20px;
-    background: #e6cc00;
-    border-radius: 25px;
+    background: white;
+    /*border-radius: 25px;*/
+
+    span{
+        margin-left: 20px;
+        color: black;
+        /*color: white;*/
+    
+    }
 }
 
-.sidebar a i{
+/*.sidebar a i{
     margin-right: 16px;
+}*/
+
+.sidebar a span:hover{
+    color: black;
+    /*color: white;*/
 }
 
 .sidebar span{
     font-size: 20px;
-    margin-left: 10px;
+    /*margin-left: 10px;*/
+    color: white;
+}
+.sidebar a i:hover{
+    margin-right: 16px;
     color: black;
 }
 
 .sidebar i{
     font-size: 20px;
     margin-left: 20px;
+    margin-right: 10px;
+    color: white;
+    /*color:black;*/
+}
+
+ .sidebar a:hover i{
+    margin-right: 16px;
+    color: black ;   
+}
+
+.active{
+    background: white;
+   color: black;
+    padding-left: 20px;
+}
+.active i{
     color: black;
 }
 
+.active a i:hover{
+    margin-right: 16px;
+    color: black ;   
+}
+
+.active span{
+    color: black;
+}
 .nav .menu-bar{
     float: right;
     margin-top: 20px;
@@ -173,7 +251,7 @@ nav ul li a:hover{
         width:75px;
         text-align: center;
         /* left: 50%; */
-        background-color: #4b0606;
+        background-color: #6196A6;
         transition: all 0.5s;
     }
 

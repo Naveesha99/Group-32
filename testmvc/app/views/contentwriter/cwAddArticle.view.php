@@ -57,6 +57,8 @@
 
 
             <label for="image">Image:</label>
+            <input type="file" id="image" name="image" accept=".jpg, .jpeg, .png" onchange="displayFileName(this)">
+            <div id="imageFileName">No file selected</div>
             <?php if (!empty($errors['image'])) : ?>
                 <span class="error">
                     <?= '* ' . $errors['image'] ?>
@@ -77,6 +79,11 @@
 
     </div>
     <script>
+        function displayFileName(input) {
+            const fileName = input.files[0].name;
+            document.getElementById("imageFileName").textContent = fileName;
+        }
+
         function addNewCategory() {
             var newCategory = prompt("Enter the new category:");
             if (newCategory) {

@@ -15,13 +15,13 @@ body{
 }
 .container{
     position: absolute;
-    width: calc(100% - 250px);
-    left: 250px;
+    width: calc(100% - 200px);
+    left: 200px;
     min-height: 100vh;
     background-color:  white;
     transition: 0.5s;
-    margin-top: 80px;
-    padding: 50px 50px;
+    margin-top: 50px;
+    padding: 80px 50px;
     display: flex;
     flex-direction: column;
     /* align-items: center; */
@@ -84,9 +84,10 @@ body{
 .container  .content-2 {
     min-height: 60vh;
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: flex-start;
     flex-wrap: wrap;
+    width: 100%;
 }
 
 #main form {
@@ -214,59 +215,132 @@ tr.hide{
   
 
 
-.container  .content-2 .history {
-    min-height: 50vh;
-    flex: 5;
-    background: white;
-    margin: 0 25px 25px 25px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    display: flex;
-    flex-direction: column;
-    border-radius: 15px;
-    margin-top: 40px;
+
+
+.content-2 .table-responsive{
+  width: 100%;
+  max-width: 100%;
+  border: 2px ;
+  background: ghostwhite;
+  /* padding: 15px; */
+  overflow: auto;
+  border-radius: 20px;
+  /* margin: auto; */
+  /* border-radius: 4px; */
+  /* display: grid; */
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);  */
+  
+  
 }
 
-a {
-    text-decoration: none;
+.content-2 .history{
+  align-items: left;
+  margin-left: 20px;
+
 }
-li {
-    list-style: none;
+
+.content-2 .table-responsive table{
+  width: 100%;
+  position: relative;
+  font-size: 15px;
+  /* color: #444; */
+  white-space: nowrap;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
-h1{
-    color: white;
+
+.content-2 .table-responsive table>thead{
+  background-color: #000000;
+  color: whitesmoke;
 }
-h2 {
-    color: black;
+
+.content-2 .table-responsive table>thead th{
+  padding: 15px;
+  color: #fff;
+  padding-top: 17px;
+  font-size: 18px;
+  border-bottom: 1px solid black;
+  text-align: left;
+  
+
 }
-h3 {
-    color: #ffffff;
+
+.content-2 .table-responsive table th, table td{
+  border-bottom: 1px solid #dddddd;
+  padding: 10px 20px;
+  word-break: break-all;
+  
+  font-size: 14px;
 }
-.btn {
-    background: #e6cc00;
-    color: black;
-    padding: 3px 10px;
-    text-align: center;
-    border-radius: 15px;
+.content-2 .table-responsive table td{
+  box-sizing: border-box;
 }
-.btn:hover {
-    color: #e6cc00;
-    background:black;
-    /* opacity: 0.6; */
-    padding: 3px 8px;
-    /* border: 2px solid #e6cc00; */
-}
+
 .title {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    padding: 15px 10px;
-    border-bottom: 2px solid #999;
+  display: flex;
+  justify-content: center; 
+  margin-bottom: 20px; 
+  margin-top: 20px;
 }
-table {
-    padding: 10px;
+
+.title h2 {
+  color: black; 
+  font-size: 24px; 
+  font-weight: bold;
 }
-th,
-td {
-    text-align: left;
-    padding: 8px;
+
+
+
+.content-2 .table-responsive table>tbody>tr{
+  background-color: #ffffff;
+  transition: 0.3s ease-in-out;
+}
+
+.content-2 .table-responsive table>tbody>tr:nth-child(even){
+  background-color: #ffffff;
+}
+
+.content-2 .table-responsive table>tbody>tr:hover{
+  filter: drop-shadow(0 3px 7px #0002);
+}
+
+.action_btn>a{
+  text-decoration: none;
+  color: black;
+  /* background: whitesmoke; */
+  border: 1px solid black;
+  display: inline-block;
+  padding: 5px 12px;
+  font-weight: bold;
+  border-radius: 10px;
+  transition: 0.3s ease-in-out;
+
+}
+
+.action_btn .btn{
+  border-color: #6196A6;
+  background-color: transparent;
+  text-decoration: none;
+  color: black;
+  /* background: whitesmoke; */
+  border: 1px solid #6196A6;
+  display: inline-block;
+  padding: 7px 17px;
+  font-weight: bold;
+  border-radius: 13px;
+  transition: 0.3s ease-in-out;
+}
+
+.action_btn>a:hover{
+  box-shadow: 0 2px 8px gray ;
+}
+
+.action_btn .btn-delete:hover{
+  box-shadow: 0 2px 8px gray ;
+  
 }

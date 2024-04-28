@@ -20,14 +20,14 @@ body{
 
 .container{
     position: absolute;
-    width: calc(100% - 250px);
-    left: 250px;
+    width: calc(100% - 200px);
+    left: 200px;
     min-height: 100vh;
     /* background-color:  #FFEAD7; */
     background-color: white;
     transition: 0.5s;
     margin-top: 80px;
-    padding: 100px 50px;
+    padding: 80px 50px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -46,7 +46,7 @@ body{
     height: fit-content;
     top: 10px;
     left: 20px;
-    border: 2px solid blue;;
+    border: 2px solid #6196A6;
     justify-content: space-between;
     width: 100%;
     max-width: 800px;
@@ -64,9 +64,9 @@ body{
 .container .search-bar .dropdown{
     position: relative;
     width: 200px;
-    background-color: blue;
+    background-color: #6196A6;
     border-radius: 50px;
-    border: 1px solid rgb(213, 213, 140);
+    border: 1px solid #dbe2ee;
     box-shadow: gray;
     cursor: pointer;
     /* z-index: 100; */
@@ -91,7 +91,7 @@ body{
    border-radius: 15px;
    max-height: 0;
    overflow: hidden;
-   background-color: rgb(213, 213, 140);
+   background-color: #dbe2ee;
    transition: max-height 0.5s;
    z-index: 200;
 
@@ -111,7 +111,7 @@ body{
 
 .dropdown-list-item:hover{
     margin-left: 0.5rem;
-    color: blue;
+    color: #6196A6;
 }
 
 .search-box{
@@ -120,7 +120,7 @@ body{
     padding-right: 1rem;
     padding: 0.8rem;
     width: 100%;
-    color: blue;
+    color: #6196A6;
 }
 
 .search-box input{
@@ -128,7 +128,7 @@ body{
     width: 100%;
     font-size: 1rem;
     font-weight: 500;
-    color: blue;
+    color: #6196A6;
     border: 0;
     outline: 0;
 }
@@ -141,7 +141,7 @@ body{
 .search-box input::placeholder{
     font-size: 1rem;
     font-weight: 500;
-    color: blue;
+    color: #6196A6;
 }
 
 
@@ -181,14 +181,14 @@ body{
 } */
 
 .container .Content{
-    top: 30px;
-    display: fl;
+    top: 2px;
+    
 }
 
 .container .card{
     position: relative;
     display: flex;
-    top: 30px;
+    top: 5px;
     justify-content: center;
     align-items: flex-start;
     width:350px ;

@@ -16,46 +16,77 @@ class EmployeeDashboard
 			redirect('login');
 			exit();
 		}
-		$empId = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->id;
+		$empId = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->id;
 
 		$data = [];
-		$emp_task = new Emp_tasks;
-		
+		$emp_task = new EmployeeTask;
+		$result = [];
+
 		if ($empId) {
-            $arr1['emp_id'] = $empId;
-            $empData = $emp_task->where($arr1);
-            if ($empData) {
-                $result = $empData;
-            } else {
-                echo "Task not found.";
-                exit();
-            }
-        }
-
-		$today_tasks = [];
-
-		$currentDate = date('Y-m-d');
-
-		foreach ($result as $row) {
-			if ($row->relavant_date == $currentDate) {
-				$today_tasks[] = $row;
+			$arr1['empId'] = $empId;
+			$empData = $emp_task->where($arr1);
+			if ($empData) {
+				$result = $empData;
 			}
 		}
+		if ($empData != null) {
+			$data['employee'] = $empData;
 
-		$todoCount = 0;
-		$completedCount = 0;
 
-		foreach ($today_tasks as $task) {
-			if ($task->status == 'To do') {
-				$todoCount++;
-			} elseif ($task->status == 'Completed') {
-				$completedCount++;
+			$today_tasks = [];
+			$future_tasks = [];
+
+			$currentDate = date('Y-m-d');
+
+			foreach ($result as $row) {
+				if ($row->date == $currentDate) {
+					$today_tasks[] = $row;
+				}
+
+				if ($row->date > $currentDate) {
+					$future_tasks[] = $row;
+				}
 			}
+
+			$todoCount = 0;
+			$completedCount = 0;
+
+			foreach ($today_tasks as $task) {
+				if ($task->status == 'To do') {
+					$todoCount++;
+				} elseif ($task->status == 'Completed') {
+					$completedCount++;
+				}
+			}
+
+			$data['to_do'] = $todoCount;
+			$data['completed'] = $completedCount;
+			$data['today_tasks'] = $today_tasks;
+			$data['future_tasks'] = $future_tasks;
+		} else {
+			$data['to_do'] = 0;
+			$data['completed'] = 0;
+			$data['today_tasks'] = [];
+			$data['future_tasks'] = [];
 		}
 
-		$data['to_do'] = $todoCount;
-		$data['completed'] = $completedCount;
-		$data['today_tasks'] = $today_tasks;
+		if (isset($_POST['task_id'])) {
+			if ($_POST['task_id']) {
+				$arr2['id'] = $_POST['task_id'];
+				$empData = $emp_task->where($arr2);
+				if ($empData) {
+					$result = $empData;
+				}
+			}
+
+			
+		}
+		$data['empTask'] = $result;	
+
+
+
+
+
 
 		// show($data);
 
