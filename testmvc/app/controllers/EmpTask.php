@@ -31,7 +31,8 @@ class EmpTask
           $result = $empData;
       } 
   }
-    $data = $result;
+    $data['result'] = $result;
+    
 
     $this->view('employee/empTask', $data);
   }

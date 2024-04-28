@@ -70,25 +70,7 @@ class EmployeeDashboard
 			$data['future_tasks'] = [];
 		}
 
-		if (isset($_POST['task_id'])) {
-			if ($_POST['task_id']) {
-				$arr2['id'] = $_POST['task_id'];
-				$empData = $emp_task->where($arr2);
-				if ($empData) {
-					$result = $empData;
-				}
-			}
-
-			
-		}
-		$data['empTask'] = $result;	
-
-
-
-
-
-
-		// show($data);
+		
 
 		$this->view('employee/employeeDashboard', $data);
 	}
