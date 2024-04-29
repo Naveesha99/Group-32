@@ -21,7 +21,7 @@ class Article
         'status',
         'progress',
         'likes',
-        'catId',
+        'hide',
 
     ];
 
