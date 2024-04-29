@@ -68,16 +68,27 @@ class Pay3
 
             $pay_id = $_GET['pay_id'];
 
-            $reqid=$pay_id;      
+            $reqid=$pay_id;
+            $id = $pay_id;
+
+
+            $reservationReq=new Reservationrequests;
             $resrvaReq = new Reservationpayments;
-            $result = $resrvaReq->where(['reqid' => $reqid]);
-             $detailsofReq['ispaid'] = 1;
-            foreach($result as $res)
-            {
-                $id = $res->id;
-                // show($id);
-                $resrvaReq->update($id, $detailsofReq);
-            }
+            $result1=$reservationReq->where(['id' => $reqid]);
+            $arr=[
+                // 'reqid'=>$reqid,
+                'isPaid'=>1
+            ];
+            $reservationReq->update($id, $arr);
+
+            // $result = $resrvaReq->where(['reqid' => $reqid]);
+            //  $detailsofReq['ispaid'] = 1;
+            // foreach($result as $res)
+            // {
+            //     $id = $res->id;
+            //     // show($id);
+            //     $resrvaReq->update($id, $detailsofReq);
+            // }
         }
     }
 }
