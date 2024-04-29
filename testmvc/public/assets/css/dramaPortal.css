@@ -44,6 +44,7 @@ body{
 /* Style for cards section */
 .cards-section {
     width: 100%;
+    margin-top: -70px;
 }
 
 
