@@ -84,7 +84,9 @@ class addEmployee
 
 		$data['role'] = $result;
 		//show($data);
+		if($_SESSION['USER']->user_type == 'admin'){
 		$this->view('admin/addEmployee', $data);
+		}
 	}
 
 	// private function showJobs($jobs) {

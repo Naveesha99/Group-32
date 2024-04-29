@@ -10,31 +10,25 @@ class addDrama
     public function index()
     {
         $data = [];
-        
+
         //Check validation_________________________________
-		if($_SERVER['REQUEST_METHOD'] == "POST")
-		{
-            if(isset($_POST['title']) && $_POST['title']==null)
-            {
+        if ($_SERVER['REQUEST_METHOD'] == "POST") {
+            if (isset($_POST['title']) && $_POST['title'] == null) {
                 $data['no_title'] = 'Drama title is required';
             }
-            if(isset($_POST['description']) && $_POST['description']==null)
-            {
+            if (isset($_POST['description']) && $_POST['description'] == null) {
                 $data['no_description'] = 'Drama description is required';
             }
-            if ($_FILES["image"]["error"] == 4)
-            {
-                $data['no_image']= 'Image Does Not Exist';
+            if ($_FILES["image"]["error"] == 4) {
+                $data['no_image'] = 'Image Does Not Exist';
             }
 
 
 
 
-        //_Check and insert data into database____________________________________
-            if(isset($_POST['title'])  &&  isset($_POST['description']))
-            {
-                if($_POST['title']!=null && $_POST['description']!=null)
-                {
+            //_Check and insert data into database____________________________________
+            if (isset($_POST['title'])  &&  isset($_POST['description'])) {
+                if ($_POST['title'] != null && $_POST['description'] != null) {
                     $abc['title'] = $_POST['title'];
 
                     $home = new Homes;
@@ -45,64 +39,49 @@ class addDrama
 
                     $res = $home->first($abc);
 
-                if($res)
-                {
-                    $data['exist_title'] = "Already exist this drama";
-                }
-                else
-                {
-                    if(!empty($data['description']) && strlen($data['description']) < 100)
-                    {
-                        $data['des_length'] = "Description must be at least 100 characters";
-                    }
-                    else
-                    {
-                            
-                        if ($_FILES["image"]["error"] == 4) 
-                        {
-                            $data['no_image_v']= 'Image Does Not Exist';
-                        } 
-                        else 
-                        {
-                            $fileName = $_FILES["image"]["name"];
-                            $tmpName = $_FILES["image"]["tmp_name"];
+                    if ($res) {
+                        $data['exist_title'] = "Already exist this drama";
+                    } else {
+                        if (!empty($data['description']) && strlen($data['description']) < 100) {
+                            $data['des_length'] = "Description must be at least 100 characters";
+                        } else {
 
-                            $imageExtension = pathinfo($fileName, PATHINFO_EXTENSION);
-                            $imageExtension_lc = strtolower($imageExtension);
-                            $validImageExtension = ["jpg", "jpeg", "png", "webp"];
+                            if ($_FILES["image"]["error"] == 4) {
+                                $data['no_image_v'] = 'Image Does Not Exist';
+                            } else {
+                                $fileName = $_FILES["image"]["name"];
+                                $tmpName = $_FILES["image"]["tmp_name"];
 
-                            if (!in_array($imageExtension_lc, $validImageExtension)) 
-                            {
-                                $data['extns_invalid'] = 'Invalid Image Extension';
-                            } 
-                            else 
-                            {
-                                $homesss = new Homes;
-                                $row = $homesss->findAll();
+                                $imageExtension = pathinfo($fileName, PATHINFO_EXTENSION);
+                                $imageExtension_lc = strtolower($imageExtension);
+                                $validImageExtension = ["jpg", "jpeg", "png", "webp"];
 
-                                if (is_array($row) && !empty($row)) 
-                                {
-                                    $last_element = end($row);      
-                                    $img_name = $last_element->id + 1;
-                                } 
-                                else 
-                                {
-                                    $img_name = 1;
-                                }
+                                if (!in_array($imageExtension_lc, $validImageExtension)) {
+                                    $data['extns_invalid'] = 'Invalid Image Extension';
+                                } else {
+                                    $homesss = new Homes;
+                                    $row = $homesss->findAll();
 
-                                $fileNameNew = $img_name.'.'.$imageExtension;
-                            //show($fileNameNew);
+                                    if (is_array($row) && !empty($row)) {
+                                        $last_element = end($row);
+                                        $img_name = $last_element->id + 1;
+                                    } else {
+                                        $img_name = 1;
+                                    }
 
-                                $fileDestination = $_SERVER['DOCUMENT_ROOT'] . '/Group-32/testmvc/public/assets/images/drama_img/' . $fileNameNew;
+                                    $fileNameNew = $img_name . '.' . $imageExtension;
+                                    //show($fileNameNew);
 
-                                move_uploaded_file($tmpName, $fileDestination);
+                                    $fileDestination = $_SERVER['DOCUMENT_ROOT'] . '/Group-32/testmvc/public/assets/images/drama_img/' . $fileNameNew;
+
+                                    move_uploaded_file($tmpName, $fileDestination);
 
 
-                            // $data['title'] = $_POST['title'];
-                                //$data['description'] = $_POST['description'];
-                                // $data['image'] = $fileNameNew;
+                                    // $data['title'] = $_POST['title'];
+                                    //$data['description'] = $_POST['description'];
+                                    // $data['image'] = $fileNameNew;
 
-                                
+
                                     //add drama into home table________
                                     $arr['title'] = $_POST['title'];
                                     $arr['description'] = $_POST['description'];
@@ -111,20 +90,17 @@ class addDrama
 
                                     $data['ok'] = 'Drama Added successed...!';
                                     redirect('addtimes');
+                                }
                             }
-
                         }
-
                     }
-
+                } else {
+                    $data['not_all'] = 'Please fill all the fields';
                 }
             }
-            else
-            {
-                $data['not_all'] = 'Please fill all the fields';
-            }
-            }
         }
-        $this->view('/admin/adddrama', $data);
+        if ($_SESSION['USER']->user_type == 'admin') {
+            $this->view('/admin/adddrama', $data);
+        }
     }
 }

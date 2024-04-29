@@ -15,6 +15,11 @@
 <body>
     <div class="container">
         <div class="content">
+        <div class="btn-class">
+            <a href="leaveRequest?state=pending" class="btn-1">Pending</a>
+            <a href="leaveRequest?state=accepted" class="btn-1">Accepted</a>
+            <a href="leaveRequest?state=rejected" class="btn-1">Rejected</a>
+        </div>
             <h1>Sent Request</h1>
             <div class="requests">
                 <table>
@@ -34,7 +39,9 @@
                     <?php
                     if ($data && (is_array($data) || is_object($data))) {
                     foreach ($data as $row) {
-                        if($row->state == 'pending'){
+                        $state = isset($_GET['state']) ? $_GET['state'] : 'pending';
+                        // show($_GET['state']);
+                        if($row->state == $state){
                         echo '<tr class = "tr-2">
                             <td class="tbl-id">' . $row->id . '</td>
                             <td>' . $row->employee_name . '</td>

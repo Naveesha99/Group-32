@@ -46,7 +46,8 @@ class addJobrole
 		}
 
 		// $data['username'] = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->email;
-
-		$this->view('admin/addjobrole', $data);
+		if ($_SESSION['USER']->user_type == 'admin') {
+			$this->view('admin/addjobrole', $data);
+		}
 	}
 }

@@ -46,13 +46,17 @@ class viewRequest
             } else {
                 $arr['status'] = 'rejected';
                 $arr['reason'] = $reason;
-                date_default_timezone_set('Asia/Colombo');
-                $dateTime = new DateTime();
-                $arr['acceptedTime'] = $dateTime->format('Y-m-d H:i:s');
-                $request->update($requestID, $arr);
-                $message = new Message;
-                $message->rejectNotification($requestData[0]->reservationistId, $requestID, $status, $reason);
-                redirect('adminrequest');
+                if (empty($reason)) {
+                    $data['errors']['reason'] = 'Reason is required';
+                } else {
+                    date_default_timezone_set('Asia/Colombo');
+                    $dateTime = new DateTime();
+                    $arr['acceptedTime'] = $dateTime->format('Y-m-d H:i:s');
+                    $request->update($requestID, $arr);
+                    $message = new Message;
+                    $message->rejectNotification($requestData[0]->reservationistId, $requestID, $status, $reason);
+                    redirect('resRequest');
+                }
             }
         }
         $this->view('admin/viewrequest', $data);

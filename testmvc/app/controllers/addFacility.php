@@ -80,8 +80,9 @@ class addFacility
 	
 			$data['errors'] = $facility->errors;			
 			}
-		
+		if($_SESSION['USER']->user_type == 'admin'){
 		$this->view('admin/addFacility', $data);
+		}
 	}
 	
 }

@@ -7,6 +7,37 @@
     font-family: 'Catamaran', sans-serif;
 }
 
+span.error {
+    color: red;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.btn-1{
+    border-color: blue;
+    background-color: transparent;
+    text-decoration: none;
+    color: black;
+    /* background: whitesmoke; */
+    margin-top: 30px;
+    margin-left: 10px;
+    border: 1px solid blue;
+    display: inline-block;
+    padding: 7px 17px;
+    font-weight: bold;
+    border-radius: 13px;
+    transition: 0.3s ease-in-out;
+}
+
+.btn-1>a:hover{
+    box-shadow: 0 2px 8px gray ;
+}
+
+.btn-1:hover{
+    box-shadow: 0 2px 8px gray ;
+    
+}
+
 .container {
     width: 100%;
     max-width: 900px;
@@ -34,6 +65,28 @@
 .form-right input {
     margin-left: 10px;
     border: none;
+    border-radius: 15px;
+    width: 60%;
+    /* Adjust the width as needed */
+    padding: 2px;
+    /* Adjust padding for better appearance */
+    font-size: 15px;
+    display: inline-block;
+}
+.form-right select {
+    margin-left: 10px;
+    border: none;
+    border-radius: 15px;
+    width: 60%;
+    /* Adjust the width as needed */
+    padding: 2px;
+    /* Adjust padding for better appearance */
+    font-size: 15px;
+    display: inline-block;
+}
+
+.form-right textarea {
+    margin-left: 10px;
     border-radius: 15px;
     width: 60%;
     /* Adjust the width as needed */

@@ -52,19 +52,21 @@
 
                 <label for="status">Current Status:</label>
                 <input type="text" id="status" value="<?= $data['request'][0]->status ?>" disabled />
-                <select id="popup" name="status">
-                    <option value="accepted">Accept</option>
-                    <option value="rejected">Reject</option>
-                </select>
-                <br>
+                <div id="popup">
+                    <label for="status">Decision:</label>
+                    <select id="state" name="status">
+                        <option value="accepted">Accept</option>
+                        <option value="rejected">Reject</option>
+                    </select>
+                </div>
                 <div id="reason">
                     <label for="reason">Reason:</label>
                     <textarea name="reason"></textarea>
                     <?php if (!empty($errors['reason'])) : ?>
-							<span style="color: red; font-weight: bold; margin-bottom: 5px;">
-								<?= show($errors['reason']) ?>
-							</span>
-						<?php endif; ?>
+                        <span class="error">
+                            <?= '* ' . $errors['reason'] ?>
+                        </span>
+                    <?php endif; ?>
 
                 </div>
                 <br>
@@ -75,25 +77,23 @@
 
 
     <script>
+        window.onload = function() {
 
+            var status1 = document.getElementById('status').value;
+            var btn = document.getElementById('submit');
+            var popup = document.getElementById('popup');
+            console.log(status1);
 
-window.onload = function() {
+            if (status1 == 'accepted' || status1 == 'rejected') {
+                btn.style.display = 'none';
+                popup.style.display = 'none';
 
-    var status1 = document.getElementById('status').value;
-    var btn = document.getElementById('submit');
-    var popup = document.getElementById('popup');
-    console.log(status1);
-
-    if (status1 == 'accepted' || status1 == 'rejected') {
-        btn.style.display = 'none';
-        popup.style.display = 'none';
-
-    } else {
-        btn.style.display = 'block';
-        popup.style.display = 'block';
-    }
-}
-        document.getElementById('popup').addEventListener('change', function() {
+            } else {
+                btn.style.display = 'block';
+                popup.style.display = 'block';
+            }
+        }
+        document.getElementById('state').addEventListener('change', function() {
             var reasonField = document.getElementById('reason');
             if (this.value === 'rejected') {
                 reasonField.style.display = 'block';

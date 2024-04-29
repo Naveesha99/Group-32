@@ -119,8 +119,9 @@ class addHall
 	
 			$data['errors'] = $hall->errors;			
 			}
-		
-		$this->view('admin/addHall', $data);
+		if ($_SESSION['USER']->user_type == 'admin') {
+            $this->view('admin/addHall', $data);
+        }
 	}
 	
 }

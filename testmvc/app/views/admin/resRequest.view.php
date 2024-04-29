@@ -14,6 +14,12 @@
 
 <body>
     <div class="container">
+    <div class="btn-class">
+            <a href="resRequest?status=pending" class="btn-1">Pending</a>
+            <a href="resRequest?status=accepted" class="btn-1">Accepted</a>
+            <a href="resRequest?status=rejected" class="btn-1">Rejected</a>
+            <a href="resRequest?status=refund" class="btn-1">Refund</a>
+        </div>
         <div class="content">
             <h1>Sent Request</h1>
             <div class="requests">
@@ -42,6 +48,9 @@
                         <?php
                         if ($data && (is_array($data) || is_object($data))) {
                             foreach ($data as $row) {
+                                $status = isset($_GET['status']) ? $_GET['status'] : 'pending';
+                        // show($_GET['state']);
+                        if($row->status == $status){
                                 echo '<tr class = "tr-2">
                     <td class="tbl-id">' . $row->id . '</td>
                     <td>' . $row->hallno . '</td>
@@ -56,6 +65,7 @@
                         </span>                    
                     </td>
               </tr>';
+                        }
                             }
                         } else {
                             echo '<tr><td colspan="9">No data available</td></tr>';

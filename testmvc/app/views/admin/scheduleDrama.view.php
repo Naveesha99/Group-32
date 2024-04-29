@@ -6,8 +6,10 @@
   <link href="<?=ROOT?>/assets/css/addtimes.css" rel="stylesheet">
 	<title>ADD TIMES</title>
 </head>
+<?php include 'adminSideBar.php'; ?>
+<?php include 'navBar.php'; ?>
 <body>
-		<div class="signup_box">
+		<div class="container">
 			<div class="left">
 				<div class="contact">
                              
@@ -78,21 +80,6 @@
                         { ?> 
                         <div class="errors"><?= $data['not_price']?></div> 
                         <?php } ?>
-<!-- 
-
-                <label for="image">Image</label>
-                <input type="file" id="image" name="image" accept="image/*"> -->
-
-                <!-- <label for="content" >Content</label> -->
-                <!-- <input type="text" id="content" name="content"> -->
-                <!-- <textarea rows="10" id="content" name="content"></textarea>  -->
-
-                <!-- <label for="status">Status</label>
-                <select name="status" id="status">
-                    <option value="active">Active</option>
-                    <option value="inactive">Inactive</option>
-                </select> -->
-
 
                         <button class="submit">AVAILABLE DATES</button>
 					</form><br>
