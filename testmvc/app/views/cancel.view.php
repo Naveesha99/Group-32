@@ -234,10 +234,47 @@
                 <?= $data['detailsofReq'][0]->date ;?>
             <?php endif; ?>
         ">
-                    
-    
+
+        <?php 
+        $otp = rand(100000, 999999);
+        ?>
+
+        <input type="hidden" name="otp" value="<?= $otp; ?>">
         <button class="payment-button" id="cancelbtn" name="cancelbtn" type="submit">Confirm Cancellation</button>
     </form>
+
+    <div class="send_otp">
+
+    <?php 
+            $otp = rand(100000, 999999);
+
+                        $refund_prize = $refund;
+						$hallNo = $hallno;
+						$date = $bookingdate;
+                        $reqid=$reqid;
+						$sender_name = "PUNCHI THEATER";
+						$sender_email = "dillenora@gmail.com";
+						$recipient_email = "ishanchami9@gmail.com";
+
+						$subject = "Puchi Theater Ticket cancellation ";
+						$body = "Hi , Please enter this OTP code and click confirm. 
+                            Your refund    : Rs.$refund_prize
+                            Hall No       : $hallNo
+                            Req ID       : $reqid
+                            Booking Date: $date . ";
+		
+						if(mail($recipient_email, $subject, $body, "From: $sender_name <$sender_email>")){
+							echo "Email Sent";
+						}
+						else{
+							echo "Something went wrong";
+						}
+                $data=[
+                    'success'=>"Your request has been cancelled successfully"
+                ];
+         ?>
+
+    </div>
     </div>
   </section>
 </div>
@@ -257,6 +294,27 @@ if(isset($data['refund']))
       </div>
   </div>
 <?php
+}
+?>
+
+<!-- __________otp come_________ -->
+<?php 
+if(isset($data['otp_again']))
+{?>
+<form method="post">
+    <div class="popup_input_otp">
+        <p>Enter OTP</p>
+        <input type="number" name="sys_otp" value="<?= $data['otp_again'] ?>" placeholder="Enter OTP">
+        <input type="number" name="user_otp" id="otp" placeholder="Enter OTP">
+        <button type="submit" name="otp_submit">Submit</button>
+    </div>
+</form>
+<?php
+}
+
+if(isset($data['success']))
+{
+    show($data['success']);
 }
 ?>
 
