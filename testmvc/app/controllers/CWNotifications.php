@@ -11,23 +11,23 @@ class CWNotifications
         $result = $notification->where($arr);
         $data['notifications'] = $result;
         // show($result);
-        
+
         // if($result){
         //     foreach($result as $row){
         //         $message[] = $row;
         //     }
         //     show($message);
         // }
-        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $id = $_POST['id'];
             $sendData['isRead'] = 1;
-            if($notification->update($id, $sendData)){
+            if ($notification->update($id, $sendData)) {
                 redirect('notification');
             }
         }
 
-
-        $this->view('contentwriter/cwNotifications', $data);
-
+        if ($_SESSION['USER']->user_type == 'Content Writer') {
+            $this->view('contentwriter/cwNotifications', $data);
+        }
     }
 }

@@ -32,8 +32,10 @@ class CwArticleReview
         }
         $data = $result;
         
-
-        $this->view('contentwriter/cwArticleReview', $data);
+        if($_SESSION['USER']->user_type == 'Content Writer'){
+            $this->view('contentwriter/cwArticleReview', $data);
+        }
+        
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if (isset($_POST['delete_article'])) {

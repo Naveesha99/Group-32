@@ -56,13 +56,14 @@
 
 
             <label for="image">Image:</label>
-            <input type="file" id="image" name="image" accept=".jpg, .jpeg, .png">
-            
             <?php if (!empty($errors['image'])) : ?>
                 <span class="error">
                     <?= '* ' . $errors['image'] ?>
                 </span>
             <?php endif; ?>
+            <input type="file" id="image" name="image" accept=".jpg, .jpeg, .png">
+            
+            
             
 
             <div class="button-group">

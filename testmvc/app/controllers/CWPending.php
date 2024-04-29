@@ -14,23 +14,25 @@ class CWPending
             exit();
         }
 
-        $cwId= empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->id;
-		$article = new Article;
+        $cwId = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->id;
+        $article = new Article;
 
         $pending = [];
 
-        if($cwId){
+        if ($cwId) {
             $arr1['cw_id'] = $cwId;
             $articleData = $article->where($arr1);
 
-            if($articleData){
-                $pending =array_filter($articleData, function($article){
+            if ($articleData) {
+                $pending = array_filter($articleData, function ($article) {
                     return $article->status == 1 && $article->progress == 'pending';
                 });
             }
         }
 
         $data['pending'] = $pending;
-        $this->view('contentwriter/cwPending',$data);
+        if ($_SESSION['USER']->user_type == 'Content Writer') {
+            $this->view('contentwriter/cwPending', $data);
+        }
     }
 }

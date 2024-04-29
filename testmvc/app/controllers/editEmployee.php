@@ -51,7 +51,7 @@ class editemployee
 		// show($data);
 		// 
 
-
-		$this->view('admin/editemployee', $data);
+			$this->view('admin/editemployee', $data);
+		
 	}
 }

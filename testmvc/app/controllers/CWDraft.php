@@ -18,24 +18,25 @@ class CWDraft
 		}
 
 
-		$cwId = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->id;
+		$cwId = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->id;
 		$data = [];
 		$article = new Article;
 		$draft = [];
-		
+
 		if ($cwId) {
 			$arr1['cw_id'] = $cwId;
 			$articleData = $article->where($arr1);
 			if ($articleData) {
 
 				$draft = array_filter($articleData, function ($article) {
-					return $article->status == 0 ;
+					return $article->status == 0;
 				});
-
-            } 
+			}
 		}
 		$data['draft_articles'] = $draft;
 
-		$this->view('contentwriter/cwDraft', $data);
+		if ($_SESSION['USER']->user_type == 'Content Writer') {
+			$this->view('contentwriter/cwDraft', $data);
+		}
 	}
 }

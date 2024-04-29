@@ -18,7 +18,7 @@
             <p>Category : <?= $data['article'][0]->category ?></p>
             <p><?= $data['article'][0]->article_content ?></p><br><br>
             <p>Author : <?= $data['article'][0]->cwName ?></p>
-            <p>Published Date : <?= $data['article'][0]->Created_at ?></p>
+            <p>Published Date : <?= $data['article'][0]->acceptedAt ?></p>
 
             <div class="like-icon">
                 <i id="iconheart<?= $data['article'][0]->id ?>" onclick="post_like(<?= $data['article'][0]->id ?>)" class="iconheart<?= $data['article'][0]->id ?> fa-regular fa-heart"></i>

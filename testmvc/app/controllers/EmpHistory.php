@@ -17,17 +17,17 @@ class EmpHistory
             exit();
         }
 
-        $empId = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->id;
+        $empId = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->id;
         $data = [];
         $result = [];
         $emp_task = new EmployeeTask;
-        
+
         if ($empId) {
             $arr1['empID'] = $empId;
             $empData = $emp_task->where($arr1);
             if ($empData) {
                 $result = $empData;
-            } 
+            }
         }
 
         $historyTasks = [];
@@ -51,7 +51,8 @@ class EmpHistory
         $data['total'] = $total;
         $data['completed'] = $completedCount;
         $data['historyTasks'] = $historyTasks;
-
-        $this->view('employee/empHistory', $data);
+        if ($_SESSION['USER']->user_type == 'Employee') {
+            $this->view('employee/empHistory', $data);
+        }
     }
 }

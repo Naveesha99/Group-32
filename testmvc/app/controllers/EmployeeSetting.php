@@ -70,7 +70,7 @@ class EmployeeSetting
                     move_uploaded_file($tmpName, $fileDestination);
                     // $_SESSION['USER']->image = $fileNameNew;
                     // show($_SESSION['USER']->image);
-                    
+
                     echo
                     "
                     <script>
@@ -103,7 +103,6 @@ class EmployeeSetting
                 $profiles->insert($insertData);
                 $_SESSION['PROFILE_IMAGE'] = $fileNameNew;
                 show($_SESSION['PROFILE_IMAGE']);
-                
             }
         }
 
@@ -124,10 +123,11 @@ class EmployeeSetting
 
         $data['emp'] = $result;
         $data['profile'] = $prof;
-        
+
         // show($data);
 
-
-        $this->view('employee/employeeSetting', $data);
+        if ($_SESSION['USER']->user_type == 'Employee') {
+            $this->view('employee/employeeSetting', $data);
+        }
     }
 }

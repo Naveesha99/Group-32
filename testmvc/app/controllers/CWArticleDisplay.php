@@ -34,8 +34,9 @@ class CWArticleDisplay
 
 		$data = $result;
 
-
+		if($_SESSION['USER']->user_type == 'Content Writer'){
 		$this->view('contentwriter/cwArticleDisplay', $data);
+		}
 
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			if (isset($_POST['delete_article'])) {
