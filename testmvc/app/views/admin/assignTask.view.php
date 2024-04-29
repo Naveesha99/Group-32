@@ -15,7 +15,7 @@
     <div class="container">
         <div class="content">
             <div class="assign-task">
-                <form method="POST">
+                <form method="POST" >
                     <h1>Assign Task</h1>
                     <label for="taskType">Task</label>
                     <select name="taskType">
@@ -34,7 +34,7 @@
                     <input type="time" name="endTime" value="<?= set_value('endTime')?>">
                     <button name="check" class="btn">Check Available Employees</button>
                 </form>
-                <form method="POST">
+                <form method="POST" >
                     <input type="hidden" name="taskType" value="<?= $data['temp1']['taskType'] ?>">
                     <input type="hidden" name="date" value="<?= $data['temp1']['date'] ?>">
                     <input type="hidden" name="startTime" value="<?= $data['temp1']['startTime'] ?>">
