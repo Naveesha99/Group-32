@@ -52,10 +52,10 @@ body{
 
 }
 
-.container .cardBox .card .numbers{
+.container .cardBox  a{
     position: relative;
-    font-weight: 500;
-    font-size: 2.0rem;
+    font-weight: 40;
+    font-size: 1.2rem;
     color: black;
 }
 
@@ -75,7 +75,7 @@ body{
     border: 3px solid white;
 }
 
-.cardBox .card:hover .numbers,
+.cardBox:hover a,
 .cardBox .card:hover .cardName,
 .cardBox .card:hover .iconBox{
     color: white;
