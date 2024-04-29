@@ -85,12 +85,13 @@ class ReservaCancel
             $data['otp_again'] = $otp;
         }
 
-        if(isset($_POST['user_otp']) && isset($_POST['otp']))
+        if(isset($_POST['user_otp']) && isset($_POST['sys_otp']))
         {
-            if($_POST['user_otp'] == $_POST['otp'])
+            if($_POST['user_otp'] == $_POST['sys_otp'])
             {
-                $data['otp'] = $_POST['otp'];
+                // $data['otp'] = $_POST['otp'];
                 $data['success'] = "OTP is correct";
+                
             }
             else
             {

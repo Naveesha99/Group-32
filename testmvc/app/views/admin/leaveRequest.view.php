@@ -26,6 +26,7 @@
                     <th>End Date</th>
                     <th>Reason</th>
                     <th>Status</th>
+                    <th>Opthion</th>
                 </tr>
 
                 <?php

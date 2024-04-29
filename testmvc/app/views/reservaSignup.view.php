@@ -34,7 +34,7 @@
 								<?= '* ' . $errors['email'] ?>
 							</span>
 						<?php endif; ?>
-						<input type="email" placeholder="EMAIL" name="email" id="email" class="email">
+						<input type="text" placeholder="EMAIL" name="email" id="email" class="email">
 						<?php if (!empty($errors['contactNumber'])) : ?>
 							<span class="error">
 								<?= '* ' . $errors['contactNumber'] ?>
@@ -73,9 +73,9 @@
 				</div>
 			</div>
 			<div class="right">
-				<div class="right-text">
-					<h1>Welcome to </br> PUNCHI THEATER</h1>
-					<h2>Stay with us for a journey of </br> entertainment!</h2>
+			<div class="right-text">
+					<h2>Welcome to </h2></br> <h1>PUNCHI THEATER</h1>
+					<h3>Stay with us for a journey of </br> entertainment!</h3>
 				</div>
 
 

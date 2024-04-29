@@ -16,19 +16,28 @@
 				<div class="contact">
 					<form method="POST">
 						<h3 class="log">LOG IN</h3>
+						<?php if (!empty($errors['email'])) : ?>
+							<span class="error">
+								<?= '* ' . $errors['email'] ?>
+							</span>
+						<?php endif; ?>
 						<input type="text" name="email" placeholder="E-Mail">
-						<?php if (!empty($errors)) : ?>
-							<span style="color: red; font-weight: bold; padding: 10px; margin-bottom: 10px;">
-								<?= implode('<br>', $errors) ?>
+						<?php if (!empty($errors['password'])) : ?>
+							<span class="error">
+								<?= '* ' . $errors['password'] ?>
 							</span>
 						<?php endif; ?>
 						<input type="password" name="password" placeholder="PASSWORD">
-						<?php if (!empty($errors)) : ?>
-							<span style="color: red; font-weight: bold; padding: 10px; margin-bottom: 10px;">
-								<?= implode('<br>', $errors) ?>
+						<?php if (!empty($errors['active'])) : ?>
+							<span class="error">
+								<?= '* ' . $errors['active'] ?>
 							</span>
 						<?php endif; ?>
-
+						<?php if (!empty($errors['empty'])) : ?>
+							<span class="error">
+								<?= '* ' . $errors['empty'] ?>
+							</span>
+						<?php endif; ?>
 						<!-- <div class="remember-me">
                             <input type="checkbox" id="remember-me">
                             <label for="remember-me">Remember Me</label>
@@ -44,8 +53,8 @@
 			</div>
 			<div class="right">
 				<div class="right-text">
-					<h1>Welcome to </br> PUNCHI THEATER</h1>
-					<h2>Stay with us for a journey of </br> entertainment!</h2>
+					<h2>Welcome to </h2></br> <h1>PUNCHI THEATER</h1>
+					<h3>Stay with us for a journey of </br> entertainment!</h3>
 				</div>
 				
 

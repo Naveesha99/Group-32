@@ -24,6 +24,12 @@
                 </span>
 				
             <?php endif; ?>
+			<?php if (!empty($errors['added'])) : ?>
+                <span class="error">
+                    <?= '* ' . $errors['added'] ?> </br>
+                </span>
+				
+            <?php endif; ?>
 				<input type="text" name="title">
                 
 				<label for="description">Description</label>

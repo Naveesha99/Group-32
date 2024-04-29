@@ -31,6 +31,7 @@ class ReservaSignup
 				// redirect('login');
 				//echo '<script>console.log("Before inside if (POST request)");</script>';
 				if ($reservationists->validate($_POST)) {
+					
 					$hashedPassword = password_hash($_POST['password'], PASSWORD_DEFAULT);
 					$_POST['password'] = $hashedPassword;
 					// $email= new SendMail;

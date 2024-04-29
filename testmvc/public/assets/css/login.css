@@ -7,6 +7,13 @@
     font-family: 'Catamaran', sans-serif;
 }
 
+span.error {
+    color: red;
+    font-size: 12px;
+    font-weight: 600;
+    margin-left: 10px;
+}
+
 html, body {
     height: 100%;
     overflow: hidden;
@@ -15,7 +22,7 @@ html, body {
 .login {
     height: 100%;
     width: 100%;
-    background-color: #ffffff;
+    background-color: #ded9ee;
     position: relative;
     display: flex;
     justify-content: center;
@@ -25,10 +32,11 @@ html, body {
 .login_box {
     width: 1050px;
     height: 600px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 1px 4px 22px -8px #0004;
+    background: transparent;
+    border-radius: 30px;
+    /* box-shadow: 1px 4px 22px -8px #0004; */
     display: flex;
+    justify-content: space-between;
     overflow: hidden;
 }
 
@@ -36,6 +44,9 @@ html, body {
     width: 41%;
     padding: 25px 25px;
     background: linear-gradient(-45deg, #dcd7e0, #fff);
+    box-shadow: 1px 4px 22px -8px #0004;
+    border-radius: 20px;
+
 }
 
 .login_box .right {
@@ -49,24 +60,33 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 20px;
+    box-shadow: 1px 4px 22px -8px #0004;
+    text-align: center;
 }
 
 
 .login_box .right .right-text {
-    display: inline-block; /* Make the text align center */
-    text-align: left; /* Reset text alignment for inner content */
+    display: inline-block;
+    text-align: center;
+    transition: all 0.3s ease; /* Add transition to all properties */
 }
 
 .login_box .right .right-text h1 {
-    font-size: 24px;
-    margin-bottom: 10px;
+    font-size: 40px;
+    align-items: center;
+    text-align: center;
 }
 
 .login_box .right .right-text h2 {
-    font-size: 18px;
-    margin-top: 5px;
+    font-size: 24px;
+    align-items: center;
 }
 
+.login_box .right .right-text h3 {
+    font-size: 18px;
+    align-items: center;
+}
 
 
 .left .contact {
