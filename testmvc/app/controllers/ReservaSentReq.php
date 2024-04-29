@@ -1,5 +1,5 @@
 <?php 
-
+header("Cache-Control: no-cache");
 
 class ReservaSentReq
 {
@@ -51,12 +51,34 @@ class ReservaSentReq
 		];
 		// show($data['fromPymentTable']);
 
+
+
+
+
+		// if(isset($_POST['cancellation'])){
+		// 	echo "cancellation button clicked";
+			
+		// 	$id = $_POST['formid']; // Retrieve the request ID from the form
+		// 	$acceptedTime = $_POST['formacceptedtime'];
+		// 	show($id);
+		// 	show($acceptedTime);
+		// 	$reqId = intval($data['formid']);
+		// // $acceptedTime = $data['acceptedTime'];	
+		// $currentTime = date('Y-m-d H:i:s');
+		// $timeDifference= strtotime($currentTime) - strtotime($acceptedTime);
+		// show($timeDifference);
+
+		// // $this->view('reservaSentReq',$data);
+
+			
+		// }
+		// else{
+		// 	echo "cancellation button not clicked";
+		// }
+
+
 		$this->view('reservaSentReq',$data);
 
-		// if (isset($_POST['id'])) {
-		// 	$articleId = $_POST['id'];
-		// 	$this->requestDelete($articleId, $article);
-		// 
 	}
 
 
@@ -84,8 +106,38 @@ class ReservaSentReq
 		// show($resevationRequests);
 		// $resevationRequests->update($reqId, ['review' => $review] , 'id'); // Corrected
 		$resevationRequests->update($reqId, $arrOrder);
+
+		ob_start();
+		header('Location: /reservaSentReq');
+		exit();
+		ob_end_flush();
+
+
+		// redirect('reservaSentReq');
 		// header('Location: /reservaHall');
-		// exit()
+		// exit();
 		// error_log("Review function called");
 	}
+
+	// public function cancel($data) {
+		
+	// 		echo "cancellation button clicked";
+			
+	// 		$id = $_POST['formid']; // Retrieve the request ID from the form
+	// 		$acceptedTime = $_POST['formacceptedtime'];
+	// 		show($id);
+	// 		show($acceptedTime);
+	// 		$reqId = intval($data['formid']);
+	// 	// $acceptedTime = $data['acceptedTime'];	
+	// 	$currentTime = date('Y-m-d H:i:s');
+	// 	$timeDifference= strtotime($currentTime) - strtotime($acceptedTime);
+	// 	show($timeDifference);
+
+	// 	// $this->view('reservaSentReq',$data);
+
+			
+	// 	$this->view('reservaCancel',$data);
+
+	// }
+
 }
