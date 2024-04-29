@@ -245,6 +245,12 @@ tr.hide{
     filter: drop-shadow(0 3px 7px #0002);
 }
 
+.action_btn{
+    display: flex;
+    justify-content: left;
+    gap: 10px;
+}
+
 .action_btn>a{
     text-decoration: none;
     color: black;
@@ -272,11 +278,26 @@ tr.hide{
     transition: 0.3s ease-in-out;
 }
 
+.action_btn .btn-complete{
+    border-color: rgb(115, 5, 5);;
+    background-color: transparent;
+    text-decoration: none;
+    color: black;
+    /* background: whitesmoke; */
+    border: 1px solid rgb(115, 5, 5);
+    display: inline-block;
+    padding: 7px 17px;
+    font-weight: bold;
+    border-radius: 13px;
+    transition: 0.3s ease-in-out;
+}
+
 .action_btn>a:hover{
     box-shadow: 0 2px 8px gray ;
 }
 
-.action_btn .btn:hover{
+.action_btn .btn:hover,
+.action_btn .btn-complete:hover{
     box-shadow: 0 2px 8px gray ;
     
 }
