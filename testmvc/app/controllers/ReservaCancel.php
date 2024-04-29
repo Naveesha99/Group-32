@@ -40,76 +40,64 @@ class ReservaCancel
 
         }
 
-            if(isset($_POST['cancelbtn'])){
-        // if(isset($_POST['id'])){
-            $sentReq=new Reservationrequests;
-            $find=[
-                'id'=>$_POST['id']
-            ];
-            $result=$sentReq->where($find);
-            if($result){
-                $arr=[
-                    'status'=>'refund',
-                    'refundedAmount'=>$_POST['refund']
+            if(isset($_POST['cancelbtn']))
+            {
+                $sentReq=new Reservationrequests;
+                $find=[
+                    'id'=>$_POST['id']
                 ];
-
-                $id=$_POST['id'];
-                $refund=$_POST['refund'];
-                $reqid=$_POST['id'];
-                $hallno=$_POST['hallno'];
-                $bookingdate=$_POST['date'];
+                $result=$sentReq->where($find);
                 $reservationistid=$_SESSION['USER']->id;
                 $user1=new User;
                 $find=[
                     'id'=>$reservationistid
                 ];
                 $result=$user1->where($find);
-
-                // $username=$result[0]->username;
                 $email=$result[0]->email;
 
 
-                $sentReq->update($id,$arr);
-                        // $otp = rand(100000, 999999);
-                // // ______Send Email to the User_______
-						// $name = $username;
-						$refund_prize = $refund;
-						$hallNo = $hallno;
-						$date = $bookingdate;
-                        $reqid=$reqid;
-						$sender_name = "PUNCHI THEATER";
-						$sender_email = "dillenora@gmail.com";
-						$recipient_email = "ishanchami9@gmail.com";
+                $system_otp = $_POST['otp'];
+						
+                $sender_name = "PUNCHI THEATER";
+                $sender_email = "dillenora@gmail.com";
+                $recipient_email = $email;;
 
-						$subject = "Puchi Theater Ticket cancellation ";
-						$body = "Hi , Please enter this OTP code and click confirm. 
-                            Your refund    : Rs.$refund_prize
-                            Hall No       : $hallNo
-                            Req ID       : $reqid
-                            Booking Date: $date . ";
-		
-						if(mail($recipient_email, $subject, $body, "From: $sender_name <$sender_email>")){
-							echo "Email Sent";
-						}
-						else{
-							echo "Something went wrong";
-						}
-                $data=[
-                    'success'=>"Your request has been cancelled successfully"
-                ];
+                $subject = "Puchi Theater Ticket cancellation ";
+                $body = "Hi , Please enter this OTP code and click confirm. 
+                    OTP           : $system_otp
+                    ";
 
+                if(mail($recipient_email, $subject, $body, "From: $sender_name <$sender_email>")){
+                    echo "Email Sent";
+                }
+                else{
+                    echo "Something went wrong";
+                }
 
-            }
-            else{
-                $data=[
-                    'error'=>"Error in cancelling the request"
-                ];
-            }
-        $this->view('cancel',$data);
+            //  $this->view('cancel',$data);
 
         }
 
-        // $this->view('cancel',$data);
+
+        if(isset($_POST['otp']))
+        {
+            $otp = $_POST['otp'];
+            $data['otp_again'] = $otp;
+        }
+
+        if(isset($_POST['user_otp']) && isset($_POST['otp']))
+        {
+            if($_POST['user_otp'] == $_POST['otp'])
+            {
+                $data['otp'] = $_POST['otp'];
+                $data['success'] = "OTP is correct";
+            }
+            else
+            {
+                $data['success'] = "OTP is incorrect";
+            }
+        }
+        $this->view('cancel',$data);
     }
 
 }
