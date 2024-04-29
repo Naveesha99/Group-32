@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 16, 2024 at 10:26 PM
+-- Generation Time: Apr 29, 2024 at 08:01 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -41,39 +41,52 @@ CREATE TABLE `reservationrequests` (
   `message` text NOT NULL,
   `amount` int(11) NOT NULL,
   `status` varchar(255) NOT NULL,
-  `reservationistId` varchar(256) NOT NULL,
+  `reservationistId` int(11) NOT NULL,
   `rating` int(255) DEFAULT NULL,
   `review` varchar(255) DEFAULT NULL,
-  `review_date` datetime DEFAULT NULL
+  `review_date` datetime DEFAULT NULL,
+  `reason` text DEFAULT NULL,
+  `acceptedTime` timestamp NULL DEFAULT NULL,
+  `ispaid` int(11) DEFAULT NULL,
+  `hasArrived` int(11) DEFAULT NULL,
+  `refundedAmount` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `reservationrequests`
 --
 
-INSERT INTO `reservationrequests` (`id`, `hallno`, `name`, `date`, `startTime`, `endTime`, `hours`, `headCount`, `sounds`, `standings`, `message`, `amount`, `status`, `reservationistId`, `rating`, `review`, `review_date`) VALUES
-(1, 'HALL01', 'shaikh anas 11', '2024-02-08', '10:00:00', '11:00:00', 1, 3, 'NO', 'NO', 'no msg dgs jibuidbuebf dklsnldnol', 0, 'pending', '', NULL, NULL, NULL),
-(2, 'HALL01', 'Dilki Lenoraaaaa', '2024-02-23', '19:00:00', '20:00:00', 1, 3, 'NO', 'YES', 'mnhgdfyvsajbh', 0, 'rejected', '', NULL, NULL, NULL),
-(3, 'HALL01', 'shaikh anas', '2024-02-25', '08:00:00', '11:00:00', 3, 3, 'YES', 'YES', 'uyfwu', 0, 'accepted', '', 2, 'review for this request for number 3 is hereeeee', '2024-04-13 07:37:28'),
-(4, 'HALL01', 'PUNCHI THEATRE', '2024-02-14', '09:00:00', '12:00:00', 3, 3, 'YES', 'YES', 'hyugdyuv', 0, 'accepted', '', 4, 'review for id 4 updated\r\n', '2024-04-14 21:33:36'),
-(5, 'HALL02', 'K.J.M.Fernando', '2024-02-16', '11:00:00', '13:00:00', 2, 2, 'YES', 'YES', 'iidcbiu', 0, 'pending', '', NULL, NULL, NULL),
-(6, 'HALL02', 'annnnnn', '2024-02-29', '10:00:00', '12:00:00', 2, 3, 'YES', 'YES', 'nbuxbqo', 0, 'pending', '', NULL, NULL, NULL),
-(7, 'HALL01', 'shaikh anas', '2024-02-24', '12:00:00', '13:00:00', 1, 3, 'NO', 'NO', 'mkobobdw', 0, 'accepted', '', 4, 'bsid number unknownnnnnnnnn ', '2024-04-14 21:34:15'),
-(8, 'HALL01', 'dilkiiiiiiiii', '2024-02-16', '10:00:00', '12:00:00', 2, 7, 'NO', 'NO', 'bjdvbo', 0, 'pending', '', NULL, NULL, NULL),
-(9, 'HALL02', 'rusiru achchi', '2024-02-23', '12:00:00', '13:00:00', 1, 2, 'NO', 'NO', 'no msg', 0, 'pending', '', NULL, NULL, NULL),
-(10, 'HALL03', '\\ffe', '2024-02-23', '09:00:00', '10:00:00', 1, 4, 'NO', 'NO', 'nvgdjhkjnm', 0, 'accepted', '', 3, 'kmkmm', NULL),
-(11, 'HALL03', 'K.J.M.Fernando', '2024-02-22', '11:00:00', '12:00:00', 1, 1, 'NO', 'NO', 'k ', 0, 'pending', '', NULL, NULL, NULL),
-(12, 'HALL03', 'PUNCHI THEATRE', '2024-02-23', '18:00:00', '20:00:00', 2, 2, 'NO', 'NO', 'njbfwiw', 0, 'accepted', '', NULL, NULL, NULL),
-(13, 'HALL02', 'abcd', '2024-02-23', '11:00:00', '13:00:00', 2, 3, 'NO', 'YES', 'nknos', 0, 'accepted', '', 3, 'to 13th one', NULL),
-(14, 'HALL02', 'dilki lenoraa 2', '2024-02-23', '10:00:00', '13:00:00', 3, 10, 'YES', 'YES', 'abcdeubofweubfooo abcsdnhop', 0, 'pending', '', NULL, NULL, NULL),
-(15, 'HALL01', 'PUNCHI THEATRE', '2024-02-25', '16:00:00', '17:00:00', 1, 3, 'NO', 'NO', 'bivediuvwfi', 1000, 'pending', '', NULL, NULL, NULL),
-(16, 'HALL02', 'annaaaaaaaa mmmmmm', '2024-02-29', '10:00:00', '11:00:00', 1, 2, 'NO', 'NO', 'deds', 1500, 'pending', '', NULL, NULL, NULL),
-(17, 'HALL01', 'as', '2024-02-24', '09:00:00', '11:00:00', 2, 3, 'NO', 'NO', 'nksn', 2000, 'accepted', '', 2, 'scd', NULL),
-(19, 'HALL03', 'Dilki Lenora', '2024-04-13', '09:00:00', '11:00:00', 2, 4, 'YES', 'NO', 'nksn', 8000, 'pending', '', NULL, NULL, NULL),
-(20, 'HALL03', 'huihuihuihuhi', '2024-04-13', '11:00:00', '12:00:00', 1, 4, 'NO', 'NO', 'fdvfvfdv', 4000, 'pending', '', NULL, NULL, NULL),
-(21, 'HALL03', 'PUNCHI THEATRE', '2024-04-11', '11:00:00', '13:00:00', 2, 3, 'NO', 'NO', 'hvcv', 8000, 'pending', '', NULL, NULL, NULL),
-(22, 'HALL03', 'nonononononon', '2024-04-20', '12:00:00', '13:00:00', 1, 2, 'YES', 'YES', 'sdvcsdc', 4000, 'accepted', '', NULL, NULL, NULL),
-(23, 'HALL01', 'axs 23 req', '2024-04-25', '08:00:00', '09:00:00', 1, 2, 'NO', 'YES', 'cd', 1000, 'accepted', '', NULL, NULL, NULL);
+INSERT INTO `reservationrequests` (`id`, `hallno`, `name`, `date`, `startTime`, `endTime`, `hours`, `headCount`, `sounds`, `standings`, `message`, `amount`, `status`, `reservationistId`, `rating`, `review`, `review_date`, `reason`, `acceptedTime`, `ispaid`, `hasArrived`, `refundedAmount`) VALUES
+(35, 'Hall01', 'jhb', '2024-04-25', '11:00:00', '12:00:00', 1, 1, 'YES', 'YES', 'no msg', 1000, 'refund', 7, 4, 'for req  jlbnbblb;', '2024-04-28 15:57:01', NULL, '2024-04-28 13:57:01', 1, NULL, 1000),
+(36, 'Hall01', 'wd', '2024-04-30', '16:00:00', '18:00:00', 2, 2, 'YES', 'YES', 'mjh', 2000, 'refund', 7, NULL, NULL, NULL, NULL, '2024-04-28 21:59:19', 1, NULL, 2000),
+(37, 'Hall01', 'wd', '2024-04-23', '16:00:00', '18:00:00', 2, 2, 'YES', 'YES', 'mjh', 2000, 'refund', 7, 5, 'no review for this nonon', '2024-04-28 15:57:11', NULL, '2024-04-29 04:16:02', 1, NULL, 2000),
+(38, 'Hall01', 'wd', '2024-04-30', '16:00:00', '18:00:00', 2, 2, 'YES', 'YES', 'mjh', 2000, 'refund', 7, NULL, NULL, NULL, NULL, '2024-04-29 04:42:06', 1, NULL, 2000),
+(39, 'Hall01', 'wd', '2024-04-30', '16:00:00', '18:00:00', 2, 2, 'YES', 'YES', 'mjh', 2000, 'accepted', 7, NULL, NULL, NULL, NULL, NULL, 1, NULL, 0),
+(40, 'Hall01', 'wd', '2024-04-30', '16:00:00', '18:00:00', 2, 2, 'YES', 'YES', 'mjh', 3000, 'rejected', 7, NULL, NULL, NULL, NULL, '2024-04-21 09:24:20', 0, NULL, 0),
+(42, 'Hall01', 'wd', '2024-04-30', '16:00:00', '18:00:00', 2, 2, 'YES', 'YES', 'mjh', 2000, 'rejected', 7, NULL, NULL, NULL, NULL, '2024-04-22 09:48:56', 0, NULL, 0),
+(43, 'Hall01', 'ces', '1900-01-24', '10:00:00', '12:00:00', 2, 1, 'NO', 'NO', 'hvcv', 2000, 'refund', 7, 3, 'kmlkm mkmk', '2024-04-28 15:12:56', NULL, '2024-04-28 21:04:19', 1, NULL, 2000),
+(44, 'Hall01', 'ces', '2024-04-30', '10:00:00', '12:00:00', 2, 1, 'NO', 'NO', 'hvcv', 2000, 'refund', 7, NULL, NULL, NULL, NULL, '2024-04-28 21:47:53', 1, NULL, 2000),
+(45, 'Hall01', 'ces', '2024-04-30', '10:00:00', '12:00:00', 2, 1, 'NO', 'NO', 'hvcv', 2000, 'refund', 7, NULL, NULL, NULL, NULL, '2024-04-28 21:49:13', 1, NULL, 2000),
+(46, 'Hall03', 'Dilki Lenora', '2024-04-24', '10:00:00', '12:00:00', 2, 3, 'NO', 'NO', ',kjhvc', 8000, 'refund', 7, 0, 'review', '2024-04-28 15:02:58', NULL, '2024-04-28 21:50:23', 1, NULL, 8000),
+(47, 'Hall01', 'Dilki Lenora', '2024-04-30', '10:00:00', '12:00:00', 2, 90, 'YES', 'YES', 'jhb', 2000, 'accepted', 7, NULL, NULL, NULL, NULL, NULL, 1, NULL, 0),
+(48, 'Hall01', 'dilkiiii', '2024-04-30', '13:00:00', '15:00:00', 2, 40, 'YES', 'YES', 'b4nosivoi4n5ob3nwij5ij', 3000, 'accepted', 7, NULL, NULL, NULL, NULL, NULL, 1, NULL, 0),
+(49, 'Hall02', 'ama', '2024-04-30', '12:00:00', '14:00:00', 2, 80, 'YES', 'NO', 'hvcv', 1500, 'accepted', 7, NULL, NULL, NULL, NULL, NULL, 1, NULL, 0),
+(50, 'Hall01', 'No Name', '2024-04-30', '13:00:00', '14:00:00', 1, 57, 'YES', 'NO', 'bihbd', 1500, 'refund', 7, NULL, NULL, NULL, NULL, '2024-04-28 20:46:47', 1, NULL, 1500),
+(51, 'Hall03', 'Req now', '2024-05-01', '11:00:00', '14:00:00', 3, 50, 'YES', 'YES', 'no', 14000, 'rejected', 7, NULL, NULL, NULL, NULL, '2024-04-27 21:21:13', 0, NULL, 0),
+(52, 'Hall02', 'dilki', '2024-05-02', '11:00:00', '12:00:00', 1, 3, 'YES', 'YES', 'nin', 2000, 'refund', 7, NULL, NULL, NULL, NULL, '2024-04-29 05:06:21', 1, NULL, 2000),
+(53, 'Hall02', 'nb', '2024-05-10', '16:00:00', '17:00:00', 1, 3, 'NO', 'NO', 'fe', 1000, 'refund', 7, NULL, NULL, NULL, NULL, '2024-04-29 05:00:40', 1, NULL, 1000);
+
+--
+-- Triggers `reservationrequests`
+--
+DELIMITER $$
+CREATE TRIGGER `update_accepted_time_trigger` BEFORE UPDATE ON `reservationrequests` FOR EACH ROW BEGIN
+    IF NEW.status = 'accepted' THEN
+        SET NEW.acceptedTime = NOW();
+    END IF;
+END
+$$
+DELIMITER ;
 
 --
 -- Indexes for dumped tables
@@ -93,7 +106,7 @@ ALTER TABLE `reservationrequests`
 -- AUTO_INCREMENT for table `reservationrequests`
 --
 ALTER TABLE `reservationrequests`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
