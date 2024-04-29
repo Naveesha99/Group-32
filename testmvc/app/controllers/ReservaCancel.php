@@ -42,6 +42,7 @@ class ReservaCancel
 
             if(isset($_POST['cancelbtn']))
             {
+                $reqid=$_POST['id'];
                 $sentReq=new Reservationrequests;
                 $find=[
                     'id'=>$_POST['id']
@@ -54,7 +55,15 @@ class ReservaCancel
                 ];
                 $result=$user1->where($find);
                 $email=$result[0]->email;
+                $otp = $_POST['otp'];
+                // $data['otp_again'] = $otp;
 
+                $data=[
+                    'reqid'=>$reqid,
+                    'refund'=>$_POST['refund'],
+                    'otp_again'=>$otp,
+                    // 'refundPercentage'=>$_POST['refundPercentage']
+                ];
 
                 $system_otp = $_POST['otp'];
 						
@@ -75,22 +84,45 @@ class ReservaCancel
                 }
 
             //  $this->view('cancel',$data);
-
         }
 
 
-        if(isset($_POST['otp']))
-        {
-            $otp = $_POST['otp'];
-            $data['otp_again'] = $otp;
-        }
+        // if(isset($_POST['otp']))
+        // {
+        //     $otp = $_POST['otp'];
+        //     $data['otp_again'] = $otp;
+        // }
 
-        if(isset($_POST['user_otp']) && isset($_POST['otp']))
+        if(isset($_POST['user_otp']) && isset($_POST['sys_otp']))
         {
-            if($_POST['user_otp'] == $_POST['otp'])
+            if($_POST['user_otp'] == $_POST['sys_otp'])
             {
-                $data['otp'] = $_POST['otp'];
+                show($_POST);
+                // $data['otp'] = $_POST['otp'];
                 $data['success'] = "OTP is correct";
+                $id=$_POST['reqid'];
+                $refund=$_POST['refund'];
+                $sentReq=new Reservationrequests;
+                $find=[
+                    'id'=>$id
+                ];
+                $result=$sentReq->where($find);
+                $arr=[
+                    'status'=>'cancelled',
+                    'refundedAmount'=>$refund
+                ];
+                $sentReq->update($id,$arr);
+
+                
+                // $sentReq=new Reservationrequests;
+                // $arr=$sentReq->where($find);
+                // $data=[
+                //     'detailsofReq'=>$id
+                // ];
+                // $this->view('reservaQR1', $data);
+
+
+                
             }
             else
             {
