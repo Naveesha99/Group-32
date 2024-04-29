@@ -68,28 +68,24 @@
                 </div>
             </div>
 
-            <!-- <div class="form3">
-                <div class="topic">Upcoming Drama Times</div>
+            <!-- <div class="form3"> -->
+                <!-- <div class="topic">Upcoming Drama Times</div> -->
                 <?php
-                if(isset($data['tms']))
-                {
-                    echo'ISHAN CHAMIKA';
-                    show($data['tms']);
-                    foreach($data['tms'] as $x)
-                    {
-                        $time_from_db = $x->time;
-                        $time_formatted = date("h:i A", strtotime($time_from_db));
+                
+                // if(isset($data['tmsss']))
+                // {
+                    // echo'ISHAN CHAMIKA';
+                    // foreach($data['tmsss'] as $x)
+                    // {
+                    //     $time_from_db = $x->time;
+                    //     $time_formatted = date("h:i A", strtotime($time_from_db));
                     ?>
-                        <div class="times"><?= $x->date ?> <?= $time_formatted ?></div><br>
+                        <!-- <div class="times"><?= $x->date ?> <?= $time_formatted ?></div><br> -->
                     <?php 
-                    }
-                }
-                else
-                {
-                    show($data);
-                }
+                //     }
+                // }
                     ?>
-            </div> -->
+            <!-- </div> -->
 
             <div class="form2">
                 <div class="topic">

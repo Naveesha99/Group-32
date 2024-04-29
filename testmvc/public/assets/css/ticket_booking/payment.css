@@ -5,21 +5,20 @@ body {
 .container{
   margin-top: 60px;
   margin-bottom: 7%;
-  display: flex;
-  justify-content: space-between;
-
+  /* display: flex; */
+  /* justify-content: space-between; */
 }
 
 #paymentForm {
-  height:580px;
-  width: 40%;
+  height: 580px;
+  width: 50%;
   margin: 0 auto 0 auto;
   padding: 40px;
   background-color: #ffffff;
   border-radius: 4px;
   font-size: 16px;
   /* margin-top: 5%; */
-  margin-left: 2%;
+  margin-left: 20%;
   align-items: center;
 }
 
