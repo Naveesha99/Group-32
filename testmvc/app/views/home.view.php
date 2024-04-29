@@ -123,7 +123,7 @@
                     ?>
                                 <form action="select_drama" class="form1" method="POST">
                                     <div class="movie-list-item">
-                                        <img class="movie-list-item-img" src="<?= ROOT ?>/assets/images/drama_img/<?= $x->image ?>" alt=''>
+                                    <button type="submit" class="touch_card"><img class="movie-list-item-img" src="<?= ROOT ?>/assets/images/drama_img/<?= $x->image ?>" alt=''></button>
 
                     <?php
                                     $dates = []; // Initialize arrays to store dates and times
@@ -160,7 +160,7 @@
                     ?>
                                         <span class="movie-list-title"><?= $x->title ?></span>
                                         <input type="hidden" name="id" value="<?= $x->id ?>">
-                                        <button type="submit" class="movie-list-item-button">BOOK</button><br>
+                                        <!-- <button type="submit" class="movie-list-item-button">BOOK</button><br> -->
 
                             <?php } ?>
                                         

@@ -408,7 +408,10 @@ body {
   justify-content: space-between;
   margin-bottom: 20px; /* Adjust as needed to control the gap between rows */
 }
-
+.touch_card{
+  border: none;
+  background-color: #e6dede;
+}
 /*__________________Search CSS______________*/
 .search{
   position: fixed;
@@ -476,12 +479,6 @@ body {
       opacity: 1;
       transform: translateY(-100%);
   }
-  /* 80% {
-      opacity: 1;
-      transform: translateY(100%);
-  }
-  100% {
-      opacity: 1;
-      transform: translateY(0);
-  } */
+
 } 
+

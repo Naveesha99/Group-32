@@ -21,6 +21,7 @@
 <div class="allforms">
 <div class="container1">
     <form id="paymentForm">
+      <div class="instructions">
           <h2>Terms and Conditions</h2>
 
           <div class="input-control">
@@ -50,7 +51,8 @@
           <div class="tickMarks">
             <input type="checkbox" class="checkbox" id="myCheckbox" onchange="toggleSubmitButton()">
             <label for="myCheckbox">I agree with above terms and condition.</label>
-          </div>  
+          </div> 
+        </div> 
     </form>
 </div>
 
@@ -95,6 +97,8 @@
                   <button class="registerbtn" id="registerbtnid" type="submit">SUBMIT</button>
               </div>            
       </form>
+              <a href="<?=ROOT?>/home"><button class="close_btn">Back</button></a>
+
 </div>
 </div>
     <form method="post" id="send_confirm_details">
@@ -135,7 +139,7 @@
 						$recipient_email = $email;
 
 						$subject = "Puchi Theater Ticket cancellation ";
-						$body = "Hi $name, Please enter this OTP code and click confirm. 
+						$body = "Hi $name, Please enter this OTP code in the iput field and click confirm. 
 OTP Code: $otp";
 		
 						if(mail($recipient_email, $subject, $body, "From: $sender_name <$sender_email>")){
