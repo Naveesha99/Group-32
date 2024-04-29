@@ -38,30 +38,30 @@ class EmpEditProfile
             $arr['empEmail'] = $_POST['empEmail'];
             $arr['empContact'] = $_POST['phone'];
             $arr['empAddress'] = $_POST['address'];
-            $arr2['fullname']= $_POST['empName'];
-            $arr2['email']= $_POST['empEmail'];
+            $arr2['fullname'] = $_POST['empName'];
+            $arr2['email'] = $_POST['empEmail'];
             // show($arr1);
 
-            
+
 
 
             if ($emp->validateNew($arr)) {
-    
-                
+
+
                 $emp->update($empIdNew, $arr, 'id');
                 // redirect('employeeSetting');
             }
 
             if ($user->validateUser($arr2)) {
                 //show($arr1);
-    
-                
+
+
                 $user->update($empId, $arr2, 'id');
                 redirect('employeeSetting');
             }
-            
-            
         }
-        $this->view('employee/empEditProfile', $data);
+        if ($_SESSION['USER']->user_type == 'Employee') {
+            $this->view('employee/empEditProfile', $data);
+        }
     }
 }

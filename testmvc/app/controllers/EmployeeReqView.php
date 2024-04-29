@@ -38,8 +38,9 @@ class EmployeeReqView
             }
         }
 
+        if ($_SESSION['USER']->user_type == 'Employee') {
 
-
-        $this->view('employee/employeeReqView', $data);
+            $this->view('employee/employeeReqView', $data);
+        }
     }
 }

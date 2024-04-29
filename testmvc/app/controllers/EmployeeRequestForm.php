@@ -17,7 +17,7 @@ class EmployeeRequestForm
 		}
 
 		// $name = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->empname;
-		$userid = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->id;
+		$userid = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->id;
 
 		// echo $name;
 		// echo $userid;
@@ -26,7 +26,7 @@ class EmployeeRequestForm
 		$emp_req = new EmpRequest;
 		// $emp = new Employee;
 
-		
+
 
 
 
@@ -39,7 +39,7 @@ class EmployeeRequestForm
 				// $sendMail = new SendMail;
 				// $sendMail->employeeRequest($email, $name);
 				$emp_req->insert($_POST);
-				
+
 				redirect('employeeReq');
 			}
 		}
@@ -47,7 +47,8 @@ class EmployeeRequestForm
 		$data['errors'] = $emp_req->errors;
 		// show($_POST);
 
-
-		$this->view('employee/employeeRequestForm', $data);
+		if ($_SESSION['USER']->user_type == 'Employee') {
+			$this->view('employee/employeeRequestForm', $data);
+		}
 	}
 }
