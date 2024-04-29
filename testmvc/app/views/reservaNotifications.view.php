@@ -6,23 +6,58 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="<?= ROOT ?>/assets/css/reservaNotifications.css" rel="stylesheet">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/notificatioPanel.css">
+
 
     <title>Admin Panel</title>
 
 </head>
 
-<?php require_once 'reservaNavBar.php' ?>
+<?php if (isset($_SESSION['USER'])) {
+    require_once 'reservaNavBarAfter.php';
+} else {
+    require_once 'reservaNavBar.php';
+} ?>
 
 
-<body class="dashboard">
-    <div class="container">
+<body>
+    <div class="back">
+
+    </div>
+    <h2>Notifications</h2>
+    <?php foreach ($data['notifications'] as $notification) : ?>
+        <?php if ($notification->isRead == 0) : ?>
+            <form method="POST">
+            <input type="hidden" name="id" value="<?=$notification->id?>">
+                <button class="card1" id="card1" value="<?= $notification->id?>">
+                    <div class="card1-title"><?= $notification->message ?></div>
+                    <p><?= $notification->time ?></p>
+
+                </button>
+            </form>
+        <?php else : ?>
+            <div class="card2">
+            <?php show($data); ?>
+
+                <div class="card2-title"><?= $notification->message ?></div>
+                <p><?= $notification->time ?></p>
+
+            </div>
+            
+        <?php endif; ?>
+    <?php endforeach; ?>
+</body>
+
+
+<!-- <body class="dashboard">
+    <div class="container"> -->
         <!-- <div class="header">
 
 
             <//?php require_once 'navBar.php' ?>
         </div> -->
 
-
+<!-- 
         <div class="content">
             <h1>NOTIFICATIONS</h1>
             <div class="cards">
@@ -102,7 +137,7 @@
             
         </div>
     </div>
-</body>
+</body> -->
 
 <script>
     window.onload = function () {
