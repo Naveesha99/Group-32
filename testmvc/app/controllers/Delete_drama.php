@@ -132,6 +132,6 @@ class Delete_drama
             }
 
         $data['drama'] = $home->findAll();
-		$this->view('/ticket_booking/delete_drama', $data);
+		$this->view('/admin/delete_drama', $data);
 	}
 }

@@ -9,6 +9,13 @@
 body {
     min-height: 100vh;
 }
+
+span.error {
+    color: red;
+    font-size: 12px;
+    font-weight: 600;
+    margin-left: 10px;
+}
 a {
     text-decoration: none;
 }
