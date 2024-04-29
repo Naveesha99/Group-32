@@ -104,20 +104,21 @@ class CWProfile
 
 		$prof = null;
 
-        if ($cwId) {
-            $arr2['userid'] = $cwId;
-            $profileData = $profiles->where($arr2);
+		if ($cwId) {
+			$arr2['userid'] = $cwId;
+			$profileData = $profiles->where($arr2);
 
-            if ($profileData) {
-                $prof = $profileData;
-                $data['profile'] = $prof;
-            }
-        }
+			if ($profileData) {
+				$prof = $profileData;
+				$data['profile'] = $prof;
+			}
+		}
 
 
 		$data['content_writer'] = $result;
 		$data['profile'] = $prof;
-
-		$this->view('contentwriter/cwProfile', $data);
+		if ($_SESSION['USER']->user_type == 'Content Writer') {
+			$this->view('contentwriter/cwProfile', $data);
+		}
 	}
 }

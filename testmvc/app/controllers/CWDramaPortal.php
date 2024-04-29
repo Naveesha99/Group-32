@@ -66,6 +66,10 @@ class CWDramaPortal
 		// $data['articles'] = $result;
 		// show($data);
 		$data['select_categoery'] = $selectedCategory;
-		$this->view('contentwriter/cwDramaPortal', $data);
+
+		if ($_SESSION['USER']->user_type == 'Content Writer') {
+			$this->view('contentwriter/cwDramaPortal', $data);
+		}
+		
 	}
 }

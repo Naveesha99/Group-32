@@ -16,7 +16,7 @@ class CWDashboard
 			exit();
 		}
 
-		$cwId= empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->id;
+		$cwId = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->id;
 		$article = new Article;
 		$result = [];
 		$draft = [];
@@ -39,23 +39,24 @@ class CWDashboard
 				});
 
 				$draft = array_filter($articleData, function ($article) {
-					return $article->status == 0 ;
+					return $article->status == 0;
 				});
-
-            } 
+			}
 		}
-		
-		
+
+
 
 		$total = count($result);
 		$data['draft'] = count($draft);
-		$data['published'] =$total;
+		$data['published'] = $total;
 		$data['result'] = $result;
-		
+
 		$data['pendingCount'] = count($pending);
 		$data['rejected'] = count($rejected);
+		if ($_SESSION['USER']->user_type == 'Content Writer') {
+			$this->view('contentwriter/cwDashboard', $data);
+		}
 
-		$this->view('contentwriter/cwDashboard', $data);
 
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			if (isset($_POST['delete_article'])) {
@@ -80,11 +81,10 @@ class CWDashboard
 	{
 		$arr['id'] = $data;
 		$articleData = $article->where($arr);
-		if($articleData[0]->hide == 1){
-			$articleData[0]->hide =0;
-
-		}else{
-			$articleData[0]->hide =1;
+		if ($articleData[0]->hide == 1) {
+			$articleData[0]->hide = 0;
+		} else {
+			$articleData[0]->hide = 1;
 		}
 		$article->update($data, (array)$articleData[0], 'id');
 		redirect("contentwriter/cwArticleDisplay");

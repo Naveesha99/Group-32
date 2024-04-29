@@ -175,8 +175,9 @@ class CWAddArticle
         $data['errors'] = $article->errors;
         // show($_POST);
 
-    
+        if($_SESSION['USER']->user_type == 'Content Writer'){
         $this->view('contentwriter/CWAddArticle', $data);
+        }
         
     }
 }

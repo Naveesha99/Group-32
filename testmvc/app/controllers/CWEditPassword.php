@@ -50,7 +50,8 @@ class CWEditPassword
                 echo 'Current password does not match';
             }
         }
-
-        $this->view('contentwriter/cwEditPassword', $data);
+        if ($_SESSION['USER']->user_type == 'Content Writer') {
+            $this->view('contentwriter/cwEditPassword', $data);
+        }
     }
 }
