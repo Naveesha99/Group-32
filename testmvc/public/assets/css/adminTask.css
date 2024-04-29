@@ -1,106 +1,230 @@
 @import url('https://fonts.googleapis.com/css?family=Catamaran:400,700');
-
-* {
-    padding: 0;
+*{
+    
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    font-family: 'Catamaran', sans-serif;
-}
-body {
-    min-height: 100vh;
-}
-a {
     text-decoration: none;
-}
-li {
     list-style: none;
+
 }
-h1{
+
+body{
+    font-family: 'Catamaran', sans-seri;
+    height: 100vh;
+}
+.container{
+    position: absolute;
+    width: calc(100% - 200px);
+    left: 200px;
+    min-height: 100vh;
+    background-color:  white;
+    transition: 0.5s;
+    margin-top: 80px;
+    padding: 100px 50px;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+}
+
+.container .cardBox{
+    position: relative;
+    width: 100%;
+    padding: 7px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 30px;
+    top: -30px;
+    margin-left: 15px;
+
+
+}
+
+.container .cardBox .card{
+    position: relative;
+    background: white;
+    padding: 30px;
+    border-radius: 25px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.6);
+
+}
+
+.container .cardBox .card .numbers{
+    position: relative;
+    font-weight: 500;
+    font-size: 2.0rem;
+    color: black;
+}
+
+.container .cardBox .card .cardName{
+    color: black;
+    font-size: 1.5rem;
+    margin-top: 5px;
+}
+
+.container .cardBox .card .iconBox{
+    font-size: 3.5rem;
+    color: black;
+}
+
+.container .cardBox .card:hover{
+    background: #6196A6;
+    border: 3px solid white;
+}
+
+.cardBox .card:hover .numbers,
+.cardBox .card:hover .cardName,
+.cardBox .card:hover .iconBox{
     color: white;
 }
-h2 {
-    color: black;
+
+
+.content-2 .table-responsive{
+    max-width: 1500px;
+    border: 2px  ;
+    background: ghostwhite;
+    /* padding: 15px; */
+    overflow: auto;
+    border-radius: 20px;
+    /* margin: auto; */
+    /* border-radius: 4px; */
+    /* display: grid; */
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);  */
+    
+    
 }
-h3 {
-    color: #999;
+
+.content-2 .table-responsive table{
+    width: 100%;
+    position: relative;
+    font-size: 15px;
+    /* color: #444; */
+    white-space: nowrap;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
-.btn {
-    background: #e6cc00;
-    color: black;
-    padding: 3px 10px;
-    text-align: center;
-    border-radius: 15px;
+
+.content-2 .table-responsive table>thead{
+    background-color: #000000;
+    color: whitesmoke;
 }
-.btn:hover {
-    color: #e6cc00;
-    background:black;
-    /* opacity: 0.6; */
-    padding: 3px 8px;
-    /* border: 2px solid #e6cc00; */
+
+.content-2 .table-responsive table>thead th{
+    padding: 15px;
+    color: #fff;
+    padding-top: 17px;
+    font-size: 18px;
+    border-bottom: 1px solid black;
+    text-align: left;
+    align-items: center;
+
 }
+
+.content-2 .table-responsive table th, table td{
+    border-bottom: 1px solid #dddddd;
+    padding: 10px 20px;
+    word-break: break-all;
+    
+    font-size: 14px;
+}
+.content-2 .table-responsive table td{
+    box-sizing: border-box;
+}
+
 .title {
     display: flex;
-    align-items: center;
-    justify-content: space-around;
-    padding: 15px 10px;
-    border-bottom: 2px solid #999;
-}
-table {
-    padding: 10px;
-    border-radius: 15px;
-}
-th,
-td {
-    text-align: left;
-    padding: 8px;
-}
-.container {
-    position: absolute;
-    right: 0;
-    width: 80vw;
-    height: 100vh;
-    background: white;
+    justify-content: center; 
+    margin-bottom: 20px; 
+    margin-top: 20px;
 }
 
-.container .content {
-    position: relative;
-    margin-top: 10vh;
-    min-height: 90vh;
-    background: white;
+.title h2 {
+    color: black; 
+    font-size: 24px; 
+    font-weight: bold;
 }
-.container .content .cards {
-    padding: 20px 15px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
+tr.hide{
+    opacity: 0;
+    transform: translateX(100%);
+    line-height: 0;
+  }
+  
+  tr.hide td,
+  tr.hide span,
+  tr.hide td div{
+    padding: 0;
+    height: 0;
+    border: none;
+    margin: 0;
+    border-bottom: none;
+    font-size: 0;
+  
+  }
+  
+  tr.hide td *{
+    visibility: hidden;
+  }
+  
+  
+  tbody tr:hover{
+    cursor: pointer;
+    background-color: #0298cf0d;
+  
     transition: all 0.3s ease-in-out;
-}
-.container .content .cards .card {
-    width: 250px;
-    height: 150px;
-    background: #2424ff;
-    margin: 20px 10px;
-    display: flex;
-    border-radius: 40px;
-    align-items: center;
-    justify-content: space-around;
-    transition: all 0.3s ease-in-out;
+  }
+
+  .content-2 .table-responsive table>tbody>tr{
+    background-color: #ffffff;
+    transition: 0.3s ease-in-out;
 }
 
-.container .content .cards .card:hover {
-    width: 250px;
-    height: 150px;
-    background: white;
-    margin: 20px 10px;
-    display: flex;
-    border-radius: 40px;
-    align-items: center;
-    justify-content: space-around;
-    border: 3px solid #2424ff;
-    transition: all 0.3s ease-in-out;
+.content-2 .table-responsive table>tbody>tr:nth-child(even){
+    background-color: #ffffff;
 }
 
-.container .content .cards .card:hover h1 {
-    color: #2424ff;
+.content-2 .table-responsive table>tbody>tr:hover{
+    filter: drop-shadow(0 3px 7px #0002);
+}
+
+.action_btn>a{
+    text-decoration: none;
+    color: black;
+    /* background: whitesmoke; */
+    border: 1px solid black;
+    display: inline-block;
+    padding: 5px 12px;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: 0.3s ease-in-out;
+
+}
+
+.action_btn .btn{
+    border-color: #6196A6;
+    background-color: transparent;
+    text-decoration: none;
+    color: black;
+    /* background: whitesmoke; */
+    border: 1px solid #6196A6;
+    display: inline-block;
+    padding: 7px 17px;
+    font-weight: bold;
+    border-radius: 13px;
+    transition: 0.3s ease-in-out;
+}
+
+.action_btn>a:hover{
+    box-shadow: 0 2px 8px gray ;
+}
+
+.action_btn .btn-delete:hover{
+    box-shadow: 0 2px 8px gray;
+
 }

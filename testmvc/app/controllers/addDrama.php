@@ -32,10 +32,7 @@ class addDrama
                 $result = $home->first($arr1);
 
                 if ($result) {
-                    $home->errors['title'] = "Wrong Email or Password";
-                    // $user->errors['password'] = "Wrong Password";
-    
-                    $data['errors'] = $home->errors;
+                    $data['errors']['added'] = "This drama is already added";
 
                 } else {
                     $home->insert($arr);

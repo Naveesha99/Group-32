@@ -1,6 +1,9 @@
 <?php
-foreach ($data['payments'] as $key => $value) {
-    $dataPoints[] = array("y" => $value, "label" => $key);
+
+if(!empty($data['payments'])){
+    foreach ($data['payments'] as $key => $value) {
+        $dataPoints[] = array("y" => $value, "label" => $key);
+    }
 }
 foreach ($data['status_counts'] as $key => $value) {
     $statusCounts[] = array("y" => $value, "label" => $key, "color" => "#265073", "exploded" => true);

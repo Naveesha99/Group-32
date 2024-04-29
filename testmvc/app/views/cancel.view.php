@@ -42,7 +42,15 @@
 <div class="container1">
 
     <form id="paymentForm">
-    <!-- <?php show($data); ?> -->
+    <?php
+    
+if(isset($data['success']))
+{
+    show($data['success']);
+} 
+else{
+    show('error');
+} ?> 
 
           <h2>Cancellation Policy</h2>
 
@@ -245,34 +253,6 @@
 
     <div class="send_otp">
 
-    <?php 
-            $otp = rand(100000, 999999);
-
-                        $refund_prize = $refund;
-						$hallNo = $hallno;
-						$date = $bookingdate;
-                        $reqid=$reqid;
-						$sender_name = "PUNCHI THEATER";
-						$sender_email = "dillenora@gmail.com";
-						$recipient_email = "ishanchami9@gmail.com";
-
-						$subject = "Puchi Theater Ticket cancellation ";
-						$body = "Hi , Please enter this OTP code and click confirm. 
-                            Your refund    : Rs.$refund_prize
-                            Hall No       : $hallNo
-                            Req ID       : $reqid
-                            Booking Date: $date . ";
-		
-						if(mail($recipient_email, $subject, $body, "From: $sender_name <$sender_email>")){
-							echo "Email Sent";
-						}
-						else{
-							echo "Something went wrong";
-						}
-                $data=[
-                    'success'=>"Your request has been cancelled successfully"
-                ];
-         ?>
 
     </div>
     </div>
@@ -312,10 +292,6 @@ if(isset($data['otp_again']))
 <?php
 }
 
-if(isset($data['success']))
-{
-    show($data['success']);
-}
 ?>
 
     <?php require_once 't_reservaFooter1.php' ?>
