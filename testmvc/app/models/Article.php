@@ -22,6 +22,7 @@ class Article
         'progress',
         'likes',
         'hide',
+        'acceptedAt',
 
     ];
 
