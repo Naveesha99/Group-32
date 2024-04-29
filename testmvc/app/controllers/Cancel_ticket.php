@@ -111,14 +111,14 @@ class Cancel_ticket
 				{
 					$data['errors']=$order->errors;
 				}
-				
 		}
 
 
 // ______________________Update the order, refund tables and update seat_map(time1, time2, or time3)______________________________
-				if(isset($_POST['refund']) && isset($_POST['cancel_seats_array']) &&isset($_POST['remain_seats_array']))
+				if(isset($_POST['refund']) && isset($_POST['cancel_seats_array']) &&isset($_POST['remain_seats_array']) && isset($_POST['system_otp']) && isset($_POST['user_otp']))
 				{
-
+				if($_POST['system_otp'] == $_POST['user_otp'])
+				{
 					$cancel_seats_serialized = $_POST['cancel_seats_array'];
 					$cancel_seats_array = json_decode($cancel_seats_serialized, true);
 					// show($cancel_seats_array);
@@ -227,6 +227,7 @@ Thank you.";
 						}
 
 						$data['refund'] = $refund;
+						$data['order_id'] = $order_id;					
 					}
 
 					else if($drama_time <= '18:00:00')
@@ -281,6 +282,7 @@ Thank you.";
 						}
 
 						$data['refund'] = $refund;
+						$data['order_id'] = $order_id;					
 
 					}
 
@@ -336,8 +338,14 @@ Thank you.";
 						}
 
 						$data['refund'] = $refund;
+						$data['order_id'] = $order_id;					
 					}
 				}
+				else
+				{
+					$data['err_otp'] = "Invalid OTP";
+				}
+			}
 
 		$this->view('/ticket_booking/cancel_ticket', $data);
 	}
