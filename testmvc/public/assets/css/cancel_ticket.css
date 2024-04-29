@@ -1,0 +1,291 @@
+@import url("https://fonts.googleapis.com/css?family=Catamaran:400,700");
+
+
+body {
+    /* background: linear-gradient(to right, #0f2027, #203a43, #2c5364); */
+    /* font-family: 'Poppins', sans-serif; */
+    font-family: catamaran;
+    width:100%;
+    margin-left: -2px;
+    background-color: #e6dede;
+  }
+  .allforms{
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    /* margin-left: -5px; */
+    background-color: #e6dede;
+    height:100%;
+    width: 85%;
+    margin: auto;
+    justify-content: space-evenly;
+  }
+  
+  #paymentForm {
+    width: 100%;
+    /* margin: 0 auto 0 auto; */
+    padding: 40px;
+    background-color:#ececec;
+    /* border-radius: 4px; */
+    font-size: 12px;
+    /* height: 100%; */
+    padding-left: 10%;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  
+  #paymentForm h2 {
+    color: #0f2027;
+    text-align: center;
+  }
+
+  #paymentForm2 {
+    width: 101.9%;
+    padding: 40px;
+    background-color: #ececec;
+    /* border-radius: 4px; */
+    font-size: 12px;
+    height:86.6%;
+    padding-right: 5% ;
+  }
+  
+  #paymentForm2 h2 {
+    color: #0f2027;
+    text-align: center;
+  }
+  
+  .registerbtn{
+    padding: 10px;
+    margin-top: 10px;
+    width: 104%;
+    color: white;
+    background-color: rgb(196, 13, 13);
+    border: none;
+    border-radius: 4px;
+  }
+
+  .registerbtn2:disabled {
+    background-color: grey; 
+    cursor: not-allowed;
+  }
+  
+  .input-control {
+    /* display: flex; */
+    flex-direction: column;
+    font-size: 15px;
+    text-align: left;
+    margin-top: 15px;
+    font-family: catamaran;
+  }
+
+  .input-control1 {
+    display: flex;
+    flex-direction: column;
+    /* font-size: 15px; */
+    text-align: left;
+    margin-top: 25px;
+  }
+  
+  .input-control input {
+    border: 2px solid #f0f0f0;
+  border-radius: 4px;
+  display: block;
+  font-size: 12px;
+  padding: 10px;
+  width: 100%;
+  }
+  
+  .input-control input:focus {
+    outline: 0;
+  }
+  
+  .input-control.success input {
+    border-color: #09c372;
+  }
+  
+  .input-control.error input {
+    border-color: #e41010;
+  }
+  
+  .input-control .error {
+    color: #e41010;
+    font-size: 15px;
+    height: 15px;
+  }
+
+  .input-control1 .error {
+    color: #e41010;
+    font-size: 17px;
+    height: 15px;
+    font-weight: bold;
+    margin-bottom: 7px;
+  }
+
+  .container1{
+    /* margin-right: 55px; */
+    margin-top: 10px;
+    width: 50%;
+    background-color: #ececec;
+    height: 90%;
+
+  }
+  
+  .container2{
+    /* margin-top: 40px;
+     */
+    /* width: 40%;
+    border-radius: 12px;
+    background-color: #ececec;
+    height: 90%; */
+
+
+    
+
+    /* margin-right: 55px; */
+    margin-top: 10px;
+    width: 40%;
+    background-color: #ececec;
+    height: 90%;
+
+  }
+    
+  
+    .tickMarks {
+        font-weight: bold;
+        font-size: 15px;
+        /* padding: 5px 130px; */
+        margin-left: -3px;
+        display: flex;
+        margin-top: -5px;
+      
+      }
+
+      input[type="checkbox"] {
+        /* -webkit-appearence:none; */
+        height: 15px;
+        width: 15px;
+        background-color:blue;
+        border-radius: 1px;
+        cursor: pointer;
+        display: flex;
+        outline: black;
+        margin-top: 1px;
+        margin-right: 10px;
+
+      }
+
+      .input-control .subtext {
+        color: red; /* Set the desired color */
+    }
+    .subtext{
+      color: blue;
+      font-weight: bold;
+    }
+
+    .input-control .space {
+        /* word-spacing: 3px;  */
+        margin-left: 15px;
+    }
+    
+    .pgraph{
+        font-weight: bold;
+        margin-top: -5px;
+    }
+
+    #container2id[disabled] {
+        /* opacity: 0.5;  */
+        color: #b8b4b5;
+        pointer-events: none; /* Disable pointer events */
+    }
+    .registerbtn:disabled{
+        background-color: #b8b4b5;
+    }
+
+
+  /* _________first popup message__________ */
+.custom-alert {
+  /* display: none; */
+  border-color: #e40909;
+  border-width: 2px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+}
+
+.custom-alert-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  /* border: #cc0b0b; */
+  border-color: #cc0b0b;
+  border-width: 3px;
+}
+
+#custom-alert-okay {
+  display: block;
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color: #cc0b0b;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+#custom-alert-okay:hover {
+  background-color: #cc0b0b;
+}
+
+/* _______________second popup message_______________ */
+.popup-message {
+  /* display: none; */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border: 1px solid #cc0b0b;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 200;
+  height: 130px;
+}
+
+.popup-message-content {
+  margin-top: 17px;
+  text-align: center;
+}
+
+.popup-message-content button {
+  padding: 7px 12px;
+  background-color: #e40909;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.popup-message.show {
+  display: block;
+}
+
+#popup-message-okay > a {
+  /* display: inline-block; */
+  text-decoration: none; /* Optionally remove underline */
+  color: inherit; /* Optionally inherit button text color */
+  padding-block:inherit;
+}
+
+.payment-button:disabled{
+  background-color: grey;
+  cursor: not-allowed;
+}

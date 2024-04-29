@@ -9,6 +9,17 @@
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/reservaRating.css">
     <script src="<?= ROOT ?>/assets/js/reservaRating.js" defer></script>
 
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <!-- <link href="<?= ROOT ?>/assets/css/reservaPayment.css" rel="stylesheet"> -->
+
+    <script type="text/javascript" src="https://www.payhere.lk/lib/payhere.js"></script>
+    
+
     <!-- <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> -->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"> -->
 
@@ -52,7 +63,6 @@
 
     <!-- content  -->
     <section id="main" class="main">
-
         <ul class="breadcrumb">
             <!-- <li>
                 <a href="#">Home</a>
@@ -127,12 +137,13 @@ if ($data['reservationRequests'] && (is_array($data['reservationRequests']) || i
             <td class="text-status <?php echo $row->status ?>"><?php echo $row->status ?></td>
             <td class="hidden-cell"><?php echo $row->rating ?></td> <!-- Hidden cell -->
             <td class="hidden-cell"><?php echo $row->review ?></td> <!-- Hidden cell -->
+            <td class><?php echo $row->acceptedTime ?></td> <!-- Hidden cell -->
 
             <td class="b1">
                 <span class="button">
                 <a href="#" class="view-btn">view</a>
 
-                    <?php if ($row->status != "accepted" && $row->status != "rejected") : ?>
+                <?php if ($row->status == "pending") : ?>
                         <a class="edit" href="ReservaHall1Edit?id=<?php echo $row->id ?>">Edit</a>
                         <a href="#">Delete</a>
                     <?php else : ?>
@@ -140,11 +151,20 @@ if ($data['reservationRequests'] && (is_array($data['reservationRequests']) || i
                         <a href="#" disabled>Delete</a>
                     <?php endif; ?>
 
+<!-- 
+                    <?php if ($row->status != "accepted" && $row->status != "rejected") : ?>
+                        <a class="edit" href="ReservaHall1Edit?id=<?php echo $row->id ?>">Edit</a>
+                        <a href="#">Delete</a>
+                    <?php else : ?>
+                        <a class="edit" href="#" disabled>Edit</a>
+                        <a href="#" disabled>Delete</a>
+                    <?php endif; ?>
+ -->
 
-                    <?//php foreach($data['from'])?>
+    <!--                 <?//php foreach($data['from'])?>
 
 
-                    <?php if ($row->status == "accepted") : ?>
+                     <?php if ($row->status == "accepted") : ?>
                         <?php $paymentFound = false; ?>
                         <?php foreach($data['fromPymentTable'] as $row2): ?>
                             <?php if(($row2->reqid==$row->id) && ($row2->ispaid == 1)) : ?>
@@ -168,11 +188,33 @@ if ($data['reservationRequests'] && (is_array($data['reservationRequests']) || i
                                     <input type="hidden" name="standings" value="<?php echo htmlspecialchars($row->standings) ?>">
                                     <button type="submit" class="payNow">PayNow</button>
                                 </form>
+                                <button type="submit" class="payNow" onclick="pay2(<?php echo $row->id; ?>)" value="PayNow">PayNow</button>
+
                                 
                         <?php endif; ?>
                     <?php else : ?>
                         <button type="button" class="payNow" disabled>PayNow</button>
-                    <?php endif; ?>
+                    <?php endif; ?> -->
+
+
+
+<?php if ($row->status == "accepted") :?>
+    <?php if($row->ispaid == 1) : ?>
+        <button type="button" class="payNow" disabled style="background-color: #6263a7; color: white; cursor:not-allowed;">&nbsp;&nbsp;&nbsp;Paid&nbsp;&nbsp;&nbsp;&nbsp;</button>
+
+    <?php else : ?>
+        <button type="button" class="payNow" onclick="pay2(<?php echo $row->id; ?>)" value="PayNow">PayNow</button>
+    <?php endif; ?>
+
+<?php else: ?>
+    <button type="button" class="payNow" disabled>PayNow</button>
+
+<?php endif;?>
+
+
+
+
+
 
                     <?php
                     if (($row->status == "accepted") && ($row->date < date("Y-m-d")) || (($row->status == "accepted") && ($row->date == date("Y-m-d")) && ($row->startTime < date("H:i:s")))) : ?>
@@ -206,7 +248,7 @@ if ($data['reservationRequests'] && (is_array($data['reservationRequests']) || i
                 <div class="cont">
                     <div class="containerM">
                         <button id="closeModalBtn">Close</button>
-                        <h1>GeeksforGeeks Java Course</h1>
+                        <h1>Your Review</h1>
                         <div class="rating">
                             <span id="rating">0</span>/5
                         </div>
@@ -223,16 +265,14 @@ if ($data['reservationRequests'] && (is_array($data['reservationRequests']) || i
                         <form action="ReservaSentReq" method="post" id="reviewForm">
                         <!-- echo '<form action="ReservaPayment"  style="display:inline;"> -->
                         <input type="hidden" name="request_id" id="request_id">
-                        <input type="hidden" name="rating" id="ratingValue">
+                        <input type="text" name="rating" id="ratingValue">
                         <script>
                             console.log("Inside script");
                             console.log(document.getElementById('ratingValue').innerHTML);
-                            // document.getElementById('rating').innerHTML;
                         </script>
                             <p>Share your review:</p>
                             <textarea id="review" name="review" placeholder="Write your review here">
                             </textarea>
-                            <!-- <button id="submit">Submit</button> -->
                             <button type="submit" name="submitReview" id="submitReview">Submit</button>
                         </form>
                         <div class="reviews" id="reviews">
@@ -260,9 +300,6 @@ if(isset($_POST['submitReview'])){
 
     // Call the controller method and pass the $_POST array
     $controller->review($_POST);
-
-    // Redirect or perform any other actions as needed
-    // redirect('ReservaSentReq');
 }
 
 $encoded_dataForReview=json_encode($_POST);
@@ -277,15 +314,28 @@ $_POST['json_dataForReview1'] = $json_dataForReview1;
                 <div class="modal-body">
                     <div class="modal-content">
                         <button id="closeModalBtnMyModal">Close</button> <!-- Close button added here -->
-
                         <h2>User Details</h2>
-                        <!-- <p><strong>Name:</strong> <span id="modal-name"></span></p>
-                <p><strong>Date:</strong> <span id="modal-date"></span></p>
-                <p><strong>Message:</strong> <span id="modal-message"></span></p> -->
                         <table id="modalTable">
+                        <!-- <form method="post" id="ReservaCancel" action="ReservaCancel">
+                            <input type="text" name="formid" id="formid" value="" />
+                            <input type="text" name="formacceptedtime" id="formacceptedtime" value="">
+                            <button type="submit" class="cancellation" name="cancellation">Cancel Your Booking</button>
+                        </form> -->
+                        </table>
+
+<form action="ReservaCancel" method="post">
+    <input type="hidden" name="formid" id="formid" value="" />
+    <input type="hidden" name="formacceptedtime" id="formacceptedtime" value="">
+    <button type="submit" class="cancellation" name="cancellation" id="cancelButton">Cancel Your Booking</button>
+
+</form>
+
+
                     </div>
                 </div>
             </div>
+
+
             <script>
                 // Get the modal
                 var modal = document.getElementById("myModal");
@@ -317,7 +367,8 @@ $_POST['json_dataForReview1'] = $json_dataForReview1;
                             standings: row.cells[9].innerText,
                             message: row.cells[10].innerText,
                             amount: row.cells[11].innerText,
-                            status: row.cells[12].innerText
+                            status: row.cells[12].innerText,
+                            acceptedTime: row.cells[15].innerText
                         };
                         populateModal(rowData);
                     }
@@ -337,7 +388,8 @@ $_POST['json_dataForReview1'] = $json_dataForReview1;
 
                 closeModalBtnMyModal.onclick = function() {
                     console.log("close button clicked for mymodal");
-                    modal.style.display = "none";
+                    // modal.style.display = "none";
+                    window.location.href = "ReservaSentReq";
                 }
 
                 window.onclick = function(event) {
@@ -348,6 +400,11 @@ $_POST['json_dataForReview1'] = $json_dataForReview1;
 
                 // Function to populate modal with data
                 function populateModal(data) {
+                    // console.log(data);
+                    document.getElementById('formacceptedtime').value = data.acceptedTime;
+                    document.getElementById('formid').value = data.id;
+                    var status = data.status;
+
                     var modalTable = document.getElementById("modalTable");
                     modalTable.innerHTML = `
                 <tr>
@@ -404,6 +461,48 @@ $_POST['json_dataForReview1'] = $json_dataForReview1;
                 </tr>
 
             `;
+
+
+            
+    // Get the accepted time string from the hidden input field
+    var acceptedTimeString = document.getElementById("formacceptedtime").value;
+    console.log("Status for req",status);
+
+    // Convert the accepted time string to a JavaScript Date object
+    var acceptedTimeDate = new Date(acceptedTimeString);
+    console.log("Convert the accepted time string to a JavaScript Date object",acceptedTimeDate);
+
+    // Calculate the time difference in hours
+    var timeDifferenceHours = calculateTimeDifference(acceptedTimeDate);
+
+    // If time difference is less than 25 hours, hide the cancel button
+    // if ((timeDifferenceHours > 24) && (status == "accepted") ){
+    //     document.getElementById("cancelButton").style.display = "none";
+    // }
+
+if((status == "accepted") && (timeDifferenceHours <= 24)){
+            document.getElementById("cancelButton").style.display = "block";
+
+}
+else{
+            document.getElementById("cancelButton").style.display = "none";
+
+}
+
+    function calculateTimeDifference(acceptedTime) {
+        var currentTime = new Date();
+        console.log("Current Time",currentTime);
+
+        // Calculate the time difference in milliseconds
+        var timeDifferenceMillis = currentTime - acceptedTime;
+        console.log("Time Difference in Milliseconds",timeDifferenceMillis);
+
+        // Convert milliseconds to hours
+        var timeDifferenceHours = timeDifferenceMillis / (1000 * 60 * 60);
+        console.log("Time Difference in Hours",timeDifferenceHours);
+
+        return timeDifferenceHours;
+    }
                 }
             </script>
 
@@ -442,6 +541,7 @@ $_POST['json_dataForReview1'] = $json_dataForReview1;
     var review = document.getElementsByClassName("Review");
     for (var i = 0; i < review.length; i++) {
         review[i].onclick = function() {
+            
             event.preventDefault();
             modal1.style.display = "block";
             // You can fetch data and populate the modal content here based on the data-id attribute of the clicked button
@@ -462,6 +562,7 @@ $_POST['json_dataForReview1'] = $json_dataForReview1;
         console.log("data.rating = " ,data.rating);
         console.log(document.getElementById('rating').innerHTML);
         document.getElementById('rating').innerHTML = data.rating;
+        document.getElementById('ratingValue').value = data.rating;
         var modalTable = document.getElementById("review");
         var requestIdInput = document.getElementById("request_id");
         modalTable.innerHTML = `${data.review}`;
@@ -510,6 +611,99 @@ $_POST['json_dataForReview1'] = $json_dataForReview1;
             modal1.style.display = "none";
         }
     }
+
+
+
+
+    function pay2(id)
+{
+  // console.log("pay2");
+  // console.log(id);
+  let id1=id;
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = ()=>{
+      if(xhttp.readyState == 4 && xhttp.status == 200)
+      {
+          // alert(xhttp.responseText);
+          var obj = JSON.parse(xhttp.responseText);
+          // Payment completed. It can be a successful failure.
+          payhere.onCompleted = function onCompleted(orderId) 
+          {
+            // console.log("Payment completed. OrderID:" + obj["order_id"] +""+ orderId);
+            paymentSuccess(orderId);
+         // Note: validate the payment and show success or failure page to the customer
+          };
+
+            // Payment window closed
+            payhere.onDismissed = function onDismissed() 
+            {
+                // Note: Prompt user to pay again or show an error page
+                console.log("Payment dismissed");
+            };
+
+            // Error occurred
+            payhere.onError = function onError(error) 
+            {
+                // Note: show an error page
+                console.log("Error:"  + error);
+            };
+
+            // Put the payment variables here
+  var payment = {
+      "sandbox": true,
+      "merchant_id": "1225768",    // Replace your Merchant ID
+      "return_url": "http://localhost/Group-32/testmvc/public/ReservaPayment",     // Important
+      "cancel_url": "http://localhost/Group-32/testmvc/public/ReservaPayment",     // Important
+      "notify_url": "http://sample.com/notify",
+      "order_id": obj["order_id"],
+      "items": obj["item"],
+      "amount": obj["amount"],
+      "currency": obj["currency"],
+      "hash": obj["hash"], // *Replace with generated hash retrieved from backend
+      "first_name": obj["name"],
+      "last_name": obj["last_name"],
+      "email": obj["email"],
+      "phone": obj["phone"],
+      "address": "No.1, Galle Road",
+      "city": "Colombo",
+      "country": "Sri Lanka",
+      "delivery_address": "No. 46, Galle road, Kalutara South",
+      "delivery_city": "Kalutara",
+      "delivery_country": "Sri Lanka",
+      "custom_1": "",
+      "custom_2": ""
+  };
+       payhere.startPayment(payment);
+      }
+  };
+  xhttp.open("GET","pay3?id=" + id,true);
+  xhttp.send();
+  //END paymentgatway
+}
+// _________________________________________________________________
+
+
+
+function paymentSuccess(orderId){
+
+console.log("Payment completed. OrderID:" + orderId);
+
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = ()=>{
+    if(xhttp.readyState == 4 && xhttp.status == 200)
+    {
+        alert(xhttp.responseText);
+        var obj = JSON.parse(xhttp.responseText);
+        console.log("sdfsdfsdf"+obj);
+
+        sessionStorage.setItem('order_id', orderId);
+        // window.location.href = "<?php echo ROOT ?>/reservaQR?pay_id=" + orderId;
+        window.location.href = "<?php echo ROOT ?>/reservaQR1";
+    }
+};
+xhttp.open("GET","pay3?pay_id=" + orderId,true);
+xhttp.send();
+}
 
 </script>
 
