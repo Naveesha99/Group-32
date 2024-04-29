@@ -66,7 +66,7 @@
             <a href="<?= ROOT ?>/cwAddArticle">ADD NEW</a>
         </div>
 
-        <!-- <div class="searchBar">
+        <div class="searchBar">
             <form>
                 <div class="form">
                     <form>
@@ -81,7 +81,7 @@
 
             </form>
 
-        </div> -->
+        </div>
 
 
         <div class="cards-container">
@@ -258,6 +258,7 @@
         search.addEventListener('input', performSearch);
 
         function performSearch() {
+            console.log("search.value");
             table_rows.forEach((row, i) => {
                 let search_data = search.value.toLowerCase(),
                     row_text = '';

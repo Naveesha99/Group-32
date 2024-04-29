@@ -11,7 +11,10 @@ class DramaPortal
     {
 
         $article = new article;
-        $result = $article->findPublishArticles();
+        $articleData = $article->findAll();
+        $result = array_filter($articleData, function ($article) {
+            return $article->status == 1 && $article->progress == 'accepted' && $article->hide ==0;
+        });
         // $data['articles'] = $result;
 
         // Check if a category filter is applied
@@ -25,7 +28,9 @@ class DramaPortal
 
             $data['articles'] = $filteredArticles;
         } else {
-            $data['articles'] = $article->findPublishArticles();
+            $data['articles'] = array_filter($articleData, function ($article) {
+                return $article->status == 1 && $article->progress == 'accepted' && $article->hide ==0;
+            });
         }
 
         $searchQuery = isset($_GET['search']) ? $_GET['search'] : '';
