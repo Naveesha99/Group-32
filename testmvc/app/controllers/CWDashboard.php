@@ -22,6 +22,7 @@ class CWDashboard
 		$draft = [];
 		$pending = [];
 		$rejected = [];
+
 		if ($cwId) {
 			$arr1['cw_id'] = $cwId;
 			$articleData = $article->where($arr1);
@@ -55,5 +56,37 @@ class CWDashboard
 		$data['rejected'] = count($rejected);
 
 		$this->view('contentwriter/cwDashboard', $data);
+
+		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+			if (isset($_POST['delete_article'])) {
+				$articleId = $_POST['delete_article'];
+				$this->articleDelete($articleId, $article);
+			}
+
+			if (isset($_POST['hide_article'])) {
+				$articleId = $_POST['hide_article'];
+				$this->articleHide($articleId, $article);
+			}
+		}
+	}
+
+	private function articleDelete($data, $article)
+	{
+		$article->delete($data, 'id');
+		redirect("contentwriter/cwArticleDisplay");
+	}
+
+	private function articleHide($data, $article)
+	{
+		$arr['id'] = $data;
+		$articleData = $article->where($arr);
+		if($articleData[0]->hide == 1){
+			$articleData[0]->hide =0;
+
+		}else{
+			$articleData[0]->hide =1;
+		}
+		$article->update($data, (array)$articleData[0], 'id');
+		redirect("contentwriter/cwArticleDisplay");
 	}
 }

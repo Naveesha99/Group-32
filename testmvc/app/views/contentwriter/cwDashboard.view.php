@@ -101,7 +101,9 @@ function limitWords($text, $limit)
                     // Check if $data is not false and is an array or object
                     if ($data['result'] && (is_array($data['result']) || is_object($data['result']))) {
                         foreach ($data['result'] as $row) {
+                            $hideLabel = ($row ->hide == 1) ? 'Unhide' : 'Hide';
                             echo '<tr>
+                            
                                 <td>' . $row->article_name . '</td>
                                 <td>' . $row->category . '</td>
                                 <td>' . limitWords($row->article_content, 5) . '</td>
@@ -111,7 +113,7 @@ function limitWords($text, $limit)
                                     <span class="action_btn">
                                         <form method="POST">
                                             <input type="hidden" name="hide_article" value="' . $row->id . '">
-                                            <button type="submit" name="hide" class="btn-hide">Hide</button>
+                                            <button type="submit" name="hide" class="btn-hide">'. $hideLabel . '</button>
                                         </form>
                                         <a href = "cwViewOwnArticle?id=' . $row->id . '" class = "btn-view">View</a>
 
