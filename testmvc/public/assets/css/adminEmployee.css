@@ -32,6 +32,7 @@ body{
     margin-top: 10vh;
     min-height: 90vh;
     background: white;
+    margin-top: 10px;
 }
 .container .content .cardBox{
     position: relative;
@@ -81,9 +82,12 @@ body{
     border: 3px solid white;
 }
 
-.cardBox .card:hover .numbers,
-.cardBox .card:hover .cardName,
-.cardBox .card:hover .iconBox{
+.container .content .cardBox .card:hover .numbers,
+.container .content .cardBox .card:hover .cardName,
+.container .content .cardBox .card:hover .iconBox{
+    color: white;
+}
+.container .content .cardBox .card:hover h1{
     color: white;
 }
 
