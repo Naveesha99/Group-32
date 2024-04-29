@@ -6,14 +6,6 @@ class SendMail
     public function sendEmployeeEmail($email, $name, $type = "employee")
     {
 
-        // $words = explode(' ', $name);
-
-        // if (!empty($words)) {
-        //     $firstWord = $words[0];
-        // } else {
-        //     $firstWord = $name;
-        // }
-
         try {
 
             // Replace with your SMTP server & port
@@ -33,11 +25,6 @@ class SendMail
                     . 'Please login to your account and change your Password.<br>'
                     . '<a href="#">Click Here</a> to login<br>';
             }
-            // else{
-            //     $subject = "Your AMORAL Employee Account - Password";
-            //     $message =
-            //         'this is also test message';
-            // }
 
             // Email headers
             $headers = "MIME-Version: 1.0" . "\r\n";
