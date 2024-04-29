@@ -35,6 +35,7 @@ function limitWords($text, $limit)
                     <div>
                         <div class="cardName">Request to Leave</div>
                     </div>
+                </a>
             </div>
 
             <div class="cardN">
@@ -152,7 +153,7 @@ function limitWords($text, $limit)
         function closePopup() {
             document.getElementById('card1').style.display = 'none';
             document.getElementById('overlay').style.display = 'none';
-            window.location.href = "EmployeeRequests";
+            window.location.href = "EmployeeReq";
         }
     </script>
 

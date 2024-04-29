@@ -19,20 +19,27 @@
 
         </div>
         <h2>Notifications</h2>
-        <?php foreach ($data['notifications'] as $notification) : ?>
-            <?php if ($notification->isRead == 0) : ?>
-                <form method="POST">
-                    <input type="hidden" name="id" value="<?= $notification->id ?>">
-                    <button class="card1" id="card1" value="<?= $notification->id ?>">
-                        <div class="card1-title"><?= $notification->message ?></div>
-                    </button>
-                </form>
-            <?php else : ?>
-                <div class="card2">
-                    <div class="card2-title"><?= $notification->message ?></div>
-                </div>
-            <?php endif; ?>
-        <?php endforeach; ?>
+        <?php
+        if ($data['notifications'] && (is_array($data['notifications']) || is_object($data['notifications']))) {
+            foreach ($data['notifications'] as $notification) :
+        ?>
+                <?php if ($notification->isRead == 0) : ?>
+                    <form method="POST">
+                        <input type="hidden" name="id" value="<?= $notification->id ?>">
+                        <button class="card1" id="notification_<?= $notification->id ?>" value="<?= $notification->id ?>">
+                            <div class="card1-title"><?= $notification->message ?></div>
+                        </button>
+                    </form>
+                <?php else : ?>
+                    <div class="card2">
+                        <div class="card2-title"><?= $notification->message ?></div>
+                    </div>
+                <?php endif; ?>
+        <?php endforeach;
+        } else {
+            echo '<tr><td colspan="9">No new notifications</td></tr>';
+        }
+        ?>
 </body>
 <script>
     // let card1 = document.getElementById('card1');
