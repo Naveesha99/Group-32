@@ -121,10 +121,6 @@ function limitWords($text, $limit)
                                         <a href = "cwEditArticle?id=' . $row->id . '" class = "btn-update">Edit </a>
             
 
-                                        <form method="POST">
-                                            <input type="hidden" name="delete_article" value="' . $row->id . '">
-                                            <button type="submit" name="Delete" class="btn-delete">Delete</button>
-                                        </form>
                                     </span>
                                 </td>
                               </tr>';
