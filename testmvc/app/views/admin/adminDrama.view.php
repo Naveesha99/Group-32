@@ -32,6 +32,14 @@
                             </div>
                         </div>
                     </a>
+
+                    <a href="<?= ROOT ?>/delete_drama">
+                        <div class="card">
+                            <div class="box">
+                                <h1>All Dramas</h1>
+                            </div>
+                        </div>
+                    </a>
             </div>
         </div>
     </body>

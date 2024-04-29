@@ -2,19 +2,6 @@ body{
     font-family: Catamaran;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-    
-}
-th {
-    background-color: #f2f2f2;
-}
 .image {
     max-width: 100px;
     max-height: 100px;
@@ -97,20 +84,56 @@ th {
 .inpt{
     margin-left: 4%;
 }
-.btn {
-    padding: 5px 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+.btn-update{
+    border-color: green;
+    background-color: transparent;
+    text-decoration: none;
+    color: black;
+    /* background: whitesmoke; */
+    margin-top: 30px;
+    margin-left: 10px;
+    border: 1px solid green;
+    display: inline-block;
+    padding: 7px;
+    font-weight: bold;
+    border-radius: 13px;
+    transition: 0.3s ease-in-out;
 }
-.btn-delete {
-    background-color: #dc3545;
+
+.btn-update>a:hover{
+    box-shadow: 0 2px 8px gray ;
 }
-.btn-update {
-    background-color: #28a745;
+
+.btn-update:hover{
+    box-shadow: 0 2px 8px gray ;
+    
 }
+
+.btn-delete{
+    border-color: red;
+    background-color: transparent;
+    text-decoration: none;
+    color: black;
+    /* background: whitesmoke; */
+    margin-top: 30px;
+    margin-left: 5px;
+    border: 1px solid red;
+    display: inline-block;
+    padding: 7px;
+    font-weight: bold;
+    border-radius: 13px;
+    transition: 0.3s ease-in-out;
+}
+
+.btn-delete>a:hover{
+    box-shadow: 0 2px 8px gray ;
+}
+
+.btn-delete:hover{
+    box-shadow: 0 2px 8px gray ;
+    
+}
+
 .container{
     display: flex;
     width: 100%;
@@ -134,13 +157,108 @@ th {
     margin-top: 0%;
     
 }
-.container2{
-    width: 90%;
-    margin-left: 4%;
-    margin-right: 4%;
+.container2 {
+    position: absolute;
+    width: calc(100% - 200px);
+    left: 200px;
+    min-height: 100vh;
+    background-color:  white;
+    transition: 0.5s;
+    margin-top: 80px;
+    padding: 100px 50px;
+    margin-top: 40px;
+    transition:  margin-top 0.5s ease;
 }
 
+.container2 .drama{
+    max-width: 1500px;
+    border: 2px  ;
+    background: ghostwhite;
+    /* padding: 15px; */
+    overflow: auto;
+    border-radius: 20px;
+    /* margin: auto; */
+    /* border-radius: 4px; */
+    /* display: grid; */
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);  */
+   
+}
 
+.container2 .drama table{
+    width: 100%;
+    position: relative;
+    font-size: 14px;
+    /* color: #444; */
+    white-space: nowrap;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.container2 .drama table>thead{
+    background-color: #000000;
+    color: whitesmoke;
+}
+
+.container2 .drama table>thead th{
+    padding: 10px;
+    color: #fff;
+    padding-top: 17px;
+    font-size: 15px;
+    border-bottom: 1px solid black;
+    text-align: left;
+    align-items: center;
+
+}
+
+.container2 .dramatable th, table td{
+    border-bottom: 1px solid #dddddd;
+    padding: 10px 15px;
+    word-break: break-all;
+    
+    font-size: 13px;
+}
+.container2 .drama table td{
+    box-sizing: border-box;
+}
+
+.container2 .drama table>tbody>tr{
+    background-color: #ffffff;
+    transition: 0.3s ease-in-out;
+}
+
+.container2 .drama table>tbody>tr:nth-child(even){
+    background-color: #ffffff;
+}
+
+.container2 .drama table>tbody>tr:hover{
+    filter: drop-shadow(0 3px 7px #0002);
+}
+
+/* td.hidden-cell,
+td.hidden-cell span,
+td.hidden-cell td div{
+  padding: 0;
+  height: 0;
+  border: none;
+  margin: 0;
+  border-bottom: none;
+  font-size: 0;
+
+} */
+
+td.hidden-cell{
+  visibility: hidden;
+  padding: 0;
+  height: 0;
+  border: none;
+  margin: 0;
+  border-bottom: none;
+  font-size: 0;
+}
 /* Path: testmvc/public/assets/css/ticket_booking/delete_drama.css */
 .popup {
     display: none;
