@@ -361,6 +361,11 @@ height: auto;
   /* background-color: #6ab187; */
   background-color: #4db377;
 }
+.text-status.cancelled{
+  /* background-color: #1c7012cc; */
+  /* background-color: #6ab187; */
+  background-color: #d1a769;
+}
 
 /* .text-status.printing{
   background-color: #0c5fcd;

@@ -71,6 +71,9 @@ class Reservationrequests
 		'review_date',
 		'reason',
 		'acceptedTime',
+		'isPaid',
+		'hasArrived',
+		'refundedAmount',
 
 	];
 

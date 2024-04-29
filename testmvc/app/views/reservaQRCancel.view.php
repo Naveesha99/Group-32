@@ -35,6 +35,7 @@
 
 <!-- Invoice 5 start -->
 <div class="invoice-5 invoice-content">
+    <!-- <?php show($data); ?> -->
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -60,8 +61,8 @@
                                     </div>
                                     <div class="col-md-4 col-sm-6">
                                         <div class="invoice-number-inner">
-                                            <!-- <h2 class="name">Invoice : <span>#<?= $data[0]->id ?></span></h2> -->
-                                            <h2 class="name">Invoice : #<span id="reqid"> </span></h2>
+                                            <!-- <h2 class="name">Invoice : <span>#<?= $data->reqid ?></span></h2> -->
+                                            <h2 class="name">Invoice : #<span id="reqid"> <?php echo $data['detailsofReq'][0]->id; ?> </span></h2>
 
                                             <!-- <p class="mb-0">Invoice Date: <span>21 Sep 2021</span></p> -->
                                             <p class="mb-0">Invoice Date: <span><?php echo date('d M Y'); ?></span></p>
@@ -75,41 +76,11 @@
                                     <div class="col-md-4 col-sm-6 mb-30">
                                         <div class="invoice-number">
                                             <h4 class="inv-title-1">Invoice To</h4>
-                                            <h2 class="name mb-10" id="reservaname"> </h2>
-                                            <!-- <p class="invo-addr-1 mb-0">
-                                                Theme Vessel <br/>
-                                                info@themevessel.com <br/>
-                                                21-12 Green Street, Meherpur<br/>
-                                            </p> -->
+                                            <h2 class="name mb-10" id="reservaname"><?php echo $data['detailsofReq'][0]->name; ?> </h2>
+                                           
                                         </div>
                                     </div>
-                                    <!-- <div class="col-md-4 col-sm-6 mb-30">
-                                        <div class="invoice-number">
-                                            <div class="invoice-number-inner">
-                                                <h4 class="inv-title-1">Invoice From</h4>
-                                                <h2 class="name mb-10">Punchi Theatre</h2>
-                                                <p class="invo-addr-1 mb-0">
-                                                    punchitheatre@gmail.com <br/>
-                                                    Borella, Sri Lanka <br/>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div> -->
-                                    <!-- <div class="col-md-4 col-sm-6 mb-30 invoice-contact-us">
-                                        <h4 class="inv-title-1">Get In Touch</h4>
-                                        <h2 class="name mb-10">Contact Us</h2>
-                                        <ul class="link">
-                                            <li>
-                                                <i class="fa fa-map-marker"></i> 169 Teroghoria, Bangladesh
-                                            </li>
-                                            <li>
-                                                <i class="fa fa-envelope"></i> <a href="mailto:sales@hotelempire.com">info@themevessel.com</a>
-                                            </li>
-                                            <li>
-                                                <i class="fa fa-phone"></i> <a href="tel:+55-417-634-7071">+00 123 647 840</a>
-                                            </li>
-                                        </ul>
-                                    </div> -->
+                                  
                                 </div>
 
 
@@ -119,11 +90,11 @@
         <div id="fake-qr"></div>
     </div>
     <!-- <input type="hidden" id="text-input" placeholder="enter data" oninput="handleInput()" value="<?= $data[0]->id ?>" title=""> -->
-    <input type="hidden" id="text-input" placeholder="enter data" oninput="handleInput()" value="" title="">
+    <input type="hidden" id="text-input" placeholder="enter data" oninput="handleInput()" value="<?= $data['detailsofReq'][0]->id; ?>" title="">
 
     <div id="loading-text"></div>
     <!-- <button id="generate-btn" onclick="generateQRCode()">Generate QR Code</button> -->
-    <button id="download-btn" onclick="downloadQRCode()" disabled>Download QR Code</button>
+    <button id="download-btn" onclick="downloadQRCode()">Download QR Code</button>
 </div>
 
                             </div>
@@ -137,36 +108,30 @@
                                             <thead>
                                             <tr>
                                                 <th>Description</th>
-                                                <th>Price</th>
-                                                <!-- <th>VAT (20%)</th> -->
                                                 <th>Total</th>
+
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <tr>
-                                                <td id="td1">Hall 01 for 2 hrs</td>
-                                                <td id="hallprice"> $443.00 </td>
-                                                <!-- <td>$921.80</td> -->
-                                                <td id="amountforhall">$9243</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Sounds</td>
-                                                <td id="soundsStatus"> </td>
-                                                <!-- <td>$921.80</td> -->
-                                                <td id="amounsounds">$9243</td>
-                                            </tr>
+                                                <tr>
+
+                                                <td>Hall Name</td>
+                                                <td id="hallprice"> <?php echo $data['detailsofReq'][0]->hallno; ?> </td>
+
+                                                </tr>
                                             <tr>
                                                 <td>Standings</td>
-                                                <td id="standingsStatus">$443.00 </td>
-                                                <!-- <td>$921.80</td> -->
-                                                <td id="amountstandings">$9243</td>
+                                                <td><?php echo $data['detailsofReq'][0]->standings ;?></td>
                                             </tr>
                                             <tr>
-                                                <td><strong>Total Due</strong></td>
-                                                <td></td>
-                                                <!-- <td></td> -->
-                                                <td><strong id="amount">$9,750</strong></td>
+                                                <td>Paid Amount</td>
+                                                <td id="amountforhall"> Rs. <?php echo $data['detailsofReq'][0]->amount; ?> </td>
                                             </tr>
+                                            <tr>
+                                                <td>Refund Amount</td>
+                                                <td id="amount">Rs.  <?php echo $data['detailsofReq']['0']->refundedAmount; ?> </td>
+                                            </tr>
+
                                             </tbody>
                                         </table>
                                     </div>
@@ -183,16 +148,7 @@
                                                 </p>
                                         </div>
                                     </div>
-                                    <!-- <div class="col-lg-6 col-md-5 col-sm-5">
-                                        <div class="payment-method mb-30">
-                                            <h3 class="inv-title-1 mb-10">Payment Method</h3>
-                                            <ul class="payment-method-list-1 text-14">
-                                                <li><strong>Account No:</strong> 00 123 647 840</li>
-                                                <li><strong>Account Name:</strong> Jhon Doe</li>
-                                                <li><strong>Branch Name:</strong> xyz</li>
-                                            </ul>
-                                        </div>
-                                    </div> -->
+                                    
                                 </div>
                             </div>
                         </div>
@@ -223,40 +179,6 @@
     
     window.onload = function () {
 
-
-        console.log('Page loaded');
-        // Retrieve the order_id from session storage
-        var orderId = sessionStorage.getItem('order_id');
-        console.log("Order ID:", orderId);
-        const id=orderId;
-
-        let reqArray = <?php echo json_encode($reservationrequests); ?>;
-        let hallArray = <?php echo json_encode($hall); ?>;
-
-        console.log(reqArray);
-        let req = reqArray.find(req => req.id == id);
-        console.log("request -------",req);
-        let hall = hallArray.find(hall => hall.hallno == req.hallno);
-        console.log("hal ------",hall);
-
-        console.log(document.getElementById("amount").innerText);
-        console.log(req['amount']);
-        
-        document.getElementById("reqid").innerText=req['id'];
-        document.getElementById("text-input").value=req['id'];
-        document.getElementById("reservaname").innerText=req['name'];
-        document.getElementById("td1").innerText=hall['hallno'] +" for "+ req['hours']+ " hours";
-        document.getElementById("hallprice").innerText="Rs. "+ hall['amountOneHour']+"/1hr";
-        document.getElementById("amountforhall").innerText="Rs. "+ hall['amountOneHour']*req['hours'];
-        document.getElementById("soundsStatus").innerText=req['sounds'];
-        document.getElementById("amounsounds").innerText="Rs. "+ hall['amountSounds'];
-        document.getElementById("standingsStatus").innerText=req['standings'];
-        document.getElementById("amountstandings").innerText="Rs. "+ hall['amountStandings'];
-        document.getElementById("amount").innerText="Rs. "+req['amount'];
-
-
-        // sessionStorage.removeItem('order_id');
-        console.log("Order ID:", id);
 
         generateQRCode(); // Call generateQRCode function when the page loads
         document.getElementById('text-input').addEventListener('input', function () {
@@ -317,7 +239,7 @@
             document.body.removeChild(link);
 
             // window.location.href = 'https://example.com'; // Change this URL to the desired page
-            window.location.href = "<?php echo ROOT ?>/reservasentreq";
+            // window.location.href = "<?php echo ROOT ?>/reservasentreq";
 
         }
     }
