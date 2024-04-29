@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css?family=Catamaran:400,700');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Catamaran', sans-serif;
+}
+
+body {
+    background-color: #f9f9f9;
+    display: inline;
+    justify-content: center;
+}
+
+.container {
+    
+        position: absolute;
+        width: calc(100% - 200px);
+        left: 200px;
+        min-height: 100vh;
+        background-color:   white;
+        transition: 0.5s;
+        margin-top: 70px;
+        padding: 20px;
+        
+    
+    
+}
+
+.container h2 {
+    font-size: 25px;
+    font-weight: 700;
+    color: #333;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    /* margin-left: 20%; */
+}
+
+.container h5 {
+    font-size: 1.25rem;
+}
+
+.container .card1 {
+    display: flex;
+    justify-content: center;
+    border: paleturquoise;
+    border-radius: 30px;
+    margin-top: 30px;
+    margin-left: 10%;
+    height: 70px;
+    width: 80%;
+    background-color: #6196A6;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.container .card1-title {
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-weight: 500;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 1.25rem;
+    cursor: pointer;
+}
+
+.container .card2 {
+    display: flex;
+    justify-content: center;
+    border: paleturquoise;
+    border-radius: 30px;
+    margin-top: 30px;
+    margin-left: 10%;
+    height: 80px;
+    width: 80%;
+    background-color: #94deca;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.container .card2-title {
+    display: flex;
+    justify-content: center;
+    color: black;
+    font-weight: 500;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 1.25rem;
+    cursor: pointer;
+}

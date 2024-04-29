@@ -20,6 +20,7 @@ class CwArticleReview
         $cwId = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->id;
 
         $article = new Article;
+        $result = [];
 
         if ($cwId) {
             $arr1['cw_id'] = $cwId;
@@ -27,10 +28,7 @@ class CwArticleReview
             if ($articleData) {
 
                 $result = $articleData;
-            } else {
-                echo "Article not found.";
-                exit();
-            }
+            } 
         }
         $data = $result;
         

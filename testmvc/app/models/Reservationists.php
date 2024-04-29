@@ -55,19 +55,21 @@ class Reservationists
 
 		if (empty($data['nic'])) {
 			$this->errors['nic'] = "NIC is required";
+		} elseif (!preg_match('/^\d{12}$|^\d{9}[xXvV]$/', $data['nic'])) {
+			$this->errors['nic'] = "NIC must be either 12 digits or 9 digits with 'x' or 'v'";
 		}
-
 
 		if (empty($data['password'])) {
 			$this->errors['password'] = "Password is required";
+		} elseif (!preg_match('/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/', $data['password'])) {
+			$this->errors['password'] = "Password must be 8 or more characters, and include at least one uppercase letter, one lowercase letter, one number, and one symbol";
 		}
 
 
 		if (empty($data['confirmPassword'])) {
-			$this->errors['confirmPassword'] = "Password is required";
+			$this->errors['confirmPassword'] = " Confirm Password is required";
 		} else
         if ($data['confirmPassword'] !== $data['password']) {
-			show('abc');
 			$this->errors['confirmPassword'] = "Passwords do not match";
 		}
 

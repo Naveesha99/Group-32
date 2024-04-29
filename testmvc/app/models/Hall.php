@@ -39,13 +39,18 @@ class Hall
 		{
 			$this->errors['headCount'] = "headCount is required";
 		}
-		// if(empty($data['image']))
-		// {
-		// 	$this->errors['image'] = "Image is required";
-		// }
+		if(empty($data['image']))
+		{
+			$this->errors['image'] = "Image is required";
+		}
 		if(empty($data['content']))
 		{
 			$this->errors['content'] = "Content is required";
+		}
+
+		if(empty($data['status']))
+		{
+			$this->errors['status'] = "Status is required";
 		}
 
 		if(empty($this->errors))

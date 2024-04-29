@@ -14,11 +14,12 @@ class EmployeeReq
         if (empty($_SESSION['USER'])) {
             // Redirect or handle the case when the user is not logged in
             // For example, you might want to redirect them to the login page
-            redirect('empLogin');
+            redirect('login');
             exit();
         }
 
         $empId = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->id;
+        $result = [];
 
         $emp_req = new EmpRequest;
         if ($empId) {
@@ -27,10 +28,7 @@ class EmployeeReq
 			if ($articleData) {
 
 				$result = $articleData;
-            } else {
-                echo "Request not found.";
-                exit();
-            }
+            } 
 		}
 		
         $data = $result;

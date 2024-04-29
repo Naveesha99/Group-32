@@ -14,21 +14,27 @@
 
 <body>
     <div class="container">
-        <div class="overlay" id="overlay"></div>
+        
 
 
         <form method="post" id="articleForm" class="addArticle" autocomplete="off" enctype="multipart/form-data">
             <h1>Add New Article</h1>
 
             <label for="article_name">Article Name :</label>
-            <input type="text" name="article_name" id="article_name">
             <?php if (!empty($errors['article_name'])) : ?>
-                <span style="color: red; font-weight: bold; margin-bottom: 5px;">
-                    <?= show($errors['article_name']) ?>
+                <span class="error">
+                    <?= '* ' . $errors['article_name'] ?>
                 </span>
             <?php endif; ?>
+            <input type="text" name="article_name" id="article_name">
 
             <label for="category">Category : </label><br>
+            <button type="button" id="addNewButton" onclick="addNewCategory()">Add New</button><br>
+            <?php if (!empty($errors['category'])) : ?>
+                <span class="error">
+                    <?= '* ' . $errors['category'] ?>
+                </span>
+            <?php endif; ?>
             <select name="category" id="category">
                 <option value="Comedy">Comedy</option>
                 <option value="Farce">Farce</option>
@@ -38,32 +44,26 @@
                 <option value="Tragi-Comdedy">Trag-Comedy</option>
 
             </select>
-            <?php if (!empty($errors['category'])) : ?>
-                <span style="color: red; font-weight: bold; margin-bottom: 5px;">
-                    <?= show($errors['category']) ?>
-                </span>
-            <?php endif; ?>
 
-
-            <button type="button" id="addNewButton" onclick="addNewCategory()">Add New</button>
 
             <label for="article_content">Article Content:</label>
-
-            <textarea name="article_content" id="article_content" cols="30" rows="10"></textarea>
             <?php if (!empty($errors['article_content'])) : ?>
-                <span style="color: red; font-weight: bold; margin-bottom: 5px;">
-                    <?= show($errors['article_content']) ?>
+                <span class="error">
+                    <?= '* ' . $errors['article_content'] ?>
                 </span>
             <?php endif; ?>
+            <textarea name="article_content" id="article_content" cols="30" rows="10"></textarea>
 
 
             <label for="image">Image:</label>
             <input type="file" id="image" name="image" accept=".jpg, .jpeg, .png">
+            
             <?php if (!empty($errors['image'])) : ?>
-                <span style="color: red; font-weight: bold; margin-bottom: 5px;">
-                    <?= show($errors['image']) ?>
+                <span class="error">
+                    <?= '* ' . $errors['image'] ?>
                 </span>
             <?php endif; ?>
+            
 
             <div class="button-group">
                 <button type="submit" name="save_draft">Save as Draft</button>
@@ -75,18 +75,10 @@
 
         </form>
 
-        <div class="wrpper">
-            <!-- <button type="submit" class="btn" onclick="openPopup()">Submit</button> -->
-            <div class="popup" id="popup">
-                <img src="<?= ROOT ?>/assets/images/tick.jpeg" alt="" srcset="">
-                <h2>Thank You!</h2>
-                <p>Your article has been successfully added!!</p>
-                <button type="button " onclick="closePopup()">OK</button>
-            </div>
-        </div>
-
     </div>
     <script>
+        
+
         function addNewCategory() {
             var newCategory = prompt("Enter the new category:");
             if (newCategory) {

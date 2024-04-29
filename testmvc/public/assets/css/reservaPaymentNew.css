@@ -1,14 +1,43 @@
-body {
+.breadcrumb {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  grid-gap: 8px;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 16px 35px;
+  margin-top: 70px;
+    margin-bottom: 0px;
+
+}
+.breadcrumb li a {
+  text-decoration: none;
+  color: grey;
+}
+
+.breadcrumb li a.active {
+  color: black;
+  /* font-weight: bold; */
+  font-size: 17px;
+}
+
+.breadcrumb .bx-chevron-right {
+  font-size: 25px;
+}
+
+
+.body1 {
     background-color: #ffffff;
     margin: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    /* height: 100vh; */
+    justify-content: space-evenly;
 }
 
 .booking-container {
-    border: 1px solid #e5e5e5;
+    /* border: 1px solid #e5e5e5;
     padding: 50px;
     background-color: #f7f7f7;
     border-radius: 10px;
@@ -16,6 +45,25 @@ display: flex;
 max-width: 512px;
 flex-direction: column;
 font-weight: 400;
+margin-top: 10px;
+
+background: #FFFFFF;
+    box-shadow: 0px 187px 75px rgba(0, 0, 0, 0.01), 0px 105px 63px rgba(0, 0, 0, 0.05), 0px 47px 47px rgba(0, 0, 0, 0.09), 0px 12px 26px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 26px;
+    padding-bottom: 40px;
+    height: 100%; */
+
+
+
+    width: 100%;
+    /* margin: 0 auto 0 auto; */
+    padding: 40px;
+    background-color: #ececec;
+    /* border-radius: 4px; */
+    font-size: 12px;
+    /* height: 100%; */
+    padding-left: 10%;
+    padding-bottom: 10px;
 
 }
 .booking-title {
@@ -97,6 +145,10 @@ font-size: 14px;
 line-height: 150%;
 padding: 16px;
 }
+.final{
+  padding: 16px;
+}
+
 @media (max-width: 991px) {
 .session-details,
 .guests-details,
@@ -149,6 +201,7 @@ margin-top: 10px;
 color: #0f5511;
 font-weight: bold;
 text-align: right;
+margin-top: 10px;
 }
 
 .dea,
@@ -158,3 +211,7 @@ display: flex;
 justify-content: space-between;
 }
 
+.a{
+  display: flex;
+  justify-content: space-between;
+}

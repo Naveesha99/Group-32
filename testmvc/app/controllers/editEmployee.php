@@ -16,6 +16,9 @@ class editemployee
 		// Check if an employee ID is provided in the URL
 		$employeeId = isset($_GET['id']) ? $_GET['id'] : null;
 		$employee = new Employee;
+		$jobs = new Jobs;
+		$result['role'] = $jobs->findall();
+		$data['role'] = $result['role'];
 
 		// echo $employeeId;
 		// If an ID is provided, fetch the employee data
@@ -37,13 +40,16 @@ class editemployee
 		}
 
 		if ($_SERVER['REQUEST_METHOD'] == "POST") {
-			$employee->update($employeeId, $_POST, 'id');
-			redirect('employees');
+			if ($employee->validate($_POST)) {
+				// show($employeeId);
+				$employee->update($employeeId, $_POST, 'id');
+				redirect('employees');
+			}
 		}
 
 		//show($_POST);
-				// show($data);
-// 
+		// show($data);
+		// 
 
 
 		$this->view('admin/editemployee', $data);

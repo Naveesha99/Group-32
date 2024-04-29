@@ -329,7 +329,7 @@ class scheduleDrama
 
             } 
         } 
-		$this->view('admin/scheduledrama', $data);
+		$this->view('/admin/scheduleDrama', $data);
     }
 
 

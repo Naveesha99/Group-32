@@ -16,38 +16,36 @@ class Login
 			$arr['email'] = $_POST['email'];
 			// $hashedPassword = password_hash($_POST['password'], PASSWORD_DEFAULT);
 			// show($hashedPassword);
-
-			$row = $user->first($arr);
-			// show($row);
-			if ($row) {
-				if (password_verify($_POST['password'], $row->password)) {
-					$_SESSION['USER'] = $row;
-					if($row->isActive == 0)
-					{
-						if ($row->user_type == 'admin') {
-							redirect('admindashboard');
-						} elseif ($row->user_type == 'Front Desk Officer') {
-							redirect('frontdesk');
-						} elseif ($row->user_type == 'Content Writer') {
-							redirect('cwDashboard');
-						} elseif ($row->user_type == 'Employee') {
-							redirect('employeeDashboard');
-						} elseif ($row->user_type == 'Reservationist') {
-							redirect('reservaHall');
-							// redirect('admindashboard');
+			if (!$_POST['email'] || !$_POST['password']) {
+				$data['errors']['empty'] = 'Please fill all the fields';
+			} else {
+				$row = $user->first($arr);
+				// show($row);
+				if ($row) {
+					if (password_verify($_POST['password'], $row->password)) {
+						$_SESSION['USER'] = $row;
+						if ($row->isActive == 0) {
+							if ($row->user_type == 'admin') {
+								redirect('admindashboard');
+							} elseif ($row->user_type == 'Front Desk Officer') {
+								redirect('frontdesk');
+							} elseif ($row->user_type == 'Content Writer') {
+								redirect('cwDashboard');
+							} elseif ($row->user_type == 'Employee') {
+								redirect('employeeDashboard');
+							} elseif ($row->user_type == 'reservationist') {
+								redirect('reservaHall');
+								// redirect('admindashboard');
+							}
+						} else {
+							$data['errors']['active'] = 'Your account is not active';
 						}
+					} else {
+						$data['errors']['password'] = 'Password is incorrect';
 					}
-					else
-					{
-						$user->errors['email'] = "Your account is not active";
-						$data['errors'] = $user->errors;
-					}
+				} else {
+					$data['errors']['email'] = 'Email is incorrect';
 				}
-
-				$user->errors['email'] = "Wrong Email or Password";
-				// $user->errors['password'] = "Wrong Password";
-
-				$data['errors'] = $user->errors;
 			}
 		}
 		$this->view('login', $data);

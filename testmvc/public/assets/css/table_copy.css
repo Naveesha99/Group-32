@@ -850,3 +850,8 @@ background-color: #fffff6;
 .button a img{
   scale: 0.5;
 }
+
+.text-status.refund {
+  /* background-color: #cf0303c7; */
+  background-color: #dc45c0;
+}

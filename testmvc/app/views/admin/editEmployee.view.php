@@ -20,18 +20,53 @@ include 'adminSidebar.php' ?>
         <form method="POST" class="add-employee">
             <h1>Edit Registration Form</h1>
             <label for="empName">Employee Name</label>
+            <?php if (!empty($errors['empName'])) : ?>
+                <span class="error">
+                    <?= '* ' . $errors['empName'] ?>
+                </span>
+            <?php endif; ?>
             <input type="text" name="empName" value="<?= $data['employee'][0]->empName?>">
             <label for="empEmail">E-mail</label>
+            <?php if (!empty($errors['empEmail'])) : ?>
+                <span class="error">
+                    <?= '* ' . $errors['empEmail'] ?>
+                </span>
+            <?php endif; ?>
             <input type="email" name="empEmail" value="<?= $data['employee'][0]->empEmail?>">
             <label for="empNIC">NIC</label>
+            <?php if (!empty($errors['empNIC'])) : ?>
+                <span class="error">
+                    <?= '* ' . $errors['empNIC'] ?>
+                </span>
+            <?php endif; ?>
             <input type="text" name="empNIC" value="<?= $data['employee'][0]->empNIC?>" readonly>
             <label for="empDOB" >Date of Birth</label>
+            <?php if (!empty($errors['empDOB'])) : ?>
+                <span class="error">
+                    <?= '* ' . $errors['empDOB'] ?>
+                </span>
+            <?php endif; ?>
             <input type="date" name="empDOB" value="<?= $data['employee'][0]->empDOB?>" readonly>
             <label for="empAddress">Address</label>
+            <?php if (!empty($errors['empAddress'])) : ?>
+                <span class="error">
+                    <?= '* ' . $errors['empAddress'] ?>
+                </span>
+            <?php endif; ?>
             <input type="text" name="empAddress" value="<?= $data['employee'][0]->empAddress?>">
             <label for="empContact">Contact</label>
+            <?php if (!empty($errors['empContact'])) : ?>
+                <span class="error">
+                    <?= '* ' . $errors['empContact'] ?>
+                </span>
+            <?php endif; ?>
             <input type="text" name="empContact"value="<?= $data['employee'][0]->empContact?>">
             <label for="empRoll">Employee Roll</label>
+            <?php if (!empty($errors['empRoll'])) : ?>
+                <span class="error">
+                    <?= '* ' . $errors['empRoll'] ?>
+                </span>
+            <?php endif; ?>
             <select class="select" name="empRoll" value="<?= $data['employee'][0]->empRoll?>">
                 <?php
                 //show($data['employee']);

@@ -1,9 +1,12 @@
 <?php
-foreach ($data['payments'] as $key => $value) {
-    $dataPoints[] = array("y" => $value, "label" => $key);
+
+if(!empty($data['payments'])){
+    foreach ($data['payments'] as $key => $value) {
+        $dataPoints[] = array("y" => $value, "label" => $key);
+    }
 }
 foreach ($data['status_counts'] as $key => $value) {
-    $statusCounts[] = array("y" => $value, "label" => $key);
+    $statusCounts[] = array("y" => $value, "label" => $key, "color" => "#265073", "exploded" => true);
 }
 ?>
 
@@ -30,10 +33,13 @@ foreach ($data['status_counts'] as $key => $value) {
                     title: "Income in LKR",
                     includeZero: true
                 },
+                axisX: {
+                    title: "Months"
+                },
                 data: [{
-                    color: "#cea2fd",
+                    color: "#265073",
                     type: "bar",
-                    yValueFormatString: "#,##0LKR",
+                    yValueFormatString: "#,###",
                     indexLabel: "{y}",
                     indexLabelPlacement: "inside",
                     indexLabelFontWeight: "bolder",

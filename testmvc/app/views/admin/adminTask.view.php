@@ -13,29 +13,21 @@
 
 <body>
     <div class="container">
-        <div class="content">
-            <div class="today">
-                <div class="task-chart" id="chartContainer1"></div>
-            </div>
-            <div class="cards">
-                <a href="<?= ROOT ?>/createtask">
-                    <div class="card">
-                        <div class="box">
-                            <h1>Create Tasks</h1>
-                        </div>
-                    </div>
-                </a>
-                <a href="<?= ROOT ?>/assignTask">
-                    <div class="card">
-                        <div class="box">
-                            <h1>Assign Tasks</h1>
-                        </div>
-                    </div>
-                </a>
-            </div>
+        <div class="cardBox">
+
+            <a href="<?= ROOT ?>/createtask">
+                <div class="card">
+                    <div class="numbers">Create Task</div>
+                </div>
+            </a>
+            <a href="<?= ROOT ?>/assignTask">
+                <div class="card">
+                <div class="numbers">Assign Task</div>
+                </div>
+            </a>
         </div>
     </div>
-    </div>
+
 </body>
 
 </html>

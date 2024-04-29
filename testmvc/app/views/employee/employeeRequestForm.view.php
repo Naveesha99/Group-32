@@ -14,54 +14,60 @@
         <h1>Leave Request Form </h1>
 
         <form method="POST">
-
-            <label for="employee_name">Employee Name:</label>
-            <input type="text" id="employee_name" name="employee_name" value="<?=$_SESSION['USER']->fullname?>" required>
             <?php if (!empty($errors['employee_name'])) : ?>
-                <span style="color: red; font-weight: bold; margin-bottom: 5px;">
-                    <?= show($errors['employee_name']) ?>
+                <span class="error">
+                    <?= '* ' . $errors['employee_name'] ?> </br>
                 </span>
             <?php endif; ?>
+            <label for="employee_name">Employee Name:</label>
+            <input type="text" id="employee_name" name="employee_name" value="<?= $_SESSION['USER']->fullname ?>">
 
+
+            <?php if (!empty($errors['leave_type'])) : ?>
+                <span class="error">
+                    <?= '* ' . $errors['leave_type'] ?> </br>
+                </span>
+            <?php endif; ?>
             <label for="leave_type">Leave Type:</label>
-            <select id="leave_type" name="leave_type" required>
+            <select id="leave_type" name="leave_type">
                 <option value="Sick Leave">Sick Leave</option>
                 <option value="Vacation Leave">Vacation Leave</option>
                 <option value="Personal Leave">Personal Leave</option>
             </select>
-            <?php if (!empty($errors['leave_type'])) : ?>
-                <span style="color: red; font-weight: bold; margin-bottom: 5px;">
-                    <?= show($errors['leave_type']) ?>
+
+            <?php if (!empty($errors['start_date'])) : ?>
+                <span class="error">
+                    <?= '* ' . $errors['start_date'] ?> </br>
                 </span>
             <?php endif; ?>
-
             <label for="start_date">Start Date:</label>
-            <input type="date" id="start_date" name="start_date" required>
-            <?php if (!empty($errors['start_date'])) : ?>
-                <span style="color: red; font-weight: bold; margin-bottom: 5px;">
-                    <?= show($errors['start_date']) ?>
+            <input type="date" id="start_date" name="start_date">
+
+
+            <?php if (!empty($errors['end_date'])) : ?>
+                <span class="error">
+                    <?= '* ' . $errors['end_date'] ?> </br>
                 </span>
             <?php endif; ?>
 
             <label for="end_date">End Date:</label>
-            <input type="date" id="end_date" name="end_date" required>
-            <?php if (!empty($errors['end_date'])) : ?>
-                <span style="color: red; font-weight: bold; margin-bottom: 5px;">
-                    <?= show($errors['end_date']) ?>
-                </span>
-            <?php endif; ?>
+            <input type="date" id="end_date" name="end_date">
 
-            <label for="reason">Reason:</label>
-            <textarea id="reason" name="reason" rows="4" required></textarea>
+
             <?php if (!empty($errors['reason'])) : ?>
-                <span style="color: red; font-weight: bold; margin-bottom: 5px;">
-                    <?= show($errors['reason']) ?>
+                <span class="error">
+                    <?= '* ' . $errors['reason'] ?> </br>
                 </span>
             <?php endif; ?>
+            <label for="reason">Reason:</label>
+            <textarea id="reason" name="reason" rows="4"></textarea>
+
 
             <button type="submit" name="submit">SUBMIT</button>
         </form>
     </div>
+
+
 
 </body>
 
