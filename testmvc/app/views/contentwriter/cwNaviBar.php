@@ -25,6 +25,7 @@
             <a class="<?= $page == "cwAddArticle" ? 'active' : ''; ?>" href="<?= ROOT ?>/cwAddArticle"> <i class="fa-solid fa-newspaper"></i><span> New Article</span></a>
             <a class="<?= $page == "cwDramaPortal" ? 'active' : ''; ?>" href="<?= ROOT ?>/cwDramaPortal"> <i class="fa-regular fa-newspaper"></i> <span>All Articles</span></a>
             <a class="<?= $page == "cwDraft" ? 'active' : ''; ?>" href="<?= ROOT ?>/cwDraft"> <i class="fa-regular fa-hard-drive"></i> <span>Drafts</span></a>
+            <a class="<?= $page == "cwNotifications" ? 'active' : ''; ?>" href="<?= ROOT ?>/cwNotifications"> <i class="fa-solid fa-bell"></i> <span>Notifications</span></a>
             <!-- <a href="<?= ROOT ?>/cwProfile"> <i class="fa-solid fa-user"></i> <span>Profile</span></a> -->
 
         </div>
