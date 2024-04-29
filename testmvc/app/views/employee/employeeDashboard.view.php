@@ -26,14 +26,14 @@
             </div>
         </div>
 
-        <div class="card">
+        <div class="cardN">
             <div>
                 <div class="numbers">To Do</div>
                 <div class="cardName"><?= $data['to_do'] ?></div>
             </div>
         </div>
 
-        <div class="card">
+        <div class="cardN">
             <div>
                 <div class="numbers">Completed</div>
                 <div class="cardName"><?= $data['completed'] ?></div>
@@ -65,50 +65,66 @@
                     <?php
                     if ($today_tasks && (is_array($today_tasks) || is_object($today_tasks))) {
                         foreach ($today_tasks as $row) {
-                            echo '<tr>
-                            <td>' . $row->taskType . ' </td>
-                            <td>' . $row->location . ' </td>
-                            <td>' . $row->startTime . ' </td>
-                            <td>' . $row->endTime . ' </td>
-                            <td>' . $row->status . '</td>
-                            <td> 
-                                <span class="action_btn">
-                                <form method = "POST">
-                                <input type="hidden" name="task_id" value="' . $row->id . '">
-                                <button type="submit" class="btn" onClick="openPopupNew()">View</button>
-                                </form>
-                                </span>
-                            </td>
-                            </tr>';
+                    ?>
+                            <tr>
+                                <td><?= $row->taskType ?> </td>
+                                <td><?= $row->location ?> </td>
+
+                                <td><?= $row->startTime ?> </td>
+                                <td><?= $row->endTime ?> </td>
+                                <td><?= $row->status ?></td>
+                                <td>
+                                    <span class="action_btn">
+                                        <form method="POST">
+                                            <input type="hidden" name="task_id" value="<?= $row->id ?>">
+                                            <button type="button" data-order='<?= json_encode($row) ?>' class="btn" onClick="openPopupNew(this)">View</button>
+                                        </form>
+                                    </span>
+                                </td>
+                            </tr>
+                    <?php
                         }
                     } else {
                         echo '<tr><td colspan="5">No data available</td></tr>';
                     }
+                    //show($data['empTask'])
                     ?>
                     <div class="card2" id="card2">
                         <div class="box">
                             <div class="content">
+                                <?php // show($data['empTask']);  
+                                ?>
+                                <!-- <form id="completeTaskForm" action="<?= ROOT ?>/EmployeeDashboard/index" method="POST"> -->
 
-                                <div class="paragraph">
-                                    <label for="taskType">Task:</label>
-                                    <input type="text" id="taskType" name="taskType" value="<?= $data['empTask'][0]->taskType ?>" readonly>
+                                    <div class="paragraph">
+                                        <label for="taskType">Task:</label>
+                                        <input type="text" id="taskType" name="taskType" readonly>
 
-                                    <label for="location">Place:</label>
-                                    <input type="text" id="location" name="location" value="<?= $data['empTask'][0]->location ?>" readonly>
+                                        <label for="location">Place:</label>
+                                        <input type="text" id="location" name="location" readonly>
 
-                                    <label for="date">Date:</label>
-                                    <input type="text" id="date" name="date" value="<?= $data['empTask'][0]->date ?>" readonly>
+                                        <label for="date">Date:</label>
+                                        <input type="text" id="date" name="date" readonly>
 
-                                    <label for="startTime">Start Time:</label>
-                                    <input type="text" id="startTime" name="startTime" value="<?= $data['empTask'][0]->startTime ?>" readonly>
+                                        <label for="startTime">Start Time:</label>
+                                        <input type="text" id="startTime" name="startTime" readonly>
 
-                                    <label for="endTime">End Time:</label>
-                                    <input type="text" id="endTime" name="endTime" value="<?= $data['empTask'][0]->endTime ?>" readonly>
+                                        <label for="endTime">End Time:</label>
+                                        <input type="text" id="endTime" name="endTime" readonly>
 
-                                    <label for="status">Status:</label>
-                                    <input type="text" id="status" name="status" value="<?= $data['empTask'][0]->status ?>" readonly>
-                                    <button onclick="closePopupNew()">Close</button>
-                                </div>
+                                        <label for="status">Status:</label>
+                                        <input type="text" id="status" name="status" readonly>
+
+                                        <!-- <select id="status" name="status">
+                                            <option value="Pending">Pending</option>
+                                            <option value="Completed">Completed</option>
+                                        </select> -->
+                                        <button onclick="closePopupNew()">Close</button>
+                                        <!-- <button type="submit">Complete</button> -->
+                                    </div>
+                                    <!-- <input type="hidden" id="taskId" name="taskId"> -->
+                                <!-- </form> -->
+
 
                             </div>
                         </div>
@@ -144,23 +160,27 @@
                     <?php
                     if ($future_tasks && (is_array($future_tasks) || is_object($future_tasks))) {
                         foreach ($future_tasks as $row) {
-                            echo '<tr>
-                            <td>' . $row->taskType . ' </td>
-                            <td>' . $row->location . ' </td>
-                            <td>' . $row->date . ' </td>
-                            <td>' . $row->startTime . ' </td>
-                            <td>' . $row->endTime . ' </td>
-                            <td>' . $row->status . '</td>
-                            <td>
-                            <span class="action_btn">
-                             
-                               <form method = "POST">
-                               <input type="hidden" name="task_id" value="' . $row->id . '">
-                               <button type="submit" class="btn" onClick="openPopup()">View</button>
-                               </form>
-                               </span>
-                            </td>
-                            </tr>';
+                    ?>
+                            <tr>
+                                <td><?= $row->taskType ?> </td>
+                                <td><?= $row->location ?> </td>
+                                <td><?= $row->date ?> </td>
+                                <td><?= $row->startTime ?> </td>
+                                <td><?= $row->endTime ?> </td>
+                                <td><?= $row->status ?></td>
+                                <td>
+                                    <span class="action_btn">
+
+                                        <form method="POST">
+                                            <input type="hidden" name="task_id" value="<?= $row->id ?>">
+                                            <button type="button" data-order='<?= json_encode($row) ?>' class="btn" onClick="openPopupNew(this)">View</button>
+                                        </form>
+
+                                    </span>
+                                </td>
+                            </tr>
+
+                    <?php
                         }
                     } else {
                         echo '<tr><td colspan="5">No data available</td></tr>';
@@ -173,22 +193,22 @@
 
                                 <div class="paragraph">
                                     <label for="taskType">Task:</label>
-                                    <input type="text" id="taskType" name="taskType" value="<?= $data['empTask'][0]->taskType ?>" readonly>
+                                    <input type="text" id="taskType" name="taskType" readonly>
 
                                     <label for="location">Place:</label>
-                                    <input type="text" id="location" name="location" value="<?= $data['empTask'][0]->location ?>" readonly>
+                                    <input type="text" id="location" name="location" readonly>
 
                                     <label for="date">Date:</label>
-                                    <input type="text" id="date" name="date" value="<?= $data['empTask'][0]->date ?>" readonly>
+                                    <input type="text" id="date" name="date" readonly>
 
                                     <label for="startTime">Start Time:</label>
-                                    <input type="text" id="startTime" name="startTime" value="<?= $data['empTask'][0]->startTime ?>" readonly>
+                                    <input type="text" id="startTime" name="startTime" readonly>
 
                                     <label for="endTime">End Time:</label>
-                                    <input type="text" id="endTime" name="endTime" value="<?= $data['empTask'][0]->endTime ?>" readonly>
+                                    <input type="text" id="endTime" name="endTime" readonly>
 
                                     <label for="status">Status:</label>
-                                    <input type="text" id="status" name="status" value="<?= $data['empTask'][0]->status ?>" readonly>
+                                    <input type="text" id="status" name="status" readonly>
                                     <button onclick="closePopup()">Close</button>
                                 </div>
 
@@ -205,26 +225,55 @@
 
 </body>
 <script>
-    function openPopup() {
+    function openPopup(button) {
+        var order = JSON.parse(button.getAttribute("data-order"));
+        console.log(order);
+        document.getElementById('taskType').value = order.taskType;
+        document.getElementById('location').value = order.location;
+        document.getElementById('date').value = order.date;
+        document.getElementById('startTime').value = order.startTime;
+        document.getElementById('endTime').value = order.endTime;
+        document.getElementById('status').value = order.status;
+
         document.getElementById('card1').style.display = 'block';
         document.getElementById('overlay').style.display = 'block';
-        event.preventDefault();
+
+
+
     };
 
     function closePopup() {
         document.getElementById('card1').style.display = 'none';
         document.getElementById('overlay').style.display = 'none';
+        // document.getElementById('task_id').value = null;
+        window.location.href = 'EmployeeDashboard';
     };
 
-    function openPopupNew() {
+    function openPopupNew(button) {
+
+        // event.preventDefault();
+        var order = JSON.parse(button.getAttribute("data-order"));
+
+        console.log(order);
+        document.getElementById('taskType').value = order.taskType;
+        document.getElementById('location').value = order.location;
+        document.getElementById('date').value = order.date;
+
+        document.getElementById('startTime').value = order.startTime;
+        document.getElementById('endTime').value = order.endTime;
+        document.getElementById('status').value = order.status;
+
         document.getElementById('card2').style.display = 'block';
         document.getElementById('overlay').style.display = 'block';
-        event.preventDefault();
+
     };
 
     function closePopupNew() {
         document.getElementById('card2').style.display = 'none';
         document.getElementById('overlay').style.display = 'none';
+        //document.getElementById('task_id').value = null;
+        window.location.href = "EmployeeDashboard";
+
     };
 </script>
 

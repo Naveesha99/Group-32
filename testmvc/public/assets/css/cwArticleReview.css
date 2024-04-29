@@ -132,17 +132,17 @@ body{
     background-color: red;
 }
 
-.action_btn .btn-delete,.btn-update, .btn-view:hover{
+.action_btn .btn-delete, .btn-update, .btn-view:hover{
     box-shadow: 0 2px 8px gray ;
 }
 
 .container .table-responsive table>tbody>tr{
-    background-color: whitesmoke;
+    background-color: #ffffff;
     transition: 0.3s ease-in-out;
 }
 
 .container .table-responsive table>tbody>tr:nth-child(even){
-    background-color: #cec78f;
+    background-color: #ffffff;
 }
 
 .container .table-responsive table>tbody>tr:hover{

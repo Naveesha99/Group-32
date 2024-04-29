@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/cwArticleDisplay.css">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/breacrumb.css">
     <title>Display Article</title>
 </head>
 <?php require_once 'cwNaviBar.php' ?>
@@ -30,6 +31,15 @@ function limitWords($text, $limit)
 
 <body>
     <div class="container">
+        <ul class="breadcrumb">
+            <li>
+                <a href="<?= ROOT ?>/cwDashboard">Dashboard</a>
+            </li>
+            <i class="fa-solid fa-greater-than"></i>
+            <li>
+                <a href="#" class="active">cwArticleDisplay</a>
+            </li>
+        </ul>
         <div class="table-responsive">
             <table>
                 <thead>
@@ -47,6 +57,7 @@ function limitWords($text, $limit)
                     // Check if $data is not false and is an array or object
                     if ($data && (is_array($data) || is_object($data))) {
                         foreach ($data as $row) {
+                            $hideLabel = ($row->hide == 1) ? 'Unhide' : 'Hide';
                             echo '<tr>
                                
                                 <td>' . $row->article_name . '</td>
@@ -57,7 +68,10 @@ function limitWords($text, $limit)
                                 </td>
                                 <td>
                                     <span class="action_btn">
-                                    <button class="btn-hide">Hide</button>
+                                        <form method="POST">
+                                            <input type="hidden" name="hide_article" value="' . $row->id . '">
+                                            <button type="submit" name="hide" class="btn-hide">'. $hideLabel . '</button>
+                                        </form>
                                         
                                         <a href = "cwViewOwnArticle?id=' . $row->id . '" class = "btn-view">View</a>
 

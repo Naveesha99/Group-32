@@ -21,6 +21,7 @@ class CWDramaPortal
 
 
 		$article = new Article;
+		$result = [];
 		if ($cwId) {
 			$arr1['cw_id'] = $cwId;
 			$articleData = $article->where($arr1);
@@ -31,10 +32,7 @@ class CWDramaPortal
 				});
 
 
-            } else {
-                echo "Article not found.";
-                exit();
-            }
+            } 
 		}
 		
 		// $data['result'] = $result;

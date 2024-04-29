@@ -33,6 +33,7 @@ class EmpEditRequest
         }
 
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
+            
             $emp_req->update($reqId, $_POST, 'id');
             redirect('employeeReq');
         }

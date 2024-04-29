@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/cwArticleDisplay.css">
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/breacrumb.css">
-    <title>Display Article</title>
+    <title>Pending Article</title>
 </head>
 <?php require_once 'cwNaviBar.php' ?>
 <?php include 'navBar.php' ?>
@@ -27,31 +27,19 @@ function limitWords($text, $limit)
 }
 ?>
 
+
+
 <body>
     <div class="container">
         <ul class="breadcrumb">
             <li>
-                <a href="<?= ROOT ?>/cwDramaPortal">Dramas</a>
+                <a href="<?=ROOT?>/cwDashboard">Dashboard</a>
             </li>
             <i class="fa-solid fa-greater-than"></i>
             <li>
-                <a href="#" class="active">All articles</a>
+                <a href="#" class="active">Pending Articles</a>
             </li>
         </ul>
-
-        <form>
-            <div class="form">
-                <form>
-                    <div class="form-input">
-                        <input type="search" placeholder="Search...">
-                        <button type="submit" class="search-btn">
-                            <i class='bx bx-search'></i>
-                        </button>
-                    </div>
-                </form>
-            </div>
-
-        </form>
         <div class="table-responsive">
             <table>
                 <thead>
@@ -61,16 +49,17 @@ function limitWords($text, $limit)
                         <th>Category</th>
                         <th>Article Content</th>
                         <th>Image</th>
-                        <th>Progress</th>
+                        <th>Status</th>
                         <th>Action</th>
                     </tr>
                 </thead>
-
-                <?php
-                if ($data && (is_array($data) || is_object($data))) {
-                    foreach ($data as $row) {
-                        echo '<tr>
-                                
+                <tbody>
+                    <?php
+                    // Check if $data is not false and is an array or object
+                    if ($data['pending'] && (is_array($data['pending']) || is_object($data['pending']))) {
+                        foreach ($data['pending'] as $row) {
+                            echo '<tr>
+                               
                                 <td>' . $row->article_name . '</td>
                                 <td>' . $row->category . '</td>
                                 <td>' . limitWords($row->article_content, 5) . '</td>
@@ -81,8 +70,12 @@ function limitWords($text, $limit)
                                 <td>
                                     <span class="action_btn">
                                         
+                                        
                                         <a href = "cwViewOwnArticle?id=' . $row->id . '" class = "btn-view">View</a>
 
+                                        
+                                        <a href = "cwEditArticle?id=' . $row->id . '" class = "btn-update">Edit </a>
+            
 
                                         <form method="POST">
                                             <input type="hidden" name="delete_article" value="' . $row->id . '">
@@ -91,37 +84,22 @@ function limitWords($text, $limit)
                                     </span>
                                 </td>
                               </tr>';
+                        }
+                    } else {
+                        echo '<tr><td colspan="9">No data available</td></tr>';
                     }
-                } else {
-                    echo '<tr><td colspan="9">No data available</td></tr>';
-                }
-                ?>
+                    ?>
+
+                </tbody>
+
 
 
             </table>
         </div>
+
+
     </div>
 
-    <script>
-        const search = document.querySelector(".form input"),
-            table_rows = document.querySelectorAll("tbody tr");
-
-        search.addEventListener('input', performSearch);
-
-        function performSearch() {
-            table_rows.forEach((row, i) => {
-                let search_data = search.value.toLowerCase(),
-                    row_text = '';
-
-                for (let j = 0; j < row.children.length - 1; j++) {
-                    row_text += row.children[j].textContent.toLowerCase();
-
-
-                }
-                // console.log(row_text);
-
-                row.classList.toggle('hide', row_text.indexOf(search_data) < 0);
-            })
-        }
-    </script>
 </body>
+
+</html>

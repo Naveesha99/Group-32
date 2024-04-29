@@ -23,7 +23,7 @@
             <a class="<?=$page=="employeeDashboard" ? 'active' : '';?>"  href="<?= ROOT ?>/employeeDashboard"> <i class="fa-solid fa-house"></i> <span>Dashboard</span></a>
             <a class="<?=$page=="empTask" ? 'active' : '';?>" href="<?= ROOT ?>/empTask"> <i class="fa-solid fa-list-check"></i><span> Tasks</span></a>
             <a class="<?=$page=="employeeReq" ? 'active' : '';?>"  href="<?= ROOT ?>/employeeReq"> <i class="fa-solid fa-hand"></i> <span>Request</span></a>
-            <a class="<?=$page=="notification" ? 'active' : '';?>" href="<?= ROOT ?>/notification"> <i class="fa-solid fa-bell"></i> <span>Notification</span></a>
+            <a class="<?=$page=="empNotification" ? 'active' : '';?>" href="<?= ROOT ?>/empNotification"> <i class="fa-solid fa-bell"></i> <span>Notification</span></a>
             <!-- <a href="<?= ROOT ?>/employeeSetting"> <i class="fa-solid fa-user"></i> <span>Profile</span></a> -->
 
         </div>
