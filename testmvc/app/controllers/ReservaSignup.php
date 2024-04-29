@@ -31,7 +31,7 @@ class ReservaSignup
 				// redirect('login');
 				//echo '<script>console.log("Before inside if (POST request)");</script>';
 				if ($reservationists->validate($_POST)) {
-					
+
 					$hashedPassword = password_hash($_POST['password'], PASSWORD_DEFAULT);
 					$_POST['password'] = $hashedPassword;
 					// $email= new SendMail;
@@ -40,16 +40,23 @@ class ReservaSignup
 						'fullname' => $_POST['fullname'],
 						'username' => $_POST['username'],
 						'email' => $_POST['email'],
+						'nic' => $_POST['nic'],
 						'password' => $hashedPassword,
 						'user_type' => $_POST['empRoll'],
 					];
-					$user->insert($userData);
-					$reservationists->insert($forReservationistTable);
-					// redirect('reservaLogin');
-					redirect('login');
+					$arr1['email'] = $_POST['email'];
+					$result = $user->first($arr1);
+					if ($result) {
+						$data['errors']['exist'] = 'Email already exists';
+					} else {
+						$user->insert($userData);
+						$reservationists->insert($forReservationistTable);
+						// redirect('reservaLogin');
+						redirect('login');
+					}
+				} else {
+					$data['errors'] = $reservationists->errors;
 				}
-
-				$data['errors'] = $reservationists->errors;
 			}
 		}
 
