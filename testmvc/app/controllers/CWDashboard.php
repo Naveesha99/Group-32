@@ -20,6 +20,8 @@ class CWDashboard
 		$article = new Article;
 		$result = [];
 		$draft = [];
+		$pending = [];
+		$rejected = [];
 		if ($cwId) {
 			$arr1['cw_id'] = $cwId;
 			$articleData = $article->where($arr1);
@@ -27,6 +29,12 @@ class CWDashboard
 
 				$result = array_filter($articleData, function ($article) {
 					return $article->status == 1 && $article->progress == 'accepted';
+				});
+				$pending = array_filter($articleData, function ($article) {
+					return $article->status == 1 && $article->progress == 'pending';
+				});
+				$rejected = array_filter($articleData, function ($article) {
+					return $article->status == 1 && $article->progress == 'rejected';
 				});
 
 				$draft = array_filter($articleData, function ($article) {
@@ -42,6 +50,9 @@ class CWDashboard
 		$data['draft'] = count($draft);
 		$data['published'] =$total;
 		$data['result'] = $result;
+		
+		$data['pendingCount'] = count($pending);
+		$data['rejected'] = count($rejected);
 
 		$this->view('contentwriter/cwDashboard', $data);
 	}

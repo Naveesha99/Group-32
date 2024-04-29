@@ -26,6 +26,16 @@ body{
     transition:  margin-top 0.5s ease;
 }
 
+.container .title{
+    margin-top: 40px;
+    margin-bottom: 5px;
+}
+.container .title h2{
+    font-size: 2.0rem;
+    font-weight: 600;
+    color: black;
+}
+
 .container .cardBox{
     position: relative;
     width: 100%;
@@ -118,7 +128,7 @@ body{
     padding-top: 17px;
     font-size: 15px;
     border-bottom: 1px solid black;
-    text-align: center;
+    text-align: left;
     align-items: center;
 
 }
@@ -193,6 +203,23 @@ tr.hide{
     border-radius: 10px;
     transition: 0.3s ease-in-out;
 
+}
+
+.container .table-responsive table .btn-hide {
+    background-color: transparent;
+    border-color: #e6cc00;
+    color: black;
+    border: 1px solid #e6cc00;
+    display: inline-block;
+    padding: 7px 17px;
+    font-weight: bold;
+    border-radius: 13px;
+    transition: 0.3s ease-in-out;
+}
+
+.container .table-responsive table .btn-hide:hover {
+    /* background-color: #e6cc00; */
+    box-shadow: 0 2px 8px gray;
 }
 
 .action_btn .btn-view{
