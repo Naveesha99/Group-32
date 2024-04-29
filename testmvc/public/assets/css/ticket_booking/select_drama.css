@@ -207,7 +207,7 @@ p{
 
 
 .submit-button {
-    background-color:brown;
+    background-color: brown;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -215,7 +215,7 @@ p{
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
     font-weight: bold;
-    margin-left: 200px;
+    margin-left: 100px;
     margin-top: 0%;
     /* margin-right: 35px; */
     cursor: pointer;

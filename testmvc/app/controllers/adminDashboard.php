@@ -30,39 +30,45 @@ class adminDashboard
 				$status = $item->status;
 				if ($status == 'pending') {
 					$pending++;
-				}elseif ($status == 'accepted') {
+				} elseif ($status == 'accepted') {
 					$accepted++;
-				}elseif ($status == 'rejected') {
+				} elseif ($status == 'rejected') {
 					$rejected++;
 				}
-		}
-		$data['status_counts'] = [
-			'pending' => $pending,
-			'accepted' => $accepted,
-			'rejected' => $rejected
-		];
+			}
+			$data['status_counts'] = [
+				'pending' => $pending,
+				'accepted' => $accepted,
+				'rejected' => $rejected
+			];
 		}
 
 		$order = new Orders;
 		$result['order'] = $order->findAll();
 		// show($result['order']);
 		$months = [];
-		foreach ($result['order'] as $order) {
-			$date = $order->drama_date;
-			$month = date('F', strtotime($date));
-			$months[] = $month;
-		}
+
+		// foreach ($result['order'] as $order) {
+		// 	$date = $order->drama_date;
+		// 	$month = date('F', strtotime($date));
+		// 	$months[] = $month;
+		// }
 		$payments = [];
-		foreach ($result['order'] as $order) {
-			$date = $order->drama_date;
-			$month = date('F', strtotime($date));
-			$payment = $order->payment;
-			if (!isset($payments[$month])) {
-				$payments[$month] = 0;
+		if (!empty($result['order'])) {
+			foreach ($result['order'] as $order) {
+				$date = $order->drama_date;
+				$month = date('F', strtotime($date));
+				$payment = $order->payment;
+				if (!isset($payments[$month])) {
+					$payments[$month] = 0;
+				}
+				$payments[$month] += $payment;
 			}
-			$payments[$month] += $payment;
+			$data['payments'] = $payments;
+		}else{
+			echo "No data to show";
 		}
-		$data['payments'] = $payments;
+
 
 		// Assuming you have a User model with a method to fetch user data
 		// $userModel = new user(); // Replace with your actual User model

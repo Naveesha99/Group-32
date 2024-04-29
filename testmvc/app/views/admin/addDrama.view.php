@@ -15,31 +15,33 @@
 <body>
 	<div class="container">
 		<div class="content">
-			<form method="POST" class="add-Drama">
+			<form  method="POST"  enctype="multipart/form-data" >
 				<h1>ADD DRAMA</h1>
 				<label for="title">Drama Name</label>
-				<input type="text" name="title">
-                <?php if (!empty($errors['title'])) : ?>
-							<span style="color: red; font-weight: bold; margin-bottom: 5px;">
-								<?= show($errors['title']) ?>
-							</span>
-						<?php endif; ?>
+				<input type="text" name="title" placeholder="title">
+				
+			<?php if(isset($data['no_title'])){?>  <span class="error"><?= '* ' .$data['no_title'] ?></span> <?php } ?>
+			<?php if(isset($data['exist_title'])){?>  <span class="error"><?= '* ' .$data['exist_title'] ?></span> <?php } ?>
+
+                
 				<label for="description">Description</label>
+				<?php if(isset($data['no_description'])){?>  <span class="error"><?= '* ' .$data['no_description'] ?></span> <?php } ?>
+				<?php if(isset($data['des_length'])){?>  <span class="error"><?= '* ' .$data['des_length'] ?></span> <?php } ?>
 				<input type="text" name="description">
-				<?php if (!empty($errors['description'])) : ?>
-							<span style="color: red; font-weight: bold; margin-bottom: 5px;">
-								<?= show($errors['description']) ?>
-							</span>
-						<?php endif; ?>
+
 				<label for="image">Image</label>
-				<input type="file" name="image">
-				<?php if (!empty($errors['image'])) : ?>
-							<span style="color: red; font-weight: bold; margin-bottom: 5px;">
-								<?= show($errors['image']) ?>
-							</span>
-						<?php endif; ?>
+				<?php if(isset($data['no_image'])){?>  <span class="error"><?= '* ' .$data['no_image'] ?></span> <?php } ?>
+						<?php if(isset($data['not_all'])){?>  <span class="error"><?= '* ' .$data['not_all'] ?></span> <?php } ?>
+				<input type="file"  id="image" name="image" accept="image/*">
+				
+				<?php if(!empty($errors)):?>
+							<h5>
+								<?= implode("<br>",$errors)?>
+							</h5>
+				<?php endif;?>
 
 				<button class="btn-1">Add Drama</button>
+				<?php if(isset($data['ok'])){?>  <span class="error"><?= '* ' .$data['ok'] ?></span> <?php } ?>
 			</form>
 		</div>
 	</div>

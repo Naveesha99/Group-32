@@ -9,37 +9,54 @@
 }
 
 .container {
-    width: 45%;
-    margin: 0 auto;
-    padding: 20px;
+    position: absolute;
+    width: calc(100% - 200px);
+    left: 200px;
+    min-height: 100vh;
+    /* margin: 0 auto;
+    padding: 20px; */
     background-color: white;
     transition: 0.5s;
-    margin-top: 60px;
-    padding: 20px;
-    border-radius: 5px;
+    margin-top: 30px;
+    padding: 100px 50px; 
+    display: flex;
+    justify-content: center;
+    /* border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    align-items: center;
+    justify-content: center; */
+}
+span.error {
+    color: red;
+    font-size: 12px;
+    font-weight: 600;
+    margin-left: 10px;
 }
 
 h1 {
     text-align: center;
     color: #000000;
-    margin-top: 10px;
+    margin-top: 30px;
     font-size: 30px;
     margin-bottom: 40px;
 }
 
-form {
-    margin-top: 40px;
+.container form.employeRequest {
+    width: 800px; 
+    padding: 20px; 
+    background-color: rgba(255, 255, 255, 0.066);
+    border-radius: 15px;
+    border: 1px solid black;
     
 }
 
-label {
+.container form.employeRequest label {
     display: block;
     margin-bottom: 5px;
 }
 
-input[type="text"],
-input[type="date"],
+.container form.employeRequest input[type="text"],
+.container form.employeRequest input[type="date"],
 select,
 textarea {
     width: 100%;
@@ -47,12 +64,14 @@ textarea {
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 3px;
+    align-items: center;
+    justify-content: center;
 }
 
 button {
     width: 25%;
     padding: 10px 20px;
-    background-color: #7B0303;
+    background-color: #6196A6;
     color: #fff;
     border: none;
     border-radius: 15px;

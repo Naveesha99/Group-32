@@ -28,6 +28,22 @@ class Jobs
 			$this->errors['jobTitle'] = "Employee Title is required";
 		}
 
+		if (empty($data['jobSummary'])) {
+			$this->errors['jobSummary'] = "Job Summary is required";
+		}
+
+		if (empty($data['startTime'])) {
+			$this->errors['startTime'] = "Start Time is required";
+		}
+
+		if (empty($data['endTime'])) {
+			$this->errors['endTime'] = "End Time is required";
+		}
+
+		if (empty($data['salary'])) {
+			$this->errors['salary'] = "Salary is required";
+		}
+
 		if (empty($this->errors)) {
 			return true;
 		}

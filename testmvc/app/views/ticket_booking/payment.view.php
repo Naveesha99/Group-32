@@ -25,12 +25,12 @@
     if(isset($data3))
     {
 ?>
-        <!-- <div id="order_id"><?= $data3['order_id'] ?></div>
+        <div id="order_id"><?= $data3['order_id'] ?></div>
         <div id="email"><?= $data3['email'] ?></div>
         <div id="drama_id"><?= $data3['drama_id'] ?></div>
         <div id="drama_date"><?= $data3['drama_date'] ?></div>
         <div id="drama_time"><?= $data3['drama_time'] ?></div>
-        <div id="seat_id"><?= $data3['seat_id'] ?></div> -->
+        <div id="seat_id"><?= $data3['seat_id'] ?></div>
 <?php
     }
 ?>
@@ -42,17 +42,17 @@
                     
 
                                             <br><br>
-        <div id="container">
-            <div id="heading">Your QR Code</div>
-            <div id="qr-code">
-                <div id="fake-qr"></div>
-            </div>
-            <!-- <input type="hidden" id="text-input" placeholder="enter data" value="<?= $order_id ?>" oninput="handleInput()"> -->
-            <input type="hidden" id="text-input" placeholder="enter data" oninput="handleInput()">
-            <div id="loading-text"></div>
-            <button id="generate-btn" onclick="generateQRCode()">Generate My QR</button>
-            <button id="download-btn" onclick="downloadQRCode()" disabled>Download QR Code</button>
-        </div>
+                    <div id="container">
+                        <div id="heading">Your QR Code</div>
+                        <div id="qr-code">
+                            <div id="fake-qr"></div>
+                        </div>
+                        <!-- <input type="hidden" id="text-input" placeholder="enter data" value="<?= $order_id ?>" oninput="handleInput()"> -->
+                        <input type="hidden" id="text-input" placeholder="enter data" oninput="handleInput()">
+                        <div id="loading-text"></div>
+                        <button id="generate-btn" onclick="generateQRCode()">Generate My QR</button>
+                        <button id="download-btn" onclick="downloadQRCode()" disabled>Download QR Code</button>
+                    </div>
 
         <a href="<?= ROOT ?>/home"><button id="custom-alert-okay" class="qr-generator">Okay</button></a>
                 </div>
@@ -76,7 +76,7 @@
                   }
                 }   
           ?> 
-          seats are ready to payment.
+          seats are ready to payment. Please do not reload or close this page until your payment is complete. Doing so may interrupt the payment process and result in loss of progress.
 
 
           <div id="timer">Timer: 6:50</div>
@@ -268,7 +268,7 @@ $(document).ready(function()
       success: function(response) {
         // Handle successful response here
 
-        document.querySelector('.registerbtn1').disabled = true;
+        // document.querySelector('.registerbtn1').disabled = true;
         
         console.log(response);
      
@@ -319,15 +319,21 @@ function redirectToAnotherPage() {
 <script>
 // _______________________________________QR GENERATOR_________________________________________ 
 
+       
+        // var timeout;
+
+        // window.onload = function () {
+        //     generateRandomQRCode();
+        //     document.getElementById('text-input').addEventListener('input', function () {
+        //         clearTimeout(timeout);
+        //         generateQRCode(); // Wait 500 milliseconds after user stops typing
+        //     });
+        // };
+
         var qrcode;
-        var timeout;
 
         window.onload = function () {
-            generateRandomQRCode();
-            document.getElementById('text-input').addEventListener('input', function () {
-                clearTimeout(timeout);
-                generateQRCode(); // Wait 500 milliseconds after user stops typing
-            });
+            generateQRCode();
         };
 
         function generateQRCode() {
@@ -378,6 +384,6 @@ function redirectToAnotherPage() {
         function generateRandomQRCode() {
             var fakeQR = document.getElementById('fake-qr');
             fakeQR.style.backgroundImage = "url('placeholder-qr.png')";
-        }        
+        }
     </script>
 </html>

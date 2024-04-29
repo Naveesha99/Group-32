@@ -16,13 +16,13 @@ body{
 
 .container{
     position: absolute;
-    width: calc(100% - 250px);
-    left: 250px;
+    width:  80%;
+    left: 200px;
     min-height: 100vh;
     background-color:  white;
     transition: 0.5s;
-    margin-top: 80px;
-    padding: 100px 50px;
+    margin-top: 5px;
+    padding: 20px 50px;
     align-items: center;
     justify-content: center;
 }
@@ -132,17 +132,17 @@ body{
     background-color: red;
 }
 
-.action_btn .btn-delete,.btn-update, .btn-view:hover{
+.action_btn .btn-delete, .btn-update, .btn-view:hover{
     box-shadow: 0 2px 8px gray ;
 }
 
 .container .table-responsive table>tbody>tr{
-    background-color: whitesmoke;
+    background-color: #ffffff;
     transition: 0.3s ease-in-out;
 }
 
 .container .table-responsive table>tbody>tr:nth-child(even){
-    background-color: #cec78f;
+    background-color: #ffffff;
 }
 
 .container .table-responsive table>tbody>tr:hover{

@@ -21,6 +21,7 @@ class CWDraft
 		$cwId = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->id;
 		$data = [];
 		$article = new Article;
+		$draft = [];
 		
 		if ($cwId) {
 			$arr1['cw_id'] = $cwId;
@@ -31,10 +32,7 @@ class CWDraft
 					return $article->status == 0 ;
 				});
 
-            } else {
-                echo "Article not found.";
-                exit();
-            }
+            } 
 		}
 		$data['draft_articles'] = $draft;
 

@@ -44,6 +44,7 @@ body{
 /* Style for cards section */
 .cards-section {
     width: 100%;
+    margin-top: -70px;
 }
 
 
@@ -58,7 +59,7 @@ body{
     height: fit-content;
     top: 0px;
     left: 50%;
-    border: 2px solid blue;;
+    border: 2px solid #6196A6;;
     justify-content: space-between;
     width: 100%;
     max-width: 800px;
@@ -78,9 +79,9 @@ body{
 .container .search-bar .dropdown{
     position: relative;
     width: 200px;
-    background-color: blue;
+    background-color: #6196A6;
     border-radius: 50px;
-    border: 1px solid rgb(213, 213, 140);
+    border: 1px solid #dbe2ee;
     box-shadow: gray;
     cursor: pointer;
     /* z-index: 100; */
@@ -105,7 +106,7 @@ body{
    border-radius: 15px;
    max-height: 0;
    overflow: hidden;
-   background-color: rgb(213, 213, 140);
+   background-color: #dbe2ee;
    transition: max-height 0.5s;
    z-index: 200;
 
@@ -125,7 +126,7 @@ body{
 
 .dropdown-list-item:hover{
     margin-left: 0.5rem;
-    color: blue;
+    color: #6196A6;
 }
 
 .search-box{
@@ -134,7 +135,7 @@ body{
     padding-right: 1rem;
     padding: 0.8rem;
     width: 100%;
-    color: blue;
+    color: #6196A6;
 }
 
 .search-box input{
@@ -142,7 +143,7 @@ body{
     width: 100%;
     font-size: 1rem;
     font-weight: 500;
-    color: blue;
+    color: #6196A6;
     border: 0;
     outline: 0;
 }
@@ -155,7 +156,7 @@ body{
 .search-box input::placeholder{
     font-size: 1rem;
     font-weight: 500;
-    color: blue;
+    color: #6196A6;
 }
 
 .container .card{

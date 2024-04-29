@@ -1,65 +1,30 @@
 @import url('https://fonts.googleapis.com/css?family=Catamaran:400,700');
-
-* {
-    padding: 0;
+*{
+    
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    font-family: 'Catamaran', sans-serif;
-}
-body {
-    min-height: 100vh;
-}
-a {
     text-decoration: none;
-}
-li {
     list-style: none;
+
 }
-h1{
-    color: white;
-}
-h2 {
-    color: black;
-}
-h3 {
-    color: #999;
-}
-.btn {
-    background: #e6cc00;
-    color: black;
-    padding: 3px 10px;
-    text-align: center;
-    border-radius: 15px;
-}
-.btn:hover {
-    color: #e6cc00;
-    background:black;
-    /* opacity: 0.6; */
-    padding: 3px 8px;
-    /* border: 2px solid #e6cc00; */
-}
-.title {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    padding: 15px 10px;
-    border-bottom: 2px solid #999;
-}
-table {
-    padding: 10px;
-    border-radius: 15px;
-}
-th,
-td {
-    text-align: left;
-    padding: 8px;
-}
-.container {
-    position: absolute;
-    right: 0;
-    width: 80vw;
+
+body{
+    font-family: 'Catamaran', sans-seri;
     height: 100vh;
-    background: white;
+}
+.container{
+    position: absolute;
+    width: calc(100% - 200px);
+    left: 200px;
+    min-height: 100vh;
+    background-color:  white;
+    transition: 0.5s;
+    margin-top: 80px;
+    padding: 100px 50px;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
 }
 
 .container .content {
@@ -67,42 +32,63 @@ td {
     margin-top: 10vh;
     min-height: 90vh;
     background: white;
+    margin-top: 10px;
 }
-.container .content .cards {
-    padding: 20px 15px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    transition: all 0.3s ease-in-out;
-}
-.container .content .cards .card {
-    width: 250px;
-    height: 150px;
-    background: #2424ff;
-    margin: 20px 10px;
-    display: flex;
-    border-radius: 40px;
-    align-items: center;
-    justify-content: space-around;
-    transition: all 0.3s ease-in-out;
+.container .content .cardBox{
+    position: relative;
+    width: 100%;
+    padding: 7px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 30px;
+    top: -30px;
+    margin-left: 15px;
+
+
 }
 
-.container .content .cards .card:hover {
-    width: 250px;
-    height: 150px;
+.container .content .cardBox .card{
+    position: relative;
     background: white;
-    margin: 20px 10px;
+    padding: 30px;
+    border-radius: 25px;
     display: flex;
-    border-radius: 40px;
-    align-items: center;
-    justify-content: space-around;
-    border: 3px solid #2424ff;
-    transition: all 0.3s ease-in-out;
+    justify-content: space-between;
+    cursor: pointer;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.6);
+
 }
 
-.container .content .cards .card:hover h1 {
-    color: #2424ff;
+.container .content .cardBox .card .numbers{
+    position: relative;
+    font-weight: 500;
+    font-size: 2.0rem;
+    color: black;
+}
+
+.container .content .cardBox .card .cardName{
+    color: black;
+    font-size: 1.5rem;
+    margin-top: 5px;
+}
+
+.container .content .cardBox .card .iconBox{
+    font-size: 3.5rem;
+    color: black;
+}
+
+.container .content .cardBox .card:hover{
+    background: #6196A6;
+    border: 3px solid white;
+}
+
+.container .content .cardBox .card:hover .numbers,
+.container .content .cardBox .card:hover .cardName,
+.container .content .cardBox .card:hover .iconBox{
+    color: white;
+}
+.container .content .cardBox .card:hover h1{
+    color: white;
 }
 
 .btn-1 {
@@ -130,29 +116,141 @@ td {
     align-items: flex-start;
     flex-wrap: wrap;
 }
-.container .content .content-2 .employees {
-    min-height: 50vh;
-    flex: 5;
-    background: white;
-    margin: 0 25px 25px 25px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+.content-2 .employees{
+    max-width: 1500px;
+    border: 2px  ;
+    background: ghostwhite;
+    width: 50%;
+    /* padding: 15px; */
+    overflow: auto;
+    border-radius: 20px;
+    /* margin: auto; */
+    /* border-radius: 4px; */
+    /* display: grid; */
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
-    border-radius: 15px;
+    align-items: flex-start;
+    /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);  */  
 }
-.container .content .content-2 .new-employee {
-    flex: 2;
-    background: white;
-    min-height: 50vh;
-    margin: 0 25px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+.content-2 .jobs{
+    max-width: 1500px;
+    border: 2px  ;
+    background: ghostwhite;
+    width: 40%;
+    /* padding: 15px; */
+    overflow: auto;
+    border-radius: 20px;
+    /* margin: auto; */
+    /* border-radius: 4px; */
+    /* display: grid; */
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
-    border-radius: 15px;
+    align-items: flex-start;
+    /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);  */ 
 }
-.container .content .content-2 .new-employee table td:nth-child(1) img {
-    height: 40px;
-    width: 40px;
+
+.content-2 .employees table,
+.content-2 .jobs table{
+    width: 100%;
+    position: relative;
+    font-size: 15px;
+    /* color: #444; */
+    white-space: nowrap;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.content-2 .employees table>thead,
+.content-2 .jobs table>thead{
+    background-color: #000000;
+    color: whitesmoke;
+}
+
+.content-2 .employees table>thead th,
+.content-2 .jobs table>thead th{
+    padding: 15px;
+    color: #fff;
+    padding-top: 17px;
+    font-size: 18px;
+    border-bottom: 1px solid black;
+    text-align: left;
+    align-items: center;
+
+}
+
+.content-2 .employees table th, table td,
+.content-2 .jobs table th, table td{
+    border-bottom: 1px solid #dddddd;
+    padding: 10px 20px;
+    word-break: break-all;
+    
+    font-size: 14px;
+}
+.content-2 .employees table td,
+.content-2 .jobs table td{
+    box-sizing: border-box;
+}
+
+.title {
+    display: flex;
+    justify-content: center; 
+    margin-bottom: 20px; 
+    margin-top: 20px;
+}
+
+.title h2 {
+    color: black; 
+    font-size: 24px; 
+    font-weight: bold;
+}
+tr.hide{
+    opacity: 0;
+    transform: translateX(100%);
+    line-height: 0;
+  }
+  
+  tr.hide td,
+  tr.hide span,
+  tr.hide td div{
+    padding: 0;
+    height: 0;
+    border: none;
+    margin: 0;
+    border-bottom: none;
+    font-size: 0;
+  
+  }
+  
+  tr.hide td *{
+    visibility: hidden;
+  }
+  
+  
+  tbody tr:hover{
+    cursor: pointer;
+    background-color: #0298cf0d;
+  
+    transition: all 0.3s ease-in-out;
+  }
+
+  .content-2 .employees table>tbody>tr,
+  .content-2 .jobs table>tbody>tr{
+    background-color: #ffffff;
+    transition: 0.3s ease-in-out;
+}
+
+.content-2 .employees table>tbody>tr:nth-child(even),
+.content-2 .jobs table>tbody>tr:nth-child(even){
+    background-color: #ffffff;
+}
+
+.content-2 .employees table>tbody>tr:hover,
+.content-2 .jobs table>tbody>tr:hover{
+    filter: drop-shadow(0 3px 7px #0002);
 }
 
 .container .content .content-3 .Tasks {
@@ -169,16 +267,6 @@ td {
     .side-menu li {
         font-size: 18px;
     }
-}
-
-
-select {
-    width: 150px; /* Set the width of the dropdown */
-    padding: 5px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
 }
 
 /* Style for the dropdown options */

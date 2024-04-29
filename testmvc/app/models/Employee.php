@@ -20,7 +20,6 @@ class Employee
 		'empAddress',
 		'empContact',
 		'empRoll',
-		'password',
 	];
 	public function validate($data)
 	{
@@ -67,8 +66,12 @@ class Employee
 			$this->errors['empContact'] = "Employee Contact must be 10 digits";
 		}
 
+		if (!empty($data['empContact']) && !ctype_digit($data['empContact'])) {
+			$this->errors['empContact'] = "Contact must contain only digits";
+		}
+
 		if (empty($data['empRoll'])) {
-			$this->errors['empRoll'] = "Employee Roll is required";
+			$this->errors['empRoll'] = "Roll is required";
 		}
 
 

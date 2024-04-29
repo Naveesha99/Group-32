@@ -25,6 +25,10 @@ class Homes
       {
           $this->errors['description'] = "Please enter description";
       }
+      if(!empty($data['description']) && strlen($data['description']) < 100)
+      {
+          $this->errors['description'] = "Description must be at least 100 characters";
+      }
       if(empty($data['image']))
       {
           $this->errors['image']="Please upload cover image";

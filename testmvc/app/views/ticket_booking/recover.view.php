@@ -40,9 +40,24 @@
           </div>
                 
         <div>                 
-            <button class="registerbtn1" type="submit" >CONFIRM YOUR DETAILS</button>
+            <button class="registerbtn1" type="button" onclick="submitForm()">FIND YOUR DETAILS</button>
+            <a href="<?=ROOT?>/home"><button class="close_btn" type="button" onclick="closeForm()">Clsoe</button></a> 
         </div>
     </form>
+
+    
+<script>
+    function submitForm() {
+        document.getElementById("paymentForm").submit();
+    }
+
+    function closeForm() {
+        document.getElementById("paymentForm").reset(); // Reset the form
+        // You can hide or remove the form here, for demonstration, I'm just resetting the fields.
+    }
+</script>
+   
+
 
     
 
@@ -74,6 +89,7 @@
         ?>
                 <div id="container">
                     <div class="data">
+                        <div id="username">Name  :<?= $name ?></div>
                         <div id="order_id">Booking ID :<?= $order_id ?></div>
                         <div id="drama_id">Payment:<?= $payment ?></div>
                         <div id="drama_id">Refund :<?= $refund ?></div>

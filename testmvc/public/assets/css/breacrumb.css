@@ -1,0 +1,25 @@
+.breadcrumb {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    grid-gap: 8px;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 13px 30px;
+  }
+  .breadcrumb li a {
+    text-decoration: none;
+    color: grey;
+    margin-left: 1px;
+    margin-right: 2px;
+  }
+  
+  .breadcrumb li a.active {
+    color: black;
+    /* font-weight: bold; */
+    font-size: 17px;
+  }
+  
+  .breadcrumb .fa-solid fa-greater-than {
+    font-size: 25px;
+  }

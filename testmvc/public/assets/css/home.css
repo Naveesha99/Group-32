@@ -57,6 +57,8 @@ body {
   flex: 20;
 }
 
+
+
 .menu-list {
   display: flex;
   list-style: none;
@@ -233,13 +235,14 @@ body {
 .movie-list-wrapper1 {
   overflow: hidden;
   width: 40%;
-  /* margin-left: -40px; */
-  background-color: rgb(131, 83, 59);
-  /* margin-top: 0px; */
+  background-size: auto;
   height: 100%;
-  /* height: 47.5%; */
   margin-top: 0px;
   margin-left: -47px;
+  background-image: url('<?= ROOT ?>/assets/images/home/Logo.png'); /* Replace 'path/to/your/background-image.jpg' with the path to your background image */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 
 }
 
@@ -405,7 +408,10 @@ body {
   justify-content: space-between;
   margin-bottom: 20px; /* Adjust as needed to control the gap between rows */
 }
-
+.touch_card{
+  border: none;
+  background-color: #e6dede;
+}
 /*__________________Search CSS______________*/
 .search{
   position: fixed;
@@ -445,12 +451,12 @@ body {
   width: 20x;
   height: 200px;
   animation: slideDate 5s forwards;
-  color: #f0f0f0;
+  color: #ffffff;
   /* overflow:visible; */
 }
 
 .dateshowing h3 {
-  color: #bbbaba;
+  color: #ffffff;
   font-size: 24px;
   /* margin-bottom: 0px; */
   margin-top: 100px;
@@ -458,7 +464,7 @@ body {
 }
 
 .dateshowing p {
-  color: #bbbaba;
+  color: #ffffff;
   font-size: 18px;
   margin-bottom: 5px;
   margin-left: 5%;
@@ -473,12 +479,6 @@ body {
       opacity: 1;
       transform: translateY(-100%);
   }
-  /* 80% {
-      opacity: 1;
-      transform: translateY(100%);
-  }
-  100% {
-      opacity: 1;
-      transform: translateY(0);
-  } */
+
 } 
+

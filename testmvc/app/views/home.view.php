@@ -27,7 +27,7 @@
         <div class="content-container">
             <div class="c1">
 
-            <div class="movie-list-wrapper1">
+            <div class="movie-list-wrapper1" style="background: linear-gradient(to bottom, rgba(0,0,0,0), #151515), url('<?= ROOT ?>/assets/images/home/p-1.jpg'); background-size: auto; background-position: 40% 50%;">
                 <h1 class="movie-list-title1">NOW SHOWING</h1>
 
                 <?php
@@ -69,7 +69,7 @@
                     
                     <!--___________________SEARCH BAR____________________-->
                     <div class="search">
-                            <input type="text" name="" id="find" placeholder="" onkeyup="search()">
+                            <input type="text" name="" id="find" placeholder="" onkeyup="search()" style="width: 100%;">
                             <i class="fa-solid fa-magnifying-glass" style="  font-size: 30px; margin-right: 10px; margin-top:3px;"></i>
                     </div>
                     <!-- _______________________________________________ -->
@@ -91,7 +91,7 @@
         document.getElementById('date' + nextDate).style.display = 'block';
         setTimeout(function() {
             showNextDate(nextDate);
-        }, 10000); // Change to 5000ms (5 seconds)
+        }, 5000); // Change to 5000ms (5 seconds)
     }
 
     // Start the process with the first date
@@ -123,7 +123,7 @@
                     ?>
                                 <form action="select_drama" class="form1" method="POST">
                                     <div class="movie-list-item">
-                                        <img class="movie-list-item-img" src="<?= ROOT ?>/assets/images/drama_img/<?= $x->image ?>" alt=''>
+                                    <button type="submit" class="touch_card"><img class="movie-list-item-img" src="<?= ROOT ?>/assets/images/drama_img/<?= $x->image ?>" alt=''></button>
 
                     <?php
                                     $dates = []; // Initialize arrays to store dates and times
@@ -160,7 +160,7 @@
                     ?>
                                         <span class="movie-list-title"><?= $x->title ?></span>
                                         <input type="hidden" name="id" value="<?= $x->id ?>">
-                                        <button type="submit" class="movie-list-item-button">BOOK</button><br>
+                                        <!-- <button type="submit" class="movie-list-item-button">BOOK</button><br> -->
 
                             <?php } ?>
                                         

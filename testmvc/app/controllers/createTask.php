@@ -19,8 +19,9 @@ class createTask
 
 				$task->insert($_POST);
 				redirect('adminemployee');
+			}else{
+				$data['errors'] = $task->errors;
 			}
-			$data['errors'] = $task->errors;
 		}
 
 		$jobs = new Jobs;

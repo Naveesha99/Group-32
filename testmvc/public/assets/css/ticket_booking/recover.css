@@ -49,12 +49,23 @@ body {
   padding: 10px;
   margin-top: 10px;
   margin-left: 7%;
-  width: 78%;
+  width: 74%;
   color: white;
   background-color: rgb(170, 31, 31);
   border: none;
   border-radius: 4px;
 }
+.close_btn{
+  padding: 10px;
+  margin-top: 10px;
+  margin-left: 7%;
+  width: 74%;
+  color: white;
+  background-color: rgb(170, 31, 31);
+  border: none;
+  border-radius: 4px;
+}
+
 .registerbtn2{
   padding: 10px;
   margin-top: 10px;

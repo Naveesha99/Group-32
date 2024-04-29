@@ -179,7 +179,10 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach($data['details_array'] as $drama): ?>
+                                <?php if(isset($data['details_array']))
+                                {
+
+                                foreach($data['details_array'] as $drama): ?>
                                     <tr class="row_clickable">
                                         <td class="id"><?php echo $drama->id; ?></td>
                                         <td class="drama_id"><?php echo $drama->drama_id; ?></td>
@@ -187,7 +190,7 @@
                                         <td class="date"><?php echo $drama->date; ?></td>
                                         <td class="time"><?php echo $drama->time; ?></td>
                                     </tr>
-                                <?php endforeach; ?>
+                                <?php endforeach; }?>
                             </tbody>
                         </table>   
                 <?php }
@@ -234,31 +237,31 @@
 
 
 <script>
-// Function to open the popup form
-function openPopup() {
-    document.getElementById("popupForm").style.display = "block";
-}
+    // Function to open the popup form
+    function openPopup() {
+        document.getElementById("popupForm").style.display = "block";
+    }
 
-// Function to close the popup form
-function closePopup() {
-    document.getElementById("popupForm").style.display = "none";
-}
+    // Function to close the popup form
+    function closePopup() {
+        document.getElementById("popupForm").style.display = "none";
+    }
 
-// Check if data is received, then show popup after 1 second
-setTimeout(function() {
-    <?php if(isset($data)): ?>
-        openPopup();
-    <?php endif; ?>
-}, 1000);
+    // Check if data is received, then show popup after 1 second
+    setTimeout(function() {
+        <?php if(isset($data)): ?>
+            openPopup();
+        <?php endif; ?>
+    }, 1000);
 
-// Function to submit the form when clicking the YES button
-document.getElementById("yesBtn").addEventListener("click", function() {
-    document.getElementById("form2").submit();
-});
+    // Function to submit the form when clicking the YES button
+    document.getElementById("yesBtn").addEventListener("click", function() {
+        document.getElementById("form2").submit();
+    });
 
-// Function to close the popup form when clicking the NO button
-document.getElementById("noBtn").addEventListener("click", function() {
-    closePopup();
-});
+    // Function to close the popup form when clicking the NO button
+    document.getElementById("noBtn").addEventListener("click", function() {
+        closePopup();
+    });
 </script>
 

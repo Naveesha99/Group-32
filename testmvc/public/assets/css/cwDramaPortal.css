@@ -20,14 +20,14 @@ body{
 
 .container{
     position: absolute;
-    width: calc(100% - 250px);
-    left: 250px;
+    width: calc(100% - 200px);
+    left: 200px;
     min-height: 100vh;
     /* background-color:  #FFEAD7; */
     background-color: white;
     transition: 0.5s;
-    margin-top: 80px;
-    padding: 100px 50px;
+    margin-top: 50px;
+    padding: 80px 50px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -35,120 +35,66 @@ body{
 
 }
 
-.container .search-bar{
-    display: flex;
-    align-items: center;
-    min-width: 800px;
-    /* max-width: 800px ; */
+.container .cardBoxN{
+    position: relative;
     width: 100%;
-    background-color: white;
-    border-radius: 50px;
-    height: fit-content;
-    top: 10px;
-    left: 20px;
-    border: 2px solid blue;;
-    justify-content: space-between;
-    width: 100%;
-    max-width: 800px;
-    margin-bottom: 20px; 
+    padding: 7px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 50px;
+    margin-left: 30px;
+
 
 }
 
-.cards-container {
+.container .cardBoxN .cardN{
+    position: relative;
+    background: white;
+    padding: 30px;
+    border-radius: 25px;
     display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.6);
+
+}
+
+.container .cardBoxN .cardN .numbers{
+    position: relative;
+    font-weight: 500;
+    font-size: 2.5rem;
+    color: black;
+}
+
+
+
+.container .cardBoxN .cardN:hover{
+    background: #6196A6;
+    border: 3px solid white;
+}
+
+.container .cardBoxN .cardN:hover .numbers,
+.container .cardBoxN .cardN:hover .cardName,
+.container .cardBoxN .cardN:hover .iconBox{
+    color: white;
+}
+
+
+
+.container .cards-container{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 50px; /* Add gap between cards */
+    gap: 50px;
+    margin-top: -30px;
+    /* padding-top: 2px; */
+    
 }
-
-.container .search-bar .dropdown{
-    position: relative;
-    width: 200px;
-    background-color: blue;
-    border-radius: 50px;
-    border: 1px solid rgb(213, 213, 140);
-    box-shadow: gray;
-    cursor: pointer;
-    /* z-index: 100; */
-}
-
-.container .search-bar .dropdown .dropdown-text{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 1rem;
-    font-weight: 500;
-    color: white;
-    padding: 1rem 1.5rem ;
-
-}
-
-.container .search-bar .dropdown .dropdown-list{
-   position: absolute;
-   top: 4rem;
-   left: 0;
-   width: 100%;
-   border-radius: 15px;
-   max-height: 0;
-   overflow: hidden;
-   background-color: rgb(213, 213, 140);
-   transition: max-height 0.5s;
-   z-index: 200;
-
-}
-
-#list.show{
-    max-height: 300px;
-}
-
-.dropdown-list-item{
-    font-size: 0.9rem;
-    font-weight: 500;
-    padding: 1rem 0 1rem 1.5rem;
-    cursor: pointer;
-    transition: margin-left 0.2s ease, color 0.2s ease;
-}
-
-.dropdown-list-item:hover{
-    margin-left: 0.5rem;
-    color: blue;
-}
-
-.search-box{
-    display: flex;
-    align-items: center;
-    padding-right: 1rem;
-    padding: 0.8rem;
-    width: 100%;
-    color: blue;
-}
-
-.search-box input{
-    /* padding: 1rem; */
-    width: 100%;
-    font-size: 1rem;
-    font-weight: 500;
-    color: blue;
-    border: 0;
-    outline: 0;
-}
-
-.search-box i{
-    font-size: 1.3rem;
-    cursor: pointer;
-}
-
-.search-box input::placeholder{
-    font-size: 1rem;
-    font-weight: 500;
-    color: blue;
-}
-
-
-
 .container .addNew{
     position: absolute;
-    top: 20px;
+    top: 30px;
     right: 20px;
     padding: 10px 20px ;
     border: none;
@@ -181,14 +127,16 @@ body{
 } */
 
 .container .Content{
-    top: 30px;
-    display: fl;
+    top: 2px;
+    
 }
 
 .container .card{
     position: relative;
     display: flex;
-    top: 30px;
+    
+    width: calc(33.33% - 20px); /* Adjust the width as needed for responsiveness */
+    margin-bottom: 20px;
     justify-content: center;
     align-items: flex-start;
     width:350px ;

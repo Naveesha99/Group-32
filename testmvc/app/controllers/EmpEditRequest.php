@@ -29,13 +29,11 @@ class EmpEditRequest
             if ($reqData) {
                 $data['emp_req'] = $reqData;
                 // show($data);
-            } else {
-                echo "leave request not found.";
-                exit();
-            }
+            } 
         }
 
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
+            
             $emp_req->update($reqId, $_POST, 'id');
             redirect('employeeReq');
         }
