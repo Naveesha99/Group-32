@@ -67,7 +67,7 @@
                 <div class="featured-content" style="background: linear-gradient(to bottom, rgba(0,0,0,0), #151515), url('<?= ROOT ?>/assets/images/home/p-2.jpg');">
                     <p class="featured-desc"></p>
                     
-                    <!--___________________SEARCH BAR____________________-->
+                    <!--SEARCH BAR_-->
                     <div class="search">
                             <input type="text" name="" id="find" placeholder="" onkeyup="search()" style="width: 100%;">
                             <i class="fa-solid fa-magnifying-glass" style="  font-size: 30px; margin-right: 10px; margin-top:3px;"></i>

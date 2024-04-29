@@ -61,4 +61,3 @@ class Home
 		return $row;
 	}
 }
-

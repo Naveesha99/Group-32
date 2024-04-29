@@ -33,7 +33,7 @@ class viewPendingarticles
                 $progress = $data['article'][0]->progress;
                 if ($progress === 'pending') {
                     $arr1['progress'] = 'accepted';
-                    $arr1['acceptedAt'] = $dateTime->format('Y-m-d H:i:s');
+                    $arr1['acceptedAt'] = $dateTime->format('Y-m-d');
                     $article->update($id, $arr1);
                     redirect('pendingArticles');
                 }
@@ -44,7 +44,7 @@ class viewPendingarticles
                 $progress = $data['article'][0]->progress;
                 if ($progress === 'pending') {
                     $arr1['progress'] = 'rejected';
-                    $arr1['acceptedAt'] = $dateTime->format('Y-m-d H:i:s');
+                    $arr1['acceptedAt'] = $dateTime->format('Y-m-d');
                     $article->update($id, $arr1);
                     redirect('pendingArticles');
                 }

@@ -60,14 +60,20 @@ class addEmployee
 					];
 				}
 				// show($loginData);
-				$user->insert($loginData);
-				if ($employee->validate($_POST)) {
-					$employee->insert($_POST);
-					redirect('adminemployee');
+				$arr1['email'] = $_POST['empEmail'];
+				$result = $user->first($arr1);
+				if ($result) {
+					$data['errors']['exist'] = 'Email already exists';
+				} else {
+					if ($employee->validate($_POST)) {
+						$employee->insert($_POST);
+						$user->insert($loginData);
+						redirect('adminemployee');
+					}
 				}
+			} else {
+				$data['errors'] = $employee->errors;
 			}
-
-			$data['errors'] = $employee->errors;
 		}
 
 
