@@ -1,113 +1,108 @@
-/* Reset CSS */
+@import url('https://fonts.googleapis.com/css?family=Catamaran:400,700');
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-family: 'Catamaran', sans-serif;
+
 }
 
-/* Body */
-body {
-    min-height: 100vh;
-}
-
-/* Container */
 .container {
     position: absolute;
     width: calc(100% - 200px);
     left: 200px;
     min-height: 100vh;
+    /* margin: 0 auto;
+    padding: 20px; */
     background-color: white;
     transition: 0.5s;
-    margin-top:30px; 
+    margin-top: 30px;
     padding: 100px 50px; 
     display: flex;
     justify-content: center;
+    /* border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    align-items: center;
+    justify-content: center; */
 }
-
-/* Error Messages */
 span.error {
     color: red;
     font-size: 12px;
     font-weight: 600;
-    margin-left: 10px;
+    margin-left: 10px;
 }
 
-/* Form */
-.container form.addArticle {
-    width: 600px; 
+h1 {
+    text-align: center;
+    color: #000000;
+    margin-top: 30px;
+    font-size: 30px;
+    margin-bottom: 40px;
+}
+
+.container form.addArticle{
+    width: 800px; 
     padding: 20px; 
     background-color: rgba(255, 255, 255, 0.066);
     border-radius: 15px;
-}
-
-/* Labels */
-.container form.addArticle label {
+    border: 1px solid black;
     
-    color: black;
-    padding: 15px;
 }
 
-/* Inputs, Textarea, Select */
+.container form.addArticle label {
+    display: block;
+    margin-bottom: 5px;
+}
+
 .container form.addArticle input[type="text"],
+.container form.addArticle input[type="date"],
 .container form.addArticle input[type="file"],
-.container form.addArticle textarea,
-.container form.addArticle select {
-    width: calc(100% - 20px); /* Adjust width to accommodate padding */
-    padding: 10px;
-    border: 2px solid black;
-    border-radius: 4px;
-    margin-bottom: 25px;
+select,
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Button Group */
-.container form.addArticle .button-group {
-    display: flex;
-    justify-content: flex-start;
-    margin-bottom: 20px;
-}
-
-/* Submit Button */
-.container form.addArticle button[type="submit"] {
+.button-group button {
+    width: 25%;
     padding: 10px 20px;
-    border-radius: 5px;
     background-color: #6196A6;
-    color: white;
+    color: #fff;
     border: none;
-    cursor: pointer; /* Add cursor pointer */
-    margin-right: 10px; /* Add margin between buttons */
+    border-radius: 15px;
+    cursor: pointer;
+    margin-bottom: 50px;
+    margin-top: 30px;
+    /* margin-left: 75%; */
+    text-align: center;
+    margin-right: 20px;
+    
 }
 
-.container form.addArticle button[type="submit"]:hover {
-    background-color: #ccc;
-    color: #6196A6;
+button:hover {
+    background-color: #888;
 }
 
-
-
-.container form.addArticle button[type="submit"]:hover
- {
-    background-color: #ccc;
-    color: #6196A6;
-}
-
-.container form.addArticle #addNewButton {
-    padding: 5px 15px; /* Adjust padding */
-    border-radius: 5px;
+#addNewButton {
     background-color: transparent;
     color: #6196A6;
     border: 1px solid #6196A6;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 14px;
     cursor: pointer;
-    margin-left: 10px;
-     margin-bottom: 20px;
+    margin-top: -2px;
+    margin-bottom: 5px;
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
 }
 
-.container form.addArticle #addNewButton:hover {
-    background-color: #6196A6;
-    color: white;
-}
-
-
-.container form.addArticle label {
-    margin-right: 10px; /* Add margin between label and select */
+#addNewButton:hover {
+    background-color: #fff;
+    color: #000;
 }
