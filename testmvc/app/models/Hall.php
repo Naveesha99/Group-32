@@ -33,11 +33,23 @@ class Hall
 		}
 		if(empty($data['amountOneHour']))
 		{
-			$this->errors['amountOneHour'] = "Amount for One Hour is required";
+			$this->errors['amountOneHour'] = "Amount is required";
+		}else if(!is_numeric($data['amountOneHour']))
+		{
+			$this->errors['amountOneHour'] = "Amount should be numeric";
+		}else if($data['amountOneHour'] < 0)
+		{
+			$this->errors['amountOneHour'] = "Amount should be greater than 0";
 		}
 		if(empty($data['headCount']))
 		{
-			$this->errors['headCount'] = "headCount is required";
+			$this->errors['headCount'] = "Head Count is required";
+		}else if(!is_numeric($data['headCount']))
+		{
+			$this->errors['headCount'] = "Head Count should be numeric";
+		}else if($data['headCount'] < 0)
+		{
+			$this->errors['headCount'] = "Head Count should be greater than 0";
 		}
 		if(empty($data['image']))
 		{
