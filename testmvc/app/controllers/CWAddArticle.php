@@ -30,6 +30,7 @@ class CWAddArticle
         // $category = new Category;
 
         if (isset($_POST['save_draft'])) {
+            $fileNameNew = '';
             $_POST['status'] = 0;
             $_POST['cwName'] = $username;
             $_POST['cw_id'] = $id;
@@ -98,6 +99,7 @@ class CWAddArticle
         }
 
         if (isset($_POST['submit_article'])) {
+            $fileNameNew = '';
             $_POST['cwName'] = $username;
             $_POST['cw_id'] = $id;
             $_POST['status'] = 1;
@@ -157,7 +159,7 @@ class CWAddArticle
                 'cwName' => $_POST['cwName'],
                 'cw_id' => $_POST['cw_id']
             ];
-             show($insertData);
+             //show($insertData);
 
 
             if ($article->validate($insertData)) {
