@@ -30,6 +30,11 @@
                     <?= '* ' . $errors['empEmail'] ?> </br>
                 </span>
             <?php endif; ?>
+            <?php if (!empty($errors['exist'])) : ?>
+                <span class="error">
+                    <?= '* ' . $errors['exist'] ?>
+                </span>
+            <?php endif; ?>
             <input type="email" name="empEmail">
             
             <label for="empNIC">NIC</label>

@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="<?= ROOT ?>/assets/css/addDrama.css" rel="stylesheet">
+	<link href="<?= ROOT ?>/assets/css/addDramas.css" rel="stylesheet">
 
 	<title>signup</title>
 </head>
@@ -15,7 +15,7 @@
 <body>
 	<div class="container">
 		<div class="content">
-			<form  method="POST"  enctype="multipart/form-data" >
+			<form  method="POST" class="add-Drama" enctype="multipart/form-data" >
 				<h1>ADD DRAMA</h1>
 				<label for="title">Drama Name</label>
 				<input type="text" name="title" placeholder="title">

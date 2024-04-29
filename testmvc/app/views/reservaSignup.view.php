@@ -34,6 +34,11 @@
 								<?= '* ' . $errors['email'] ?>
 							</span>
 						<?php endif; ?>
+						<?php if (!empty($errors['exist'])) : ?>
+							<span class="error">
+								<?= '* ' . $errors['exist'] ?>
+							</span>
+						<?php endif; ?>
 						<input type="text" placeholder="EMAIL" name="email" id="email" class="email">
 						<?php if (!empty($errors['contactNumber'])) : ?>
 							<span class="error">
