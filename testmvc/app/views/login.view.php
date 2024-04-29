@@ -13,7 +13,6 @@
 		<div class="login_box">
 
 			<div class="left">
-				<!-- <div class="top_link"><a href="#"><img src="/public/styles/images/login.jpg" alt="">Return home</a></div> -->
 				<div class="contact">
 					<form method="POST">
 						<h3 class="log">LOG IN</h3>
@@ -37,6 +36,7 @@
 
 						<button class="submit">LOGIN</button>
 						<h3 class="heading">
+							<br><a href="<?=ROOT?>/reservasignup">Signup</a> as a new Reservationists
 							<br><a href="<?= ROOT ?>/forgotPW">Forgot password?</a>
 						</h3>
 					</form><br>
@@ -44,8 +44,11 @@
 			</div>
 			<div class="right">
 				<div class="right-text">
+					<h1>Welcome to </br> PUNCHI THEATER</h1>
+					<h2>Stay with us for a journey of </br> entertainment!</h2>
 				</div>
-				<!-- <div class="right-inductor"><img src="/public/styles/images/login.jpg" ></div> -->
+				
+
 			</div>
 		</div>
 	</section>
