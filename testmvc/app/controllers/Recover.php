@@ -71,7 +71,7 @@ If you have any issues,please call us on 011-2222222 or visit our website for mo
 Thank you.";
 
                 if(mail($recipient_email, $subject, $body, "From: $sender_name <$sender_email>")){
-                    echo "Email Sent";
+                    $data['send_email_message'];
                 }
                 else{
                     echo "Something went wrong";
