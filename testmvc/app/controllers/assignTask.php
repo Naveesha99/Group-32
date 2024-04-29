@@ -33,13 +33,31 @@ class AssignTask
                         ) {
                             echo "Employee is not available";
                         } else {
-                            $data['available'][] = $empName;
+                            $data['notTask'][] = $empName;
                             break;
                             // show($data['available']);
                         }
                     }
                 }
             }
+            $req = new EmpRequest;
+            foreach($data['notTask'] as $row){
+                $arr2['employee_name'] = $row;
+                // show($arr2);
+                $result3 = $req->first($arr2);
+                if($result3){
+                    if ($result3->start_date <= $_POST['date'] && $result3->end_date >= $_POST['date']) {
+                        echo "Employee is not available";
+                        // break;
+                    }else{
+                        $data['available'][] = $row;
+                        break;
+                    }
+                }
+                $data['available'][] = $row;
+                // break;
+            }
+            // show($data['available']);
         }
         $temp1 = [
             'taskType' => $_POST['taskType'],
