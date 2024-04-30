@@ -1,0 +1,429 @@
+/* @import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap"); */
+
+@import url("https://fonts.googleapis.com/css?family=Catamaran:400,700");
+
+
+body {
+  font-family: catamaran;
+	/* min-height: 90vh; */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+  color:rgb(0, 0, 0);
+  margin: 0;
+
+  background-size:cover;
+  background-position: center; /* This property centers the background image */
+  /* background-repeat: no-repeat; 
+  background-attachment: fixed; */
+  background-color:#e6dede;
+}
+
+
+* {
+  box-sizing: border-box;
+}
+.container2{
+    margin-bottom: 0%;
+    margin-top: 3%;
+    margin-left: 0%;
+    margin-right: 0%;
+    background-color: #ffffff;
+    padding: 10px 20px;
+    border: 3px solid rgb(169, 169, 169);
+    border-radius: 17px;
+}
+.movie-container {
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.movie-container select {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  border: 0;
+  padding: 5px 15px;
+  margin-bottom: 40px;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+.container {
+  perspective: 1000px;
+  margin: 10px 90px;
+  flex-direction: column;
+  justify-content:first baseline;
+  align-items: center;
+}
+
+.container1 {
+  perspective: 1000px;
+  margin: 10px 90px;
+  flex-direction: column;
+  justify-content:first baseline;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 40px 60px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  width: 430px;
+  /* font-family: 'Times New Roman', Times, serif; */
+}
+.cont{
+  margin-top: 80px;
+  margin-left: 95px;
+}
+
+.seat {
+  background-color:#944E63;
+  height: 40px;
+  width: 45px;
+  margin: 3px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  text-align: center;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: medium;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.selected {
+  background-color: hwb(350 1% 16%);
+}
+.seatselected{
+  background-color: hwb(350 1% 16%);
+  height: 50px;
+  width: 55px;
+  margin: 3px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  text-align: center;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.seatavailable{
+  background-color:#944E63;
+  height: 50px;
+  width: 55px;
+  margin: 3px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  text-align: center;
+  color: #ffffff;
+  font-weight: bold;
+}
+.occupied {
+  background-color:rgba(100, 93, 93, 0.477);
+  font-size: large;
+  height: 50px;
+  width: 55px;
+}
+
+.booked {
+  background-color: rgba(87, 80, 80, 0.477) !important;
+  pointer-events:none;
+}
+
+.pending {
+  background-color: #d0d06e;
+  
+}
+
+
+small {
+  font-size: 130%; /* You can adjust the percentage as needed */
+  color: rgb(5, 3, 3); /* Set the text color to red (change to your preferred color) */
+  font-weight: bold; /* Make the text bold (optional) */
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.seat:nth-of-type(2) {
+  margin-right: 18px;
+}
+
+.seat:nth-last-of-type(2) {
+  margin-left: 18px;
+}
+
+.seat:not(.occupied):hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+.showcase .seat:not(.occupied):hover {
+  cursor: default;
+  transform: scale(1);
+}
+
+.showcase {
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+  background: rgba(0,0,0,0.1);
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #777;
+  margin-bottom: -8px;
+}
+
+.showcase li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px;
+}
+
+.showcase li small {
+  margin-left: 2px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.screen {
+  background: #bd5858;
+  height: 70px;
+  width: 70%;
+  margin: 15px 0;
+  transform: rotateX(-45deg);
+  box-shadow: 0 3px 10px rgba(255,255,255,0.7);
+  margin-left: 100px;
+  margin-top: -4%;
+}
+
+.pricedetails{
+  display: flex;
+}
+.details{
+  margin-left: 21%;
+}
+
+h4{
+  text-align: center;
+  font-size: 25px;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  color: white;
+}
+
+.text {
+  flex-direction: column;
+  align-items: flex-start; /* Align items to the start (left) of the container */
+  text-align: left;
+}
+
+p.text {
+  margin-left: -45px;
+  text-decoration: rgb(0, 0, 0);
+  color:hwb(0 0% 100%);
+  font-size: 20px;
+  font-weight: bold;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+p.text span {
+  color:rgb(11, 5, 5);
+  font-weight:bold;
+  box-sizing: content-box;
+  font-size:x-large;
+  padding-left: 30px;
+}
+#count {
+  color: rgb(8, 3, 3);
+  padding-left: 76px;
+}
+#total{
+  padding-left: 25px;
+}
+
+
+.credits a {
+  color: #fff;
+}
+
+.submit {
+
+  background-color:rgb(170, 31, 31);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  font-weight: bold;
+  padding: 10px 185px;
+  margin-left: 90px;
+  width: 71%;
+
+}
+.submit:disabled {
+  background-color: #a39f9f;
+  cursor:auto;
+}
+
+
+button#showPopup {
+  background-color: brown;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+label[for="movie"] {
+  margin-left: 10px;
+  color:#1049f4;
+  font-size:x-large;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+#movie {
+  /* Styles for the select element */
+  width: 130px; /* Set the width as needed */
+  height: fit-content;
+  /* padding: 6px; */
+  margin-bottom: -10px;
+  margin-left: 10px;
+  margin-top: 5px;
+  font-size: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+  background-color:cornsilk;
+}
+
+.row {
+  display: flex;
+  flex-direction: row; /* Ensure it's set to row */
+  justify-content: space-between
+}
+
+.payable{
+  background-color: #944E63;
+  padding: 10px 10px;
+  margin-left: -60px;
+  margin-right: -60px;
+  margin-bottom: -40px;
+  text-align: left;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  font-size: 19px;
+  color:greenyellow ;
+}
+
+h3{
+  text-align: center;
+  margin-top: -20px;
+  /* margin-bottom: 50px; */
+  font-family:Arial, Helvetica, sans-serif;
+  color: black;
+}
+.text{
+  font-family:'Times New Roman', Times, serif ;
+  margin-left: 10
+  px;
+}
+
+/* Add this to your CSS file */
+
+
+
+.tickMarks {
+  font-weight: bold;
+  padding: 5px 130px;
+  margin-left: -45px;
+  display: flex;
+  margin-top: -10px;
+
+}
+
+input[type="checkbox"] {
+  -webkit-appearence:none;
+  height: 30px;
+  width: 30px;
+  background-color:blue;
+  border-radius: 3px;
+  cursor: pointer;
+  display: flex;
+  outline: black;
+  align-items: center;
+  justify-content: center ;
+}
+
+label {
+  display: block;
+  /* margin-bottom: 15px; */
+  font-size: 16px;
+  color: #333;
+  line-height: 1.5;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+
+
+ /* ______________________Footer____________________ */
+
+ .footer {
+  margin-top: 80px;
+  width: 100%;
+  background-color: black;
+}
+h4{
+    margin-left: -25%;
+    color: black;
+}
+
+.container3 {
+    margin-bottom: 20px;
+    margin-left: 13%;
+}
+
+.container3 input[type="text"],
+.container3 input[type="number"] {
+    width: 60%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Ensure padding and border are included in width */
+}
+
+.container3 input[type="text"]::placeholder,
+.container3 input[type="number"]::placeholder {
+    color: #999; /* Placeholder text color */
+}
+
+.container3 input[type="text"]:focus,
+.container3 input[type="number"]:focus {
+    border-color: #5cb85c; /* Border color when input is focused */
+    outline: none; /* Remove default focus outline */
+}
+
+/* Style for the submit button if needed */
+.container3 input[type="submit"] {
+    width: 60%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #5cb85c;
+    color: white;
+    cursor: pointer;
+}
+
+.container3 input[type="submit"]:hover {
+    background-color: #4cae4c; /* Darker green on hover */
+}

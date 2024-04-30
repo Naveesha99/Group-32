@@ -32,11 +32,12 @@
                     </div>
                 </a>
             </div>
-            <div class="content-2">
-            <!-- <div class="title">
+            <div class="title">
                         <h2>Employees</h2>
-                        <a href="<?= ROOT ?>/employees" class="btn">View All</a>
-                    </div> -->
+                        <a href="<?= ROOT ?>/employees" class="btn-1">View All</a>
+                    </div>
+                    <br>
+            <div class="content-2">
                 <div class="employees">
                     <table>
                         <thead>

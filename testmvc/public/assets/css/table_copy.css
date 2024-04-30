@@ -860,3 +860,8 @@ background-color: #fffff6;
   /* background-color: #cf0303c7; */
   background-color: #dc45c0;
 }
+
+.text-status.refunded {
+  /* background-color: #cf0303c7; */
+  background-color: #c1b0be;
+}

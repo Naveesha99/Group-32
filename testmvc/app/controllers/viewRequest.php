@@ -42,7 +42,7 @@ class viewRequest
                 $request->update($requestID, $arr);
                 $message = new Message;
                 $message->acceptNotification($requestData[0]->reservationistId, $requestID, $status);
-                redirect('adminrequest');
+                redirect('resRequest');
             } else {
                 $arr['status'] = 'rejected';
                 $arr['reason'] = $reason;

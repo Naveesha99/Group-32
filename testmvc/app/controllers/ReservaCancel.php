@@ -68,7 +68,7 @@ class ReservaCancel
                 $system_otp = $_POST['otp'];
 						
                 $sender_name = "PUNCHI THEATER";
-                $sender_email = "dillenora@gmail.com";
+                $sender_email = "lnaveesha4@gmail.com";
                 $recipient_email = $email;;
 
                 $subject = "Puchi Theater Ticket cancellation ";

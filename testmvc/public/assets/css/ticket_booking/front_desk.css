@@ -1,0 +1,71 @@
+ /* Table */
+ table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Table Header */
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    text-align: left;
+    padding: 8px;
+}
+
+/* Table Body */
+td, th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+/* Alternate row background color */
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Button style */
+button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049; /* Darker green */
+}
+
+.btn-1{
+    border-color: blue;
+    background-color: transparent;
+    text-decoration: none;
+    color: black;
+    /* background: whitesmoke; */
+    margin-top: 30px;
+    margin-left: 30px;
+    border: 1px solid blue;
+    display: inline-block;
+    padding: 17px 27px;
+    font-weight: bold;
+    border-radius: 13px;
+    transition: 0.3s ease-in-out;
+
+}
+
+.ticket-scan{
+    display: flex;
+}
+
+.btn-1>a:hover{
+    box-shadow: 0 2px 8px gray ;
+}
+
+.btn-1:hover{
+    box-shadow: 0 2px 8px gray ;
+    
+}

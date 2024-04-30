@@ -42,7 +42,7 @@ class ReservaQRscanner
         
         
         $sentReq->update($id,$arr);
-        redirect('home');
+        redirect('hall');
         }
 
         $this->view('reservaQRscanner', $data);

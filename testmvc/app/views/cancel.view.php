@@ -25,6 +25,23 @@
         .container{
             display: flex;
         }
+
+
+    .popup_input_otp {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        z-index: 9999;
+        width: 500px;
+        height: 200px;
+    }
+
     </style>
 
 </head>
@@ -247,7 +264,7 @@ else{
         $otp = rand(100000, 999999);
         ?>
 
-        <input type="hidden" name="otp" value="<?= $otp; ?>">
+        <input type="text" name="otp" value="<?= $otp; ?>">
         <button class="payment-button" id="cancelbtn" name="cancelbtn" type="submit">Confirm Cancellation</button>
     </form>
 
@@ -263,36 +280,44 @@ else{
 
 
 
-<?php
-if(isset($data['refund']))
-{
-?>
-  <div id="popup-message" class="popup-message">
-      <div class="popup-message-content">
-          <span id="popup-message-text">Your ticket cancellation is successful. You have received a refund of <span class="subtext">Rs.<?= $data['refund']; ?></span>. To get it, visit 'PUNCHI THEATER' <span class="subtext">with the email you just received</span>. If you do not receive an email within 15 minutes, call us.</span>
-          <br><br><button id="popup-message-okay"><a href="<?= ROOT ?>/home">Close</a></button>
-      </div>
-  </div>
-<?php
-}
-?>
-
-<!-- __________otp come_________ -->
+<!-- __otp come___ -->
 <?php 
 if(isset($data['otp_again']))
 {?>
-<form method="post">
+    <div class="popup_input_otp" id="otpPopup">
+
+<form method="post" action="reservaQRCancel">
+        <p>Enter OTP</p>
+        <input type="text" name="reqid" value="<?= $data['reqid']; ?>">
+        <input type="text" name="refund" value="<?= $data['refund']; ?>">
+        <input type="number" name="sys_otp" value="<?= $data['otp_again'] ?>">
+        <input type="number" name="user_otp" id="otp" placeholder="Enter OTP">
+        <button type="submit" name="otp_submit">Submit</button>
+</form>
+    </div>
+<?php
+}
+
+?>
+
+<?php 
+if(isset($data['detailsofReq']))
+{?>
+<form method="post" action="reservaQRCancel">
     <div class="popup_input_otp">
         <p>Enter OTP</p>
-        <input type="number" name="sys_otp" value="<?= $data['otp_again'] ?>" placeholder="Enter OTP">
-        <input type="number" name="user_otp" id="otp" placeholder="Enter OTP">
+        <input type="text" name="reqid" value="<?= $data['detailsofReq']; ?>">
+        <!-- <input type="text" name="refund" value="<?= $data['refund']; ?>">
+        <input type="number" name="sys_otp" value="<?= $data['otp_again'] ?>">
+        <input type="number" name="user_otp" id="otp" placeholder="Enter OTP"> -->
         <button type="submit" name="otp_submit">Submit</button>
     </div>
 </form>
 <?php
 }
-
 ?>
+
+
 
     <?php require_once 't_reservaFooter1.php' ?>
 </body>
@@ -300,7 +325,7 @@ if(isset($data['otp_again']))
 
 
 
-<!-- _____________________check the checkbox and after that enable submit button___________________ -->
+<!-- _______check the checkbox and after that enable submit button_____ -->
 <script>
     // Run the toggleSubmitButton function when the page loads
     document.addEventListener("DOMContentLoaded", function() {
@@ -318,6 +343,18 @@ if(isset($data['otp_again']))
             cancelBtn.setAttribute("disabled", "disabled");
         }
     }
+
+
+
+
+    // JavaScript to toggle the visibility of the popup
+    document.addEventListener("DOMContentLoaded", function() {
+        // Check if the popup div exists
+        var popupDiv = document.getElementById("otpPopup");
+        if (popupDiv) {
+            // Display the popup if $data['otp_again'] is set
+            popupDiv.style.display = "block";
+        }
+    });
+
 </script>
-
-

@@ -19,7 +19,7 @@ class ReservaHall1
 		// }
 
 		if(empty($_SESSION['USER'])){
-			redirect('reservalogin');
+			redirect('login');
 			exit();
 		}
 

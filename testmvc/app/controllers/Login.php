@@ -28,7 +28,7 @@ class Login
 							if ($row->user_type == 'admin') {
 								redirect('admindashboard');
 							} elseif ($row->user_type == 'Front Desk Officer') {
-								redirect('frontdesk');
+								redirect('front_desk');
 							} elseif ($row->user_type == 'Content Writer') {
 								redirect('cwDashboard');
 							} elseif ($row->user_type == 'Employee') {

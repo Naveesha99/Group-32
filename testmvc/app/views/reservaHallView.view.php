@@ -133,7 +133,7 @@ usort($data['reqs'], function($a, $b) {
 }
 ?>
 
-<?php ?>
+<!-- <?//php show($data);?> -->
 
 
     <?//php foreach ($data as $object) : ?>
@@ -144,13 +144,14 @@ usort($data['reqs'], function($a, $b) {
         <?php if (($object->hallno === $halls[0]->hallno)&&($object->review != NULL)) : ?>
             <div class="rev">
                 <div class="rev-i">
+                    <!-- <?//php show($object);?> -->
                     <!-- <div class="d-flex align-items-center mb-2"> -->
                         <!-- <img src="" alt="image" width="30px"> -->
                         <img src="<?= ROOT ?>/assets/images/profilePic.png">
 
                         <div class="rev1">
-                            <!-- <h5 class="m=0 ms-2"><?= $object->name ?></h5> -->
-                            <h5 class="m=0 ms-2"><?= $_SESSION['USER']->fullname; ?></h5>
+                            <h5 class="m=0 ms-2"><?= $object->name ?></h5>
+                            <!-- <h5 class="m=0 ms-2"><?= $_SESSION['USER']->fullname; ?></h5> -->
 
                             <p class="revDate">On: <?= $object->review_date ?></p> <!-- Add this line to display review date -->
                         </div>
@@ -200,14 +201,14 @@ usort($data['reqs'], function($a, $b) {
 
 
 <script>
-    window.onload = function() {
-        const urlSearchParams = new URLSearchParams(window.location.search);
-    }
+    // window.onload = function() {
+    //     const urlSearchParams = new URLSearchParams(window.location.search);
+    // }
 
-    function redirectToReservaHall1(hallNumber) {
-        event.preventDefault();
-        window.location.href = `reservaHall1?hallno=${hallNumber}&loggedin=true`;
-    }
+    // function redirectToReservaHall1(hallNumber) {
+    //     event.preventDefault();
+    //     window.location.href = `reservaHall1?hallno=${hallNumber}&loggedin=true`;
+    // }
 </script>
 
 </html>
