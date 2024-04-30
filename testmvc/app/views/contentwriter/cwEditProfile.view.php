@@ -17,6 +17,7 @@
         <form method="post" class="edit-profile">
             <h1>Edit profile</h1>
             <label for="employee_name">Employee Name:</label>
+            
             <input type="text" id="employee_name" name="employee_name" value="<?= $data['contentwriter'][0]->empName ?>">
 
             <label for="email">Email:</label>

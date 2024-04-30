@@ -40,7 +40,8 @@ class empTaskView
         }
 
 
-
-        $this->view('employee/empTaskView', $data);
+        if ($_SESSION['USER']->user_type == 'Employee') {
+            $this->view('employee/empTaskView', $data);
+        }
     }
 }

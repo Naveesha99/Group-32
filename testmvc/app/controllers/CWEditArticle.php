@@ -119,7 +119,8 @@ class CWEditArticle
 
         // redirect('cwArticleDisplay');
 
-
+        if ($_SESSION['USER']->user_type == 'Content Writer') {
         $this->view('contentwriter/cwEditArticle', $data);
+        }
     }
 }

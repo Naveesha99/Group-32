@@ -37,8 +37,9 @@ class CWViewOwnArticle
 		}
 
 		// $data['username'] = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->email;
-
-		$this->view('contentwriter/cwViewOwnArticle', $data);
+		if ($_SESSION['USER']->user_type == 'Content Writer') {
+			$this->view('contentwriter/cwViewOwnArticle', $data);
+		}
 	}
 
 	public function editArticle()

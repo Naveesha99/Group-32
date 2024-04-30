@@ -31,6 +31,9 @@ class CWDrafts
         }
 
         $data['drafts'] = $drafts;
-        $this->view('contentwriter/cwDrafts',$data);
+        if ($_SESSION['USER']->user_type == 'Content Writer') {
+            $this->view('contentwriter/cwDrafts', $data);
+        }
+        
     }
 }

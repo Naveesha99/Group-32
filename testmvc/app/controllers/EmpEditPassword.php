@@ -50,7 +50,8 @@ class EmpEditPassword
                 echo 'Current password does not match';
             }
         }
-
-        $this->view('employee/empEditPassword', $data);
+        if ($_SESSION['USER']->user_type == 'Employee') {
+            $this->view('employee/empEditPassword', $data);
+        }
     }
 }

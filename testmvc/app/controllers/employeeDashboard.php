@@ -70,39 +70,28 @@ class EmployeeDashboard
 			$data['future_tasks'] = [];
 		}
 
-		// if($_SERVER['REQUEST_METHOD'] == 'POST'){
-		// 	$taskId = $_POST['taskId'];
-		// 	$status = $_POST['status'];
-
-			
-		// 	$empTask = new EmployeeTask;
-		// 	if($taskId){
-		// 		$arr1['id'] = $taskId;
-		// 		$reqData = $empTask->where($arr1);
-		// 		show($reqData);
-		// 		if($reqData){
-		// 			$task = $reqData;
-		// 		}
-		// 	}
-
-		// 	if($task){
-		// 		$arrNew['status'] = $status;
-		// 		$empTask->update($taskId, $arrNew, 'id');
-				
-		// 		redirect('EmployeeDashboard');
-		// 	}else{
-				
-		// 		redirect('error');
-		// 	}
-		// }
+		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+			if (isset($_POST['complete_task'])) {
+				$articleId = $_POST['complete_task'];
+				$this->articleComplete($articleId, $emp_task);
+			}
+		}
 
 
 
-
-
-		$this->view('employee/employeeDashboard', $data);
+		if ($_SESSION['USER']->user_type == 'Employee') {
+			$this->view('employee/employeeDashboard', $data);
+		}
 	}
 
-	
-	
+	private function articleComplete($data, $emp_task)
+	{
+		$arrN['id'] = $data;
+		$articleData = $emp_task->where($arrN);
+		if ($articleData[0]->status == 'To do') {
+			$articleData[0]->status = "completed";
+		}
+		$emp_task->update($data, (array)$articleData[0], 'id');
+		redirect("employeeDashboard");
+	}
 }

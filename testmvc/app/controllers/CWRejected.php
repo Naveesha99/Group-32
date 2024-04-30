@@ -14,23 +14,25 @@ class CWRejected
             exit();
         }
 
-        $cwId= empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->id;
-		$article = new Article;
+        $cwId = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->id;
+        $article = new Article;
 
         $rejected = [];
 
-        if($cwId){
+        if ($cwId) {
             $arr1['cw_id'] = $cwId;
             $articleData = $article->where($arr1);
 
-            if($articleData){
-                $rejected =array_filter($articleData, function($article){
+            if ($articleData) {
+                $rejected = array_filter($articleData, function ($article) {
                     return $article->status == 1 && $article->progress == 'rejected';
                 });
             }
         }
 
         $data['rejected'] = $rejected;
-        $this->view('contentwriter/cwRejected',$data);
+        if ($_SESSION['USER']->user_type == 'Content Writer') {
+            $this->view('contentwriter/cwRejected', $data);
+        }
     }
 }

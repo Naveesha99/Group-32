@@ -18,22 +18,23 @@ class EmployeeReq
             exit();
         }
 
-        $empId = empty($_SESSION['USER']) ? 'User':$_SESSION['USER']->id;
+        $empId = empty($_SESSION['USER']) ? 'User' : $_SESSION['USER']->id;
         $result = [];
 
         $emp_req = new EmpRequest;
         if ($empId) {
-			$arr1['emp_id'] = $empId;
-			$articleData = $emp_req->where($arr1);
-			if ($articleData) {
+            $arr1['emp_id'] = $empId;
+            $articleData = $emp_req->where($arr1);
+            if ($articleData) {
 
-				$result = $articleData;
-            } 
-		}
-		
+                $result = $articleData;
+            }
+        }
+
         $data = $result;
-
-        $this->view('employee/employeeReq', $data);
+        if ($_SESSION['USER']->user_type == 'Employee') {
+            $this->view('employee/employeeReq', $data);
+        }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (isset($_POST['delete_request'])) {

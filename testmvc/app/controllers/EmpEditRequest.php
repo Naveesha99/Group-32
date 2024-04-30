@@ -29,15 +29,16 @@ class EmpEditRequest
             if ($reqData) {
                 $data['emp_req'] = $reqData;
                 // show($data);
-            } 
+            }
         }
 
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
-            
+
             $emp_req->update($reqId, $_POST, 'id');
             redirect('employeeReq');
         }
-
-        $this->view('employee/empEditRequest', $data);
+        if ($_SESSION['USER']->user_type == 'Employee') {
+            $this->view('employee/empEditRequest', $data);
+        }
     }
 }

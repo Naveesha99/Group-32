@@ -32,9 +32,9 @@
 
       <div class="Profile">
       <?php
-        $id = $_SESSION['USER']->id;
-        if (!empty($_SESSION['PROFILE_IMAGE'])) {
-          echo '<img src="' . ROOT . '/assets/images/Upload/profile' . $id . '.jpeg" onclick="toggleMenu()">';
+        $img = $_SESSION['USER']->id;
+        if (!empty(ROOT . '/assets/images/Upload/profile' . $img . '.jpeg')) {
+          echo '<img src="' . ROOT . '/assets/images/Upload/profile' . $img . '.jpeg" onclick="toggleMenu()">';
         } else {
           echo '<img src="' . ROOT . '/assets/images/Upload/profiledefault.jpeg" onclick="toggleMenu()">';
         }
@@ -46,12 +46,13 @@
       <div class="sub-menu">
         <div class="user-info">
         <?php
-          if (!empty($_SESSION['PROFILE_IMAGE'])) {
-            echo '<img src="' . ROOT . '/assets/images/Upload/' . $_SESSION['PROFILE_IMAGE'] . '">';
-          } else {
-            echo '<img src="' . ROOT . '/assets/images/Upload/profiledefault.jpeg">';
-          }
-          ?>
+        $img = $_SESSION['USER']->id;
+        if (!empty(ROOT . '/assets/images/Upload/profile' . $img . '.jpeg')) {
+          echo '<img src="' . ROOT . '/assets/images/Upload/profile' . $img . '.jpeg" onclick="toggleMenu()">';
+        } else {
+          echo '<img src="' . ROOT . '/assets/images/Upload/profiledefault.jpeg" onclick="toggleMenu()">';
+        }
+        ?>
           
           <h3><?php echo $_SESSION['USER']->fullname;?></h3>
           

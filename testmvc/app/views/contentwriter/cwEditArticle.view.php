@@ -19,7 +19,12 @@
             <h1>Edit Article</h1>
 
             <label for="article_name">Article Name :</label>
-            <input type="text" name="article_name" id="article_name" value="<?= $data['article'][0]->article_name ?>" required>
+            <?php if (!empty($errors['article_name'])) : ?>
+                <span class="error">
+                    <?= '* ' . $errors['article_name'] ?>
+                </span>
+            <?php endif; ?>
+            <input type="text" name="article_name" id="article_name" value="<?= $data['article'][0]->article_name ?>">
 
             <label for="category">Category:</label><br>
             <select name="category" id="category" required>
@@ -36,12 +41,22 @@
             <button type="button" id="addNewButton" onclick="addNewCategory()">Add New</button>
 
             <label for="article_content">Article Content:</label>
+            <?php if (!empty($errors['article_content'])) : ?>
+                <span class="error">
+                    <?= '* ' . $errors['article_content'] ?>
+                </span>
+            <?php endif; ?>
 
             <textarea name="article_content" id="article_content" cols="30" rows="10" required><?=htmlspecialchars($data['article'][0]->article_content) ?>
             </textarea>
 
 
             <label for="image">Image:</label><br>
+            <?php if (!empty($errors['image'])) : ?>
+                <span class="error">
+                    <?= '* ' . $errors['image'] ?>
+                </span>
+            <?php endif; ?>
             <input type="file" id="image" name="image" accept="image/*" value="<?= $data['article'][0]->image ?>">
 
             <div class="button-group">

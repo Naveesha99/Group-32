@@ -79,6 +79,11 @@
                                             <input type="hidden" name="task_id" value="<?= $row->id ?>">
                                             <button type="button" data-order='<?= json_encode($row) ?>' class="btn" onClick="openPopupNew(this)">View</button>
                                         </form>
+
+                                        <form method="POST">
+                                            <input type="hidden" name="complete_task" value="<?= $row->id ?>">
+                                            <button type="submit" name="complete" class="btn-complete">Done</button>
+                                        </form>
                                     </span>
                                 </td>
                             </tr>

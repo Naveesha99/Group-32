@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Educational Portal Article Submission </title>
     <link rel="stylesheet" href="<?= ROOT ?>/assets/css/cwAddArticle.css">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/breacrumb.css">
 </head>
 
 <?php require_once 'cwNaviBar.php' ?>
@@ -14,7 +15,6 @@
 
 <body>
     <div class="container">
-        
 
 
         <form method="post" id="articleForm" class="addArticle" autocomplete="off" enctype="multipart/form-data">
@@ -56,13 +56,14 @@
 
 
             <label for="image">Image:</label>
-            <input type="file" id="image" name="image" accept=".jpg, .jpeg, .png">
-            
             <?php if (!empty($errors['image'])) : ?>
                 <span class="error">
                     <?= '* ' . $errors['image'] ?>
                 </span>
             <?php endif; ?>
+            <input type="file" id="image" name="image" accept=".jpg, .jpeg, .png">
+            
+            
             
 
             <div class="button-group">

@@ -25,8 +25,8 @@
                     <p>Category : <?= $data['article'][0]->category ?></p>
                     <p><?= $data['article'][0]->article_content ?></p><br><br>
                     <div class="button_group">
-                        <a href="<?= ROOT ?>/cwViewOwnArticle/editArticle?id=<?= $data['article'][0]->id ?>" class="card-btn" style="background-color: #00FF1A;">Edit</a>
-                        <a href="<?= ROOT ?>/cwViewOwnArticle/deleteArticle?id=<?= $data['article'][0]->id ?>" class="card-btn" style="background-color: #FF0000;">Delete</a>
+                        <a href="<?= ROOT ?>/cwViewOwnArticle/editArticle?id=<?= $data['article'][0]->id ?>" class="card-btn">Edit</a>
+                        <!-- <a href="<?= ROOT ?>/cwViewOwnArticle/deleteArticle?id=<?= $data['article'][0]->id ?>" class="card-btn" style="background-color: #FF0000;">Delete</a> -->
                     </div>
 
                 </div>
