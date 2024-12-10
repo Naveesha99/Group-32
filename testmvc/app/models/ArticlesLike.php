@@ -3,7 +3,7 @@
 /**
  * User class
  */
-class Like
+class ArticleLikes
 {
     use Model;
 

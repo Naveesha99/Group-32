@@ -1,4 +1,3 @@
-<?php
 class CWDramaLike
 {
     use Controller;

@@ -13,6 +13,7 @@ class CWDramaLike
         $article = new Article();
 
         $articleId['id'] =  $_POST['id'];
+      //   $userID= $_SESSION['USER']->id;
         
         $result  =  $article->first($articleId);
         

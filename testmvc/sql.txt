@@ -1,3 +1,38 @@
+function post_like(id) {
+    const userId = <?= $_SESSION['user_id']; ?>; // Include this dynamically from PHP
+    const index = selectedIcons.indexOf(id);
+
+    const data = {
+        id: id,
+        user_id: userId, // Send the user ID
+        likes: index === -1
+    };
+
+    $.ajax({
+        type: "POST",
+        url: '<?= ROOT ?>/CWDramaLike',
+        data: data,
+        cache: false,
+        success: function (res) {
+            console.log(res);
+        },
+        error: function (xhr, status, error) {
+            console.error(error);
+        },
+    });
+
+    // Update local state and UI
+    if (index === -1) {
+        selectedIcons.push(id);
+        document.querySelector(`.icon${id}`).classList.add('selected');
+    } else {
+        selectedIcons.splice(index, 1);
+        document.querySelector(`.icon${id}`).classList.remove('selected');
+    }
+
+    localStorage.setItem('selectedIcons', JSON.stringify(selectedIcons));
+}
+
 CREATE TABLE Content_writers(
     id INT AUTO_INCREMENT,
     name VARCHAR(255),
@@ -89,3 +124,10 @@ ADD FOREIGN KEY(emp_id) REFERENCES employee(id) ON DELETE CASCADE
 
 ALTER TABLE articles ADD liked_person_id INT DEFAULT NULL;
 ALTER TABLE articles ADD isLiked BOOLEAN DEFAULT FALSE;
+
+CREATE TABLE article_likes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    article_id INT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
