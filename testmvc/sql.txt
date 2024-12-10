@@ -33,6 +33,167 @@ function post_like(id) {
     localStorage.setItem('selectedIcons', JSON.stringify(selectedIcons));
 }
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/cwDramaPortal.css">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/breacrumb.css">
+    <script src="https://kit.fontawesome.com/8bff7d7f97.js" crossorigin="anonymous"></script>
+    <title>Drama Portal</title>
+</head>
+
+<body>
+    <?php require_once 'cwNaviBar.php' ?>
+    <?php include 'navBar.php' ?>
+
+    <?php
+    function limitWords($text, $limit)
+    {
+        $words = explode(" ", $text);
+        $limitedWords = array_slice($words, 0, $limit);
+        $result = implode(" ", $limitedWords);
+
+        if (count($words) > $limit) {
+            $result .= '...';
+        }
+
+        return $result;
+    }
+    ?>
+
+    <div class="container">
+        <div class="addNew">
+            <a href="<?= ROOT ?>/cwAddArticle">ADD NEW</a>
+        </div>
+        <div class="cardBoxN">
+            <div class="cardN">
+                <a href="<?= ROOT ?>/cwArticleReview">
+                    <div>
+                        <div class="numbers">All Articles</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="cards-container">
+            <?php
+            if ($data['articles'] && (is_array($data['articles']) || is_object($data['articles']))) {
+                foreach ($data['articles'] as $row) {
+                    echo '<div class="card" id="card">
+                            <div class="imgBX">
+                                <img src="' . ROOT . '/assets/images/drama_portal/' . $row->image . '" alt="image">
+                            </div>
+                            <div class="Content" id="content">
+                                <h2>' . $row->article_name . '</h2>
+                                <i id="iconHeart' . $row->id . '" onclick="post_like(' . $row->id . ')" class="icon' . $row->id . ' fa-regular fa-heart"></i>
+                                <span id="likeCount' . $row->id . '" class="like-count">' . $row->likes . '</span>
+                                <p id="category">Category: ' . $row->category . '</p>
+                                <p>' . limitWords($row->article_content, 20) . '</p>
+                                <a href="cwViewOwnArticle?id=' . $row->id . '">READ MORE</a>
+                            </div>
+                        </div>';
+                }
+            } else {
+                echo '<p>No data available</p>';
+            }
+            ?>
+        </div>
+    </div>
+
+    <style>
+        .icon.selected {
+            color: red;
+        }
+    </style>
+
+    <script>
+        const currentUser = <?= json_encode($_SESSION['USER']->id); ?>; // Retrieve the current user's ID from PHP
+
+        function post_like(articleId) {
+            const icon = document.querySelector(`#iconHeart${articleId}`);
+            const isLiked = icon.classList.contains('selected'); // Check if the article is already liked
+
+            // Toggle the like state visually
+            if (isLiked) {
+                icon.classList.remove('selected');
+            } else {
+                icon.classList.add('selected');
+            }
+
+            // Send the like or unlike request to the server
+            const data = {
+                id: articleId,
+                user_id: currentUser,
+                likes: !isLiked // true if liking, false if unliking
+            };
+
+            fetch('<?= ROOT ?>/CWDramaLike', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+                .then(response => response.json())
+                .then(json => {
+                    document.querySelector(`#likeCount${articleId}`).textContent = json.likes;
+                })
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+
+</html>
+class CWDramaLike
+{
+    use Controller;
+
+    public function index()
+    {
+        $article = new Article();
+
+        // Retrieve POST data
+        $articleId = $_POST['id'];
+        $userId = $_POST['user_id'];
+        $isLiked = filter_var($_POST['likes'], FILTER_VALIDATE_BOOLEAN); // Convert "true"/"false" to boolean
+
+        // Fetch the article
+        $result = $article->first(['id' => $articleId]);
+
+        if (!$result) {
+            echo json_encode(['error' => 'Article not found']);
+            return;
+        }
+
+        $likedBy = json_decode($result->liked_by, true) ?? []; // Decode liked_by column (JSON) to an array
+
+        if ($isLiked) {
+            // Add the user ID if not already in the liked_by list
+            if (!in_array($userId, $likedBy)) {
+                $likedBy[] = $userId;
+                $data['likes'] = $result->likes + 1; // Increment likes count
+            }
+        } else {
+            // Remove the user ID if it's in the liked_by list
+            if (($key = array_search($userId, $likedBy)) !== false) {
+                unset($likedBy[$key]);
+                $data['likes'] = $result->likes - 1; // Decrement likes count
+            }
+        }
+
+        $data['liked_by'] = json_encode(array_values($likedBy)); // Re-encode liked_by as JSON
+
+        // Update the article
+        $article->update($articleId, $data);
+
+        // Return the updated likes count
+        echo json_encode(['likes' => $data['likes']]);
+    }
+}
+
+
 CREATE TABLE Content_writers(
     id INT AUTO_INCREMENT,
     name VARCHAR(255),
@@ -131,3 +292,6 @@ CREATE TABLE article_likes (
     article_id INT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+ALTER TABLE articles ADD COLUMN liked_by TEXT;
+
