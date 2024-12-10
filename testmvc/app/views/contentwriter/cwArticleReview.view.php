@@ -119,6 +119,12 @@ function limitWords($text, $limit)
 
                 }
                 // console.log(row_text);
+            //     const search_data = search.value.toLowerCase(); // Get the search input value and convert it to lowercase
+
+            // table_rows.forEach((row) => {
+            //     const cell_text = row.children[1].textContent.toLowerCase(); // Target the second column (Category)
+            //     row.classList.toggle('hide', cell_text.indexOf(search_data) < 0); // Show or hide the row based on the match
+            // });
 
                 row.classList.toggle('hide', row_text.indexOf(search_data) < 0);
             })

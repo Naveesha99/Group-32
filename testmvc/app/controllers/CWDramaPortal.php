@@ -21,6 +21,7 @@ class CWDramaPortal
 
 
 		$article = new Article;
+		// $like = new Like;
 		$result = [];
 		if ($cwId) {
 			$arr1['cw_id'] = $cwId;
@@ -35,37 +36,24 @@ class CWDramaPortal
             } 
 		}
 		
-		// $data['result'] = $result;
+		$data['articles'] = $result;
+		
 
-		// Check if a category filter is applied
-		$selectedCategory = isset($_GET['category']) ? $_GET['category'] : 'All categories';
-		if ($selectedCategory !== 'All categories') {
+		// $articleId['id'] = $_POST['id'];
+		
+		// $insertData =[
+		// 		'cwId' => $cwId,
+		// 		'articleId' => $articleId['id']
+	
+		// 	];
+		// 	show($insertData);
+		// 	$like->insert($insertData);
 
-			// Filter articles based on the selected category
-			$filteredArticles = array_filter($result, function ($article) use ($selectedCategory,$cwId) {
-				return $article->category === $selectedCategory && $article->cw_id == $cwId;
-			});
+		
+		
 
-			$data['articles'] = $filteredArticles;
-		} else {
-			$data['articles'] = $result;
-		}
-
-		$searchQuery = isset($_GET['search']) ? $_GET['search'] : '';
-		if (!empty($searchQuery)) {
-
-			// Filter articles based on the search query
-			$data['articles'] = array_filter($data['articles'], function ($article) use ($searchQuery) {
-				// Perform case-insensitive search in article name and content
-				return stripos($article->article_name, $searchQuery) !== false ||
-					stripos($article->article_content, $searchQuery) !== false;
-			});
-			// show($data['articles']);
-		}
-
-		// $data['articles'] = $result;
-		// show($data);
-		$data['select_categoery'] = $selectedCategory;
+		
+		
 
 		if ($_SESSION['USER']->user_type == 'Content Writer') {
 			$this->view('contentwriter/cwDramaPortal', $data);
